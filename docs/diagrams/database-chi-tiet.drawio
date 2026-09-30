@@ -1,0 +1,831 @@
+<mxfile host="embed.diagrams.net" pages="29">
+  <diagram id="overview" name="Tổng quan 28 bảng">
+    <mxGraphModel dx="1212" dy="607" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="600" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" value="&lt;b&gt;DATABASE · HUẤN LUYỆN CÁ NHÂN&lt;/b&gt;" vertex="1">
+          <mxGeometry height="32" width="720" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="g-0" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;spacing=8;verticalAlign=top;fontSize=11;" value="&lt;b&gt;Tài khoản&lt;/b&gt;&lt;hr&gt;tai_khoan&lt;br&gt;ho_so_khach_hang&lt;br&gt;ho_so_huan_luyen_vien&lt;br&gt;chi_so_co_the" vertex="1">
+          <mxGeometry height="134" width="224" x="40" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="g-1" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;spacing=8;verticalAlign=top;fontSize=11;" value="&lt;b&gt;Gói / payOS&lt;/b&gt;&lt;hr&gt;goi_tap&lt;br&gt;dang_ky_goi_tap&lt;br&gt;thanh_toan" vertex="1">
+          <mxGeometry height="134" width="224" x="288" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="g-2" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;spacing=8;verticalAlign=top;fontSize=11;" value="&lt;b&gt;PT / lịch hẹn&lt;/b&gt;&lt;hr&gt;phan_cong_huan_luyen_vien&lt;br&gt;khung_gio_huan_luyen_vien&lt;br&gt;lich_hen_huan_luyen" vertex="1">
+          <mxGeometry height="134" width="224" x="536" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="g-3" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;spacing=8;verticalAlign=top;fontSize=11;" value="&lt;b&gt;Danh mục&lt;/b&gt;&lt;hr&gt;nhom_co&lt;br&gt;bai_tap&lt;br&gt;giao_an_mau&lt;br&gt;bai_tap_trong_giao_an_mau" vertex="1">
+          <mxGeometry height="134" width="224" x="40" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="g-4" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;spacing=8;verticalAlign=top;fontSize=11;" value="&lt;b&gt;Kế hoạch / lịch tự tập&lt;/b&gt;&lt;hr&gt;ke_hoach_tap&lt;br&gt;bai_tap_trong_ke_hoach&lt;br&gt;lich_tap" vertex="1">
+          <mxGeometry height="134" width="224" x="288" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="g-5" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;spacing=8;verticalAlign=top;fontSize=11;" value="&lt;b&gt;Kết quả tập&lt;/b&gt;&lt;hr&gt;phien_tap&lt;br&gt;bai_tap_trong_phien&lt;br&gt;hiep_tap&lt;br&gt;ghi_chu_huan_luyen" vertex="1">
+          <mxGeometry height="134" width="224" x="536" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="g-6" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;spacing=8;verticalAlign=top;fontSize=11;" value="&lt;b&gt;Chat PT&lt;/b&gt;&lt;hr&gt;hoi_thoai&lt;br&gt;tin_nhan" vertex="1">
+          <mxGeometry height="134" width="224" x="40" y="384" as="geometry" />
+        </mxCell>
+        <mxCell id="g-7" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;spacing=8;verticalAlign=top;fontSize=11;" value="&lt;b&gt;Chatbot&lt;/b&gt;&lt;hr&gt;hoi_thoai_tro_ly&lt;br&gt;yeu_cau_tro_ly&lt;br&gt;tin_nhan_tro_ly" vertex="1">
+          <mxGeometry height="134" width="224" x="288" y="384" as="geometry" />
+        </mxCell>
+        <mxCell id="g-8" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;spacing=8;verticalAlign=top;fontSize=11;" value="&lt;b&gt;Quản trị nội dung&lt;/b&gt;&lt;hr&gt;tai_lieu_tu_van&lt;br&gt;nhat_ky_he_thong" vertex="1">
+          <mxGeometry height="134" width="224" x="536" y="384" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" value="28 bảng nghiệp vụ · 52 FK · InnoDB / utf8mb4 · UTC. Mỗi bảng một tab chi tiết; không gồm bảng kỹ thuật Laravel." vertex="1">
+          <mxGeometry height="32" width="720" x="40" y="560" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-tai_khoan" name="T01 tai_khoan">
+    <mxGraphModel dx="1212" dy="607" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="600" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" value="&lt;b&gt;T01 · tai_khoan&lt;/b&gt;" vertex="1">
+          <mxGeometry height="32" width="720" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="t-tai_khoan" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" value="&lt;div style=&quot;font-size:12px;color:#166534&quot;&gt;&lt;b&gt;tai_khoan&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ho_ten &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; email &lt;font color=&quot;#64748b&quot;&gt;varchar(191)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; password &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; vai_tro &lt;font color=&quot;#64748b&quot;&gt;enum&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; trang_thai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; remember_token &lt;font color=&quot;#64748b&quot;&gt;varchar(100)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="189" width="400" x="360" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." vertex="1">
+          <mxGeometry height="32" width="720" x="40" y="560" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-ho_so_khach_hang" name="T02 ho_so_khach_hang">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T02 · ho_so_khach_hang&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-ho_so_khach_hang" value="&lt;div style=&quot;font-size:12px;color:#0369a1&quot;&gt;&lt;b&gt;ho_so_khach_hang&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; tai_khoan_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; muc_tieu &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; kinh_nghiem &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; gioi_tinh &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ngay_sinh &lt;font color=&quot;#64748b&quot;&gt;date&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; thoi_gian_co_the_tap &lt;font color=&quot;#64748b&quot;&gt;json&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="189" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;tai_khoan&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;tai_khoan_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-ho_so_khach_hang" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToOne;exitX=1;exitY=0.5;entryX=0;entryY=0.13756613756613756;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-ho_so_huan_luyen_vien" name="T03 ho_so_huan_luyen_vien">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T03 · ho_so_huan_luyen_vien&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-ho_so_huan_luyen_vien" value="&lt;div style=&quot;font-size:12px;color:#b45309&quot;&gt;&lt;b&gt;ho_so_huan_luyen_vien&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; tai_khoan_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; chuyen_mon &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; gioi_thieu &lt;font color=&quot;#64748b&quot;&gt;text&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; anh_dai_dien &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;tai_khoan&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;tai_khoan_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-ho_so_huan_luyen_vien" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToOne;exitX=1;exitY=0.5;entryX=0;entryY=0.14444444444444443;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-goi_tap" name="T04 goi_tap">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T04 · goi_tap&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-goi_tap" value="&lt;div style=&quot;font-size:12px;color:#7e22ce&quot;&gt;&lt;b&gt;goi_tap&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ten_goi &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; gia &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; co_chatbot &lt;font color=&quot;#64748b&quot;&gt;boolean&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; so_luot_chatbot_moi_ngay &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; so_buoi_pt &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; thoi_han_ngay &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; trang_thai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="204" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-dang_ky_goi_tap" name="T05 dang_ky_goi_tap">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T05 · dang_ky_goi_tap&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-dang_ky_goi_tap" value="&lt;div style=&quot;font-size:12px;color:#166534&quot;&gt;&lt;b&gt;dang_ky_goi_tap&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; khach_hang_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; goi_tap_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; client_request_id &lt;font color=&quot;#64748b&quot;&gt;char(36)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ma_don_payos &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ma_link_payos &lt;font color=&quot;#64748b&quot;&gt;varchar(191)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ten_goi_snapshot &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; gia_snapshot &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; co_chatbot_snapshot &lt;font color=&quot;#64748b&quot;&gt;boolean&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; so_luot_chatbot_moi_ngay_snapshot &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; so_buoi_pt_snapshot &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; thoi_han_ngay_snapshot &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; so_buoi_con_lai &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; trang_thai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; han_thanh_toan &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; kich_hoat_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; het_han_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; khach_dang_dung_id &lt;font color=&quot;#64748b&quot;&gt;generated&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="354" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;ho_so_khach_hang&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;khach_hang_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-dang_ky_goi_tap" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.07344632768361582;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-1" value="&lt;b&gt;goi_tap&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;goi_tap_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="138" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-1" value="" edge="1" parent="1" source="ref-1" target="t-dang_ky_goi_tap" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.23728813559322035;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-thanh_toan" name="T06 thanh_toan">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T06 · thanh_toan&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-thanh_toan" value="&lt;div style=&quot;font-size:12px;color:#0369a1&quot;&gt;&lt;b&gt;thanh_toan&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; dang_ky_goi_tap_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ma_giao_dich &lt;font color=&quot;#64748b&quot;&gt;varchar(191)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; so_tien &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; thanh_toan_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; xac_minh_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; trang_thai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ly_do_doi_soat &lt;font color=&quot;#64748b&quot;&gt;text&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; nguoi_doi_soat_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; doi_soat_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; so_tien_hoan &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ma_hoan_tien &lt;font color=&quot;#64748b&quot;&gt;varchar(191)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ly_do_hoan_tien &lt;font color=&quot;#64748b&quot;&gt;text&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; hoan_tien_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="294" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;dang_ky_goi_tap&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;dang_ky_goi_tap_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-thanh_toan" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.08843537414965986;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-1" value="&lt;b&gt;tai_khoan&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;nguoi_doi_soat_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="138" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-1" value="" edge="1" parent="1" source="ref-1" target="t-thanh_toan" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERzeroToOne;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.2857142857142857;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-phan_cong_huan_luyen_vien" name="T07 phan_cong_huan_luyen_vien">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T07 · phan_cong_huan_luyen_vien&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-phan_cong_huan_luyen_vien" value="&lt;div style=&quot;font-size:12px;color:#b45309&quot;&gt;&lt;b&gt;phan_cong_huan_luyen_vien&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; khach_hang_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; huan_luyen_vien_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; nguoi_phan_cong_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; bat_dau_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ket_thuc_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ly_do_ket_thuc &lt;font color=&quot;#64748b&quot;&gt;text&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; khach_dang_phan_cong_id &lt;font color=&quot;#64748b&quot;&gt;generated&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="204" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;ho_so_khach_hang&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;khach_hang_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-phan_cong_huan_luyen_vien" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.12745098039215685;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-1" value="&lt;b&gt;ho_so_huan_luyen_vien&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;huan_luyen_vien_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="138" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-1" value="" edge="1" parent="1" source="ref-1" target="t-phan_cong_huan_luyen_vien" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.4117647058823529;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-2" value="&lt;b&gt;tai_khoan&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;nguoi_phan_cong_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="196" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-2" value="" edge="1" parent="1" source="ref-2" target="t-phan_cong_huan_luyen_vien" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.696078431372549;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-khung_gio_huan_luyen_vien" name="T08 khung_gio_huan_luyen_vien">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T08 · khung_gio_huan_luyen_vien&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-khung_gio_huan_luyen_vien" value="&lt;div style=&quot;font-size:12px;color:#7e22ce&quot;&gt;&lt;b&gt;khung_gio_huan_luyen_vien&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; huan_luyen_vien_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; bat_dau_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ket_thuc_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; trang_thai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;ho_so_huan_luyen_vien&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;huan_luyen_vien_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-khung_gio_huan_luyen_vien" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.14444444444444443;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-lich_hen_huan_luyen" name="T09 lich_hen_huan_luyen">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T09 · lich_hen_huan_luyen&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-lich_hen_huan_luyen" value="&lt;div style=&quot;font-size:12px;color:#166534&quot;&gt;&lt;b&gt;lich_hen_huan_luyen&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; khach_hang_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; huan_luyen_vien_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; phan_cong_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; khung_gio_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; dang_ky_goi_tap_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; client_request_id &lt;font color=&quot;#64748b&quot;&gt;char(36)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; bat_dau_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ket_thuc_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; trang_thai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; han_xac_nhan_dat_lich &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; han_xac_nhan_hoan_thanh &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; xac_nhan_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; tieu_hao_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; nguoi_huy_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; huy_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ly_do_huy &lt;font color=&quot;#64748b&quot;&gt;text&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; nguoi_dong_xu_ly_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; dong_xu_ly_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ly_do_dong_xu_ly &lt;font color=&quot;#64748b&quot;&gt;text&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; khung_gio_dang_giu_id &lt;font color=&quot;#64748b&quot;&gt;generated&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="399" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;ho_so_khach_hang&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;khach_hang_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-lich_hen_huan_luyen" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.06516290726817042;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-1" value="&lt;b&gt;ho_so_huan_luyen_vien&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;huan_luyen_vien_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="138" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-1" value="" edge="1" parent="1" source="ref-1" target="t-lich_hen_huan_luyen" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.21052631578947367;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-2" value="&lt;b&gt;phan_cong_huan_luyen_vien&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;phan_cong_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="196" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-2" value="" edge="1" parent="1" source="ref-2" target="t-lich_hen_huan_luyen" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.3558897243107769;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-3" value="&lt;b&gt;khung_gio_huan_luyen_vien&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;khung_gio_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="254" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-3" value="" edge="1" parent="1" source="ref-3" target="t-lich_hen_huan_luyen" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.5012531328320802;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-4" value="&lt;b&gt;dang_ky_goi_tap&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;dang_ky_goi_tap_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="312" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-4" value="" edge="1" parent="1" source="ref-4" target="t-lich_hen_huan_luyen" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.6466165413533834;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-5" value="&lt;b&gt;tai_khoan&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;nguoi_huy_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="370" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-5" value="" edge="1" parent="1" source="ref-5" target="t-lich_hen_huan_luyen" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERzeroToOne;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.7919799498746867;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-6" value="&lt;b&gt;tai_khoan&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;nguoi_dong_xu_ly_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="428" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-6" value="" edge="1" parent="1" source="ref-6" target="t-lich_hen_huan_luyen" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERzeroToOne;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.9373433583959899;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-nhom_co" name="T10 nhom_co">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T10 · nhom_co&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-nhom_co" value="&lt;div style=&quot;font-size:12px;color:#0369a1&quot;&gt;&lt;b&gt;nhom_co&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ma_nhom_co &lt;font color=&quot;#64748b&quot;&gt;varchar(64)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ten_nhom_co &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ten_nguon &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; trang_thai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-bai_tap" name="T11 bai_tap">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T11 · bai_tap&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-bai_tap" value="&lt;div style=&quot;font-size:12px;color:#b45309&quot;&gt;&lt;b&gt;bai_tap&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; nhom_co_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; nguon_du_lieu &lt;font color=&quot;#64748b&quot;&gt;varchar(64)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ma_nguon &lt;font color=&quot;#64748b&quot;&gt;char(4)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ten_bai_tap &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ten_tieng_viet &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; bo_phan_co_the &lt;font color=&quot;#64748b&quot;&gt;varchar(64)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; dung_cu &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; dung_cu_nguon &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; huong_dan &lt;font color=&quot;#64748b&quot;&gt;json&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; cac_buoc &lt;font color=&quot;#64748b&quot;&gt;json&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; co_phu &lt;font color=&quot;#64748b&quot;&gt;json&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; co_ho_tro_nguon &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; anh_url &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; gif_url &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; duong_dan_anh_nguon &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; duong_dan_gif_nguon &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ma_media_nguon &lt;font color=&quot;#64748b&quot;&gt;varchar(64)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ghi_cong_media &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; nguon_tao_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; nguon_cap_nhat_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; trang_thai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="414" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;nhom_co&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;nhom_co_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-bai_tap" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.06280193236714976;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-giao_an_mau" name="T12 giao_an_mau">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T12 · giao_an_mau&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-giao_an_mau" value="&lt;div style=&quot;font-size:12px;color:#7e22ce&quot;&gt;&lt;b&gt;giao_an_mau&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ten_giao_an &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; muc_tieu &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; so_ngay_tap &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; nguoi_tao_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; nguoi_duyet_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; duyet_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; trang_thai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="204" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;tai_khoan&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;nguoi_tao_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-giao_an_mau" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.12745098039215685;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-1" value="&lt;b&gt;tai_khoan&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;nguoi_duyet_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="138" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-1" value="" edge="1" parent="1" source="ref-1" target="t-giao_an_mau" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERzeroToOne;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.4117647058823529;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-bai_tap_trong_giao_an_mau" name="T13 bai_tap_trong_giao_an_mau">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T13 · bai_tap_trong_giao_an_mau&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-bai_tap_trong_giao_an_mau" value="&lt;div style=&quot;font-size:12px;color:#166534&quot;&gt;&lt;b&gt;bai_tap_trong_giao_an_mau&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; giao_an_mau_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; bai_tap_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ngay_thu &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; thu_tu &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; so_hiep &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; so_lan_lap &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; nghi_giay &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ghi_chu &lt;font color=&quot;#64748b&quot;&gt;text&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="219" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;giao_an_mau&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;giao_an_mau_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-bai_tap_trong_giao_an_mau" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.1187214611872146;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-1" value="&lt;b&gt;bai_tap&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;bai_tap_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="138" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-1" value="" edge="1" parent="1" source="ref-1" target="t-bai_tap_trong_giao_an_mau" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.3835616438356164;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-ke_hoach_tap" name="T14 ke_hoach_tap">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T14 · ke_hoach_tap&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-ke_hoach_tap" value="&lt;div style=&quot;font-size:12px;color:#0369a1&quot;&gt;&lt;b&gt;ke_hoach_tap&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; khach_hang_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; huan_luyen_vien_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; phan_cong_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; giao_an_mau_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; thay_the_ke_hoach_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ten_ke_hoach &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; muc_tieu &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; trang_thai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; gui_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; han_duyet &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; duyet_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; khach_dang_ap_dung_id &lt;font color=&quot;#64748b&quot;&gt;generated&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="279" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;ho_so_khach_hang&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;khach_hang_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-ke_hoach_tap" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.0931899641577061;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-1" value="&lt;b&gt;ho_so_huan_luyen_vien&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;huan_luyen_vien_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="138" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-1" value="" edge="1" parent="1" source="ref-1" target="t-ke_hoach_tap" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.3010752688172043;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-2" value="&lt;b&gt;phan_cong_huan_luyen_vien&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;phan_cong_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="196" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-2" value="" edge="1" parent="1" source="ref-2" target="t-ke_hoach_tap" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.5089605734767025;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-3" value="&lt;b&gt;giao_an_mau&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;giao_an_mau_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="254" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-3" value="" edge="1" parent="1" source="ref-3" target="t-ke_hoach_tap" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERzeroToOne;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.7168458781362007;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-4" value="&lt;b&gt;ke_hoach_tap&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;thay_the_ke_hoach_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="312" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-4" value="" edge="1" parent="1" source="ref-4" target="t-ke_hoach_tap" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERzeroToOne;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.9247311827956989;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-bai_tap_trong_ke_hoach" name="T15 bai_tap_trong_ke_hoach">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T15 · bai_tap_trong_ke_hoach&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-bai_tap_trong_ke_hoach" value="&lt;div style=&quot;font-size:12px;color:#b45309&quot;&gt;&lt;b&gt;bai_tap_trong_ke_hoach&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; ke_hoach_tap_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; bai_tap_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ngay_thu &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; thu_tu &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ten_bai_tap_snapshot &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; noi_dung_snapshot &lt;font color=&quot;#64748b&quot;&gt;json&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; so_hiep &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; so_lan_lap &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; nghi_giay &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ghi_chu &lt;font color=&quot;#64748b&quot;&gt;text&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="249" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;ke_hoach_tap&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;ke_hoach_tap_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-bai_tap_trong_ke_hoach" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.10441767068273092;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-1" value="&lt;b&gt;bai_tap&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;bai_tap_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="138" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-1" value="" edge="1" parent="1" source="ref-1" target="t-bai_tap_trong_ke_hoach" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.3373493975903614;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-lich_tap" name="T16 lich_tap">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T16 · lich_tap&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-lich_tap" value="&lt;div style=&quot;font-size:12px;color:#7e22ce&quot;&gt;&lt;b&gt;lich_tap&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; ke_hoach_tap_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; khach_hang_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ngay_thu &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ngay_tap &lt;font color=&quot;#64748b&quot;&gt;date&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; trang_thai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;ke_hoach_tap&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;ke_hoach_tap_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-lich_tap" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.14444444444444443;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-1" value="&lt;b&gt;ho_so_khach_hang&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;khach_hang_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="138" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-1" value="" edge="1" parent="1" source="ref-1" target="t-lich_tap" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.4666666666666667;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-phien_tap" name="T17 phien_tap">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T17 · phien_tap&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-phien_tap" value="&lt;div style=&quot;font-size:12px;color:#166534&quot;&gt;&lt;b&gt;phien_tap&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; lich_tap_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; khach_hang_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; bat_dau_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; hoan_thanh_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; trang_thai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ghi_chu &lt;font color=&quot;#64748b&quot;&gt;text&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="189" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;lich_tap&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;lich_tap_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-phien_tap" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToOne;exitX=1;exitY=0.5;entryX=0;entryY=0.13756613756613756;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-1" value="&lt;b&gt;ho_so_khach_hang&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;khach_hang_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="138" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-1" value="" edge="1" parent="1" source="ref-1" target="t-phien_tap" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.4444444444444444;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-bai_tap_trong_phien" name="T18 bai_tap_trong_phien">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T18 · bai_tap_trong_phien&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-bai_tap_trong_phien" value="&lt;div style=&quot;font-size:12px;color:#0369a1&quot;&gt;&lt;b&gt;bai_tap_trong_phien&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; phien_tap_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; bai_tap_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; bai_tap_trong_ke_hoach_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; thu_tu &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ten_bai_tap_snapshot &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; noi_dung_snapshot &lt;font color=&quot;#64748b&quot;&gt;json&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="189" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;phien_tap&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;phien_tap_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-bai_tap_trong_phien" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.13756613756613756;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-1" value="&lt;b&gt;bai_tap&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;bai_tap_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="138" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-1" value="" edge="1" parent="1" source="ref-1" target="t-bai_tap_trong_phien" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.4444444444444444;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-2" value="&lt;b&gt;bai_tap_trong_ke_hoach&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;bai_tap_trong_ke_hoach_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="196" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-2" value="" edge="1" parent="1" source="ref-2" target="t-bai_tap_trong_phien" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.7513227513227513;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-hiep_tap" name="T19 hiep_tap">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T19 · hiep_tap&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-hiep_tap" value="&lt;div style=&quot;font-size:12px;color:#b45309&quot;&gt;&lt;b&gt;hiep_tap&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; bai_tap_trong_phien_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; thu_tu &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; so_lan_lap &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; khoi_luong_kg &lt;font color=&quot;#64748b&quot;&gt;decimal(7,2)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; nghi_giay &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;bai_tap_trong_phien&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;bai_tap_trong_phien_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-hiep_tap" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.14444444444444443;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-ghi_chu_huan_luyen" name="T20 ghi_chu_huan_luyen">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T20 · ghi_chu_huan_luyen&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-ghi_chu_huan_luyen" value="&lt;div style=&quot;font-size:12px;color:#7e22ce&quot;&gt;&lt;b&gt;ghi_chu_huan_luyen&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; phien_tap_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; huan_luyen_vien_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; phan_cong_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; noi_dung &lt;font color=&quot;#64748b&quot;&gt;text&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;phien_tap&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;phien_tap_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-ghi_chu_huan_luyen" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.14444444444444443;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-1" value="&lt;b&gt;ho_so_huan_luyen_vien&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;huan_luyen_vien_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="138" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-1" value="" edge="1" parent="1" source="ref-1" target="t-ghi_chu_huan_luyen" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.4666666666666667;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-2" value="&lt;b&gt;phan_cong_huan_luyen_vien&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;phan_cong_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="196" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-2" value="" edge="1" parent="1" source="ref-2" target="t-ghi_chu_huan_luyen" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.7888888888888889;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-hoi_thoai" name="T21 hoi_thoai">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T21 · hoi_thoai&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-hoi_thoai" value="&lt;div style=&quot;font-size:12px;color:#166534&quot;&gt;&lt;b&gt;hoi_thoai&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; phan_cong_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; cursor_khach_da_doc &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; cursor_pt_da_doc &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;phan_cong_huan_luyen_vien&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;phan_cong_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-hoi_thoai" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToOne;exitX=1;exitY=0.5;entryX=0;entryY=0.14444444444444443;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-tin_nhan" name="T22 tin_nhan">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T22 · tin_nhan&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-tin_nhan" value="&lt;div style=&quot;font-size:12px;color:#0369a1&quot;&gt;&lt;b&gt;tin_nhan&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; hoi_thoai_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; nguoi_gui_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; client_message_id &lt;font color=&quot;#64748b&quot;&gt;char(36)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; noi_dung &lt;font color=&quot;#64748b&quot;&gt;text&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;hoi_thoai&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;hoi_thoai_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-tin_nhan" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.14444444444444443;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-1" value="&lt;b&gt;tai_khoan&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;nguoi_gui_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="138" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-1" value="" edge="1" parent="1" source="ref-1" target="t-tin_nhan" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.4666666666666667;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-hoi_thoai_tro_ly" name="T23 hoi_thoai_tro_ly">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T23 · hoi_thoai_tro_ly&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-hoi_thoai_tro_ly" value="&lt;div style=&quot;font-size:12px;color:#b45309&quot;&gt;&lt;b&gt;hoi_thoai_tro_ly&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; khach_hang_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; tieu_de &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; trang_thai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;ho_so_khach_hang&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;khach_hang_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-hoi_thoai_tro_ly" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.14444444444444443;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-yeu_cau_tro_ly" name="T24 yeu_cau_tro_ly">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T24 · yeu_cau_tro_ly&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-yeu_cau_tro_ly" value="&lt;div style=&quot;font-size:12px;color:#7e22ce&quot;&gt;&lt;b&gt;yeu_cau_tro_ly&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; khach_hang_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; hoi_thoai_tro_ly_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; dang_ky_goi_tap_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; client_request_id &lt;font color=&quot;#64748b&quot;&gt;char(36)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ngay_han_muc &lt;font color=&quot;#64748b&quot;&gt;date&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; provider &lt;font color=&quot;#64748b&quot;&gt;varchar(64)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; model &lt;font color=&quot;#64748b&quot;&gt;varchar(128)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; trang_thai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; giu_luot_den &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; hoan_thanh_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ma_loi &lt;font color=&quot;#64748b&quot;&gt;varchar(64)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; do_tre_ms &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; input_tokens &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; output_tokens &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="309" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;ho_so_khach_hang&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;khach_hang_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-yeu_cau_tro_ly" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.08414239482200647;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-1" value="&lt;b&gt;hoi_thoai_tro_ly&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;hoi_thoai_tro_ly_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="138" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-1" value="" edge="1" parent="1" source="ref-1" target="t-yeu_cau_tro_ly" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.27184466019417475;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-2" value="&lt;b&gt;dang_ky_goi_tap&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;dang_ky_goi_tap_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="196" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-2" value="" edge="1" parent="1" source="ref-2" target="t-yeu_cau_tro_ly" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.459546925566343;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-tin_nhan_tro_ly" name="T25 tin_nhan_tro_ly">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T25 · tin_nhan_tro_ly&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-tin_nhan_tro_ly" value="&lt;div style=&quot;font-size:12px;color:#166534&quot;&gt;&lt;b&gt;tin_nhan_tro_ly&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; hoi_thoai_tro_ly_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; yeu_cau_tro_ly_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; vai_tro &lt;font color=&quot;#64748b&quot;&gt;enum&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; noi_dung &lt;font color=&quot;#64748b&quot;&gt;text&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; nguon_da_kiem_tra &lt;font color=&quot;#64748b&quot;&gt;json&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;hoi_thoai_tro_ly&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;hoi_thoai_tro_ly_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-tin_nhan_tro_ly" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.14444444444444443;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-1" value="&lt;b&gt;yeu_cau_tro_ly&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;yeu_cau_tro_ly_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="138" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-1" value="" edge="1" parent="1" source="ref-1" target="t-tin_nhan_tro_ly" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.4666666666666667;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-tai_lieu_tu_van" name="T26 tai_lieu_tu_van">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T26 · tai_lieu_tu_van&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-tai_lieu_tu_van" value="&lt;div style=&quot;font-size:12px;color:#0369a1&quot;&gt;&lt;b&gt;tai_lieu_tu_van&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; tieu_de &lt;font color=&quot;#64748b&quot;&gt;varchar(255)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; loai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; noi_dung &lt;font color=&quot;#64748b&quot;&gt;longtext&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; phien_ban &lt;font color=&quot;#64748b&quot;&gt;int&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; nguoi_cap_nhat_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; trang_thai &lt;font color=&quot;#64748b&quot;&gt;varchar(32)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; xuat_ban_luc &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="204" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;tai_khoan&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;nguoi_cap_nhat_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-tai_lieu_tu_van" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.12745098039215685;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-chi_so_co_the" name="T27 chi_so_co_the">
+    <mxGraphModel dx="800" dy="600" background="#ffffff" page="1" pageWidth="800" pageHeight="600">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="&lt;b&gt;T27 · chi_so_co_the&lt;/b&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="720" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="t-chi_so_co_the" value="&lt;div style=&quot;font-size:12px;color:#b45309&quot;&gt;&lt;b&gt;chi_so_co_the&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; khach_hang_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ngay_ghi &lt;font color=&quot;#64748b&quot;&gt;date&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; can_nang_kg &lt;font color=&quot;#64748b&quot;&gt;decimal(6,2)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; chieu_cao_cm &lt;font color=&quot;#64748b&quot;&gt;decimal(5,2)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; vong_eo_cm &lt;font color=&quot;#64748b&quot;&gt;decimal(5,2)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; ghi_chu &lt;font color=&quot;#64748b&quot;&gt;text&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="360" y="76" width="400" height="189" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" value="&lt;b&gt;ho_so_khach_hang&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;khach_hang_id → id&lt;/font&gt;" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="248" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" value="" edge="1" parent="1" source="ref-0" target="t-chi_so_co_the" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERone;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.13756613756613756;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="720" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="table-nhat_ky_he_thong" name="T28 nhat_ky_he_thong">
+    <mxGraphModel dx="1212" dy="607" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="600" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=18;align=left;" value="&lt;b&gt;T28 · nhat_ky_he_thong&lt;/b&gt;" vertex="1">
+          <mxGeometry height="32" width="720" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="t-nhat_ky_he_thong" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;align=left;verticalAlign=top;spacing=10;fontSize=11;" value="&lt;div style=&quot;font-size:12px;color:#7e22ce&quot;&gt;&lt;b&gt;nhat_ky_he_thong&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;PK&lt;/b&gt; id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&lt;b&gt;FK&lt;/b&gt; tai_khoan_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; hanh_dong &lt;font color=&quot;#64748b&quot;&gt;varchar(128)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; loai_tai_nguyen &lt;font color=&quot;#64748b&quot;&gt;varchar(128)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; tai_nguyen_id &lt;font color=&quot;#64748b&quot;&gt;bigint&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; metadata_an_toan &lt;font color=&quot;#64748b&quot;&gt;json&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; created_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height:15px&quot;&gt;&amp;nbsp;&amp;nbsp; updated_at &lt;font color=&quot;#64748b&quot;&gt;datetime(6)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="180" width="400" x="360" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="ref-0" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;fontSize=11;align=left;spacing=6;" value="&lt;b&gt;tai_khoan&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;tai_khoan_id → id&lt;/font&gt;" vertex="1">
+          <mxGeometry height="44" width="248" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e-0" edge="1" parent="1" source="ref-0" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=ERzeroToOne;endArrow=ERzeroToMany;exitX=1;exitY=0.5;entryX=0;entryY=0.14444444444444443;strokeColor=#64748b;" target="t-nhat_ky_he_thong" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="html=1;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#cbd5e1;fontFamily=Helvetica;strokeColor=none;fontSize=11;align=left;fontColor=#475569;" value="Bên trái: bảng được tham chiếu (không phải bảng mới). PK/FK và toàn bộ cột ở bên phải. UNIQUE/CHECK/NULL chi tiết trong SQL." vertex="1">
+          <mxGeometry height="32" width="720" x="40" y="560" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

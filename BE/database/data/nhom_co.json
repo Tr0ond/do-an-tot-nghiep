@@ -1,0 +1,135 @@
+[
+  {
+    "id": 1,
+    "ma_nhom_co": "abductors",
+    "ten_nhom_co": "Cơ dạng đùi",
+    "ten_nguon": "abductors",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 2,
+    "ma_nhom_co": "abs",
+    "ten_nhom_co": "Cơ bụng",
+    "ten_nguon": "abs",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 3,
+    "ma_nhom_co": "adductors",
+    "ten_nhom_co": "Cơ khép đùi",
+    "ten_nguon": "adductors",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 4,
+    "ma_nhom_co": "biceps",
+    "ten_nhom_co": "Cơ tay trước",
+    "ten_nguon": "biceps",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 5,
+    "ma_nhom_co": "calves",
+    "ten_nhom_co": "Cơ bắp chân",
+    "ten_nguon": "calves",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 6,
+    "ma_nhom_co": "cardiovascular_system",
+    "ten_nhom_co": "Tim mạch",
+    "ten_nguon": "cardiovascular system",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 7,
+    "ma_nhom_co": "delts",
+    "ten_nhom_co": "Cơ vai",
+    "ten_nguon": "delts",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 8,
+    "ma_nhom_co": "forearms",
+    "ten_nhom_co": "Cơ cẳng tay",
+    "ten_nguon": "forearms",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 9,
+    "ma_nhom_co": "glutes",
+    "ten_nhom_co": "Cơ mông",
+    "ten_nguon": "glutes",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 10,
+    "ma_nhom_co": "hamstrings",
+    "ten_nhom_co": "Cơ đùi sau",
+    "ten_nguon": "hamstrings",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 11,
+    "ma_nhom_co": "lats",
+    "ten_nhom_co": "Cơ xô",
+    "ten_nguon": "lats",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 12,
+    "ma_nhom_co": "levator_scapulae",
+    "ten_nhom_co": "Cơ nâng vai",
+    "ten_nguon": "levator scapulae",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 13,
+    "ma_nhom_co": "pectorals",
+    "ten_nhom_co": "Cơ ngực",
+    "ten_nguon": "pectorals",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 14,
+    "ma_nhom_co": "quads",
+    "ten_nhom_co": "Cơ đùi trước",
+    "ten_nguon": "quads",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 15,
+    "ma_nhom_co": "serratus_anterior",
+    "ten_nhom_co": "Cơ răng trước",
+    "ten_nguon": "serratus anterior",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 16,
+    "ma_nhom_co": "spine",
+    "ten_nhom_co": "Cơ dọc cột sống",
+    "ten_nguon": "spine",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 17,
+    "ma_nhom_co": "traps",
+    "ten_nhom_co": "Cơ thang",
+    "ten_nguon": "traps",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 18,
+    "ma_nhom_co": "triceps",
+    "ten_nhom_co": "Cơ tay sau",
+    "ten_nguon": "triceps",
+    "trang_thai": "HOAT_DONG"
+  },
+  {
+    "id": 19,
+    "ma_nhom_co": "upper_back",
+    "ten_nhom_co": "Cơ lưng trên",
+    "ten_nguon": "upper back",
+    "trang_thai": "HOAT_DONG"
+  }
+]

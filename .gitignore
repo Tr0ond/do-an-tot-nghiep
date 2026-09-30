@@ -1,0 +1,37 @@
+# Secrets and local settings
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+
+# Dependencies and generated files
+node_modules/
+vendor/
+/exercises-dataset/
+dist/
+coverage/
+playwright-report/
+test-results/
+.phpunit.cache/
+.phpunit.result.cache
+BE/storage/logs/*.log
+BE/storage/framework/cache/data/
+BE/storage/framework/sessions/
+BE/storage/framework/views/*.php
+BE/storage/app/private/
+BE/public/storage
+BE/public/build/
+BE/public/hot
+BE/bootstrap/cache/*.php
+
+# Local runtime data
+*.sqlite
+*.sqlite-journal
+*.sql.gz
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
