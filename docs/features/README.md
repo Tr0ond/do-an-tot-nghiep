@@ -1,4 +1,7 @@
-# Tài liệu hai tính năng tạo điểm nhấn
+# Tài liệu tính năng
+
+- [TAI_KHOAN.md](TAI_KHOAN.md): xác thực, vai trò/hồ sơ và seeder tài khoản demo.
+- [BAI_TAP.md](BAI_TAP.md): seeder catalog, API công khai, bộ lọc và giao diện bài tập.
 
 - [AI_CHATBOT.md](AI_CHATBOT.md): tư vấn dựa trên dữ liệu gói/FAQ/lịch mẫu, không tự áp dụng thay đổi nghiệp vụ.
 - [REALTIME_CHAT.md](REALTIME_CHAT.md): trao đổi văn bản 1–1 giữa PT và KH, có lịch sử và kiểm soát tài nguyên.

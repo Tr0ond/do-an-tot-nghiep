@@ -10,6 +10,7 @@
       </div>
 
       <nav aria-label="Tài khoản" class="account-nav">
+        <RouterLink to="/bai-tap" class="btn btn-outline-secondary btn-sm">Bài tập</RouterLink>
         <!-- Huy hiệu tài khoản và vai trò -->
         <div class="user-badge-header" v-if="xacThuc.taiKhoan">
           <div class="user-avatar-circle" :class="avatarRoleClass">

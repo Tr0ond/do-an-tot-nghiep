@@ -11,7 +11,7 @@
 - `thong_ke.json`: số lượng, ngôn ngữ và SHA-256 tệp JSON nguồn.
 - Ảnh tại `BE/public/media/bai-tap/images/`; GIF tại `BE/public/media/bai-tap/animations/`, tính từ thư mục gốc dự án.
 
-`anh_url` và `gif_url` là đường dẫn theo origin Backend, ví dụ `/media/bai-tap/images/0001-2gPfomN.jpg`. Frontend độc lập phải ghép với origin Backend, không ghép vào origin của Vite. Chưa có ứng dụng phục vụ các đường dẫn này.
+`anh_url` và `gif_url` là đường dẫn theo origin Backend, ví dụ `/media/bai-tap/images/0001-2gPfomN.jpg`. Frontend độc lập ghép với origin Backend, không ghép vào origin của Vite. Laravel local đã phục vụ media và [giao diện danh mục](http://localhost:5173/bai-tap) đã dùng các đường dẫn này.
 
 ## Ánh xạ và chất lượng
 
@@ -44,7 +44,9 @@ rtk proxy node scripts/kiemTraDuLieu.mjs
 
 Lệnh chuẩn bị cần dataset nguồn tại `exercises-dataset/` như lệnh clone phía trên; lệnh kiểm tra đối chiếu SHA-256 với JSON nguồn. Lệnh tạo lại sinh JSON/SQL/từ điển dữ liệu và `docs/diagrams/database.generated.drawio` (bản chi tiết từng bảng). Bản **một canvas** theo mẫu chủ dự án được sinh riêng bằng `rtk proxy node scripts/veDatabaseTongThe.mjs` vào `docs/diagrams/database-single.generated.drawio`. Các lệnh không chạy MySQL, không thay bản vẽ `database.drawio` đã xuất từ draw MCP và không sửa dataset nguồn. Media đích đã có nhưng khác nội dung sẽ bị chặn để không ghi đè chỉnh sửa.
 
-SQL seed dùng `INSERT`, **không UPSERT**, dành cho hai bảng catalog trống. Chạy lại sẽ bị khóa unique chặn, không ghi đè nội dung Admin đã sửa. Nhập bằng chế độ batch dừng khi có lỗi, không dùng `--force`; nếu công cụ nhập vẫn giữ kết nối sau lỗi, thực hiện `ROLLBACK`, không tiếp tục đến `COMMIT`. Chưa có Laravel seeder hoặc kiểm chứng import trên MySQL.
+SQL seed dùng `INSERT`, **không UPSERT**, dành cho hai bảng catalog trống. Chạy lại sẽ bị khóa unique chặn, không ghi đè nội dung Admin đã sửa. Nhập bằng chế độ batch dừng khi có lỗi, không dùng `--force`; nếu công cụ nhập vẫn giữ kết nối sau lỗi, thực hiện `ROLLBACK`, không tiếp tục đến `COMMIT`.
+
+Laravel dùng `rtk proxy php artisan db:seed --class=BaiTapSeeder` từ BE sau migrations, thay cho nhập SQL seed trực tiếp. Seeder ghép mã nhóm/mã nguồn, không dùng PK cố định, chạy lại chỉ thêm dữ liệu thiếu và giữ bản biên tập. Đã nhập/đối chiếu đủ catalog trên MariaDB 10.4.32; [bằng chứng](../../../docs/verification/M02_BAI_TAP.md). Chưa kiểm thử MySQL thật. Từ gốc chạy `rtk proxy php scripts/kiemTraCatalogDatabase.php` để đối chiếu DB với JSON; script chỉ đọc và báo khác nguồn khi có biên tập.
 
 ## Nguồn và quyền sử dụng
 

@@ -1,6 +1,6 @@
 # Hợp đồng API đề xuất
 
-Đã có `GET /api/v1/health`, Sanctum SPA đăng ký/đăng nhập/đăng xuất, /me, quyền hồ sơ và quản trị tạo tài khoản; [hợp đồng đã triển khai](features/TAI_KHOAN.md). Exception cho API và routes xác thực đã chuẩn hóa status/message/data/code/errors. Các endpoint gói/lịch/chat bên dưới vẫn là đặc tả, chưa triển khai.
+Đã có `GET /api/v1/health`, Sanctum SPA đăng ký/đăng nhập/đăng xuất, /me, quyền hồ sơ và quản trị tạo tài khoản; [hợp đồng tài khoản](features/TAI_KHOAN.md). Có GET công khai /bai-tap, /bai-tap/bo-loc, /bai-tap/{id}; [hợp đồng bài tập](features/BAI_TAP.md). Exception cho API và routes xác thực đã chuẩn hóa status/message/data/code/errors. Các endpoint gói/lịch/chat bên dưới vẫn là đặc tả, chưa triển khai.
 
 ## Auth và namespace
 

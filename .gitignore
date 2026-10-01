@@ -18,7 +18,8 @@ test-results/
 .phpunit.result.cache
 BE/storage/logs/*.log
 BE/storage/framework/cache/data/
-BE/storage/framework/sessions/
+BE/storage/framework/sessions/*
+!BE/storage/framework/sessions/.gitignore
 BE/storage/framework/views/*.php
 BE/storage/app/private/
 BE/public/storage

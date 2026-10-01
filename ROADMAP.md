@@ -17,14 +17,14 @@ M01 → M02 → M03 → M04/M07 → M05/M06 → M08/M09. AI có thể prototype 
 
 ## Trạng thái triển khai ngày 01/10/2026
 
-Bootstrap FE/BE, lockfiles, cấu hình local, migrations trên MariaDB 10.4.32 và luồng đăng ký/đăng nhập/đọc hồ sơ/đăng xuất cùng quyền ba vai trò đã chạy. Có Admin tạo PT/Admin và command tạo Admin đầu tiên; [bằng chứng](docs/verification/M01_AUTH.md). Chưa hoàn tất toàn bộ M01: quên/đặt lại mật khẩu, sửa hồ sơ và quản lý khóa tài khoản qua UI còn phía trước. Catalog đã chuẩn bị file/media, chưa nhập DB hoặc có API.
+Bootstrap FE/BE, lockfiles, cấu hình local, migrations trên MariaDB 10.4.32 và luồng đăng ký/đăng nhập/đọc hồ sơ/đăng xuất cùng quyền ba vai trò đã chạy. Có Admin tạo PT/Admin, command tạo Admin đầu tiên và seeder demo; [bằng chứng tài khoản](docs/verification/M01_AUTH.md). Đã nhập catalog 1.324 bài/19 nhóm và có API/giao diện tìm kiếm/lọc/phân trang/chi tiết/ảnh-GIF; [bằng chứng bài tập](docs/verification/M02_BAI_TAP.md). Chưa hoàn tất M01 (quên/đặt lại mật khẩu, sửa hồ sơ/khóa qua UI) hoặc toàn M02 (CRUD Admin, gói/giáo án mẫu).
 
 ## Những việc cần làm tiếp
 
 - D01–D10 đã chốt chính sách chính; cụ thể hóa use case/ERD/API/quyền/trạng thái theo quyết định đó trước module tương ứng.
 - Xác minh môi trường và dependencies tương thích; thông tin tài khoản/kênh payOS, tài khoản/quota Gemini và ngày bảo vệ chưa được cung cấp. Chỉ dùng API AI miễn phí; không tự bật billing.
-- Nhập catalog và làm API/giao diện M02; bổ sung quên/đặt lại mật khẩu và sửa hồ sơ cho M01.
-- Tạo Admin đầu tiên bằng command khi cần; các tài khoản PT/Admin tiếp theo do Admin tạo. Không dùng tài khoản/mật khẩu mặc định.
+- Hoàn thiện CRUD danh mục Admin/gói/giáo án mẫu của M02; bổ sung quên/đặt lại mật khẩu và sửa hồ sơ cho M01.
+- Tạo Admin đầu tiên bằng command với mật khẩu riêng khi triển khai thật; local có seeder demo. Tài khoản PT/Admin tiếp theo do Admin tạo.
 - Kiểm thử tranh chấp trên MySQL thật khi triển khai gói/lịch; kết quả MariaDB hiện tại chỉ chứng minh phần đã thử.
 
 ## Mốc đóng phạm vi

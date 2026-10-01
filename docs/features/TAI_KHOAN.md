@@ -48,7 +48,9 @@ Từ BE, chạy:
 rtk proxy php artisan tai-khoan:tao-admin email-cua-ban@example.com
 ```
 
-Lệnh hỏi họ tên và nhập mật khẩu ẩn hai lần; chỉ chạy khi chưa có Admin. Không có Admin/mật khẩu mặc định. Sau đó Admin đăng nhập và tạo PT/Admin tại /admin/tai-khoan. Không dùng lệnh này để tạo tài khoản từ frontend hoặc tự cấp quyền cho KH.
+Lệnh hỏi họ tên và nhập mật khẩu ẩn hai lần; chỉ chạy khi chưa có Admin. Sau đó Admin đăng nhập và tạo PT/Admin tại /admin/tai-khoan. Không dùng lệnh này để tạo tài khoản từ frontend hoặc tự cấp quyền cho KH.
+
+Để thử giao diện local, đã có [TaiKhoanSeeder](../../BE/database/seeders/README.md) tạo 3 tài khoản demo Admin/PT/KH khi chạy `php artisan db:seed`. Seeder chỉ chạy ở local/testing, tạo hồ sơ đúng vai trò và không ghi đè dữ liệu khi chạy lại. Trùng email khác vai trò sẽ rollback. Lệnh tạo Admin đầu tiên sẽ từ chối khi seeder đã tạo Admin demo.
 
 ## Tổ chức implementation
 

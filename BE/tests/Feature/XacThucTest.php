@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\HoSoKhachHang;
 use App\Models\TaiKhoan;
 use App\Services\TaiKhoanService;
+use Database\Seeders\TaiKhoanSeeder;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
 use Illuminate\Support\Facades\Artisan;
@@ -305,5 +306,102 @@ class XacThucTest extends TestCase
             ->expectsOutput('Đã có Admin. Hãy đăng nhập Admin để tạo tài khoản tiếp theo.')
             ->assertFailed();
         $this->assertDatabaseCount('tai_khoan', 1);
+    }
+
+    public function test_seeder_tao_ba_vai_tro_ho_so_va_dang_nhap_duoc(): void
+    {
+        $this->seed();
+        $this->assertDatabaseCount('tai_khoan', 3);
+        $this->assertDatabaseCount('ho_so_khach_hang', 1);
+        $this->assertDatabaseCount('ho_so_huan_luyen_vien', 1);
+
+        foreach (['admin@example.test' => TaiKhoan::ADMIN, 'pt@example.test' => TaiKhoan::HUAN_LUYEN_VIEN, 'khachhang@example.test' => TaiKhoan::KHACH_HANG] as $email => $vaiTro) {
+            $taiKhoan = TaiKhoan::where('email', $email)->firstOrFail();
+            $this->assertSame($vaiTro, $taiKhoan->vai_tro);
+            $this->assertSame(TaiKhoan::HOAT_DONG, $taiKhoan->trang_thai);
+            $this->assertTrue(Hash::check('Demo123456!', $taiKhoan->password));
+            if ($vaiTro === TaiKhoan::KHACH_HANG) {
+                $this->assertNotNull($taiKhoan->hoSoKhachHang);
+                $this->assertNull($taiKhoan->hoSoHuanLuyenVien);
+            } elseif ($vaiTro === TaiKhoan::HUAN_LUYEN_VIEN) {
+                $this->assertNotNull($taiKhoan->hoSoHuanLuyenVien);
+                $this->assertNull($taiKhoan->hoSoKhachHang);
+            } else {
+                $this->assertNull($taiKhoan->hoSoKhachHang);
+                $this->assertNull($taiKhoan->hoSoHuanLuyenVien);
+            }
+            Auth::forgetGuards();
+            $this->postJson('/dang-nhap', ['email' => $email, 'password' => 'Demo123456!'])
+                ->assertOk()->assertJsonPath('data.vai_tro', $vaiTro)->assertJsonMissingPath('data.password');
+            $this->postJson('/dang-xuat')->assertOk();
+        }
+    }
+
+    public function test_seeder_chay_lai_khong_trung_va_giu_du_lieu_da_sua(): void
+    {
+        $this->seed(TaiKhoanSeeder::class);
+        $taiKhoan = TaiKhoan::where('email', 'khachhang@example.test')->firstOrFail();
+        $taiKhoan->ho_ten = 'Tên đã sửa';
+        $taiKhoan->password = 'MatKhauMoi123!';
+        $taiKhoan->trang_thai = 'KHOA';
+        $taiKhoan->save();
+        $hoSo = $taiKhoan->hoSoKhachHang;
+        $hoSo->muc_tieu = 'Mục tiêu đã sửa';
+        $hoSo->save();
+        $duLieuCu = $taiKhoan->fresh()->getAttributes();
+        $hoSoCu = $hoSo->fresh()->getAttributes();
+
+        $this->seed(TaiKhoanSeeder::class);
+
+        $this->assertDatabaseCount('tai_khoan', 3);
+        $this->assertDatabaseCount('ho_so_khach_hang', 1);
+        $this->assertDatabaseCount('ho_so_huan_luyen_vien', 1);
+        $this->assertSame($duLieuCu, $taiKhoan->fresh()->getAttributes());
+        $this->assertSame($hoSoCu, $hoSo->fresh()->getAttributes());
+    }
+
+    public function test_seeder_bo_sung_ho_so_con_thieu_cua_tai_khoan_dung_vai_tro(): void
+    {
+        $this->seed(TaiKhoanSeeder::class);
+        // Chỉ xóa hồ sơ demo chưa có dữ liệu phụ thuộc trong database kiểm thử riêng.
+        TaiKhoan::where('email', 'pt@example.test')->firstOrFail()->hoSoHuanLuyenVien()->delete();
+        TaiKhoan::where('email', 'khachhang@example.test')->firstOrFail()->hoSoKhachHang()->delete();
+
+        $this->seed(TaiKhoanSeeder::class);
+
+        $this->assertDatabaseCount('tai_khoan', 3);
+        $this->assertDatabaseCount('ho_so_khach_hang', 1);
+        $this->assertDatabaseCount('ho_so_huan_luyen_vien', 1);
+    }
+
+    public function test_seeder_trung_email_khac_vai_tro_rollback_va_khong_nang_quyen(): void
+    {
+        $taiKhoan = $this->taoTaiKhoan(TaiKhoan::HUAN_LUYEN_VIEN, 'khachhang@example.test');
+        $duLieuCu = $taiKhoan->fresh()->getAttributes();
+        try {
+            $this->seed(TaiKhoanSeeder::class);
+            $this->fail('Seeder phải từ chối email đã có vai trò khác.');
+        } catch (\RuntimeException $loi) {
+            $this->assertStringContainsString('đã tồn tại với vai trò khác', $loi->getMessage());
+        }
+
+        $this->assertDatabaseCount('tai_khoan', 1);
+        $this->assertDatabaseCount('ho_so_huan_luyen_vien', 1);
+        $this->assertDatabaseCount('ho_so_khach_hang', 0);
+        $this->assertSame($duLieuCu, $taiKhoan->fresh()->getAttributes());
+    }
+
+    public function test_seeder_tu_choi_moi_truong_production(): void
+    {
+        $this->app->instance('env', 'production');
+        try {
+            $this->app->call([new TaiKhoanSeeder, 'run']);
+            $this->fail('Seeder demo phải từ chối môi trường production.');
+        } catch (\RuntimeException $loi) {
+            $this->assertStringContainsString('chỉ chạy trong môi trường local hoặc testing', $loi->getMessage());
+        } finally {
+            $this->app->instance('env', 'testing');
+        }
+        $this->assertDatabaseCount('tai_khoan', 0);
     }
 }

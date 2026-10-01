@@ -17,6 +17,8 @@ Thư mục `docs/` chứa thiết kế và kế hoạch kiểm thử. Quy tắc,
 | [TEST_PLAN.md](TEST_PLAN.md) | Điều kiện nghiệm thu và ca kiểm thử quan trọng |
 | [features/AI_CHATBOT.md](features/AI_CHATBOT.md) | Chatbot có nguồn, giới hạn và đánh giá |
 | [features/REALTIME_CHAT.md](features/REALTIME_CHAT.md) | Chat văn bản, lịch sử, reconnect và thu hồi quyền |
+| [features/BAI_TAP.md](features/BAI_TAP.md) | Seeder catalog, API/giao diện công khai và bộ lọc |
+| [verification/M02_BAI_TAP.md](verification/M02_BAI_TAP.md) | Kiểm chứng nhập dữ liệu, API và giao diện bài tập |
 
 ## Tài liệu ở thư mục gốc
 

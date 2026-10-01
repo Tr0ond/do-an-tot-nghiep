@@ -4,6 +4,12 @@ import { useXacThucStore } from '../stores/xacThuc'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    { path: '/bai-tap', name: 'bai-tap', component: () => import('../views/BaiTap/index.vue') },
+    {
+      path: '/bai-tap/:id',
+      name: 'chi-tiet-bai-tap',
+      component: () => import('../views/BaiTap/ChiTiet/index.vue'),
+    },
     { path: '/khong-ket-noi', component: () => import('../views/KhongKetNoi/index.vue') },
     {
       path: '/dang-nhap',

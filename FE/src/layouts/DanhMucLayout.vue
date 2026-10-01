@@ -1,0 +1,170 @@
+<template>
+  <div class="catalog-shell">
+    <!-- Header danh mục chuẩn Glassmorphism đồng bộ toàn hệ thống -->
+    <header class="catalog-header">
+      <div class="d-flex align-items-center gap-3">
+        <RouterLink to="/" class="brand" aria-label="Huấn luyện cá nhân — trang chủ">
+          <span class="brand-mark" aria-hidden="true">H</span>
+          <span class="brand-title">HUẤN LUYỆN CÁ NHÂN</span>
+        </RouterLink>
+      </div>
+
+      <nav class="catalog-nav" aria-label="Điều hướng danh mục">
+        <RouterLink to="/" class="catalog-nav-item d-none d-md-inline-flex">
+          <i class="bi bi-house"></i>
+          <span>Trang chủ</span>
+        </RouterLink>
+        <RouterLink to="/bai-tap" class="catalog-nav-item active">
+          <i class="bi bi-collection-play-fill"></i>
+          <span>Thư viện bài tập</span>
+        </RouterLink>
+        <RouterLink
+          class="btn btn-outline-secondary btn-sm"
+          :to="xacThuc.daDangNhap ? xacThuc.duongDanCaNhan : '/dang-nhap'"
+        >
+          <i :class="xacThuc.daDangNhap ? 'bi bi-person-circle' : 'bi bi-box-arrow-in-right'"></i>
+          <span>{{ xacThuc.daDangNhap ? 'Khu vực cá nhân' : 'Đăng nhập' }}</span>
+        </RouterLink>
+      </nav>
+    </header>
+
+    <!-- Khung nội dung chính -->
+    <main id="noi-dung-danh-muc" class="catalog-main">
+      <slot />
+    </main>
+
+    <!-- Chân trang danh mục -->
+    <footer class="catalog-footer">
+      <div class="d-flex align-items-center gap-2">
+        <span class="status-dot"></span>
+        <span>Thư viện vận động & bài tập thể hình trực quan</span>
+      </div>
+      <div class="footer-links-group">
+        <span class="text-muted">Minh họa bản quyền:</span>
+        <a
+          href="https://gymvisual.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="credit-link"
+        >
+          © Gym visual
+        </a>
+      </div>
+    </footer>
+  </div>
+</template>
+
+<script>
+import { useXacThucStore } from '../stores/xacThuc'
+
+export default {
+  name: 'DanhMucLayout',
+  computed: {
+    xacThuc() {
+      return useXacThucStore()
+    },
+  },
+}
+</script>
+
+<style scoped>
+.catalog-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--mau-nen);
+}
+
+.catalog-header {
+  border-bottom: 1px solid var(--mau-vien);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px max(24px, calc((100vw - 1280px) / 2));
+  gap: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.catalog-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.catalog-nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--bo-goc-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--mau-phu);
+  text-decoration: none;
+  transition: var(--chuyen-canh-nhanh);
+}
+
+.catalog-nav-item:hover {
+  color: var(--mau-chinh);
+  background: #f1f5f9;
+}
+
+.catalog-nav-item.active {
+  color: var(--mau-chinh);
+  background: var(--mau-chinh-nhat);
+}
+
+.catalog-main {
+  width: min(1280px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 36px 0 64px;
+  flex: 1;
+}
+
+.catalog-footer {
+  border-top: 1px solid var(--mau-vien);
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px max(24px, calc((100vw - 1280px) / 2));
+  color: var(--mau-phu);
+  font-size: 0.85rem;
+}
+
+.footer-links-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.credit-link {
+  color: var(--mau-chinh);
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .catalog-header {
+    padding: 14px 20px;
+  }
+  .brand-title {
+    display: none;
+  }
+  .catalog-main {
+    width: calc(100% - 32px);
+    padding: 24px 0 48px;
+  }
+  .catalog-footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+}
+</style>
