@@ -4,6 +4,8 @@
 
 ## Auth và namespace
 
+Đã triển khai quản trị bài tập cho ADMIN hoạt động: GET `/admin/bai-tap`, `/admin/bai-tap/bo-loc`, `/admin/bai-tap/{id}`; POST `/admin/bai-tap`, PUT `/admin/bai-tap/{id}`, PATCH `/admin/bai-tap/{id}/trang-thai` dưới prefix `/api/v1`. Không có DELETE; sửa/trạng thái dùng phiên bản `updated_at`, xung đột 409. Chi tiết payload và bảo toàn dữ liệu tại [hợp đồng bài tập](features/BAI_TAP.md).
+
 - Nghiệp vụ dưới `/api/v1`; routes theo resource, kebab-case tiếng Việt không dấu.
 - Sanctum SPA: lấy cookie CSRF từ `/sanctum/csrf-cookie`, đăng nhập qua route session `/dang-nhap`, logout `/dang-xuat`. Cấu hình middleware stateful/CORS/cookie theo tài liệu tại bootstrap.
 - Axios gửi credentials, XSRF theo cấu hình cùng domain/subdomain hợp lệ; không đưa API key AI vào browser.

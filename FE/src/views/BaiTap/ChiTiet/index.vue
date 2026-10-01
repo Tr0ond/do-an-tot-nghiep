@@ -98,7 +98,7 @@
               chế độ xem còn lại.
             </div>
 
-            <div class="text-center mt-2">
+            <div v-if="baiTap.ghi_cong_media" class="text-center mt-2">
               <a
                 class="media-credit-link"
                 href="https://gymvisual.com/"
@@ -154,7 +154,7 @@
             </div>
             <div class="fact-content">
               <span class="fact-label">Dụng cụ tập</span>
-              <strong class="fact-value">{{ baiTap.dung_cu || 'Tự do / Thể trọng' }}</strong>
+              <strong class="fact-value">{{ baiTap.dung_cu || 'Chưa cung cấp' }}</strong>
             </div>
           </div>
 
@@ -165,7 +165,7 @@
             <div class="fact-content">
               <span class="fact-label">Cơ phụ bổ trợ</span>
               <strong class="fact-value" lang="en">
-                {{ baiTap.co_phu.length ? baiTap.co_phu.join(', ') : 'Không đáng kể' }}
+                {{ baiTap.co_phu.length ? baiTap.co_phu.join(', ') : 'Chưa cung cấp' }}
               </strong>
             </div>
           </div>
@@ -244,7 +244,10 @@
         </div>
 
         <!-- Chân ghi công nguồn dữ liệu -->
-        <p class="dataset-credit text-muted small border-top pt-3">
+        <p
+          v-if="baiTap.nguon_du_lieu === 'exercises-dataset'"
+          class="dataset-credit text-muted small border-top pt-3"
+        >
           Dữ liệu bài tập được tổng hợp và tham khảo từ
           <a
             href="https://github.com/hasaneyldrm/exercises-dataset"

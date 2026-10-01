@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\BaiTapAdminController;
 use App\Http\Controllers\Api\BaiTapController;
 use App\Http\Controllers\Api\HoSoKhachHangController;
 use App\Http\Controllers\Api\TaiKhoanController;
@@ -27,6 +28,12 @@ Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(
     Route::get('/me', [XacThucController::class, 'me']);
     Route::get('/khach-hang/ho-so/{hoSoKhachHang}', [HoSoKhachHangController::class, 'show']);
     Route::prefix('admin')->middleware('vai_tro:ADMIN')->group(function () {
+        Route::get('/bai-tap/bo-loc', [BaiTapAdminController::class, 'boLoc']);
+        Route::get('/bai-tap', [BaiTapAdminController::class, 'index']);
+        Route::post('/bai-tap', [BaiTapAdminController::class, 'store']);
+        Route::get('/bai-tap/{id}', [BaiTapAdminController::class, 'show'])->whereNumber('id');
+        Route::put('/bai-tap/{id}', [BaiTapAdminController::class, 'update'])->whereNumber('id');
+        Route::patch('/bai-tap/{id}/trang-thai', [BaiTapAdminController::class, 'trangThai'])->whereNumber('id');
         Route::get('/tai-khoan', [TaiKhoanController::class, 'index']);
         Route::post('/tai-khoan', [TaiKhoanController::class, 'store']);
     });

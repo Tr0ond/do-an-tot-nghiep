@@ -52,6 +52,14 @@
 
     <!-- Nội dung chính -->
     <main class="member-content">
+      <nav
+        v-if="xacThuc.taiKhoan?.vai_tro === 'ADMIN'"
+        class="admin-navigation"
+        aria-label="Quản trị"
+      >
+        <RouterLink to="/admin/tai-khoan">Tài khoản</RouterLink>
+        <RouterLink to="/admin/bai-tap">Quản lý bài tập</RouterLink>
+      </nav>
       <div
         v-if="thongBao"
         class="alert alert-danger d-flex align-items-center gap-2 mb-4 rounded-3 animate__animated animate__shakeX"
@@ -153,6 +161,58 @@ export default {
 </script>
 
 <style scoped>
+.account-nav .btn {
+  white-space: nowrap;
+  min-height: 44px;
+}
+@media (max-width: 900px) {
+  .member-header {
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding: 14px 16px;
+  }
+  .member-header .brand-title {
+    display: none !important;
+  }
+  .account-nav {
+    width: auto;
+    gap: 8px;
+  }
+  .user-badge-header .text-start {
+    display: none !important;
+  }
+  .account-nav .btn {
+    padding: 9px 12px;
+  }
+}
+@media (max-width: 600px) {
+  .user-badge-header {
+    display: none;
+  }
+}
+.admin-navigation {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--mau-vien);
+}
+.admin-navigation a {
+  padding: 12px 16px;
+  min-height: 44px;
+  color: #475569;
+  font-weight: 650;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+.admin-navigation a.router-link-active {
+  color: #047857;
+  border-color: #047857;
+}
+.admin-navigation a:focus-visible {
+  outline: 2px solid #047857;
+  outline-offset: 2px;
+}
 .user-avatar-circle {
   width: 34px;
   height: 34px;

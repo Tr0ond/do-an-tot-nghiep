@@ -1,5 +1,7 @@
 # Kiểm chứng danh mục bài tập — 01/10/2026
 
+Báo cáo này ghi nhận mốc danh mục công khai. Phần quản trị bài tập được triển khai tiếp nối; xem [kiểm chứng Admin](M02_ADMIN_BAI_TAP.md) cho trạng thái và kết quả kiểm thử mới hơn.
+
 Phần bài tập của M02 đã có NhomCo/BaiTap, BaiTapSeeder, FormRequest/resources/API công khai và giao diện danh sách/chi tiết. [Hợp đồng](../features/BAI_TAP.md). Không đổi schema/Draw.io. Chưa có CRUD Admin, gói dịch vụ hay giáo án mẫu.
 
 ## Môi trường và kiểm tra thực sự đã chạy

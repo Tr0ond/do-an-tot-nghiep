@@ -4,6 +4,24 @@ import { useXacThucStore } from '../stores/xacThuc'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/admin/bai-tap',
+      name: 'admin-bai-tap',
+      component: () => import('../views/Admin/BaiTap/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
+    {
+      path: '/admin/bai-tap/them',
+      name: 'admin-them-bai-tap',
+      component: () => import('../views/Admin/BaiTap/BieuMau/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
+    {
+      path: '/admin/bai-tap/:id/sua',
+      name: 'admin-sua-bai-tap',
+      component: () => import('../views/Admin/BaiTap/BieuMau/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
     { path: '/bai-tap', name: 'bai-tap', component: () => import('../views/BaiTap/index.vue') },
     {
       path: '/bai-tap/:id',

@@ -40,6 +40,8 @@ Từ BE chạy `rtk proxy php artisan db:seed --class=BaiTapSeeder` sau migratio
 
 API công khai: GET /api/v1/bai-tap, /bai-tap/bo-loc, /bai-tap/{id}. Danh sách mặc định 12/trang, tối đa 48; query tu_khoa/nhom_co_id/dung_cu_nguon/page/per_page. Chỉ bài/nhóm hoạt động được hiển thị. [Hợp đồng bài tập](../docs/features/BAI_TAP.md). Từ gốc chạy `rtk proxy php scripts/kiemTraCatalogDatabase.php` để đối chiếu DB với JSON.
 
+Admin hoạt động có thể GET danh sách/bộ lọc/chi tiết, POST thêm, PUT sửa và PATCH trạng thái tại `/api/v1/admin/bai-tap`. Endpoint ghi dùng CSRF; sửa/trạng thái yêu cầu `updated_at` từ response để phát hiện bản cũ (409). Chỉ sửa nội dung tiếng Việt cho bài nhập, giữ nguồn/media/ngôn ngữ khác. Bài mới nguồn admin có mã riêng gồm 4 chữ/số, chưa có ảnh/GIF. Không có DELETE. Không cần migration hoặc seed lại cho phần quản trị này. Xem [hợp đồng](../docs/features/BAI_TAP.md).
+
 ## Kiểm tra đã chạy
 
 ```powershell
@@ -48,7 +50,7 @@ rtk proxy php artisan test
 rtk proxy php artisan route:list --path=api
 ```
 
-Đạt 36 tests/3.040 assertions về health/CORS, tài khoản, seeder và API bài tập. XacThucTest/BaiTapTest tự tạo database ngẫu nhiên riêng bằng kết nối MySQL/MariaDB hiện tại, migrate và transaction cho từng ca, chỉ DROP database vừa tạo. Cần quyền CREATE/DROP DATABASE, không refresh database ứng dụng. Đã kiểm thử trên MariaDB 10.4.32; chưa kiểm thử tranh chấp đồng thời trên MySQL thật. Pint kiểm tra code PHP. [Bằng chứng tài khoản](../docs/verification/M01_AUTH.md), [kiểm tra seeder](database/seeders/README.md).
+Đạt 45 tests/3.211 assertions về health/CORS, tài khoản, seeder, API công khai và quản trị bài tập. XacThucTest/BaiTapTest tự tạo database ngẫu nhiên riêng bằng kết nối MySQL/MariaDB hiện tại, migrate và transaction cho từng ca, chỉ DROP database vừa tạo. Cần quyền CREATE/DROP DATABASE, không refresh database ứng dụng. Đã kiểm thử trên MariaDB 10.4.32; chưa kiểm thử tranh chấp đồng thời trên MySQL thật. Pint kiểm tra code PHP. [Bằng chứng tài khoản](../docs/verification/M01_AUTH.md), [quản trị bài tập](../docs/verification/M02_ADMIN_BAI_TAP.md), [kiểm tra seeder](database/seeders/README.md).
 
 ## Cấu trúc và phạm vi tiếp theo
 

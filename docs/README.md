@@ -1,5 +1,7 @@
 # Chỉ mục tài liệu
 
+Đã triển khai [quản trị bài tập Admin](verification/M02_ADMIN_BAI_TAP.md): thêm/sửa và ngừng/khôi phục hiển thị theo [hợp đồng bài tập](features/BAI_TAP.md).
+
 Thư mục `docs/` chứa thiết kế và kế hoạch kiểm thử. Quy tắc, phạm vi, công nghệ và tiến độ tổng thể nằm ở thư mục gốc.
 
 ## Tài liệu thiết kế
