@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\BaiTapController;
 use App\Http\Controllers\Api\GiaoAnMauController;
 use App\Http\Controllers\Api\GoiTapController;
 use App\Http\Controllers\Api\HoSoKhachHangController;
+use App\Http\Controllers\Api\NhomCoController;
 use App\Http\Controllers\Api\TaiKhoanController;
 use App\Http\Controllers\Api\XacThucController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,11 @@ Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(
     Route::get('/me', [XacThucController::class, 'me']);
     Route::get('/khach-hang/ho-so/{hoSoKhachHang}', [HoSoKhachHangController::class, 'show']);
     Route::prefix('admin')->middleware('vai_tro:ADMIN')->group(function () {
+        Route::get('/nhom-co', [NhomCoController::class, 'index']);
+        Route::post('/nhom-co', [NhomCoController::class, 'store']);
+        Route::get('/nhom-co/{id}', [NhomCoController::class, 'show'])->whereNumber('id');
+        Route::put('/nhom-co/{id}', [NhomCoController::class, 'update'])->whereNumber('id');
+        Route::patch('/nhom-co/{id}/trang-thai', [NhomCoController::class, 'trangThai'])->whereNumber('id');
         Route::get('/giao-an-mau', [GiaoAnMauController::class, 'index']);
         Route::post('/giao-an-mau', [GiaoAnMauController::class, 'store']);
         Route::get('/giao-an-mau/{id}', [GiaoAnMauController::class, 'show'])->whereNumber('id');

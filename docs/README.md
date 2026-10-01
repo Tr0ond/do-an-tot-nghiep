@@ -4,6 +4,8 @@
 
 Đã triển khai [quản trị bài tập Admin](verification/M02_ADMIN_BAI_TAP.md): thêm/sửa và ngừng/khôi phục hiển thị theo [hợp đồng bài tập](features/BAI_TAP.md).
 
+Đã triển khai quản lý nhóm cơ Admin: [hợp đồng](features/NHOM_CO.md), [kiểm chứng](verification/M02_NHOM_CO.md).
+
 Đã triển khai giáo án mẫu Admin/PT và seeder 5 giáo án demo: [hợp đồng](features/GIAO_AN_MAU.md), [kiểm chứng giao diện](verification/M02_GIAO_AN_MAU.md), [kiểm chứng seeder](verification/M02_GIAO_AN_MAU_SEEDER.md).
 
 Thư mục `docs/` chứa thiết kế và kế hoạch kiểm thử. Quy tắc, phạm vi, công nghệ và tiến độ tổng thể nằm ở thư mục gốc.

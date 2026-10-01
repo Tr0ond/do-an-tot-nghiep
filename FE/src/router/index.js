@@ -10,6 +10,22 @@ const router = createRouter({
   },
   routes: [
     {
+      path: '/admin/nhom-co',
+      name: 'admin-nhom-co',
+      component: () => import('../views/Admin/NhomCo/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
+    {
+      path: '/admin/nhom-co/them',
+      component: () => import('../views/Admin/NhomCo/BieuMau/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
+    {
+      path: '/admin/nhom-co/:id/sua',
+      component: () => import('../views/Admin/NhomCo/BieuMau/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
+    {
       path: '/admin/giao-an-mau',
       component: () => import('../views/Admin/GiaoAnMau/index.vue'),
       meta: { vaiTro: 'ADMIN' },

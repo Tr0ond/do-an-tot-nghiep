@@ -6,6 +6,8 @@
 
 ## Auth và namespace
 
+Đã có Admin quản lý nhóm cơ: GET/POST `/admin/nhom-co`, GET/PUT `/{id}`, PATCH `/{id}/trang-thai`. Ghi yêu cầu CSRF; PUT/PATCH đối chiếu `updated_at` micro giây (NULL chỉ cho record cũ còn NULL); trùng mã 422, bản cũ 409. Không DELETE hoặc nhận sửa mã/tên nguồn; [hợp đồng nhóm cơ](features/NHOM_CO.md).
+
 Đã triển khai quản trị bài tập cho ADMIN hoạt động: GET `/admin/bai-tap`, `/admin/bai-tap/bo-loc`, `/admin/bai-tap/{id}`; POST `/admin/bai-tap`, PUT `/admin/bai-tap/{id}`, PATCH `/admin/bai-tap/{id}/trang-thai` dưới prefix `/api/v1`. Không có DELETE; sửa/trạng thái dùng phiên bản `updated_at`, xung đột 409. Chi tiết payload và bảo toàn dữ liệu tại [hợp đồng bài tập](features/BAI_TAP.md).
 
 - Nghiệp vụ dưới `/api/v1`; routes theo resource, kebab-case tiếng Việt không dấu.
