@@ -36,7 +36,7 @@ Khởi động lại Backend rồi thử đăng ký. Request CSRF cookie thành 
 
 ## Danh mục bài tập
 
-Từ BE chạy `rtk proxy php artisan db:seed --class=BaiTapSeeder` sau migrations để nhập 19 nhóm cơ/1.324 bài. Chạy lại giữ nội dung/trạng thái đã sửa. `DatabaseSeeder` gọi seeder tài khoản demo và bài tập; muốn chỉ nhập catalog thì chọn class riêng.
+Từ BE chạy `rtk proxy php artisan db:seed --class=BaiTapSeeder` sau migrations để nhập 19 nhóm cơ/1.324 bài. Chạy lại giữ nội dung/trạng thái đã sửa. `DatabaseSeeder` gọi lần lượt seeder tài khoản demo, bài tập và giáo án mẫu; muốn chỉ nhập catalog thì chọn class riêng.
 
 API công khai: GET /api/v1/bai-tap, /bai-tap/bo-loc, /bai-tap/{id}. Danh sách mặc định 12/trang, tối đa 48; query tu_khoa/nhom_co_id/dung_cu_nguon/page/per_page. Chỉ bài/nhóm hoạt động được hiển thị. [Hợp đồng bài tập](../docs/features/BAI_TAP.md). Từ gốc chạy `rtk proxy php scripts/kiemTraCatalogDatabase.php` để đối chiếu DB với JSON.
 
@@ -56,12 +56,18 @@ rtk proxy php artisan test
 rtk proxy php artisan route:list --path=api
 ```
 
-Đạt 56 tests/3.387 assertions về health/CORS, tài khoản, seeder, bài tập và gói tập. XacThucTest/BaiTapTest/GoiTapTest tự tạo database ngẫu nhiên riêng bằng kết nối MySQL/MariaDB hiện tại, migrate và transaction cho từng ca, chỉ DROP database vừa tạo. Cần quyền CREATE/DROP DATABASE, không refresh database ứng dụng. Đã kiểm thử trên MariaDB 10.4.32; chưa kiểm thử cạnh tranh nhiều process hoặc MySQL thật. Pint kiểm tra code PHP. [Bằng chứng tài khoản](../docs/verification/M01_AUTH.md), [quản trị bài tập](../docs/verification/M02_ADMIN_BAI_TAP.md), [gói tập](../docs/verification/M02_GOI_TAP.md), [kiểm tra seeder](database/seeders/README.md).
+Đạt 73 tests/3.802 assertions về health/CORS, tài khoản, seeder, bài tập, gói tập và giáo án mẫu. XacThucTest/BaiTapTest/GoiTapTest/GiaoAnMauTest tự tạo database ngẫu nhiên riêng bằng kết nối MySQL/MariaDB hiện tại, migrate và transaction cho từng ca, chỉ DROP database vừa tạo. Cần quyền CREATE/DROP DATABASE, không refresh database ứng dụng. Đã kiểm thử trên MariaDB 10.4.32; chưa kiểm thử cạnh tranh nhiều process hoặc MySQL thật. Pint kiểm tra code PHP. [Bằng chứng tài khoản](../docs/verification/M01_AUTH.md), [quản trị bài tập](../docs/verification/M02_ADMIN_BAI_TAP.md), [gói tập](../docs/verification/M02_GOI_TAP.md), [kiểm tra seeder](database/seeders/README.md).
 
 ## Cấu trúc và phạm vi tiếp theo
 
 Giữ các thư mục app/Http/Controllers/Api, app/Http/Requests, app/Models, app/Policies, app/Services, app/Events, app/Jobs, routes, database/migrations, database/factories, database/seeders, tests/Feature, tests/Unit. Controller → FormRequest/Policy → Service nếu có transaction → Eloquent → response contract.
 
-Đã có Sanctum cookie SPA. Tạo Admin đầu tiên bằng lệnh tai-khoan:tao-admin theo [hướng dẫn](../docs/features/TAI_KHOAN.md); lệnh hỏi mật khẩu ẩn. Môi trường local có thể chạy seeder demo thay thế. SANCTUM_STATEFUL_DOMAINS=localhost:5173 và FRONTEND_URL=http://localhost:5173 cho local. Không cài migration personal_access_tokens vì SPA chỉ dùng session. Đã có quản trị bài tập/gói; phần tiếp theo: nhóm cơ/giáo án mẫu, quên/đặt lại mật khẩu/sửa hồ sơ, rồi đặt mua/payOS/lịch và Reverb/Gemini theo phạm vi. Chưa tích hợp dịch vụ ngoài. Catalog bài tập đã seed; giá gói do Admin nhập.
+Đã có Sanctum cookie SPA. Tạo Admin đầu tiên bằng lệnh tai-khoan:tao-admin theo [hướng dẫn](../docs/features/TAI_KHOAN.md); lệnh hỏi mật khẩu ẩn. Môi trường local có thể chạy seeder demo thay thế. SANCTUM_STATEFUL_DOMAINS=localhost:5173 và FRONTEND_URL=http://localhost:5173 cho local. Không cài migration personal_access_tokens vì SPA chỉ dùng session. Đã có quản trị bài tập/gói/giáo án và PT đọc thư viện; phần tiếp theo: quản lý nhóm cơ, quên/đặt lại mật khẩu/sửa hồ sơ, rồi đặt mua/payOS/lịch và Reverb/Gemini theo phạm vi. Chưa tích hợp dịch vụ ngoài. Catalog bài tập đã seed; giá gói do Admin nhập.
 
 Tham khảo [CODE_STYLE.md](../CODE_STYLE.md), [hợp đồng API](../docs/API_CONVENTIONS.md), [thiết kế database](../docs/DATABASE_DRAFT.md), [quyết định](../docs/DECISIONS.md) và [mẫu Backend](../templates/README.md).
+
+## Giáo án mẫu
+
+Chạy `rtk proxy php artisan migrate` sau khi cập nhật để thêm UUID nullable/unique T12 (migration 000030), giữ giáo án cũ. Admin có GET/POST `/api/v1/admin/giao-an-mau`, GET/PUT `/{id}`, PATCH `/{id}/trang-thai`; PT có GET `/api/v1/pt/giao-an-mau` và `/{id}` chỉ đọc đã duyệt. FormRequest/Service kiểm tra ngày/thứ tự, bài/nhóm hoạt động, UUID và phiên bản; ghi parent/child atomic. Duyệt do server đặt actor/thời gian; sửa nội dung thu hồi duyệt. Không DELETE hoặc sửa kế hoạch/snapshot khách hàng. [Hợp đồng](../docs/features/GIAO_AN_MAU.md), [kiểm chứng](../docs/verification/M02_GIAO_AN_MAU.md). Không cần seed lại catalog.
+
+Để có dữ liệu trình diễn, chạy `rtk proxy php artisan db:seed --class=GiaoAnMauSeeder` từ BE sau khi có Admin demo và catalog: tạo 5 giáo án đã duyệt/60 dòng bài tập. Chạy lại giữ các giáo án đã có, kể cả bản tự sửa/ngừng; chỉ dùng local/testing, không gán cho khách hàng. Máy mới chạy `db:seed` để nạp phụ thuộc theo thứ tự. Xem [hướng dẫn seeders](database/seeders/README.md), [kiểm chứng](../docs/verification/M02_GIAO_AN_MAU_SEEDER.md).

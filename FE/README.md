@@ -35,6 +35,10 @@ Trang đăng nhập/đăng ký tại views/XacThuc, hồ sơ KH/PT dùng chung v
 
 Đã có `/admin/bai-tap` để tìm/lọc/phân trang, thêm/sửa và bật/tắt hiển thị. Biểu mẫu tại `/admin/bai-tap/them` và `/admin/bai-tap/:id/sua`, Vue Options API; service riêng `baiTapAdminService.js`, trạng thái form cục bộ. Khi lưu lỗi giữ nội dung; khi 409 chặn gửi lại và cho tải bản mới. Chỉ ADMIN được vào trang; API vẫn kiểm tra quyền ở server.
 
-Toàn bộ frontend đạt **39 Vitest tests**, build/lint/format. Có bảng giá `/goi-tap`, chi tiết `/goi-tap/:id`; Admin quản lý tại `/admin/goi-tap`, thêm `/admin/goi-tap/them`, sửa `/admin/goi-tap/:id/sua`. Options API/service dùng chung, bộ lọc URL, loading/empty/error/404, khóa gửi trùng, giữ UUID khi retry mạng và xử lý 409. Admin tự nhập giá/quyền lợi; không có giá giả hoặc cấp gói từ UI. [Hợp đồng gói](../docs/features/GOI_TAP.md), [kiểm chứng](../docs/verification/M02_GOI_TAP.md).
+Toàn bộ frontend đạt **49 Vitest tests**, build/lint/format. Có bảng giá `/goi-tap`, chi tiết `/goi-tap/:id`; Admin quản lý tại `/admin/goi-tap`, thêm `/admin/goi-tap/them`, sửa `/admin/goi-tap/:id/sua`. Options API/service dùng chung, bộ lọc URL, loading/empty/error/404, khóa gửi trùng, giữ UUID khi retry mạng và xử lý 409. Admin tự nhập giá/quyền lợi; không có giá giả hoặc cấp gói từ UI. [Hợp đồng gói](../docs/features/GOI_TAP.md), [kiểm chứng](../docs/verification/M02_GOI_TAP.md).
 
-Chưa có upload media, quản lý nhóm cơ/giáo án mẫu, chỉnh sửa hồ sơ, quên/đặt lại mật khẩu, mua/thanh toán gói, chatbot hoặc realtime. Tham khảo [CODE_STYLE.md](../CODE_STYLE.md), [quyết định](../docs/DECISIONS.md) và [mẫu Frontend](../templates/README.md).
+Chưa có upload media, quản lý nhóm cơ, chỉnh sửa hồ sơ, quên/đặt lại mật khẩu, mua/thanh toán gói, chatbot hoặc realtime. Tham khảo [CODE_STYLE.md](../CODE_STYLE.md), [quyết định](../docs/DECISIONS.md) và [mẫu Frontend](../templates/README.md).
+
+## Giáo án mẫu Admin/PT
+
+Admin có `/admin/giao-an-mau`, `/admin/giao-an-mau/them`, `/admin/giao-an-mau/:id/sua`; PT có `/pt/giao-an-mau`, `/pt/giao-an-mau/:id`. Trình soạn chọn bài từ API đang hoạt động, phân trang 6 bài/lần, thêm/bỏ/đổi thứ tự trong từng ngày, nhập hiệp/lặp/nghỉ/ghi chú; lưu nháp rồi duyệt/ngừng. Sửa bản duyệt về nháp, giữ form khi 422/409/mất mạng. PT chỉ đọc và mở hướng dẫn bài, chưa tạo kế hoạch khách hàng. Vue JavaScript Options API, state cục bộ và service chung. [Hợp đồng](../docs/features/GIAO_AN_MAU.md), [kiểm chứng](../docs/verification/M02_GIAO_AN_MAU.md).

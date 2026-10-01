@@ -1,6 +1,6 @@
 # Seeder tài khoản demo
 
-`TaiKhoanSeeder` tạo 3 tài khoản hoạt động để thử giao diện và quyền của từng vai trò. `DatabaseSeeder` gọi seeder tài khoản rồi `BaiTapSeeder` khi chạy `db:seed`. Seeder tài khoản chỉ chạy trong môi trường `local` hoặc `testing`.
+`TaiKhoanSeeder` tạo 3 tài khoản hoạt động để thử giao diện và quyền của từng vai trò. `DatabaseSeeder` gọi lần lượt `TaiKhoanSeeder` → `BaiTapSeeder` → `GiaoAnMauSeeder` khi chạy `db:seed`. Seeder tài khoản/giáo án demo chỉ chạy trong môi trường `local` hoặc `testing`.
 
 | Vai trò | Email | Mật khẩu demo |
 | --- | --- | --- |
@@ -32,3 +32,30 @@ Kiểm tra bước seeder tài khoản ngày 01/10/2026: `php artisan test` đ�
 ## Seeder bài tập
 
 `BaiTapSeeder` nhập 19 nhóm cơ/1.324 bài từ JSON, kiểm tra media trước ghi, transaction và giữ dữ liệu đã có theo mã nguồn. Chạy riêng từ BE: `rtk proxy php artisan db:seed --class=BaiTapSeeder`; không phụ thuộc tài khoản demo hoặc môi trường local. Đã nhập catalog local; toàn bộ Backend sau module bài tập đạt **36 tests/3.040 assertions**. Xem [dữ liệu](../data/README.md), [hợp đồng](../../../docs/features/BAI_TAP.md), [kiểm chứng](../../../docs/verification/M02_BAI_TAP.md).
+
+## Seeder giáo án mẫu
+
+`GiaoAnMauSeeder` tạo 5 giáo án đã duyệt, mỗi ngày 4 bài; tổng 60 dòng bài tập có hiệp/lần lặp/nghỉ/ghi chú:
+
+| Giáo án demo | Ngày tập | Dòng bài |
+| --- | --- | --- |
+| Toàn thân cơ bản | 3 | 12 |
+| Thân trên - thân dưới | 4 | 16 |
+| Đẩy - kéo - chân | 3 | 12 |
+| Tập tại nhà không tạ | 3 | 12 |
+| Cơ bụng và thể lực | 2 | 8 |
+
+Nếu đã có tài khoản demo và catalog bài tập, từ `BE/` chạy riêng:
+
+```powershell
+rtk proxy php artisan migrate
+rtk proxy php artisan db:seed --class=GiaoAnMauSeeder
+```
+
+Máy mới dùng `rtk proxy php artisan db:seed` sau migrations để nạp cả ba seeder theo đúng thứ tự. Nếu chỉ muốn chuẩn bị các phụ thuộc còn thiếu, chạy `--class=TaiKhoanSeeder` và `--class=BaiTapSeeder` trước giáo án. Không chạy `migrate:fresh` trên database có dữ liệu.
+
+Seeder chỉ chạy trong local/testing, cần `admin@example.test` đúng vai trò Admin và đang hoạt động; không tạo/nâng quyền/mở khóa/đổi mật khẩu tài khoản. Giáo án mới được tạo nháp rồi duyệt qua Service, không bỏ qua quy tắc ngày/thứ tự hoặc bài/nhóm hoạt động. Thiếu bài nguồn báo mã bài; bài/nhóm ngừng báo lỗi validation. Mọi giáo án mới trong lần chạy nằm cùng transaction và rollback khi có lỗi. Các seeder phụ thuộc có transaction riêng; lỗi giáo án không xóa tài khoản hoặc bài tập đã nhập thành công.
+
+UUID cố định giúp chạy lại bỏ qua toàn bộ giáo án đã có, giữ ID, tên, nội dung bài, trạng thái/metadata duyệt và timestamps kể cả sau khi sửa/ngừng. Tra bài bằng nguồn + mã, không phụ thuộc ID JSON. Không seed kế hoạch, lịch tập hay phân công cho khách hàng; các thông số chỉ phục vụ demo. Không chạy nhiều lệnh seed đồng thời.
+
+Sau khi chạy, đăng nhập Admin vào `/admin/giao-an-mau` để quản lý; PT vào `/pt/giao-an-mau` để xem các bản đã duyệt. [Hợp đồng](../../../docs/features/GIAO_AN_MAU.md), [kiểm chứng seeder](../../../docs/verification/M02_GIAO_AN_MAU_SEEDER.md).

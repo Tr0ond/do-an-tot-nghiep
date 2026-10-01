@@ -2,6 +2,8 @@
 
 Đã có `GET /api/v1/health`, Sanctum SPA và quản trị tài khoản; [hợp đồng tài khoản](features/TAI_KHOAN.md). Có GET công khai /bai-tap, /bai-tap/bo-loc, /bai-tap/{id}; [hợp đồng bài tập](features/BAI_TAP.md). Đã có GET công khai `/goi-tap`, `/goi-tap/{id}` và ADMIN quản lý tại `/admin/goi-tap`: GET danh sách/chi tiết, POST tạo với UUID, PUT sửa/PATCH trạng thái với phiên bản `updated_at`, CSRF cho ghi; [hợp đồng gói](features/GOI_TAP.md). Exception đã chuẩn hóa status/message/data/code/errors. Đặt mua/payOS/kích hoạt, lịch/chat bên dưới vẫn là đặc tả, chưa triển khai.
 
+Đã triển khai giáo án mẫu: ADMIN có GET/POST `/admin/giao-an-mau`, GET/PUT `/{id}`, PATCH `/{id}/trang-thai`; PT có GET `/pt/giao-an-mau` và `/{id}` chỉ cho giáo án đã duyệt. Tất cả có auth/role/tài khoản hoạt động, ghi yêu cầu CSRF, UUID khi tạo và phiên bản khi sửa/duyệt. [Hợp đồng giáo án](features/GIAO_AN_MAU.md). Tạo/áp dụng kế hoạch khách hàng M05 vẫn là phạm vi tiếp theo.
+
 ## Auth và namespace
 
 Đã triển khai quản trị bài tập cho ADMIN hoạt động: GET `/admin/bai-tap`, `/admin/bai-tap/bo-loc`, `/admin/bai-tap/{id}`; POST `/admin/bai-tap`, PUT `/admin/bai-tap/{id}`, PATCH `/admin/bai-tap/{id}/trang-thai` dưới prefix `/api/v1`. Không có DELETE; sửa/trạng thái dùng phiên bản `updated_at`, xung đột 409. Chi tiết payload và bảo toàn dữ liệu tại [hợp đồng bài tập](features/BAI_TAP.md).

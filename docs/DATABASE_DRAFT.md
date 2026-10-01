@@ -89,3 +89,7 @@ Sơ đồ Mermaid chỉ minh họa các quan hệ chính. [Bản draw.io](diagra
 Tiền VND nguyên; DB lưu UTC, giao diện giờ Việt Nam (`Asia/Ho_Chi_Minh`), API ISO 8601 kèm timezone theo D09 đã chốt. Số ngày/lượt còn lại tính từ dữ liệu authoritative. Gói có hiệu lực từ mốc Backend xác nhận thanh toán, hết hạn sau số ngày ×24 giờ; tại mốc hết hạn không còn cấp quyền mới. Lịch PT phải kết thúc không muộn hơn hạn gói; xác nhận trong 24 giờ sau buổi đã diễn ra trong hạn được tiêu hao gói gắn lịch dù gói vừa hết hạn. Báo cáo tiền đã nhận chỉ cộng giao dịch đã xác minh thành công, không cộng đơn chờ.
 
 Mục tiêu/cân nặng/số đo là dữ liệu theo dõi do KH cung cấp; không tự diễn giải thành chẩn đoán hoặc chỉ số phần trăm mỡ nếu không có dữ liệu/phương pháp xác định.
+
+## Mở rộng kỹ thuật khi triển khai danh mục
+
+Schema/Draw.io gốc vẫn là 28 bảng/303 cột/52 FK. Runtime bổ sung UUID nullable và UNIQUE cho `ma_yeu_cau_tao` tại T04 (gói) và T12 (giáo án) bằng migrations 000029/000030, không thay migration đã chạy hoặc thêm bảng nghiệp vụ. Xem [hướng dẫn migrations](../BE/database/migrations/README.md), [hợp đồng giáo án](features/GIAO_AN_MAU.md).

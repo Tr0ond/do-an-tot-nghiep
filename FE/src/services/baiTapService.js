@@ -8,7 +8,9 @@ export default {
     return (await http.get('/bai-tap/bo-loc')).data
   },
   async taiDanhSach(boLoc, signal) {
-    return (await http.get('/bai-tap', { params: { ...boLoc, per_page: 12 }, signal })).data
+    return (
+      await http.get('/bai-tap', { params: { ...boLoc, per_page: boLoc.per_page ?? 12 }, signal })
+    ).data
   },
   async taiChiTiet(id, signal) {
     return (await http.get('/bai-tap/' + encodeURIComponent(id), { signal })).data

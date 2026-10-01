@@ -9,6 +9,31 @@ const router = createRouter({
     return false
   },
   routes: [
+    {
+      path: '/admin/giao-an-mau',
+      component: () => import('../views/Admin/GiaoAnMau/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
+    {
+      path: '/admin/giao-an-mau/them',
+      component: () => import('../views/Admin/GiaoAnMau/BieuMau/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
+    {
+      path: '/admin/giao-an-mau/:id/sua',
+      component: () => import('../views/Admin/GiaoAnMau/BieuMau/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
+    {
+      path: '/pt/giao-an-mau',
+      component: () => import('../views/PT/GiaoAnMau/index.vue'),
+      meta: { vaiTro: 'HUAN_LUYEN_VIEN' },
+    },
+    {
+      path: '/pt/giao-an-mau/:id',
+      component: () => import('../views/PT/GiaoAnMau/ChiTiet/index.vue'),
+      meta: { vaiTro: 'HUAN_LUYEN_VIEN' },
+    },
     { path: '/goi-tap', name: 'goi-tap', component: () => import('../views/GoiTap/index.vue') },
     {
       path: '/goi-tap/:id',

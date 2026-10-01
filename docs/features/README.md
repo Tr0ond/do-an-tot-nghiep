@@ -8,3 +8,5 @@
 - [REALTIME_CHAT.md](REALTIME_CHAT.md): trao đổi văn bản 1–1 giữa PT và KH, có lịch sử và kiểm soát tài nguyên.
 
 Các module còn lại định tuyến qua `SCOPE.md`, `PROJECT_RULES.md`, `DATABASE_DRAFT.md` và `API_CONVENTIONS.md`. Chỉ tách thêm tài liệu module khi triển khai cần chi tiết, tránh tạo hàng chục tài liệu trống.
+
+- [GIAO_AN_MAU.md](GIAO_AN_MAU.md): Admin soạn/duyệt/ngừng giáo án; PT đọc thư viện, UUID/phiên bản/transaction, bảo toàn kế hoạch và seeder 5 giáo án demo.

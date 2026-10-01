@@ -1,6 +1,6 @@
 # Migrations nghiệp vụ
 
-Ngoài 28 migrations tạo bảng gốc, có migration bổ sung `2026_10_01_000029_add_ma_yeu_cau_tao_to_goi_tap_table.php` thêm UUID nullable và unique `uq_t04_01` trên T04 để chống tạo gói trùng. Không sửa SQL/Draw.io gốc hoặc migration đã chạy. Runtime hiện có 32 migrations (28 tạo bảng nghiệp vụ + 3 framework + 1 bổ sung); script đối chiếu schema chỉ kiểm tra 28 migration `create_…_table`. [Hợp đồng gói tập](../../../docs/features/GOI_TAP.md).
+Ngoài 28 migrations tạo bảng gốc, có migrations bổ sung `2026_10_01_000029_add_ma_yeu_cau_tao_to_goi_tap_table.php` và `2026_10_01_000030_add_ma_yeu_cau_tao_to_giao_an_mau_table.php` thêm UUID nullable và unique `uq_t04_01`/`uq_t12_01` chống tạo gói/giáo án trùng. Không sửa SQL/Draw.io gốc hoặc migration đã chạy. Runtime hiện có 33 migrations (28 tạo bảng nghiệp vụ + 3 framework + 2 bổ sung); script đối chiếu schema chỉ kiểm tra 28 migration `create_…_table`. [Hợp đồng gói](../../../docs/features/GOI_TAP.md), [giáo án](../../../docs/features/GIAO_AN_MAU.md).
 
 Đã tạo **28 migrations Laravel / 303 cột / 52 khóa ngoại**, đối chiếu cả [database.drawio ở thư mục gốc](../../../database.drawio) và [bản trong docs](../../../docs/diagrams/database.drawio). Hai bản khớp tên bảng, tên cột và quan hệ. Kiểu dữ liệu, nullable, default, biểu thức generated và CHECK lấy từ [schema.json](../design/schema.json) / [SQL thiết kế](../design/schema.mysql.sql), vì bản vẽ tổng thể chỉ hiển thị tên cột và PK/FK.
 
