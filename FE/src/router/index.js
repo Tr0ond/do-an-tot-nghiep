@@ -3,7 +3,36 @@ import { useXacThucStore } from '../stores/xacThuc'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior(to, from, viTriDaLuu) {
+    if (viTriDaLuu) return viTriDaLuu
+    if (to.path !== from.path) return { top: 0 }
+    return false
+  },
   routes: [
+    { path: '/goi-tap', name: 'goi-tap', component: () => import('../views/GoiTap/index.vue') },
+    {
+      path: '/goi-tap/:id',
+      name: 'chi-tiet-goi-tap',
+      component: () => import('../views/GoiTap/ChiTiet/index.vue'),
+    },
+    {
+      path: '/admin/goi-tap',
+      name: 'admin-goi-tap',
+      component: () => import('../views/Admin/GoiTap/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
+    {
+      path: '/admin/goi-tap/them',
+      name: 'admin-them-goi-tap',
+      component: () => import('../views/Admin/GoiTap/BieuMau/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
+    {
+      path: '/admin/goi-tap/:id/sua',
+      name: 'admin-sua-goi-tap',
+      component: () => import('../views/Admin/GoiTap/BieuMau/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
     {
       path: '/admin/bai-tap',
       name: 'admin-bai-tap',

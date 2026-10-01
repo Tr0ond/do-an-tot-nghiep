@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\BaiTapAdminController;
 use App\Http\Controllers\Api\BaiTapController;
+use App\Http\Controllers\Api\GoiTapController;
 use App\Http\Controllers\Api\HoSoKhachHangController;
 use App\Http\Controllers\Api\TaiKhoanController;
 use App\Http\Controllers\Api\XacThucController;
@@ -19,6 +20,8 @@ Route::get('/v1/health', function () {
 });
 
 Route::prefix('v1')->group(function () {
+    Route::get('/goi-tap', [GoiTapController::class, 'index']);
+    Route::get('/goi-tap/{id}', [GoiTapController::class, 'show'])->whereNumber('id');
     Route::get('/bai-tap/bo-loc', [BaiTapController::class, 'boLoc']);
     Route::get('/bai-tap', [BaiTapController::class, 'index']);
     Route::get('/bai-tap/{id}', [BaiTapController::class, 'show'])->whereNumber('id');
@@ -28,6 +31,11 @@ Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(
     Route::get('/me', [XacThucController::class, 'me']);
     Route::get('/khach-hang/ho-so/{hoSoKhachHang}', [HoSoKhachHangController::class, 'show']);
     Route::prefix('admin')->middleware('vai_tro:ADMIN')->group(function () {
+        Route::get('/goi-tap', [GoiTapController::class, 'index']);
+        Route::post('/goi-tap', [GoiTapController::class, 'store']);
+        Route::get('/goi-tap/{id}', [GoiTapController::class, 'show'])->whereNumber('id');
+        Route::put('/goi-tap/{id}', [GoiTapController::class, 'update'])->whereNumber('id');
+        Route::patch('/goi-tap/{id}/trang-thai', [GoiTapController::class, 'trangThai'])->whereNumber('id');
         Route::get('/bai-tap/bo-loc', [BaiTapAdminController::class, 'boLoc']);
         Route::get('/bai-tap', [BaiTapAdminController::class, 'index']);
         Route::post('/bai-tap', [BaiTapAdminController::class, 'store']);

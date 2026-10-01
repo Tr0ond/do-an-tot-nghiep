@@ -14,16 +14,23 @@
           <i class="bi bi-house"></i>
           <span>Trang chủ</span>
         </RouterLink>
-        <RouterLink to="/bai-tap" class="catalog-nav-item active">
+        <RouterLink to="/bai-tap" class="catalog-nav-item" :class="{ active: !laGoiTap }">
           <i class="bi bi-collection-play-fill"></i>
-          <span>Thư viện bài tập</span>
+          <span class="d-none d-lg-inline">Thư viện bài tập</span>
+          <span class="d-lg-none">Bài tập</span>
         </RouterLink>
+        <RouterLink to="/goi-tap" class="catalog-nav-item" :class="{ active: laGoiTap }"
+          >Bảng giá</RouterLink
+        >
         <RouterLink
           class="btn btn-outline-secondary btn-sm"
           :to="xacThuc.daDangNhap ? xacThuc.duongDanCaNhan : '/dang-nhap'"
         >
           <i :class="xacThuc.daDangNhap ? 'bi bi-person-circle' : 'bi bi-box-arrow-in-right'"></i>
-          <span>{{ xacThuc.daDangNhap ? 'Khu vực cá nhân' : 'Đăng nhập' }}</span>
+          <span class="d-none d-lg-inline">{{
+            xacThuc.daDangNhap ? 'Khu vực cá nhân' : 'Đăng nhập'
+          }}</span>
+          <span class="d-lg-none">{{ xacThuc.daDangNhap ? 'Tài khoản' : 'Đăng nhập' }}</span>
         </RouterLink>
       </nav>
     </header>
@@ -37,9 +44,13 @@
     <footer class="catalog-footer">
       <div class="d-flex align-items-center gap-2">
         <span class="status-dot"></span>
-        <span>Thư viện vận động & bài tập thể hình trực quan</span>
+        <span>{{
+          laGoiTap
+            ? 'Dịch vụ huấn luyện cá nhân & tư vấn tập luyện'
+            : 'Thư viện vận động & bài tập thể hình trực quan'
+        }}</span>
       </div>
-      <div class="footer-links-group">
+      <div v-if="!laGoiTap" class="footer-links-group">
         <span class="text-muted">Minh họa bản quyền:</span>
         <a
           href="https://gymvisual.com/"
@@ -60,6 +71,9 @@ import { useXacThucStore } from '../stores/xacThuc'
 export default {
   name: 'DanhMucLayout',
   computed: {
+    laGoiTap() {
+      return this.$route.path.startsWith('/goi-tap')
+    },
     xacThuc() {
       return useXacThucStore()
     },
@@ -98,6 +112,7 @@ export default {
 }
 
 .catalog-nav-item {
+  white-space: nowrap;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -116,7 +131,7 @@ export default {
 }
 
 .catalog-nav-item.active {
-  color: var(--mau-chinh);
+  color: var(--mau-chinh-dam);
   background: var(--mau-chinh-nhat);
 }
 
@@ -150,9 +165,33 @@ export default {
   font-weight: 600;
 }
 
+@media (max-width: 1024px) {
+  .brand-title {
+    display: none;
+  }
+}
+
 @media (max-width: 640px) {
+  .catalog-nav-item i {
+    display: none;
+  }
+  .catalog-nav .btn {
+    white-space: nowrap;
+  }
+  .catalog-nav {
+    gap: 6px;
+  }
+  .catalog-nav-item {
+    padding: 8px;
+    min-height: 44px;
+  }
+  .catalog-nav .btn {
+    padding: 8px;
+    min-height: 44px;
+  }
   .catalog-header {
     padding: 14px 20px;
+    gap: 8px;
   }
   .brand-title {
     display: none;

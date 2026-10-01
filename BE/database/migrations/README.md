@@ -1,5 +1,7 @@
 # Migrations nghiệp vụ
 
+Ngoài 28 migrations tạo bảng gốc, có migration bổ sung `2026_10_01_000029_add_ma_yeu_cau_tao_to_goi_tap_table.php` thêm UUID nullable và unique `uq_t04_01` trên T04 để chống tạo gói trùng. Không sửa SQL/Draw.io gốc hoặc migration đã chạy. Runtime hiện có 32 migrations (28 tạo bảng nghiệp vụ + 3 framework + 1 bổ sung); script đối chiếu schema chỉ kiểm tra 28 migration `create_…_table`. [Hợp đồng gói tập](../../../docs/features/GOI_TAP.md).
+
 Đã tạo **28 migrations Laravel / 303 cột / 52 khóa ngoại**, đối chiếu cả [database.drawio ở thư mục gốc](../../../database.drawio) và [bản trong docs](../../../docs/diagrams/database.drawio). Hai bản khớp tên bảng, tên cột và quan hệ. Kiểu dữ liệu, nullable, default, biểu thức generated và CHECK lấy từ [schema.json](../design/schema.json) / [SQL thiết kế](../design/schema.mysql.sql), vì bản vẽ tổng thể chỉ hiển thị tên cột và PK/FK.
 
 Mỗi bảng có một migration dạng anonymous class, có `up()` và `down()`. Tên file `2026_10_01_000001_…` đến `2026_10_01_000028_…` xác định thứ tự tạo; Laravel rollback theo thứ tự ngược. Khóa tự tham chiếu `ke_hoach_tap.thay_the_ke_hoach_id` được tạo cùng bảng. Cách viết theo [tài liệu migrations Laravel](https://laravel.com/framework/docs/13.x/migrations).

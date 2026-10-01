@@ -17,13 +17,13 @@ M01 → M02 → M03 → M04/M07 → M05/M06 → M08/M09. AI có thể prototype 
 
 ## Trạng thái triển khai ngày 01/10/2026
 
-Bootstrap FE/BE, lockfiles, cấu hình local, migrations trên MariaDB 10.4.32 và luồng đăng ký/đăng nhập/đọc hồ sơ/đăng xuất cùng quyền ba vai trò đã chạy. Có Admin tạo PT/Admin, command tạo Admin đầu tiên và seeder demo; [bằng chứng tài khoản](docs/verification/M01_AUTH.md). Đã nhập catalog 1.324 bài/19 nhóm và có API/giao diện tìm kiếm/lọc/phân trang/chi tiết/ảnh-GIF; [bằng chứng bài tập](docs/verification/M02_BAI_TAP.md). Chưa hoàn tất M01 (quên/đặt lại mật khẩu, sửa hồ sơ/khóa qua UI) hoặc toàn M02 (quản lý nhóm cơ, gói/giáo án mẫu); Admin đã có thêm/sửa và đổi trạng thái bài tập.
+Bootstrap FE/BE, lockfiles, cấu hình local, migrations trên MariaDB 10.4.32 và luồng tài khoản đã chạy. Có Admin tạo PT/Admin, command Admin đầu tiên và seeder demo; [kiểm chứng tài khoản](docs/verification/M01_AUTH.md). Có 1.324 bài/19 nhóm, API/giao diện công khai và Admin thêm/sửa/đổi trạng thái bài tập. Có quản lý gói, bảng giá/quyền lợi; [kiểm chứng gói](docs/verification/M02_GOI_TAP.md). Chưa hoàn tất M01 (quên/đặt lại mật khẩu, sửa hồ sơ/khóa qua UI) hoặc toàn M02 (nhóm cơ/giáo án mẫu); đặt mua/payOS/kích hoạt M03 chưa triển khai.
 
 ## Những việc cần làm tiếp
 
 - D01–D10 đã chốt chính sách chính; cụ thể hóa use case/ERD/API/quyền/trạng thái theo quyết định đó trước module tương ứng.
 - Xác minh môi trường và dependencies tương thích; thông tin tài khoản/kênh payOS, tài khoản/quota Gemini và ngày bảo vệ chưa được cung cấp. Chỉ dùng API AI miễn phí; không tự bật billing.
-- Đã có quản trị bài tập Admin (thêm/sửa/ngừng/khôi phục hiển thị); [kiểm chứng](docs/verification/M02_ADMIN_BAI_TAP.md). Tiếp theo quản lý nhóm cơ/gói/giáo án mẫu của M02; bổ sung quên/đặt lại mật khẩu và sửa hồ sơ cho M01.
+- Đã có quản trị bài tập Admin (thêm/sửa/ngừng/khôi phục hiển thị) và quản lý gói/bảng giá/quyền lợi công khai; [kiểm chứng bài tập](docs/verification/M02_ADMIN_BAI_TAP.md), [gói tập](docs/verification/M02_GOI_TAP.md). Tiếp theo quản lý nhóm cơ/giáo án mẫu của M02; bổ sung quên/đặt lại mật khẩu và sửa hồ sơ cho M01, sau đó luồng đặt mua/payOS M03.
 - Tạo Admin đầu tiên bằng command với mật khẩu riêng khi triển khai thật; local có seeder demo. Tài khoản PT/Admin tiếp theo do Admin tạo.
 - Kiểm thử tranh chấp trên MySQL thật khi triển khai gói/lịch; kết quả MariaDB hiện tại chỉ chứng minh phần đã thử.
 

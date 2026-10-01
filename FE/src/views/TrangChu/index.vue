@@ -9,6 +9,7 @@
 
       <nav class="landing-nav d-none d-md-flex" aria-label="Điều hướng chính">
         <RouterLink to="/bai-tap" class="nav-item-link">Bài tập</RouterLink>
+        <RouterLink to="/goi-tap" class="nav-item-link">Bảng giá</RouterLink>
         <a href="#tinh-nang" class="nav-item-link">Tính năng</a>
         <a href="#quy-trinh" class="nav-item-link">Quy trình</a>
         <a href="#loi-ich" class="nav-item-link">Lợi ích</a>
@@ -46,6 +47,9 @@
         </p>
 
         <div class="hero-actions animate__animated animate__fadeInUp animate__delay-1s">
+          <RouterLink class="btn btn-outline-secondary btn-lg" to="/goi-tap"
+            >Xem gói tập</RouterLink
+          >
           <RouterLink class="btn btn-outline-secondary btn-lg" to="/bai-tap">
             <span>Khám phá bài tập</span>
             <i class="bi bi-arrow-right" aria-hidden="true"></i>

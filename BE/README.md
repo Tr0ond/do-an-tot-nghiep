@@ -42,7 +42,13 @@ API công khai: GET /api/v1/bai-tap, /bai-tap/bo-loc, /bai-tap/{id}. Danh sách 
 
 Admin hoạt động có thể GET danh sách/bộ lọc/chi tiết, POST thêm, PUT sửa và PATCH trạng thái tại `/api/v1/admin/bai-tap`. Endpoint ghi dùng CSRF; sửa/trạng thái yêu cầu `updated_at` từ response để phát hiện bản cũ (409). Chỉ sửa nội dung tiếng Việt cho bài nhập, giữ nguồn/media/ngôn ngữ khác. Bài mới nguồn admin có mã riêng gồm 4 chữ/số, chưa có ảnh/GIF. Không có DELETE. Không cần migration hoặc seed lại cho phần quản trị này. Xem [hợp đồng](../docs/features/BAI_TAP.md).
 
-## Kiểm tra đã chạy
+## Danh mục gói tập
+
+Chạy `rtk proxy php artisan migrate` khi cập nhật code để thêm `ma_yeu_cau_tao`/unique index chống tạo trùng T04. Migration bổ sung giữ dữ liệu cũ, không seed giá thương mại. Admin nhập gói rồi mở bán trên giao diện.
+
+GET công khai `/api/v1/goi-tap`, `/goi-tap/{id}` chỉ trả gói hợp lệ đang bán. ADMIN hoạt động có GET/POST danh sách, GET/PUT chi tiết, PATCH `/{id}/trang-thai` tại `/api/v1/admin/goi-tap`; ghi yêu cầu CSRF. POST có UUID `client_request_id`, retry cùng nội dung trả gói cũ, khác nội dung 409. PUT/PATCH dùng `updated_at` micro giây từ server. Không DELETE; không đổi snapshot T05 hoặc cấp gói khi sửa catalog. [Hợp đồng gói tập](../docs/features/GOI_TAP.md), [kiểm chứng](../docs/verification/M02_GOI_TAP.md). Thanh toán/đặt mua/kích hoạt chưa triển khai.
+
+## Kiểm tra toàn bộ runtime
 
 ```powershell
 rtk proxy composer validate --strict
@@ -50,12 +56,12 @@ rtk proxy php artisan test
 rtk proxy php artisan route:list --path=api
 ```
 
-Đạt 45 tests/3.211 assertions về health/CORS, tài khoản, seeder, API công khai và quản trị bài tập. XacThucTest/BaiTapTest tự tạo database ngẫu nhiên riêng bằng kết nối MySQL/MariaDB hiện tại, migrate và transaction cho từng ca, chỉ DROP database vừa tạo. Cần quyền CREATE/DROP DATABASE, không refresh database ứng dụng. Đã kiểm thử trên MariaDB 10.4.32; chưa kiểm thử tranh chấp đồng thời trên MySQL thật. Pint kiểm tra code PHP. [Bằng chứng tài khoản](../docs/verification/M01_AUTH.md), [quản trị bài tập](../docs/verification/M02_ADMIN_BAI_TAP.md), [kiểm tra seeder](database/seeders/README.md).
+Đạt 56 tests/3.387 assertions về health/CORS, tài khoản, seeder, bài tập và gói tập. XacThucTest/BaiTapTest/GoiTapTest tự tạo database ngẫu nhiên riêng bằng kết nối MySQL/MariaDB hiện tại, migrate và transaction cho từng ca, chỉ DROP database vừa tạo. Cần quyền CREATE/DROP DATABASE, không refresh database ứng dụng. Đã kiểm thử trên MariaDB 10.4.32; chưa kiểm thử cạnh tranh nhiều process hoặc MySQL thật. Pint kiểm tra code PHP. [Bằng chứng tài khoản](../docs/verification/M01_AUTH.md), [quản trị bài tập](../docs/verification/M02_ADMIN_BAI_TAP.md), [gói tập](../docs/verification/M02_GOI_TAP.md), [kiểm tra seeder](database/seeders/README.md).
 
 ## Cấu trúc và phạm vi tiếp theo
 
 Giữ các thư mục app/Http/Controllers/Api, app/Http/Requests, app/Models, app/Policies, app/Services, app/Events, app/Jobs, routes, database/migrations, database/factories, database/seeders, tests/Feature, tests/Unit. Controller → FormRequest/Policy → Service nếu có transaction → Eloquent → response contract.
 
-Đã có Sanctum cookie SPA. Tạo Admin đầu tiên bằng lệnh tai-khoan:tao-admin theo [hướng dẫn](../docs/features/TAI_KHOAN.md); lệnh hỏi mật khẩu ẩn. Môi trường local có thể chạy seeder demo thay thế. SANCTUM_STATEFUL_DOMAINS=localhost:5173 và FRONTEND_URL=http://localhost:5173 cho local. Không cài migration personal_access_tokens vì SPA chỉ dùng session. Phần tiếp theo: quản trị danh mục/gói/giáo án mẫu, quên/đặt lại mật khẩu/sửa hồ sơ, rồi gói/lịch và Reverb/payOS/Gemini theo phạm vi. Chưa tích hợp dịch vụ ngoài. Catalog đã seed; xem [kiểm chứng bài tập](../docs/verification/M02_BAI_TAP.md).
+Đã có Sanctum cookie SPA. Tạo Admin đầu tiên bằng lệnh tai-khoan:tao-admin theo [hướng dẫn](../docs/features/TAI_KHOAN.md); lệnh hỏi mật khẩu ẩn. Môi trường local có thể chạy seeder demo thay thế. SANCTUM_STATEFUL_DOMAINS=localhost:5173 và FRONTEND_URL=http://localhost:5173 cho local. Không cài migration personal_access_tokens vì SPA chỉ dùng session. Đã có quản trị bài tập/gói; phần tiếp theo: nhóm cơ/giáo án mẫu, quên/đặt lại mật khẩu/sửa hồ sơ, rồi đặt mua/payOS/lịch và Reverb/Gemini theo phạm vi. Chưa tích hợp dịch vụ ngoài. Catalog bài tập đã seed; giá gói do Admin nhập.
 
 Tham khảo [CODE_STYLE.md](../CODE_STYLE.md), [hợp đồng API](../docs/API_CONVENTIONS.md), [thiết kế database](../docs/DATABASE_DRAFT.md), [quyết định](../docs/DECISIONS.md) và [mẫu Backend](../templates/README.md).

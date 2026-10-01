@@ -59,6 +59,7 @@
       >
         <RouterLink to="/admin/tai-khoan">Tài khoản</RouterLink>
         <RouterLink to="/admin/bai-tap">Quản lý bài tập</RouterLink>
+        <RouterLink to="/admin/goi-tap">Quản lý gói tập</RouterLink>
       </nav>
       <div
         v-if="thongBao"
