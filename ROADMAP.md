@@ -15,13 +15,17 @@ Chủ dự án làm một mình khoảng 8 giờ/ngày; số ngày làm mỗi tu
 
 M01 → M02 → M03 → M04/M07 → M05/M06 → M08/M09. AI có thể prototype sớm bằng dữ liệu giả; không mở quyền dữ liệu cá nhân trước M01. M07 cần phân công từ M03. Dữ liệu báo cáo chỉ được tính sau khi nghiệp vụ nguồn ổn định.
 
-## Những việc cần làm ngay
+## Trạng thái triển khai ngày 01/10/2026
+
+Bootstrap FE/BE, lockfiles, cấu hình local, migrations trên MariaDB 10.4.32 và luồng đăng ký/đăng nhập/đọc hồ sơ/đăng xuất cùng quyền ba vai trò đã chạy. Có Admin tạo PT/Admin và command tạo Admin đầu tiên; [bằng chứng](docs/verification/M01_AUTH.md). Chưa hoàn tất toàn bộ M01: quên/đặt lại mật khẩu, sửa hồ sơ và quản lý khóa tài khoản qua UI còn phía trước. Catalog đã chuẩn bị file/media, chưa nhập DB hoặc có API.
+
+## Những việc cần làm tiếp
 
 - D01–D10 đã chốt chính sách chính; cụ thể hóa use case/ERD/API/quyền/trạng thái theo quyết định đó trước module tương ứng.
 - Xác minh môi trường và dependencies tương thích; thông tin tài khoản/kênh payOS, tài khoản/quota Gemini và ngày bảo vệ chưa được cung cấp. Chỉ dùng API AI miễn phí; không tự bật billing.
-- Khởi tạo framework trong thư mục trống an toàn; sau đó tích hợp vào `FE/` và `BE/` ở thư mục gốc, bảo toàn README và mẫu cấu hình hiện có.
-- Khóa dependencies tương thích, tạo `.env.example` runtime thực tế và hướng dẫn chạy.
-- Thiết kế một bảng tài khoản/ba role, policy ownership và seed tài khoản demo giả.
+- Nhập catalog và làm API/giao diện M02; bổ sung quên/đặt lại mật khẩu và sửa hồ sơ cho M01.
+- Tạo Admin đầu tiên bằng command khi cần; các tài khoản PT/Admin tiếp theo do Admin tạo. Không dùng tài khoản/mật khẩu mặc định.
+- Kiểm thử tranh chấp trên MySQL thật khi triển khai gói/lịch; kết quả MariaDB hiện tại chỉ chứng minh phần đã thử.
 
 ## Mốc đóng phạm vi
 

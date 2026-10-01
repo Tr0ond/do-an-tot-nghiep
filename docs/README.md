@@ -27,4 +27,4 @@ Thư mục `docs/` chứa thiết kế và kế hoạch kiểm thử. Quy tắc,
 - [CODE_STYLE.md](../CODE_STYLE.md): phong cách code.
 - [ROADMAP.md](../ROADMAP.md): kế hoạch 24 tuần.
 
-Các chính sách chính D01–D10 đã được chủ dự án chốt ngày 01/10/2026. Đã có runtime Laravel/Vue và kiểm tra bootstrap ở [BOOTSTRAP.md](verification/BOOTSTRAP.md); các use case nghiệp vụ/MySQL chưa được triển khai hoặc kiểm chứng. Khi thay đổi quyết định, cập nhật [DECISIONS.md](DECISIONS.md), phần tương ứng của [PROJECT_RULES.md](../PROJECT_RULES.md) và schema/API/tests. Không duy trì nhiều bản quy tắc trái nhau.
+Các chính sách chính D01–D10 đã được chủ dự án chốt ngày 01/10/2026. Đã có runtime Laravel/Vue, [migrations MariaDB](verification/MARIADB_MIGRATIONS.md), [luồng tài khoản](features/TAI_KHOAN.md) và [bằng chứng kiểm thử](verification/M01_AUTH.md). Các module gói/lịch/chat và kiểm thử MySQL thật còn phía trước. Khi thay đổi quyết định, cập nhật [DECISIONS.md](DECISIONS.md), phần tương ứng của [PROJECT_RULES.md](../PROJECT_RULES.md) và schema/API/tests. Không duy trì nhiều bản quy tắc trái nhau.

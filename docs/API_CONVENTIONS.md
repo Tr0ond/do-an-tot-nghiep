@@ -1,6 +1,6 @@
 # Hợp đồng API đề xuất
 
-Đã có `GET /api/v1/health` công khai để kiểm tra kết nối, trả `status/message/data` và không truy vấn database. Các endpoint nghiệp vụ bên dưới vẫn là đặc tả; chưa có xác thực hoặc chuẩn hóa đầy đủ exception của các use case chưa triển khai.
+Đã có `GET /api/v1/health`, Sanctum SPA đăng ký/đăng nhập/đăng xuất, /me, quyền hồ sơ và quản trị tạo tài khoản; [hợp đồng đã triển khai](features/TAI_KHOAN.md). Exception cho API và routes xác thực đã chuẩn hóa status/message/data/code/errors. Các endpoint gói/lịch/chat bên dưới vẫn là đặc tả, chưa triển khai.
 
 ## Auth và namespace
 

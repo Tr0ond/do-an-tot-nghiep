@@ -1,6 +1,6 @@
 # Công nghệ áp dụng
 
-Đối chiếu tài liệu chính thức ngày 01/10/2026. Đã bootstrap Laravel 13.34.0/Vue 3.5.43/Vite 8.3.1 và cài dependencies trong `BE/`/`FE/`, lưu lockfiles. Đã kiểm tra trên PHP 8.4.0/Composer 2.8.12/Node 22.20.0/npm 10.9.3. Các module MySQL/Sanctum/Reverb/payOS/Gemini vẫn là baseline cần triển khai; [bằng chứng bootstrap](docs/verification/BOOTSTRAP.md).
+Đối chiếu tài liệu chính thức ngày 01/10/2026. Đã bootstrap Laravel 13.34.0/Vue 3.5.43/Vite 8.3.1, cài Sanctum 4.3.3 và lưu lockfiles trong `BE/`/`FE/`. Đã kiểm tra trên PHP 8.4.0/Composer 2.8.12/Node 22.20.0/npm 10.9.3/MariaDB 10.4.32. Sanctum session/cookie và migrations đã chạy; Reverb/payOS/Gemini chưa triển khai. [Bằng chứng tài khoản](docs/verification/M01_AUTH.md).
 
 ## Bộ công nghệ chính
 

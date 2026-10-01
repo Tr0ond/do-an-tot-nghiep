@@ -1,8 +1,38 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useXacThucStore } from '../stores/xacThuc'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    { path: '/khong-ket-noi', component: () => import('../views/KhongKetNoi/index.vue') },
+    {
+      path: '/dang-nhap',
+      name: 'dang-nhap',
+      component: () => import('../views/XacThuc/index.vue'),
+      meta: { khach: true },
+    },
+    {
+      path: '/dang-ky',
+      name: 'dang-ky',
+      component: () => import('../views/XacThuc/index.vue'),
+      meta: { khach: true },
+    },
+    {
+      path: '/khach-hang/ho-so',
+      component: () => import('../views/CaNhan/index.vue'),
+      meta: { vaiTro: 'KHACH_HANG' },
+    },
+    {
+      path: '/pt/ho-so',
+      component: () => import('../views/CaNhan/index.vue'),
+      meta: { vaiTro: 'HUAN_LUYEN_VIEN' },
+    },
+    {
+      path: '/admin/tai-khoan',
+      component: () => import('../views/Admin/TaiKhoan/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
+    { path: '/khong-co-quyen', component: () => import('../views/KhongCoQuyen/index.vue') },
     {
       path: '/',
       name: 'trang-chu',
@@ -13,6 +43,23 @@ const router = createRouter({
       redirect: '/',
     },
   ],
+})
+
+// Router hỗ trợ điều hướng; mọi API đều kiểm tra session/quyền ở Backend.
+router.beforeEach(async (to) => {
+  const xacThuc = useXacThucStore()
+  if (to.meta.vaiTro || to.meta.khach) {
+    try {
+      await xacThuc.taiTaiKhoan()
+    } catch {
+      if (to.meta.vaiTro) return '/khong-ket-noi'
+      // Vẫn mở biểu mẫu để người dùng có thể thử lại khi Backend mất kết nối.
+      return true
+    }
+  }
+  if (to.meta.vaiTro && !xacThuc.daDangNhap) return '/dang-nhap'
+  if (to.meta.vaiTro && to.meta.vaiTro !== xacThuc.taiKhoan.vai_tro) return '/khong-co-quyen'
+  if (to.meta.khach && xacThuc.daDangNhap) return xacThuc.duongDanCaNhan
 })
 
 export default router

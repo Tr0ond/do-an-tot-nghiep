@@ -1,8 +1,1074 @@
 :root {
   color-scheme: light;
+  --font-chinh:
+    'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+
+  /* Bảng màu nhận diện thương hiệu Fitness cao cấp */
+  --mau-chinh: #059669;
+  --mau-chinh-dam: #047857;
+  --mau-chinh-nhat: #ecfdf5;
+  --mau-chinh-hover: #10b981;
+  --mau-gradient-chinh: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  --mau-gradient-dark: linear-gradient(145deg, #064e3b 0%, #022c22 100%);
+  --mau-gradient-accent: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+  --mau-gradient-cam: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  --mau-gradient-tim: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+
+  --mau-nen: #f8fafc;
+  --mau-the: #ffffff;
+  --mau-chu: #0f172a;
+  --mau-phu: #64748b;
+  --mau-vien: #e2e8f0;
+  --mau-vien-hover: #cbd5e1;
+  --mau-diem: #10b981;
+  --mau-diem-sang: #34d399;
+
+  --mau-loi: #ef4444;
+  --mau-canh-bao: #f59e0b;
+  --mau-thanh-cong: #10b981;
+  --mau-thong-tin: #3b82f6;
+
+  /* Bóng đổ hiện đại */
+  --bong-nhe: 0 1px 3px 0 rgb(0 0 0 / 0.07), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  --bong-trung: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+  --bong-dam: 0 10px 25px -3px rgb(0 0 0 / 0.09), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  --bong-noi: 0 20px 35px -5px rgb(0 0 0 / 0.12), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+  --bong-glow: 0 0 25px rgba(16, 185, 129, 0.3);
+  --bong-glow-cam: 0 0 25px rgba(245, 158, 11, 0.3);
+
+  /* Bán kính bo góc */
+  --bo-goc-sm: 8px;
+  --bo-goc-md: 12px;
+  --bo-goc-lg: 18px;
+  --bo-goc-xl: 24px;
+  --bo-goc-tron: 9999px;
+
+  /* Hiệu ứng chuyển cảnh */
+  --chuyen-canh-nhanh: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --chuyen-canh-muot: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================================
+   CÀI ĐẶT CHUNG VÀ TYPOGRAPHY
+   ======================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
+  margin: 0;
+  font-family: var(--font-chinh);
+  background-color: var(--mau-nen);
+  color: var(--mau-chu);
+  line-height: 1.6;
   min-width: 320px;
-  background: #f5f7f6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-chinh);
+  font-weight: 700;
+  color: var(--mau-chu);
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2.25rem;
+  margin-bottom: 0.75rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+a {
+  color: var(--mau-chinh);
+  text-decoration: none;
+  transition: var(--chuyen-canh-nhanh);
+}
+
+a:hover {
+  color: var(--mau-chinh-dam);
+}
+
+.text-muted,
+.form-text {
+  color: var(--mau-phu) !important;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mau-chinh);
+  background: var(--mau-chinh-nhat);
+  padding: 4px 10px;
+  border-radius: var(--bo-goc-tron);
+  margin-bottom: 0.75rem;
+}
+
+/* ========================================================
+   HIỆU ỨNG VÀ KEYFRAMES
+   ======================================================== */
+@keyframes floatOrb {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.05);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.55);
+  }
+}
+
+@keyframes pingRadar {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  80%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmerEffect {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.anim-float {
+  animation: floatOrb 6s ease-in-out infinite;
+}
+
+.anim-pulse {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* ========================================================
+   LOGO VÀ THƯƠNG HIỆU
+   ======================================================== */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--mau-chu);
+  transition: var(--chuyen-canh-nhanh);
+}
+
+.brand:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  background: var(--mau-gradient-chinh);
+  color: white;
+  display: inline-grid;
+  place-items: center;
+  font-size: 1.25rem;
+  font-weight: 900;
+  border-radius: var(--bo-goc-md);
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.35);
+  transition: var(--chuyen-canh-nhanh);
+}
+
+.brand:hover .brand-mark {
+  transform: scale(1.05) rotate(3deg);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.45);
+}
+
+.brand-light {
+  color: white;
+}
+
+.brand-light:hover {
+  color: #a7f3d0;
+}
+
+.brand-light .brand-mark {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================================
+   NÚT BẤM (BUTTONS)
+   ======================================================== */
+.btn {
+  min-height: 46px;
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--bo-goc-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: var(--chuyen-canh-muot);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--mau-gradient-chinh);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: linear-gradient(135deg, #047857 0%, #059669 100%);
+  color: white;
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-outline-secondary {
+  background: white;
+  color: var(--mau-chu);
+  border-color: var(--mau-vien);
+  box-shadow: var(--bong-nhe);
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus-visible {
+  background: #f8fafc;
+  color: var(--mau-chinh);
+  border-color: var(--mau-chinh);
+  box-shadow: var(--bong-trung);
+  transform: translateY(-2px);
+}
+
+.btn-soft {
+  background: var(--mau-chinh-nhat);
+  color: var(--mau-chinh-dam);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.btn-soft:hover {
+  background: #d1fae5;
+  color: var(--mau-chinh-dam);
+  transform: translateY(-1px);
+}
+
+.btn-danger-soft {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fee2e2;
+}
+
+.btn-danger-soft:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* ========================================================
+   BIỂU MẪU & INPUTS
+   ======================================================== */
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.form-control,
+.form-select {
+  min-height: 48px;
+  background-color: #ffffff;
+  border: 1.5px solid var(--mau-vien);
+  border-radius: var(--bo-goc-md);
+  font-size: 0.95rem;
+  color: var(--mau-chu);
+  padding: 0.65rem 1rem;
+  transition: var(--chuyen-canh-nhanh);
+}
+
+.form-control:hover,
+.form-select:hover {
+  border-color: var(--mau-vien-hover);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--mau-chinh);
+  box-shadow: 0 0 0 3.5px rgba(16, 185, 129, 0.18);
+  outline: none;
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: var(--mau-loi);
+  background-image: none;
+}
+
+.form-control.is-invalid:focus {
+  box-shadow: 0 0 0 3.5px rgba(239, 68, 68, 0.18);
+}
+
+.invalid-feedback {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--mau-loi);
+  margin-top: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.form-check-input {
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 1.5px solid var(--mau-vien);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--chuyen-canh-nhanh);
+}
+
+.form-check-input:checked {
+  background-color: var(--mau-chinh);
+  border-color: var(--mau-chinh);
+}
+
+/* ========================================================
+   THẺ VÀ PANEL (CARDS & PANELS)
+   ======================================================== */
+.profile-panel,
+.card-modern {
+  background: var(--mau-the);
+  border: 1px solid var(--mau-vien);
+  border-radius: var(--bo-goc-lg);
+  padding: 28px;
+  box-shadow: var(--bong-nhe);
+  transition: var(--chuyen-canh-muot);
+  position: relative;
+}
+
+.profile-panel:hover,
+.card-modern:hover {
+  box-shadow: var(--bong-trung);
+  border-color: #cbd5e1;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--bo-goc-lg);
+  box-shadow: var(--bong-dam);
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--mau-vien);
+  padding-bottom: 18px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.panel-heading h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-number {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--bo-goc-tron);
+  background: var(--mau-chinh-nhat);
+  color: var(--mau-chinh);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ========================================================
+   HUY HIỆU VÀ TRẠNG THÁI (BADGES & PILLS)
+   ======================================================== */
+.state-badge,
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--bo-goc-tron);
+  background: var(--mau-chinh-nhat);
+  color: var(--mau-chinh-dam);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.status-pill.status-locked {
+  background: #fef2f2;
+  color: #dc2626;
+  border-color: #fee2e2;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mau-chinh);
+  position: relative;
+}
+
+.status-dot::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: inherit;
+  animation: pingRadar 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.status-dot.dot-locked {
+  background: #ef4444;
+}
+.status-dot.dot-locked::after {
+  display: none;
+}
+
+.badge-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--bo-goc-sm);
+  letter-spacing: 0.02em;
+}
+
+.badge-role-admin {
+  background: #f5f3ff;
+  color: #7c3aed;
+  border: 1px solid #ddd6fe;
+}
+
+.badge-role-pt {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.badge-role-khach {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+/* ========================================================
+   GRID THÔNG TIN HỒ SƠ
+   ======================================================== */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 0;
+}
+
+.profile-field-box {
+  background: #f8fafc;
+  border: 1px solid var(--mau-vien);
+  border-radius: var(--bo-goc-md);
+  padding: 16px 20px;
+  transition: var(--chuyen-canh-nhanh);
+}
+
+.profile-field-box:hover {
+  background: white;
+  border-color: #cbd5e1;
+  box-shadow: var(--bong-nhe);
+}
+
+.profile-field-box dt {
+  color: var(--mau-phu);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.profile-field-box dd {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--mau-chu);
+  overflow-wrap: anywhere;
+}
+
+/* ========================================================
+   THẺ THỐNG KÊ (STAT CARDS)
+   ======================================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-item-card {
+  background: white;
+  border: 1px solid var(--mau-vien);
+  border-radius: var(--bo-goc-lg);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: var(--bong-nhe);
+  transition: var(--chuyen-canh-muot);
+}
+
+.stat-item-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--bong-trung);
+  border-color: #cbd5e1;
+}
+
+.stat-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--bo-goc-md);
+  display: grid;
+  place-items: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.stat-icon-emerald {
+  background: #ecfdf5;
+  color: #059669;
+}
+.stat-icon-amber {
+  background: #fffbeb;
+  color: #d97706;
+}
+.stat-icon-blue {
+  background: #eff6ff;
+  color: #2563eb;
+}
+.stat-icon-purple {
+  background: #f5f3ff;
+  color: #7c3aed;
+}
+
+.stat-info-content h3 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.stat-info-content p {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--mau-phu);
+}
+
+/* ========================================================
+   LAYOUT XÁC THỰC (AUTH LAYOUT)
+   ======================================================== */
+.auth-shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: minmax(360px, 1fr) minmax(460px, 1.25fr);
+}
+
+.auth-intro {
+  background: var(--mau-gradient-dark);
+  color: white;
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-intro::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -20%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+  animation: floatOrb 8s ease-in-out infinite;
+}
+
+.auth-intro::after {
+  content: '';
+  position: absolute;
+  bottom: -15%;
+  left: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+  animation: floatOrb 10s ease-in-out infinite reverse;
+}
+
+.auth-story {
+  padding: 40px 0;
+  max-width: 440px;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-story .eyebrow {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.auth-story h2 {
+  font-size: 2.75rem;
+  line-height: 1.15;
+  color: white;
+  margin: 16px 0 20px;
+  font-weight: 800;
+}
+
+.auth-story h2 span {
+  background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.auth-story > p:last-child {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.auth-quotes-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--bo-goc-lg);
+  padding: 20px;
+  margin-top: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.auth-foot {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 24px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-form-area {
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f8fafc;
+  position: relative;
+}
+
+.auth-form-card {
+  width: 100%;
+  max-width: 480px;
+  background: white;
+  border: 1px solid var(--mau-vien);
+  border-radius: var(--bo-goc-xl);
+  padding: 40px;
+  box-shadow: var(--bong-dam);
+}
+
+.auth-tabs-nav {
+  display: flex;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: var(--bo-goc-md);
+  margin-bottom: 28px;
+}
+
+.auth-tab-btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--mau-phu);
+  border-radius: var(--bo-goc-sm);
+  transition: var(--chuyen-canh-nhanh);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.auth-tab-btn.active {
+  background: white;
+  color: var(--mau-chu);
+  box-shadow: var(--bong-nhe);
+}
+
+.auth-switch {
+  text-align: center;
+  margin: 24px 0 0;
+  font-size: 0.9rem;
+  color: var(--mau-phu);
+}
+
+.auth-switch a {
+  margin-left: 6px;
+  font-weight: 700;
+  color: var(--mau-chinh);
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================================
+   MEMBER SHELL & NAVIGATION
+   ======================================================== */
+.member-shell,
+.welcome-page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--mau-nen);
+}
+
+.member-header,
+.welcome-page header {
+  padding: 18px 5vw;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--mau-vien);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.account-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-badge-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  background: #f1f5f9;
+  border-radius: var(--bo-goc-tron);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--mau-chu);
+}
+
+.user-avatar-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--mau-gradient-chinh);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.member-content {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 40px 5vw;
+  flex: 1;
+}
+
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.page-heading h1 {
+  margin: 0;
+}
+
+.member-footer {
+  padding: 24px 5vw;
+  border-top: 1px solid var(--mau-vien);
+  background: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  color: var(--mau-phu);
+}
+
+/* ========================================================
+   BẢNG QUẢN TRỊ ADMIN (ADMIN TABLE)
+   ======================================================== */
+.admin-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(340px, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.table-container-modern {
+  background: white;
+  border: 1px solid var(--mau-vien);
+  border-radius: var(--bo-goc-lg);
+  overflow: hidden;
+  box-shadow: var(--bong-nhe);
+}
+
+.table {
+  margin-bottom: 0;
+  --bs-table-color: var(--mau-chu);
+  --bs-table-bg: transparent;
+  --bs-table-border-color: var(--mau-vien);
+}
+
+.table th {
+  background: #f8fafc;
+  color: var(--mau-phu);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 14px 18px;
+  border-bottom: 1.5px solid var(--mau-vien);
+}
+
+.table td {
+  padding: 16px 18px;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--mau-vien);
+  transition: var(--chuyen-canh-nhanh);
+}
+
+.table tbody tr:hover td {
+  background-color: #f8fafc;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: #ffffff;
+  border-top: 1px solid var(--mau-vien);
+  border-radius: 0 0 var(--bo-goc-lg) var(--bo-goc-lg);
+}
+
+/* ========================================================
+   TRANG LỖI & MẤT KẾT NỐI (ERROR & OFFLINE PAGES)
+   ======================================================== */
+.error-page-container {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+}
+
+.error-card-modern {
+  max-width: 600px;
+  width: 100%;
+  background: white;
+  border: 1px solid var(--mau-vien);
+  border-radius: var(--bo-goc-xl);
+  padding: 48px 40px;
+  text-align: center;
+  box-shadow: var(--bong-dam);
+  position: relative;
+  overflow: hidden;
+}
+
+.error-icon-halo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  font-size: 2.75rem;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.error-halo-danger {
+  background: #fef2f2;
+  color: #ef4444;
+  box-shadow: 0 0 30px rgba(239, 68, 68, 0.2);
+}
+
+.error-halo-warning {
+  background: #fffbeb;
+  color: #f59e0b;
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
+}
+
+.error-halo-offline {
+  background: #f1f5f9;
+  color: #64748b;
+  box-shadow: 0 0 30px rgba(100, 116, 139, 0.2);
+}
+
+/* ========================================================
+   RESPONSIVE QUERIES
+   ======================================================== */
+@media (max-width: 992px) {
+  .auth-shell {
+    grid-template-columns: 1fr;
+  }
+  .auth-intro {
+    padding: 40px 24px;
+  }
+  .auth-story {
+    padding: 20px 0;
+  }
+  .auth-story h2 {
+    font-size: 2.2rem;
+  }
+  .auth-form-area {
+    padding: 36px 20px;
+  }
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 1.85rem;
+  }
+  .auth-story,
+  .auth-foot {
+    display: none;
+  }
+  .auth-intro {
+    padding: 20px 24px;
+  }
+  .auth-form-card {
+    padding: 28px 20px;
+  }
+  .member-header {
+    padding: 14px 20px;
+    flex-wrap: wrap;
+  }
+  .account-nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .member-content {
+    padding: 24px 16px;
+  }
+  .profile-panel {
+    padding: 20px 16px;
+  }
+  .member-footer {
+    flex-direction: column;
+    text-align: center;
+  }
 }
