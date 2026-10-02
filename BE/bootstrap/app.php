@@ -23,11 +23,11 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
-            fn (Request $request) => $request->is('api/*', 'dang-nhap', 'dang-ky', 'dang-xuat') || $request->expectsJson(),
+            fn (Request $request) => $request->is('api/*', 'dang-nhap', 'dang-ky', 'dang-xuat', 'quen-mat-khau', 'dat-lai-mat-khau') || $request->expectsJson(),
         );
         $exceptions->respond(function (Response $response) {
             $maHttp = $response->getStatusCode();
-            if ($maHttp < 400 || ! request()->is('api/*', 'dang-nhap', 'dang-ky', 'dang-xuat', 'sanctum/*')) {
+            if ($maHttp < 400 || ! request()->is('api/*', 'dang-nhap', 'dang-ky', 'dang-xuat', 'quen-mat-khau', 'dat-lai-mat-khau', 'sanctum/*')) {
                 return $response;
             }
             $duLieu = json_decode($response->getContent(), true) ?? [];
@@ -40,6 +40,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 419 => 'Phiên làm việc đã hết hạn. Vui lòng thử lại.',
                 422 => 'Vui lòng kiểm tra dữ liệu nhập.',
                 429 => 'Bạn thao tác quá nhiều lần. Vui lòng thử lại sau.',
+                503 => 'Dịch vụ gửi email đang chưa sẵn sàng. Vui lòng thử lại sau.',
                 default => 'Không thể xử lý yêu cầu. Vui lòng thử lại sau.',
             };
             $noiDung = ['status' => false, 'message' => $thongBao, 'code' => 'HTTP_'.$maHttp, 'data' => null, 'errors' => $duLieu['errors'] ?? (object) []];

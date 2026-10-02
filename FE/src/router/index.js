@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useXacThucStore } from '../stores/xacThuc'
+import { kiemTraDieuHuong } from './kiemTraDieuHuong'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,6 +10,45 @@ const router = createRouter({
     return false
   },
   routes: [
+    ...[
+      ['khach-hang', 'KHACH_HANG'],
+      ['pt', 'HUAN_LUYEN_VIEN'],
+      ['admin', 'ADMIN'],
+    ].map(([khuVuc, vaiTro]) => ({
+      path: `/${khuVuc}/tong-quan`,
+      component: () => import('../views/TongQuan/index.vue'),
+      meta: { vaiTro },
+    })),
+    {
+      path: '/quen-mat-khau',
+      component: () => import('../views/KhoiPhucMatKhau/index.vue'),
+      meta: { khach: true },
+    },
+    {
+      path: '/dat-lai-mat-khau',
+      component: () => import('../views/KhoiPhucMatKhau/index.vue'),
+      meta: { khach: true },
+    },
+    {
+      path: '/khach-hang/ho-so/sua',
+      component: () => import('../views/CaNhan/Sua/index.vue'),
+      meta: { vaiTro: 'KHACH_HANG' },
+    },
+    {
+      path: '/pt/ho-so/sua',
+      component: () => import('../views/CaNhan/Sua/index.vue'),
+      meta: { vaiTro: 'HUAN_LUYEN_VIEN' },
+    },
+    {
+      path: '/admin/ho-so',
+      component: () => import('../views/CaNhan/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
+    {
+      path: '/admin/ho-so/sua',
+      component: () => import('../views/CaNhan/Sua/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
     {
       path: '/admin/nhom-co',
       name: 'admin-nhom-co',
@@ -140,20 +180,6 @@ const router = createRouter({
 })
 
 // Router hỗ trợ điều hướng; mọi API đều kiểm tra session/quyền ở Backend.
-router.beforeEach(async (to) => {
-  const xacThuc = useXacThucStore()
-  if (to.meta.vaiTro || to.meta.khach) {
-    try {
-      await xacThuc.taiTaiKhoan()
-    } catch {
-      if (to.meta.vaiTro) return '/khong-ket-noi'
-      // Vẫn mở biểu mẫu để người dùng có thể thử lại khi Backend mất kết nối.
-      return true
-    }
-  }
-  if (to.meta.vaiTro && !xacThuc.daDangNhap) return '/dang-nhap'
-  if (to.meta.vaiTro && to.meta.vaiTro !== xacThuc.taiKhoan.vai_tro) return '/khong-co-quyen'
-  if (to.meta.khach && xacThuc.daDangNhap) return xacThuc.duongDanCaNhan
-})
+router.beforeEach((to) => kiemTraDieuHuong(to, useXacThucStore()))
 
 export default router

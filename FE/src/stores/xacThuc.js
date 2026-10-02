@@ -9,8 +9,8 @@ export const useXacThucStore = defineStore('xacThuc', {
   getters: {
     daDangNhap: (state) => Boolean(state.taiKhoan),
     duongDanCaNhan: (state) =>
-      ({ ADMIN: '/admin/tai-khoan', HUAN_LUYEN_VIEN: '/pt/ho-so' })[state.taiKhoan?.vai_tro] ||
-      '/khach-hang/ho-so',
+      ({ ADMIN: '/admin/tong-quan', HUAN_LUYEN_VIEN: '/pt/tong-quan' })[state.taiKhoan?.vai_tro] ||
+      '/khach-hang/tong-quan',
   },
   actions: {
     async taiTaiKhoan() {

@@ -4,12 +4,12 @@
     <div class="page-heading mb-4">
       <div>
         <div class="eyebrow">
-          <i class="bi bi-shield-lock-fill"></i>
+          <i class="bi bi-shield-lock-fill me-1" aria-hidden="true"></i>
           <span>TRUNG TÂM QUẢN TRỊ HỆ THỐNG</span>
         </div>
-        <h1 class="h2 fw-bold mb-1">Quản lý tài khoản</h1>
+        <h1 class="h2 fw-bold mb-1">Quản lý tài khoản & Phân quyền</h1>
         <p class="text-muted small mb-0">
-          Tra cứu, quản lý phân quyền và tạo mới tài khoản Huấn luyện viên hoặc Quản trị viên.
+          Tra cứu, quản lý phân quyền và khởi tạo tài khoản Huấn luyện viên hoặc Quản trị viên mới.
         </p>
       </div>
 
@@ -17,20 +17,24 @@
         <button
           class="btn btn-outline-secondary btn-sm"
           :disabled="dangTai"
+          title="Làm mới dữ liệu từ máy chủ"
           @click="taiDanhSach(phanTrang.current_page)"
-          title="Làm mới dữ liệu"
         >
-          <i class="bi bi-arrow-clockwise" :class="{ 'spin-anim': dangTai }"></i>
+          <i
+            class="bi bi-arrow-clockwise me-1"
+            :class="{ 'spin-anim': dangTai }"
+            aria-hidden="true"
+          ></i>
           <span>Làm mới</span>
         </button>
       </div>
     </div>
 
-    <!-- Hàng thống kê nhanh Admin -->
+    <!-- Hàng thống kê tổng quan -->
     <div class="stats-grid mb-4">
       <div class="stat-item-card">
         <div class="stat-icon-wrapper stat-icon-emerald">
-          <i class="bi bi-people-fill"></i>
+          <i class="bi bi-people-fill" aria-hidden="true"></i>
         </div>
         <div class="stat-info-content">
           <h3>{{ phanTrang.total || 0 }}</h3>
@@ -40,31 +44,31 @@
 
       <div class="stat-item-card">
         <div class="stat-icon-wrapper stat-icon-amber">
-          <i class="bi bi-award-fill"></i>
+          <i class="bi bi-award-fill" aria-hidden="true"></i>
         </div>
         <div class="stat-info-content">
           <h3>{{ soLuongPt }}</h3>
-          <p>Huấn luyện viên</p>
+          <p>Huấn luyện viên (trang này)</p>
         </div>
       </div>
 
       <div class="stat-item-card">
         <div class="stat-icon-wrapper stat-icon-blue">
-          <i class="bi bi-person-fill"></i>
+          <i class="bi bi-person-fill" aria-hidden="true"></i>
         </div>
         <div class="stat-info-content">
           <h3>{{ soLuongKhachHang }}</h3>
-          <p>Khách hàng thành viên</p>
+          <p>Khách hàng (trang này)</p>
         </div>
       </div>
 
       <div class="stat-item-card">
         <div class="stat-icon-wrapper stat-icon-purple">
-          <i class="bi bi-shield-check"></i>
+          <i class="bi bi-shield-check" aria-hidden="true"></i>
         </div>
         <div class="stat-info-content">
           <h3>{{ soLuongAdmin }}</h3>
-          <p>Quản trị viên</p>
+          <p>Quản trị viên (trang này)</p>
         </div>
       </div>
     </div>
@@ -72,7 +76,7 @@
     <!-- Thông báo kết quả tác vụ -->
     <div
       v-if="thongBao"
-      class="alert d-flex align-items-center gap-2 p-3 mb-4 rounded-3 animate__animated animate__fadeIn"
+      class="alert d-flex align-items-center gap-2 p-3 mb-4 rounded-3"
       :class="coLoi ? 'alert-danger border-danger-subtle' : 'alert-success border-success-subtle'"
       role="status"
       aria-live="polite"
@@ -84,57 +88,77 @@
             : 'bi bi-check-circle-fill text-success'
         "
         class="fs-5 flex-shrink-0"
+        aria-hidden="true"
       ></i>
       <div class="small fw-semibold flex-grow-1">{{ thongBao }}</div>
-      <button type="button" class="btn-close" @click="thongBao = ''" aria-label="Đóng"></button>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Đóng thông báo"
+        @click="thongBao = ''"
+      ></button>
     </div>
 
     <!-- Khung chính: Bảng danh sách + Form tạo tài khoản -->
     <div class="admin-grid">
-      <!-- Cột trái: Danh sách tài khoản có tìm kiếm & lọc -->
-      <section class="profile-panel p-0 overflow-hidden" aria-labelledby="danh-sach">
+      <!-- Cột trái: Danh sách tài khoản có tìm kiếm & phân trang -->
+      <section class="profile-panel p-0 overflow-hidden shadow-sm" aria-labelledby="danh-sach">
         <div
-          class="p-3 border-bottom bg-light d-flex align-items-center justify-content-between flex-wrap gap-2"
+          class="panel-table-header p-3 border-bottom d-flex align-items-center justify-content-between flex-wrap gap-2"
         >
-          <h2 id="danh-sach" class="h5 mb-0 fw-bold d-flex align-items-center gap-2">
-            <i class="bi bi-table text-primary"></i>
+          <h2 id="danh-sach" class="h6 mb-0 fw-bold d-flex align-items-center gap-2">
+            <i class="bi bi-table text-emerald" aria-hidden="true"></i>
             <span>Danh sách tài khoản</span>
           </h2>
-          <span class="badge bg-secondary-subtle text-dark border">
+          <span class="badge bg-secondary-subtle text-dark border small">
             Trang {{ phanTrang.current_page }} / {{ phanTrang.last_page }} ({{ phanTrang.total }}
             mục)
           </span>
         </div>
 
         <!-- Thanh tìm kiếm nhanh tại chỗ -->
-        <div class="p-3 border-bottom bg-white d-flex gap-2">
+        <div class="p-3 border-bottom bg-light-subtle d-flex gap-2">
           <div class="input-group-modern flex-grow-1">
-            <span class="input-icon-prefix"><i class="bi bi-search"></i></span>
+            <span class="input-icon-prefix" aria-hidden="true">
+              <i class="bi bi-search"></i>
+            </span>
             <input
               v-model="tuKhoaTimKiem"
               type="search"
               class="form-control form-control-sm has-prefix"
               placeholder="Tìm theo tên hoặc email trên trang này…"
+              aria-label="Tìm tài khoản trên trang"
             />
           </div>
+          <button
+            v-if="tuKhoaTimKiem"
+            class="btn btn-outline-secondary btn-sm"
+            type="button"
+            title="Xóa tìm kiếm"
+            @click="tuKhoaTimKiem = ''"
+          >
+            <i class="bi bi-x-lg" aria-hidden="true"></i>
+          </button>
         </div>
 
         <!-- Trạng thái đang tải -->
         <div v-if="dangTai" class="p-5 text-center" role="status">
-          <div class="spinner-border text-primary mb-3" role="status"></div>
+          <div class="spinner-border text-success mb-3" role="status"></div>
           <p class="text-muted mb-0 small">Đang tải danh sách tài khoản từ máy chủ…</p>
         </div>
 
         <!-- Trạng thái danh sách rỗng -->
         <div v-else-if="!danhSachHienThi.length" class="p-5 text-center text-muted">
-          <i class="bi bi-inbox fs-1 d-block mb-2 text-secondary opacity-50"></i>
-          <p class="mb-2 fw-semibold">Không tìm thấy tài khoản nào phù hợp.</p>
+          <div class="empty-icon-ring mx-auto mb-3">
+            <i class="bi bi-inbox fs-2 text-muted" aria-hidden="true"></i>
+          </div>
+          <p class="mb-2 fw-semibold text-dark">Không tìm thấy tài khoản nào phù hợp.</p>
           <button
             v-if="tuKhoaTimKiem"
-            class="btn btn-outline-secondary btn-sm"
+            class="btn btn-outline-secondary btn-sm mt-1"
             @click="tuKhoaTimKiem = ''"
           >
-            Xóa bộ lọc tìm kiếm
+            <i class="bi bi-arrow-counterclockwise me-1" aria-hidden="true"></i>Xóa bộ lọc tìm kiếm
           </button>
         </div>
 
@@ -146,10 +170,12 @@
                 <th scope="col">Tài khoản</th>
                 <th scope="col">Vai trò</th>
                 <th scope="col">Trạng thái</th>
+                <th scope="col" class="text-end">Thao tác</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="taiKhoan in danhSachHienThi" :key="taiKhoan.id">
+                <!-- Cột 1: Thông tin tài khoản -->
                 <td>
                   <div class="d-flex align-items-center gap-2">
                     <div class="table-user-avatar" :class="layClassAvatar(taiKhoan.vai_tro)">
@@ -157,18 +183,22 @@
                     </div>
                     <div>
                       <strong class="d-block text-dark">{{ taiKhoan.ho_ten }}</strong>
-                      <span class="text-muted small d-flex align-items-center gap-1">
-                        <i class="bi bi-envelope"></i> {{ taiKhoan.email }}
+                      <span class="text-muted small d-flex align-items-center gap-1 font-monospace">
+                        <i class="bi bi-envelope" aria-hidden="true"></i> {{ taiKhoan.email }}
                       </span>
                     </div>
                   </div>
                 </td>
+
+                <!-- Cột 2: Vai trò -->
                 <td>
                   <span class="badge-role" :class="layClassHuyHieu(taiKhoan.vai_tro)">
-                    <i :class="layBieuTuongVaiTro(taiKhoan.vai_tro)"></i>
+                    <i :class="layBieuTuongVaiTro(taiKhoan.vai_tro)" aria-hidden="true"></i>
                     <span>{{ nhanVaiTro(taiKhoan.vai_tro) }}</span>
                   </span>
                 </td>
+
+                <!-- Cột 3: Trạng thái -->
                 <td>
                   <span
                     class="status-pill"
@@ -181,6 +211,41 @@
                     <span>{{ taiKhoan.trang_thai === 'HOAT_DONG' ? 'Hoạt động' : 'Đã khóa' }}</span>
                   </span>
                 </td>
+
+                <!-- Cột 4: Thao tác khóa / mở khóa -->
+                <td class="text-end">
+                  <span
+                    v-if="taiKhoan.id === xacThuc.taiKhoan?.id"
+                    class="badge bg-light text-muted border small"
+                  >
+                    <i class="bi bi-person-check me-1" aria-hidden="true"></i>Tài khoản của bạn
+                  </span>
+                  <button
+                    v-else
+                    type="button"
+                    class="btn btn-sm"
+                    :class="
+                      taiKhoan.trang_thai === 'HOAT_DONG'
+                        ? 'btn-outline-danger'
+                        : 'btn-outline-success'
+                    "
+                    :disabled="dangDoi || dangLuu"
+                    :aria-label="
+                      (taiKhoan.trang_thai === 'HOAT_DONG' ? 'Khóa ' : 'Mở khóa ') + taiKhoan.ho_ten
+                    "
+                    @click="moXacNhan(taiKhoan)"
+                  >
+                    <i
+                      :class="
+                        taiKhoan.trang_thai === 'HOAT_DONG'
+                          ? 'bi bi-lock-fill me-1'
+                          : 'bi bi-unlock-fill me-1'
+                      "
+                      aria-hidden="true"
+                    ></i>
+                    <span>{{ taiKhoan.trang_thai === 'HOAT_DONG' ? 'Khóa' : 'Mở khóa' }}</span>
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -189,7 +254,7 @@
         <!-- Điều hướng phân trang -->
         <nav
           v-if="phanTrang.last_page > 1"
-          class="pagination-controls"
+          class="pagination-controls p-3 border-top d-flex align-items-center justify-content-between"
           aria-label="Phân trang danh sách tài khoản"
         >
           <button
@@ -197,7 +262,7 @@
             :disabled="dangTai || phanTrang.current_page <= 1"
             @click="taiDanhSach(phanTrang.current_page - 1)"
           >
-            <i class="bi bi-chevron-left me-1"></i>Trang trước
+            <i class="bi bi-chevron-left me-1" aria-hidden="true"></i>Trang trước
           </button>
           <span class="small fw-semibold text-muted">
             Trang {{ phanTrang.current_page }} / {{ phanTrang.last_page }}
@@ -207,7 +272,7 @@
             :disabled="dangTai || phanTrang.current_page >= phanTrang.last_page"
             @click="taiDanhSach(phanTrang.current_page + 1)"
           >
-            Trang sau<i class="bi bi-chevron-right ms-1"></i>
+            Trang sau<i class="bi bi-chevron-right ms-1" aria-hidden="true"></i>
           </button>
         </nav>
 
@@ -220,18 +285,19 @@
       </section>
 
       <!-- Cột phải: Form tạo tài khoản HLV hoặc Admin mới -->
-      <section class="profile-panel" aria-labelledby="tao-tai-khoan">
-        <div class="panel-heading">
-          <h2 id="tao-tai-khoan" class="h5 fw-bold mb-0">
-            <i class="bi bi-person-plus-fill text-success"></i>
-            <span>Tạo tài khoản phân quyền</span>
-          </h2>
+      <section class="profile-panel shadow-sm" aria-labelledby="tao-tai-khoan">
+        <div class="panel-heading mb-3">
+          <div class="eyebrow mb-1">
+            <i class="bi bi-person-plus me-1" aria-hidden="true"></i>
+            <span>CẤP TÀI KHOẢN MỚI</span>
+          </div>
+          <h2 id="tao-tai-khoan" class="h6 fw-bold mb-0 text-dark">Tạo tài khoản phân quyền</h2>
         </div>
 
         <form @submit.prevent="taoTaiKhoan" :aria-busy="dangLuu" novalidate>
           <TruongNhap
-            v-model="duLieu.ho_ten"
             id="ho_ten_moi"
+            v-model="duLieu.ho_ten"
             nhan="Họ và tên"
             goi-y-nhap="Ví dụ: Huấn Luyện Viên Trần Nam"
             tu-dong-dien="off"
@@ -241,8 +307,8 @@
           />
 
           <TruongNhap
-            v-model="duLieu.email"
             id="email_moi"
+            v-model="duLieu.email"
             nhan="Địa chỉ Email"
             loai="email"
             goi-y-nhap="pt.nam@gymfit.vn"
@@ -254,24 +320,24 @@
 
           <!-- Chọn vai trò dạng Thẻ trực quan -->
           <div class="mb-3">
-            <label class="form-label"
-              >Chọn vai trò cấp quyền <span class="text-danger">*</span></label
-            >
+            <label class="form-label fw-bold">
+              Chọn vai trò cấp quyền <span class="text-danger">*</span>
+            </label>
             <div class="role-picker-grid">
               <label
                 class="role-card-option"
                 :class="{ selected: duLieu.vai_tro === 'HUAN_LUYEN_VIEN' }"
               >
                 <input
-                  type="radio"
                   v-model="duLieu.vai_tro"
+                  type="radio"
                   value="HUAN_LUYEN_VIEN"
                   name="vai_tro_select"
                   class="d-none"
                   :disabled="dangLuu"
                 />
                 <div class="role-card-icon text-success">
-                  <i class="bi bi-award-fill"></i>
+                  <i class="bi bi-award-fill" aria-hidden="true"></i>
                 </div>
                 <div>
                   <strong class="d-block small">Huấn luyện viên</strong>
@@ -281,15 +347,15 @@
 
               <label class="role-card-option" :class="{ selected: duLieu.vai_tro === 'ADMIN' }">
                 <input
-                  type="radio"
                   v-model="duLieu.vai_tro"
+                  type="radio"
                   value="ADMIN"
                   name="vai_tro_select"
                   class="d-none"
                   :disabled="dangLuu"
                 />
                 <div class="role-card-icon text-purple">
-                  <i class="bi bi-shield-lock-fill"></i>
+                  <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
                 </div>
                 <div>
                   <strong class="d-block small">Quản trị viên</strong>
@@ -300,8 +366,8 @@
           </div>
 
           <TruongNhap
-            v-model="duLieu.password"
             id="mat_khau_moi"
+            v-model="duLieu.password"
             nhan="Mật khẩu khởi tạo"
             loai="password"
             goi-y-nhap="Ít nhất 8 ký tự"
@@ -314,8 +380,8 @@
           />
 
           <TruongNhap
-            v-model="duLieu.password_confirmation"
             id="mat_khau_xac_nhan"
+            v-model="duLieu.password_confirmation"
             nhan="Nhập lại mật khẩu"
             loai="password"
             goi-y-nhap="Xác nhận lại mật khẩu"
@@ -327,14 +393,139 @@
             :vo-hieu="dangLuu"
           />
 
-          <button class="btn btn-primary w-100 shadow-sm" :disabled="dangLuu" type="submit">
+          <button class="btn btn-primary w-100 shadow-sm mt-2" :disabled="dangLuu" type="submit">
             <span v-if="dangLuu" class="spinner-border spinner-border-sm me-1" role="status"></span>
+            <i v-else class="bi bi-plus-circle me-1" aria-hidden="true"></i>
             <span>{{ dangLuu ? 'Đang tạo tài khoản…' : 'Xác nhận tạo tài khoản' }}</span>
-            <i v-if="!dangLuu" class="bi bi-plus-circle ms-1"></i>
           </button>
         </form>
       </section>
     </div>
+
+    <!-- Hộp thoại xác nhận Khóa / Mở khóa tài khoản & Thu hồi phiên -->
+    <dialog
+      ref="xacNhan"
+      class="xac-nhan-tai-khoan shadow-lg"
+      aria-labelledby="tieu-de-khoa"
+      @cancel="huyXacNhan"
+    >
+      <template v-if="taiKhoanDoi">
+        <div class="dialog-header d-flex align-items-center gap-3 mb-3">
+          <div
+            class="dialog-icon-wrapper"
+            :class="
+              taiKhoanDoi.trang_thai === 'HOAT_DONG'
+                ? 'bg-danger-subtle text-danger'
+                : 'bg-success-subtle text-success'
+            "
+          >
+            <i
+              :class="
+                taiKhoanDoi.trang_thai === 'HOAT_DONG' ? 'bi bi-lock-fill' : 'bi bi-unlock-fill'
+              "
+              aria-hidden="true"
+            ></i>
+          </div>
+          <div>
+            <div class="eyebrow mb-1">QUẢN TRỊ TRUY CẬP & PHIÊN ĐĂNG NHẬP</div>
+            <h2 id="tieu-de-khoa" class="h5 fw-bold mb-0">
+              {{
+                taiKhoanDoi.trang_thai === 'HOAT_DONG'
+                  ? 'Khóa tài khoản và thu hồi phiên?'
+                  : 'Mở khóa tài khoản?'
+              }}
+            </h2>
+          </div>
+        </div>
+
+        <!-- Thông tin người dùng được chọn -->
+        <div class="target-user-card p-3 rounded-3 mb-3 bg-light border">
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+            <div>
+              <strong class="d-block text-dark">{{ taiKhoanDoi.ho_ten }}</strong>
+              <span class="text-muted small email-xac-nhan font-monospace">{{
+                taiKhoanDoi.email
+              }}</span>
+            </div>
+            <span class="badge-role" :class="layClassHuyHieu(taiKhoanDoi.vai_tro)">
+              <i :class="layBieuTuongVaiTro(taiKhoanDoi.vai_tro)" aria-hidden="true"></i>
+              <span>{{ nhanVaiTro(taiKhoanDoi.vai_tro) }}</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Hộp cảnh báo nghiệp vụ và thu hồi phiên -->
+        <div
+          class="alert p-3 mb-4 rounded-3 small"
+          :class="
+            taiKhoanDoi.trang_thai === 'HOAT_DONG'
+              ? 'alert-warning border-warning-subtle'
+              : 'alert-info border-info-subtle'
+          "
+        >
+          <template v-if="taiKhoanDoi.trang_thai === 'HOAT_DONG'">
+            <div class="fw-semibold mb-1">
+              <i class="bi bi-exclamation-triangle-fill me-1 text-warning" aria-hidden="true"></i>
+              Thu hồi phiên đăng nhập:
+            </div>
+            <p class="mb-2">
+              Người dùng sẽ bị thu hồi phiên đăng nhập và không thể truy cập tài khoản. Hồ sơ và
+              lịch sử vẫn được giữ nguyên.
+            </p>
+            <div class="text-muted small">
+              <i class="bi bi-shield-check text-success me-1" aria-hidden="true"></i>
+              Mọi gói tập, lịch sử tập và giáo án của người dùng vẫn được bảo toàn nguyên vẹn.
+            </div>
+          </template>
+          <template v-else>
+            <div class="fw-semibold mb-1">
+              <i class="bi bi-info-circle-fill me-1 text-info" aria-hidden="true"></i>
+              Khôi phục quyền truy cập:
+            </div>
+            <p class="mb-0">Người dùng có thể đăng nhập lại. Phiên cũ không được khôi phục.</p>
+          </template>
+        </div>
+
+        <!-- Cụm nút xác nhận -->
+        <div class="d-flex justify-content-end gap-2 flex-wrap">
+          <button
+            type="button"
+            class="btn btn-outline-secondary btn-sm"
+            :disabled="dangDoi"
+            @click="dongXacNhan"
+          >
+            Hủy
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm"
+            :class="taiKhoanDoi.trang_thai === 'HOAT_DONG' ? 'btn-danger' : 'btn-primary'"
+            :disabled="dangDoi"
+            @click="xacNhanTrangThai"
+          >
+            <span v-if="dangDoi" class="spinner-border spinner-border-sm me-1" role="status"></span>
+            <i
+              v-else
+              :class="
+                taiKhoanDoi.trang_thai === 'HOAT_DONG'
+                  ? 'bi bi-lock-fill me-1'
+                  : 'bi bi-unlock-fill me-1'
+              "
+              aria-hidden="true"
+            ></i>
+            <span>
+              {{
+                dangDoi
+                  ? 'Đang xử lý…'
+                  : taiKhoanDoi.trang_thai === 'HOAT_DONG'
+                    ? 'Xác nhận khóa'
+                    : 'Xác nhận mở khóa'
+              }}
+            </span>
+          </button>
+        </div>
+      </template>
+    </dialog>
   </CaNhanLayout>
 </template>
 
@@ -343,6 +534,7 @@ import CaNhanLayout from '../../../layouts/CaNhanLayout.vue'
 import TruongNhap from '../../../components/TruongNhap.vue'
 import taiKhoanService from '../../../services/taiKhoanService'
 import { layLoiApi } from '../../../utils/loiApi'
+import { useXacThucStore } from '../../../stores/xacThuc'
 
 const bieuMauMoi = () => ({
   ho_ten: '',
@@ -367,9 +559,17 @@ export default {
       coLoi: false,
       loiTruong: {},
       loiTai: false,
+      dangDoi: false,
+      taiKhoanDoi: null,
+      daHuy: false,
+      lanTai: 0,
+      boHuy: null,
     }
   },
   computed: {
+    xacThuc() {
+      return useXacThucStore()
+    },
     danhSachHienThi() {
       if (!this.tuKhoaTimKiem.trim()) return this.danhSach
       const tuKhoa = this.tuKhoaTimKiem.toLowerCase().trim()
@@ -391,7 +591,54 @@ export default {
   mounted() {
     this.taiDanhSach()
   },
+  beforeUnmount() {
+    this.daHuy = true
+    this.lanTai++
+    this.boHuy?.abort()
+    this.$refs.xacNhan?.close()
+  },
   methods: {
+    async moXacNhan(taiKhoan) {
+      if (this.dangDoi || taiKhoan.id === this.xacThuc.taiKhoan?.id) return
+      this.taiKhoanDoi = { ...taiKhoan }
+      await this.$nextTick()
+      if (this.daHuy || !this.taiKhoanDoi) return
+      this.$refs.xacNhan.showModal()
+    },
+    dongXacNhan() {
+      if (this.dangDoi) return
+      this.$refs.xacNhan.close()
+      this.taiKhoanDoi = null
+    },
+    huyXacNhan(suKien) {
+      suKien.preventDefault()
+      this.dongXacNhan()
+    },
+    async xacNhanTrangThai() {
+      if (this.dangDoi || !this.taiKhoanDoi) return
+      const taiKhoan = this.taiKhoanDoi
+      this.dangDoi = true
+      try {
+        const phanHoi = await taiKhoanService.datTrangThai(taiKhoan.id, {
+          trang_thai: taiKhoan.trang_thai === 'HOAT_DONG' ? 'BI_KHOA' : 'HOAT_DONG',
+          updated_at: taiKhoan.updated_at ?? null,
+        })
+        if (this.daHuy) return
+        this.thongBao = phanHoi.message
+        this.coLoi = false
+        this.danhSach = this.danhSach.map((hang) => (hang.id === taiKhoan.id ? phanHoi.data : hang))
+      } catch (loi) {
+        if (this.daHuy) return
+        this.thongBao = layLoiApi(loi).thongBao
+        this.coLoi = true
+        if (loi.response?.status === 409) await this.taiDanhSach(this.phanTrang.current_page)
+      } finally {
+        if (!this.daHuy) {
+          this.dangDoi = false
+          this.dongXacNhan()
+        }
+      }
+    },
     nhanVaiTro(vaiTro) {
       return (
         {
@@ -429,19 +676,23 @@ export default {
       )
     },
     async taiDanhSach(page = 1) {
-      if (this.dangTai) return
+      const lan = ++this.lanTai
+      this.boHuy?.abort()
+      this.boHuy = new AbortController()
       this.dangTai = true
       this.loiTai = false
       try {
-        const phanHoi = await taiKhoanService.taiDanhSach(page)
+        const phanHoi = await taiKhoanService.taiDanhSach(page, this.boHuy.signal)
+        if (this.daHuy || lan !== this.lanTai) return
         this.danhSach = phanHoi.data
         this.phanTrang = phanHoi.meta
       } catch (loi) {
+        if (this.daHuy || lan !== this.lanTai || loi.code === 'ERR_CANCELED') return
         this.thongBao = layLoiApi(loi).thongBao
         this.coLoi = true
         this.loiTai = true
       } finally {
-        this.dangTai = false
+        if (!this.daHuy && lan === this.lanTai) this.dangTai = false
       }
     },
     async taoTaiKhoan() {
@@ -451,17 +702,19 @@ export default {
       this.thongBao = ''
       try {
         const phanHoi = await taiKhoanService.taoTaiKhoan(this.duLieu)
+        if (this.daHuy) return
         this.thongBao = phanHoi.message || 'Tạo tài khoản thành công.'
         this.coLoi = false
         this.duLieu = bieuMauMoi()
         await this.taiDanhSach()
       } catch (loi) {
+        if (this.daHuy) return
         const phanHoi = layLoiApi(loi)
         this.thongBao = phanHoi.thongBao
         this.loiTruong = phanHoi.loiTruong
         this.coLoi = true
       } finally {
-        this.dangLuu = false
+        if (!this.daHuy) this.dangLuu = false
       }
     },
   },
@@ -469,9 +722,38 @@ export default {
 </script>
 
 <style scoped>
+.text-emerald {
+  color: var(--mau-chinh);
+}
+
+.text-purple {
+  color: #7c3aed;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.panel-table-header {
+  background: #f8fafc;
+}
+
+.empty-icon-ring {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .table-user-avatar {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -510,6 +792,7 @@ export default {
   gap: 10px;
   transition: all 0.2s ease;
   user-select: none;
+  background: #ffffff;
 }
 
 .role-card-option:hover {
@@ -527,8 +810,53 @@ export default {
   font-size: 1.4rem;
 }
 
-.text-purple {
-  color: #7c3aed;
+.btn-primary {
+  background: var(--mau-chinh);
+  border-color: var(--mau-chinh);
+  color: #ffffff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--mau-chinh-dam);
+  border-color: var(--mau-chinh-dam);
+}
+
+.btn {
+  min-height: 40px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* Modal xác nhận */
+.xac-nhan-tai-khoan {
+  width: min(520px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  border: 1px solid var(--mau-vien);
+  border-radius: 16px;
+  padding: 28px;
+  color: var(--mau-chu);
+  background: var(--mau-the);
+}
+
+.xac-nhan-tai-khoan::backdrop {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.dialog-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.email-xac-nhan {
+  overflow-wrap: anywhere;
 }
 
 .spin-anim {
@@ -541,6 +869,18 @@ export default {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 992px) {
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .role-picker-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>

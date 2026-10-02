@@ -5,8 +5,10 @@ use App\Http\Controllers\Api\BaiTapController;
 use App\Http\Controllers\Api\GiaoAnMauController;
 use App\Http\Controllers\Api\GoiTapController;
 use App\Http\Controllers\Api\HoSoKhachHangController;
+use App\Http\Controllers\Api\HoSoTaiKhoanController;
 use App\Http\Controllers\Api\NhomCoController;
 use App\Http\Controllers\Api\TaiKhoanController;
+use App\Http\Controllers\Api\TongQuanController;
 use App\Http\Controllers\Api\XacThucController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,8 +33,11 @@ Route::prefix('v1')->group(function () {
 
 Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(function () {
     Route::get('/me', [XacThucController::class, 'me']);
+    Route::get('/khach-hang/tong-quan', [TongQuanController::class, 'index'])->middleware('vai_tro:KHACH_HANG');
+    Route::put('/me/ho-so', [HoSoTaiKhoanController::class, 'update']);
     Route::get('/khach-hang/ho-so/{hoSoKhachHang}', [HoSoKhachHangController::class, 'show']);
     Route::prefix('admin')->middleware('vai_tro:ADMIN')->group(function () {
+        Route::get('/tong-quan', [TongQuanController::class, 'index']);
         Route::get('/nhom-co', [NhomCoController::class, 'index']);
         Route::post('/nhom-co', [NhomCoController::class, 'store']);
         Route::get('/nhom-co/{id}', [NhomCoController::class, 'show'])->whereNumber('id');
@@ -56,9 +61,11 @@ Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(
         Route::patch('/bai-tap/{id}/trang-thai', [BaiTapAdminController::class, 'trangThai'])->whereNumber('id');
         Route::get('/tai-khoan', [TaiKhoanController::class, 'index']);
         Route::post('/tai-khoan', [TaiKhoanController::class, 'store']);
+        Route::patch('/tai-khoan/{id}/trang-thai', [TaiKhoanController::class, 'trangThai'])->whereNumber('id');
     });
     Route::get('/pt/ho-so', [XacThucController::class, 'me'])->middleware('vai_tro:HUAN_LUYEN_VIEN');
     Route::prefix('pt')->middleware('vai_tro:HUAN_LUYEN_VIEN')->group(function () {
+        Route::get('/tong-quan', [TongQuanController::class, 'index']);
         Route::get('/giao-an-mau', [GiaoAnMauController::class, 'index']);
         Route::get('/giao-an-mau/{id}', [GiaoAnMauController::class, 'show'])->whereNumber('id');
     });

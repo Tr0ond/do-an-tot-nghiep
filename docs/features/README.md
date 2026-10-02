@@ -1,6 +1,6 @@
 # Tài liệu tính năng
 
-- [TAI_KHOAN.md](TAI_KHOAN.md): xác thực, vai trò/hồ sơ và seeder tài khoản demo.
+- [TAI_KHOAN.md](TAI_KHOAN.md): xác thực, sửa hồ sơ ba vai trò, khôi phục mật khẩu email, khóa/mở tài khoản và seeder demo.
 - [BAI_TAP.md](BAI_TAP.md): seeder catalog, API công khai, bộ lọc và giao diện bài tập.
 - [NHOM_CO.md](NHOM_CO.md): Admin quản lý nhóm cơ, số bài, ngừng/khôi phục, phiên bản và bảo toàn bài/giáo án/snapshot.
 - [GOI_TAP.md](GOI_TAP.md): quản trị gói, bảng giá/quyền lợi công khai, UUID chống tạo trùng và bảo toàn snapshot.
@@ -11,3 +11,5 @@
 Các module còn lại định tuyến qua `SCOPE.md`, `PROJECT_RULES.md`, `DATABASE_DRAFT.md` và `API_CONVENTIONS.md`. Chỉ tách thêm tài liệu module khi triển khai cần chi tiết, tránh tạo hàng chục tài liệu trống.
 
 - [GIAO_AN_MAU.md](GIAO_AN_MAU.md): Admin soạn/duyệt/ngừng giáo án; PT đọc thư viện, UUID/phiên bản/transaction, bảo toàn kế hoạch và seeder 5 giáo án demo.
+
+- [TONG_QUAN.md](TONG_QUAN.md): trang chủ guest và dashboard KH/PT/Admin, aggregate thật, quyền dữ liệu và điều hướng theo session.

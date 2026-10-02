@@ -99,3 +99,16 @@ payOS: đơn giữ giá/chờ 15 phút, Backend đồng bộ `expiredAt` theo m�
 Lịch PT: đặt trước >=4 giờ, KH hủy trước >=2 giờ; deadline chờ là mốc sớm hơn giữa lúc tạo +2 giờ và lúc bắt đầu -2 giờ. Server kiểm tra deadline khi xác nhận/hủy/giữ slot dù worker chưa dọn. PT chỉ xác nhận sau buổi diễn ra, trong 24 giờ sau kết thúc, buổi kết thúc <= hạn gói; không mượn gói mới khi xác nhận muộn. Chặn đổi PT khi buổi đang diễn ra hoặc đã diễn ra chưa xử lý; quá 24 giờ chưa xác nhận thì ghi quá hạn/không trừ buổi, Admin đóng xử lý có lý do/audit để cho đổi PT, không xác nhận thay PT/sửa counter. KH hết gói vẫn đọc kế hoạch/lịch sử và ghi nhật ký từ lịch tự tập hợp lệ đã có.
 
 Mỗi endpoint bổ sung: request/response mẫu, permission, validation, state transition, mã lỗi, idempotency và test. Sau bootstrap lưu OpenAPI nếu cần, không thêm Swagger package chỉ vì dự án cũ có.
+
+## Endpoint M01 đã bổ sung ngày 02/10/2026
+| Method | Path đầy đủ | Quyền và dữ liệu |
+| --- | --- | --- |
+| PUT | /api/v1/me/ho-so | Chính người hoạt động; ho_ten, updated_at và trường hồ sơ theo vai trò |
+| PATCH | /api/v1/admin/tai-khoan/{id}/trang-thai | Admin hoạt động; trang_thai, updated_at; cấm tự khóa |
+| POST | /quen-mat-khau | Chưa đăng nhập; email; trả thông báo chung cho email không tồn tại/bị khóa |
+| POST | /dat-lai-mat-khau | Chưa đăng nhập; email, token, password, password_confirmation |
+
+Tất cả endpoint ghi trên có CSRF. CORS bao gồm cả hai route session mới. API hồ sơ/trạng thái nhận version micro giây hoặc NULL cho record cũ còn NULL; bản cũ trả 409, dữ liệu ngoài danh sách cho phép trả 422. Khôi phục có rate limit 429, SMTP không khả dụng trả 503 chung không lộ credentials. Reset token hết hạn/sai/đã dùng/bị khóa trả lỗi 422 chung; thành công thu hồi phiên, không tự đăng nhập. Chi tiết request, giới hạn, transaction và kiểm thử tại [hợp đồng tài khoản](features/TAI_KHOAN.md), [kiểm chứng](verification/M01_HO_SO_KHOI_PHUC.md).
+
+## Tổng quan KH/PT/Admin đã triển khai
+GET /api/v1/khach-hang/tong-quan, /api/v1/pt/tong-quan và /api/v1/admin/tong-quan yêu cầu đúng vai trò và tài khoản hoạt động. Response status/message/data, Cache-Control: private, no-store. Data gồm vai_tro/cap_nhat_luc/thu_vien; KH/PT có ho_so (số mục/checklist), PT thêm giao_an_da_duyet; chỉ Admin có quan_tri (aggregate tài khoản và catalog). Query user ID/vai trò không thay đổi scope. 401/403 theo quyền; không ghi DB, không phát sinh gói/quyền sử dụng. [Hợp đồng chi tiết](features/TONG_QUAN.md).

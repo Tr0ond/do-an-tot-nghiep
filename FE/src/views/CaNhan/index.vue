@@ -1,290 +1,80 @@
 <template>
   <CaNhanLayout>
-    <!-- Banner hồ sơ cá nhân hiện đại với hiệu ứng gradient -->
-    <div class="profile-banner-card mb-4" :class="laPt ? 'banner-pt' : 'banner-khach'">
-      <div class="banner-content">
-        <div class="banner-avatar-wrap">
-          <div class="banner-avatar" :class="laPt ? 'avatar-pt' : 'avatar-khach'">
-            {{ chuCaiDau }}
+    <div class="page-heading mb-4">
+      <div>
+        <div class="eyebrow">KHU VỰC CÁ NHÂN</div>
+        <h1 class="h2">Hồ sơ của tôi</h1>
+        <p class="text-muted mb-0">
+          {{
+            laKhach
+              ? 'Thông tin cá nhân và hồ sơ tập luyện.'
+              : laPt
+                ? 'Thông tin cá nhân và hồ sơ chuyên môn.'
+                : 'Thông tin tài khoản quản trị của bạn.'
+          }}
+        </p>
+      </div>
+      <RouterLink :to="duongDanHoSo + '/sua'" class="btn btn-primary"
+        ><i class="bi bi-pencil-square" aria-hidden="true"></i> Cập nhật hồ sơ</RouterLink
+      >
+    </div>
+    <div class="ho-so-grid">
+      <section class="profile-panel" aria-labelledby="thong-tin">
+        <div class="d-flex gap-3 align-items-center mb-4">
+          <div class="anh-chu">{{ chuCaiDau }}</div>
+          <div>
+            <h2 id="thong-tin" class="h4 mb-1">{{ xacThuc.taiKhoan?.ho_ten }}</h2>
+            <span class="status-pill">Hoạt động</span>
           </div>
-          <div
-            class="avatar-badge-sub"
-            :title="laPt ? 'Huấn luyện viên chuẩn' : 'Hội viên chính thức'"
+        </div>
+        <dl>
+          <dt>Email</dt>
+          <dd>{{ xacThuc.taiKhoan?.email }}</dd>
+          <dt>Vai trò</dt>
+          <dd>{{ nhanVaiTro }}</dd>
+          <template v-if="laKhach"
+            ><dt>Ngày sinh</dt>
+            <dd>{{ ngaySinhDinhDang }}</dd>
+            <dt>Giới tính</dt>
+            <dd>{{ nhanGioiTinh }}</dd></template
           >
-            <i
-              :class="
-                laPt
-                  ? 'bi bi-patch-check-fill text-warning'
-                  : 'bi bi-check-circle-fill text-success'
-              "
-            ></i>
-          </div>
-        </div>
-
-        <div class="banner-info flex-grow-1">
-          <div class="d-flex align-items-center gap-2 flex-wrap mb-1">
-            <h1 class="h2 mb-0 fw-bold text-white">{{ xacThuc.taiKhoan?.ho_ten }}</h1>
-            <span class="status-pill status-pill-light">
-              <span class="status-dot"></span>
-              Đang hoạt động
-            </span>
-          </div>
-
-          <p class="text-white-50 mb-2 small d-flex align-items-center gap-2 flex-wrap">
-            <span><i class="bi bi-envelope me-1"></i>{{ xacThuc.taiKhoan?.email }}</span>
-            <span>•</span>
-            <span class="badge" :class="laPt ? 'bg-warning text-dark' : 'bg-info text-dark'">
-              <i :class="laPt ? 'bi bi-award-fill' : 'bi bi-person-heart'"></i>
-              {{ laPt ? 'HUẤN LUYỆN VIÊN CÁ NHÂN' : 'HỌC VIÊN CÁ NHÂN' }}
-            </span>
-          </p>
-        </div>
-
-        <div class="banner-quick-actions">
-          <button class="btn btn-light btn-sm shadow-sm" @click="thongBaoDangPhatTrien">
-            <i class="bi bi-pencil-square"></i>
-            <span>Cập nhật hồ sơ</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Thông báo tác vụ nếu có -->
-    <div
-      v-if="thongBao"
-      class="alert alert-info alert-dismissible fade show rounded-3"
-      role="alert"
-    >
-      <i class="bi bi-info-circle-fill me-2"></i>{{ thongBao }}
-      <button type="button" class="btn-close" @click="thongBao = ''" aria-label="Đóng"></button>
-    </div>
-
-    <!-- Hàng thống kê tổng quan (Metrics Cards) -->
-    <div class="stats-grid mb-4">
-      <template v-if="!laPt">
-        <!-- Dành cho Khách Hàng -->
-        <div class="stat-item-card">
-          <div class="stat-icon-wrapper stat-icon-emerald">
-            <i class="bi bi-bullseye"></i>
-          </div>
-          <div class="stat-info-content">
-            <h3>{{ hoSo?.muc_tieu || 'Tăng cơ & Giảm mỡ' }}</h3>
-            <p>Mục tiêu tập luyện</p>
-          </div>
-        </div>
-
-        <div class="stat-item-card">
-          <div class="stat-icon-wrapper stat-icon-amber">
-            <i class="bi bi-speedometer2"></i>
-          </div>
-          <div class="stat-info-content">
-            <h3>{{ hoSo?.kinh_nghiem || 'Mới bắt đầu' }}</h3>
-            <p>Kinh nghiệm thể hình</p>
-          </div>
-        </div>
-
-        <div class="stat-item-card">
-          <div class="stat-icon-wrapper stat-icon-blue">
-            <i class="bi bi-calendar3"></i>
-          </div>
-          <div class="stat-info-content">
-            <h3>{{ ngaySinhDinhDang }}</h3>
-            <p>Ngày sinh của bạn</p>
-          </div>
-        </div>
-
-        <div class="stat-item-card">
-          <div class="stat-icon-wrapper stat-icon-purple">
-            <i class="bi bi-trophy-fill"></i>
-          </div>
-          <div class="stat-info-content">
-            <h3>Gói 1-kèm-1</h3>
-            <p>Chương trình đang tham gia</p>
-          </div>
-        </div>
-      </template>
-
-      <template v-else>
-        <!-- Dành cho Huấn Luyện Viên -->
-        <div class="stat-item-card">
-          <div class="stat-icon-wrapper stat-icon-amber">
-            <i class="bi bi-award-fill"></i>
-          </div>
-          <div class="stat-info-content">
-            <h3>{{ hoSo?.chuyen_mon || 'Thể hình chuyên sâu' }}</h3>
-            <p>Lĩnh vực chuyên môn</p>
-          </div>
-        </div>
-
-        <div class="stat-item-card">
-          <div class="stat-icon-wrapper stat-icon-emerald">
-            <i class="bi bi-check-circle-fill"></i>
-          </div>
-          <div class="stat-info-content">
-            <h3>Sẵn sàng</h3>
-            <p>Tiếp nhận học viên mới</p>
-          </div>
-        </div>
-
-        <div class="stat-item-card">
-          <div class="stat-icon-wrapper stat-icon-blue">
-            <i class="bi bi-star-fill text-warning"></i>
-          </div>
-          <div class="stat-info-content">
-            <h3>5.0 / 5.0</h3>
-            <p>Đánh giá chất lượng PT</p>
-          </div>
-        </div>
-
-        <div class="stat-item-card">
-          <div class="stat-icon-wrapper stat-icon-purple">
-            <i class="bi bi-shield-check"></i>
-          </div>
-          <div class="stat-info-content">
-            <h3>Đã xác thực</h3>
-            <p>Chứng chỉ huấn luyện</p>
-          </div>
-        </div>
-      </template>
-    </div>
-
-    <!-- Chi tiết thông tin được phân nhóm rõ ràng -->
-    <div class="row g-4">
-      <!-- Cột 1: Thông tin cơ bản & Định danh -->
-      <div class="col-lg-6">
-        <section class="profile-panel h-100" aria-labelledby="tieu-de-thong-tin">
-          <div class="panel-heading">
-            <h2 id="tieu-de-thong-tin">
-              <i class="bi bi-person-vcard text-success"></i>
-              <span>Thông tin định danh</span>
-            </h2>
-            <span class="badge bg-light text-muted border">ID: #{{ xacThuc.taiKhoan?.id }}</span>
-          </div>
-
-          <dl class="profile-grid">
-            <div class="profile-field-box">
-              <dt><i class="bi bi-person"></i> Họ và tên</dt>
-              <dd>{{ xacThuc.taiKhoan?.ho_ten }}</dd>
-            </div>
-
-            <div class="profile-field-box">
-              <dt><i class="bi bi-envelope"></i> Email liên hệ</dt>
-              <dd>{{ xacThuc.taiKhoan?.email }}</dd>
-            </div>
-
-            <div class="profile-field-box">
-              <dt><i class="bi bi-shield-lock"></i> Vai trò tài khoản</dt>
-              <dd>
-                <span class="badge-role" :class="laPt ? 'badge-role-pt' : 'badge-role-khach'">
-                  {{ laPt ? 'Huấn luyện viên' : 'Khách hàng' }}
-                </span>
-              </dd>
-            </div>
-
-            <div class="profile-field-box">
-              <dt><i class="bi bi-clock-history"></i> Trạng thái</dt>
-              <dd class="text-success fw-bold">
-                <i class="bi bi-check-circle me-1"></i>Hoạt động bình thường
-              </dd>
-            </div>
-          </dl>
-        </section>
-      </div>
-
-      <!-- Cột 2: Hồ sơ chi tiết (Mục tiêu học viên hoặc Chuyên môn HLV) -->
-      <div class="col-lg-6">
-        <section class="profile-panel h-100" aria-labelledby="tieu-de-chuyen-sau">
-          <div class="panel-heading">
-            <h2 id="tieu-de-chuyen-sau">
-              <i
-                :class="
-                  laPt
-                    ? 'bi bi-mortarboard-fill text-warning'
-                    : 'bi bi-heart-pulse-fill text-danger'
-                "
-              ></i>
-              <span>{{ laPt ? 'Hồ sơ chuyên môn HLV' : 'Hồ sơ tập luyện học viên' }}</span>
-            </h2>
-            <span class="badge bg-success-subtle text-success">Chi tiết</span>
-          </div>
-
-          <!-- Nội dung cho Khách Hàng -->
-          <div v-if="!laPt">
-            <div class="profile-field-box mb-3">
-              <dt><i class="bi bi-flag-fill"></i> Mục tiêu tập luyện cốt lõi</dt>
-              <dd class="text-success">{{ hoSo?.muc_tieu || 'Chưa cung cấp mục tiêu' }}</dd>
-            </div>
-
-            <div class="row g-3">
-              <div class="col-sm-6">
-                <div class="profile-field-box">
-                  <dt><i class="bi bi-bar-chart-steps"></i> Mức độ kinh nghiệm</dt>
-                  <dd>{{ hoSo?.kinh_nghiem || 'Chưa cung cấp' }}</dd>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="profile-field-box">
-                  <dt><i class="bi bi-calendar-event"></i> Ngày sinh</dt>
-                  <dd>{{ ngaySinhDinhDang }}</dd>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-3 p-3 bg-light rounded-3 border">
-              <div class="small fw-semibold text-muted mb-1">
-                <i class="bi bi-lightbulb-fill text-warning me-1"></i>Lời khuyên huấn luyện:
-              </div>
-              <p class="small mb-0 text-muted">
-                Hãy duy trì lịch tập đều đặn và thường xuyên ghi nhận nhật ký dinh dưỡng để đạt hiệu
-                quả tối ưu.
-              </p>
-            </div>
-          </div>
-
-          <!-- Nội dung cho Huấn Luyện Viên -->
-          <div v-else>
-            <div class="profile-field-box mb-3">
-              <dt><i class="bi bi-star-fill text-warning"></i> Chuyên môn thế mạnh</dt>
-              <dd class="text-primary">{{ hoSo?.chuyen_mon || 'Chưa cung cấp chuyên môn' }}</dd>
-            </div>
-
-            <div class="p-3 bg-light rounded-3 border mb-3">
-              <div class="small fw-semibold text-muted mb-1">
-                <i class="bi bi-check2-all text-success me-1"></i>Tiêu chuẩn huấn luyện viên:
-              </div>
-              <p class="small mb-0 text-muted">
-                Huấn luyện viên cam kết đảm bảo an toàn động tác, lên giáo án chuẩn xác và theo dõi
-                sát sao chỉ số thể chất của từng học viên.
-              </p>
-            </div>
-
-            <div class="d-flex gap-2 flex-wrap">
-              <span class="badge bg-secondary-subtle text-dark border">
-                <i class="bi bi-shield-check text-success me-1"></i>Chứng chỉ NASM Certified
-              </span>
-              <span class="badge bg-secondary-subtle text-dark border">
-                <i class="bi bi-heart-pulse text-danger me-1"></i>Sơ cấp cứu CPR/AED
-              </span>
-            </div>
-          </div>
-        </section>
-      </div>
+        </dl>
+      </section>
+      <section v-if="laKhach || laPt" class="profile-panel" aria-labelledby="ho-so">
+        <h2 id="ho-so" class="h5 mb-4">{{ laPt ? 'Hồ sơ chuyên môn' : 'Hồ sơ tập luyện' }}</h2>
+        <dl>
+          <template v-if="laKhach"
+            ><dt>Mục tiêu tập luyện</dt>
+            <dd>{{ hoSo?.muc_tieu || 'Chưa cung cấp' }}</dd>
+            <dt>Kinh nghiệm</dt>
+            <dd>{{ hoSo?.kinh_nghiem || 'Chưa cung cấp' }}</dd>
+            <dt>Thời gian có thể tập</dt>
+            <dd>
+              <ul v-if="thoiGianTap.length" class="ps-3 mb-0">
+                <li v-for="(gio, viTri) in thoiGianTap" :key="viTri">{{ gio }}</li>
+              </ul>
+              <span v-else>Chưa cung cấp</span>
+            </dd></template
+          ><template v-else
+            ><dt>Chuyên môn</dt>
+            <dd>{{ hoSo?.chuyen_mon || 'Chưa cung cấp' }}</dd>
+            <dt>Giới thiệu</dt>
+            <dd class="gioi-thieu">{{ hoSo?.gioi_thieu || 'Chưa cung cấp' }}</dd></template
+          >
+        </dl>
+        <RouterLink :to="duongDanHoSo + '/sua'"
+          >Bổ sung thông tin hồ sơ <i class="bi bi-arrow-right" aria-hidden="true"></i
+        ></RouterLink>
+      </section>
     </div>
   </CaNhanLayout>
 </template>
-
 <script>
 import CaNhanLayout from '../../layouts/CaNhanLayout.vue'
 import { useXacThucStore } from '../../stores/xacThuc'
-
 export default {
   name: 'TrangHoSoCaNhan',
   components: { CaNhanLayout },
-  data() {
-    return {
-      thongBao: '',
-    }
-  },
   computed: {
     xacThuc() {
       return useXacThucStore()
@@ -292,116 +82,77 @@ export default {
     laPt() {
       return this.xacThuc.taiKhoan?.vai_tro === 'HUAN_LUYEN_VIEN'
     },
+    laKhach() {
+      return this.xacThuc.taiKhoan?.vai_tro === 'KHACH_HANG'
+    },
+    duongDanHoSo() {
+      return this.$route.path
+    },
+    nhanVaiTro() {
+      return {
+        ADMIN: 'Quản trị viên',
+        HUAN_LUYEN_VIEN: 'Huấn luyện viên',
+        KHACH_HANG: 'Khách hàng',
+      }[this.xacThuc.taiKhoan?.vai_tro]
+    },
     hoSo() {
       return this.xacThuc.taiKhoan?.[this.laPt ? 'ho_so_huan_luyen_vien' : 'ho_so_khach_hang']
     },
     chuCaiDau() {
-      const ten = this.xacThuc.taiKhoan?.ho_ten || 'U'
-      return ten.trim().charAt(0).toUpperCase()
+      return (this.xacThuc.taiKhoan?.ho_ten || 'U').trim().charAt(0).toUpperCase()
     },
     ngaySinhDinhDang() {
-      const ngay = this.hoSo?.ngay_sinh
-      if (!ngay) return 'Chưa cung cấp'
-      try {
-        return ngay.split('T')[0].split('-').reverse().join('/')
-      } catch {
-        return ngay
-      }
+      return this.hoSo?.ngay_sinh
+        ? this.hoSo.ngay_sinh.split('T')[0].split('-').reverse().join('/')
+        : 'Chưa cung cấp'
     },
-  },
-  methods: {
-    thongBaoDangPhatTrien() {
-      this.thongBao = 'Tính năng chỉnh sửa hồ sơ trực tuyến đang được nâng cấp và sẽ sớm ra mắt.'
+    nhanGioiTinh() {
+      return { NAM: 'Nam', NU: 'Nữ', KHAC: 'Khác' }[this.hoSo?.gioi_tinh] || 'Chưa cung cấp'
+    },
+    thoiGianTap() {
+      return Array.isArray(this.hoSo?.thoi_gian_co_the_tap) ? this.hoSo.thoi_gian_co_the_tap : []
     },
   },
 }
 </script>
-
 <style scoped>
-.profile-banner-card {
-  border-radius: 20px;
-  padding: 32px 36px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-.banner-khach {
-  background: linear-gradient(135deg, #065f46 0%, #047857 50%, #0d9488 100%);
-}
-
-.banner-pt {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #064e3b 100%);
-}
-
-.banner-content {
-  display: flex;
-  align-items: center;
+.ho-so-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 2;
+  align-items: start;
 }
-
-.banner-avatar-wrap {
-  position: relative;
-}
-
-.banner-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+.anh-chu {
+  width: 64px;
+  height: 64px;
   display: grid;
   place-items: center;
-  font-size: 2.2rem;
-  font-weight: 800;
+  border-radius: 18px;
+  background: var(--mau-chinh);
   color: white;
-  border: 4px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  font-size: 28px;
+  font-weight: 700;
+  flex-shrink: 0;
 }
-
-.avatar-khach {
-  background: linear-gradient(135deg, #10b981, #06b6d4);
+dt {
+  color: var(--mau-phu);
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
 }
-
-.avatar-pt {
-  background: linear-gradient(135deg, #f59e0b, #ef4444);
+dd {
+  margin-bottom: 24px;
+  overflow-wrap: anywhere;
 }
-
-.avatar-badge-sub {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background: white;
-  border-radius: 50%;
-  width: 26px;
-  height: 26px;
-  display: grid;
-  place-items: center;
-  font-size: 1rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+.gioi-thieu {
+  white-space: pre-wrap;
 }
-
-.status-pill-light {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(8px);
+.btn {
+  min-height: 44px;
 }
-
-@media (max-width: 640px) {
-  .profile-banner-card {
-    padding: 24px 20px;
-  }
-  .banner-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  .banner-info {
-    text-align: center;
-  }
-  .banner-info .d-flex {
-    justify-content: center;
+@media (max-width: 800px) {
+  .ho-so-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>

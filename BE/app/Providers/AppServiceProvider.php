@@ -33,5 +33,12 @@ class AppServiceProvider extends ServiceProvider
             return [Limit::perMinute(20)->by($request->ip()), Limit::perMinute(5)->by(hash('sha256', $khoaEmail.'|'.$request->ip()))];
         });
         RateLimiter::for('dang-ky', fn (Request $request) => Limit::perHour(10)->by($request->ip()));
+        RateLimiter::for('khoi-phuc', function (Request $request) {
+            $email = $request->input('email');
+            $khoaEmail = is_string($email) ? Str::lower(trim($email)) : '';
+
+            return [Limit::perMinute(20)->by($request->ip()), Limit::perMinute(5)->by(hash('sha256', $khoaEmail.'|'.$request->ip()))];
+        });
+        RateLimiter::for('dat-lai', fn (Request $request) => Limit::perMinute(20)->by($request->ip()));
     }
 }

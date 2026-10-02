@@ -59,7 +59,7 @@ Modal, tab và drawer không tính là màn hình riêng. Cùng một trang có 
 | S03 | Chung | Quên mật khẩu |
 | S04 | Chung | Đặt lại mật khẩu |
 | S05 | Chung | Không tìm thấy/không có quyền |
-| S06 | KH | Trang chủ và danh mục gói, chi tiết gói trong drawer |
+| S06 | KH | Dashboard sau đăng nhập và truy cập danh mục gói; trang giới thiệu riêng cho guest |
 | S07 | KH | Hồ sơ, mục tiêu và tiến độ cơ thể |
 | S08 | KH | Gói của tôi và đăng ký/thanh toán |
 | S09 | KH | PT phụ trách và thông tin chuyên môn |

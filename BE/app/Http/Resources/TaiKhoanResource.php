@@ -15,6 +15,7 @@ class TaiKhoanResource extends JsonResource
             'email' => $this->email,
             'vai_tro' => $this->vai_tro,
             'trang_thai' => $this->trang_thai,
+            'updated_at' => $this->updated_at?->format('Y-m-d H:i:s.u'),
             'ho_so_khach_hang' => $this->whenLoaded('hoSoKhachHang'),
             'ho_so_huan_luyen_vien' => $this->whenLoaded('hoSoHuanLuyenVien'),
         ];

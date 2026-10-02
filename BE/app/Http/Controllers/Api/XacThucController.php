@@ -22,6 +22,8 @@ class XacThucController extends Controller
         Auth::guard('web')->login($taiKhoan);
         $request->session()->regenerate();
 
+        $request->session()->put('dau_phien_dang_nhap', $taiKhoan->dauPhienDangNhap());
+
         return $this->traTaiKhoan($request, $taiKhoan, 'Đăng ký thành công.', 201);
     }
 
@@ -39,12 +41,15 @@ class XacThucController extends Controller
 
         $request->session()->regenerate();
 
+        $request->session()->put('dau_phien_dang_nhap', Auth::guard('web')->user()->dauPhienDangNhap());
+
         return $this->traTaiKhoan($request, Auth::guard('web')->user(), 'Đăng nhập thành công.');
     }
 
     public function dangXuat(Request $request): JsonResponse
     {
-        Auth::guard('web')->logout();
+        // Đăng xuất chỉ đóng thiết bị hiện tại; dấu phiên toàn tài khoản chỉ đổi khi khóa/reset.
+        Auth::guard('web')->logoutCurrentDevice();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 

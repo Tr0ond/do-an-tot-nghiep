@@ -157,6 +157,9 @@
       </div>
 
       <!-- Nút hành động chính -->
+      <RouterLink v-if="!laDangKy" to="/quen-mat-khau" class="d-block mb-3"
+        >Quên mật khẩu?</RouterLink
+      >
       <button class="btn btn-primary w-100 py-2 fs-6 shadow-sm" :disabled="dangGui" type="submit">
         <span
           v-if="dangGui"

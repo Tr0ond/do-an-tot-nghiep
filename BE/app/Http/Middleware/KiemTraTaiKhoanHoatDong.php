@@ -22,6 +22,17 @@ class KiemTraTaiKhoanHoatDong
             abort(403, 'Tài khoản đã bị khóa hoặc ngừng hoạt động.');
         }
 
+        // Session thật phải giữ dấu lúc đăng nhập; khóa/mở hoặc đổi mật khẩu không hồi sinh phiên cũ.
+        if ($request->hasSession() && $request->session()->has(Auth::guard('web')->getName())) {
+            $dauPhien = $request->session()->get('dau_phien_dang_nhap');
+            if (! is_string($dauPhien) || ! hash_equals($request->user()->dauPhienDangNhap(), $dauPhien)) {
+                Auth::guard('web')->logoutCurrentDevice();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+                abort(401);
+            }
+        }
+
         return $next($request);
     }
 }

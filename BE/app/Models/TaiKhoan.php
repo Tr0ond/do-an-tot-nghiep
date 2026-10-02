@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\KhoiPhucMatKhau;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -17,6 +18,20 @@ class TaiKhoan extends Authenticatable
     public const ADMIN = 'ADMIN';
 
     public const HOAT_DONG = 'HOAT_DONG';
+
+    public const BI_KHOA = 'BI_KHOA';
+
+    protected $dateFormat = 'Y-m-d H:i:s.u';
+
+    public function dauPhienDangNhap(): string
+    {
+        return hash('sha256', $this->password.'|'.$this->remember_token);
+    }
+
+    public function sendPasswordResetNotification($token): void
+    {
+        $this->notify(new KhoiPhucMatKhau($token));
+    }
 
     public function hoSoKhachHang(): HasOne
     {

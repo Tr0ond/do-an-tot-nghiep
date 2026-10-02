@@ -1,5 +1,12 @@
 <template>
-  <div class="catalog-shell">
+  <CaNhanLayout v-if="coMenuHeader">
+    <slot />
+    <p v-if="!laGoiTap" class="member-catalog-credit">
+      Minh họa bản quyền:
+      <a href="https://gymvisual.com/" target="_blank" rel="noopener noreferrer">© Gym visual</a>
+    </p>
+  </CaNhanLayout>
+  <div v-else class="catalog-shell">
     <!-- Header danh mục chuẩn Glassmorphism đồng bộ toàn hệ thống -->
     <header class="catalog-header">
       <div class="d-flex align-items-center gap-3">
@@ -26,11 +33,11 @@
           class="btn btn-outline-secondary btn-sm"
           :to="xacThuc.daDangNhap ? xacThuc.duongDanCaNhan : '/dang-nhap'"
         >
-          <i :class="xacThuc.daDangNhap ? 'bi bi-person-circle' : 'bi bi-box-arrow-in-right'"></i>
+          <i :class="xacThuc.daDangNhap ? 'bi bi-grid-1x2' : 'bi bi-box-arrow-in-right'"></i>
           <span class="d-none d-lg-inline">{{
-            xacThuc.daDangNhap ? 'Khu vực cá nhân' : 'Đăng nhập'
+            xacThuc.daDangNhap ? 'Tổng quan' : 'Đăng nhập'
           }}</span>
-          <span class="d-lg-none">{{ xacThuc.daDangNhap ? 'Tài khoản' : 'Đăng nhập' }}</span>
+          <span class="d-lg-none">{{ xacThuc.daDangNhap ? 'Tổng quan' : 'Đăng nhập' }}</span>
         </RouterLink>
       </nav>
     </header>
@@ -67,10 +74,15 @@
 
 <script>
 import { useXacThucStore } from '../stores/xacThuc'
+import CaNhanLayout from './CaNhanLayout.vue'
 
 export default {
   name: 'DanhMucLayout',
+  components: { CaNhanLayout },
   computed: {
+    coMenuHeader() {
+      return ['KHACH_HANG', 'ADMIN'].includes(this.xacThuc.taiKhoan?.vai_tro)
+    },
     laGoiTap() {
       return this.$route.path.startsWith('/goi-tap')
     },
@@ -78,10 +90,28 @@ export default {
       return useXacThucStore()
     },
   },
+  async mounted() {
+    if (!this.xacThuc.daKhoiTao) {
+      try {
+        await this.xacThuc.taiTaiKhoan()
+      } catch {
+        // Danh mục vẫn là trang công khai khi không xác minh được session.
+      }
+    }
+  },
 }
 </script>
 
 <style scoped>
+.member-catalog-credit {
+  margin: 32px 0 0;
+  font-size: 0.85rem;
+  color: var(--mau-phu);
+}
+.member-catalog-credit a {
+  color: var(--mau-chinh-dam);
+  font-weight: 600;
+}
 .catalog-shell {
   min-height: 100vh;
   display: flex;

@@ -2,7 +2,7 @@
 
 **Trạng thái:** đã bootstrap Laravel **13.34.0**, cài dependencies và lưu composer.lock. Đã kiểm tra trên Windows, PHP **8.4.0**, Composer **2.8.12**. Có pdo_mysql, mbstring, openssl, curl, fileinfo, dom, xml, zip.
 
-Đã có GET /api/v1/health công khai và /up. Đã triển khai Sanctum 4.3.3 cho đăng ký KH, đăng nhập/đăng xuất, đọc tài khoản/hồ sơ, quyền ba vai trò và Admin tạo PT/Admin. TaiKhoan ánh xạ bảng tai_khoan; không tạo users. Có [seeder 3 tài khoản demo](database/seeders/README.md) cho local/testing. CORS hỗ trợ credentials và origin FRONTEND_URL. Xem [hợp đồng tài khoản](../docs/features/TAI_KHOAN.md); quên/đặt lại mật khẩu và sửa hồ sơ chưa triển khai.
+Đã có GET /api/v1/health công khai và /up. Đã triển khai Sanctum 4.3.3 cho đăng ký KH, đăng nhập/đăng xuất, đọc/sửa hồ sơ, quyền ba vai trò và Admin tạo PT/Admin, khóa/mở khóa tài khoản. Có quên/đặt lại mật khẩu qua email. TaiKhoan ánh xạ bảng tai_khoan; không tạo users. Có [seeder 3 tài khoản demo](database/seeders/README.md) cho local/testing. CORS hỗ trợ credentials và origin FRONTEND_URL. Xem [hợp đồng tài khoản](../docs/features/TAI_KHOAN.md) và [kiểm chứng M01 bổ sung](../docs/verification/M01_HO_SO_KHOI_PHUC.md).
 
 Giữ nguyên [SQL thiết kế](database/design/README.md), [28 migrations nghiệp vụ](database/migrations/README.md), [catalog 1.324 bài tập](database/data/README.md) và 2.648 media ở public/media/bai-tap/. Thêm 3 migrations kỹ thuật Laravel cho session/reset password/cache/queue. Đã chạy migrations trên MariaDB 10.4.32 và kiểm tra migrate/rollback/migrate trên database riêng; [bằng chứng](../docs/verification/MARIADB_MIGRATIONS.md). Đã nhập catalog và có API bài tập công khai; chưa kiểm thử trên MySQL thật.
 
@@ -58,13 +58,13 @@ rtk proxy php artisan test
 rtk proxy php artisan route:list --path=api
 ```
 
-Đạt 81 tests/3.971 assertions về health/CORS, tài khoản, seeder, bài tập, gói tập và giáo án mẫu. XacThucTest/BaiTapTest/GoiTapTest/GiaoAnMauTest/NhomCoTest tự tạo database ngẫu nhiên riêng bằng kết nối MySQL/MariaDB hiện tại, migrate và transaction cho từng ca, chỉ DROP database vừa tạo. Cần quyền CREATE/DROP DATABASE, không refresh database ứng dụng. Đã kiểm thử trên MariaDB 10.4.32; chưa kiểm thử cạnh tranh nhiều process hoặc MySQL thật. Pint kiểm tra code PHP. [Bằng chứng tài khoản](../docs/verification/M01_AUTH.md), [quản trị bài tập](../docs/verification/M02_ADMIN_BAI_TAP.md), [gói tập](../docs/verification/M02_GOI_TAP.md), [kiểm tra seeder](database/seeders/README.md).
+Đạt 98 tests/4.237 assertions về health/CORS, tài khoản, seeder, bài tập, gói tập và giáo án mẫu. XacThucTest/HoSoTaiKhoanTest/TongQuanTest/BaiTapTest/GoiTapTest/GiaoAnMauTest/NhomCoTest tự tạo database ngẫu nhiên riêng bằng kết nối MySQL/MariaDB hiện tại, migrate và transaction cho từng ca, chỉ DROP database vừa tạo. Cần quyền CREATE/DROP DATABASE, không refresh database ứng dụng. Đã kiểm thử trên MariaDB 10.4.32; chưa kiểm thử cạnh tranh nhiều process hoặc MySQL thật. Pint kiểm tra code PHP. [Bằng chứng tài khoản](../docs/verification/M01_AUTH.md), [quản trị bài tập](../docs/verification/M02_ADMIN_BAI_TAP.md), [gói tập](../docs/verification/M02_GOI_TAP.md), [kiểm tra seeder](database/seeders/README.md).
 
 ## Cấu trúc và phạm vi tiếp theo
 
 Giữ các thư mục app/Http/Controllers/Api, app/Http/Requests, app/Models, app/Policies, app/Services, app/Events, app/Jobs, routes, database/migrations, database/factories, database/seeders, tests/Feature, tests/Unit. Controller → FormRequest/Policy → Service nếu có transaction → Eloquent → response contract.
 
-Đã có Sanctum cookie SPA. Tạo Admin đầu tiên bằng lệnh tai-khoan:tao-admin theo [hướng dẫn](../docs/features/TAI_KHOAN.md); lệnh hỏi mật khẩu ẩn. Môi trường local có thể chạy seeder demo thay thế. SANCTUM_STATEFUL_DOMAINS=localhost:5173 và FRONTEND_URL=http://localhost:5173 cho local. Không cài migration personal_access_tokens vì SPA chỉ dùng session. Đã có quản trị bài tập/gói/giáo án và PT đọc thư viện; phần tiếp theo: quên/đặt lại mật khẩu/sửa hồ sơ/khóa tài khoản qua UI, rồi đặt mua/payOS/lịch và Reverb/Gemini theo phạm vi. Chưa tích hợp dịch vụ ngoài. Catalog bài tập đã seed; giá gói do Admin nhập.
+Đã có Sanctum cookie SPA. Tạo Admin đầu tiên bằng lệnh tai-khoan:tao-admin theo [hướng dẫn](../docs/features/TAI_KHOAN.md); lệnh hỏi mật khẩu ẩn. Môi trường local có thể chạy seeder demo thay thế. SANCTUM_STATEFUL_DOMAINS=localhost:5173 và FRONTEND_URL=http://localhost:5173 cho local. Không cài migration personal_access_tokens vì SPA chỉ dùng session. Đã có quản trị bài tập/gói/giáo án và PT đọc thư viện; đã bổ sung sửa hồ sơ/quên/đặt lại mật khẩu/khóa tài khoản qua UI. Phần tiếp theo: đặt mua/payOS/phân công PT/lịch và Reverb/Gemini theo phạm vi. SMTP đã cấu hình local và xác minh xác thực STARTTLS; chưa kiểm tra thư đến hộp thư thật, payOS/Gemini chưa tích hợp. Catalog bài tập đã seed; giá gói do Admin nhập.
 
 Tham khảo [CODE_STYLE.md](../CODE_STYLE.md), [hợp đồng API](../docs/API_CONVENTIONS.md), [thiết kế database](../docs/DATABASE_DRAFT.md), [quyết định](../docs/DECISIONS.md) và [mẫu Backend](../templates/README.md).
 
@@ -73,3 +73,15 @@ Tham khảo [CODE_STYLE.md](../CODE_STYLE.md), [hợp đồng API](../docs/API_C
 Chạy `rtk proxy php artisan migrate` sau khi cập nhật để thêm UUID nullable/unique T12 (migration 000030), giữ giáo án cũ. Admin có GET/POST `/api/v1/admin/giao-an-mau`, GET/PUT `/{id}`, PATCH `/{id}/trang-thai`; PT có GET `/api/v1/pt/giao-an-mau` và `/{id}` chỉ đọc đã duyệt. FormRequest/Service kiểm tra ngày/thứ tự, bài/nhóm hoạt động, UUID và phiên bản; ghi parent/child atomic. Duyệt do server đặt actor/thời gian; sửa nội dung thu hồi duyệt. Không DELETE hoặc sửa kế hoạch/snapshot khách hàng. [Hợp đồng](../docs/features/GIAO_AN_MAU.md), [kiểm chứng](../docs/verification/M02_GIAO_AN_MAU.md). Không cần seed lại catalog.
 
 Để có dữ liệu trình diễn, chạy `rtk proxy php artisan db:seed --class=GiaoAnMauSeeder` từ BE sau khi có Admin demo và catalog: tạo 5 giáo án đã duyệt/60 dòng bài tập. Chạy lại giữ các giáo án đã có, kể cả bản tự sửa/ngừng; chỉ dùng local/testing, không gán cho khách hàng. Máy mới chạy `db:seed` để nạp phụ thuộc theo thứ tự. Xem [hướng dẫn seeders](database/seeders/README.md), [kiểm chứng](../docs/verification/M02_GIAO_AN_MAU_SEEDER.md).
+
+## Hồ sơ, khóa tài khoản và email khôi phục
+PUT /api/v1/me/ho-so sửa hồ sơ của người đăng nhập; PATCH /api/v1/admin/tai-khoan/{id}/trang-thai khóa/mở khóa do Admin thực hiện. Hai API nhận updated_at để chống ghi đè bản cũ; đều yêu cầu CSRF. Khóa tài khoản thu hồi phiên trên mọi session driver, mở khóa không phục hồi phiên cũ. Admin không tự khóa chính mình.
+
+POST /quen-mat-khau và POST /dat-lai-mat-khau là route session ngoài /api/v1, có CSRF/rate limit/CORS. Token lưu hash trong DB, hết hạn 60 phút, dùng một lần; đặt lại thành công thu hồi phiên và không tự đăng nhập. Không thêm migration hoặc seed lại cho phần này.
+
+Trên máy mới, cấu hình SMTP trong BE/.env: MAIL_MAILER=smtp, MAIL_SCHEME=smtp, MAIL_HOST, MAIL_PORT, MAIL_USERNAME, MAIL_PASSWORD, MAIL_FROM_ADDRESS và MAIL_FROM_NAME; MAIL_REQUIRE_TLS=true mặc định. Gmail dùng port 587 và mật khẩu ứng dụng. FRONTEND_URL phải là URL Vue để tạo liên kết đặt lại. Chạy php artisan config:clear sau khi thay đổi; khởi động lại tiến trình Backend dài hạn nếu có. .env là file local bị Git bỏ qua, không đưa thông tin SMTP thật vào .env.example.
+
+Đã xác thực SMTP Gmail bằng STARTTLS tại local, chưa gửi thư thật. Test dùng Notification::fake; trình duyệt chỉ yêu cầu khôi phục cho email không tồn tại. Xem [bằng chứng và giới hạn](../docs/verification/M01_HO_SO_KHOI_PHUC.md).
+
+## API tổng quan theo vai trò
+GET /api/v1/khach-hang/tong-quan, /pt/tong-quan, /admin/tong-quan có auth/tài khoản hoạt động/vai trò tương ứng. KH/PT chỉ nhận mức đầy đủ hồ sơ chính mình và catalog công khai; PT thêm số giáo án đã duyệt. Admin nhận aggregate tài khoản và danh mục toàn DB, không trả thông tin cá nhân người khác. GET chỉ đọc, không cần migration/seed mới. [Hợp đồng](../docs/features/TONG_QUAN.md), [kiểm chứng](../docs/verification/DASHBOARD.md).

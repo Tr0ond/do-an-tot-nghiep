@@ -24,4 +24,16 @@ export default {
   async taiHoSo(id) {
     return (await http.get('/khach-hang/ho-so/' + id)).data
   },
+  async suaHoSo(duLieu) {
+    await this.layCsrfCookie()
+    return (await http.put('/me/ho-so', duLieu)).data
+  },
+  async guiLienKet(duLieu) {
+    await this.layCsrfCookie()
+    return (await http.post(gocBackend + '/quen-mat-khau', duLieu)).data
+  },
+  async datLaiMatKhau(duLieu) {
+    await this.layCsrfCookie()
+    return (await http.post(gocBackend + '/dat-lai-mat-khau', duLieu)).data
+  },
 }

@@ -1,8 +1,17 @@
 # Tài khoản và phân quyền — phần đã triển khai
 
-Ngày 01/10/2026, Laravel 13/Sanctum 4.3.3, Vue 3 Options API/Pinia Options Store. Phạm vi đợt này: đăng ký KH, đăng nhập/đăng xuất, đọc hồ sơ, phân quyền ba vai trò và Admin tạo PT/Admin. Quên/đặt lại mật khẩu, sửa hồ sơ và quản lý khóa tài khoản qua giao diện chưa triển khai. Tài khoản có trạng thái khác HOAT_DONG đã bị chặn đăng nhập/API.
+Cập nhật 02/10/2026, Laravel 13/Sanctum 4.3.3, Vue 3 Options API/Pinia Options Store. Đã có đăng ký KH, đăng nhập/đăng xuất, đọc/sửa hồ sơ của chính mình theo ba vai trò, Admin tạo PT/Admin và khóa/mở khóa tài khoản, khôi phục mật khẩu qua email. Tài khoản có trạng thái khác HOAT_DONG bị chặn đăng nhập/API. SMTP local đã xác thực với STARTTLS; chưa gửi email thật để xác nhận giao nhận. Bằng chứng bổ sung tại [M01_HO_SO_KHOI_PHUC.md](../verification/M01_HO_SO_KHOI_PHUC.md).
 
 ## Use case và hợp đồng
+
+### Bổ sung M01 ngày 02/10/2026
+
+- `PUT /api/v1/me/ho-so`: tài khoản hoạt động sửa hồ sơ của chính mình. Nhận `ho_ten`, `updated_at`; KH thêm `muc_tieu`, `kinh_nghiem`, `gioi_tinh`, `ngay_sinh`, `thoi_gian_co_the_tap` (mảng tối đa 14 ghi chú, mỗi ghi chú 120 ký tự); PT thêm `chuyen_mon`, `gioi_thieu`. Admin chỉ sửa tên. Không sửa email, mật khẩu, vai trò, ID hoặc trạng thái qua hồ sơ. Ngày sinh không ở tương lai; các mô tả tối đa 255 ký tự, giới thiệu PT tối đa 5.000. Ghi cả tài khoản/hồ sơ trong transaction, khóa tài khoản và đối chiếu phiên bản micro giây; bản cũ 409, giữ bản nhập ở FE.
+- `PATCH /api/v1/admin/tai-khoan/{id}/trang-thai`: ADMIN hoạt động gửi `trang_thai` = `HOAT_DONG` hoặc `BI_KHOA` và `updated_at`. Không tự khóa; khóa hai tài khoản theo ID tăng dần, kiểm tra lại người thao tác còn hoạt động/quyền. Khóa đổi dấu phiên đăng nhập, xóa token khôi phục và thu hồi các phiên; mở khóa yêu cầu đăng nhập mới. Không xóa lịch sử hoặc thay phân công/gói/kế hoạch. No-op giữ phiên bản; stale 409. Không có DELETE hoặc sửa vai trò.
+- `POST /quen-mat-khau`: khách gửi email chuẩn hóa; broker Laravel gửi liên kết về `FRONTEND_URL/dat-lai-mat-khau` có token/email trong fragment (không gửi token trên URL request tới Vite). Kết quả chung cho email không tồn tại, bị khóa, đã gửi gần đây; token không trả qua JSON/log. Giới hạn 5/phút/email+IP và 20/phút/IP; broker 60 giây. Mailer log không được dùng cho liên kết bí mật; SMTP phải cấu hình, thiếu dịch vụ trả 503 chung.
+- `POST /dat-lai-mat-khau`: khách gửi email, token, password/password_confirmation; mật khẩu 8–72 ký tự và không quá 72 byte. Token hết hạn sau 60 phút, lưu hash và chỉ dùng một lần. Khóa tài khoản rồi token, broker kiểm tra lại trong transaction; thất bại rollback mật khẩu/token/thu hồi phiên. Tài khoản bị khóa không thể dùng reset để mở khóa. Thành công không tự đăng nhập; các phiên cũ và remember cookie mất hiệu lực. Sai/hết hạn/đã dùng trả 422 chung; giới hạn 20/phút/IP.
+- Mọi ghi yêu cầu CSRF, từ chối trường ngoài hợp đồng; mật khẩu không đi vào URL. Phiên đăng nhập được gắn dấu của hash mật khẩu + remember token khi đăng ký/đăng nhập; Middleware so sánh trên mọi API bảo vệ. Các phiên cũ chưa có dấu cần đăng nhập lại khi cập nhật này được triển khai. NULL phiên bản chỉ hợp lệ nếu record cũ trong DB còn NULL.
+
 
 | Hành động | Actor/quyền | Endpoint | Trạng thái/kết quả |
 | --- | --- | --- | --- |
