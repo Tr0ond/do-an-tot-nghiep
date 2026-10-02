@@ -123,6 +123,12 @@
             <i class="bi bi-check-circle-fill text-emerald me-1" aria-hidden="true"></i>
             <span class="small fw-semibold text-dark">Đang phụ trách hướng dẫn bạn</span>
           </div>
+          <RouterLink
+            v-if="goi.so_buoi_con_lai > 0"
+            to="/khach-hang/dat-lich"
+            class="btn btn-primary w-100 mb-3"
+            >Đặt lịch với PT</RouterLink
+          >
         </template>
 
         <!-- Nếu chưa có PT -->

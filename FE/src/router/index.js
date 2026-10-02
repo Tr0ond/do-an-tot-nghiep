@@ -10,6 +10,32 @@ const router = createRouter({
     return false
   },
   routes: [
+    ...[
+      ['khach-hang', 'KHACH_HANG'],
+      ['pt', 'HUAN_LUYEN_VIEN'],
+      ['admin', 'ADMIN'],
+    ].flatMap(([khuVuc, vaiTro]) => [
+      {
+        path: `/${khuVuc}/lich-hen`,
+        component: () => import('../views/LichHen/index.vue'),
+        meta: { vaiTro },
+      },
+      {
+        path: `/${khuVuc}/lich-hen/:id`,
+        component: () => import('../views/LichHen/index.vue'),
+        meta: { vaiTro },
+      },
+    ]),
+    {
+      path: '/khach-hang/dat-lich',
+      component: () => import('../views/LichHen/KhungGio/index.vue'),
+      meta: { vaiTro: 'KHACH_HANG' },
+    },
+    {
+      path: '/pt/khung-gio',
+      component: () => import('../views/LichHen/KhungGio/index.vue'),
+      meta: { vaiTro: 'HUAN_LUYEN_VIEN' },
+    },
     ...['khach-hang', 'admin'].flatMap((khuVuc) => [
       {
         path: `/${khuVuc}/don-hang`,

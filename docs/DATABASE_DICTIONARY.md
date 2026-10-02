@@ -500,3 +500,15 @@ Ràng buộc: `UNIQUE (khach_hang_id, ngay_ghi)`
 | `updated_at` | `DATETIME(6) NULL` |  |
 
 Ràng buộc: `INDEX (loai_tai_nguyen, tai_nguyen_id, created_at)`
+
+## Bổ sung runtime M04 — migration000032
+
+Bảng thiết kế gốc T09 ở trên giữ nguyên để đối chiếu Draw.io/SQL. Runtime thêm ba cột nullable trên lich_hen_huan_luyen:
+
+| Cột | Kiểu | Ý nghĩa |
+| --- | --- | --- |
+| nguoi_ghi_nhan_id | BIGINT UNSIGNED NULL | FK RESTRICT tới tai_khoan; PT ghi nhận hoàn thành/vắng mặt |
+| ghi_nhan_luc | DATETIME(6) NULL | Thời điểm Backend ghi nhận, UTC |
+| ly_do_ghi_nhan | TEXT NULL | Lý do vắng mặt, không dùng lẫn thông tin Admin đóng xử lý |
+
+Không tăng số bảng nghiệp vụ. Hợp đồng runtime tại [LICH_HUAN_LUYEN.md](features/LICH_HUAN_LUYEN.md), [migration000032](../BE/database/migrations/2026_10_02_000032_add_ghi_nhan_to_lich_hen.php). Các cột bổ sung M03/T05/T07 và migration000029–000030 được mô tả trong [hướng dẫn migrations](../BE/database/migrations/README.md); từ điển gốc không thay thế các migrations runtime.

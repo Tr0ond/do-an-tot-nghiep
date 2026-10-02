@@ -37,7 +37,7 @@ Thư mục `docs/` chứa thiết kế và kế hoạch kiểm thử. Quy tắc,
 - [CODE_STYLE.md](../CODE_STYLE.md): phong cách code.
 - [ROADMAP.md](../ROADMAP.md): kế hoạch 24 tuần.
 
-Các chính sách chính D01–D10 đã được chủ dự án chốt ngày 01/10/2026. Đã có runtime Laravel/Vue, [migrations MariaDB](verification/MARIADB_MIGRATIONS.md), [luồng tài khoản](features/TAI_KHOAN.md) và catalog bài tập/gói/giáo án. Đặt mua/payOS/kích hoạt/phân công M03 đã có; lịch/chat, chuyển tiền thật/webhook công khai và kiểm thử MySQL thật còn phía trước. Khi thay đổi quyết định, cập nhật [DECISIONS.md](DECISIONS.md), phần tương ứng của [PROJECT_RULES.md](../PROJECT_RULES.md) và schema/API/tests. Không duy trì nhiều bản quy tắc trái nhau.
+Các chính sách chính D01–D10 đã được chủ dự án chốt ngày 01/10/2026. Đã có runtime Laravel/Vue, [migrations MariaDB](verification/MARIADB_MIGRATIONS.md), [luồng tài khoản](features/TAI_KHOAN.md) và catalog bài tập/gói/giáo án. Đặt mua/payOS/kích hoạt/phân công M03 đã có; lịch PT M04 đã có theo [kiểm chứng](verification/M04_LICH_HUAN_LUYEN.md); chat/giáo án cá nhân, chuyển tiền thật và kiểm thử MySQL8 còn phía trước. Webhook ngrok đã nhận HTTP200 khi xác minh kết nối. Khi thay đổi quyết định, cập nhật [DECISIONS.md](DECISIONS.md), phần tương ứng của [PROJECT_RULES.md](../PROJECT_RULES.md) và schema/API/tests. Không duy trì nhiều bản quy tắc trái nhau.
 
 Đã hoàn thiện M01 sửa hồ sơ ba vai trò, khôi phục mật khẩu email và khóa/mở tài khoản: [hợp đồng](features/TAI_KHOAN.md), [kiểm chứng ngày 02/10/2026](verification/M01_HO_SO_KHOI_PHUC.md). SMTP local đã xác thực STARTTLS, chưa gửi thư thật.
 

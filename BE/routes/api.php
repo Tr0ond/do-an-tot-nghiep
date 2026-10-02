@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\GiaoAnMauController;
 use App\Http\Controllers\Api\GoiTapController;
 use App\Http\Controllers\Api\HoSoKhachHangController;
 use App\Http\Controllers\Api\HoSoTaiKhoanController;
+use App\Http\Controllers\Api\LichHenController;
 use App\Http\Controllers\Api\NhomCoController;
 use App\Http\Controllers\Api\PhanCongController;
 use App\Http\Controllers\Api\TaiKhoanController;
@@ -38,6 +39,11 @@ Route::prefix('v1')->group(function () {
 Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(function () {
     Route::get('/me', [XacThucController::class, 'me']);
     Route::prefix('khach-hang')->middleware('vai_tro:KHACH_HANG')->group(function () {
+        Route::get('/khung-gio', [LichHenController::class, 'khungGio']);
+        Route::get('/lich-hen', [LichHenController::class, 'index']);
+        Route::get('/lich-hen/{id}', [LichHenController::class, 'show'])->whereNumber('id');
+        Route::post('/lich-hen', [LichHenController::class, 'store'])->middleware('throttle:20,1');
+        Route::post('/lich-hen/{id}/{hanhDong}', [LichHenController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'huy');
         Route::get('/goi-cua-toi', [DonHangController::class, 'goiCuaToi']);
         Route::get('/don-hang', [DonHangController::class, 'index']);
         Route::post('/don-hang', [DonHangController::class, 'store'])->middleware('throttle:20,1');
@@ -49,6 +55,9 @@ Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(
     Route::put('/me/ho-so', [HoSoTaiKhoanController::class, 'update']);
     Route::get('/khach-hang/ho-so/{hoSoKhachHang}', [HoSoKhachHangController::class, 'show']);
     Route::prefix('admin')->middleware('vai_tro:ADMIN')->group(function () {
+        Route::get('/lich-hen', [LichHenController::class, 'index']);
+        Route::get('/lich-hen/{id}', [LichHenController::class, 'show'])->whereNumber('id');
+        Route::post('/lich-hen/{id}/{hanhDong}', [LichHenController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'dong-xu-ly');
         Route::get('/don-hang', [DonHangController::class, 'index']);
         Route::get('/don-hang/{id}', [DonHangController::class, 'show'])->whereNumber('id');
         Route::patch('/thanh-toan/{id}/doi-soat', [DonHangController::class, 'doiSoat'])->whereNumber('id');
@@ -83,6 +92,12 @@ Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(
     });
     Route::get('/pt/ho-so', [XacThucController::class, 'me'])->middleware('vai_tro:HUAN_LUYEN_VIEN');
     Route::prefix('pt')->middleware('vai_tro:HUAN_LUYEN_VIEN')->group(function () {
+        Route::get('/khung-gio', [LichHenController::class, 'khungGio']);
+        Route::post('/khung-gio', [LichHenController::class, 'taoKhung']);
+        Route::patch('/khung-gio/{id}', [LichHenController::class, 'doiKhung'])->whereNumber('id');
+        Route::get('/lich-hen', [LichHenController::class, 'index']);
+        Route::get('/lich-hen/{id}', [LichHenController::class, 'show'])->whereNumber('id');
+        Route::post('/lich-hen/{id}/{hanhDong}', [LichHenController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'xac-nhan|tu-choi|hoan-thanh|vang-mat');
         Route::get('/tong-quan', [TongQuanController::class, 'index']);
         Route::get('/giao-an-mau', [GiaoAnMauController::class, 'index']);
         Route::get('/giao-an-mau/{id}', [GiaoAnMauController::class, 'show'])->whereNumber('id');

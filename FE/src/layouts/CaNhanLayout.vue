@@ -26,17 +26,40 @@
           >Đơn hàng</RouterLink
         >
         <RouterLink to="/admin/phan-cong">Phân công PT</RouterLink>
+        <RouterLink
+          to="/admin/lich-hen"
+          :class="{ 'router-link-active': $route.path.startsWith('/admin/lich-hen/') }"
+          >Lịch hẹn</RouterLink
+        >
       </nav>
       <nav v-if="laKhach" class="header-navigation" aria-label="Khách hàng">
         <RouterLink to="/khach-hang/tong-quan">Tổng quan</RouterLink>
         <RouterLink to="/khach-hang/ho-so">Hồ sơ của tôi</RouterLink>
         <RouterLink to="/khach-hang/goi-cua-toi">Gói của tôi</RouterLink>
         <RouterLink
+          to="/khach-hang/lich-hen"
+          :class="{ 'router-link-active': $route.path.startsWith('/khach-hang/lich-hen/') }"
+          >Lịch hẹn</RouterLink
+        >
+        <RouterLink
           to="/khach-hang/don-hang"
           :class="{ 'router-link-active': $route.path.startsWith('/khach-hang/don-hang/') }"
           >Đơn hàng</RouterLink
         >
         <RouterLink to="/goi-tap">Gói tập</RouterLink>
+        <RouterLink to="/bai-tap">Thư viện bài tập</RouterLink>
+      </nav>
+
+      <nav v-if="laPT" class="header-navigation" aria-label="Huấn luyện viên">
+        <RouterLink to="/pt/tong-quan">Tổng quan</RouterLink>
+        <RouterLink to="/pt/ho-so">Hồ sơ PT</RouterLink>
+        <RouterLink to="/pt/giao-an-mau">Giáo án mẫu</RouterLink>
+        <RouterLink to="/pt/khung-gio">Khung giờ</RouterLink>
+        <RouterLink
+          to="/pt/lich-hen"
+          :class="{ 'router-link-active': $route.path.startsWith('/pt/lich-hen/') }"
+          >Lịch hẹn</RouterLink
+        >
         <RouterLink to="/bai-tap">Thư viện bài tập</RouterLink>
       </nav>
 
@@ -86,15 +109,6 @@
 
     <!-- Nội dung chính -->
     <main class="member-content">
-      <nav
-        v-if="xacThuc.taiKhoan?.vai_tro === 'HUAN_LUYEN_VIEN'"
-        class="admin-navigation"
-        aria-label="Huấn luyện viên"
-      >
-        <RouterLink to="/pt/tong-quan">Tổng quan</RouterLink>
-        <RouterLink to="/pt/ho-so">Hồ sơ PT</RouterLink>
-        <RouterLink to="/pt/giao-an-mau">Giáo án mẫu</RouterLink>
-      </nav>
       <div
         v-if="thongBao"
         class="alert alert-danger d-flex align-items-center gap-2 mb-4 rounded-3 animate__animated animate__shakeX"
@@ -139,8 +153,11 @@ export default {
     laKhach() {
       return this.xacThuc.taiKhoan?.vai_tro === 'KHACH_HANG'
     },
+    laPT() {
+      return this.xacThuc.taiKhoan?.vai_tro === 'HUAN_LUYEN_VIEN'
+    },
     coMenuHeader() {
-      return this.laAdmin || this.laKhach
+      return this.laAdmin || this.laKhach || this.laPT
     },
     chuCaiDau() {
       const ten = this.xacThuc.taiKhoan?.ho_ten || 'U'
@@ -306,43 +323,6 @@ export default {
 @media (max-width: 600px) {
   .user-badge-header {
     display: none;
-  }
-}
-.admin-navigation {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 28px;
-  border-bottom: 1px solid var(--mau-vien);
-}
-.admin-navigation a {
-  padding: 12px 16px;
-  min-height: 44px;
-  color: #475569;
-  font-weight: 650;
-  text-decoration: none;
-  border-bottom: 3px solid transparent;
-}
-.admin-navigation a.router-link-active {
-  color: #047857;
-  border-color: #047857;
-}
-.admin-navigation a:focus-visible {
-  outline: 2px solid #047857;
-  outline-offset: 2px;
-}
-@media (max-width: 800px) {
-  .admin-navigation {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 4px;
-    padding: 4px;
-    margin-bottom: 24px;
-  }
-  .admin-navigation a {
-    white-space: nowrap;
-    flex-shrink: 0;
-    padding: 12px;
   }
 }
 .user-avatar-circle {

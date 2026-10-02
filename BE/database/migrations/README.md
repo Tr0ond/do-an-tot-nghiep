@@ -51,3 +51,7 @@ Script dùng kết nối BE hiện tại, yêu cầu quyền CREATE/DROP DATABAS
 ## Migration bổ sung M03
 
 2026_10_02_000031_add_du_lieu_m03.php thêm URL checkout và khóa một đơn chờ của T05, UUID và mã phiên bản cũ của T07. Giữ record cũ, không thêm bảng hoặc sửa migration gốc. Nếu database trước đó có nhiều đơn CHO_THANH_TOAN của cùng KH, UNIQUE sẽ từ chối migrate để tránh chọn/xóa đơn tùy tiện; cần kiểm tra/xử lý dữ liệu đó trước. Runtime local ngày 02/10/2026 đã migrate thành công. down chỉ gỡ cột/index bổ sung; không chạy rollback trên database ứng dụng để thử. [Chi tiết và kiểm chứng](../../../docs/verification/M03_MUA_GOI.md).
+
+## Migration bổ sung M04
+
+2026_10_02_000032_add_ghi_nhan_to_lich_hen.php thêm nguoi_ghi_nhan_id (FK RESTRICT), ghi_nhan_luc DATETIME(6), ly_do_ghi_nhan nullable trên T09, giữ dữ liệu cũ. Đã migrate trên database ứng dụng MariaDB10.4.32 ngày02/10/2026; không rollback/fresh/seed lại database thật. LichHenTest migrate trên DB riêng và kiểm tra transaction/hai process đặt lịch/trừ buổi. [Hợp đồng](../../../docs/features/LICH_HUAN_LUYEN.md), [kiểm chứng](../../../docs/verification/M04_LICH_HUAN_LUYEN.md).

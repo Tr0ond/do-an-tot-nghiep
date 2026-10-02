@@ -45,6 +45,7 @@ class PhanCongService
             }
             $moc = now();
             if ($cu) {
+                app(LichHenService::class)->dongYeuCauHetHan(null, $khach->id);
                 $chuaXuLy = DB::table('lich_hen_huan_luyen')->where('khach_hang_id', $khach->id)->where('bat_dau_luc', '<=', $moc)->whereIn('trang_thai', ['CHO_XAC_NHAN', 'DA_XAC_NHAN', 'QUA_HAN_XAC_NHAN'])->whereNull('dong_xu_ly_luc')->exists();
                 if ($chuaXuLy) {
                     throw new ConflictHttpException('Còn buổi đã bắt đầu chưa xử lý xong. Chưa thể đổi PT.');

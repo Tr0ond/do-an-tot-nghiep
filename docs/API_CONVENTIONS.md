@@ -117,3 +117,7 @@ Tất cả endpoint ghi trên có CSRF. CORS bao gồm cả hai route session m�
 
 ## Tổng quan KH/PT/Admin đã triển khai
 GET /api/v1/khach-hang/tong-quan, /api/v1/pt/tong-quan và /api/v1/admin/tong-quan yêu cầu đúng vai trò và tài khoản hoạt động. Response status/message/data, Cache-Control: private, no-store. Data gồm vai_tro/cap_nhat_luc/thu_vien; KH/PT có ho_so (số mục/checklist), PT thêm giao_an_da_duyet; chỉ Admin có quan_tri (aggregate tài khoản và catalog). Query user ID/vai trò không thay đổi scope. 401/403 theo quyền; không ghi DB, không phát sinh gói/quyền sử dụng. [Hợp đồng chi tiết](features/TONG_QUAN.md).
+
+## M04 lịch huấn luyện đã triển khai
+
+Danh sách endpoint/payload/quyền/trạng thái/retry/deadline tại [LICH_HUAN_LUYEN.md](features/LICH_HUAN_LUYEN.md). Ba khu vực KH/PT/Admin dùng scope riêng. Ghi lịch/ghi nhận/trừ lượt/audit đi qua transaction; giờ Việt Nam chỉ ở UI/query ngày, thời điểm API lưu UTC. Bằng chứng chạy MariaDB, kiểm thử hai process và UI responsive tại [M04_LICH_HUAN_LUYEN.md](verification/M04_LICH_HUAN_LUYEN.md).

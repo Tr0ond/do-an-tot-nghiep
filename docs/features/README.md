@@ -15,3 +15,5 @@ Các module còn lại định tuyến qua `SCOPE.md`, `PROJECT_RULES.md`, `DATA
 - [TONG_QUAN.md](TONG_QUAN.md): trang chủ guest và dashboard KH/PT/Admin, aggregate thật, quyền dữ liệu và điều hướng theo session.
 
 - [MUA_GOI_THANH_TOAN.md](MUA_GOI_THANH_TOAN.md): đặt mua/payOS/kích hoạt/đối soát thủ công và Admin phân công PT, UUID/transaction/quyền theo tài nguyên.
+
+- [LICH_HUAN_LUYEN.md](LICH_HUAN_LUYEN.md): PT mở giờ 60 phút, KH đặt/hủy, PT ghi nhận hoàn thành/vắng mặt, Admin đóng quá hạn; deadline/transaction/quota/ownership và scheduler.

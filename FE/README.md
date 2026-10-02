@@ -15,6 +15,8 @@ rtk proxy npm.cmd run dev
 
 Mở [đăng ký](http://localhost:5173/dang-ky) hoặc [đăng nhập](http://localhost:5173/dang-nhap) khi Laravel chạy ở localhost:8000. Vite dùng port cố định 5173; hai bên dùng cùng hostname localhost. Khách tự đăng ký; PT/Admin được Admin cấp tài khoản. Admin đầu tiên tạo bằng lệnh ở [hướng dẫn tài khoản](../docs/features/TAI_KHOAN.md).
 
+Menu KH/PT/Admin đều nằm trong header của `CaNhanLayout.vue`; menu cuộn ngang trên màn hình nhỏ. PT có Tổng quan, Hồ sơ PT, Giáo án mẫu, Khung giờ, Lịch hẹn và Thư viện bài tập. [Kiểm chứng header PT và start.bat](../docs/verification/HEADER_PT_START.md).
+
 Đã tạo .env local từ .env.example. VITE_API_BASE_URL được Axios instance ở src/utils/http.js đọc; component gọi qua services/xacThucService.js và taiKhoanService.js. Service lấy CSRF cookie trước POST, Axios gửi credentials/XSRF. Đổi .env cần khởi động lại Vite. Các biến VITE_* là công khai, không đặt AI key/Reverb secret vào đây. Biến Reverb vẫn là placeholders.
 
 ## Kiểm tra đã chạy
@@ -25,7 +27,7 @@ rtk proxy npm.cmd run lint:check
 rtk proxy npm.cmd run format:check
 ```
 
-Đạt build/lint/format và 91 tests trên 9 file bằng Vitest 5.0.3 (npm run test), gồm auth/session, hồ sơ/khôi phục/khóa tài khoản và các module catalog. dist/ là kết quả build local. Đã kiểm tra trình duyệt: đăng ký/đăng nhập KH, refresh session, sai mật khẩu, chặn trang Admin, đăng xuất, Admin tạo PT và PT đăng nhập. Kiểm tra responsive 1440/768/390px. Chưa thêm bộ E2E chạy tự động cho Vue. [Bằng chứng tài khoản](../docs/verification/M01_AUTH.md).
+Đạt build/lint/format và 102 tests trên 10 file bằng Vitest 5.0.3 (npm run test), gồm auth/session, hồ sơ/khôi phục/khóa tài khoản và các module catalog. dist/ là kết quả build local. Đã kiểm tra trình duyệt: đăng ký/đăng nhập KH, refresh session, sai mật khẩu, chặn trang Admin, đăng xuất, Admin tạo PT và PT đăng nhập. Kiểm tra responsive 1440/768/390px. Chưa thêm bộ E2E chạy tự động cho Vue. [Bằng chứng tài khoản](../docs/verification/M01_AUTH.md).
 
 ## Cấu trúc và phạm vi
 
@@ -35,7 +37,7 @@ Trang đăng nhập/đăng ký tại views/XacThuc, hồ sơ KH/PT dùng chung v
 
 Đã có `/admin/bai-tap` để tìm/lọc/phân trang, thêm/sửa và bật/tắt hiển thị. Biểu mẫu tại `/admin/bai-tap/them` và `/admin/bai-tap/:id/sua`, Vue Options API; service riêng `baiTapAdminService.js`, trạng thái form cục bộ. Khi lưu lỗi giữ nội dung; khi 409 chặn gửi lại và cho tải bản mới. Chỉ ADMIN được vào trang; API vẫn kiểm tra quyền ở server.
 
-Toàn bộ frontend đạt **91 Vitest tests**, build/lint/format. Có bảng giá `/goi-tap`, chi tiết `/goi-tap/:id`; Admin quản lý tại `/admin/goi-tap`, thêm `/admin/goi-tap/them`, sửa `/admin/goi-tap/:id/sua`. Options API/service dùng chung, bộ lọc URL, loading/empty/error/409, khóa gửi trùng, giữ UUID khi retry mạng và xử lý 409. Admin tự nhập giá/quyền lợi; không có giá giả hoặc cấp gói từ UI. [Hợp đồng gói](../docs/features/GOI_TAP.md), [kiểm chứng](../docs/verification/M02_GOI_TAP.md).
+Toàn bộ frontend đạt **102 Vitest tests**, build/lint/format. Có bảng giá `/goi-tap`, chi tiết `/goi-tap/:id`; Admin quản lý tại `/admin/goi-tap`, thêm `/admin/goi-tap/them`, sửa `/admin/goi-tap/:id/sua`. Options API/service dùng chung, bộ lọc URL, loading/empty/error/409, khóa gửi trùng, giữ UUID khi retry mạng và xử lý 409. Admin tự nhập giá/quyền lợi; không có giá giả hoặc cấp gói từ UI. [Hợp đồng gói](../docs/features/GOI_TAP.md), [kiểm chứng](../docs/verification/M02_GOI_TAP.md).
 
 Đã có mua/thanh toán gói M03. Chưa có upload media, chatbot hoặc realtime. Tham khảo [CODE_STYLE.md](../CODE_STYLE.md), [quyết định](../docs/DECISIONS.md) và [mẫu Frontend](../templates/README.md).
 
@@ -65,4 +67,8 @@ KH vào chi tiết /goi-tap/:id, bấm **Đặt mua gói này** để tạo đơ
 
 Admin có /admin/don-hang, /admin/don-hang/:id xem khoản thu và ghi kết quả hoàn tiền thủ công; /admin/phan-cong phân công/đổi PT với phiên bản và UUID. Menu KH/Admin được thêm trong header. Options API, muaGoiService tập trung, khóa gửi trùng, bỏ response cũ khi chuyển trang/mất phiên; không đưa khóa payOS vào FE.
 
-Toàn FE đạt 91 tests, build/lint/format. Các ảnh có dữ liệu trong [kiểm chứng M03](../docs/verification/M03_MUA_GOI.md) dùng fixture demo riêng, giữ nguyên phiên người dùng; không phải chứng cứ đã chuyển tiền. Lịch/chat/chatbot thực tế được triển khai ở module sau.
+Toàn FE đạt 102 tests, build/lint/format. Các ảnh có dữ liệu trong [kiểm chứng M03](../docs/verification/M03_MUA_GOI.md) dùng fixture demo riêng, giữ nguyên phiên người dùng; không phải chứng cứ đã chuyển tiền. Lịch PT M04 đã triển khai; chat/chatbot là module sau.
+
+## Lịch huấn luyện M04
+
+KH đặt lịch tại /khach-hang/dat-lich, xem/hủy ở /khach-hang/lich-hen và /khach-hang/lich-hen/:id; có nút đặt lịch từ Gói của tôi. PT mở/đóng giờ tại /pt/khung-gio, xử lý yêu cầu/kết quả tại /pt/lich-hen và /pt/lich-hen/:id. Admin xem/đóng quá hạn ở /admin/lich-hen và /admin/lich-hen/:id. Navigation có Lịch hẹn; Options API, service Axios chung, filter URL/paging, confirmation/lý do, loading/empty/error và bỏ response cũ. Giờ hiển thị/chuyển đổi theo Asia/Ho_Chi_Minh. [Hợp đồng](../docs/features/LICH_HUAN_LUYEN.md), [ảnh QA và kết quả](../docs/verification/M04_LICH_HUAN_LUYEN.md).
