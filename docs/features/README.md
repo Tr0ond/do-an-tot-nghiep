@@ -13,3 +13,5 @@ Các module còn lại định tuyến qua `SCOPE.md`, `PROJECT_RULES.md`, `DATA
 - [GIAO_AN_MAU.md](GIAO_AN_MAU.md): Admin soạn/duyệt/ngừng giáo án; PT đọc thư viện, UUID/phiên bản/transaction, bảo toàn kế hoạch và seeder 5 giáo án demo.
 
 - [TONG_QUAN.md](TONG_QUAN.md): trang chủ guest và dashboard KH/PT/Admin, aggregate thật, quyền dữ liệu và điều hướng theo session.
+
+- [MUA_GOI_THANH_TOAN.md](MUA_GOI_THANH_TOAN.md): đặt mua/payOS/kích hoạt/đối soát thủ công và Admin phân công PT, UUID/transaction/quyền theo tài nguyên.

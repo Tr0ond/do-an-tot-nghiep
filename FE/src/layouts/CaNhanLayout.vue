@@ -20,10 +20,22 @@
         <RouterLink to="/admin/nhom-co">Nhóm cơ</RouterLink>
         <RouterLink to="/admin/goi-tap">Gói tập</RouterLink>
         <RouterLink to="/admin/giao-an-mau">Giáo án mẫu</RouterLink>
+        <RouterLink
+          to="/admin/don-hang"
+          :class="{ 'router-link-active': $route.path.startsWith('/admin/don-hang/') }"
+          >Đơn hàng</RouterLink
+        >
+        <RouterLink to="/admin/phan-cong">Phân công PT</RouterLink>
       </nav>
       <nav v-if="laKhach" class="header-navigation" aria-label="Khách hàng">
         <RouterLink to="/khach-hang/tong-quan">Tổng quan</RouterLink>
         <RouterLink to="/khach-hang/ho-so">Hồ sơ của tôi</RouterLink>
+        <RouterLink to="/khach-hang/goi-cua-toi">Gói của tôi</RouterLink>
+        <RouterLink
+          to="/khach-hang/don-hang"
+          :class="{ 'router-link-active': $route.path.startsWith('/khach-hang/don-hang/') }"
+          >Đơn hàng</RouterLink
+        >
         <RouterLink to="/goi-tap">Gói tập</RouterLink>
         <RouterLink to="/bai-tap">Thư viện bài tập</RouterLink>
       </nav>
@@ -238,7 +250,7 @@ export default {
   width: auto;
   gap: 12px;
 }
-@media (max-width: 1250px) {
+@media (max-width: 1500px) {
   .member-header.co-menu-header {
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 12px 20px;

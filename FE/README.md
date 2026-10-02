@@ -25,7 +25,7 @@ rtk proxy npm.cmd run lint:check
 rtk proxy npm.cmd run format:check
 ```
 
-Đạt build/lint/format và 79 tests trên 8 file bằng Vitest 5.0.3 (npm run test), gồm auth/session, hồ sơ/khôi phục/khóa tài khoản và các module catalog. dist/ là kết quả build local. Đã kiểm tra trình duyệt: đăng ký/đăng nhập KH, refresh session, sai mật khẩu, chặn trang Admin, đăng xuất, Admin tạo PT và PT đăng nhập. Kiểm tra responsive 1440/768/390px. Chưa thêm bộ E2E chạy tự động cho Vue. [Bằng chứng tài khoản](../docs/verification/M01_AUTH.md).
+Đạt build/lint/format và 91 tests trên 9 file bằng Vitest 5.0.3 (npm run test), gồm auth/session, hồ sơ/khôi phục/khóa tài khoản và các module catalog. dist/ là kết quả build local. Đã kiểm tra trình duyệt: đăng ký/đăng nhập KH, refresh session, sai mật khẩu, chặn trang Admin, đăng xuất, Admin tạo PT và PT đăng nhập. Kiểm tra responsive 1440/768/390px. Chưa thêm bộ E2E chạy tự động cho Vue. [Bằng chứng tài khoản](../docs/verification/M01_AUTH.md).
 
 ## Cấu trúc và phạm vi
 
@@ -35,9 +35,9 @@ Trang đăng nhập/đăng ký tại views/XacThuc, hồ sơ KH/PT dùng chung v
 
 Đã có `/admin/bai-tap` để tìm/lọc/phân trang, thêm/sửa và bật/tắt hiển thị. Biểu mẫu tại `/admin/bai-tap/them` và `/admin/bai-tap/:id/sua`, Vue Options API; service riêng `baiTapAdminService.js`, trạng thái form cục bộ. Khi lưu lỗi giữ nội dung; khi 409 chặn gửi lại và cho tải bản mới. Chỉ ADMIN được vào trang; API vẫn kiểm tra quyền ở server.
 
-Toàn bộ frontend đạt **79 Vitest tests**, build/lint/format. Có bảng giá `/goi-tap`, chi tiết `/goi-tap/:id`; Admin quản lý tại `/admin/goi-tap`, thêm `/admin/goi-tap/them`, sửa `/admin/goi-tap/:id/sua`. Options API/service dùng chung, bộ lọc URL, loading/empty/error/409, khóa gửi trùng, giữ UUID khi retry mạng và xử lý 409. Admin tự nhập giá/quyền lợi; không có giá giả hoặc cấp gói từ UI. [Hợp đồng gói](../docs/features/GOI_TAP.md), [kiểm chứng](../docs/verification/M02_GOI_TAP.md).
+Toàn bộ frontend đạt **91 Vitest tests**, build/lint/format. Có bảng giá `/goi-tap`, chi tiết `/goi-tap/:id`; Admin quản lý tại `/admin/goi-tap`, thêm `/admin/goi-tap/them`, sửa `/admin/goi-tap/:id/sua`. Options API/service dùng chung, bộ lọc URL, loading/empty/error/409, khóa gửi trùng, giữ UUID khi retry mạng và xử lý 409. Admin tự nhập giá/quyền lợi; không có giá giả hoặc cấp gói từ UI. [Hợp đồng gói](../docs/features/GOI_TAP.md), [kiểm chứng](../docs/verification/M02_GOI_TAP.md).
 
-Chưa có upload media, mua/thanh toán gói, chatbot hoặc realtime. Tham khảo [CODE_STYLE.md](../CODE_STYLE.md), [quyết định](../docs/DECISIONS.md) và [mẫu Frontend](../templates/README.md).
+Đã có mua/thanh toán gói M03. Chưa có upload media, chatbot hoặc realtime. Tham khảo [CODE_STYLE.md](../CODE_STYLE.md), [quyết định](../docs/DECISIONS.md) và [mẫu Frontend](../templates/README.md).
 
 ## Giáo án mẫu Admin/PT
 
@@ -58,3 +58,11 @@ Trang /quen-mat-khau gửi yêu cầu khôi phục; /dat-lai-mat-khau đọc tok
 Người chưa đăng nhập vào / thấy trang giới thiệu. Router chờ /me trước khi chuyển người đã đăng nhập về /khach-hang/tong-quan, /pt/tong-quan hoặc /admin/tong-quan; áp dụng cả truy cập trực tiếp, refresh và URL cũ có hash. Đăng nhập/đăng ký thành công vào tổng quan, hồ sơ có link riêng trong menu. Nếu không xác minh được session do mất kết nối, hiển thị trang lỗi kết nối, không giả coi người dùng là guest.
 
 Dashboard KH/PT có thống kê thư viện và checklist mức đầy đủ hồ sơ; Admin có tổng tài khoản, phân bố vai trò/trạng thái và các danh mục. Thống kê lấy từ API thật, không lưu cache cá nhân vào localStorage. Trang tại views/TongQuan, service tongQuanService; loading/error/retry, hủy request và bỏ qua kết quả tới muộn. Menu KH/Admin nằm trong header, không lặp trong nội dung; danh mục Gói tập/Thư viện cũng giữ header theo vai trò khi đăng nhập. Trên màn hình nhỏ menu nằm ở hàng thứ hai của header và cuộn ngang trong vùng riêng, không làm tràn toàn trang. [Hợp đồng](../docs/features/TONG_QUAN.md), [ảnh và kiểm thử](../docs/verification/DASHBOARD.md).
+
+## Mua gói và quản trị thanh toán M03
+
+KH vào chi tiết /goi-tap/:id, bấm **Đặt mua gói này** để tạo đơn giữ giá 15 phút. Có /khach-hang/don-hang và /khach-hang/don-hang/:id, tạo link/mở payOS/kiểm tra thanh toán; /khach-hang/goi-cua-toi hiển thị snapshot quyền lợi, thời hạn, buổi còn lại và PT phụ trách. Trở về từ payOS đọc trạng thái Backend; chưa đủ chứng cứ chỉ từ query URL.
+
+Admin có /admin/don-hang, /admin/don-hang/:id xem khoản thu và ghi kết quả hoàn tiền thủ công; /admin/phan-cong phân công/đổi PT với phiên bản và UUID. Menu KH/Admin được thêm trong header. Options API, muaGoiService tập trung, khóa gửi trùng, bỏ response cũ khi chuyển trang/mất phiên; không đưa khóa payOS vào FE.
+
+Toàn FE đạt 91 tests, build/lint/format. Các ảnh có dữ liệu trong [kiểm chứng M03](../docs/verification/M03_MUA_GOI.md) dùng fixture demo riêng, giữ nguyên phiên người dùng; không phải chứng cứ đã chuyển tiền. Lịch/chat/chatbot thực tế được triển khai ở module sau.

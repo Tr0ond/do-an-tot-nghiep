@@ -40,7 +40,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 419 => 'Phiên làm việc đã hết hạn. Vui lòng thử lại.',
                 422 => 'Vui lòng kiểm tra dữ liệu nhập.',
                 429 => 'Bạn thao tác quá nhiều lần. Vui lòng thử lại sau.',
-                503 => 'Dịch vụ gửi email đang chưa sẵn sàng. Vui lòng thử lại sau.',
+                503 => $duLieu['message'] ?? 'Dịch vụ đang chưa sẵn sàng. Vui lòng thử lại sau.',
                 default => 'Không thể xử lý yêu cầu. Vui lòng thử lại sau.',
             };
             $noiDung = ['status' => false, 'message' => $thongBao, 'code' => 'HTTP_'.$maHttp, 'data' => null, 'errors' => $duLieu['errors'] ?? (object) []];

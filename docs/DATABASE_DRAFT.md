@@ -93,3 +93,7 @@ Mục tiêu/cân nặng/số đo là dữ liệu theo dõi do KH cung cấp; kh�
 ## Mở rộng kỹ thuật khi triển khai danh mục
 
 Schema/Draw.io gốc vẫn là 28 bảng/303 cột/52 FK. Runtime bổ sung UUID nullable và UNIQUE cho `ma_yeu_cau_tao` tại T04 (gói) và T12 (giáo án) bằng migrations 000029/000030, không thay migration đã chạy hoặc thêm bảng nghiệp vụ. Xem [hướng dẫn migrations](../BE/database/migrations/README.md), [hợp đồng giáo án](features/GIAO_AN_MAU.md).
+
+## Bổ sung runtime M03 ngày 02/10/2026
+
+Migration 000031 thêm T05 url_thanh_toan và generated khach_dang_cho_id/UNIQUE uq_t05_06 để một KH chỉ có một đơn CHO_THANH_TOAN; service đóng đơn quá hạn trước tạo đơn mới. T07 thêm client_request_id nullable/UNIQUE uq_t07_02 và phan_cong_truoc_id để chống tạo lặp và đối chiếu phiên bản phân công. Không sửa SQL/Draw.io hoặc 28 migrations gốc; không thêm bảng nghiệp vụ. Khoản thu T06 dùng mã giao dịch unique và trường đối soát/hoàn tiền đã có. [Hợp đồng M03](features/MUA_GOI_THANH_TOAN.md), [kiểm chứng MariaDB](verification/M03_MUA_GOI.md).

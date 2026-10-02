@@ -170,8 +170,28 @@
 
           <div class="purchase-notice-box p-3 rounded-3 small mb-3">
             <i class="bi bi-info-circle text-primary me-1"></i>
-            <span>Cổng thanh toán tự động trực tuyến đang trong giai đoạn kết nối hoàn thiện.</span>
+            <span
+              >Đơn giữ giá và quyền lợi trong 15 phút. Gói kích hoạt khi thanh toán được xác
+              minh.</span
+            >
           </div>
+          <div v-if="loiMua" class="alert alert-warning" role="alert">
+            {{ loiMua }} <RouterLink to="/khach-hang/don-hang">Xem đơn hàng</RouterLink>
+          </div>
+          <button
+            v-if="xacThuc.taiKhoan?.vai_tro === 'KHACH_HANG'"
+            class="btn btn-primary w-100 mb-3"
+            :disabled="dangMua"
+            @click="datMua"
+          >
+            {{ dangMua ? 'Đang tạo đơn…' : 'Đặt mua gói này' }}
+          </button>
+          <RouterLink
+            v-else-if="!xacThuc.daDangNhap"
+            class="btn btn-primary w-100 mb-3"
+            to="/dang-nhap"
+            >Đăng nhập để mua gói</RouterLink
+          >
 
           <RouterLink
             class="btn btn-outline-secondary w-100"
@@ -191,6 +211,8 @@ import QuyenLoiGoiTap from '../../../components/QuyenLoiGoiTap.vue'
 import goiTapService from '../../../services/goiTapService'
 import { dinhDangGia, dinhDangSo, docBoLocGoiTap, taoQueryGoiTap } from '../../../utils/goiTap'
 import { layLoiApi } from '../../../utils/loiApi'
+import muaGoiService from '../../../services/muaGoiService'
+import { useXacThucStore } from '../../../stores/xacThuc'
 
 export default {
   name: 'ChiTietGoiTap',
@@ -198,6 +220,9 @@ export default {
   data() {
     return {
       goi: null,
+      dangMua: false,
+      loiMua: '',
+      maYeuCauMua: null,
       dangTai: false,
       loiTai: '',
       khongTimThay: false,
@@ -207,6 +232,9 @@ export default {
     }
   },
   computed: {
+    xacThuc() {
+      return useXacThucStore()
+    },
     queryQuayLai() {
       const boLoc = docBoLocGoiTap(this.$route.query)
       return taoQueryGoiTap(boLoc, boLoc.page)
@@ -222,9 +250,30 @@ export default {
     this.boHuy?.abort()
   },
   methods: {
+    async datMua() {
+      if (this.dangMua || !this.goi) return
+      this.dangMua = true
+      this.loiMua = ''
+      const lan = this.lanTai
+      this.maYeuCauMua ||= crypto.randomUUID()
+      try {
+        const r = await muaGoiService.taoDon({
+          goi_tap_id: this.goi.id,
+          client_request_id: this.maYeuCauMua,
+        })
+        if (!this.daDong && lan === this.lanTai)
+          this.$router.push(`/khach-hang/don-hang/${r.data.id}`)
+      } catch (e) {
+        if (!this.daDong && lan === this.lanTai) this.loiMua = layLoiApi(e).thongBao
+      } finally {
+        if (!this.daDong) this.dangMua = false
+      }
+    },
     dinhDangGia,
     dinhDangSo,
     async taiChiTiet() {
+      this.maYeuCauMua = null
+      this.loiMua = ''
       this.boHuy?.abort()
       const boHuy = new AbortController()
       this.boHuy = boHuy

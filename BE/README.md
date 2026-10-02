@@ -58,13 +58,13 @@ rtk proxy php artisan test
 rtk proxy php artisan route:list --path=api
 ```
 
-Đạt 98 tests/4.237 assertions về health/CORS, tài khoản, seeder, bài tập, gói tập và giáo án mẫu. XacThucTest/HoSoTaiKhoanTest/TongQuanTest/BaiTapTest/GoiTapTest/GiaoAnMauTest/NhomCoTest tự tạo database ngẫu nhiên riêng bằng kết nối MySQL/MariaDB hiện tại, migrate và transaction cho từng ca, chỉ DROP database vừa tạo. Cần quyền CREATE/DROP DATABASE, không refresh database ứng dụng. Đã kiểm thử trên MariaDB 10.4.32; chưa kiểm thử cạnh tranh nhiều process hoặc MySQL thật. Pint kiểm tra code PHP. [Bằng chứng tài khoản](../docs/verification/M01_AUTH.md), [quản trị bài tập](../docs/verification/M02_ADMIN_BAI_TAP.md), [gói tập](../docs/verification/M02_GOI_TAP.md), [kiểm tra seeder](database/seeders/README.md).
+Đạt 111 tests/4.366 assertions về health/CORS, tài khoản, seeder, bài tập, gói tập và giáo án mẫu. XacThucTest/HoSoTaiKhoanTest/TongQuanTest/BaiTapTest/GoiTapTest/GiaoAnMauTest/NhomCoTest tự tạo database ngẫu nhiên riêng bằng kết nối MySQL/MariaDB hiện tại, migrate và transaction cho từng ca, chỉ DROP database vừa tạo. Cần quyền CREATE/DROP DATABASE, không refresh database ứng dụng. Đã kiểm thử trên MariaDB 10.4.32; đã kiểm thử hai process tạo đơn/cấp gói M03; chưa kiểm thử MySQL thật. Pint kiểm tra code PHP. [Bằng chứng tài khoản](../docs/verification/M01_AUTH.md), [quản trị bài tập](../docs/verification/M02_ADMIN_BAI_TAP.md), [gói tập](../docs/verification/M02_GOI_TAP.md), [kiểm tra seeder](database/seeders/README.md).
 
 ## Cấu trúc và phạm vi tiếp theo
 
 Giữ các thư mục app/Http/Controllers/Api, app/Http/Requests, app/Models, app/Policies, app/Services, app/Events, app/Jobs, routes, database/migrations, database/factories, database/seeders, tests/Feature, tests/Unit. Controller → FormRequest/Policy → Service nếu có transaction → Eloquent → response contract.
 
-Đã có Sanctum cookie SPA. Tạo Admin đầu tiên bằng lệnh tai-khoan:tao-admin theo [hướng dẫn](../docs/features/TAI_KHOAN.md); lệnh hỏi mật khẩu ẩn. Môi trường local có thể chạy seeder demo thay thế. SANCTUM_STATEFUL_DOMAINS=localhost:5173 và FRONTEND_URL=http://localhost:5173 cho local. Không cài migration personal_access_tokens vì SPA chỉ dùng session. Đã có quản trị bài tập/gói/giáo án và PT đọc thư viện; đã bổ sung sửa hồ sơ/quên/đặt lại mật khẩu/khóa tài khoản qua UI. Phần tiếp theo: đặt mua/payOS/phân công PT/lịch và Reverb/Gemini theo phạm vi. SMTP đã cấu hình local và xác minh xác thực STARTTLS; chưa kiểm tra thư đến hộp thư thật, payOS/Gemini chưa tích hợp. Catalog bài tập đã seed; giá gói do Admin nhập.
+Đã có Sanctum cookie SPA. Tạo Admin đầu tiên bằng lệnh tai-khoan:tao-admin theo [hướng dẫn](../docs/features/TAI_KHOAN.md); lệnh hỏi mật khẩu ẩn. Môi trường local có thể chạy seeder demo thay thế. SANCTUM_STATEFUL_DOMAINS=localhost:5173 và FRONTEND_URL=http://localhost:5173 cho local. Không cài migration personal_access_tokens vì SPA chỉ dùng session. Đã có quản trị bài tập/gói/giáo án và PT đọc thư viện; đã bổ sung sửa hồ sơ/quên/đặt lại mật khẩu/khóa tài khoản qua UI. Đã có đặt mua/payOS/phân công PT M03. Phần tiếp theo: lịch M04 và Reverb/Gemini theo phạm vi. SMTP đã cấu hình local và xác minh xác thực STARTTLS; chưa kiểm tra thư đến hộp thư thật, payOS đã tích hợp và tạo/đọc link thật chưa thanh toán; Gemini chưa tích hợp. Catalog bài tập đã seed; giá gói do Admin nhập.
 
 Tham khảo [CODE_STYLE.md](../CODE_STYLE.md), [hợp đồng API](../docs/API_CONVENTIONS.md), [thiết kế database](../docs/DATABASE_DRAFT.md), [quyết định](../docs/DECISIONS.md) và [mẫu Backend](../templates/README.md).
 
@@ -85,3 +85,13 @@ Trên máy mới, cấu hình SMTP trong BE/.env: MAIL_MAILER=smtp, MAIL_SCHEME=
 
 ## API tổng quan theo vai trò
 GET /api/v1/khach-hang/tong-quan, /pt/tong-quan, /admin/tong-quan có auth/tài khoản hoạt động/vai trò tương ứng. KH/PT chỉ nhận mức đầy đủ hồ sơ chính mình và catalog công khai; PT thêm số giáo án đã duyệt. Admin nhận aggregate tài khoản và danh mục toàn DB, không trả thông tin cá nhân người khác. GET chỉ đọc, không cần migration/seed mới. [Hợp đồng](../docs/features/TONG_QUAN.md), [kiểm chứng](../docs/verification/DASHBOARD.md).
+
+## Mua gói, payOS và phân công PT M03
+
+Chạy `rtk proxy php artisan migrate` để thêm migration 000031; không cần seed lại hoặc xóa dữ liệu. Khóa local đã lưu trong BE/.env bị Git bỏ qua. Máy khác tự cấu hình PAYOS_CLIENT_ID, PAYOS_API_KEY, PAYOS_CHECKSUM_KEY và PAYOS_API_URL=https://api-merchant.payos.vn; chạy `rtk proxy php artisan config:clear` sau khi sửa. Không đưa khóa vào Vue hoặc Git.
+
+PHP dùng CA công khai tại resources/certs/cacert.pem để xác minh HTTPS; có thể cấu hình PAYOS_CA_BUNDLE tới bộ CA của môi trường triển khai. Xem [nguồn và cách cập nhật CA](resources/certs/README.md). Không tắt xác minh TLS.
+
+Đăng ký webhook của ứng dụng tại `https://<host-backend>/api/v1/payos/webhook` khi có Backend HTTPS công khai. Route kiểm tra chữ ký, rồi đọc dữ liệu có chữ ký từ payOS trước ghi nhận khoản thu/kích hoạt. Chưa đăng ký URL công khai trong lần này. Local KH dùng nút **Kiểm tra thanh toán** để đồng bộ cùng luồng xác minh; query return/cancel không cấp gói. FRONTEND_URL phải trỏ Vue để payOS quay về đúng trang đơn; triển khai cấu hình hostname/CORS/Sanctum tương ứng.
+
+API KH chỉ cho đơn của chính mình, Admin xem đơn/ghi kết quả hoàn tiền thủ công/phân công PT. Đối soát chỉ ghi kết quả sau khi đã hoàn tiền ngoài hệ thống. Test MuaGoiTest dùng database riêng, có worker hai process để kiểm tra tranh chấp; không dùng database ứng dụng. [Hợp đồng và endpoint](../docs/features/MUA_GOI_THANH_TOAN.md), [kiểm chứng và giới hạn](../docs/verification/M03_MUA_GOI.md).

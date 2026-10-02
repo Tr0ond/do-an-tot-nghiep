@@ -1,6 +1,6 @@
 # Hợp đồng API đề xuất
 
-Đã có `GET /api/v1/health`, Sanctum SPA và quản trị tài khoản; [hợp đồng tài khoản](features/TAI_KHOAN.md). Có GET công khai /bai-tap, /bai-tap/bo-loc, /bai-tap/{id}; [hợp đồng bài tập](features/BAI_TAP.md). Đã có GET công khai `/goi-tap`, `/goi-tap/{id}` và ADMIN quản lý tại `/admin/goi-tap`: GET danh sách/chi tiết, POST tạo với UUID, PUT sửa/PATCH trạng thái với phiên bản `updated_at`, CSRF cho ghi; [hợp đồng gói](features/GOI_TAP.md). Exception đã chuẩn hóa status/message/data/code/errors. Đặt mua/payOS/kích hoạt, lịch/chat bên dưới vẫn là đặc tả, chưa triển khai.
+Đã có `GET /api/v1/health`, Sanctum SPA và quản trị tài khoản; [hợp đồng tài khoản](features/TAI_KHOAN.md). Có GET công khai /bai-tap, /bai-tap/bo-loc, /bai-tap/{id}; [hợp đồng bài tập](features/BAI_TAP.md). Đã có GET công khai `/goi-tap`, `/goi-tap/{id}` và ADMIN quản lý tại `/admin/goi-tap`: GET danh sách/chi tiết, POST tạo với UUID, PUT sửa/PATCH trạng thái với phiên bản `updated_at`, CSRF cho ghi; [hợp đồng gói](features/GOI_TAP.md). Exception đã chuẩn hóa status/message/data/code/errors. Đặt mua/payOS/kích hoạt/đối soát/phân công M03 đã triển khai theo [hợp đồng](features/MUA_GOI_THANH_TOAN.md); lịch/chat bên dưới vẫn là đặc tả.
 
 Đã triển khai giáo án mẫu: ADMIN có GET/POST `/admin/giao-an-mau`, GET/PUT `/{id}`, PATCH `/{id}/trang-thai`; PT có GET `/pt/giao-an-mau` và `/{id}` chỉ cho giáo án đã duyệt. Tất cả có auth/role/tài khoản hoạt động, ghi yêu cầu CSRF, UUID khi tạo và phiên bản khi sửa/duyệt. [Hợp đồng giáo án](features/GIAO_AN_MAU.md). Tạo/áp dụng kế hoạch khách hàng M05 vẫn là phạm vi tiếp theo.
 
@@ -62,11 +62,16 @@ Lỗi validation 422 dùng `errors` map field → array messages. FE chịu đư
 | --- | --- | --- |
 | GET | `/me` | Chính người đăng nhập |
 | GET | `/goi-tap` | Catalog được phép hiển thị |
-| POST | `/khach-hang/dang-ky-goi-tap` | KH hiện tại, giá/snapshot server |
-| POST | `/khach-hang/dang-ky-goi-tap/{id}/thanh-toan` | KH sở hữu, tạo/lấy lại link payOS cho đơn còn hạn 15 phút, giá server |
-| GET | `/khach-hang/dang-ky-goi-tap/{id}` | KH sở hữu, trạng thái đơn/gói từ server |
-| POST | `/webhooks/payos` | Xác minh chữ ký payOS, mã đơn/link/số tiền/trạng thái; chống xử lý lặp, không dùng session người dùng |
-| POST | `/admin/phan-cong` | Admin, transaction, D03 |
+| GET/POST | `/khach-hang/don-hang` | KH hiện tại, chỉ đơn của mình; tạo với UUID, giá/snapshot server |
+| POST | `/khach-hang/don-hang/{id}/link-thanh-toan` | KH sở hữu, tạo/lấy lại link payOS cho đơn còn hạn 15 phút, giá server |
+| GET | `/khach-hang/don-hang/{id}` | KH sở hữu, trạng thái đơn/gói từ server |
+| POST | `/khach-hang/don-hang/{id}/dong-bo` | KH sở hữu; đọc payOS có chữ ký và xác minh khoản thu |
+| GET | `/khach-hang/goi-cua-toi` | Gói còn hiệu lực và PT hiện tại của chính KH |
+| GET | `/admin/don-hang`, `/admin/don-hang/{id}` | Admin, phân trang/lọc trạng thái và chi tiết khoản thu |
+| PATCH | `/admin/thanh-toan/{id}/doi-soat` | Admin, ghi kết quả/lý do hoàn tiền thủ công, không chuyển tiền qua API |
+| POST | `/payos/webhook` | Xác minh chữ ký payOS, mã đơn/link/số tiền/trạng thái; chống xử lý lặp, không dùng session người dùng |
+| GET/POST | `/admin/phan-cong` | Admin, danh sách/transaction phân công, UUID + phiên bản, D03 |
+| GET | `/admin/phan-cong/pt` | Admin, PT hoạt động, phân trang |
 | GET/POST | `/pt/khung-gio` | PT hiện tại |
 | POST | `/khach-hang/lich-hen` | KH + PT phụ trách + gói/slot hợp lệ |
 | POST | `/pt/lich-hen/{id}/xac-nhan` | PT của lịch |

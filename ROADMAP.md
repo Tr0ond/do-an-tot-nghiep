@@ -17,13 +17,13 @@ M01 → M02 → M03 → M04/M07 → M05/M06 → M08/M09. AI có thể prototype 
 
 ## Trạng thái triển khai ngày 02/10/2026
 
-Bootstrap FE/BE, lockfiles, cấu hình local, migrations trên MariaDB 10.4.32 và luồng tài khoản đã chạy. Có Admin tạo PT/Admin, command Admin đầu tiên và seeder demo; [kiểm chứng tài khoản](docs/verification/M01_AUTH.md). Có 1.324 bài/19 nhóm, API/giao diện công khai và Admin thêm/sửa/đổi trạng thái bài tập. Có quản lý gói, bảng giá/quyền lợi; [kiểm chứng gói](docs/verification/M02_GOI_TAP.md). Đã có quản lý nhóm cơ M02; [kiểm chứng](docs/verification/M02_NHOM_CO.md). Đã bổ sung M01: quên/đặt lại mật khẩu, sửa hồ sơ KH/PT/Admin và khóa/mở khóa qua UI theo [kiểm chứng](docs/verification/M01_HO_SO_KHOI_PHUC.md); Admin đã quản lý giáo án, PT đọc giáo án đã duyệt theo [kiểm chứng](docs/verification/M02_GIAO_AN_MAU.md); đặt mua/payOS/kích hoạt M03 chưa triển khai.
+Bootstrap FE/BE, lockfiles, cấu hình local, migrations trên MariaDB 10.4.32 và luồng tài khoản đã chạy. Có Admin tạo PT/Admin, command Admin đầu tiên và seeder demo; [kiểm chứng tài khoản](docs/verification/M01_AUTH.md). Có 1.324 bài/19 nhóm, API/giao diện công khai và Admin thêm/sửa/đổi trạng thái bài tập. Có quản lý gói, bảng giá/quyền lợi; [kiểm chứng gói](docs/verification/M02_GOI_TAP.md). Đã có quản lý nhóm cơ M02; [kiểm chứng](docs/verification/M02_NHOM_CO.md). Đã bổ sung M01: quên/đặt lại mật khẩu, sửa hồ sơ KH/PT/Admin và khóa/mở khóa qua UI theo [kiểm chứng](docs/verification/M01_HO_SO_KHOI_PHUC.md); Admin đã quản lý giáo án, PT đọc giáo án đã duyệt theo [kiểm chứng](docs/verification/M02_GIAO_AN_MAU.md); đã có đặt mua/payOS/kích hoạt/đối soát và phân công PT M03; [kiểm chứng](docs/verification/M03_MUA_GOI.md).
 
 ## Những việc cần làm tiếp
 
 - D01–D10 đã chốt chính sách chính; cụ thể hóa use case/ERD/API/quyền/trạng thái theo quyết định đó trước module tương ứng.
 - Xác minh môi trường và dependencies tương thích; thông tin tài khoản/kênh payOS, tài khoản/quota Gemini và ngày bảo vệ chưa được cung cấp. Chỉ dùng API AI miễn phí; không tự bật billing.
-- Đã có quản trị bài tập Admin (thêm/sửa/ngừng/khôi phục hiển thị) và quản lý gói/bảng giá/quyền lợi công khai; [kiểm chứng bài tập](docs/verification/M02_ADMIN_BAI_TAP.md), [gói tập](docs/verification/M02_GOI_TAP.md). Đã có Admin soạn/duyệt giáo án và PT đọc thư viện. Đã có quản lý nhóm cơ M02. Đã có sửa hồ sơ, quên/đặt lại mật khẩu và khóa/mở khóa tài khoản qua UI cho M01. Bước kế tiếp là đặt mua/payOS/kích hoạt M03, sau đó phân công PT để mở luồng lịch/chat.
+- Đã có quản trị bài tập Admin (thêm/sửa/ngừng/khôi phục hiển thị) và quản lý gói/bảng giá/quyền lợi công khai; [kiểm chứng bài tập](docs/verification/M02_ADMIN_BAI_TAP.md), [gói tập](docs/verification/M02_GOI_TAP.md). Đã có Admin soạn/duyệt giáo án và PT đọc thư viện. Đã có quản lý nhóm cơ M02. Đã có sửa hồ sơ, quên/đặt lại mật khẩu và khóa/mở khóa tài khoản qua UI cho M01. Đã có M03 và phân công PT. Bước kế tiếp là lịch PT M04 và chat realtime M07; chuyển tiền thật/webhook công khai M03 vẫn cần nghiệm thu môi trường.
 - Tạo Admin đầu tiên bằng command với mật khẩu riêng khi triển khai thật; local có seeder demo. Tài khoản PT/Admin tiếp theo do Admin tạo.
 - Kiểm thử tranh chấp trên MySQL thật khi triển khai gói/lịch; kết quả MariaDB hiện tại chỉ chứng minh phần đã thử.
 
@@ -54,4 +54,4 @@ Sau tuần 16 ngừng thêm module lớn. Nếu chậm: bỏ typing/online, ản
 Chỉ trình diễn hành vi đã implement/test, không dùng dữ liệu UI giả để tuyên bố Backend hoàn thành.
 
 ## Bổ sung theo yêu cầu giao diện ngày 02/10/2026
-Đã có dashboard KH/PT/Admin và / chỉ dành cho giới thiệu khi chưa đăng nhập; [hợp đồng](docs/features/TONG_QUAN.md), [kiểm chứng](docs/verification/DASHBOARD.md). Phần tổng quan M09 được triển khai sớm với số liệu M01/M02, chưa coi M09 hoàn thành; chưa có báo cáo doanh thu/tiến độ/lịch vì M03–M06 chưa triển khai. Bước nghiệp vụ tiếp theo vẫn là M03.
+Đã có dashboard KH/PT/Admin và / chỉ dành cho giới thiệu khi chưa đăng nhập; [hợp đồng](docs/features/TONG_QUAN.md), [kiểm chứng](docs/verification/DASHBOARD.md). Phần tổng quan M09 được triển khai sớm với số liệu M01/M02, chưa coi M09 hoàn thành; chưa có báo cáo doanh thu/tiến độ/lịch vì phần báo cáo và M04–M06 chưa triển khai. M03 đã có API/giao diện mua gói/payOS/phân công; bước nghiệp vụ tiếp theo là M04/M07.
