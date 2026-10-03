@@ -23,7 +23,7 @@ Bootstrap FE/BE, lockfiles, cấu hình local, migrations trên MariaDB 10.4.32 
 
 - D01–D10 đã chốt chính sách chính; cụ thể hóa use case/ERD/API/quyền/trạng thái theo quyết định đó trước module tương ứng.
 - Xác minh môi trường và dependencies tương thích; thông tin tài khoản/kênh payOS, tài khoản/quota Gemini và ngày bảo vệ chưa được cung cấp. Chỉ dùng API AI miễn phí; không tự bật billing.
-- Đã có quản trị bài tập Admin (thêm/sửa/ngừng/khôi phục hiển thị) và quản lý gói/bảng giá/quyền lợi công khai; [kiểm chứng bài tập](docs/verification/M02_ADMIN_BAI_TAP.md), [gói tập](docs/verification/M02_GOI_TAP.md). Đã có Admin soạn/duyệt giáo án và PT đọc thư viện. Đã có quản lý nhóm cơ M02. Đã có sửa hồ sơ, quên/đặt lại mật khẩu và khóa/mở khóa tài khoản qua UI cho M01. Đã có M03/phân công PT và lịch M04; [kiểm chứng M04](docs/verification/M04_LICH_HUAN_LUYEN.md). Đã có chat realtime M07; bước kế tiếp là giáo án cá nhân M05. [Kiểm chứng M07](docs/verification/M07_CHAT.md). Webhook công khai ngrok đã nhận HTTP200 khi xác minh kết nối; chuyển tiền thật vẫn cần nghiệm thu môi trường.
+- Đã có quản trị bài tập Admin (thêm/sửa/ngừng/khôi phục hiển thị) và quản lý gói/bảng giá/quyền lợi công khai; [kiểm chứng bài tập](docs/verification/M02_ADMIN_BAI_TAP.md), [gói tập](docs/verification/M02_GOI_TAP.md). Đã có Admin soạn/duyệt giáo án và PT đọc thư viện. Đã có quản lý nhóm cơ M02. Đã có sửa hồ sơ, quên/đặt lại mật khẩu và khóa/mở khóa tài khoản qua UI cho M01. Đã có M03/phân công PT và lịch M04; [kiểm chứng M04](docs/verification/M04_LICH_HUAN_LUYEN.md). Đã có chat realtime M07; đã triển khai giáo án cá nhân M05; bước kế tiếp là nhật ký tự tập M06. [Kiểm chứng M07](docs/verification/M07_CHAT.md). Webhook công khai ngrok đã nhận HTTP200 khi xác minh kết nối; chuyển tiền thật vẫn cần nghiệm thu môi trường.
 - Tạo Admin đầu tiên bằng command với mật khẩu riêng khi triển khai thật; local có seeder demo. Tài khoản PT/Admin tiếp theo do Admin tạo.
 - Kiểm thử tranh chấp trên MySQL thật khi triển khai gói/lịch; kết quả MariaDB hiện tại chỉ chứng minh phần đã thử.
 
@@ -54,4 +54,8 @@ Sau tuần 16 ngừng thêm module lớn. Nếu chậm: bỏ typing/online, ản
 Chỉ trình diễn hành vi đã implement/test, không dùng dữ liệu UI giả để tuyên bố Backend hoàn thành.
 
 ## Bổ sung theo yêu cầu giao diện ngày 02/10/2026
-Đã có dashboard KH/PT/Admin và / chỉ dành cho giới thiệu khi chưa đăng nhập; [hợp đồng](docs/features/TONG_QUAN.md), [kiểm chứng](docs/verification/DASHBOARD.md). Phần tổng quan M09 được triển khai sớm với số liệu M01/M02, chưa coi M09 hoàn thành; chưa có báo cáo doanh thu/tiến độ/lịch vì báo cáo M09 và nghiệp vụ kế hoạch/nhật ký M05–M06 chưa hoàn chỉnh. M03 đã có API/giao diện mua gói/payOS/phân công; M04 đã hoàn tất phần lịch PT; đã triển khai chat M07 local; bước nghiệp vụ tiếp theo là M05.
+Đã có dashboard KH/PT/Admin và / chỉ dành cho giới thiệu khi chưa đăng nhập; [hợp đồng](docs/features/TONG_QUAN.md), [kiểm chứng](docs/verification/DASHBOARD.md). Phần tổng quan M09 được triển khai sớm với số liệu M01/M02, chưa coi M09 hoàn thành; chưa có báo cáo doanh thu/tiến độ/lịch vì báo cáo M09 và nghiệp vụ kế hoạch/nhật ký M05–M06 chưa hoàn chỉnh. M03 đã có API/giao diện mua gói/payOS/phân công; M04 đã hoàn tất phần lịch PT; đã triển khai chat M07 local; M05 đã triển khai; bước nghiệp vụ tiếp theo là M06.
+
+## Giáo án cá nhân M05 — 03/10/2026
+
+Đã có PT tạo/sửa nháp, gửi và hủy đề xuất; KH xem/xác nhận trong 24 giờ, thay thế và lưu lịch sử. Hai sự kiện chuông đã bật, kiểm thử tranh chấp trên MariaDB đạt. [Kiểm chứng và giới hạn UI](docs/verification/M05_KE_HOACH_TAP.md). Tiếp theo M06: nhật ký tự tập và kết quả; M08 chatbot và M09 báo cáo vẫn chưa hoàn thành.

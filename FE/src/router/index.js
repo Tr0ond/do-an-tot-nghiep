@@ -10,6 +10,49 @@ const router = createRouter({
     return false
   },
   routes: [
+    {
+      path: '/pt/hoc-vien',
+      component: () => import('../views/PT/HocVien/index.vue'),
+      meta: { vaiTro: 'HUAN_LUYEN_VIEN' },
+    },
+    {
+      path: '/pt/hoc-vien/:khachId/ke-hoach',
+      component: () => import('../views/KeHoachTap/index.vue'),
+      meta: { vaiTro: 'HUAN_LUYEN_VIEN' },
+    },
+    {
+      path: '/pt/hoc-vien/:khachId/ke-hoach/them',
+      component: () => import('../views/PT/KeHoachTap/BieuMau/index.vue'),
+      meta: { vaiTro: 'HUAN_LUYEN_VIEN' },
+    },
+    {
+      path: '/pt/ke-hoach/:id/sua',
+      component: () => import('../views/PT/KeHoachTap/BieuMau/index.vue'),
+      meta: { vaiTro: 'HUAN_LUYEN_VIEN' },
+    },
+    {
+      path: '/khach-hang/ke-hoach',
+      component: () => import('../views/KeHoachTap/index.vue'),
+      meta: { vaiTro: 'KHACH_HANG' },
+    },
+    {
+      path: '/khach-hang/ke-hoach/them',
+      component: () => import('../views/PT/KeHoachTap/BieuMau/index.vue'),
+      meta: { vaiTro: 'KHACH_HANG' },
+    },
+    {
+      path: '/khach-hang/ke-hoach/:id/sua',
+      component: () => import('../views/PT/KeHoachTap/BieuMau/index.vue'),
+      meta: { vaiTro: 'KHACH_HANG' },
+    },
+    ...[
+      ['pt', 'HUAN_LUYEN_VIEN'],
+      ['khach-hang', 'KHACH_HANG'],
+    ].map(([khuVuc, vaiTro]) => ({
+      path: `/${khuVuc}/ke-hoach/:id`,
+      component: () => import('../views/KeHoachTap/ChiTiet/index.vue'),
+      meta: { vaiTro },
+    })),
     ...[
       ['khach-hang', 'KHACH_HANG'],
       ['pt', 'HUAN_LUYEN_VIEN'],

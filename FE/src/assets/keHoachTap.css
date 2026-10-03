@@ -1,0 +1,807 @@
+/* ==========================================================================
+   GIÁO ÁN CÁ NHÂN (M05) — CINEMATIC HIGH-PERFORMANCE STYLING
+   Tương thích chuẩn Dark Theme / Light Theme và Responsive
+   ========================================================================== */
+
+.kh-plan {
+  color: var(--mau-chu);
+}
+
+/* Tiêu đề trang & Hero Header */
+.kh-plan .kh-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.kh-plan .kh-heading h1 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 6px 0 8px;
+  color: var(--mau-chu);
+}
+
+.kh-plan .kh-heading p {
+  color: var(--mau-phu);
+  font-size: 0.95rem;
+  max-width: 680px;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.kh-plan .kh-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Thanh điều hướng quay lại */
+.kh-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   TOOLBAR BỘ LỌC (DANH SÁCH GIÁO ÁN)
+   ========================================================================== */
+.kh-filter-toolbar {
+  background: var(--mau-the, #141414);
+  border: 1px solid var(--mau-vien);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  box-shadow: var(--bong-nhe);
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kh-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.kh-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kh-filter-item label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--mau-phu);
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.kh-filter-item select,
+.kh-filter-select {
+  min-height: 38px;
+  background-color: var(--mau-nen, #0a0a0a);
+  border: 1px solid var(--mau-vien);
+  border-radius: 8px;
+  color: var(--mau-chu);
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.kh-filter-item select:focus,
+.kh-filter-select:focus {
+  border-color: var(--mau-chinh);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(244, 91, 32, 0.18);
+}
+
+.kh-filter-hint {
+  font-size: 0.8rem;
+  color: var(--mau-phu);
+  margin: 0;
+}
+
+/* ==========================================================================
+   LƯỚI THẺ HỌC VIÊN & GIÁO ÁN (CARDS GRID)
+   ========================================================================== */
+.kh-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.kh-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 22px 24px;
+  background: var(--mau-the, #141414);
+  border: 1px solid var(--mau-vien);
+  border-radius: 16px;
+  box-shadow: var(--bong-nhe);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: 0;
+}
+
+.kh-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--mau-vien-hover);
+  box-shadow: var(--bong-trung);
+}
+
+.kh-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.kh-card-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.kh-card h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 8px;
+  color: var(--mau-chu);
+  overflow-wrap: anywhere;
+}
+
+.kh-card-desc {
+  font-size: 0.875rem;
+  color: var(--mau-phu);
+  line-height: 1.5;
+  margin: 0 0 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Thẻ học viên đặc biệt (HocVienPT) */
+.kh-student-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.kh-student-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--mau-chinh);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--mau-chinh) 25%, var(--mau-the, #141414)) 0%,
+    color-mix(in srgb, var(--mau-chinh) 10%, var(--mau-nen, #0a0a0a)) 100%
+  );
+  border: 1.5px solid color-mix(in srgb, var(--mau-chinh) 35%, transparent);
+  box-shadow: 0 4px 12px rgba(244, 91, 32, 0.15);
+  flex-shrink: 0;
+}
+
+/* Huy hiệu trạng thái giáo án */
+.kh-status {
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  color: var(--mau-chu);
+  background: var(--mau-the-sub, #1e1e1e);
+  border: 1px solid var(--mau-vien);
+}
+
+.kh-status.DANG_AP_DUNG {
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.12);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.kh-status.CHO_DUYET {
+  color: #eab308;
+  background: rgba(234, 179, 8, 0.12);
+  border-color: rgba(234, 179, 8, 0.3);
+}
+
+.kh-status.NHAP {
+  color: var(--mau-phu);
+  background: var(--mau-the-sub, #1e1e1e);
+}
+
+.kh-status.LUU_TRU {
+  color: var(--mau-phu);
+  background: rgba(148, 163, 184, 0.1);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+.kh-status.DA_HUY,
+.kh-status.QUA_HAN {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Huy hiệu nguồn tạo */
+.kh-source-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--mau-phu);
+}
+
+/* Các chỉ số tóm tắt (Ngày tập, Bài tập) */
+.kh-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.kh-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--mau-chu);
+  background: var(--mau-the-sub, #181818);
+  border: 1px solid var(--mau-vien);
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.kh-meta-item i {
+  color: var(--mau-chinh);
+}
+
+/* Hạn xác nhận 24 giờ */
+.kh-deadline-callout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  background: rgba(234, 179, 8, 0.1);
+  border: 1px solid rgba(234, 179, 8, 0.25);
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: #eab308;
+  font-weight: 500;
+}
+
+.kh-card-footer {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--mau-vien);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==========================================================================
+   CHI TIẾT GIÁO ÁN (DETAIL VIEW)
+   ========================================================================== */
+.kh-detail-header-card {
+  background: var(--mau-the, #141414);
+  border: 1px solid var(--mau-vien);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--bong-nhe);
+}
+
+.kh-day-panel {
+  background: var(--mau-the, #141414);
+  border: 1px solid var(--mau-vien);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--bong-nhe);
+}
+
+.kh-day-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--mau-vien);
+}
+
+.kh-day-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.kh-day-pill {
+  background: var(--mau-chinh);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(244, 91, 32, 0.4);
+}
+
+/* Từng bài tập trong ngày */
+.kh-exercise {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 18px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--mau-vien);
+}
+
+.kh-exercise:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.kh-thumbnail {
+  width: 84px;
+  height: 84px;
+  border-radius: 12px;
+  aspect-ratio: 1;
+  background: var(--mau-the-sub, #1e1e1e);
+  border: 1px solid var(--mau-vien);
+  overflow: hidden;
+  box-shadow: var(--bong-nhe);
+}
+
+.kh-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kh-exercise-content {
+  min-width: 0;
+}
+
+.kh-exercise-content h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: var(--mau-chu);
+}
+
+/* Thông số bài tập dạng Chips */
+.kh-param-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.kh-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: var(--mau-the-sub, #181818);
+  border: 1px solid var(--mau-vien);
+  color: var(--mau-chu);
+}
+
+.kh-chip strong {
+  color: var(--mau-chu);
+  font-weight: 700;
+}
+
+.kh-chip i {
+  color: var(--mau-chinh);
+}
+
+.kh-chip-weight {
+  background: rgba(244, 91, 32, 0.12);
+  border-color: rgba(244, 91, 32, 0.3);
+  color: var(--mau-chinh);
+}
+
+.kh-chip-weight strong {
+  color: var(--mau-chinh);
+}
+
+.kh-note-bubble {
+  background: color-mix(in srgb, var(--mau-chinh) 8%, var(--mau-the, #141414));
+  border-left: 3px solid var(--mau-chinh);
+  border-radius: 4px 8px 8px 4px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  color: var(--mau-chu);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* Hướng dẫn chi tiết / GIF minh họa */
+.kh-guide-details {
+  margin-top: 14px;
+  border: 1px solid var(--mau-vien);
+  border-radius: 12px;
+  padding: 4px 16px;
+  background: var(--mau-nen, #0a0a0a);
+}
+
+.kh-guide-details summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--mau-chinh);
+}
+
+.kh-guide-body {
+  padding: 12px 0 16px;
+  border-top: 1px solid var(--mau-vien);
+}
+
+.kh-guide-body .kh-animation {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  background: var(--mau-the-sub, #1e1e1e);
+  border: 1px solid var(--mau-vien);
+}
+
+/* Hộp thông báo xác nhận hành động (Xác nhận, Gửi, Hủy, Áp dụng) */
+.kh-notice {
+  padding: 20px 24px;
+  margin: 20px 0;
+  border: 1px solid var(--mau-vien);
+  border-left: 4px solid var(--mau-chinh);
+  border-radius: 12px;
+  background: var(--mau-the, #141414);
+  box-shadow: var(--bong-trung);
+}
+
+.kh-notice h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.kh-notice p {
+  color: var(--mau-phu);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* ==========================================================================
+   BIỂU MẪU SOẠN GIÁO ÁN (EDITOR / FORM)
+   ========================================================================== */
+.kh-editor {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 24px;
+  align-items: start;
+}
+
+.kh-editor-main {
+  min-width: 0;
+}
+
+/* Thanh chọn ngày tập trong biểu mẫu */
+.kh-day-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0;
+}
+
+.kh-day-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 10px;
+  background: var(--mau-the, #141414);
+  border: 1px solid var(--mau-vien);
+  color: var(--mau-chu);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.kh-day-tab-btn:hover {
+  border-color: var(--mau-chinh);
+  color: var(--mau-chinh);
+}
+
+.kh-day-tab-btn.is-active {
+  background: linear-gradient(135deg, #f45b20 0%, #d94a15 100%);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(244, 91, 32, 0.35);
+}
+
+.kh-day-count-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: inherit;
+  font-size: 0.72rem;
+  padding: 1px 6px;
+  border-radius: 9999px;
+  font-weight: 700;
+}
+
+.kh-day-tab-btn:not(.is-active) .kh-day-count-badge {
+  background: var(--mau-the-sub, #1e1e1e);
+  color: var(--mau-phu);
+}
+
+/* Từng dòng bài tập đang soạn */
+.kh-editor-row {
+  background: var(--mau-the, #141414);
+  border: 1px solid var(--mau-vien);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--bong-nhe);
+  transition: border-color 0.2s ease;
+}
+
+.kh-editor-row:hover {
+  border-color: var(--mau-vien-hover);
+}
+
+.kh-row-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--mau-vien);
+}
+
+.kh-row-title strong {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--mau-chu);
+}
+
+/* Lưới nhập thông số bài tập: Hiệp, Lặp, Nghỉ, Mức tạ */
+.kh-inputs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.kh-input-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--mau-phu);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.kh-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.kh-input-wrapper input {
+  width: 100%;
+  min-height: 44px;
+  background: var(--mau-nen, #0a0a0a);
+  border: 1px solid var(--mau-vien);
+  border-radius: 8px;
+  color: var(--mau-chu);
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.kh-input-wrapper input:focus {
+  border-color: var(--mau-chinh);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(244, 91, 32, 0.18);
+}
+
+.kh-input-unit {
+  position: absolute;
+  right: 12px;
+  font-size: 0.75rem;
+  color: var(--mau-phu);
+  pointer-events: none;
+}
+
+.kh-fields {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+
+.kh-error {
+  color: #ef4444;
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Phân trang */
+.kh-pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+/* ==========================================================================
+   LIGHT MODE OVERRIDES
+   ========================================================================== */
+:root[data-theme='light'] .kh-card,
+.light-theme .kh-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+:root[data-theme='light'] .kh-filter-toolbar,
+.light-theme .kh-filter-toolbar {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+:root[data-theme='light'] .kh-detail-header-card,
+.light-theme .kh-detail-header-card,
+:root[data-theme='light'] .kh-day-panel,
+.light-theme .kh-day-panel {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+:root[data-theme='light'] .kh-editor-row,
+.light-theme .kh-editor-row {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+:root[data-theme='light'] .kh-input-wrapper input,
+.light-theme .kh-input-wrapper input,
+:root[data-theme='light'] .kh-filter-item select,
+.light-theme .kh-filter-item select {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+:root[data-theme='light'] .kh-meta-item,
+.light-theme .kh-meta-item,
+:root[data-theme='light'] .kh-chip,
+.light-theme .kh-chip {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+:root[data-theme='light'] .kh-guide-details,
+.light-theme .kh-guide-details {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+:root[data-theme='light'] .kh-notice,
+.light-theme .kh-notice {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  border-left-color: var(--mau-chinh);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1000px) {
+  .kh-plan .kh-editor {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .kh-plan .kh-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .kh-filter-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .kh-filter-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .kh-filter-item {
+    justify-content: space-between;
+  }
+
+  .kh-filter-item select {
+    width: 60%;
+  }
+
+  .kh-inputs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .kh-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .kh-exercise {
+    grid-template-columns: 64px 1fr;
+    gap: 12px;
+  }
+
+  .kh-thumbnail {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kh-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .kh-actions {
+    width: 100%;
+  }
+
+  .kh-actions .btn {
+    width: 100%;
+  }
+}

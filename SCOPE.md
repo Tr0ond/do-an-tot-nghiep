@@ -16,7 +16,7 @@ Chủ dự án xác nhận làm một mình khoảng 8 giờ/ngày, quy mô mộ
 | M02 | Danh mục | Gói dịch vụ cấu hình quyền chatbot/số buổi PT, nhóm cơ, bài tập, giáo án mẫu |
 | M03 | Đăng ký gói và phân công | Thanh toán payOS, snapshot gói/quyền lợi, phân công với gói có PT |
 | M04 | Lịch huấn luyện | Khung giờ, đặt/xác nhận/hủy lịch, chống trùng |
-| M05 | Kế hoạch tập | PT tạo kế hoạch từ mẫu, KH xác nhận, lịch tự tập |
+| M05 | Kế hoạch tập | PT tạo từ mẫu/KH xác nhận; KH tự tạo miễn phí; mỗi KH một bản đang dùng, ngừng cả bản PT; ẩn/hiện lại bản tự tạo đã hủy/lưu trữ; PT phụ trách đọc giáo án KH, lịch tự tập |
 | M06 | Nhật ký và tiến độ | Hiệp/lần lặp/tạ, hoàn thành, nhận xét, biểu đồ |
 | M07 | Chat realtime | Tin văn bản, lịch sử, chưa đọc/đã đọc, reconnect |
 | M08 | Chatbot AI | Gói/mục tiêu/lịch mẫu/FAQ, thẻ dữ liệu thật, chuyển sang PT |

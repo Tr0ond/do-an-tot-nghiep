@@ -18,7 +18,7 @@ class BaiTapController extends Controller
     {
         $duLieu = $request->validated();
         $truyVan = BaiTap::dangHienThi()->with('nhomCo:id,ten_nhom_co')
-            ->select(['id', 'nhom_co_id', 'ma_nguon', 'ten_bai_tap', 'ten_tieng_viet', 'dung_cu', 'dung_cu_nguon', 'anh_url', 'ghi_cong_media']);
+            ->select(['id', 'nhom_co_id', 'ma_nguon', 'ten_bai_tap', 'ten_tieng_viet', 'dung_cu', 'dung_cu_nguon', 'anh_url', 'gif_url', 'ghi_cong_media']);
         if (isset($duLieu['tu_khoa']) && $duLieu['tu_khoa'] !== '') {
             // Escape ký tự LIKE để từ khóa không vô tình thành wildcard.
             $tuKhoa = '%'.str_replace(['=', '%', '_'], ['==', '=%', '=_'], $duLieu['tu_khoa']).'%';

@@ -1,5 +1,11 @@
 # Từ điển dữ liệu
 
+Runtime C33/migration000039: unique `uq_t14_01(khach_dang_ap_dung_id)` thay unique theo nguồn của000037. Mỗi KH tối đa một bản đang dùng; chuyển dữ liệu trùng về một bản mới nhất, lưu trữ bản khác và giữ bài/snapshot. Nguồn chỉ phân loại giáo án, không chia giới hạn áp dụng. [Hợp đồng](features/KE_HOACH_TAP.md).
+
+Runtime C32/migration000038: `ke_hoach_tap.khach_an_luc` DATETIME(6) nullable, null là chưa ẩn. Lưu lựa chọn hiển thị của KH cho bản tự tạo đã hủy/lưu trữ; không đổi trạng thái hay xóa dòng bài tập/lịch sử. [Hợp đồng](features/KE_HOACH_TAP.md#ẩn--hiện-lại-giáo-án-tự-tạo--c32).
+
+Runtime C31/migration000037: `ke_hoach_tap.nguon_tao` VARCHAR(32) mặc định `PT`, Backend gán `KHACH_HANG` cho bản KH tự tạo. `huan_luyen_vien_id`/`phan_cong_id` nullable, giữ FK, null với bản tự tạo không phụ thuộc phân công. Unique theo nguồn tại000037 đã được C33/000039 thay bằng unique chung theo KH. UUID/hash/snapshot M05 giữ nguyên; rollback000037 từ chối khi có bản tự tạo. Các bảng bên dưới và Draw.io/SQL là baseline thiết kế, migrations là schema runtime. [Hợp đồng](features/KE_HOACH_TAP.md#kh-tự-tạo--c31).
+
 Sinh từ `scripts/databaseSchema.mjs`. Đầy đủ 28 bảng/52 FK; sơ đồ tại [database.drawio](diagrams/database.drawio). SQL chưa chạy trên MySQL.
 
 ## tai_khoan

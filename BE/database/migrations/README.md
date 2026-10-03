@@ -1,6 +1,6 @@
 # Migrations nghiệp vụ
 
-Ngoài 28 migrations tạo bảng gốc, có migrations bổ sung `2026_10_01_000029_add_ma_yeu_cau_tao_to_goi_tap_table.php` và `2026_10_01_000030_add_ma_yeu_cau_tao_to_giao_an_mau_table.php` thêm UUID nullable và unique `uq_t04_01`/`uq_t12_01` chống tạo gói/giáo án trùng. Không sửa SQL/Draw.io gốc hoặc migration đã chạy. Runtime hiện có 34 migrations (28 tạo bảng nghiệp vụ + 3 framework + 3 bổ sung); script đối chiếu schema chỉ kiểm tra 28 migration `create_…_table`. [Hợp đồng gói](../../../docs/features/GOI_TAP.md), [giáo án](../../../docs/features/GIAO_AN_MAU.md).
+Ngoài 28 migrations tạo bảng gốc, có migrations bổ sung từ 000029 đến 000039 cho UUID, dữ liệu nghiệp vụ M03/M05 và chat/thông báo. Không sửa SQL/Draw.io gốc hoặc migration đã chạy. Runtime hiện có 42 migrations (28 tạo bảng nghiệp vụ + 3 framework + 11 bổ sung); script đối chiếu schema chỉ kiểm tra 28 migration `create_…_table`. Migration000037 giữ bản PT cũ, thêm nguồn và liên kết nullable cho KH tự tạo; unique theo nguồn tại thời điểm đó đã được000039 thay bằng unique chung theo KH. Rollback000037 từ chối khi có bản tự tạo. Migration000038 thêm `khach_an_luc` nullable, giữ bản cũ chưa ẩn; down từ chối khi còn bản đã ẩn. Migration000039 giữ bản áp dụng gần nhất, lưu trữ bản trùng và đổi unique về KH; chạy trong maintenance, đã migrate local rồi mở lại ứng dụng. Down chỉ đổi index, không tái kích hoạt giáo án. [Hợp đồng gói](../../../docs/features/GOI_TAP.md), [giáo án mẫu](../../../docs/features/GIAO_AN_MAU.md), [giáo án cá nhân](../../../docs/features/KE_HOACH_TAP.md).
 
 Đã tạo **28 migrations Laravel / 303 cột / 52 khóa ngoại**, đối chiếu cả [database.drawio ở thư mục gốc](../../../database.drawio) và [bản trong docs](../../../docs/diagrams/database.drawio). Hai bản khớp tên bảng, tên cột và quan hệ. Kiểu dữ liệu, nullable, default, biểu thức generated và CHECK lấy từ [schema.json](../design/schema.json) / [SQL thiết kế](../design/schema.mysql.sql), vì bản vẽ tổng thể chỉ hiển thị tên cột và PK/FK.
 
@@ -59,3 +59,7 @@ Script dùng kết nối BE hiện tại, yêu cầu quyền CREATE/DROP DATABAS
 ## Migration ảnh chat M07 — 000035
 
 `2026_10_03_000035_add_anh_to_tin_nhan_table.php` thêm JSON nullable `tin_nhan.anh`, tin cũ vẫn null. Đã chạy trên database ứng dụng ngày03/10/2026, không reset/seed lại. Chạy `php artisan migrate` khi clone/pull; `down` từ chối nếu có ảnh để tránh mất metadata lịch sử. Tệp ở disk local riêng tư, không xóa khi rollback. [Hợp đồng ảnh](../../../docs/features/REALTIME_CHAT.md), [kiểm chứng](../../../docs/verification/CHAT_IMAGES.md).
+
+## Runtime M05 — 03/10/2026
+
+Migration 000036 bổ sung số ngày tập và UUID/hash tạo cho T14, mức tạ nullable cho T15. Giáo án cũ giữ dữ liệu, số ngày backfill từ các bài; không reset hoặc seed lại. down từ chối khi có UUID hoặc mức tạ mới để tránh mất thông tin. Đã migrate database ứng dụng và thử giữ dữ liệu cũ/up/down trên database MariaDB riêng. [Kiểm chứng](../../../docs/verification/M05_KE_HOACH_TAP.md).

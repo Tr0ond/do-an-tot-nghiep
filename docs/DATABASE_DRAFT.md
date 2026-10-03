@@ -21,7 +21,7 @@ Catalog bài tập đã chuẩn bị từ dataset do chủ dự án cung cấp: 
 | T11 | `bai_tap` | Tên gốc/tên Việt tùy chọn, hướng dẫn đa ngôn ngữ, ảnh/GIF, nguồn/ghi công, một nhóm cơ chính, cơ phụ JSON, dụng cụ/trạng thái |
 | T12 | `giao_an_mau` | Giáo án được quản lý/duyệt, mục tiêu và số ngày tập |
 | T13 | `bai_tap_trong_giao_an_mau` | Mẫu–bài, chỉ số ngày/thứ tự, set/rep/nghỉ dự kiến |
-| T14 | `ke_hoach_tap` | KH–PT, trạng thái, kế hoạch được thay thế, hạn duyệt 24 giờ từ lúc gửi |
+| T14 | `ke_hoach_tap` | Chủ KH, nguồn PT/KH tự tạo; PT/phân công nullable cho tự tạo; trạng thái, thay thế, hạn duyệt 24 giờ cho PT; thời điểm KH ẩn bản tự tạo |
 | T15 | `bai_tap_trong_ke_hoach` | Nội dung snapshot bài theo ngày trong kế hoạch |
 | T16 | `lich_tap` | Lịch tự tập theo kế hoạch/ngày; khác lịch hẹn PT |
 | T17 | `phien_tap` | KH–lịch tập, thời điểm/trạng thái thực hiện |
@@ -101,3 +101,7 @@ Schema/Draw.io gốc vẫn là 28 bảng/303 cột/52 FK. Runtime bổ sung UUID
 ## Bổ sung runtime M03 ngày 02/10/2026
 
 Migration 000031 thêm T05 url_thanh_toan và generated khach_dang_cho_id/UNIQUE uq_t05_06 để một KH chỉ có một đơn CHO_THANH_TOAN; service đóng đơn quá hạn trước tạo đơn mới. T07 thêm client_request_id nullable/UNIQUE uq_t07_02 và phan_cong_truoc_id để chống tạo lặp và đối chiếu phiên bản phân công. Không sửa SQL/Draw.io hoặc 28 migrations gốc; không thêm bảng nghiệp vụ. Khoản thu T06 dùng mã giao dịch unique và trường đối soát/hoàn tiền đã có. [Hợp đồng M03](features/MUA_GOI_THANH_TOAN.md), [kiểm chứng MariaDB](verification/M03_MUA_GOI.md).
+
+## Runtime M05 — 03/10/2026
+
+Migration 000036 thêm `ke_hoach_tap.so_ngay_tap` (backfill ngày lớn nhất trong bài cũ, tối thiểu một), `ma_yeu_cau_tao`/`hash_yeu_cau_tao` nullable và UNIQUE `uq_t14_03`; `bai_tap_trong_ke_hoach.muc_ta_kg` DECIMAL(6,2) nullable. Snapshot tên/hướng dẫn/media dùng các cột có sẵn; mức tạ giữ cùng thông số từng bài. Không sửa SQL/Draw.io baseline hoặc thêm bảng nghiệp vụ. Rollback từ chối khi có UUID/mức tạ mới. [Hợp đồng](features/KE_HOACH_TAP.md), [kiểm chứng migration/tranh chấp](verification/M05_KE_HOACH_TAP.md).

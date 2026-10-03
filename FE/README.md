@@ -1,5 +1,13 @@
 # FE — Vue SPA
 
+C34: chi tiết giáo án PT đã xác nhận đang lưu trữ có **Áp dụng lại giáo án** theo cờ quyền API. Xác nhận thay bản hiện tại và thông báo thành công dùng chung với giáo án tự tạo, giữ layout/theme. [Kiểm chứng](../docs/verification/M05_AP_DUNG_LAI_PT.md).
+
+C33: KH chỉ có một giáo án đang áp dụng bất kể nguồn; xác nhận PT hoặc tự áp dụng bản mới lưu trữ bản cũ. Chi tiết bản PT đã nhận có **Ngừng áp dụng**, không cần PT duyệt; trạng thái chuyển sang lưu trữ và giữ bài/lịch sử. [Hợp đồng](../docs/features/KE_HOACH_TAP.md#một-giáo-án-đang-áp-dụng--ngừng-giáo-án-pt--c33), [kiểm chứng](../docs/verification/M05_MOT_GIAO_AN.md).
+
+C32: trong **Giáo án của tôi**, mở bản tự tạo đã hủy/lưu trữ → **Ẩn giáo án**. Bộ lọc **Hiển thị → Đã ẩn** cho phép xem và **Hiện lại giáo án**; hiện lại giữ nguyên trạng thái, không tự áp dụng. PT thấy nhãn **KH đã ẩn** nhưng chỉ đọc. [Kiểm chứng](../docs/verification/M05_AN_GIAO_AN.md).
+
+C31/M05: KH mở **Giáo án của tôi → Tự tạo giáo án** để chọn bài từ catalog, lưu nháp, sửa và tự áp dụng không cần gói/PT duyệt. PT mở **Học viên & giáo án → học viên** để xem bản tự tạo và trạng thái đang dùng. Danh sách lọc theo nguồn; dùng cùng layout/theme và trình soạn Options API của PT. [Hợp đồng](../docs/features/KE_HOACH_TAP.md), [kiểm chứng](../docs/verification/M05_TU_TAO_GIAO_AN.md).
+
 **Trạng thái:** đã bootstrap Vue **3.5.43**, JavaScript/Options API, Vite **8.3.1**, cài dependencies và lưu package-lock.json. Đã chạy trên Node **22.20.0**, npm **10.9.3**. package.json ghi Node tương thích ^22.18.0 hoặc >=24.12.0.
 
 Đã cài Vue Router **5.3.1**, Pinia **4.0.3**, Axios **1.20.0**, Bootstrap **5.3.8**, ESLint/Oxlint/Prettier. Pinia Options Store giữ tài khoản trả từ Backend trong bộ nhớ; không lưu token/role vào localStorage. Đã cài Laravel Echo/Pusher cho chat realtime; Chart.js sẽ được thêm khi làm thống kê tương ứng.
@@ -15,7 +23,7 @@ rtk proxy npm.cmd run dev
 
 Mở [đăng ký](http://localhost:5173/dang-ky) hoặc [đăng nhập](http://localhost:5173/dang-nhap) khi Laravel chạy ở localhost:8000. Vite dùng port cố định 5173; hai bên dùng cùng hostname localhost. Khách tự đăng ký; PT/Admin được Admin cấp tài khoản. Admin đầu tiên tạo bằng lệnh ở [hướng dẫn tài khoản](../docs/features/TAI_KHOAN.md).
 
-Menu KH/PT/Admin nằm trong thanh bên dọc của `CaNhanLayout.vue`, thu gọn còn biểu tượng; dưới 1024px mở dạng ngăn menu. PT có Tổng quan, Tin nhắn, Hồ sơ PT, Giáo án mẫu, Khung giờ, Lịch hẹn và Thư viện bài tập. [Kiểm chứng header PT và start.bat](../docs/verification/HEADER_PT_START.md).
+Menu KH/PT/Admin nằm trong thanh bên dọc của `CaNhanLayout.vue`, thu gọn còn biểu tượng; dưới 1024px mở dạng ngăn menu. PT có Tổng quan, Tin nhắn, Hồ sơ PT, Học viên & giáo án, Giáo án mẫu, Khung giờ, Lịch hẹn và Thư viện bài tập. [Kiểm chứng header PT và start.bat](../docs/verification/HEADER_PT_START.md).
 
 Đã tạo .env local từ .env.example. VITE_API_BASE_URL được Axios instance ở src/utils/http.js đọc; component gọi qua services/xacThucService.js và taiKhoanService.js. Service lấy CSRF cookie trước POST, Axios gửi credentials/XSRF. Đổi .env cần khởi động lại Vite. Các biến VITE_* là công khai, không đặt AI key/Reverb secret vào đây. Máy này đã cấu hình Reverb local; máy mới đặt public key khớp BE theo [hướng dẫn chat](../docs/features/REALTIME_CHAT.md).
 
@@ -43,7 +51,7 @@ Toàn bộ frontend đạt **102 Vitest tests**, build/lint/format. Có bảng g
 
 ## Giáo án mẫu Admin/PT
 
-Admin có `/admin/giao-an-mau`, `/admin/giao-an-mau/them`, `/admin/giao-an-mau/:id/sua`; PT có `/pt/giao-an-mau`, `/pt/giao-an-mau/:id`. Trình soạn chọn bài từ API đang hoạt động, phân trang 6 bài/lần, thêm/bỏ/đổi thứ tự trong từng ngày, nhập hiệp/lặp/nghỉ/ghi chú; lưu nháp rồi duyệt/ngừng. Sửa bản duyệt về nháp, giữ form khi 422/409/mất mạng. PT chỉ đọc và mở hướng dẫn bài, chưa tạo kế hoạch khách hàng. Vue JavaScript Options API, state cục bộ và service chung. [Hợp đồng](../docs/features/GIAO_AN_MAU.md), [kiểm chứng](../docs/verification/M02_GIAO_AN_MAU.md).
+Admin có `/admin/giao-an-mau`, `/admin/giao-an-mau/them`, `/admin/giao-an-mau/:id/sua`; PT có `/pt/giao-an-mau`, `/pt/giao-an-mau/:id`. Trình soạn chọn bài từ API đang hoạt động, phân trang 6 bài/lần, thêm/bỏ/đổi thứ tự trong từng ngày, nhập hiệp/lặp/nghỉ/ghi chú; lưu nháp rồi duyệt/ngừng. Sửa bản duyệt về nháp, giữ form khi 422/409/mất mạng. PT đọc và mở hướng dẫn bài; M05 đã có tạo giáo án cá nhân từ mẫu đã duyệt. Vue JavaScript Options API, state cục bộ và service chung. [Hợp đồng](../docs/features/GIAO_AN_MAU.md), [kiểm chứng](../docs/verification/M02_GIAO_AN_MAU.md).
 
 ## Quản lý nhóm cơ Admin
 
@@ -85,7 +93,7 @@ Chat giữ toàn bộ chiều rộng và chiều cao desktop520–820px; thu g�
 
 Biểu tượng tin nhắn KH/PT hiện mở bảng xem nhanh hội thoại, bấm từng người mới mở chat; có “Xem tất cả tin nhắn”. Bảng tối đa sáu dòng, đồng bộ dữ liệu thật, không đánh dấu đọc chỉ vì xem preview. [Kiểm chứng bảng xem nhanh](../docs/verification/HEADER_MESSAGE_PREVIEW.md). FE sau cập nhật đạt 132 tests và build/lint/format PASS.
 
-Chuông KH/PT/Admin có danh sách phân trang, đánh dấu đọc và số chưa đọc từ Backend. KH/PT có biểu tượng vào chat; Admin không đọc chat riêng. Có trạng thái trống/lỗi, Escape/bấm ngoài, dark/light và điện thoại. Chưa gắn sự kiện nghiệp vụ tự động; [phạm vi và đề xuất](../docs/features/NOTIFICATIONS.md), [ảnh kiểm tra](../docs/verification/HEADER_NOTIFICATIONS.md). Sau bổ sung bảng xem nhanh: 132 tests và build/lint/format PASS.
+Chuông KH/PT/Admin có danh sách phân trang, đánh dấu đọc và số chưa đọc từ Backend. KH/PT có biểu tượng vào chat; Admin không đọc chat riêng. Có trạng thái trống/lỗi, Escape/bấm ngoài, dark/light và điện thoại. M05 đã gắn thông báo giáo án mới/xác nhận áp dụng; các sự kiện khác chưa bật; [phạm vi và đề xuất](../docs/features/NOTIFICATIONS.md), [ảnh kiểm tra](../docs/verification/HEADER_NOTIFICATIONS.md). Sau bổ sung bảng xem nhanh: 132 tests và build/lint/format PASS.
 
 ## Menu dọc có thể thu gọn
 
@@ -94,3 +102,7 @@ Khung nội dung KH/PT/Admin tại `CaNhanLayout.vue` đã bỏ giới hạn 1.2
 Logo Tr0ond của chủ dự án thay chữ H ở trang chủ/header/footer, layout xác thực, danh mục công khai và menu KH/PT/Admin. Component dùng chung `src/components/LogoThuongHieu.vue` tự chọn ảnh theo Pinia chuDe: light dùng ảnh trước `public/images/logo-tr0ond.png`, dark dùng ảnh mới `public/images/logo-tr0ond-dark.png`. Hai ảnh giữ nguyên bản, nền trong suốt và object-fit contain; 56px ở thương hiệu công khai/xác thực, 48px trong sidebar mở/thu gọn. Kiểm tra trình duyệt PT chuyển dark → light → dark và tải lại, src đổi đúng và ảnh tải được; bằng chứng tại `docs/verification/logo-theme-dark.png`, `logo-theme-light.png`; phần mở/thu gọn ở `logo-sidebar.png`, `logo-sidebar-collapsed.png` là trước khi bổ sung hai biến thể. Sau cập nhật logo theo theme: FE 146 tests, build/lint/format PASS; không thay avatar tài khoản.
 
 KH/PT/Admin có thanh bên riêng theo vai trò, giữ bố cục khi mở thư viện bài tập hoặc gói tập. Nút ở góc trái header mở/thu gọn menu; tùy chọn được lưu trên trình duyệt. Header giữ đổi theme, chuông, tin nhắn KH/PT và avatar. Bấm avatar để xem hồ sơ hoặc đăng xuất. Admin không có chat riêng theo phạm vi đã chốt. [Kiểm chứng giao diện](../docs/verification/SIDEBAR_NAVIGATION.md).
+
+## Giáo án cá nhân M05
+
+PT vào `/pt/hoc-vien`, chọn học viên rồi tạo tại `/pt/hoc-vien/:khachId/ke-hoach/them`; sửa nháp `/pt/ke-hoach/:id/sua`, xem/gửi/hủy `/pt/ke-hoach/:id`. KH vào `/khach-hang/ke-hoach` và `/:id` để xem/xác nhận trong 24 giờ. Các trang giữ menu dọc/theme; service `keHoachTapService`, state form cục bộ, chống gửi trùng và giữ UUID/payload khi lỗi mạng. Toàn FE đạt 158 tests, lint/build và format các file thay đổi. [Hợp đồng](../docs/features/KE_HOACH_TAP.md), [kiểm chứng và giới hạn trình duyệt](../docs/verification/M05_KE_HOACH_TAP.md).

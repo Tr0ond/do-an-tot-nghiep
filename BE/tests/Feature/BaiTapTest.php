@@ -313,6 +313,7 @@ class BaiTapTest extends TestCase
         $this->taoBai($nhom, ['ten_bai_tap' => 'Bài thứ hai']);
         $this->getJson('/api/v1/bai-tap?per_page=1')->assertOk()->assertJsonPath('status', true)
             ->assertJsonCount(1, 'data')->assertJsonPath('data.0.id', $bai->id)
+            ->assertJsonPath('data.0.gif_url', $bai->gif_url)
             ->assertJsonPath('meta.total', 2)->assertJsonPath('meta.last_page', 2)
             ->assertJsonMissingPath('data.0.huong_dan')->assertJsonMissingPath('data.0.duong_dan_anh_nguon');
         $this->getJson('/api/v1/bai-tap?per_page=1&page=2')->assertOk()->assertJsonPath('data.0.ten_bai_tap', 'Bài thứ hai');

@@ -52,7 +52,13 @@ Lưu `dang_ky_goi_tap_id` trên lịch hẹn. Chỉ đặt lịch có giờ kế
 
 ## 5. Kế hoạch và kết quả — đã chốt D06
 
-**R12 — Kế hoạch:** PT tạo kế hoạch từ catalog/mẫu cho KH đang phụ trách; KH xác nhận trong 24 giờ từ lúc gửi đề xuất. PT lập lịch tự tập sau khi KH duyệt; tối đa một kế hoạch đang dùng/KH. Đề xuất quá hạn không được apply dù worker chưa cập nhật trạng thái.
+**R12 — Kế hoạch:** PT tạo kế hoạch từ catalog/mẫu cho KH đang phụ trách; KH xác nhận trong 24 giờ từ lúc gửi đề xuất. PT lập lịch tự tập sau khi KH duyệt; tối đa một kế hoạch PT đang dùng/KH. Đề xuất quá hạn không được apply dù worker chưa cập nhật trạng thái.
+
+Theo yêu cầu C31 ngày 03/10/2026, KH được tự tạo giáo án từ catalog kể cả chưa mua gói/chưa có PT. KH sở hữu quyền tạo/sửa nháp/hủy và tự áp dụng; PT phụ trách hiện tại được đọc tất cả giáo án tự tạo, kể cả nháp, không sửa hoặc áp dụng thay KH. PT cũ mất quyền khi phân công kết thúc. Giáo án tự tạo phân biệt với PT giao bằng nguồn do Backend gán. C33 thay quy tắc hai bản theo nguồn: mỗi KH tối đa một giáo án đang áp dụng, chung cho PT và KH; chọn bản mới lưu trữ bản cũ bất kể nguồn. KH được ngừng bản PT đã nhận của mình mà không cần PT duyệt, kể cả khi đổi PT. Áp dụng/lưu trữ giữ snapshot và lịch sử; không cấp quyền PT/chatbot hoặc trừ buổi.
+
+Theo C32, KH được ẩn/hiện lại giáo án tự tạo đã hủy hoặc lưu trữ. Đây là lựa chọn hiển thị của KH, không xóa lịch sử hay thu hồi quyền đọc của PT phụ trách. Giáo án đang áp dụng/nháp phải ngừng áp dụng/hủy trước khi ẩn; bản đã ẩn phải hiện lại trước khi áp dụng.
+
+Theo C34, KH được áp dụng lại bản PT của mình đã gửi và đã xác nhận trước đây, hiện đang lưu trữ; không cần PT duyệt lại, gói hoặc phân công cũ còn hiệu lực. Không áp dụng lại nháp, đề xuất chưa xác nhận/quá hạn hoặc bản đã hủy qua thao tác này. Áp dụng lại giữ nội dung và thời điểm xác nhận ban đầu, lưu trữ bản đang dùng trong cùng transaction; không khôi phục quyền PT cũ hay tạo lịch/trừ lượt/thông báo xác nhận mới.
 
 Kế hoạch thay thế là record mới chứa nội dung snapshot; kế hoạch cũ lưu trữ, không sửa nội dung đã gắn với phiên tập. Khi xác nhận cần đọc lại phân công, kế hoạch gốc và trạng thái; đề xuất cũ không được ghi đè thay đổi mới.
 

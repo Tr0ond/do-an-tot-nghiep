@@ -1,5 +1,11 @@
 # Dự án tốt nghiệp — Quản lý huấn luyện cá nhân
 
+C34/M05: KH có **Áp dụng lại giáo án** với bản PT đã xác nhận trước đây và đang lưu trữ. Giữ nội dung, không cần PT duyệt lại; bản đang dùng tự chuyển lưu trữ, chỉ một bản được áp dụng. Không cần migration mới. [Kiểm chứng](docs/verification/M05_AP_DUNG_LAI_PT.md).
+
+C33/M05: mỗi KH một giáo án đang áp dụng, chung cho PT và KH tự tạo; KH được **Ngừng áp dụng** cả giáo án PT. Migration000039 đã chạy local, giữ bản áp dụng gần nhất và lưu trữ bản trùng trước đó. [Kiểm chứng](docs/verification/M05_MOT_GIAO_AN.md).
+
+C32/M05: KH mở chi tiết giáo án tự tạo đã hủy/lưu trữ để **Ẩn giáo án**; chọn **Hiển thị → Đã ẩn** để xem và hiện lại. Giữ nội dung/lịch sử và quyền đọc của PT phụ trách. Migration000038 đã chạy trên máy này; máy clone chạy `php artisan migrate`, không seed lại. [Hợp đồng](docs/features/KE_HOACH_TAP.md#ẩn--hiện-lại-giáo-án-tự-tạo--c32), [kiểm chứng](docs/verification/M05_AN_GIAO_AN.md).
+
 **Tên đề tài đề xuất:** Xây dựng hệ thống quản lý huấn luyện cá nhân tích hợp chatbot AI tư vấn và trao đổi trực tuyến.
 
 **Ngày khởi tạo:** 01/10/2026 · **Thời gian dự kiến:** 6 tháng · **Tác nhân:** Khách hàng, PT, Admin. Một người thực hiện khoảng 8 giờ/ngày; tên đề tài có thể đổi, ngày bảo vệ chưa được cung cấp.
@@ -103,10 +109,16 @@ Chi tiết mẫu đã đọc và nhận xét có giới hạn nằm ở [REFEREN
 
 ## Việc tiếp theo
 
-Các chính sách chính D01–D10 đã chốt trong [DECISIONS.md](docs/DECISIONS.md). Đã có phần xác thực/phân quyền của M01; tạo Admin đầu tiên và xem hướng dẫn chạy tại [TAI_KHOAN.md](docs/features/TAI_KHOAN.md). Đã có catalog bài tập, gói và giáo án mẫu. Đã có nhóm cơ M02 và sửa hồ sơ, quên/đặt lại mật khẩu, khóa/mở khóa tài khoản qua giao diện M01. Đã có đặt mua/payOS/phân công PT M03 và khóa payOS local; đã tạo/đọc được link thật chưa thanh toán. Đã có lịch PT M04, đặt/hủy/xác nhận và ghi nhận buổi tập. Đã triển khai chat realtime M07; bước tiếp theo là giáo án cá nhân M05 theo [ROADMAP.md](ROADMAP.md). Webhook ngrok đã nhận HTTP200 cho xác minh kết nối; cần nghiệm thu thanh toán thật khi triển khai. Gemini chưa tích hợp.
+Các chính sách chính D01–D10 đã chốt trong [DECISIONS.md](docs/DECISIONS.md). Đã có phần xác thực/phân quyền của M01; tạo Admin đầu tiên và xem hướng dẫn chạy tại [TAI_KHOAN.md](docs/features/TAI_KHOAN.md). Đã có catalog bài tập, gói và giáo án mẫu. Đã có nhóm cơ M02 và sửa hồ sơ, quên/đặt lại mật khẩu, khóa/mở khóa tài khoản qua giao diện M01. Đã có đặt mua/payOS/phân công PT M03 và khóa payOS local; đã tạo/đọc được link thật chưa thanh toán. Đã có lịch PT M04, đặt/hủy/xác nhận và ghi nhận buổi tập. Đã triển khai chat realtime M07; đã có giáo án cá nhân M05; bước tiếp theo là nhật ký M06 theo [ROADMAP.md](ROADMAP.md). Webhook ngrok đã nhận HTTP200 cho xác minh kết nối; cần nghiệm thu thanh toán thật khi triển khai. Gemini chưa tích hợp.
 
 Đã tách trang giới thiệu cho người chưa đăng nhập và dashboard KH/PT/Admin sau đăng nhập. Bấm Trang chủ/logo hoặc tải lại / sẽ vào đúng tổng quan theo session server. Thống kê hiện lấy dữ liệu M01/M02 thật; [hợp đồng tổng quan](docs/features/TONG_QUAN.md), [kiểm chứng giao diện](docs/verification/DASHBOARD.md).
 
-Header đã có chuông thông báo cho ba vai trò và lối tắt tin nhắn KH/PT với số chưa đọc thật. Đã có API/danh sách/đánh dấu đọc, chưa bật sự kiện nghiệp vụ tự động; [phạm vi và đề xuất](docs/features/NOTIFICATIONS.md), [kiểm chứng](docs/verification/HEADER_NOTIFICATIONS.md). Sau bổ sung chuông và bảng xem nhanh tin nhắn: 137 Backend tests/4.723 assertions ở phiên Backend gần nhất và 132 Frontend tests PASS.
+Header đã có chuông thông báo cho ba vai trò và lối tắt tin nhắn KH/PT với số chưa đọc thật. Đã có API/danh sách/đánh dấu đọc; M05 đã bật thông báo giáo án mới cho KH và xác nhận áp dụng cho PT; [phạm vi và đề xuất](docs/features/NOTIFICATIONS.md), [kiểm chứng](docs/verification/HEADER_NOTIFICATIONS.md). Sau bổ sung chuông và bảng xem nhanh tin nhắn: 137 Backend tests/4.723 assertions ở phiên Backend gần nhất và 132 Frontend tests PASS.
 
 Menu KH/PT/Admin đã chuyển sang thanh bên dọc có thể thu gọn; header giữ các tiện ích và avatar. Frontend sau thay đổi đạt 141 tests, lint/format/build PASS. [Kiểm chứng menu dọc](docs/verification/SIDEBAR_NAVIGATION.md).
+
+## Giáo án cá nhân M05 — 03/10/2026
+
+Đã mở rộng theo C31: KH có **Tự tạo giáo án** miễn phí, chọn bài/thông số và tự áp dụng không cần PT duyệt, kể cả chưa mua gói/chưa có PT. PT hiện tại đọc các bản tự tạo của KH đang phụ trách, gồm nháp và bản đang dùng; chỉ KH sửa nháp/áp dụng. C33 thay quy tắc hai bản theo nguồn: KH chỉ một giáo án đang dùng và được ngừng cả bản PT giao, giữ lịch sử. Máy clone chạy `php artisan migrate` trong maintenance, không seed lại. [Kiểm chứng tự tạo](docs/verification/M05_TU_TAO_GIAO_AN.md), [C33](docs/verification/M05_MOT_GIAO_AN.md).
+
+PT có **Học viên & giáo án** để tạo nháp từ catalog/mẫu đã duyệt, nhập thông số và gửi. KH có **Giáo án của tôi** để xem/xác nhận trong 24 giờ; một bản đang áp dụng, giữ lịch sử khi thay thế. Máy này đã chạy migration 000036; máy clone chạy `php artisan migrate` trong BE, không cần seed lại. Toàn BE đạt 158 tests/4.990 assertions và FE 158 tests; build/lint và format các file thay đổi đạt. Trình duyệt đã kiểm tra tạo nháp; luồng gửi/xác nhận UI chưa nghiệm thu do hộp thoại kiểm thử bị kẹt. [Hợp đồng](docs/features/KE_HOACH_TAP.md), [kiểm chứng và cách xem](docs/verification/M05_KE_HOACH_TAP.md). Bước tiếp theo là nhật ký tự tập M06.

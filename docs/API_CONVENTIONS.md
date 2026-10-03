@@ -1,8 +1,14 @@
 # Hợp đồng API đề xuất
 
+C33 thay unique theo nguồn ở C31: mỗi KH một giáo án đang áp dụng, chọn bản KH/xác nhận PT lưu trữ bản đang dùng bất kể nguồn. POST KH `/{id}/luu-tru` với version dùng cho cả bản PT của chính KH đã nhận, không cần phân công còn hiệu lực để ngừng. C34 mở POST KH `/{id}/ap-dung` cho bản PT đã gửi, đã xác nhận trước đây và đang lưu trữ, không cần PT duyệt lại; không bỏ qua xác nhận lần đầu hoặc phục hồi bản đã hủy. [Hợp đồng](features/KE_HOACH_TAP.md).
+
+C32: KH POST `/khach-hang/ke-hoach/{id}/an|hien-lai` với `updated_at`; chỉ bản tự tạo đã hủy/lưu trữ. GET danh sách mặc định chưa ẩn, `da_an=1` lấy đã ẩn, trả `da_an`, `khach_an_luc` và cờ quyền. PT không bị lọc theo lựa chọn ẩn của KH. [Hợp đồng](features/KE_HOACH_TAP.md#ẩn--hiện-lại-giáo-án-tự-tạo--c32).
+
+C31/M05 bổ sung KH tự tạo miễn phí: POST `/khach-hang/ke-hoach`, PUT `/{id}`, POST `/{id}/ap-dung|luu-tru|huy` cho bản tự tạo của chính KH; không cần gói/PT duyệt. GET danh sách nhận `nguon_tao=PT|KHACH_HANG`. PT đọc bản tự tạo theo phân công hiện tại nhưng không ghi thay. Nguồn/quyền do BE gán, UUID khi tạo/version khi ghi, khóa KH và unique đang áp dụng chung theo C33. [Hợp đồng chi tiết](features/KE_HOACH_TAP.md#kh-tự-tạo--c31).
+
 Đã có `GET /api/v1/health`, Sanctum SPA và quản trị tài khoản; [hợp đồng tài khoản](features/TAI_KHOAN.md). Có GET công khai /bai-tap, /bai-tap/bo-loc, /bai-tap/{id}; [hợp đồng bài tập](features/BAI_TAP.md). Đã có GET công khai `/goi-tap`, `/goi-tap/{id}` và ADMIN quản lý tại `/admin/goi-tap`: GET danh sách/chi tiết, POST tạo với UUID, PUT sửa/PATCH trạng thái với phiên bản `updated_at`, CSRF cho ghi; [hợp đồng gói](features/GOI_TAP.md). Exception đã chuẩn hóa status/message/data/code/errors. Đặt mua/payOS/kích hoạt/đối soát/phân công M03 đã triển khai theo [hợp đồng](features/MUA_GOI_THANH_TOAN.md); lịch/chat bên dưới vẫn là đặc tả.
 
-Đã triển khai giáo án mẫu: ADMIN có GET/POST `/admin/giao-an-mau`, GET/PUT `/{id}`, PATCH `/{id}/trang-thai`; PT có GET `/pt/giao-an-mau` và `/{id}` chỉ cho giáo án đã duyệt. Tất cả có auth/role/tài khoản hoạt động, ghi yêu cầu CSRF, UUID khi tạo và phiên bản khi sửa/duyệt. [Hợp đồng giáo án](features/GIAO_AN_MAU.md). Tạo/áp dụng kế hoạch khách hàng M05 vẫn là phạm vi tiếp theo.
+Đã triển khai giáo án mẫu: ADMIN có GET/POST `/admin/giao-an-mau`, GET/PUT `/{id}`, PATCH `/{id}/trang-thai`; PT có GET `/pt/giao-an-mau` và `/{id}` chỉ cho giáo án đã duyệt. Tất cả có auth/role/tài khoản hoạt động, ghi yêu cầu CSRF, UUID khi tạo và phiên bản khi sửa/duyệt. [Hợp đồng giáo án mẫu](features/GIAO_AN_MAU.md). M05 đã có PT soạn/gửi giáo án theo phân công và KH xác nhận trong 24 giờ; endpoint, scope, UUID/phiên bản và trạng thái nằm tại [hợp đồng giáo án cá nhân](features/KE_HOACH_TAP.md).
 
 ## Auth và namespace
 

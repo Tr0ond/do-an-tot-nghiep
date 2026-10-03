@@ -1,8 +1,11 @@
 <?php
 
+use App\Models\BaiTap;
 use App\Models\PhanCongHuanLuyenVien;
 use App\Models\TaiKhoan;
 use App\Services\ChatService;
+use App\Services\GiaoAnMauService;
+use App\Services\KeHoachTapService;
 use App\Services\TaiKhoanService;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Support\Facades\Artisan;
@@ -56,6 +59,26 @@ try {
         }
     }
     $pc = PhanCongHuanLuyenVien::create(['khach_hang_id' => $kh->hoSoKhachHang->id, 'huan_luyen_vien_id' => $pt->hoSoHuanLuyenVien->id, 'nguoi_phan_cong_id' => $admin->id, 'bat_dau_luc' => now(), 'client_request_id' => (string) Str::uuid()]);
+    if (in_array($argv[1] ?? '', ['ke-hoach', 'ke-hoach-chung'], true)) {
+        $nhom = DB::table('nhom_co')->insertGetId(['ma_nhom_co' => 'demo', 'ten_nhom_co' => 'Toàn thân', 'ten_nguon' => 'full body', 'trang_thai' => 'HOAT_DONG']);
+        $cacBai = [];
+        foreach (['Chống đẩy', 'Squat', 'Plank'] as $i => $ten) {
+            $b = BaiTap::create(['nhom_co_id' => $nhom, 'ten_bai_tap' => $ten, 'huong_dan' => ['vi' => 'Giữ lưng thẳng và kiểm soát nhịp thở.'], 'cac_buoc' => ['vi' => ['Giữ đúng tư thế bắt đầu.', 'Thực hiện chậm theo số lần đã chỉ định.']], 'trang_thai' => 'HOAT_DONG']);
+            $cacBai[] = ['bai_tap_id' => $b->id, 'ngay_thu' => $i < 2 ? 1 : 2, 'thu_tu' => $i < 2 ? $i + 1 : 1, 'so_hiep' => 3, 'so_lan_lap' => 12, 'nghi_giay' => 60, 'ghi_chu' => 'Ưu tiên kỹ thuật trước khi tăng mức tạ.'];
+        }
+        $dichVuMau = app(GiaoAnMauService::class);
+        $m = $dichVuMau->taoGiaoAn(['ten_giao_an' => 'Toàn thân — 2 ngày', 'muc_tieu' => 'Xây dựng nền tảng và tăng sức bền', 'so_ngay_tap' => 2, 'bai_tap' => $cacBai, 'client_request_id' => (string) Str::uuid()], $admin->id);
+        $dichVuMau->datTrangThai($m->id, ['trang_thai' => 'DA_DUYET', 'updated_at' => $m->updated_at->format('Y-m-d H:i:s.u')], $admin->id);
+        if (($argv[1] ?? '') === 'ke-hoach-chung') {
+            $dichVu = app(KeHoachTapService::class);
+            $body = ['ten_ke_hoach' => 'Tự tập toàn thân', 'muc_tieu' => 'Giáo án tự tạo', 'so_ngay_tap' => 1, 'giao_an_mau_id' => null, 'client_request_id' => (string) Str::uuid(), 'bai_tap' => [[...$cacBai[0], 'muc_ta_kg' => null]]];
+            $tuTao = $dichVu->tao($kh, $kh->hoSoKhachHang->id, $body);
+            $dichVu->thaoTac($kh, $tuTao->id, 'ap-dung', $tuTao->updated_at->format('Y-m-d H:i:s.u'));
+            $ptGiao = $dichVu->tao($pt, $kh->hoSoKhachHang->id, [...$body, 'ten_ke_hoach' => 'Giáo án PT — nền tảng', 'muc_tieu' => 'Đề xuất từ PT', 'client_request_id' => (string) Str::uuid()]);
+            $ptGiao = $dichVu->thaoTac($pt, $ptGiao->id, 'gui', $ptGiao->updated_at->format('Y-m-d H:i:s.u'));
+            $dichVu->thaoTac($kh, $ptGiao->id, 'xac-nhan', $ptGiao->updated_at->format('Y-m-d H:i:s.u'));
+        }
+    }
     $hoi = DB::table('hoi_thoai')->insertGetId(['phan_cong_id' => $pc->id, 'created_at' => now(), 'updated_at' => now()]);
     for ($i = 1; $i <= 52; $i++) {
         DB::table('tin_nhan')->insert(['hoi_thoai_id' => $hoi, 'nguoi_gui_id' => $i % 2 ? $kh->id : $pt->id, 'client_message_id' => (string) Str::uuid(), 'noi_dung' => 'Tin lịch sử demo '.$i, 'created_at' => now()->subDays(2)->addMinutes($i), 'updated_at' => now()]);

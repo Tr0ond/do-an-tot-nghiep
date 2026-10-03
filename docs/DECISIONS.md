@@ -116,6 +116,34 @@ Một người khoảng 8 giờ/ngày, một phòng gym, Vue Options API/JavaScr
 - Tác động: M07, migration000035 thêm JSON nullable `tin_nhan.anh`, API upload/đọc ảnh riêng tư, Vue chat, cách chạy PHP local và tài liệu module. Tin cũ giữ nguyên; rollback từ chối gỡ cột nếu đã có ảnh để tránh mất lịch sử.
 - Ảnh lưu disk local riêng tư; retry so UUID, chú thích và SHA-256 theo thứ tự ảnh. Không trả đường dẫn lưu/hash ra FE; khi transaction thất bại dọn tệp của thao tác đó. Giữ ảnh cùng lịch sử suốt đồ án, không tự purge theo D09.
 
+## Ghi nhận yêu cầu C31 — 03/10/2026
+
+- Chủ dự án yêu cầu KH tự tạo giáo án dù chưa mua gói, PT xem được tất cả giáo án của KH đang phụ trách. Mở rộng M05, thay giới hạn chỉ PT tạo của R12/D06 trong phạm vi giáo án tự tạo.
+- Backend gán nguồn `KHACH_HANG` hoặc `PT`; KH được soạn từ catalog, lưu/sửa nháp, tự áp dụng/hủy/lưu trữ. PT chỉ đọc bản tự tạo theo phân công hiện tại, không có quyền sửa thay; KH khác/Admin không được truy cập qua endpoint KH/PT.
+- Chủ dự án trả lời: “KH có thể tự áp dụng giáo án nào mình muốn không cần PT phải duyệt PT có thể xem được KH đang dùng giáo án nào”. KH chọn nháp tự tạo hoặc áp dụng lại bản tự tạo đã lưu trữ; một bản tự tạo đang dùng riêng với một bản PT giao như phương án đã đề xuất. Bản đã áp dụng bất biến; tạo bản mới nếu cần sửa nội dung, giữ lịch sử. Không thêm quyền lợi gói, lịch hoặc nhật ký ở phần này.
+- Tác động: migration000037 giữ giáo án PT cũ, nullable liên kết PT/phân công cho bản tự tạo, unique theo nguồn; Service/Request/routes và giao diện giáo án dùng chung, kiểm thử ownership/revocation/rollback/tranh chấp; cập nhật tài liệu M05.
+
+## Ghi nhận yêu cầu C32 — 03/10/2026
+
+- Chủ dự án chấp thuận ẩn giáo án tự tạo không còn tập và hiện lại trong mục “Đã ẩn”, thay vì xóa dữ liệu.
+- Chỉ KH sở hữu được ẩn bản tự tạo đã hủy hoặc lưu trữ. Bản nháp cần hủy trước; bản đang áp dụng cần ngừng áp dụng trước. Giáo án PT giao không có thao tác ẩn này.
+- Việc ẩn không đổi trạng thái nghiệp vụ, snapshot, lịch sử tập hoặc quyền đọc của PT phụ trách. KH cần hiện lại bản lưu trữ trước khi áp dụng lại.
+- Lưu thời điểm `khach_an_luc`, kiểm tra phiên bản và khóa KH/giáo án khi ẩn/hiện lại. Danh sách KH mặc định bỏ bản đã ẩn; mục “Đã ẩn” cho phép xem và hiện lại.
+
+## Ghi nhận yêu cầu C33 — 03/10/2026
+
+- Chủ dự án đồng ý đề xuất sửa: mỗi KH chỉ một giáo án đang áp dụng, chung cho nguồn PT và KH; KH được ngừng áp dụng giáo án PT giao, không cần PT duyệt. Thay quy tắc hai bản theo nguồn của C31.
+- Áp dụng tự tạo hoặc xác nhận đề xuất PT lưu trữ bản đang dùng bất kể nguồn trong cùng transaction. KH được ngừng bản PT đã nhận của mình kể cả sau đổi PT; PT vẫn chỉ đọc bản KH và không ngừng thay KH.
+- Migration000039 chuyển unique về KH duy nhất; nếu dữ liệu cũ có hai bản đang dùng thì giữ bản có thời điểm cập nhật/áp dụng gần nhất, tie chọn ID lớn hơn, lưu trữ bản còn lại, không xóa bài/snapshot/lịch sử. Khi triển khai chạy migration trong maintenance để tránh ghi theo quy tắc cũ trong lúc đổi index.
+- Giáo án PT đã lưu trữ không tự áp dụng lại qua endpoint tự tạo; tiếp tục nhận/xác nhận đề xuất mới từ PT. C32 ẩn/hiện lại vẫn chỉ cho giáo án tự tạo.
+
+## Ghi nhận yêu cầu C34 — 03/10/2026
+
+- Chủ dự án phản hồi không thể chọn lại giáo án PT sau khi dừng bản khác, tiếp nối yêu cầu KH tự chọn giáo án muốn áp dụng. KH được áp dụng lại giáo án PT của chính mình đã xác nhận trước đây và đang lưu trữ, không phải xin PT duyệt lại. Thay giới hạn không áp dụng lại PT trong C33.
+- Chỉ bản PT có `gui_luc` và `duyet_luc`, trạng thái `LUU_TRU`, được áp dụng lại; retry khi đã `DANG_AP_DUNG` trả hiện trạng. Nháp, đề xuất chưa xác nhận, quá hạn hoặc đã hủy không được dùng đường này để bỏ qua duyệt lần đầu.
+- Bản đã nhận/xác nhận là nội dung KH sở hữu quyền sử dụng; áp dụng lại không cần gói, phân công cũ còn hiệu lực hoặc PT cũ đang hoạt động. Không cấp quyền đọc/sửa lại cho PT cũ. PT hiện tại vẫn đọc giáo án KH đang dùng theo scope hiện có.
+- Khóa KH rồi giáo án, kiểm tra version, lưu trữ bản đang dùng và áp dụng bản chọn trong cùng transaction; unique chung C33 giữ tối đa một bản. Giữ nguyên snapshot, ngày xác nhận lần đầu, hạn đề xuất và thông báo cũ; không tạo lịch, trừ buổi hay thêm thông báo xác nhận. Không cần migration mới.
+
 ## Cách ghi quyết định sau này
 
 Với mỗi decision: trạng thái, phương án chọn, lý do, người xác nhận, ngày xác nhận, file/module bị tác động. Nếu thay đổi phương án đã chốt, ghi thay thế và tác động migration/dữ liệu lịch sử.

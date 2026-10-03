@@ -2,7 +2,7 @@
   <aside class="ga-panel ga-picker shadow-sm">
     <div class="d-flex align-items-center justify-content-between mb-3">
       <h2>
-        <i class="bi bi-plus-circle-fill text-success me-2"></i>
+        <i class="bi bi-plus-circle-fill text-primary me-2"></i>
         Thêm bài vào Ngày {{ ngay }}
       </h2>
       <span class="badge bg-secondary-subtle text-body border">Ngày {{ ngay }}</span>
@@ -31,7 +31,7 @@
 
     <!-- Trạng thái đang tìm -->
     <div v-if="dangTai" class="text-center py-4 text-muted small" role="status">
-      <div class="spinner-border spinner-border-sm text-success me-2" role="status"></div>
+      <div class="spinner-border spinner-border-sm text-primary me-2" role="status"></div>
       Đang tìm bài tập…
     </div>
 
@@ -53,14 +53,24 @@
         <div
           v-for="bai in danhSach"
           :key="bai.id"
-          class="ga-picker-result rounded-3 p-2 bg-light border"
+          class="ga-picker-result rounded-3 p-2 border"
+          @pointerenter="xemGif(bai, $event)"
+          @pointerleave="dungGif(bai)"
+          @focusin="xemGif(bai, $event)"
+          @focusout="roiTheBai(bai, $event)"
         >
-          <div class="min-w-0 flex-grow-1 pe-2">
-            <strong class="text-truncate d-block">{{
-              bai.ten_tieng_viet || bai.ten_bai_tap
-            }}</strong>
+          <AnhBaiTap
+            :key="anhHienThi(bai)"
+            class="ga-picker-thumb"
+            :src="anhHienThi(bai)"
+            :alt="bai.ten_tieng_viet || bai.ten_bai_tap"
+            :loading="baiDangXem === bai.id ? 'eager' : 'lazy'"
+            @loi="loiAnh(bai)"
+          />
+          <div class="ga-picker-info">
+            <strong>{{ bai.ten_tieng_viet || bai.ten_bai_tap }}</strong>
             <div class="d-flex gap-2 align-items-center flex-wrap mt-1">
-              <small class="badge bg-white text-secondary border">
+              <small class="badge bg-secondary-subtle text-body border">
                 {{ bai.nhom_co.ten_nhom_co }}
               </small>
               <small v-if="bai.dung_cu" class="text-muted" style="font-size: 0.75rem">
@@ -109,16 +119,22 @@
           <i class="bi bi-chevron-right" aria-hidden="true"></i>
         </button>
       </nav>
+      <p v-if="danhSach.some((bai) => bai.anh_url)" class="ga-picker-credit">
+        Minh họa:
+        <a href="https://gymvisual.com/" target="_blank" rel="noopener noreferrer">Gym Visual</a>
+      </p>
     </template>
   </aside>
 </template>
 
 <script>
 import baiTapService from '../services/baiTapService'
+import AnhBaiTap from './AnhBaiTap.vue'
 import { layLoiApi } from '../utils/loiApi'
 
 export default {
   name: 'ChonBaiTapGiaoAn',
+  components: { AnhBaiTap },
   props: { ngay: { type: Number, required: true }, voHieu: Boolean },
   emits: ['chon'],
   data() {
@@ -130,6 +146,8 @@ export default {
       dangTai: false,
       loi: '',
       huyTai: null,
+      baiDangXem: null,
+      gifBiLoi: [],
     }
   },
   mounted() {
@@ -139,6 +157,31 @@ export default {
     this.huyTai?.abort()
   },
   methods: {
+    urlMedia: baiTapService.urlMedia,
+    xemGif(bai, suKien) {
+      if (suKien.pointerType === 'touch') return
+      if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return
+      if (this.urlMedia(bai.gif_url) && !this.gifBiLoi.includes(bai.gif_url)) {
+        this.baiDangXem = bai.id
+      }
+    },
+    dungGif(bai) {
+      if (this.baiDangXem === bai.id) this.baiDangXem = null
+    },
+    roiTheBai(bai, suKien) {
+      if (!suKien.currentTarget.contains(suKien.relatedTarget)) this.dungGif(bai)
+    },
+    anhHienThi(bai) {
+      return this.baiDangXem === bai.id && !this.gifBiLoi.includes(bai.gif_url)
+        ? this.urlMedia(bai.gif_url) || this.urlMedia(bai.anh_url)
+        : this.urlMedia(bai.anh_url)
+    },
+    loiAnh(bai) {
+      if (this.baiDangXem === bai.id && this.urlMedia(bai.gif_url)) {
+        this.gifBiLoi.push(bai.gif_url)
+        this.dungGif(bai)
+      }
+    },
     timKiem() {
       this.page = 1
       this.taiBaiTap()
@@ -149,6 +192,7 @@ export default {
     },
     async taiBaiTap() {
       this.huyTai?.abort()
+      this.baiDangXem = null
       const huy = new AbortController()
       this.huyTai = huy
       this.dangTai = true
@@ -171,3 +215,90 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.ga-picker-result {
+  gap: 10px;
+  position: relative;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.ga-picker-result:focus-within {
+  border-color: var(--mau-chinh) !important;
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--mau-chinh) 18%, transparent);
+  z-index: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ga-picker-result:hover {
+    transform: scale(1.03);
+    border-color: var(--mau-chinh) !important;
+    box-shadow: 0 6px 18px color-mix(in srgb, var(--mau-chinh) 18%, transparent);
+    z-index: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ga-picker-result {
+    transition: none;
+  }
+
+  .ga-picker-result:hover {
+    transform: none;
+  }
+}
+
+.ga-picker-thumb {
+  width: 48px;
+  height: 48px;
+  aspect-ratio: 1;
+  flex: 0 0 48px;
+  border-radius: 12px;
+  background: var(--mau-the);
+  border: 1px solid var(--mau-vien);
+}
+
+.ga-picker-thumb :deep(.image-fallback) {
+  padding: 0;
+  gap: 0;
+}
+
+.ga-picker-thumb :deep(.image-fallback span) {
+  display: none;
+}
+
+.ga-picker-thumb :deep(.fallback-icon-ring) {
+  width: 30px;
+  height: 30px;
+  font-size: 1rem;
+}
+
+.ga-picker-thumb :deep(.skeleton-pulse) {
+  width: 22px;
+  height: 22px;
+}
+
+.ga-picker-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ga-picker-result .ga-icon {
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+}
+
+.ga-picker-credit {
+  margin: 12px 0 0;
+  font-size: 0.75rem;
+  color: var(--mau-phu);
+}
+
+.ga-picker-credit a {
+  color: inherit;
+}
+</style>

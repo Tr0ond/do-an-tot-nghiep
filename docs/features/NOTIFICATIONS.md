@@ -24,14 +24,14 @@ Payload hiển thị: `id`, `tieu_de`, `noi_dung`, `duong_dan`, `da_doc_luc`, `t
 
 ## Đề xuất cần chủ dự án chọn trước khi bật
 
-**Chưa gắn sự kiện nghiệp vụ tự động trong lần triển khai này.** Tài khoản không có dữ liệu thông báo sẽ thấy trạng thái trống. Tin nhắn đã có số chưa đọc thật từ M07, không tạo thêm chuông cho từng tin để tránh lặp.
+M05 đã gắn hai sự kiện: KH nhận khi PT gửi giáo án, PT nhận khi KH xác nhận áp dụng. Bản ghi cùng transaction giáo án, chỉ thấy sau commit và không nhân bản khi retry. [Hợp đồng M05](KE_HOACH_TAP.md). Các sự kiện bên dưới chưa bật. Tin nhắn có số chưa đọc riêng từ M07, không tạo thêm chuông cho từng tin.
 
 | Vai trò | Nên nhận thông báo | Giai đoạn |
 | --- | --- | --- |
 | KH | PT được phân công/thay đổi; lịch hẹn được xác nhận, từ chối hoặc hủy; thanh toán thành công và gói được kích hoạt | Nghiệp vụ đã có, có thể gắn sự kiện tiếp theo |
 | PT | Có KH mới được phân công hoặc kết thúc phân công; lịch hẹn mới chờ xác nhận, KH hủy lịch; buổi tập cần ghi nhận kết quả | Nghiệp vụ đã có, có thể gắn sự kiện tiếp theo |
 | Admin | KH đã có gói PT nhưng chưa được phân công; khoản thanh toán cần đối soát; lịch hẹn quá hạn cần đóng xử lý | Nghiệp vụ đã có, có thể gắn sự kiện tiếp theo |
-| KH/PT | Giáo án mới hoặc thay đổi, kết quả duyệt giáo án; cập nhật tiến độ tập luyện | Sau module M05/M06 |
+| KH/PT | Cập nhật tiến độ tập luyện | Sau module M06 |
 | KH/PT | Nhắc lịch sắp tới; gói sắp hết hạn hoặc gần hết lượt | Chốt thời điểm, ngưỡng và cách chống gửi lặp trước khi bật |
 
 Ưu tiên gắn phân công PT và thay đổi lịch hẹn, sau đó thanh toán/kích hoạt gói và ngoại lệ đối soát. Khi gắn sự kiện: chỉ gửi sau transaction commit, chống trùng bằng khóa sự kiện, không đưa nội dung chat riêng vào thông báo Admin. Các nhắc lịch không làm thay đổi trạng thái/trừ lượt.
