@@ -76,6 +76,8 @@ Gemini theo hướng CNPM qua Laravel HTTP Client/context database/structured re
 
 **R16 — Giới hạn hành động:** chatbot chỉ đọc/tư vấn; không cập nhật gói, tài khoản, thanh toán, kế hoạch, lịch hẹn hay kết quả. Gợi ý lịch mẫu không phải lịch hẹn được đặt. Không tư vấn chẩn đoán/điều trị; câu hỏi vượt phạm vi được hướng sang hỗ trợ phù hợp.
 
+Ngoại lệ C37 ngày04/10/2026 do chủ dự án yêu cầu: chatbot được tạo giáo án **nháp KH tự tạo** từ catalog khi KH yêu cầu rõ và có thông số hợp lệ. Backend kiểm tra bài, quyền và chống trùng; lưu nháp/câu trả lời/thành công trong cùng transaction. Không tự áp dụng hoặc thay giáo án đang dùng, không tạo lịch/phiên tập/đơn thanh toán. KH xem, sửa và áp dụng bằng luồng C31–C34; PT hiện phụ trách chỉ đọc.
+
 **R17 — Quyền dữ liệu:** nguồn dữ liệu cá nhân là tài khoản xác thực ở server. Không dùng user ID do AI/FE đưa để truy vấn tùy ý; không nạp hội thoại PT riêng, dữ liệu người khác hoặc toàn bộ database vào prompt.
 
 **R18 — Lỗi và chi phí:** API key ở BE; hạn request/độ dài/ngữ cảnh/output/timeout. Ghi log provider/model/token khi có, không hardcode giá tiền. Retry có giới hạn và cùng ID nghiệp vụ. Lỗi API dùng phản hồi rõ ràng/FAQ thay thế; không giả câu trả lời đó là AI thành công.

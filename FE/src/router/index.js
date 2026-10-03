@@ -11,6 +11,18 @@ const router = createRouter({
   },
   routes: [
     {
+      path: '/khach-hang/chatbot',
+      component: () => import('../views/Chatbot/index.vue'),
+      meta: { vaiTro: 'KHACH_HANG' },
+    },
+    {
+      path: '/admin/tai-lieu-tu-van',
+      name: 'admin-tai-lieu-tu-van',
+      component: () => import('../views/Admin/TaiLieuTuVan/index.vue'),
+      meta: { vaiTro: 'ADMIN' },
+    },
+    { path: '/faq', name: 'faq', component: () => import('../views/Faq/index.vue') },
+    {
       path: '/khach-hang/lich-tap',
       component: () => import('../views/NhatKyTap/index.vue'),
       meta: { vaiTro: 'KHACH_HANG' },

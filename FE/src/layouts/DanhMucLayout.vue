@@ -1,7 +1,7 @@
 <template>
   <CaNhanLayout v-if="coMenuHeader">
     <slot />
-    <p v-if="!laGoiTap" class="member-catalog-credit">
+    <p v-if="laBaiTap" class="member-catalog-credit">
       Minh họa bản quyền:
       <a href="https://gymvisual.com/" target="_blank" rel="noopener noreferrer">© Gym visual</a>
     </p>
@@ -21,13 +21,19 @@
           <i class="bi bi-house"></i>
           <span>Trang chủ</span>
         </RouterLink>
-        <RouterLink to="/bai-tap" class="catalog-nav-item" :class="{ active: !laGoiTap }">
+        <RouterLink to="/bai-tap" class="catalog-nav-item" :class="{ active: laBaiTap }">
           <i class="bi bi-collection-play-fill"></i>
           <span class="d-none d-lg-inline">Thư viện bài tập</span>
           <span class="d-lg-none">Bài tập</span>
         </RouterLink>
         <RouterLink to="/goi-tap" class="catalog-nav-item" :class="{ active: laGoiTap }"
           >Bảng giá</RouterLink
+        >
+        <RouterLink
+          to="/faq"
+          class="catalog-nav-item d-none d-lg-inline-flex"
+          :class="{ active: laFaq }"
+          >FAQ</RouterLink
         >
         <!-- Nút chuyển đổi giao diện Sáng / Tối -->
         <NutChuyenChuDe kich-thuoc="sm" />
@@ -55,12 +61,15 @@
       <div class="d-flex align-items-center gap-2">
         <span class="status-dot"></span>
         <span>{{
-          laGoiTap
-            ? 'Dịch vụ huấn luyện cá nhân & tư vấn tập luyện'
-            : 'Thư viện vận động & bài tập thể hình trực quan'
+          laFaq
+            ? 'Hỗ trợ tập luyện Tr0ond'
+            : laGoiTap
+              ? 'Dịch vụ huấn luyện cá nhân & tư vấn tập luyện'
+              : 'Thư viện vận động & bài tập thể hình trực quan'
         }}</span>
       </div>
-      <div v-if="!laGoiTap" class="footer-links-group">
+      <RouterLink v-if="!laFaq" to="/faq" class="credit-link">Câu hỏi thường gặp</RouterLink>
+      <div v-if="laBaiTap" class="footer-links-group">
         <span class="text-muted">Minh họa bản quyền:</span>
         <a
           href="https://gymvisual.com/"
@@ -90,6 +99,12 @@ export default {
     },
     laGoiTap() {
       return this.$route.path.startsWith('/goi-tap')
+    },
+    laBaiTap() {
+      return this.$route.path.startsWith('/bai-tap')
+    },
+    laFaq() {
+      return this.$route.path === '/faq'
     },
     xacThuc() {
       return useXacThucStore()

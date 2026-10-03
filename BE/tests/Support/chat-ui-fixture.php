@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\BaiTap;
+use App\Models\DangKyGoiTap;
+use App\Models\GoiTap;
 use App\Models\PhanCongHuanLuyenVien;
 use App\Models\TaiKhoan;
 use App\Services\ChatService;
@@ -50,6 +52,10 @@ try {
     $kh = $service->taoTaiKhoan(['ho_ten' => 'Học viên demo', 'email' => 'kh@chat-ui.example.test', 'password' => 'Demo123456!'], TaiKhoan::KHACH_HANG);
     $pt = $service->taoTaiKhoan(['ho_ten' => 'Huấn luyện viên demo', 'email' => 'pt@chat-ui.example.test', 'password' => 'Demo123456!'], TaiKhoan::HUAN_LUYEN_VIEN);
     $admin = $service->taoTaiKhoan(['ho_ten' => 'Admin demo', 'email' => 'admin@chat-ui.example.test', 'password' => 'Demo123456!'], TaiKhoan::ADMIN);
+    if (($argv[1] ?? '') === 'chatbot') {
+        $g = GoiTap::create(['ten_goi' => 'Tr0ond AI demo', 'gia' => 99000, 'co_chatbot' => true, 'so_luot_chatbot_moi_ngay' => 20, 'so_buoi_pt' => 0, 'thoi_han_ngay' => 30, 'trang_thai' => 'HOAT_DONG']);
+        DangKyGoiTap::create(['khach_hang_id' => $kh->hoSoKhachHang->id, 'goi_tap_id' => $g->id, 'client_request_id' => (string) Str::uuid(), 'ma_don_payos' => 1000001, 'ten_goi_snapshot' => $g->ten_goi, 'gia_snapshot' => $g->gia, 'co_chatbot_snapshot' => true, 'so_luot_chatbot_moi_ngay_snapshot' => 20, 'so_buoi_pt_snapshot' => 0, 'so_buoi_con_lai' => 0, 'thoi_han_ngay_snapshot' => 30, 'trang_thai' => 'DANG_SU_DUNG', 'kich_hoat_luc' => now()->subDay(), 'het_han_luc' => now()->addDays(29)]);
+    }
     if (($argv[1] ?? '') === 'thong-bao') {
         // Chỉ seed vào database QA riêng; không bật sự kiện thông báo nghiệp vụ.
         foreach ([[$kh, '/khach-hang/lich-hen'], [$pt, '/pt/lich-hen'], [$admin, '/admin/lich-hen']] as [$nguoi, $duongDan]) {
@@ -59,12 +65,13 @@ try {
         }
     }
     $pc = PhanCongHuanLuyenVien::create(['khach_hang_id' => $kh->hoSoKhachHang->id, 'huan_luyen_vien_id' => $pt->hoSoHuanLuyenVien->id, 'nguoi_phan_cong_id' => $admin->id, 'bat_dau_luc' => now(), 'client_request_id' => (string) Str::uuid()]);
-    if (in_array($argv[1] ?? '', ['ke-hoach', 'ke-hoach-chung'], true)) {
+    if (in_array($argv[1] ?? '', ['ke-hoach', 'ke-hoach-chung', 'chatbot'], true)) {
         $nhom = DB::table('nhom_co')->insertGetId(['ma_nhom_co' => 'demo', 'ten_nhom_co' => 'Toàn thân', 'ten_nguon' => 'full body', 'trang_thai' => 'HOAT_DONG']);
         $cacBai = [];
-        foreach (['Chống đẩy', 'Squat', 'Plank'] as $i => $ten) {
-            $b = BaiTap::create(['nhom_co_id' => $nhom, 'ten_bai_tap' => $ten, 'huong_dan' => ['vi' => 'Giữ lưng thẳng và kiểm soát nhịp thở.'], 'cac_buoc' => ['vi' => ['Giữ đúng tư thế bắt đầu.', 'Thực hiện chậm theo số lần đã chỉ định.']], 'trang_thai' => 'HOAT_DONG']);
-            $cacBai[] = ['bai_tap_id' => $b->id, 'ngay_thu' => $i < 2 ? 1 : 2, 'thu_tu' => $i < 2 ? $i + 1 : 1, 'so_hiep' => 3, 'so_lan_lap' => 12, 'nghi_giay' => 60, 'ghi_chu' => 'Ưu tiên kỹ thuật trước khi tăng mức tạ.'];
+        $tenBai = ($argv[1] ?? '') === 'chatbot' ? ['Chống đẩy', 'Squat', 'Gập bụng', 'Chùng chân'] : ['Chống đẩy', 'Squat', 'Plank'];
+        foreach ($tenBai as $i => $ten) {
+            $b = BaiTap::create(['nhom_co_id' => $nhom, 'ten_bai_tap' => $ten, 'dung_cu' => 'Trọng lượng cơ thể', 'huong_dan' => ['vi' => 'Giữ lưng thẳng và kiểm soát nhịp thở.'], 'cac_buoc' => ['vi' => ['Giữ đúng tư thế bắt đầu.', 'Thực hiện chậm theo số lần đã chỉ định.']], 'trang_thai' => 'HOAT_DONG']);
+            $cacBai[] = ['bai_tap_id' => $b->id, 'ngay_thu' => $i < 2 ? 1 : 2, 'thu_tu' => $i < 2 ? $i + 1 : $i - 1, 'so_hiep' => 3, 'so_lan_lap' => 12, 'nghi_giay' => 60, 'ghi_chu' => 'Ưu tiên kỹ thuật trước khi tăng mức tạ.'];
         }
         $dichVuMau = app(GiaoAnMauService::class);
         $m = $dichVuMau->taoGiaoAn(['ten_giao_an' => 'Toàn thân — 2 ngày', 'muc_tieu' => 'Xây dựng nền tảng và tăng sức bền', 'so_ngay_tap' => 2, 'bai_tap' => $cacBai, 'client_request_id' => (string) Str::uuid()], $admin->id);

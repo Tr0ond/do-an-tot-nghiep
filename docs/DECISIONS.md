@@ -144,6 +144,20 @@ Một người khoảng 8 giờ/ngày, một phòng gym, Vue Options API/JavaScr
 - Bản đã nhận/xác nhận là nội dung KH sở hữu quyền sử dụng; áp dụng lại không cần gói, phân công cũ còn hiệu lực hoặc PT cũ đang hoạt động. Không cấp quyền đọc/sửa lại cho PT cũ. PT hiện tại vẫn đọc giáo án KH đang dùng theo scope hiện có.
 - Khóa KH rồi giáo án, kiểm tra version, lưu trữ bản đang dùng và áp dụng bản chọn trong cùng transaction; unique chung C33 giữ tối đa một bản. Giữ nguyên snapshot, ngày xác nhận lần đầu, hạn đề xuất và thông báo cũ; không tạo lịch, trừ buổi hay thêm thông báo xác nhận. Không cần migration mới.
 
+## C36 — Cấu hình Gemini và mascot chatbot (04/10/2026)
+
+- Chủ dự án yêu cầu triển khai M08 và dùng `tr0ond_ai_pixel_dumbbell_512.gif` làm mascot; cung cấp key mới cùng model `gemini-3.1-flash-lite` khi được hỏi về dự án dùng hạn mức miễn phí. Key chỉ lưu ở `BE/.env` đang bị Git bỏ qua, không đưa vào Vue/tài liệu hoặc lấy key từ dự án tham khảo.
+- Giữ D08: một provider, không bật billing, không tự chuyển provider có phí; lỗi/HTTP429 không mất lượt. Kết nối thật HTTP200 không xác nhận cấu hình billing hoặc quota tài khoản.
+- Lựa chọn triển khai: dữ liệu cá nhân mặc định tắt; KH chủ động bật cho từng câu hỏi. Không gửi chat PT. Có ảnh tĩnh từ khung đầu GIF, nút dừng/chạy và hỗ trợ reduced motion; không thay artwork của chủ dự án.
+- Tác động: M08 KH chatbot, Admin tài liệu/thống kê tổng hợp và FAQ công khai; migrations000041/000042 thêm metadata chống trùng, giữ dữ liệu hiện có. Không đổi quyền giáo án, thanh toán hoặc lịch tập. [Bằng chứng/giới hạn](verification/M08_CHATBOT.md).
+
+## C37 — Cửa sổ chatbot và tạo giáo án theo yêu cầu KH (04/10/2026)
+
+- Chủ dự án yêu cầu chatbot dạng cửa sổ nổi, nút mở bằng mascot, và hỏi tạo giáo án theo số buổi/tuần, số tuần, số bài/buổi (ví dụ3×4×4). Đây là mở rộng rõ ràng quyền tạo giáo án qua chatbot, thay giới hạn chỉ đọc kế hoạch của R16 trong phạm vi nháp KH yêu cầu.
+- Chatbot được tạo **NHAP**, nguồn KHACH_HANG, đúng KH đã xác thực, chỉ khi yêu cầu tạo và đủ thông số hợp lệ. Không tự áp dụng, thay bản đang tập, tạo lịch, ghi kết quả, thanh toán hoặc trừ buổi PT. KH dùng luồng sửa/áp dụng đã có; PT hiện tại đọc được như giáo án KH tự tạo.
+- Giữ quyền AI theo gói và hạn mức ngày. Bài/thông số AI phải qua validation trước lưu; lỗi/rollback không tạo giáo án mồ côi hoặc tính lượt, UUID retry trả cùng bản. Ví dụ3 buổi/tuần×4 tuần thành12 buổi kế hoạch, mỗi buổi4 bài; chưa phải12 lịch hẹn có ngày giờ.
+- Lựa chọn triển khai: tối đa30 buổi và120 dòng bài/lần tạo AI, mỗi buổi1–8 bài; hỏi bổ sung nếu thiếu thông số hoặc vượt giới hạn. Cửa sổ KH giữ hội thoại khi thu gọn/chuyển trang và xóa khỏi giao diện khi đăng xuất. Khách chưa đăng nhập xem lời mời đăng nhập/FAQ; Admin/PT không nhận quyền AI mới.
+
 ## Cách ghi quyết định sau này
 
 Với mỗi decision: trạng thái, phương án chọn, lý do, người xác nhận, ngày xác nhận, file/module bị tác động. Nếu thay đổi phương án đã chốt, ghi thay thế và tác động migration/dữ liệu lịch sử.

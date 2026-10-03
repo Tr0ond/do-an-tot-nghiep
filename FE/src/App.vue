@@ -3,6 +3,7 @@
     <component :is="Component" v-if="Component" />
     <main v-else class="container py-5 text-center" role="status">Đang tải trang…</main>
   </RouterView>
+  <CuaSoTroLy />
 </template>
 
 <script>
@@ -10,9 +11,11 @@ import { useChuDeStore } from './stores/chuDe'
 import { useXacThucStore } from './stores/xacThuc'
 import { useChatStore } from './stores/chat'
 import { useThongBaoStore } from './stores/thongBao'
+import CuaSoTroLy from './components/CuaSoTroLy.vue'
 
 export default {
   name: 'App',
+  components: { CuaSoTroLy },
   computed: {
     xacThuc() {
       return useXacThucStore()

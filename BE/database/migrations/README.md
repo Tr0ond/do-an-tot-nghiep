@@ -67,3 +67,7 @@ Migration 000036 bổ sung số ngày tập và UUID/hash tạo cho T14, mức t
 ## Runtime M06 — 000040
 
 `2026_10_03_000040_bo_sung_nhat_ky_tap.php` thêm UUID/hash/nguoi_tao_id và index ngày/KH vào lich_tap, UUID/hash vào ghi_chu_huan_luyen. Nullable giữ record cũ. Không tạo lại bảng gốc T16–T20; down giữ index FK và từ chối khi có UUID mới. Đã migrate local trên MariaDB10.4.32; test up/down/bảo toàn dữ liệu và hai process đạt. Máy clone/pull chạy `php artisan migrate`; không dùng fresh/rollback trên dữ liệu ứng dụng. [Kiểm chứng](../../../docs/verification/M06_NHAT_KY_TAP.md).
+
+## Runtime M08 — 000041/000042
+
+`2026_10_03_000041_chuan_bi_chatbot.php` thêm UUID hội thoại và hash, số lần thử, khóa lần xử lý, opt-in dữ liệu cá nhân, phiên bản prompt vào các bảng trợ lý đã có. `2026_10_04_000042_chong_trung_tai_lieu_tu_van.php` thêm UUID/hash tạo tài liệu tư vấn. Giữ dữ liệu cũ; down từ chối khi có request/tài liệu mới để bảo vệ lịch sử. Đã migrate local MariaDB10.4.32, không reset/seed lại. Máy clone/pull chạy `php artisan migrate`, cấu hình Gemini chỉ trong `BE/.env`. [Kiểm chứng M08](../../../docs/verification/M08_CHATBOT.md).

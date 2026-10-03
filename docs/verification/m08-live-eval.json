@@ -1,0 +1,510 @@
+{
+    "ngay": "2026-10-03T17:26:30+00:00",
+    "model": "gemini-3.1-flash-lite",
+    "prompt_version": "tr0ond-v1",
+    "du_lieu": "Chỉ tài khoản\/catalog\/FAQ giả trong fixture QA; không dùng dữ liệu KH thật.",
+    "cham_noi_dung": "Cần chấm theo rubric riêng; thành công API\/schema không chứng minh nội dung đúng.",
+    "ket_qua": [
+        {
+            "nhom": "FAQ",
+            "cau_hoi": "Tôi có thể tự tạo giáo án mà không mua gói không?",
+            "mong_doi": "Có, tự tạo miễn phí; không tự tạo thay KH.",
+            "status": "THANH_CONG",
+            "tra_loi": "Chào bạn, theo chính sách hiện hành, bạn hoàn toàn có thể tự tạo giáo án miễn phí mà không cần mua gói tập. Mỗi khách hàng có thể duy trì một giáo án đang sử dụng tại một thời điểm.",
+            "nguon": {
+                "goi_tap": [],
+                "giao_an_mau": [],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 1731
+        },
+        {
+            "nhom": "FAQ",
+            "cau_hoi": "Tôi có thể dùng hai giáo án cùng lúc không?",
+            "mong_doi": "Một giáo án đang dùng, chung hai nguồn.",
+            "status": "THANH_CONG",
+            "tra_loi": "Theo chính sách hiện tại, mỗi khách hàng chỉ có thể sử dụng một giáo án tại một thời điểm. Bạn có thể tự tạo giáo án miễn phí để phù hợp với nhu cầu tập luyện của mình.",
+            "nguon": {
+                "goi_tap": [],
+                "giao_an_mau": [],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 1411
+        },
+        {
+            "nhom": "FAQ",
+            "cau_hoi": "PT có thể sửa giáo án tôi tự tạo không?",
+            "mong_doi": "PT đọc, không sửa thay KH.",
+            "status": "THANH_CONG",
+            "tra_loi": "Theo chính sách hiện tại, khách hàng có thể tự tạo giáo án miễn phí. Tr0ond AI là trợ lý tư vấn tập luyện, tôi không thực hiện thay đổi dữ liệu hoặc chỉnh sửa giáo án trực tiếp cho bạn. Nếu bạn cần hỗ trợ chuyên sâu về giáo án, bạn có thể cân nhắc các gói tập có hỗ trợ PT. Vui lòng cho biết bạn đang quan tâm đến gói tập nào để tôi cung cấp thêm thông tin chi tiết.",
+            "nguon": {
+                "goi_tap": [
+                    {
+                        "id": 1,
+                        "ten_goi": "Tr0ond AI demo",
+                        "gia": 99000,
+                        "co_chatbot": true,
+                        "so_luot_chatbot_moi_ngay": 20,
+                        "so_buoi_pt": 0,
+                        "thoi_han_ngay": 30,
+                        "trang_thai": "HOAT_DONG"
+                    }
+                ],
+                "giao_an_mau": [
+                    {
+                        "id": 1,
+                        "ten_giao_an": "Toàn thân — 2 ngày",
+                        "muc_tieu": "Xây dựng nền tảng và tăng sức bền",
+                        "so_ngay_tap": 2
+                    }
+                ],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 1860
+        },
+        {
+            "nhom": "FAQ",
+            "cau_hoi": "Tôi ngừng giáo án PT được không?",
+            "mong_doi": "KH có thể ngừng bản đã nhận.",
+            "status": "THANH_CONG",
+            "tra_loi": "Chào bạn, theo chính sách hiện hành, bạn có thể tự tạo giáo án miễn phí. Mỗi khách hàng chỉ được sử dụng một giáo án tại một thời điểm. Đối với giáo án do PT thiết kế, bạn cần xác nhận trong vòng 24 giờ. Nếu bạn muốn ngừng giáo án PT hiện tại, vui lòng liên hệ trực tiếp với PT hoặc bộ phận hỗ trợ để được hướng dẫn cụ thể theo quy định của trung tâm.",
+            "nguon": {
+                "goi_tap": [
+                    {
+                        "id": 1,
+                        "ten_goi": "Tr0ond AI demo",
+                        "gia": 99000,
+                        "co_chatbot": true,
+                        "so_luot_chatbot_moi_ngay": 20,
+                        "so_buoi_pt": 0,
+                        "thoi_han_ngay": 30,
+                        "trang_thai": "HOAT_DONG"
+                    }
+                ],
+                "giao_an_mau": [
+                    {
+                        "id": 1,
+                        "ten_giao_an": "Toàn thân — 2 ngày",
+                        "muc_tieu": "Xây dựng nền tảng và tăng sức bền",
+                        "so_ngay_tap": 2
+                    }
+                ],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 2006
+        },
+        {
+            "nhom": "FAQ",
+            "cau_hoi": "Tôi đổi PT thì chat cũ có bị xóa không?",
+            "mong_doi": "Giữ lịch sử KH; PT cũ mất quyền.",
+            "status": "THANH_CONG",
+            "tra_loi": "Chào bạn, tôi là Tr0ond AI. Theo chính sách hiện tại, việc thay đổi PT không ảnh hưởng đến lịch sử chat của bạn. Bạn vẫn có thể xem lại các nội dung đã trao đổi trước đó. Nếu bạn cần thêm thông tin về các gói tập hoặc giáo án, hãy cho tôi biết nhé.",
+            "nguon": {
+                "goi_tap": [
+                    {
+                        "id": 1,
+                        "ten_goi": "Tr0ond AI demo",
+                        "gia": 99000,
+                        "co_chatbot": true,
+                        "so_luot_chatbot_moi_ngay": 20,
+                        "so_buoi_pt": 0,
+                        "thoi_han_ngay": 30,
+                        "trang_thai": "HOAT_DONG"
+                    }
+                ],
+                "giao_an_mau": [],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 1485
+        },
+        {
+            "nhom": "FAQ",
+            "cau_hoi": "Chat với PT có trừ buổi PT không?",
+            "mong_doi": "Chat không trừ lượt.",
+            "status": "THANH_CONG",
+            "tra_loi": "Chào bạn, theo chính sách hiện tại, việc chat với chatbot không trừ vào số buổi PT của bạn. Bạn có thể yên tâm sử dụng tính năng này trong phạm vi lượt chat hàng ngày của gói Tr0ond AI demo (ID: 1).",
+            "nguon": {
+                "goi_tap": [
+                    {
+                        "id": 1,
+                        "ten_goi": "Tr0ond AI demo",
+                        "gia": 99000,
+                        "co_chatbot": true,
+                        "so_luot_chatbot_moi_ngay": 20,
+                        "so_buoi_pt": 0,
+                        "thoi_han_ngay": 30,
+                        "trang_thai": "HOAT_DONG"
+                    }
+                ],
+                "giao_an_mau": [],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 1424
+        },
+        {
+            "nhom": "FAQ",
+            "cau_hoi": "Tự tập có trừ lượt PT không?",
+            "mong_doi": "Tự tập không trừ lượt.",
+            "status": "THANH_CONG",
+            "tra_loi": "Theo chính sách, việc tự tập hoặc sử dụng chatbot không trừ lượt PT của bạn. Lượt PT chỉ áp dụng cho các buổi tập có huấn luyện viên hướng dẫn.",
+            "nguon": {
+                "goi_tap": [
+                    {
+                        "id": 1,
+                        "ten_goi": "Tr0ond AI demo",
+                        "gia": 99000,
+                        "co_chatbot": true,
+                        "so_luot_chatbot_moi_ngay": 20,
+                        "so_buoi_pt": 0,
+                        "thoi_han_ngay": 30,
+                        "trang_thai": "HOAT_DONG"
+                    }
+                ],
+                "giao_an_mau": [],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 1509
+        },
+        {
+            "nhom": "FAQ",
+            "cau_hoi": "Lỗi Gemini có làm mất lượt chatbot không?",
+            "mong_doi": "Lỗi không trừ lượt.",
+            "status": "THANH_CONG",
+            "tra_loi": "Theo chính sách hiện hành, nếu chatbot gặp lỗi kỹ thuật thì bạn sẽ không bị trừ lượt sử dụng trong ngày. Lượt chat của bạn sẽ được cấp lại vào lúc 00:00 giờ Việt Nam mỗi ngày.",
+            "nguon": {
+                "goi_tap": [
+                    {
+                        "id": 1,
+                        "ten_goi": "Tr0ond AI demo",
+                        "gia": 99000,
+                        "co_chatbot": true,
+                        "so_luot_chatbot_moi_ngay": 20,
+                        "so_buoi_pt": 0,
+                        "thoi_han_ngay": 30,
+                        "trang_thai": "HOAT_DONG"
+                    }
+                ],
+                "giao_an_mau": [],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 1710
+        },
+        {
+            "nhom": "FAQ",
+            "cau_hoi": "Lượt chatbot cấp lại lúc nào?",
+            "mong_doi": "00:00 giờ Việt Nam.",
+            "status": "THANH_CONG",
+            "tra_loi": "Lượt sử dụng chatbot của bạn sẽ được cấp lại vào lúc 00:00 giờ Việt Nam mỗi ngày. Thông tin này dựa trên chính sách dịch vụ của chúng tôi.",
+            "nguon": {
+                "goi_tap": [
+                    {
+                        "id": 1,
+                        "ten_goi": "Tr0ond AI demo",
+                        "gia": 99000,
+                        "co_chatbot": true,
+                        "so_luot_chatbot_moi_ngay": 20,
+                        "so_buoi_pt": 0,
+                        "thoi_han_ngay": 30,
+                        "trang_thai": "HOAT_DONG"
+                    }
+                ],
+                "giao_an_mau": [],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 1194
+        },
+        {
+            "nhom": "FAQ",
+            "cau_hoi": "Tôi chưa mua gói thì được hỏi chatbot miễn phí không?",
+            "mong_doi": "FAQ miễn phí; chatbot cần gói.",
+            "status": "THANH_CONG",
+            "tra_loi": "Chào bạn, để sử dụng tính năng chatbot tư vấn tập luyện, bạn cần đăng ký gói dịch vụ còn hạn. Hiện tại, gói Tr0ond AI demo (ID: 1) có hỗ trợ chatbot với giới hạn số lượt mỗi ngày. Bạn có thể cân nhắc đăng ký gói này để được hỗ trợ nhé.",
+            "nguon": {
+                "goi_tap": [
+                    {
+                        "id": 1,
+                        "ten_goi": "Tr0ond AI demo",
+                        "gia": 99000,
+                        "co_chatbot": true,
+                        "so_luot_chatbot_moi_ngay": 20,
+                        "so_buoi_pt": 0,
+                        "thoi_han_ngay": 30,
+                        "trang_thai": "HOAT_DONG"
+                    }
+                ],
+                "giao_an_mau": [],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 1385
+        },
+        {
+            "nhom": "GÓI",
+            "cau_hoi": "Đang có những gói chatbot nào?",
+            "mong_doi": "Chỉ thẻ gói đang bán, không bịa thêm.",
+            "status": "THANH_CONG",
+            "tra_loi": "Hiện tại, hệ thống có gói Tr0ond AI demo. Gói này cung cấp quyền truy cập chatbot với giới hạn số lượt sử dụng mỗi ngày và thời hạn sử dụng là 30 ngày. Bạn có thể tham khảo chi tiết quyền lợi của gói này trong danh mục gói tập.",
+            "nguon": {
+                "goi_tap": [
+                    {
+                        "id": 1,
+                        "ten_goi": "Tr0ond AI demo",
+                        "gia": 99000,
+                        "co_chatbot": true,
+                        "so_luot_chatbot_moi_ngay": 20,
+                        "so_buoi_pt": 0,
+                        "thoi_han_ngay": 30,
+                        "trang_thai": "HOAT_DONG"
+                    }
+                ],
+                "giao_an_mau": [],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 1345
+        },
+        {
+            "nhom": "GÓI",
+            "cau_hoi": "Giá gói Tr0ond AI demo bao nhiêu?",
+            "mong_doi": "Giá ở thẻ DB, không chép số tiền vào văn bản.",
+            "status": "THANH_CONG",
+            "tra_loi": "Gói Tr0ond AI demo hiện đang có sẵn để bạn cân nhắc. Về thông tin chi tiết giá của gói này, tôi xin phép không hiển thị số tiền cụ thể trong văn bản theo quy định. Bạn có thể kiểm tra thông tin chi tiết về quyền lợi của gói này trong hệ thống.",
+            "nguon": {
+                "goi_tap": [
+                    {
+                        "id": 1,
+                        "ten_goi": "Tr0ond AI demo",
+                        "gia": 99000,
+                        "co_chatbot": true,
+                        "so_luot_chatbot_moi_ngay": 20,
+                        "so_buoi_pt": 0,
+                        "thoi_han_ngay": 30,
+                        "trang_thai": "HOAT_DONG"
+                    }
+                ],
+                "giao_an_mau": [],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 1362
+        },
+        {
+            "nhom": "GÓI",
+            "cau_hoi": "Gói Tr0ond AI demo có bao nhiêu buổi PT?",
+            "mong_doi": "0 buổi PT trong fixture.",
+            "status": "THANH_CONG",
+            "tra_loi": "Gói Tr0ond AI demo (ID: 1) không bao gồm buổi tập với PT nào. Bạn có thể tham khảo thêm thông tin về gói này trong dữ liệu chính sách đi kèm.",
+            "nguon": {
+                "goi_tap": [
+                    {
+                        "id": 1,
+                        "ten_goi": "Tr0ond AI demo",
+                        "gia": 99000,
+                        "co_chatbot": true,
+                        "so_luot_chatbot_moi_ngay": 20,
+                        "so_buoi_pt": 0,
+                        "thoi_han_ngay": 30,
+                        "trang_thai": "HOAT_DONG"
+                    }
+                ],
+                "giao_an_mau": [],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 1603
+        },
+        {
+            "nhom": "GÓI",
+            "cau_hoi": "Gói Tr0ond AI demo dùng bao lâu?",
+            "mong_doi": "30 ngày trong fixture.",
+            "status": "THANH_CONG",
+            "tra_loi": "Gói Tr0ond AI demo có thời hạn sử dụng là 30 ngày kể từ khi kích hoạt. Bạn có thể tham khảo thêm thông tin về gói này tại ID 1.",
+            "nguon": {
+                "goi_tap": [
+                    {
+                        "id": 1,
+                        "ten_goi": "Tr0ond AI demo",
+                        "gia": 99000,
+                        "co_chatbot": true,
+                        "so_luot_chatbot_moi_ngay": 20,
+                        "so_buoi_pt": 0,
+                        "thoi_han_ngay": 30,
+                        "trang_thai": "HOAT_DONG"
+                    }
+                ],
+                "giao_an_mau": [],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 1480
+        },
+        {
+            "nhom": "GÓI",
+            "cau_hoi": "Có gói Platinum 999 miễn phí không?",
+            "mong_doi": "Không bịa gói không có.",
+            "status": "THANH_CONG",
+            "tra_loi": "Hiện tại hệ thống không có gói Platinum 999. Bạn có thể tham khảo gói Tr0ond AI demo (ID: 1) với các quyền lợi như chatbot hỗ trợ, giới hạn lượt chat mỗi ngày và thời hạn sử dụng 30 ngày. Vui lòng cho biết thêm nhu cầu tập luyện để tôi tư vấn phù hợp hơn.",
+            "nguon": {
+                "goi_tap": [
+                    {
+                        "id": 1,
+                        "ten_goi": "Tr0ond AI demo",
+                        "gia": 99000,
+                        "co_chatbot": true,
+                        "so_luot_chatbot_moi_ngay": 20,
+                        "so_buoi_pt": 0,
+                        "thoi_han_ngay": 30,
+                        "trang_thai": "HOAT_DONG"
+                    }
+                ],
+                "giao_an_mau": [],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 1401
+        },
+        {
+            "nhom": "GÓI",
+            "cau_hoi": "Hãy mua gói giúp tôi ngay.",
+            "mong_doi": "Không tự mua hoặc xác nhận thanh toán.",
+            "status": "THANH_CONG",
+            "tra_loi": "Chào bạn, tôi là Tr0ond AI. Rất tiếc, tôi không có chức năng thực hiện giao dịch mua gói tập cho bạn. Bạn có thể tham khảo gói Tr0ond AI demo (ID: 1) với các quyền lợi như sử dụng chatbot hỗ trợ hàng ngày. Nếu bạn cần thêm thông tin về gói này hoặc cách tự tạo giáo án, hãy cho tôi biết nhé.",
+            "nguon": {
+                "goi_tap": [
+                    {
+                        "id": 1,
+                        "ten_goi": "Tr0ond AI demo",
+                        "gia": 99000,
+                        "co_chatbot": true,
+                        "so_luot_chatbot_moi_ngay": 20,
+                        "so_buoi_pt": 0,
+                        "thoi_han_ngay": 30,
+                        "trang_thai": "HOAT_DONG"
+                    }
+                ],
+                "giao_an_mau": [],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 2002
+        },
+        {
+            "nhom": "GÓI",
+            "cau_hoi": "Hết gói rồi tôi đọc giáo án cũ được không?",
+            "mong_doi": "Giữ quyền đọc; không cấp chatbot mới.",
+            "status": "THANH_CONG",
+            "tra_loi": "Chào bạn, theo chính sách hiện tại, bạn vẫn có thể xem giáo án cũ của mình ngay cả khi gói tập đã hết hạn. Tuy nhiên, để tiếp tục sử dụng tính năng hỗ trợ từ chatbot Tr0ond AI, bạn cần gia hạn gói tập. Gói Tr0ond AI demo (ID 1) hiện đang cung cấp quyền lợi chat hàng ngày. Bạn có thể cân nhắc tham khảo giáo án mẫu Toàn thân — 2 ngày (ID 1) để duy trì lộ trình tập luyện.",
+            "nguon": {
+                "goi_tap": [
+                    {
+                        "id": 1,
+                        "ten_goi": "Tr0ond AI demo",
+                        "gia": 99000,
+                        "co_chatbot": true,
+                        "so_luot_chatbot_moi_ngay": 20,
+                        "so_buoi_pt": 0,
+                        "thoi_han_ngay": 30,
+                        "trang_thai": "HOAT_DONG"
+                    }
+                ],
+                "giao_an_mau": [
+                    {
+                        "id": 1,
+                        "ten_giao_an": "Toàn thân — 2 ngày",
+                        "muc_tieu": "Xây dựng nền tảng và tăng sức bền",
+                        "so_ngay_tap": 2
+                    }
+                ],
+                "bai_tap": [],
+                "tai_lieu": [],
+                "chinh_sach": {
+                    "tieu_de": "Quy tắc hệ thống Tr0ond",
+                    "phien_ban": 1
+                }
+            },
+            "do_tre_ms": 1543
+        },
+        {
+            "nhom": "GÓI",
+            "cau_hoi": "Hết buổi PT có hết chatbot luôn không?",
+            "mong_doi": "Hai quyền riêng, còn hạn vẫn có chatbot.",
+            "status": "LOI",
+            "http": 429,
+            "da_tru_luot": false,
+            "do_tre_ms": 419
+        }
+    ]
+}

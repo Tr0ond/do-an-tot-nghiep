@@ -43,6 +43,7 @@ const menuVaiTro = {
   KHACH_HANG: [
     muc('Tổng quan', '/khach-hang/tong-quan', 'grid-1x2'),
     muc('Tin nhắn', '/khach-hang/tin-nhan', 'chat-left-text', { chat: true }),
+    muc('Tr0ond AI', '/khach-hang/chatbot', 'robot'),
     muc('Hồ sơ của tôi', '/khach-hang/ho-so', 'person'),
     muc('Gói của tôi', '/khach-hang/goi-cua-toi', 'wallet2'),
     muc('Giáo án của tôi', '/khach-hang/ke-hoach', 'journal-check'),
@@ -51,6 +52,7 @@ const menuVaiTro = {
     muc('Đơn hàng', '/khach-hang/don-hang', 'receipt'),
     muc('Gói tập', '/goi-tap', 'box-seam'),
     muc('Thư viện bài tập', '/bai-tap', 'collection-play'),
+    muc('Câu hỏi & tài liệu', '/faq', 'question-circle'),
   ],
   HUAN_LUYEN_VIEN: [
     muc('Tổng quan', '/pt/tong-quan', 'grid-1x2'),
@@ -75,6 +77,7 @@ const menuVaiTro = {
     muc('Đơn hàng', '/admin/don-hang', 'receipt'),
     muc('Phân công PT', '/admin/phan-cong', 'person-check'),
     muc('Lịch hẹn', '/admin/lich-hen', 'calendar3'),
+    muc('Tài liệu & AI', '/admin/tai-lieu-tu-van', 'robot'),
   ],
 }
 
