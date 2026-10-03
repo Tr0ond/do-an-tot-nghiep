@@ -11,6 +11,24 @@ const router = createRouter({
   },
   routes: [
     {
+      path: '/khach-hang/lich-tap',
+      component: () => import('../views/NhatKyTap/index.vue'),
+      meta: { vaiTro: 'KHACH_HANG' },
+    },
+    {
+      path: '/pt/hoc-vien/:khachId/lich-tap',
+      component: () => import('../views/NhatKyTap/index.vue'),
+      meta: { vaiTro: 'HUAN_LUYEN_VIEN' },
+    },
+    ...[
+      ['pt', 'HUAN_LUYEN_VIEN'],
+      ['khach-hang', 'KHACH_HANG'],
+    ].map(([khuVuc, vaiTro]) => ({
+      path: `/${khuVuc}/lich-tap/:id`,
+      component: () => import('../views/NhatKyTap/ChiTiet/index.vue'),
+      meta: { vaiTro },
+    })),
+    {
       path: '/pt/hoc-vien',
       component: () => import('../views/PT/HocVien/index.vue'),
       meta: { vaiTro: 'HUAN_LUYEN_VIEN' },

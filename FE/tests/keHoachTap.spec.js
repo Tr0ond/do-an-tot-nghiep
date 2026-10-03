@@ -4,6 +4,7 @@ import { renderToString } from '@vue/server-renderer'
 import { noiDungKeHoach } from '../src/utils/keHoachTap'
 import BieuMau from '../src/views/PT/KeHoachTap/BieuMau/index.vue'
 import ChiTiet from '../src/views/KeHoachTap/ChiTiet/index.vue'
+import HuongDanBaiTapGiaoAn from '../src/components/HuongDanBaiTapGiaoAn.vue'
 import DanhSach from '../src/views/KeHoachTap/index.vue'
 import keHoachTapService from '../src/services/keHoachTapService'
 
@@ -93,10 +94,21 @@ describe('Giáo án cá nhân', () => {
       })
       const html = await renderToString(app)
       expect(html).toContain('src="http://localhost:8000/media/bai-tap/images/0001-2gPfomN.jpg"')
-      expect(html).toContain(
+      expect(html).not.toContain(
         'src="http://localhost:8000/media/bai-tap/animations/0001-2gPfomN.gif"',
       )
       expect(html).not.toContain('src="/media/')
+      const huongDan = createSSRApp(
+        { ...HuongDanBaiTapGiaoAn, data: () => ({ xemGif: true }) },
+        {
+          baiTap: trangChiTiet.data().keHoach.bai_tap[0],
+        },
+      )
+      const modal = await renderToString(huongDan)
+      expect(modal).toContain(
+        'src="http://localhost:8000/media/bai-tap/animations/0001-2gPfomN.gif"',
+      )
+      expect(modal).toContain('Giáo án chưa lưu hướng dẫn')
     },
   )
   it('KH ngừng giáo án PT qua action chung và giữ phiên bản', async () => {

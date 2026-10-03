@@ -151,3 +151,7 @@ Với mỗi decision: trạng thái, phương án chọn, lý do, người xác 
 ## Những lựa chọn kỹ thuật có thể thực hiện trong phạm vi
 
 Tách API client, chuẩn hóa response, cleanup listeners, tổ chức docs, format và test không thay đổi quyền/tiền/lượt. Agent không cần hỏi lại cho từng file hoặc thao tác đọc/sửa tài liệu đã được yêu cầu.
+
+## C35 — Lịch tự tập và nhật ký (03/10/2026, ĐÃ CHỐT)
+
+Chủ dự án yêu cầu triển khai bước tiếp theo: KH chọn ngày từ giáo án đang dùng (tự tạo hoặc PT giao), ghi kết quả và hoàn thành buổi; PT phụ trách xem và nhận xét, thống kê từ dữ liệu thực. KH không mua gói vẫn tự tập; không trừ lượt PT, giữ lịch sử khi đổi giáo án. Chi tiết trạng thái, quyền và giới hạn kỹ thuật: [NHAT_KY_TAP.md](features/NHAT_KY_TAP.md).

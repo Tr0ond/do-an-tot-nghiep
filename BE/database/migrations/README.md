@@ -63,3 +63,7 @@ Script dùng kết nối BE hiện tại, yêu cầu quyền CREATE/DROP DATABAS
 ## Runtime M05 — 03/10/2026
 
 Migration 000036 bổ sung số ngày tập và UUID/hash tạo cho T14, mức tạ nullable cho T15. Giáo án cũ giữ dữ liệu, số ngày backfill từ các bài; không reset hoặc seed lại. down từ chối khi có UUID hoặc mức tạ mới để tránh mất thông tin. Đã migrate database ứng dụng và thử giữ dữ liệu cũ/up/down trên database MariaDB riêng. [Kiểm chứng](../../../docs/verification/M05_KE_HOACH_TAP.md).
+
+## Runtime M06 — 000040
+
+`2026_10_03_000040_bo_sung_nhat_ky_tap.php` thêm UUID/hash/nguoi_tao_id và index ngày/KH vào lich_tap, UUID/hash vào ghi_chu_huan_luyen. Nullable giữ record cũ. Không tạo lại bảng gốc T16–T20; down giữ index FK và từ chối khi có UUID mới. Đã migrate local trên MariaDB10.4.32; test up/down/bảo toàn dữ liệu và hai process đạt. Máy clone/pull chạy `php artisan migrate`; không dùng fresh/rollback trên dữ liệu ứng dụng. [Kiểm chứng](../../../docs/verification/M06_NHAT_KY_TAP.md).

@@ -135,6 +135,12 @@
 
           <div class="kh-card-footer pt-3 mt-auto border-top d-flex flex-column gap-2">
             <RouterLink
+              :to="`/pt/hoc-vien/${kh.id}/lich-tap`"
+              class="btn btn-outline-secondary w-100"
+              ><i class="bi bi-calendar2-week" aria-hidden="true"></i> Lịch & nhật ký học
+              viên</RouterLink
+            >
+            <RouterLink
               :to="`/pt/hoc-vien/${kh.id}/ke-hoach`"
               class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2"
             >

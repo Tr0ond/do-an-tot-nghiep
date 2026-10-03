@@ -669,9 +669,9 @@
   border-radius: 14px;
   font-weight: 800;
   font-size: 0.925rem;
-  background: #181818;
-  border: 1.5px solid rgba(255, 255, 255, 0.08);
-  color: #94a3b8;
+  background: var(--ga-bg-card-sub, #181818);
+  border: 1.5px solid var(--ga-border, rgba(255, 255, 255, 0.08));
+  color: var(--ga-ink-muted, #94a3b8);
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -740,15 +740,15 @@
   gap: 18px;
   padding: 16px;
   border-radius: 16px;
-  background: #181818;
-  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  background: var(--ga-bg-card-sub, #181818);
+  border: 1.5px solid var(--ga-border, rgba(255, 255, 255, 0.08));
   margin-bottom: 12px;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
 .ga-exercise-card:hover {
-  background: #202020;
+  background: var(--ga-bg-card-hover, #202020);
   border-color: rgba(244, 91, 32, 0.4);
   transform: translateX(3px);
   box-shadow: 0 4px 14px rgba(244, 91, 32, 0.15);
@@ -767,13 +767,13 @@
   height: 64px;
   border-radius: 14px;
   overflow: hidden;
-  background: #101010;
+  background: var(--ga-bg-card, #101010);
   flex-shrink: 0;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border: 1.5px solid var(--ga-border, rgba(255, 255, 255, 0.1));
 }
 
 .ga-exercise-thumb img {
@@ -805,7 +805,7 @@
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-  color: #94a3b8;
+  color: var(--ga-ink-muted, #94a3b8);
   font-size: 0.85rem;
 }
 
@@ -1324,12 +1324,12 @@ fieldset {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   margin-top: 8px;
-  color: #cbd5e1;
+  color: var(--ga-ink-muted, #cbd5e1);
   font-size: 0.875rem;
-  background: #181818;
+  background: var(--ga-bg-card, #181818);
   padding: 8px 12px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ga-border, rgba(255, 255, 255, 0.08));
 }
 
 /* Animations */
@@ -1439,4 +1439,16 @@ fieldset {
   box-shadow:
     0 12px 28px -4px rgba(244, 91, 32, 0.15),
     0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+:root[data-theme='light'] .ga-btn-guide,
+.light-theme .ga-btn-guide {
+  color: #b93b0a;
+}
+
+:root[data-theme='light'] .ga-btn-guide:hover,
+.light-theme .ga-btn-guide:hover {
+  background: #c2410c;
+  border-color: #c2410c;
+  color: #ffffff;
 }

@@ -106,3 +106,9 @@ KH/PT/Admin có thanh bên riêng theo vai trò, giữ bố cục khi mở thư 
 ## Giáo án cá nhân M05
 
 PT vào `/pt/hoc-vien`, chọn học viên rồi tạo tại `/pt/hoc-vien/:khachId/ke-hoach/them`; sửa nháp `/pt/ke-hoach/:id/sua`, xem/gửi/hủy `/pt/ke-hoach/:id`. KH vào `/khach-hang/ke-hoach` và `/:id` để xem/xác nhận trong 24 giờ. Các trang giữ menu dọc/theme; service `keHoachTapService`, state form cục bộ, chống gửi trùng và giữ UUID/payload khi lỗi mạng. Toàn FE đạt 158 tests, lint/build và format các file thay đổi. [Hợp đồng](../docs/features/KE_HOACH_TAP.md), [kiểm chứng và giới hạn trình duyệt](../docs/verification/M05_KE_HOACH_TAP.md).
+
+Chi tiết giáo án cá nhân KH/PT dùng bố cục tương ứng giáo án mẫu: tóm tắt, thanh chọn ngày, thẻ bài tập gọn và cửa sổ hướng dẫn có bật/dừng GIF. Hướng dẫn lấy từ snapshot giáo án, giữ nút nghiệp vụ theo quyền. FE 182 tests, lint/build/format PASS; [kiểm chứng desktop, mobile và dark theme](../docs/verification/PLAN_DETAIL_LAYOUT.md).
+
+## Lịch và nhật ký M06
+
+KH mở `/khach-hang/lich-tap` từ menu; PT chọn học viên rồi mở `/pt/hoc-vien/:khachId/lich-tap`. Chi tiết `/khach-hang/lich-tap/:id` hoặc `/pt/lich-tap/:id`: kết quả thực tế tách chỉ tiêu, lưu nháp, xác nhận hoàn thành/hủy ngay trong trang; PT đọc và nhận xét riêng. Biểu đồ/tổng số từ API, không có dữ liệu giả. Hỗ trợ light/dark và mobile, lỗi giữ draft, UUID ổn định khi retry, phiên bản mới sau lưu. Toàn FE182tests, lint/build/format PASS; [hợp đồng](../docs/features/NHAT_KY_TAP.md), [ảnh và kiểm chứng](../docs/verification/M06_NHAT_KY_TAP.md).

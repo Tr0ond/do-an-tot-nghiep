@@ -46,6 +46,7 @@ const menuVaiTro = {
     muc('Hồ sơ của tôi', '/khach-hang/ho-so', 'person'),
     muc('Gói của tôi', '/khach-hang/goi-cua-toi', 'wallet2'),
     muc('Giáo án của tôi', '/khach-hang/ke-hoach', 'journal-check'),
+    muc('Lịch & nhật ký tập', '/khach-hang/lich-tap', 'calendar2-week'),
     muc('Lịch hẹn', '/khach-hang/lich-hen', 'calendar3', { lienQuan: '/khach-hang/dat-lich' }),
     muc('Đơn hàng', '/khach-hang/don-hang', 'receipt'),
     muc('Gói tập', '/goi-tap', 'box-seam'),
@@ -55,7 +56,9 @@ const menuVaiTro = {
     muc('Tổng quan', '/pt/tong-quan', 'grid-1x2'),
     muc('Tin nhắn', '/pt/tin-nhan', 'chat-left-text', { chat: true }),
     muc('Hồ sơ PT', '/pt/ho-so', 'person'),
-    muc('Học viên & giáo án', '/pt/hoc-vien', 'people', { lienQuan: '/pt/ke-hoach' }),
+    muc('Học viên & giáo án', '/pt/hoc-vien', 'people', {
+      lienQuan: ['/pt/ke-hoach', '/pt/lich-tap'],
+    }),
     muc('Giáo án mẫu', '/pt/giao-an-mau', 'journal-text'),
     muc('Khung giờ', '/pt/khung-gio', 'clock'),
     muc('Lịch hẹn', '/pt/lich-hen', 'calendar3'),
@@ -94,7 +97,7 @@ export default {
   },
   methods: {
     dangChon(muc) {
-      return [muc.duongDan, muc.lienQuan]
+      return [muc.duongDan, ...[muc.lienQuan].flat()]
         .filter(Boolean)
         .some((goc) => this.$route.path === goc || this.$route.path.startsWith(`${goc}/`))
     },

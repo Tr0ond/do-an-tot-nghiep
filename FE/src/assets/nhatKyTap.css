@@ -1,0 +1,1201 @@
+/* ==========================================================================
+   LỊCH TỰ TẬP VÀ NHẬT KÝ TẬP LUYỆN (M06)
+   Cinematic High-Performance Design System (#F45B20 & Pure Dark #0A0A0A)
+   Đồng bộ Dark Theme & Light Theme, Tối ưu Mobile & Touch-Friendly
+   ========================================================================== */
+
+.nk {
+  --nk-mau-nhan: var(--mau-chinh, #f45b20);
+  --nk-mau-nhan-hover: var(--mau-chinh-hover, #ff6f38);
+  --nk-mau-nhan-dam: var(--mau-chinh-dam, #d94a15);
+  --nk-mau-nhan-nhat: rgba(244, 91, 32, 0.12);
+  --nk-glow: rgba(244, 91, 32, 0.35);
+
+  color: var(--mau-chu, #ffffff);
+  padding: 1.5rem 0 3rem;
+  font-family: inherit;
+}
+
+[data-theme='dark'] .nk,
+.dark-theme .nk {
+  --nk-mau-nhan: #f45b20;
+  --nk-mau-nhan-hover: #ff6f38;
+}
+
+/* ==========================================================================
+   NÚT BẤM (BUTTONS) - GRADIENT CAM LỬA VÀ OUTLINE HIỆN ĐẠI
+   ========================================================================== */
+.nk .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 650;
+  border-radius: 12px;
+  min-height: 42px;
+  padding: 0.55rem 1.25rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.9rem;
+}
+
+.nk .btn-primary {
+  background: linear-gradient(135deg, #f45b20 0%, #d94a15 100%);
+  border: 1px solid #f45b20;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(244, 91, 32, 0.35);
+}
+
+.nk .btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ff6f38 0%, #ea580c 100%);
+  border-color: #ff6f38;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(244, 91, 32, 0.45);
+}
+
+.nk .btn-primary:disabled {
+  opacity: 0.65;
+  background: #a33810;
+  border-color: #a33810;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.nk .btn-outline-secondary {
+  background: var(--mau-the-sub, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.12));
+  color: var(--mau-chu, #ffffff);
+}
+
+.nk .btn-outline-secondary:hover:not(:disabled) {
+  background: var(--mau-the-hover, rgba(255, 255, 255, 0.08));
+  border-color: var(--mau-vien-hover, rgba(244, 91, 32, 0.4));
+  color: var(--mau-chinh, #f45b20);
+}
+
+.nk .btn-sm {
+  min-height: 34px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.825rem;
+  border-radius: 9px;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY & TIÊU ĐỀ
+   ========================================================================== */
+.nk h1 {
+  font-size: clamp(1.6rem, 2.8vw, 2.25rem);
+  font-weight: 850;
+  margin: 0.4rem 0 0.6rem;
+  letter-spacing: -0.035em;
+  color: var(--mau-chu);
+}
+
+.nk h2 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.85rem;
+  color: var(--mau-chu);
+}
+
+.nk h3 {
+  font-size: 1.05rem;
+  font-weight: 750;
+  margin: 0.35rem 0;
+  color: var(--mau-chu);
+}
+
+.nk p {
+  line-height: 1.65;
+  color: var(--mau-chu);
+}
+
+.nk-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.nk-heading p:not(.nk-eyebrow),
+.nk-muted,
+.nk-footnote {
+  color: var(--mau-phu, #94a3b8);
+  font-size: 0.9rem;
+}
+
+.nk-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--nk-mau-nhan);
+  font-weight: 850;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nk-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--mau-phu);
+  text-decoration: none;
+  font-weight: 650;
+  font-size: 0.875rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  background: var(--mau-the, #141414);
+  border: 1px solid var(--mau-vien);
+  transition: all 0.2s ease;
+}
+
+.nk-back:hover {
+  color: var(--mau-chinh);
+  border-color: var(--mau-chinh);
+  background: var(--mau-the-sub, #181818);
+}
+
+/* ==========================================================================
+   PANEL / CONTAINER THẺ CHUẨN
+   ========================================================================== */
+.nk-panel {
+  background: var(--mau-the, #141414);
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
+  border-radius: 18px;
+  padding: 1.5rem;
+  min-width: 0;
+  box-shadow: var(--bong-nhe, 0 4px 20px rgba(0, 0, 0, 0.25));
+  transition: all 0.2s ease;
+}
+
+.nk-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.nk-main {
+  display: grid;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+/* ==========================================================================
+   THẺ CHỈ SỐ THỐNG KÊ (KPI STAT CARDS)
+   ========================================================================== */
+.nk-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.nk-stats .nk-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 1.35rem 1.4rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--mau-the, #141414);
+  border: 1px solid var(--mau-vien);
+}
+
+.nk-stats .nk-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--mau-chinh) 0%, transparent 100%);
+  opacity: 0.6;
+}
+
+.nk-stats .nk-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(244, 91, 32, 0.12);
+  color: var(--mau-chinh);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 0.85rem;
+}
+
+.nk-stats i {
+  color: var(--mau-chinh);
+  font-size: 1.2rem;
+}
+
+.nk-stats span {
+  color: var(--mau-phu);
+  font-size: 0.825rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+
+.nk-stats strong {
+  font-size: 2.1rem;
+  font-weight: 850;
+  line-height: 1.15;
+  color: var(--mau-chu);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+.nk-stats strong small {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--mau-phu);
+  margin-left: 2px;
+}
+
+.nk-stats small {
+  color: var(--mau-phu);
+  font-size: 0.775rem;
+  margin-top: 0.4rem;
+}
+
+/* ==========================================================================
+   BỘ LỌC THỜI GIAN & TRẠNG THÁI (FILTER TOOLBAR)
+   ========================================================================== */
+.nk-filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr auto;
+  gap: 1.25rem;
+  align-items: end;
+  background: var(--mau-the, #141414);
+  padding: 1.25rem 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 1.75rem;
+}
+
+.nk label {
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--mau-phu);
+}
+
+.nk label .form-control,
+.nk label .form-select,
+.nk .form-control,
+.nk .form-select {
+  min-height: 42px;
+  background: var(--mau-nen, #0a0a0a);
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.12));
+  color: var(--mau-chu, #ffffff);
+  border-radius: 10px;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.nk .form-control:focus,
+.nk .form-select:focus {
+  border-color: var(--mau-chinh);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(244, 91, 32, 0.22);
+}
+
+/* ==========================================================================
+   DANH SÁCH LỊCH TẬP (SCHEDULE CARDS)
+   ========================================================================== */
+.nk-section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--mau-vien);
+}
+
+.nk-section-heading > span {
+  color: var(--mau-phu);
+  font-size: 0.825rem;
+  font-weight: 600;
+  background: var(--mau-the-sub, #181818);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid var(--mau-vien);
+}
+
+.nk-schedule {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.15rem 1.25rem;
+  margin-bottom: 0.75rem;
+  border-radius: 14px;
+  background: var(--mau-the-sub, #181818);
+  border: 1px solid var(--mau-vien);
+  text-decoration: none;
+  color: var(--mau-chu);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nk-schedule:hover {
+  background: var(--mau-the-hover, #1e1e1e);
+  border-color: var(--mau-vien-hover, rgba(244, 91, 32, 0.35));
+  transform: translateX(4px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.nk-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--mau-nen, #0a0a0a);
+  border: 1px solid var(--mau-vien);
+  border-radius: 12px;
+  padding: 0.6rem 0.8rem;
+  min-width: 68px;
+  flex-shrink: 0;
+}
+
+.nk-date strong {
+  font-size: 1.6rem;
+  font-weight: 850;
+  line-height: 1;
+  color: var(--mau-chu);
+}
+
+.nk-date small {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--mau-chinh);
+  margin-top: 3px;
+  letter-spacing: 0.05em;
+}
+
+.nk-schedule-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.nk-schedule-content h3 {
+  font-size: 1.05rem;
+  margin: 0.25rem 0 0.35rem;
+  overflow-wrap: anywhere;
+}
+
+.nk-schedule p {
+  color: var(--mau-phu);
+  font-size: 0.825rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.nk-schedule > i.bi-arrow-right {
+  font-size: 1.15rem;
+  color: var(--mau-phu);
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.nk-schedule:hover > i.bi-arrow-right {
+  color: var(--mau-chinh);
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   BADGES TRẠNG THÁI BUỔI TẬP
+   ========================================================================== */
+.nk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid var(--mau-vien);
+  padding: 0.28rem 0.65rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+  background: var(--mau-the, #141414);
+}
+
+.nk-badge.HOAN_THANH {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.nk-badge.DANG_TAP {
+  color: #f45b20;
+  background: rgba(244, 91, 32, 0.14);
+  border-color: rgba(244, 91, 32, 0.35);
+  box-shadow: 0 0 10px rgba(244, 91, 32, 0.2);
+}
+
+.nk-badge.DA_LEN_LICH {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.28);
+}
+
+.nk-badge.DA_HUY {
+  color: #94a3b8;
+  background: rgba(148, 163, 184, 0.12);
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+/* ==========================================================================
+   BIỂU ĐỒ MỨC TẠ THEO BÀI TẬP (INTERACTIVE SVG CHART)
+   ========================================================================== */
+.nk-chart-select {
+  max-width: 480px;
+  margin-bottom: 1.25rem;
+}
+
+.nk-chart {
+  background: var(--mau-nen, #0a0a0a);
+  border: 1px solid var(--mau-vien);
+  border-radius: 16px;
+  margin: 1.25rem 0;
+  padding: 1.25rem 1rem 0.75rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.nk-chart svg {
+  width: 100%;
+  max-height: 220px;
+  overflow: visible;
+}
+
+.nk-chart-dates {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0.85rem 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--mau-phu);
+}
+
+.nk-axis {
+  stroke: var(--mau-vien, rgba(255, 255, 255, 0.1));
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+
+.nk-line {
+  fill: none;
+  stroke: var(--mau-chinh, #f45b20);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 4px 8px rgba(244, 91, 32, 0.45));
+}
+
+.nk-area {
+  fill: url(#nkAreaGradient);
+  opacity: 0.25;
+}
+
+.nk-point {
+  fill: #f45b20;
+  stroke: #ffffff;
+  stroke-width: 2;
+  transition: r 0.2s ease;
+  cursor: pointer;
+}
+
+.nk-point:hover {
+  r: 6;
+  fill: #ff6f38;
+}
+
+.nk-pr-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(244, 91, 32, 0.14);
+  color: var(--mau-chinh);
+  border: 1px solid rgba(244, 91, 32, 0.3);
+  padding: 0.35rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 750;
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   SIDEBAR LÊN LỊCH TỰ TẬP (ASIDE .nk-create)
+   ========================================================================== */
+.nk-create {
+  position: sticky;
+  top: 84px;
+}
+
+.nk-plan {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1.15rem;
+  background: var(--mau-the-sub, #181818);
+  border: 1px solid var(--mau-vien);
+  border-radius: 14px;
+  margin: 1.25rem 0;
+}
+
+.nk-plan small {
+  color: var(--mau-phu);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.nk-plan strong {
+  font-size: 1.05rem;
+  color: var(--mau-chu);
+}
+
+.nk-plan span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--mau-chinh);
+}
+
+.nk-create form,
+.nk-comments form {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.nk-preview {
+  padding-left: 1.25rem;
+  font-size: 0.825rem;
+  color: var(--mau-phu);
+  line-height: 1.8;
+  margin: 0;
+  border-left: 2px solid var(--mau-chinh);
+  background: rgba(244, 91, 32, 0.04);
+  padding: 0.65rem 0.85rem 0.65rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+}
+
+.nk-preview li::marker {
+  color: var(--mau-chinh);
+}
+
+.nk-footnote {
+  font-size: 0.8rem;
+  line-height: 1.55;
+  margin: 1.25rem 0 0;
+  padding: 0.75rem 0.9rem;
+  background: var(--mau-the-sub, #181818);
+  border-radius: 10px;
+  border: 1px solid var(--mau-vien);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.nk-footnote i {
+  color: var(--mau-chinh);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.nk-empty {
+  color: var(--mau-phu);
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.925rem;
+}
+
+/* ==========================================================================
+   BẢNG SỐ LIỆU (DATA TABLES)
+   ========================================================================== */
+.nk-data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.875rem;
+  margin: 0.85rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--mau-vien);
+}
+
+.nk-data-table th {
+  background: var(--mau-the-sub, #181818);
+  color: var(--mau-phu);
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--mau-vien);
+}
+
+.nk-data-table td {
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--mau-vien);
+  color: var(--mau-chu);
+  font-variant-numeric: tabular-nums;
+}
+
+.nk-data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.nk-data-table tbody tr:hover td {
+  background: var(--mau-the-sub, rgba(255, 255, 255, 0.03));
+}
+
+.nk-data-table caption {
+  font-size: 0.825rem;
+  caption-side: top;
+  color: var(--mau-phu);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+/* ==========================================================================
+   CHI TIẾT BUỔI TẬP: TỪNG BÀI TẬP & NHẬP HIỆP THỰC TẾ
+   ========================================================================== */
+.nk-exercise {
+  margin-bottom: 1.25rem;
+  border-radius: 18px;
+}
+
+.nk-exercise-heading {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--mau-vien);
+}
+
+.nk-exercise-heading h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0 0 0.35rem;
+}
+
+.nk-exercise-heading p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--mau-phu);
+}
+
+.nk-exercise-image {
+  flex: 0 0 72px;
+  width: 72px;
+  height: 72px;
+  border: 1px solid var(--mau-vien);
+  border-radius: 14px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  color: var(--mau-chinh);
+  background: var(--mau-the-sub, #181818);
+  font-size: 1.6rem;
+}
+
+.nk-exercise-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #ffffff;
+}
+
+/* Chips thông số chỉ tiêu dự kiến */
+.nk-target-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 0.45rem;
+}
+
+.nk-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--mau-the-sub, #181818);
+  border: 1px solid var(--mau-vien);
+  padding: 0.25rem 0.65rem;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: var(--mau-chu);
+  font-weight: 600;
+}
+
+.nk-chip i {
+  color: var(--mau-chinh);
+}
+
+/* Guidance accordion */
+.nk-guidance {
+  margin: 0.85rem 0 1.25rem;
+  background: var(--mau-nen, #0a0a0a);
+  border: 1px solid var(--mau-vien);
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+}
+
+.nk-guidance summary {
+  color: var(--mau-chinh);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.4rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nk-guidance p {
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+  color: var(--mau-phu);
+}
+
+.nk-guidance ol {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0 0.75rem;
+  color: var(--mau-phu);
+  font-size: 0.85rem;
+}
+
+.nk-guidance li {
+  margin-bottom: 0.35rem;
+}
+
+/* ==========================================================================
+   LƯỚI NHẬP HIỆP TẬP THỰC TẾ (WORKOUT SET TRACKER)
+   ========================================================================== */
+.nk-set-heading,
+.nk-set {
+  display: grid;
+  grid-template-columns: 44px repeat(3, minmax(0, 1fr)) 44px;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nk-set-heading {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--mau-phu);
+  margin-top: 1.15rem;
+  padding: 0 0.25rem;
+}
+
+.nk-set {
+  margin: 0.65rem 0;
+  background: var(--mau-the-sub, #181818);
+  padding: 0.5rem 0.65rem;
+  border-radius: 12px;
+  border: 1px solid var(--mau-vien);
+  transition: border-color 0.2s ease;
+}
+
+.nk-set:focus-within {
+  border-color: rgba(244, 91, 32, 0.4);
+}
+
+.nk-set > strong {
+  font-size: 0.95rem;
+  text-align: center;
+  font-weight: 850;
+  color: var(--mau-chinh);
+  background: rgba(244, 91, 32, 0.1);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.nk-set .form-control {
+  min-width: 0;
+  height: 42px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  text-align: center;
+  font-size: 0.95rem;
+  border-radius: 8px;
+}
+
+.nk-icon-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  color: var(--mau-phu);
+  background: var(--mau-nen, #0a0a0a);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.nk-icon-btn:hover:not(:disabled) {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.nk-add-set-btn {
+  width: 100%;
+  margin-top: 0.75rem;
+  border-style: dashed;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   THANH LƯU NHÁP & HOÀN THÀNH (STICKY SAVE BAR)
+   ========================================================================== */
+.nk-save-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--mau-vien);
+}
+
+.nk-save-bar > span {
+  color: var(--mau-phu);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nk-confirm {
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--mau-chinh);
+  background: color-mix(in srgb, var(--mau-chinh) 6%, var(--mau-the, #141414));
+}
+
+.nk-confirm h2 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.nk-confirm p {
+  font-size: 0.875rem;
+  color: var(--mau-phu);
+  margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   NHẬN XÉT CỦA HUẤN LUYỆN VIÊN (PT COMMENTS)
+   ========================================================================== */
+.nk-comments {
+  position: sticky;
+  top: 84px;
+}
+
+.nk-comment {
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 12px;
+  background: var(--mau-the-sub, #181818);
+  border: 1px solid var(--mau-vien);
+}
+
+.nk-comment strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--mau-chu);
+}
+
+.nk-comment small {
+  font-size: 0.72rem;
+  color: var(--mau-phu);
+  margin: 0.2rem 0 0.5rem;
+  display: block;
+}
+
+.nk-comment p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 0.875rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.nk-note {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 0.9rem;
+  padding: 0.85rem 1rem;
+  background: var(--mau-the-sub, #181818);
+  border-radius: 12px;
+  border: 1px solid var(--mau-vien);
+}
+
+/* ==========================================================================
+   THÔNG BÁO LỖI VÀ THÀNH CÔNG (ALERTS)
+   ========================================================================== */
+.nk-alert,
+.nk-success {
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.nk-alert {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.nk-alert p {
+  color: inherit;
+  margin: 0;
+}
+
+.nk-alert ul {
+  margin: 0.35rem 0 0.65rem;
+  padding-left: 1.25rem;
+}
+
+.nk-alert li {
+  color: inherit;
+}
+
+.nk-success {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* ==========================================================================
+   PHÂN TRANG (PAGINATION)
+   ========================================================================== */
+.nk-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  padding-top: 1.25rem;
+  font-weight: 650;
+  font-size: 0.875rem;
+}
+
+.nk-pagination span {
+  color: var(--mau-phu);
+}
+
+/* ==========================================================================
+   LIGHT MODE OVERRIDES
+   ========================================================================== */
+:root[data-theme='light'] .nk-panel,
+.light-theme .nk-panel {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+}
+
+:root[data-theme='light'] .nk-filter,
+.light-theme .nk-filter,
+:root[data-theme='light'] .nk-chart,
+.light-theme .nk-chart {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+:root[data-theme='light'] .nk-schedule,
+.light-theme .nk-schedule,
+:root[data-theme='light'] .nk-set,
+.light-theme .nk-set,
+:root[data-theme='light'] .nk-plan,
+.light-theme .nk-plan,
+:root[data-theme='light'] .nk-comment,
+.light-theme .nk-comment,
+:root[data-theme='light'] .nk-note,
+.light-theme .nk-note {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+:root[data-theme='light'] .nk-date,
+.light-theme .nk-date,
+:root[data-theme='light'] .nk-guidance,
+.light-theme .nk-guidance {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+:root[data-theme='light'] .nk label .form-control,
+:root[data-theme='light'] .nk label .form-select,
+:root[data-theme='light'] .nk .form-control,
+:root[data-theme='light'] .nk .form-select,
+.light-theme .nk .form-control,
+.light-theme .nk .form-select {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+:root[data-theme='light'] .nk-data-table th,
+.light-theme .nk-data-table th {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #475569;
+}
+
+:root[data-theme='light'] .nk-data-table td,
+.light-theme .nk-data-table td {
+  border-color: #e2e8f0;
+  color: #0f172a;
+}
+
+:root[data-theme='light'] .nk-icon-btn,
+.light-theme .nk-icon-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+:root[data-theme='light'] .nk-footnote,
+.light-theme .nk-footnote {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .nk-grid {
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 1.2rem;
+  }
+  .nk-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .nk-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .nk-create,
+  .nk-comments {
+    position: static;
+    grid-row: 1;
+  }
+  .nk-filter {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .nk-heading {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 580px) {
+  .nk {
+    padding: 1rem 0 2rem;
+  }
+  .nk-panel {
+    padding: 1.15rem;
+    border-radius: 14px;
+  }
+  .nk-heading {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .nk-filter {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    padding: 1rem;
+  }
+  .nk-filter label:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+  .nk-filter > button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+  .nk-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+  .nk-stats strong {
+    font-size: 1.65rem;
+  }
+  .nk-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .nk-set,
+  .nk-set-heading {
+    gap: 0.4rem;
+    grid-template-columns: 28px repeat(3, minmax(0, 1fr)) 38px;
+    padding: 0.4rem 0.5rem;
+  }
+  .nk-set .form-control {
+    padding: 0.4rem 0.25rem;
+    font-size: 0.85rem;
+    height: 38px;
+  }
+  .nk-exercise-heading {
+    gap: 0.85rem;
+  }
+  .nk-exercise-image {
+    flex: 0 0 54px;
+    width: 54px;
+    height: 54px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+  }
+  .nk-save-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .nk-save-bar > span {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .nk-save-bar .btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nk-schedule,
+  .nk .btn,
+  .nk-panel {
+    transition: none;
+  }
+}

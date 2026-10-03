@@ -17,3 +17,4 @@ Các module còn lại định tuyến qua `SCOPE.md`, `PROJECT_RULES.md`, `DATA
 - [MUA_GOI_THANH_TOAN.md](MUA_GOI_THANH_TOAN.md): đặt mua/payOS/kích hoạt/đối soát thủ công và Admin phân công PT, UUID/transaction/quyền theo tài nguyên.
 
 - [LICH_HUAN_LUYEN.md](LICH_HUAN_LUYEN.md): PT mở giờ 60 phút, KH đặt/hủy, PT ghi nhận hoàn thành/vắng mặt, Admin đóng quá hạn; deadline/transaction/quota/ownership và scheduler.
+- [NHAT_KY_TAP.md](NHAT_KY_TAP.md): KH tự lên lịch và ghi hiệp thực tế, PT xem/nhận xét, snapshot, version/UUID, thống kê từ phiên hoàn thành; không trừ buổi PT.

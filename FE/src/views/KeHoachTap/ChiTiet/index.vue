@@ -19,8 +19,7 @@
         </button>
       </div>
       <template v-if="keHoach && !dangTai">
-        <!-- HEADER / HERO CARD -->
-        <div class="kh-detail-header-card">
+        <div class="ga-hero-dark kh-plan-hero">
           <header class="kh-heading mb-0">
             <div>
               <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
@@ -73,21 +72,32 @@
                 <i class="bi bi-bullseye me-1 text-primary" aria-hidden="true"></i>
                 Mục tiêu: <strong>{{ keHoach.muc_tieu }}</strong>
               </p>
-              <div class="kh-meta mb-0 mt-3">
-                <span class="kh-meta-item">
+              <div class="ga-stats-pill-row mb-0 mt-3">
+                <span class="ga-stats-pill">
                   <i class="bi bi-calendar3" aria-hidden="true"></i> {{ keHoach.so_ngay_tap }} ngày
                   tập
                 </span>
-                <span class="kh-meta-item">
+                <span class="ga-stats-pill">
                   <i class="bi bi-activity" aria-hidden="true"></i> {{ keHoach.so_bai_tap }} bài tập
                 </span>
-                <span v-if="keHoach.gui_luc" class="kh-meta-item">
+                <span class="ga-stats-pill">
+                  <i class="bi bi-layers" aria-hidden="true"></i> {{ tongHiep }} tổng hiệp
+                </span>
+                <span v-if="keHoach.gui_luc" class="ga-stats-pill">
                   <i class="bi bi-send" aria-hidden="true"></i> Đã gửi
                   {{ thoiGian(keHoach.gui_luc) }}
                 </span>
               </div>
             </div>
             <div class="kh-actions">
+              <RouterLink
+                v-if="keHoach.trang_thai === 'DANG_AP_DUNG'"
+                :to="
+                  laPt ? `/pt/hoc-vien/${keHoach.khach_hang_id}/lich-tap` : '/khach-hang/lich-tap'
+                "
+                class="btn btn-outline-secondary"
+                ><i class="bi bi-calendar2-week" aria-hidden="true"></i> Lên lịch tự tập</RouterLink
+              >
               <button
                 v-if="keHoach.co_the_an"
                 type="button"
@@ -238,72 +248,77 @@
           </p>
         </div>
 
-        <!-- DANH SÁCH BÀI TẬP THEO TỪNG NGÀY -->
-        <div v-for="ngay in cacNgay" :key="ngay" class="kh-day-panel">
-          <div class="kh-day-panel-header">
-            <h2 class="kh-day-title">
-              <span class="kh-day-pill">Ngày {{ ngay }}</span>
-              <span>Kế hoạch tập luyện</span>
-            </h2>
-            <span class="text-secondary small fw-bold">
-              {{ baiTheoNgay(ngay).length }} bài tập
-            </span>
-          </div>
-
-          <article v-for="b in baiTheoNgay(ngay)" :key="b.id" class="kh-exercise">
-            <AnhBaiTap class="kh-thumbnail" :src="urlMedia(b.anh_url)" :alt="b.ten_bai_tap" />
-            <div class="kh-exercise-content">
-              <h3>{{ b.thu_tu }}. {{ b.ten_bai_tap }}</h3>
-              <div class="kh-param-chips">
-                <span class="kh-chip">
-                  <i class="bi bi-repeat" aria-hidden="true"></i>
-                  <strong>{{ b.so_hiep }}</strong> hiệp × <strong>{{ b.so_lan_lap }}</strong> lần
-                </span>
-                <span class="kh-chip">
-                  <i class="bi bi-stopwatch" aria-hidden="true"></i>
-                  Nghỉ <strong>{{ b.nghi_giay }}</strong> giây
-                </span>
-                <span v-if="b.muc_ta_kg != null" class="kh-chip kh-chip-weight">
-                  <i class="bi bi-disc" aria-hidden="true"></i>
-                  <strong>{{ b.muc_ta_kg }} kg</strong>
-                </span>
-                <span v-if="b.dung_cu" class="kh-chip">
-                  <i class="bi bi-wrench" aria-hidden="true"></i>
-                  {{ b.dung_cu }}
-                </span>
-              </div>
-              <div v-if="b.ghi_chu" class="kh-note-bubble">
-                <i class="bi bi-info-circle me-1" aria-hidden="true"></i>
-                <strong>Lưu ý:</strong> {{ b.ghi_chu }}
-              </div>
-              <details
-                v-if="b.gif_url || b.huong_dan || b.cac_buoc?.length"
-                class="kh-guide-details"
+        <div class="ga-detail-container kh-plan-detail">
+          <nav class="ga-day-switcher-bar" aria-label="Chọn ngày xem bài tập">
+            <button
+              v-for="ngay in cacNgay"
+              :key="ngay"
+              type="button"
+              class="ga-day-tab"
+              :class="{ 'is-active': ngayChon === ngay }"
+              :aria-pressed="ngayChon === ngay"
+              aria-controls="kh-plan-day"
+              @click="ngayChon = ngay"
+            >
+              <span>Ngày {{ ngay }}</span>
+              <span class="tab-badge">{{ baiTheoNgay(ngay).length }} bài</span>
+            </button>
+          </nav>
+          <section id="kh-plan-day" class="ga-exercise-sheet" aria-labelledby="kh-plan-day-title">
+            <header class="ga-exercise-sheet-header">
+              <h2 id="kh-plan-day-title">
+                <i class="bi bi-calendar2-day me-2" aria-hidden="true"></i>Lịch tập Ngày
+                {{ ngayChon }}
+              </h2>
+              <span class="sheet-meta"
+                >{{ baiTheoNgay(ngayChon).length }} bài tập · {{ tongHiepNgay }} hiệp</span
               >
-                <summary>
-                  <i class="bi bi-play-circle" aria-hidden="true"></i> Hướng dẫn bài tập
-                </summary>
-                <div class="kh-guide-body">
+            </header>
+            <p v-if="!baiTheoNgay(ngayChon).length" class="kh-plan-empty">
+              Ngày này chưa có bài tập.
+            </p>
+            <div v-else class="ga-exercise-list">
+              <article v-for="b in baiTheoNgay(ngayChon)" :key="b.id" class="ga-exercise-card">
+                <div class="ga-exercise-card-left">
                   <AnhBaiTap
-                    v-if="b.gif_url"
-                    class="kh-animation"
-                    :src="urlMedia(b.gif_url)"
-                    :alt="`Minh họa ${b.ten_bai_tap}`"
-                    loading="lazy"
+                    class="ga-exercise-thumb"
+                    :src="urlMedia(b.anh_url)"
+                    :alt="b.ten_bai_tap"
                   />
-                  <p v-if="b.huong_dan" :lang="b.ngon_ngu_huong_dan" class="mb-3">
-                    {{ b.huong_dan }}
-                  </p>
-                  <ol v-if="b.cac_buoc?.length" :lang="b.ngon_ngu_huong_dan" class="ps-3 mb-0">
-                    <li v-for="(buoc, i) in b.cac_buoc" :key="i" class="mb-1">
-                      {{ buoc }}
-                    </li>
-                  </ol>
+                  <div class="ga-exercise-info">
+                    <h3>{{ b.thu_tu }}. {{ b.ten_bai_tap }}</h3>
+                    <div class="ga-exercise-meta">
+                      <span v-if="b.dung_cu || b.nhom_co" class="meta-tag">{{
+                        b.dung_cu || b.nhom_co
+                      }}</span>
+                      <span>{{ b.so_hiep }} hiệp × {{ b.so_lan_lap }} lần</span>
+                      <span>Nghỉ {{ b.nghi_giay }} giây</span>
+                      <span v-if="b.muc_ta_kg != null">Tạ {{ b.muc_ta_kg }} kg</span>
+                    </div>
+                    <p v-if="b.ghi_chu" class="kh-plan-note">
+                      <i class="bi bi-pencil-square me-1" aria-hidden="true"></i>{{ b.ghi_chu }}
+                    </p>
+                  </div>
                 </div>
-              </details>
+                <div class="ga-exercise-card-right">
+                  <button
+                    type="button"
+                    class="ga-btn-guide"
+                    :aria-label="`Xem hướng dẫn ${b.ten_bai_tap}`"
+                    @click="baiHuongDan = b"
+                  >
+                    <i class="bi bi-play-circle me-1" aria-hidden="true"></i>Xem hướng dẫn
+                  </button>
+                </div>
+              </article>
             </div>
-          </article>
+          </section>
         </div>
+        <HuongDanBaiTapGiaoAn
+          v-if="baiHuongDan"
+          :bai-tap="baiHuongDan"
+          @dong="baiHuongDan = null"
+        />
       </template>
     </section>
   </CaNhanLayout>
@@ -311,15 +326,17 @@
 <script>
 import CaNhanLayout from '../../../layouts/CaNhanLayout.vue'
 import AnhBaiTap from '../../../components/AnhBaiTap.vue'
+import HuongDanBaiTapGiaoAn from '../../../components/HuongDanBaiTapGiaoAn.vue'
 import baiTapService from '../../../services/baiTapService'
 import keHoachTapService from '../../../services/keHoachTapService'
 import { layLoiApi } from '../../../utils/loiApi'
 import { nhanKeHoach, thoiGianKeHoach } from '../../../utils/keHoachTap'
 import '../../../assets/giaoAnMau.css'
 import '../../../assets/keHoachTap.css'
+import '../../../assets/chiTietKeHoach.css'
 export default {
   name: 'ChiTietKeHoachTap',
-  components: { CaNhanLayout, AnhBaiTap },
+  components: { CaNhanLayout, AnhBaiTap, HuongDanBaiTapGiaoAn },
   data() {
     return {
       keHoach: null,
@@ -329,6 +346,8 @@ export default {
       loiTruong: {},
       thanhCong: '',
       hanhDongCho: '',
+      ngayChon: 1,
+      baiHuongDan: null,
       nhanHanhDong: {
         an: 'Ẩn giáo án này?',
         'hien-lai': 'Hiện lại giáo án này?',
@@ -385,7 +404,13 @@ export default {
       )
     },
     cacNgay() {
-      return [...new Set(this.keHoach?.bai_tap.map((b) => b.ngay_thu) || [])]
+      return Array.from({ length: this.keHoach?.so_ngay_tap || 0 }, (_, i) => i + 1)
+    },
+    tongHiep() {
+      return (this.keHoach?.bai_tap || []).reduce((tong, b) => tong + Number(b.so_hiep), 0)
+    },
+    tongHiepNgay() {
+      return this.baiTheoNgay(this.ngayChon).reduce((tong, b) => tong + Number(b.so_hiep), 0)
     },
   },
   watch: {
@@ -412,6 +437,8 @@ export default {
     },
     async taiChiTiet() {
       this.hanhDongCho = ''
+      this.baiHuongDan = null
+      this.ngayChon = 1
       this.huyTai?.abort()
       const huy = new AbortController()
       this.huyTai = huy

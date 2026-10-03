@@ -85,8 +85,12 @@ Lỗi validation 422 dùng `errors` map field → array messages. FE chịu đư
 | POST | `/lich-hen/{id}/huy` | Chính sách actor/thời hạn D04 |
 | POST | `/pt/ke-hoach-tap` | KH đang được phân công |
 | POST | `/khach-hang/ke-hoach-tap/{id}/xac-nhan` | KH sở hữu, đọc lại base/TTL |
-| POST | `/khach-hang/phien-tap` | KH sở hữu lịch tập hợp lệ |
-| POST | `/khach-hang/phien-tap/{id}/hoan-thanh` | KH sở hữu, không đổi phiên đã hoàn thành |
+| GET/POST | `/khach-hang/lich-tap` | KH sở hữu, lịch từ giáo án đang áp dụng |
+| GET/PUT | `/khach-hang/lich-tap/{id}` | KH sở hữu; PUT kết quả nháp với phiên bản |
+| POST | `/khach-hang/lich-tap/{id}/{hanhDong}` | KH sở hữu: bat-dau/hoan-thanh/huy |
+| GET/POST | `/pt/hoc-vien/{khachId}/lich-tap` | PT hiện phụ trách đọc/tạo lịch |
+| GET | `/pt/lich-tap/{id}` | PT hiện phụ trách đọc kết quả |
+| POST | `/pt/lich-tap/{id}/nhan-xet` | PT hiện phụ trách, phiên hoàn thành, UUID |
 | GET | `/hoi-thoai/{id}/tin-nhan` | Đúng scope; cursor pagination |
 | POST | `/hoi-thoai/{id}/tin-nhan` | Đúng scope + client message ID |
 | POST | `/hoi-thoai/{id}/da-doc` | Người nhận hợp lệ, cursor tăng đơn điệu |

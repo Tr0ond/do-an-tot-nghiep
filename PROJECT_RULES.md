@@ -62,6 +62,8 @@ Theo C34, KH được áp dụng lại bản PT của mình đã gửi và đã 
 
 Kế hoạch thay thế là record mới chứa nội dung snapshot; kế hoạch cũ lưu trữ, không sửa nội dung đã gắn với phiên tập. Khi xác nhận cần đọc lại phân công, kế hoạch gốc và trạng thái; đề xuất cũ không được ghi đè thay đổi mới.
 
+Theo C35, KH cũng được tự lên lịch từ giáo án đang áp dụng của mình (KH tự tạo hoặc PT giao), không cần gói/PT. PT hiện phụ trách có thể lên lịch; lịch tự tập đã có tiếp tục hợp lệ khi đổi giáo án, không tự tạo lịch hoặc tiêu hao lượt PT. Xem [NHAT_KY_TAP.md](docs/features/NHAT_KY_TAP.md).
+
 **R13 — Nhật ký:** KH chỉ nhập kết quả của mình từ lịch tập hợp lệ. Phiên hoàn thành bất biến; PT thêm nhận xét ở dữ liệu riêng. Hủy/hoàn thành giữ lịch sử; hoàn thành lặp không sinh hai phiên/hiệu ứng.
 
 **R14 — Hết gói đã chốt:** KH giữ quyền đọc kế hoạch/lịch sử và ghi nhật ký từ lịch cá nhân hợp lệ đã có; không cấp buổi PT/chatbot mới khi gói hết hạn. Ngoại lệ xác nhận buổi PT đã diễn ra trong hạn theo R07; chat với PT theo phân công ở R21, không phụ thuộc gói. Nhật ký tự tập không tiêu hao buổi PT.

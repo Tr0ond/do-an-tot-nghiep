@@ -119,3 +119,7 @@ Sau khi pull, chạy php artisan migrate. Chạy php artisan schedule:work ở t
 ## Giáo án cá nhân M05
 
 Chạy `php artisan migrate` để bổ sung migration 000036, giữ giáo án cũ; máy này đã migrate thành công. PT có `/api/v1/pt/hoc-vien`, danh sách/tạo `/pt/hoc-vien/{khachId}/ke-hoach`, chi tiết/sửa `/pt/ke-hoach/{id}` và thao tác `/gui`, `/huy`. KH có `/khach-hang/ke-hoach`, chi tiết `/{id}` và `/{id}/xac-nhan`. Quyền theo phân công hiện tại, bản gửi bất biến, hạn 24 giờ, UUID/phiên bản/chống tranh chấp và hai thông báo transactional. Không seed lại. [Hợp đồng](../docs/features/KE_HOACH_TAP.md), [kiểm chứng](../docs/verification/M05_KE_HOACH_TAP.md).
+
+## Lịch tự tập và nhật ký M06
+
+Migration000040 đã chạy local, giữ dữ liệu T16–T20; máy clone/pull chạy `php artisan migrate`, không seed lại. API lịch KH/PT, kết quả nháp/hoàn thành bất biến, nhận xét PT và thống kê thật theo [hợp đồng](../docs/features/NHAT_KY_TAP.md). KH không gói vẫn dùng giáo án đang áp dụng; tự tập không trừ counterPT. NhatKyTapService khóa KH/lịch/phiên cùng transaction, UUID/version chống retry/tranh chấp. Toàn BE195tests/5.583assertions PASS trên MariaDB10.4.32, gồm worker hai process; [bằng chứng và giới hạn](../docs/verification/M06_NHAT_KY_TAP.md).

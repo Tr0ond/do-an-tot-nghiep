@@ -1,0 +1,221 @@
+/* Giáo án cá nhân dùng cấu trúc trang mẫu, giữ màu theo theme của thành viên. */
+.kh-plan {
+  --kh-detail-accent: #b93b0a;
+}
+[data-theme='dark'] .kh-plan {
+  --kh-detail-accent: #ff946c;
+}
+.kh-plan-hero {
+  grid-template-columns: minmax(0, 1fr);
+  margin-bottom: 24px;
+}
+.kh-plan-hero .kh-heading > div:first-child {
+  min-width: 0;
+  flex: 1 1 480px;
+}
+.kh-plan-hero .kh-actions {
+  flex: 0 1 340px;
+  justify-content: flex-end;
+}
+.kh-plan-hero h1,
+.kh-plan-note {
+  overflow-wrap: anywhere;
+}
+.kh-plan-detail {
+  gap: 12px;
+}
+.kh-plan .ga-day-tab,
+.kh-plan .ga-exercise-card {
+  background: var(--mau-the);
+  border-color: var(--mau-vien);
+  color: var(--mau-phu);
+}
+.kh-plan .ga-day-tab {
+  min-height: 44px;
+}
+.kh-plan .ga-day-tab.is-active {
+  background: #c2410c;
+  border-color: #c2410c;
+  color: #fff;
+}
+.kh-plan .ga-exercise-card {
+  cursor: default;
+}
+.kh-plan .ga-exercise-card:hover,
+.kh-plan .ga-exercise-card:focus-within {
+  background: var(--mau-the-hover);
+  border-color: var(--mau-chinh);
+}
+.kh-plan .ga-exercise-meta {
+  gap: 6px 14px;
+  color: var(--mau-phu);
+}
+.kh-plan .ga-exercise-meta .meta-tag,
+.kh-plan .sheet-meta,
+.kh-plan .ga-btn-guide,
+.kh-plan .ga-modal-close-btn {
+  color: var(--kh-detail-accent);
+}
+.kh-plan .ga-btn-guide,
+.kh-plan .ga-modal-close-btn {
+  min-height: 44px;
+}
+.kh-plan .ga-btn-guide:hover {
+  background: #c2410c;
+  color: #fff;
+}
+.kh-plan .ga-exercise-thumb {
+  width: 64px;
+  height: 64px;
+  aspect-ratio: 1;
+  background: var(--mau-the-sub);
+  border-color: var(--mau-vien);
+}
+.kh-plan .ga-exercise-thumb .image-fallback {
+  padding: 0;
+}
+.kh-plan .ga-exercise-thumb .image-fallback > span {
+  display: none;
+}
+.kh-plan .ga-exercise-sheet-header {
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.kh-plan .ga-exercise-sheet-header h2 {
+  font-size: 1.25rem;
+}
+.kh-plan-note {
+  color: var(--mau-phu);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 8px 0 0;
+}
+.kh-plan-empty {
+  padding: 24px 0;
+  color: var(--mau-phu);
+}
+.kh-guide-dialog {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 20px;
+  border: 0;
+  background: transparent;
+  align-items: center;
+  justify-content: center;
+}
+.kh-guide-dialog[open] {
+  display: flex;
+}
+.kh-guide-dialog::backdrop {
+  background: rgb(0 0 0 / 75%);
+}
+.kh-guide-dialog .ga-modal-container {
+  max-height: calc(100dvh - 40px);
+}
+.kh-guide-dialog h2 {
+  font-size: 1.5rem;
+  overflow-wrap: anywhere;
+}
+.kh-guide-source,
+.kh-guide-meta {
+  color: var(--mau-phu);
+  font-size: 0.85rem;
+}
+.kh-guide-meta {
+  margin: 6px 0 0;
+}
+.kh-guide-media {
+  height: 270px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: var(--mau-the-sub) !important;
+}
+.kh-guide-play {
+  justify-content: center;
+  flex-shrink: 0;
+}
+.kh-guide-prescription {
+  display: flex;
+  gap: 8px 16px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: var(--mau-chu);
+}
+.kh-guide-instructions {
+  color: var(--mau-chu);
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.kh-guide-instructions h3 {
+  font-size: 1.05rem;
+}
+.kh-guide-instructions ol {
+  padding-left: 1.3rem;
+}
+.kh-guide-instructions li + li {
+  margin-top: 8px;
+}
+.kh-plan :is(.ga-day-tab, .ga-btn-guide, .ga-modal-close-btn):focus-visible {
+  outline: 2px solid var(--kh-detail-accent);
+  outline-offset: 3px;
+}
+@media (max-width: 768px) {
+  .kh-plan-hero {
+    padding: 22px;
+  }
+  .kh-plan-hero .kh-actions {
+    flex: 0 1 auto;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .kh-plan-hero .kh-heading > div:first-child {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+  .kh-plan .ga-exercise-card,
+  .kh-plan .ga-exercise-card-left {
+    align-items: flex-start;
+  }
+  .kh-plan .ga-exercise-card {
+    flex-direction: column;
+  }
+  .kh-plan .ga-exercise-card-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .kh-guide-dialog {
+    padding: 12px;
+  }
+  .kh-guide-dialog .ga-modal-container {
+    max-height: calc(100dvh - 24px);
+  }
+  .kh-guide-dialog .ga-modal-content {
+    padding: 16px;
+  }
+}
+@media (max-width: 520px) {
+  .kh-plan .ga-exercise-sheet {
+    padding: 16px;
+  }
+  .kh-plan .ga-day-tab {
+    padding: 10px 14px;
+  }
+  .kh-plan-hero .ga-stats-pill {
+    padding: 7px 12px;
+    font-size: 0.8rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kh-plan .ga-exercise-card,
+  .kh-plan .ga-day-tab,
+  .kh-plan .ga-modal-container {
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+}
