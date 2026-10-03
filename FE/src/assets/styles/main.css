@@ -1,41 +1,80 @@
-:root {
-  color-scheme: light;
+:root,
+:root[data-theme='dark'],
+.dark-theme {
+  color-scheme: dark;
   --font-chinh:
     'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     sans-serif;
+  --font-tieu-de: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
 
-  /* Bảng màu nhận diện thương hiệu Fitness cao cấp */
-  --mau-chinh: #059669;
-  --mau-chinh-dam: #047857;
-  --mau-chinh-nhat: #ecfdf5;
-  --mau-chinh-hover: #10b981;
-  --mau-gradient-chinh: linear-gradient(135deg, #059669 0%, #10b981 100%);
-  --mau-gradient-dark: linear-gradient(145deg, #064e3b 0%, #022c22 100%);
-  --mau-gradient-accent: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
-  --mau-gradient-cam: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  /* Bảng màu nhận diện thương hiệu Fitness cao cấp (Cinematic High-Performance Dark) */
+  --mau-chinh: #f45b20;
+  --mau-chinh-dam: #d94a15;
+  --mau-chinh-nhat: rgba(244, 91, 32, 0.12);
+  --mau-chinh-hover: #ff6f38;
+  --mau-gradient-chinh: linear-gradient(135deg, #f45b20 0%, #d94a15 100%);
+  --mau-gradient-dark: linear-gradient(145deg, #1c1c1c 0%, #0a0a0a 100%);
+  --mau-gradient-accent: linear-gradient(135deg, #f45b20 0%, #ff8c5a 100%);
+  --mau-gradient-cam: linear-gradient(135deg, #f45b20 0%, #ea580c 100%);
   --mau-gradient-tim: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
 
-  --mau-nen: #f8fafc;
-  --mau-the: #ffffff;
-  --mau-chu: #0f172a;
-  --mau-phu: #64748b;
-  --mau-vien: #e2e8f0;
-  --mau-vien-hover: #cbd5e1;
-  --mau-diem: #10b981;
-  --mau-diem-sang: #34d399;
+  /* Bảng màu Dark Mode */
+  --mau-nen: #0a0a0a;
+  --mau-the: #141414;
+  --mau-the-hover: #1c1c1c;
+  --mau-the-sub: #181818;
+  --mau-chu: #ffffff;
+  --mau-chu-tieu-de: #ffffff;
+  --mau-phu: #94a3b8;
+  --mau-vien: rgba(255, 255, 255, 0.08);
+  --mau-vien-hover: rgba(244, 91, 32, 0.4);
+  --mau-diem: #f45b20;
+  --mau-diem-sang: #ff6f38;
+
+  /* Biểu mẫu và điều hướng Dark Mode */
+  --mau-form-bg: #121212;
+  --mau-form-bg-focus: #161616;
+  --mau-form-border: rgba(255, 255, 255, 0.12);
+  --mau-form-text: #ffffff;
+  --mau-form-label: #cbd5e1;
+  --mau-header-bg: rgba(10, 10, 10, 0.88);
+  --mau-footer-bg: #0d0d0d;
+  --mau-table-header-bg: #181818;
+  --mau-table-hover-bg: #1c1c1c;
+  --mau-user-badge-bg: #1c1c1c;
+  --mau-auth-form-area-bg: #0a0a0a;
+  --mau-auth-card-bg: #141414;
+  --mau-auth-tab-bg: #1c1c1c;
+  --mau-auth-tab-active-bg: #262626;
+  --mau-btn-secondary-bg: rgba(255, 255, 255, 0.05);
+  --mau-btn-secondary-border: rgba(255, 255, 255, 0.14);
+  --mau-btn-secondary-text: #ffffff;
+  --mau-btn-secondary-hover-bg: rgba(255, 255, 255, 0.1);
+  --mau-glass-bg: rgba(20, 20, 20, 0.85);
+  --mau-glass-border: rgba(255, 255, 255, 0.08);
+
+  /* Bảng màu Cinematic High-Performance Dark Mode */
+  --mau-dark-bg: #0a0a0a;
+  --mau-dark-card: #141414;
+  --mau-dark-card-hover: #1c1c1c;
+  --mau-dark-border: rgba(255, 255, 255, 0.08);
+  --mau-cam-chinh: #f45b20;
+  --mau-cam-hover: #ff6f38;
+  --mau-cam-dam: #d94a15;
+  --mau-cam-glow: rgba(244, 91, 32, 0.35);
 
   --mau-loi: #ef4444;
   --mau-canh-bao: #f59e0b;
   --mau-thanh-cong: #10b981;
-  --mau-thong-tin: #3b82f6;
+  --mau-thong-tin: #38bdf8;
 
-  /* Bóng đổ hiện đại */
-  --bong-nhe: 0 1px 3px 0 rgb(0 0 0 / 0.07), 0 1px 2px -1px rgb(0 0 0 / 0.05);
-  --bong-trung: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
-  --bong-dam: 0 10px 25px -3px rgb(0 0 0 / 0.09), 0 4px 6px -4px rgb(0 0 0 / 0.05);
-  --bong-noi: 0 20px 35px -5px rgb(0 0 0 / 0.12), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+  /* Bóng đổ hiện đại Dark Mode */
+  --bong-nhe: 0 1px 3px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.18);
+  --bong-trung: 0 4px 6px -1px rgb(0 0 0 / 0.35), 0 2px 4px -2px rgb(0 0 0 / 0.22);
+  --bong-dam: 0 10px 25px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+  --bong-noi: 0 20px 35px -5px rgb(0 0 0 / 0.65), 0 10px 10px -5px rgb(0 0 0 / 0.4);
   --bong-glow: 0 0 25px rgba(16, 185, 129, 0.3);
-  --bong-glow-cam: 0 0 25px rgba(245, 158, 11, 0.3);
+  --bong-glow-cam: 0 0 25px rgba(244, 91, 32, 0.35);
 
   /* Bán kính bo góc */
   --bo-goc-sm: 8px;
@@ -47,6 +86,96 @@
   /* Hiệu ứng chuyển cảnh */
   --chuyen-canh-nhanh: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --chuyen-canh-muot: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Đồng bộ biến hệ thống Bootstrap Dark Mode */
+  --bs-body-color: var(--mau-chu);
+  --bs-body-bg: var(--mau-nen);
+  --bs-emphasis-color: var(--mau-chu);
+  --bs-secondary-color: var(--mau-phu);
+  --bs-tertiary-color: var(--mau-phu);
+  --bs-border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ========================================================
+   LIGHT THEME (GIAO DIỆN SÁNG CAO CẤP)
+   ======================================================== */
+:root[data-theme='light'],
+.light-theme {
+  color-scheme: light;
+
+  /* Nền và bề mặt Light Mode */
+  --mau-nen: #f8fafc;
+  --mau-the: #ffffff;
+  --mau-the-hover: #f1f5f9;
+  --mau-the-sub: #f8fafc;
+  --mau-chu: #0f172a;
+  --mau-chu-tieu-de: #020617;
+  --mau-phu: #64748b;
+  --mau-vien: #e2e8f0;
+  --mau-vien-hover: rgba(244, 91, 32, 0.5);
+  --mau-diem: #f45b20;
+  --mau-diem-sang: #ea580c;
+  --mau-chinh-nhat: rgba(244, 91, 32, 0.08);
+
+  /* Biểu mẫu và điều hướng Light Mode */
+  --mau-form-bg: #ffffff;
+  --mau-form-bg-focus: #ffffff;
+  --mau-form-border: #cbd5e1;
+  --mau-form-text: #0f172a;
+  --mau-form-label: #334155;
+  --mau-header-bg: rgba(255, 255, 255, 0.92);
+  --mau-footer-bg: #ffffff;
+  --mau-table-header-bg: #f8fafc;
+  --mau-table-hover-bg: #f1f5f9;
+  --mau-user-badge-bg: #f1f5f9;
+  --mau-auth-form-area-bg: #f8fafc;
+  --mau-auth-card-bg: #ffffff;
+  --mau-auth-tab-bg: #f1f5f9;
+  --mau-auth-tab-active-bg: #ffffff;
+  --mau-btn-secondary-bg: #ffffff;
+  --mau-btn-secondary-border: #cbd5e1;
+  --mau-btn-secondary-text: #0f172a;
+  --mau-btn-secondary-hover-bg: #f1f5f9;
+  --mau-glass-bg: rgba(255, 255, 255, 0.92);
+  --mau-glass-border: rgba(0, 0, 0, 0.08);
+
+  /* Bóng đổ Light Mode */
+  --bong-nhe: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  --bong-trung: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --bong-dam: 0 10px 25px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+  --bong-noi: 0 20px 35px -5px rgb(0 0 0 / 0.08), 0 10px 10px -5px rgb(0 0 0 / 0.03);
+  --bong-glow-cam: 0 0 25px rgba(244, 91, 32, 0.2);
+
+  /* Đồng bộ biến hệ thống Bootstrap Light Mode */
+  --bs-body-color: var(--mau-chu);
+  --bs-body-bg: var(--mau-nen);
+  --bs-emphasis-color: var(--mau-chu);
+  --bs-secondary-color: var(--mau-phu);
+  --bs-tertiary-color: var(--mau-phu);
+  --bs-border-color: var(--mau-vien);
+}
+
+/* ========================================================
+   KHẮC PHỤC TRIỆT ĐỂ TEXT-DARK KHI Ở DARK THEME
+   Khi ở Dark Mode, text-dark tự động đổi màu sáng var(--mau-chu),
+   trừ trường hợp trên nền vàng (bg-warning) cần chữ tối.
+   ======================================================== */
+:root[data-theme='dark']
+  .text-dark:not(.bg-warning):not(.badge-warning):not(.btn-warning):not(.alert-warning),
+.dark-theme .text-dark:not(.bg-warning):not(.badge-warning):not(.btn-warning):not(.alert-warning) {
+  color: var(--mau-chu, #ffffff) !important;
+}
+
+:root[data-theme='dark'] .bg-light,
+.dark-theme .bg-light {
+  background-color: var(--mau-the-sub, #181818) !important;
+  color: var(--mau-chu, #ffffff) !important;
+}
+
+:root[data-theme='dark'] .bg-light-subtle,
+.dark-theme .bg-light-subtle {
+  background-color: var(--mau-the-sub, rgba(255, 255, 255, 0.04)) !important;
+  color: var(--mau-phu, #94a3b8) !important;
 }
 
 /* ========================================================
@@ -75,10 +204,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-chinh);
+  font-family: var(--font-tieu-de);
   font-weight: 700;
   color: var(--mau-chu);
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
   line-height: 1.25;
 }
 
@@ -264,28 +393,28 @@ a:hover {
   background: var(--mau-gradient-chinh);
   color: white;
   border: none;
-  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+  box-shadow: 0 4px 14px rgba(244, 91, 32, 0.35);
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-  background: linear-gradient(135deg, #047857 0%, #059669 100%);
+  background: linear-gradient(135deg, #ff6f38 0%, #f45b20 100%);
   color: white;
-  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.45);
+  box-shadow: 0 6px 20px rgba(244, 91, 32, 0.45);
   transform: translateY(-2px);
 }
 
 .btn-outline-secondary {
-  background: white;
-  color: var(--mau-chu);
-  border-color: var(--mau-vien);
+  background: var(--mau-btn-secondary-bg);
+  color: var(--mau-btn-secondary-text);
+  border-color: var(--mau-btn-secondary-border);
   box-shadow: var(--bong-nhe);
 }
 
 .btn-outline-secondary:hover,
 .btn-outline-secondary:focus-visible {
-  background: #f8fafc;
-  color: var(--mau-chinh);
+  background: var(--mau-btn-secondary-hover-bg);
+  color: var(--mau-btn-secondary-text);
   border-color: var(--mau-chinh);
   box-shadow: var(--bong-trung);
   transform: translateY(-2px);
@@ -293,25 +422,25 @@ a:hover {
 
 .btn-soft {
   background: var(--mau-chinh-nhat);
-  color: var(--mau-chinh-dam);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: var(--mau-chinh);
+  border: 1px solid rgba(244, 91, 32, 0.25);
 }
 
 .btn-soft:hover {
-  background: #d1fae5;
-  color: var(--mau-chinh-dam);
+  background: var(--mau-chinh);
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
 .btn-danger-soft {
-  background: #fef2f2;
-  color: #dc2626;
-  border: 1px solid #fee2e2;
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.25);
 }
 
 .btn-danger-soft:hover {
-  background: #fee2e2;
-  color: #b91c1c;
+  background: #ef4444;
+  color: #ffffff;
 }
 
 /* ========================================================
@@ -320,7 +449,7 @@ a:hover {
 .form-label {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #334155;
+  color: var(--mau-form-label);
   margin-bottom: 0.4rem;
   display: block;
 }
@@ -328,24 +457,26 @@ a:hover {
 .form-control,
 .form-select {
   min-height: 48px;
-  background-color: #ffffff;
-  border: 1.5px solid var(--mau-vien);
+  background-color: var(--mau-form-bg);
+  border: 1.5px solid var(--mau-form-border);
   border-radius: var(--bo-goc-md);
   font-size: 0.95rem;
-  color: var(--mau-chu);
+  color: var(--mau-form-text);
   padding: 0.65rem 1rem;
   transition: var(--chuyen-canh-nhanh);
 }
 
 .form-control:hover,
 .form-select:hover {
-  border-color: var(--mau-vien-hover);
+  border-color: rgba(244, 91, 32, 0.4);
 }
 
 .form-control:focus,
 .form-select:focus {
+  background-color: var(--mau-form-bg-focus);
+  color: var(--mau-form-text);
   border-color: var(--mau-chinh);
-  box-shadow: 0 0 0 3.5px rgba(16, 185, 129, 0.18);
+  box-shadow: 0 0 0 3.5px rgba(244, 91, 32, 0.25);
   outline: none;
 }
 
@@ -409,14 +540,14 @@ a:hover {
 .profile-panel:hover,
 .card-modern:hover {
   box-shadow: var(--bong-trung);
-  border-color: #cbd5e1;
+  border-color: var(--mau-vien-hover);
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--mau-glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--mau-glass-border);
   border-radius: var(--bo-goc-lg);
   box-shadow: var(--bong-dam);
 }
@@ -514,21 +645,21 @@ a:hover {
 }
 
 .badge-role-admin {
-  background: #f5f3ff;
-  color: #7c3aed;
-  border: 1px solid #ddd6fe;
+  background: rgba(124, 58, 237, 0.15);
+  color: #a78bfa;
+  border: 1px solid rgba(124, 58, 237, 0.3);
 }
 
 .badge-role-pt {
-  background: #ecfdf5;
-  color: #059669;
-  border: 1px solid #a7f3d0;
+  background: rgba(244, 91, 32, 0.15);
+  color: #ff8c5a;
+  border: 1px solid rgba(244, 91, 32, 0.3);
 }
 
 .badge-role-khach {
-  background: #eff6ff;
-  color: #2563eb;
-  border: 1px solid #bfdbfe;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 /* ========================================================
@@ -542,7 +673,7 @@ a:hover {
 }
 
 .profile-field-box {
-  background: #f8fafc;
+  background: var(--mau-the-sub);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-md);
   padding: 16px 20px;
@@ -550,8 +681,8 @@ a:hover {
 }
 
 .profile-field-box:hover {
-  background: white;
-  border-color: #cbd5e1;
+  background: var(--mau-the-hover);
+  border-color: var(--mau-vien-hover);
   box-shadow: var(--bong-nhe);
 }
 
@@ -586,7 +717,7 @@ a:hover {
 }
 
 .stat-item-card {
-  background: white;
+  background: var(--mau-the);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   padding: 20px;
@@ -600,7 +731,7 @@ a:hover {
 .stat-item-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--bong-trung);
-  border-color: #cbd5e1;
+  border-color: var(--mau-vien-hover);
 }
 
 .stat-icon-wrapper {
@@ -614,20 +745,20 @@ a:hover {
 }
 
 .stat-icon-emerald {
-  background: #ecfdf5;
-  color: #059669;
+  background: rgba(244, 91, 32, 0.15);
+  color: #f45b20;
 }
 .stat-icon-amber {
-  background: #fffbeb;
-  color: #d97706;
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
 }
 .stat-icon-blue {
-  background: #eff6ff;
-  color: #2563eb;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
 }
 .stat-icon-purple {
-  background: #f5f3ff;
-  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.15);
+  color: #a78bfa;
 }
 
 .stat-info-content h3 {
@@ -751,14 +882,14 @@ a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #f8fafc;
+  background: var(--mau-auth-form-area-bg);
   position: relative;
 }
 
 .auth-form-card {
   width: 100%;
   max-width: 480px;
-  background: white;
+  background: var(--mau-auth-card-bg);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-xl);
   padding: 40px;
@@ -767,7 +898,7 @@ a:hover {
 
 .auth-tabs-nav {
   display: flex;
-  background: #f1f5f9;
+  background: var(--mau-auth-tab-bg);
   padding: 4px;
   border-radius: var(--bo-goc-md);
   margin-bottom: 28px;
@@ -790,7 +921,7 @@ a:hover {
 }
 
 .auth-tab-btn.active {
-  background: white;
+  background: var(--mau-auth-tab-active-bg);
   color: var(--mau-chu);
   box-shadow: var(--bong-nhe);
 }
@@ -826,7 +957,7 @@ a:hover {
 .member-header,
 .welcome-page header {
   padding: 18px 5vw;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--mau-header-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--mau-vien);
@@ -837,7 +968,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-shadow: var(--bong-nhe);
 }
 
 .account-nav {
@@ -851,7 +982,8 @@ a:hover {
   align-items: center;
   gap: 10px;
   padding: 6px 14px;
-  background: #f1f5f9;
+  background: var(--mau-user-badge-bg);
+  border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-tron);
   font-size: 0.875rem;
   font-weight: 600;
@@ -894,7 +1026,7 @@ a:hover {
 .member-footer {
   padding: 24px 5vw;
   border-top: 1px solid var(--mau-vien);
-  background: white;
+  background: var(--mau-footer-bg);
   font-size: 0.8rem;
   font-weight: 600;
   display: flex;
@@ -915,7 +1047,7 @@ a:hover {
 }
 
 .table-container-modern {
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   overflow: hidden;
@@ -930,7 +1062,7 @@ a:hover {
 }
 
 .table th {
-  background: #f8fafc;
+  background: var(--mau-table-header-bg);
   color: var(--mau-phu);
   font-size: 0.75rem;
   font-weight: 700;
@@ -948,7 +1080,7 @@ a:hover {
 }
 
 .table tbody tr:hover td {
-  background-color: #f8fafc;
+  background-color: var(--mau-table-hover-bg);
 }
 
 .pagination-controls {
@@ -957,7 +1089,7 @@ a:hover {
   justify-content: space-between;
   gap: 16px;
   padding: 16px 20px;
-  background: #ffffff;
+  background: var(--mau-the, #141414);
   border-top: 1px solid var(--mau-vien);
   border-radius: 0 0 var(--bo-goc-lg) var(--bo-goc-lg);
 }
@@ -976,7 +1108,7 @@ a:hover {
 .error-card-modern {
   max-width: 600px;
   width: 100%;
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-xl);
   padding: 48px 40px;
@@ -998,21 +1130,21 @@ a:hover {
 }
 
 .error-halo-danger {
-  background: #fef2f2;
+  background: rgba(239, 68, 68, 0.15);
   color: #ef4444;
   box-shadow: 0 0 30px rgba(239, 68, 68, 0.2);
 }
 
 .error-halo-warning {
-  background: #fffbeb;
+  background: rgba(245, 158, 11, 0.15);
   color: #f59e0b;
   box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
 }
 
 .error-halo-offline {
-  background: #f1f5f9;
-  color: #64748b;
-  box-shadow: 0 0 30px rgba(100, 116, 139, 0.2);
+  background: #1e1e1e;
+  color: #94a3b8;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 /* ========================================================

@@ -7,6 +7,7 @@
 }
 
 .m03-heading h1 {
+  font-family: var(--font-tieu-de, 'Outfit', sans-serif);
   font-size: 2rem;
   margin: 4px 0 8px;
   font-weight: 800;
@@ -17,7 +18,7 @@
 .m03-kicker {
   display: inline-flex;
   align-items: center;
-  color: var(--mau-chinh-dam);
+  color: var(--mau-chinh);
   font-weight: 750;
   font-size: 0.78rem;
   letter-spacing: 0.08em;
@@ -26,12 +27,13 @@
 
 .m03-panel {
   border: 1px solid var(--mau-vien);
-  background: white;
+  background: var(--mau-the, #141414);
+  color: var(--mau-chu, #ffffff);
   border-radius: var(--bo-goc-lg);
   padding: 28px;
   margin-bottom: 24px;
   min-width: 0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .m03-grid {
@@ -49,8 +51,8 @@
 }
 
 .m03-facts > div {
-  background: #f8fafc;
-  border: 1px solid #edf2f7;
+  background: var(--mau-the-sub, #181818);
+  border: 1px solid var(--mau-vien);
   border-radius: 12px;
   padding: 14px 16px;
 }
@@ -81,34 +83,35 @@
   border-radius: 999px;
   font-size: 0.82rem;
   font-weight: 650;
-  background: #f8fafc;
-  color: #334155;
+  background: var(--mau-the-sub, #181818);
+  color: var(--mau-chu, #cbd5e1);
 }
 
 .m03-state.DANG_SU_DUNG,
 .m03-state.DA_XAC_MINH {
-  color: #047857;
-  border-color: #a7f3d0;
-  background: #ecfdf5;
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.12);
 }
 
 .m03-state.CAN_DOI_SOAT,
 .m03-state.CHO_THANH_TOAN {
-  color: #b45309;
-  border-color: #fde68a;
-  background: #fffbeb;
+  color: #f59e0b;
+  border-color: rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.12);
 }
 
 .m03-state.DA_HUY,
 .m03-state.DA_HOAN_TIEN {
-  color: #64748b;
-  border-color: #e2e8f0;
-  background: #f1f5f9;
+  color: #94a3b8;
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .m03-empty {
   text-align: center;
   padding: 56px 24px;
+  background: var(--mau-the, #141414);
 }
 
 .m03-empty i {
@@ -119,6 +122,7 @@
 }
 
 .m03-money {
+  font-family: var(--font-tieu-de, 'Outfit', sans-serif);
   font-size: 2.2rem;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -145,11 +149,11 @@
   font-weight: 750;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  background: #f8fafc;
+  background: var(--mau-table-header-bg, #181818);
 }
 
 .m03-table tbody tr:hover {
-  background-color: #fcfdfd;
+  background-color: var(--mau-the-hover, #1a1a1a);
 }
 
 .m03-pagination {
@@ -179,14 +183,17 @@
 .m03-panel textarea {
   min-height: 42px;
   border-radius: 8px;
-  border-color: var(--mau-vien);
+  border-color: var(--mau-form-border, var(--mau-vien));
+  background-color: var(--mau-form-bg, #121212);
+  color: var(--mau-form-text, #ffffff);
 }
 
 .m03-panel input:focus,
 .m03-panel select:focus,
 .m03-panel textarea:focus {
   border-color: var(--mau-chinh);
-  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+  box-shadow: 0 0 0 3px rgba(244, 91, 32, 0.25);
+  background-color: #161616;
 }
 
 .m03-receipt {
@@ -198,30 +205,41 @@
 .m03-receipt:first-of-type {
   border-top: none;
   padding-top: 0;
-  margin-top: 16px;
 }
 
-.m03-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 24px;
+.customer-item-card {
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background: #161616;
 }
 
-.m03-panel :focus-visible {
-  outline: 2px solid var(--mau-chinh-dam);
-  outline-offset: 3px;
-}
-
-.btn-primary {
-  background: var(--mau-chinh);
+.customer-item-card:hover {
+  background-color: #202020;
   border-color: var(--mau-chinh);
-  color: #ffffff;
+  transform: translateY(-1px);
 }
 
-.btn-primary:hover:not(:disabled) {
-  background: var(--mau-chinh-dam);
-  border-color: var(--mau-chinh-dam);
+.customer-item-card.border-primary {
+  border-color: var(--mau-chinh) !important;
+  background: rgba(244, 91, 32, 0.08) !important;
+  box-shadow: 0 0 0 1px var(--mau-chinh);
+}
+
+.pt-avatar-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f45b20 0%, #d94a15 100%);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: 750;
+  font-size: 1.1rem;
+}
+
+.fact-highlight-pt dd {
+  color: var(--mau-chinh) !important;
+  font-size: 1.15rem;
 }
 
 @media (max-width: 900px) {
@@ -230,25 +248,21 @@
   }
 }
 
-@media (max-width: 768px) {
-  .m03-panel {
-    padding: 20px;
-  }
+@media (max-width: 600px) {
   .m03-heading {
     flex-direction: column;
-    gap: 12px;
+    align-items: stretch;
   }
-  .m03-heading h1 {
-    font-size: 1.7rem;
-  }
-}
 
-@media (max-width: 480px) {
+  .m03-panel {
+    padding: 18px;
+  }
+
   .m03-facts {
     grid-template-columns: 1fr;
-    gap: 12px;
   }
-  .m03-pagination {
-    flex-wrap: wrap;
+
+  .m03-heading h1 {
+    font-size: 1.6rem;
   }
 }

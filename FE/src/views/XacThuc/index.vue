@@ -293,10 +293,10 @@ export default {
 
 <style scoped>
 .password-strength-box {
-  background: #f8fafc;
+  background: var(--mau-the-sub, #181818);
   padding: 8px 12px;
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.1));
 }
 .transition-all {
   transition: all 0.3s ease;

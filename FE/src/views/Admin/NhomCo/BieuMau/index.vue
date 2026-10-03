@@ -122,7 +122,7 @@
             <span class="fw-bold">
               Mã nhóm cơ (Slug) <span v-if="!laSua" class="text-danger">*</span>
             </span>
-            <span v-if="laSua" class="badge bg-secondary-subtle text-dark border small"
+            <span v-if="laSua" class="badge bg-secondary-subtle text-body border small"
               >Cố định</span
             >
           </label>
@@ -222,7 +222,7 @@
             <div class="mb-3">
               <span class="text-muted small d-block mb-1">Bài tập liên kết:</span>
               <div class="d-flex align-items-center gap-2">
-                <span class="fw-bold fs-5 text-dark">{{ soBai }}</span>
+                <span class="fw-bold fs-5 text-body">{{ soBai }}</span>
                 <span class="small text-muted">bài tập thuộc nhóm này</span>
               </div>
             </div>
@@ -269,7 +269,7 @@
             </ul>
 
             <div class="callout-guide p-3 rounded-3">
-              <div class="fw-semibold small text-dark mb-1">Gợi ý phân loại:</div>
+              <div class="fw-semibold small text-body mb-1">Gợi ý phân loại:</div>
               <p class="small text-muted mb-0">
                 Ưu tiên đặt tên theo các nhóm cơ vận động chính như Cơ ngực, Cơ lưng xô, Cơ đùi
                 trước, Cơ vai... để huấn luyện viên dễ dàng thiết kế giáo án.
@@ -531,7 +531,7 @@ export default {
 }
 
 .nhom-code-input[readonly] {
-  background: #f8fafc;
+  background: var(--mau-the-sub, #181818);
   color: var(--mau-phu);
   cursor: not-allowed;
 }
@@ -582,7 +582,7 @@ export default {
 
 .sidebar-card-header {
   padding: 16px 20px;
-  background: #f8fafc;
+  background: var(--mau-table-header-bg, #181818);
   border-bottom: 1px solid var(--mau-vien);
   display: flex;
   align-items: center;
@@ -604,13 +604,13 @@ export default {
 .badge-state-active {
   background: var(--mau-chinh-nhat);
   color: var(--mau-chinh-dam);
-  border: 1px solid rgba(5, 150, 105, 0.2);
+  border: 1px solid rgba(244, 91, 32, 0.25);
 }
 
 .badge-state-inactive {
-  background: #f1f5f9;
-  color: #64748b;
-  border: 1px solid #e2e8f0;
+  background: var(--mau-the-sub, #1e1e1e);
+  color: var(--mau-phu);
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.1));
 }
 
 .status-dot {
@@ -623,11 +623,11 @@ export default {
 
 .callout-guarantee {
   background: var(--mau-chinh-nhat);
-  border: 1px solid rgba(5, 150, 105, 0.2);
+  border: 1px solid rgba(244, 91, 32, 0.25);
 }
 
 .callout-guide {
-  background: #f8fafc;
+  background: var(--mau-the-sub, #181818);
   border: 1px solid var(--mau-vien);
 }
 

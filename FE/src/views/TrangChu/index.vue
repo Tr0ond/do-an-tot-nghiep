@@ -1,808 +1,512 @@
 <template>
-  <div class="welcome-page landing-container">
-    <!-- Thanh điều hướng cố định phong cách Glassmorphism -->
-    <header class="landing-header">
-      <RouterLink to="/" class="brand">
-        <span class="brand-mark" aria-hidden="true">H</span>
-        <span class="brand-title">HUẤN LUYỆN CÁ NHÂN</span>
-      </RouterLink>
+  <div class="cinematic-site">
+    <!-- Thanh điều hướng cố định chuẩn Cinematic Dark (Cao: 64px) -->
+    <header class="cinematic-header">
+      <div class="d-flex align-items-center gap-3">
+        <RouterLink
+          to="/"
+          class="d-flex align-items-center gap-2 text-decoration-none"
+          aria-label="Huấn luyện cá nhân — trang chủ"
+        >
+          <LogoThuongHieu />
+          <span class="cinematic-headline fs-6 d-none d-sm-inline"> HUẤN LUYỆN CÁ NHÂN </span>
+        </RouterLink>
+      </div>
 
-      <nav class="landing-nav d-none d-md-flex" aria-label="Điều hướng chính">
-        <RouterLink to="/bai-tap" class="nav-item-link">Bài tập</RouterLink>
-        <RouterLink to="/goi-tap" class="nav-item-link">Bảng giá</RouterLink>
-        <a href="#tinh-nang" class="nav-item-link">Tính năng</a>
-        <a href="#quy-trinh" class="nav-item-link">Quy trình</a>
-        <a href="#loi-ich" class="nav-item-link">Lợi ích</a>
+      <nav class="cinematic-nav-links d-none d-lg-flex" aria-label="Điều hướng chính">
+        <RouterLink to="/bai-tap" class="cinematic-link">Bài tập</RouterLink>
+        <RouterLink to="/goi-tap" class="cinematic-link">Bảng giá</RouterLink>
+        <a href="#tinh-nang" class="cinematic-link">Tính năng</a>
+        <a href="#quy-trinh" class="cinematic-link">Quy trình</a>
       </nav>
 
-      <div class="landing-header-actions">
-        <RouterLink class="btn btn-outline-secondary btn-sm" to="/dang-nhap">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Đăng nhập</span>
+      <div class="d-flex align-items-center gap-3">
+        <!-- Nút chuyển đổi giao diện Sáng / Tối -->
+        <NutChuyenChuDe kich-thuoc="sm" />
+
+        <RouterLink to="/dang-nhap" class="cinematic-link d-none d-sm-inline">
+          Đăng nhập
         </RouterLink>
-        <RouterLink class="btn btn-primary btn-sm" to="/dang-ky">
+        <RouterLink to="/dang-ky" class="cinematic-btn-primary">
           <span>Bắt đầu ngay</span>
-          <i class="bi bi-arrow-right"></i>
+          <i class="bi bi-arrow-right" aria-hidden="true"></i>
         </RouterLink>
       </div>
     </header>
 
-    <!-- Phần Hero chính với hiệu ứng bắt mắt -->
-    <section class="landing-hero">
-      <div class="hero-content">
-        <div class="hero-badge animate__animated animate__fadeInDown">
-          <i class="bi bi-stars"></i>
-          <span>NỀN TẢNG HUẤN LUYỆN THỂ HÌNH 1:1 CHUYÊN NGHIỆP</span>
+    <!-- Phân đoạn Hero 50/50 với Mô phỏng điện thoại 3D và các huy hiệu nổi -->
+    <section class="cinematic-hero">
+      <!-- Cột trái: Tiêu đề, thông điệp và hành động CTA -->
+      <div class="hero-left-content">
+        <div class="cinematic-tagline">
+          <i class="bi bi-fire me-2" aria-hidden="true"></i>
+          <span>NỀN TẢNG HUẤN LUYỆN THỂ HÌNH 1:1 ĐỈNH CAO</span>
         </div>
 
-        <h1 class="hero-title animate__animated animate__fadeInUp">
+        <h1 class="cinematic-headline cinematic-hero-h1">
           Bứt phá giới hạn, <br />
-          <span class="text-gradient">kiến tạo thể hình</span> cùng HLV riêng.
+          <span class="text-orange-glow">kiến tạo thể hình</span> cùng HLV riêng.
         </h1>
 
-        <p class="hero-desc animate__animated animate__fadeInUp animate__delay-1s">
+        <p class="cinematic-hero-desc">
           Lộ trình tập luyện và dinh dưỡng được cá nhân hóa hoàn toàn theo thể trạng của bạn. Kết
           nối trực tiếp cùng đội ngũ huấn luyện viên đạt chuẩn quốc tế để chinh phục mục tiêu nhanh
           nhất.
         </p>
 
-        <div class="hero-actions animate__animated animate__fadeInUp animate__delay-1s">
-          <RouterLink class="btn btn-outline-secondary btn-lg" to="/goi-tap"
-            >Xem gói tập</RouterLink
-          >
-          <RouterLink class="btn btn-outline-secondary btn-lg" to="/bai-tap">
-            <span>Khám phá bài tập</span>
-            <i class="bi bi-arrow-right" aria-hidden="true"></i>
-          </RouterLink>
-          <RouterLink class="btn btn-primary btn-lg" to="/dang-ky">
+        <!-- Cụm nút bấm CTA -->
+        <div class="cinematic-cta-cluster">
+          <RouterLink to="/dang-ky" class="cinematic-btn-primary cinematic-btn-large">
             <span>Đăng ký khách hàng ngay</span>
-            <i class="bi bi-arrow-up-right-circle-fill"></i>
+            <i class="bi bi-arrow-right fs-5" aria-hidden="true"></i>
           </RouterLink>
-          <RouterLink class="btn btn-outline-secondary btn-lg" to="/dang-nhap">
-            <i class="bi bi-shield-lock"></i>
-            <span>Đã có tài khoản</span>
+
+          <RouterLink
+            to="/bai-tap"
+            class="d-flex align-items-center gap-3 text-decoration-none ms-sm-2"
+          >
+            <div class="cinematic-play-btn">
+              <i class="bi bi-play-fill ms-1" aria-hidden="true"></i>
+            </div>
+            <span class="small fw-semibold cinematic-muted-text">Khám phá bài tập</span>
           </RouterLink>
         </div>
 
-        <!-- Cam kết nhanh -->
-        <div class="hero-proof-list">
-          <div class="proof-item">
-            <i class="bi bi-check-circle-fill text-success"></i>
-            <span>Giáo án độc bản theo mục tiêu</span>
+        <!-- Chỉ số cam kết nhanh -->
+        <div
+          class="d-flex align-items-center gap-4 flex-wrap pt-3 border-top border-secondary-subtle"
+        >
+          <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-shield-check text-orange-glow fs-5" aria-hidden="true"></i>
+            <span class="small cinematic-muted-text">100% HLV chứng chỉ quốc tế</span>
           </div>
-          <div class="proof-item">
-            <i class="bi bi-check-circle-fill text-success"></i>
-            <span>Theo dõi chỉ số liên tục</span>
-          </div>
-          <div class="proof-item">
-            <i class="bi bi-check-circle-fill text-success"></i>
-            <span>HLV 1-kèm-1 tận tâm</span>
+          <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-check-circle-fill text-orange-glow fs-5" aria-hidden="true"></i>
+            <span class="small cinematic-muted-text">Theo dõi 1-kèm-1 khoa học</span>
           </div>
         </div>
       </div>
 
-      <!-- Thẻ mô phỏng trực quan bảng theo dõi thể hình -->
-      <div class="hero-visual animate__animated animate__fadeInRight">
-        <div class="mockup-card glass-panel">
-          <div class="mockup-header">
-            <div class="user-pill">
-              <div class="avatar-ring">
-                <i class="bi bi-person-fill"></i>
-              </div>
-              <div>
-                <strong>Học viên tiêu biểu</strong>
-                <span class="d-block small text-muted">Lộ trình: Tăng cơ giảm mỡ</span>
-              </div>
-            </div>
-            <span class="status-pill">
-              <span class="status-dot"></span>
-              Đang tập luyện
-            </span>
-          </div>
+      <!-- Cột phải: Mô phỏng điện thoại 3D tương tác với hình ảnh giải phẫu -->
+      <div
+        class="phone-perspective-stage"
+        @mousemove="xuLyHoverPhone"
+        @mouseleave="resetHoverPhone"
+      >
+        <div
+          class="phone-tilt-rig"
+          :style="{
+            transform: `rotateY(${phoneRotateY}deg) rotateX(${phoneRotateX}deg) translateY(${phoneTranslateY}px)`,
+          }"
+        >
+          <!-- Khung viền điện thoại 3D -->
+          <div class="phone-frame">
+            <!-- Dynamic Island -->
+            <div class="phone-dynamic-island"></div>
 
-          <!-- Chỉ số tiến độ giả lập -->
-          <div class="mockup-metric-box">
-            <div class="metric-top">
-              <span>Mục tiêu 90 ngày</span>
-              <span class="fw-bold text-success">82% Hoàn thành</span>
-            </div>
-            <div class="progress" style="height: 10px">
-              <div
-                class="progress-bar bg-success progress-bar-striped progress-bar-animated"
-                role="progressbar"
-                style="width: 82%"
-              ></div>
+            <!-- Màn hình bên trong hiển thị ảnh giải phẫu nhóm cơ do người dùng cung cấp -->
+            <div class="phone-screen">
+              <img
+                src="/images/exercise-anatomy.png"
+                alt="Phân tích giải phẫu bài tập thể hình"
+                class="phone-screen-img"
+              />
             </div>
           </div>
 
-          <!-- Các thẻ tiện ích nổi bật -->
-          <div class="mockup-badges-grid">
-            <div class="mini-stat-card">
-              <i class="bi bi-fire text-danger"></i>
-              <div>
-                <strong>2,450 kcal</strong>
-                <small>Tiêu hao / tuần</small>
-              </div>
+          <!-- Huy hiệu nổi 1: Calories (Top-Left, Z: 50px) -->
+          <div class="floating-ui-badge badge-calories">
+            <div class="badge-icon-box badge-icon-calories">
+              <i class="bi bi-fire" aria-hidden="true"></i>
             </div>
-            <div class="mini-stat-card">
-              <i class="bi bi-calendar-check text-primary"></i>
-              <div>
-                <strong>24 buổi</strong>
-                <small>Đã hoàn thành</small>
-              </div>
+            <div class="badge-text-group">
+              <span class="badge-label">Calories</span>
+              <span class="badge-val">847 kcal</span>
             </div>
           </div>
 
-          <!-- Huy hiệu HLV đồng hành -->
-          <div class="trainer-attached">
-            <div class="trainer-avatar">
-              <i class="bi bi-award-fill"></i>
+          <!-- Huy hiệu nổi 2: Heart Rate (Bottom-Left, Z: 40px) -->
+          <div class="floating-ui-badge badge-heart">
+            <i class="bi bi-heart-pulse-fill text-danger fs-5" aria-hidden="true"></i>
+            <span class="badge-val">124 bpm</span>
+          </div>
+
+          <!-- Huy hiệu nổi 3: Streak (Right, Z: 60px) -->
+          <div class="floating-ui-badge badge-streak">
+            <div class="badge-icon-box badge-icon-streak">
+              <i class="bi bi-trophy-fill" aria-hidden="true"></i>
             </div>
-            <div>
-              <p class="mb-0 fw-bold">HLV Chuyên Nghiệp Đồng Hành</p>
-              <small class="text-muted">Đánh giá 5.0 ★ · Chứng chỉ NASM</small>
+            <div class="badge-text-group">
+              <span class="badge-label">Streak</span>
+              <span class="badge-val">32 Days 🔥</span>
             </div>
           </div>
-        </div>
-
-        <!-- Thẻ floating trang trí -->
-        <div class="floating-badge badge-1 anim-float">
-          <i class="bi bi-lightning-charge-fill text-warning"></i>
-          <span>100% Cá nhân hóa</span>
-        </div>
-        <div class="floating-badge badge-2 anim-float" style="animation-delay: -3s">
-          <i class="bi bi-heart-pulse-fill text-danger"></i>
-          <span>Sức khỏe & Vóc dáng</span>
         </div>
       </div>
     </section>
 
-    <!-- Thanh số liệu thống kê tạo độ tin cậy -->
-    <section class="stats-banner">
-      <div class="stats-container">
-        <div class="stat-col">
-          <h2 class="stat-num">1,200+</h2>
-          <p class="stat-sub">Học viên đã đồng hành</p>
-        </div>
-        <div class="stat-col">
-          <h2 class="stat-num">50+</h2>
-          <p class="stat-sub">HLV chứng chỉ quốc tế</p>
-        </div>
-        <div class="stat-col">
-          <h2 class="stat-num">98.5%</h2>
-          <p class="stat-sub">Hài lòng về kết quả</p>
-        </div>
-        <div class="stat-col">
-          <h2 class="stat-num">1 - 1</h2>
-          <p class="stat-sub">Chăm sóc & theo sát</p>
+    <!-- Thanh số liệu ấn tượng -->
+    <section
+      class="py-4 border-top border-bottom border-white-5"
+      style="background: rgba(18, 18, 18, 0.6)"
+    >
+      <div class="container-fluid px-lg-5">
+        <div class="row text-center g-4">
+          <div class="col-6 col-md-3">
+            <div class="cinematic-headline fs-2 text-orange-glow">1,200+</div>
+            <p class="small cinematic-muted-text mb-0">Học viên đã đồng hành</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="cinematic-headline fs-2">50+</div>
+            <p class="small cinematic-muted-text mb-0">HLV chứng chỉ quốc tế</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="cinematic-headline fs-2 text-orange-glow">98.5%</div>
+            <p class="small cinematic-muted-text mb-0">Hài lòng về kết quả</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="cinematic-headline fs-2">1 - 1</div>
+            <p class="small cinematic-muted-text mb-0">Kèm cặp & điều chỉnh form</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Lợi ích cốt lõi -->
-    <section id="tinh-nang" class="features-section">
-      <div class="section-title-wrap">
-        <span class="eyebrow">TẠI SAO CHỌN CHÚNG TÔI</span>
-        <h2 class="section-heading">Trải nghiệm tập luyện chuẩn khoa học</h2>
-        <p class="section-subheading">
-          Mỗi tính năng được tối ưu để bạn kiên trì và đạt hiệu quả thể chất cao nhất.
+    <!-- Lưới tính năng 3x2 với thẻ tương tác nghiêng 3D (3D Interactive Cards) -->
+    <section id="tinh-nang" class="cinematic-features-section">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <span class="cinematic-tagline mb-2">TẠI SAO CHỌN CHÚNG TÔI</span>
+        <h2 class="cinematic-headline fs-1 mt-2">Trải nghiệm tập luyện chuẩn khoa học</h2>
+        <p class="cinematic-muted-text">
+          Mỗi tính năng được thiết kế tối ưu bằng chuyển động 3D để bạn kiểm soát thể chất toàn
+          diện.
         </p>
       </div>
 
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon bg-emerald">
-            <i class="bi bi-person-lines-fill"></i>
+      <div class="cinematic-grid-3x2">
+        <!-- Thẻ 1 -->
+        <div class="cinematic-card-3d" @mousemove="xuLyCardMouseMove" @mouseleave="resetCard">
+          <div class="cinematic-icon-box">
+            <i class="bi bi-person-lines-fill" aria-hidden="true"></i>
           </div>
-          <h3>Lộ trình chuyên biệt</h3>
-          <p>
-            Thiết kế kế hoạch tập luyện và chế độ ăn uống chuẩn xác theo thể trạng, cơ địa và mục
-            tiêu riêng của từng cá nhân.
+          <h3 class="cinematic-card-title">Lộ trình cá nhân hóa 1:1</h3>
+          <p class="cinematic-card-desc">
+            Thiết kế giáo án độc bản theo cơ địa, khả năng phục hồi và mục tiêu tăng cơ, giảm mỡ của
+            từng học viên.
           </p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon bg-blue">
-            <i class="bi bi-award-fill"></i>
+        <!-- Thẻ 2 -->
+        <div class="cinematic-card-3d" @mousemove="xuLyCardMouseMove" @mouseleave="resetCard">
+          <div class="cinematic-icon-box">
+            <i class="bi bi-award-fill" aria-hidden="true"></i>
           </div>
-          <h3>Đội ngũ PT kiểm duyệt</h3>
-          <p>
-            Tất cả huấn luyện viên đều có chứng chỉ nghề nghiệp uy tín, chuyên môn cao và kinh
-            nghiệm thực chiến phong phú.
+          <h3 class="cinematic-card-title">Đội ngũ PT kiểm duyệt</h3>
+          <p class="cinematic-card-desc">
+            100% huấn luyện viên sở hữu bằng cấp uy tín quốc tế (NASM, ACE), giàu kinh nghiệm chỉnh
+            form và động viên kiên trì.
           </p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon bg-amber">
-            <i class="bi bi-graph-up-arrow"></i>
+        <!-- Thẻ 3 -->
+        <div class="cinematic-card-3d" @mousemove="xuLyCardMouseMove" @mouseleave="resetCard">
+          <div class="cinematic-icon-box">
+            <i class="bi bi-diagram-3-fill" aria-hidden="true"></i>
           </div>
-          <h3>Theo dõi tiến độ trực quan</h3>
-          <p>
-            Cập nhật số đo, cân nặng và nhật ký buổi tập. Nhìn thấy sự tiến bộ rõ rệt qua từng giai
-            đoạn tập luyện.
+          <h3 class="cinematic-card-title">Phân tích giải phẫu nhóm cơ</h3>
+          <p class="cinematic-card-desc">
+            Minh họa trực quan các nhóm cơ tác động chính và phụ trong từng bài tập giúp tập chuẩn
+            xác, tránh chấn thương.
           </p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon bg-purple">
-            <i class="bi bi-chat-heart-fill"></i>
+        <!-- Thẻ 4 -->
+        <div class="cinematic-card-3d" @mousemove="xuLyCardMouseMove" @mouseleave="resetCard">
+          <div class="cinematic-icon-box">
+            <i class="bi bi-activity" aria-hidden="true"></i>
           </div>
-          <h3>Tương tác linh hoạt</h3>
-          <p>
-            Dễ dàng trao đổi cùng huấn luyện viên để điều chỉnh giáo án, giải đáp thắc mắc và giữ
-            vững ngọn lửa động lực.
+          <h3 class="cinematic-card-title">Theo dõi Calo & Nhịp tim</h3>
+          <p class="cinematic-card-desc">
+            Ghi nhận chính xác lượng calo tiêu thụ, nhịp tim mục tiêu và chuỗi ngày tập luyện streak
+            bền vững.
           </p>
+        </div>
+
+        <!-- Thẻ 5 -->
+        <div class="cinematic-card-3d" @mousemove="xuLyCardMouseMove" @mouseleave="resetCard">
+          <div class="cinematic-icon-box">
+            <i class="bi bi-calendar2-check-fill" aria-hidden="true"></i>
+          </div>
+          <h3 class="cinematic-card-title">Lịch hẹn huấn luyện linh hoạt</h3>
+          <p class="cinematic-card-desc">
+            Chủ động chọn giờ tập 60 phút với PT phụ trách, gửi yêu cầu đặt lịch và cập nhật trạng
+            thái ngay trong tài khoản.
+          </p>
+        </div>
+
+        <!-- Thẻ 6 -->
+        <div class="cinematic-card-3d" @mousemove="xuLyCardMouseMove" @mouseleave="resetCard">
+          <div class="cinematic-icon-box">
+            <i class="bi bi-robot" aria-hidden="true"></i>
+          </div>
+          <h3 class="cinematic-card-title">Trợ lý AI thể hình 24/7</h3>
+          <p class="cinematic-card-desc">
+            Giải đáp dinh dưỡng, tính toán macro khẩu phần ăn và tư vấn điều chỉnh thói quen sinh
+            hoạt bất kỳ lúc nào.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Thư viện giao diện ứng dụng xếp vòng cung 3D (App Screenshot Gallery) -->
+    <section id="thu-vien-3d" class="cinematic-gallery-section">
+      <div class="text-center max-w-700 mx-auto mb-4">
+        <span class="cinematic-tagline mb-2">GIAO DIỆN ỨNG DỤNG</span>
+        <h2 class="cinematic-headline fs-1">Hệ sinh thái huấn luyện toàn diện</h2>
+        <p class="cinematic-muted-text">
+          Quan sát trực quan lộ trình, lịch hẹn và bài tập qua giao diện thiết kế chuyên biệt.
+        </p>
+      </div>
+
+      <!-- Vòng cung 5 màn hình 3D -->
+      <div class="gallery-arc-container">
+        <!-- Màn 1: Cực trái -->
+        <div class="gallery-screen-card screen-arc-far-left">
+          <div
+            class="p-3 border-bottom border-white-5 d-flex align-items-center justify-content-between"
+          >
+            <span class="small fw-bold cinematic-muted-text">Thư viện bài tập</span>
+            <i class="bi bi-collection-play text-orange-glow"></i>
+          </div>
+          <div class="p-3">
+            <div class="p-2 mb-2 rounded cinematic-screen-inner-card border">
+              <span class="d-block small fw-bold">Kéo xô hẹp tay</span>
+              <span class="small cinematic-muted-text font-monospace">4 hiệp · 12 lần</span>
+            </div>
+            <div class="p-2 rounded cinematic-screen-inner-card border">
+              <span class="d-block small fw-bold">Chèo tạ đơn</span>
+              <span class="small cinematic-muted-text font-monospace">4 hiệp · 10 lần</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Màn 2: Trái -->
+        <div class="gallery-screen-card screen-arc-left">
+          <div
+            class="p-3 border-bottom border-white-5 d-flex align-items-center justify-content-between"
+          >
+            <span class="small fw-bold cinematic-muted-text">Giáo án mẫu</span>
+            <i class="bi bi-journal-check text-orange-glow"></i>
+          </div>
+          <div class="p-3">
+            <span class="badge bg-danger-subtle text-danger mb-2">Nâng cao</span>
+            <h4 class="fs-6 fw-bold mb-1">Hypertrophy Upper</h4>
+            <p class="small cinematic-muted-text">
+              Phát triển cơ lưng xô & ngực toàn diện trong 8 tuần.
+            </p>
+          </div>
+        </div>
+
+        <!-- Màn 3: Trung tâm nổi bật -->
+        <div class="gallery-screen-card screen-arc-center">
+          <div
+            class="p-3 border-bottom border-warning-subtle d-flex align-items-center justify-content-between"
+          >
+            <span class="small fw-bold text-orange-glow">Đang tập luyện</span>
+            <span class="spinner-grow spinner-grow-sm text-danger" role="status"></span>
+          </div>
+          <div
+            class="p-3 text-center flex-grow-1 d-flex flex-direction-column justify-content-center"
+          >
+            <div class="my-auto">
+              <i class="bi bi-heart-pulse-fill text-danger fs-1 mb-2 d-block"></i>
+              <div class="cinematic-headline fs-2">124 BPM</div>
+              <p class="small text-orange-glow font-monospace mb-3">847 KCAL TIÊU HAO</p>
+              <div
+                class="p-2 rounded cinematic-screen-inner-card border small cinematic-muted-text"
+              >
+                Hiệp 3/4 · Nghỉ 60s
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Màn 4: Phải -->
+        <div class="gallery-screen-card screen-arc-right">
+          <div
+            class="p-3 border-bottom border-white-5 d-flex align-items-center justify-content-between"
+          >
+            <span class="small fw-bold cinematic-muted-text">Lịch huấn luyện</span>
+            <i class="bi bi-calendar-event text-orange-glow"></i>
+          </div>
+          <div class="p-3">
+            <div class="p-2 mb-2 rounded cinematic-screen-inner-card border">
+              <span class="badge bg-success-subtle text-success small mb-1">Đã xác nhận</span>
+              <strong class="d-block small">08:00 - 09:00</strong>
+              <span class="small cinematic-muted-text">HLV Nguyễn Minh Tuấn</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Màn 5: Cực phải -->
+        <div class="gallery-screen-card screen-arc-far-right">
+          <div
+            class="p-3 border-bottom border-white-5 d-flex align-items-center justify-content-between"
+          >
+            <span class="small fw-bold cinematic-muted-text">Gói tập cá nhân</span>
+            <i class="bi bi-award text-orange-glow"></i>
+          </div>
+          <div class="p-3">
+            <span class="badge bg-warning-subtle text-warning small mb-1">12 Buổi PT</span>
+            <h4 class="fs-6 fw-bold mb-1">Gói Chiến Binh</h4>
+            <p class="small cinematic-muted-text">Kèm chatbot AI 24/7 và đối soát payOS tức thì.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Quy trình 3 bước -->
-    <section id="quy-trinh" class="process-section">
-      <div class="section-title-wrap">
-        <span class="eyebrow">QUY TRÌNH THỰC HIỆN</span>
-        <h2 class="section-heading">Bắt đầu hành trình chỉ với 3 bước</h2>
-      </div>
-
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-number">01</div>
-          <h3>Đăng ký tài khoản</h3>
-          <p>
-            Điền thông tin và cập nhật mục tiêu thể hình bạn mong muốn đạt được (tăng cơ, giảm mỡ,
-            cải thiện sức bền).
-          </p>
+    <section id="quy-trinh" class="py-5 cinematic-steps-section">
+      <div class="container py-4">
+        <div class="text-center mb-5">
+          <span class="cinematic-tagline mb-2">QUY TRÌNH TINH GỌN</span>
+          <h2 class="cinematic-headline fs-1">Bắt đầu chỉ trong 3 bước</h2>
         </div>
-        <div class="step-card">
-          <div class="step-number">02</div>
-          <h3>Ghép nối Huấn luyện viên</h3>
-          <p>
-            Nhận phân tích thể trạng và lộ trình từ HLV chuyên môn phù hợp nhất với quỹ thời gian
-            của bạn.
-          </p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">03</div>
-          <h3>Tập luyện & Bứt phá</h3>
-          <p>
-            Thực hành theo giáo án, ghi nhận tiến độ từng ngày và tận hưởng sự thay đổi tích cực của
-            vóc dáng.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Banner kêu gọi hành động CTA cuối trang -->
-    <section class="landing-cta-banner">
-      <div class="cta-inner glass-panel">
-        <div class="cta-text">
-          <h2>Sẵn sàng kiến tạo vóc dáng lý tưởng?</h2>
-          <p>
-            Đăng ký tài khoản ngay hôm nay để bắt đầu hành trình nâng cao thể chất và sức khỏe cùng
-            huấn luyện viên riêng.
-          </p>
-        </div>
-        <div class="cta-action">
-          <RouterLink class="btn btn-primary btn-lg" to="/dang-ky">
-            <span>Đăng ký khách hàng ngay</span>
-            <i class="bi bi-arrow-right"></i>
-          </RouterLink>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="p-4 rounded-4 border cinematic-card-box h-100 position-relative">
+              <span class="cinematic-headline fs-1 text-orange-glow opacity-50 d-block mb-3"
+                >01</span
+              >
+              <h3 class="fs-5 fw-bold mb-2">Đăng ký & Chọn mục tiêu</h3>
+              <p class="small cinematic-muted-text mb-0">
+                Tạo tài khoản và cập nhật mong muốn thể chất: Tăng cơ bắp, giảm mỡ thừa hoặc nâng
+                cao sức bền.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="p-4 rounded-4 border cinematic-card-box h-100 position-relative">
+              <span class="cinematic-headline fs-1 text-orange-glow opacity-50 d-block mb-3"
+                >02</span
+              >
+              <h3 class="fs-5 fw-bold mb-2">Kết nối Huấn luyện viên</h3>
+              <p class="small cinematic-muted-text mb-0">
+                Admin phân công PT phù hợp nhất, xây dựng lộ trình tập luyện và lên lịch rảnh 60
+                phút mỗi buổi.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="p-4 rounded-4 border cinematic-card-box h-100 position-relative">
+              <span class="cinematic-headline fs-1 text-orange-glow opacity-50 d-block mb-3"
+                >03</span
+              >
+              <h3 class="fs-5 fw-bold mb-2">Tập luyện & Bứt phá</h3>
+              <p class="small cinematic-muted-text mb-0">
+                Thực hiện từng bài tập theo đúng form giải phẫu, kiểm soát calo và đạt hình thể mơ
+                ước.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Chân trang -->
-    <footer class="landing-footer">
-      <div class="footer-brand">
-        <div class="brand">
-          <span class="brand-mark" aria-hidden="true">H</span>
-          <span>HUẤN LUYỆN CÁ NHÂN</span>
-        </div>
-        <p class="small text-muted mt-2">
-          Đồng hành cùng học viên trên con đường chinh phục thể hình và lối sống năng động.
-        </p>
+    <!-- Phân đoạn Kêu gọi Hành động (CTA Transformation Section với Glow 600px) -->
+    <section class="cinematic-cta-section">
+      <div class="cta-glow-backdrop" aria-hidden="true"></div>
+
+      <span class="cinematic-tagline position-relative z-1 mb-3">SẴN SÀNG CHINH PHỤC</span>
+      <h2 class="cinematic-headline cinematic-cta-h2">
+        Bắt đầu hành trình <br />
+        <span class="text-orange-glow">chuyển mình vượt bậc</span> ngay hôm nay.
+      </h2>
+      <p class="cinematic-muted-text position-relative z-1 max-w-600 mx-auto">
+        Trở thành phiên bản mạnh mẽ, săn chắc và khỏe khoắn hơn với sự đồng hành 1:1 từ các chuyên
+        gia thể hình hàng đầu.
+      </p>
+
+      <div class="cinematic-cta-buttons">
+        <RouterLink to="/dang-ky" class="cinematic-btn-primary cinematic-btn-large">
+          <i class="bi bi-fire fs-5" aria-hidden="true"></i>
+          <span>Bắt đầu ngay hôm nay</span>
+        </RouterLink>
+        <RouterLink to="/goi-tap" class="cinematic-btn-secondary cinematic-btn-large">
+          <i class="bi bi-tag-fill me-1" aria-hidden="true"></i>
+          <span>Bảng giá gói tập</span>
+        </RouterLink>
+        <RouterLink to="/dang-nhap" class="cinematic-btn-secondary cinematic-btn-large">
+          <i class="bi bi-box-arrow-in-right me-1" aria-hidden="true"></i>
+          <span>Đăng nhập</span>
+        </RouterLink>
       </div>
-      <div class="footer-copy">
-        <p class="mb-0">© 2026 Quản lý huấn luyện cá nhân. Mọi quyền được bảo lưu.</p>
+    </section>
+
+    <!-- Chân trang phong cách Dark Cinematic -->
+    <footer class="cinematic-footer">
+      <div class="d-flex align-items-center gap-2">
+        <LogoThuongHieu />
+        <span class="cinematic-headline fs-6">HUẤN LUYỆN CÁ NHÂN</span>
       </div>
+      <div class="d-flex align-items-center gap-4 text-muted small flex-wrap">
+        <RouterLink to="/bai-tap" class="cinematic-link">Thư viện bài tập</RouterLink>
+        <RouterLink to="/goi-tap" class="cinematic-link">Bảng giá dịch vụ</RouterLink>
+        <RouterLink to="/dang-nhap" class="cinematic-link">Đăng nhập</RouterLink>
+        <RouterLink to="/dang-ky" class="cinematic-link">Đăng ký khách hàng</RouterLink>
+      </div>
+      <p class="small text-muted mb-0 w-100 text-center text-md-end mt-2 mt-md-0">
+        © 2026 Quản lý huấn luyện cá nhân · Cinematic Dark 3D Edition.
+      </p>
     </footer>
   </div>
 </template>
 
 <script>
+import '../../assets/styles/cinematicDark.css'
+import NutChuyenChuDe from '../../components/NutChuyenChuDe.vue'
+import LogoThuongHieu from '../../components/LogoThuongHieu.vue'
+
 export default {
   name: 'TrangChu',
+  components: {
+    NutChuyenChuDe,
+    LogoThuongHieu,
+  },
+  data() {
+    return {
+      phoneRotateX: 8,
+      phoneRotateY: -18,
+      phoneTranslateY: 0,
+    }
+  },
+  methods: {
+    // Xử lý hiệu ứng nghiêng 3D điện thoại khi rê chuột trong vùng Hero
+    xuLyHoverPhone(e) {
+      const rect = e.currentTarget.getBoundingClientRect()
+      const x = e.clientX - rect.left - rect.width / 2
+      const y = e.clientY - rect.top - rect.height / 2
+      this.phoneRotateY = -18 + (x / (rect.width / 2)) * 10
+      this.phoneRotateX = 8 - (y / (rect.height / 2)) * 8
+    },
+    resetHoverPhone() {
+      this.phoneRotateY = -18
+      this.phoneRotateX = 8
+    },
+    // Xử lý hiệu ứng nghiêng 3D từng thẻ tính năng (3D Interactive Cards)
+    xuLyCardMouseMove(e) {
+      const card = e.currentTarget
+      const rect = card.getBoundingClientRect()
+      const x = e.clientX - rect.left - rect.width / 2
+      const y = e.clientY - rect.top - rect.height / 2
+      const rotateX = -(y / (rect.height / 2)) * 8
+      const rotateY = (x / (rect.width / 2)) * 8
+      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`
+    },
+    resetCard(e) {
+      const card = e.currentTarget
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)'
+    },
+  },
 }
 </script>
-
-<style scoped>
-.landing-container {
-  overflow-x: hidden;
-  background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 25%, #f8fafc 100%);
-}
-
-.landing-header {
-  padding: 16px 6vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-}
-
-.landing-nav {
-  gap: 28px;
-}
-
-.nav-item-link {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #475569;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.nav-item-link:hover {
-  color: var(--mau-chinh);
-}
-
-.landing-header-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* Hero Section */
-.landing-hero {
-  padding: 60px 6vw 80px;
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  align-items: center;
-  gap: 48px;
-  position: relative;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #ecfdf5;
-  color: #059669;
-  border: 1px solid #a7f3d0;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 6px 14px;
-  border-radius: var(--bo-goc-tron);
-  margin-bottom: 20px;
-}
-
-.hero-title {
-  font-size: 3.25rem;
-  line-height: 1.15;
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: #0f172a;
-}
-
-.text-gradient {
-  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #06b6d4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-desc {
-  font-size: 1.12rem;
-  color: #475569;
-  line-height: 1.7;
-  margin-bottom: 32px;
-  max-width: 580px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 36px;
-}
-
-.hero-proof-list {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.proof-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #334155;
-}
-
-/* Mockup Card in Hero */
-.hero-visual {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.mockup-card {
-  width: 100%;
-  max-width: 440px;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  padding: 28px;
-  border-radius: 24px;
-  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.12);
-}
-
-.mockup-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-}
-
-.user-pill {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.avatar-ring {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: #ecfdf5;
-  color: #059669;
-  display: grid;
-  place-items: center;
-  font-size: 1.2rem;
-}
-
-.mockup-metric-box {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 16px;
-  margin-bottom: 20px;
-}
-
-.metric-top {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.85rem;
-  margin-bottom: 10px;
-}
-
-.mockup-badges-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.mini-stat-card {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.mini-stat-card i {
-  font-size: 1.4rem;
-}
-
-.mini-stat-card strong {
-  display: block;
-  font-size: 0.95rem;
-  line-height: 1.2;
-}
-
-.mini-stat-card small {
-  color: #64748b;
-  font-size: 0.75rem;
-}
-
-.trainer-attached {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: #ecfdf5;
-  border: 1px solid #a7f3d0;
-  padding: 12px 16px;
-  border-radius: 14px;
-}
-
-.trainer-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #059669;
-  color: white;
-  display: grid;
-  place-items: center;
-  font-size: 1rem;
-}
-
-.floating-badge {
-  position: absolute;
-  background: white;
-  padding: 10px 18px;
-  border-radius: var(--bo-goc-tron);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 0.85rem;
-  border: 1px solid #e2e8f0;
-}
-
-.badge-1 {
-  top: -15px;
-  left: -20px;
-}
-
-.badge-2 {
-  bottom: -20px;
-  right: -15px;
-}
-
-/* Stats Banner */
-.stats-banner {
-  background: #064e3b;
-  color: white;
-  padding: 44px 6vw;
-}
-
-.stats-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  text-align: center;
-}
-
-.stat-col {
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.stat-col:last-child {
-  border-right: none;
-}
-
-.stat-num {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #34d399;
-  margin-bottom: 4px;
-}
-
-.stat-sub {
-  color: #cbd5e1;
-  font-size: 0.9rem;
-  margin: 0;
-}
-
-/* Features */
-.features-section,
-.process-section {
-  padding: 80px 6vw;
-}
-
-.section-title-wrap {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 52px;
-}
-
-.section-heading {
-  font-size: 2.25rem;
-  margin-top: 10px;
-  margin-bottom: 12px;
-}
-
-.section-subheading {
-  color: #64748b;
-  font-size: 1rem;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 28px;
-}
-
-.feature-card {
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  padding: 32px 24px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-
-.feature-card:hover {
-  transform: translateY(-6px);
-  border-color: #cbd5e1;
-  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.08);
-}
-
-.feature-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.bg-emerald {
-  background: #ecfdf5;
-  color: #059669;
-}
-.bg-blue {
-  background: #eff6ff;
-  color: #2563eb;
-}
-.bg-amber {
-  background: #fffbeb;
-  color: #d97706;
-}
-.bg-purple {
-  background: #f5f3ff;
-  color: #7c3aed;
-}
-
-.feature-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 12px;
-}
-
-.feature-card p {
-  color: #64748b;
-  font-size: 0.92rem;
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* Steps */
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-}
-
-.step-card {
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  padding: 36px 28px;
-  position: relative;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-
-.step-number {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #10b981;
-  opacity: 0.3;
-  margin-bottom: 12px;
-  line-height: 1;
-}
-
-.step-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 10px;
-}
-
-.step-card p {
-  color: #64748b;
-  font-size: 0.92rem;
-  margin: 0;
-}
-
-/* CTA */
-.landing-cta-banner {
-  padding: 40px 6vw 80px;
-}
-
-.cta-inner {
-  background: linear-gradient(135deg, #064e3b 0%, #047857 100%);
-  color: white;
-  border-radius: 28px;
-  padding: 48px 56px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  box-shadow: 0 20px 40px -10px rgba(5, 150, 105, 0.35);
-}
-
-.cta-text h2 {
-  color: white;
-  font-size: 2rem;
-  margin-bottom: 8px;
-}
-
-.cta-text p {
-  color: #a7f3d0;
-  font-size: 1.05rem;
-  margin: 0;
-  max-width: 580px;
-}
-
-/* Footer */
-.landing-footer {
-  padding: 32px 6vw;
-  background: #ffffff;
-  border-top: 1px solid #e2e8f0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-
-@media (max-width: 992px) {
-  .landing-hero {
-    grid-template-columns: 1fr;
-    padding-top: 40px;
-  }
-  .hero-visual {
-    margin-top: 20px;
-  }
-  .stats-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .stat-col:nth-child(2) {
-    border-right: none;
-  }
-  .cta-inner {
-    flex-direction: column;
-    text-align: center;
-    padding: 36px 24px;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero-title {
-    font-size: 2.25rem;
-  }
-  .landing-hero {
-    padding: 30px 20px 50px;
-  }
-  .landing-header {
-    padding: 14px 20px;
-  }
-  .stats-container {
-    grid-template-columns: 1fr;
-  }
-  .stat-col {
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    padding-bottom: 16px;
-  }
-  .stat-col:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-  .features-section,
-  .process-section {
-    padding: 50px 20px;
-  }
-  .landing-footer {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-</style>

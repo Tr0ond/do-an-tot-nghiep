@@ -79,7 +79,7 @@
             </span>
           </div>
 
-          <h2 class="h4 fw-bold mb-1 text-dark">{{ don.ten_goi }}</h2>
+          <h2 class="h4 fw-bold mb-1 text-body">{{ don.ten_goi }}</h2>
           <p class="text-muted small mb-3">
             Mã đơn #{{ don.ma_don_payos }}
             <span v-if="don.khach_hang" class="ms-1"
@@ -87,7 +87,7 @@
             >
           </p>
 
-          <div class="package-facts-wrapper my-3 p-3 bg-light rounded-3 border">
+          <div class="package-facts-wrapper my-3 p-3 surface-card rounded-3">
             <QuyenLoiGoiTap :goi="don" />
           </div>
 
@@ -237,10 +237,10 @@
         <article
           v-for="t in don.thanh_toan"
           :key="t.id"
-          class="m03-receipt p-3 rounded-3 bg-light border"
+          class="m03-receipt p-3 rounded-3 surface-card mb-2"
         >
           <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
-            <span class="fs-5 fw-bold text-dark">{{ dinhDangGia(t.so_tien) }}</span>
+            <span class="fs-5 fw-bold text-body">{{ dinhDangGia(t.so_tien) }}</span>
             <span class="m03-state" :class="t.trang_thai">
               <span class="status-dot"></span>
               <span>{{ nhanTrangThai[t.trang_thai] }}</span>
@@ -412,7 +412,7 @@
                     <i class="bi bi-box-seam-fill text-emerald" aria-hidden="true"></i>
                   </div>
                   <div>
-                    <strong class="text-dark d-block">{{ d.ten_goi }}</strong>
+                    <strong class="text-body d-block">{{ d.ten_goi }}</strong>
                     <div v-if="d.khach_hang" class="small text-muted font-monospace">
                       Khách: {{ d.khach_hang.ho_ten }}
                     </div>
@@ -420,7 +420,7 @@
                 </div>
               </td>
               <td>
-                <span class="fw-bold text-dark">{{ dinhDangGia(d.gia) }}</span>
+                <span class="fw-bold text-body">{{ dinhDangGia(d.gia) }}</span>
               </td>
               <td>
                 <span class="m03-state" :class="d.trang_thai">
@@ -647,11 +647,16 @@ export default {
   flex-shrink: 0;
 }
 
+.surface-card {
+  background: var(--mau-the-sub, rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--mau-vien);
+}
+
 .empty-icon-ring {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: #f1f5f9;
+  background: var(--mau-the-sub, #1e1e1e);
   display: flex;
   align-items: center;
   justify-content: center;

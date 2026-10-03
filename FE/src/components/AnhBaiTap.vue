@@ -62,7 +62,7 @@ export default {
 <style scoped>
 .exercise-image-wrapper {
   aspect-ratio: 4 / 3;
-  background: #f8fafc;
+  background: #101010;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -92,7 +92,7 @@ export default {
 .image-skeleton-shimmer {
   position: absolute;
   inset: 0;
-  background: #f1f5f9;
+  background: var(--mau-the-sub, #181818);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,7 +102,7 @@ export default {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 3px solid #e2e8f0;
+  border: 3px solid rgba(255, 255, 255, 0.12);
   border-top-color: var(--mau-chinh);
   animation: spin 1s linear infinite;
 }
@@ -123,11 +123,11 @@ export default {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #e2e8f0;
+  background: var(--mau-the-hover, #e2e8f0);
   display: grid;
   place-items: center;
   font-size: 1.25rem;
-  color: #94a3b8;
+  color: var(--mau-phu, #94a3b8);
 }
 
 @keyframes spin {

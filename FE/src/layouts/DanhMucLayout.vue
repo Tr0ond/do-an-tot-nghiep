@@ -11,7 +11,7 @@
     <header class="catalog-header">
       <div class="d-flex align-items-center gap-3">
         <RouterLink to="/" class="brand" aria-label="Huấn luyện cá nhân — trang chủ">
-          <span class="brand-mark" aria-hidden="true">H</span>
+          <LogoThuongHieu />
           <span class="brand-title">HUẤN LUYỆN CÁ NHÂN</span>
         </RouterLink>
       </div>
@@ -29,6 +29,9 @@
         <RouterLink to="/goi-tap" class="catalog-nav-item" :class="{ active: laGoiTap }"
           >Bảng giá</RouterLink
         >
+        <!-- Nút chuyển đổi giao diện Sáng / Tối -->
+        <NutChuyenChuDe kich-thuoc="sm" />
+
         <RouterLink
           class="btn btn-outline-secondary btn-sm"
           :to="xacThuc.daDangNhap ? xacThuc.duongDanCaNhan : '/dang-nhap'"
@@ -75,13 +78,15 @@
 <script>
 import { useXacThucStore } from '../stores/xacThuc'
 import CaNhanLayout from './CaNhanLayout.vue'
+import NutChuyenChuDe from '../components/NutChuyenChuDe.vue'
+import LogoThuongHieu from '../components/LogoThuongHieu.vue'
 
 export default {
   name: 'DanhMucLayout',
-  components: { CaNhanLayout },
+  components: { CaNhanLayout, NutChuyenChuDe, LogoThuongHieu },
   computed: {
     coMenuHeader() {
-      return ['KHACH_HANG', 'ADMIN'].includes(this.xacThuc.taiKhoan?.vai_tro)
+      return ['KHACH_HANG', 'HUAN_LUYEN_VIEN', 'ADMIN'].includes(this.xacThuc.taiKhoan?.vai_tro)
     },
     laGoiTap() {
       return this.$route.path.startsWith('/goi-tap')
@@ -121,7 +126,7 @@ export default {
 
 .catalog-header {
   border-bottom: 1px solid var(--mau-vien);
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--mau-header-bg, rgba(10, 10, 10, 0.88));
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   position: sticky;
@@ -132,7 +137,7 @@ export default {
   align-items: center;
   padding: 16px max(24px, calc((100vw - 1280px) / 2));
   gap: 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-shadow: var(--bong-nhe);
 }
 
 .catalog-nav {
@@ -156,13 +161,13 @@ export default {
 }
 
 .catalog-nav-item:hover {
-  color: var(--mau-chinh);
-  background: #f1f5f9;
+  color: var(--mau-chu);
+  background: var(--mau-the-hover);
 }
 
 .catalog-nav-item.active {
-  color: var(--mau-chinh-dam);
-  background: var(--mau-chinh-nhat);
+  color: var(--mau-chinh);
+  background: rgba(244, 91, 32, 0.12);
 }
 
 .catalog-main {
@@ -174,7 +179,7 @@ export default {
 
 .catalog-footer {
   border-top: 1px solid var(--mau-vien);
-  background: white;
+  background: var(--mau-footer-bg, #0a0a0a);
   display: flex;
   justify-content: space-between;
   align-items: center;

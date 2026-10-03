@@ -12,14 +12,14 @@ Từ BE/:
 
 ```powershell
 rtk proxy composer install
-rtk proxy php artisan serve --host=localhost --port=8000
+rtk proxy php artisan serve:local --host=localhost --port=8000 --tries=1
 ```
 
 Hoặc chạy rtk proxy composer run dev. Frontend chạy riêng trong FE/; Backend không cần npm. Endpoint kiểm tra: [localhost:8000/api/v1/health](http://localhost:8000/api/v1/health).
 
 Đã tạo .env local và APP_KEY mà không in key. Trên máy mới, chép .env.example thành .env rồi chạy php artisan key:generate một lần. Giữ APP_KEY hiện có khi ứng dụng đã có dữ liệu mã hóa. Cấu hình mẫu đã ghép các biến Laravel với biến dự án, không chứa credentials thật.
 
-Local bootstrap dùng SESSION_DRIVER=file, CACHE_STORE=file, QUEUE_CONNECTION=sync, BROADCAST_CONNECTION=log để chạy trước khi có database; DB_CONNECTION vẫn là mysql. Điền DB_HOST/DB_PORT/DB_DATABASE/DB_USERNAME/DB_PASSWORD trong .env bằng tài khoản MySQL của bạn, chọn database mới rồi làm theo [hướng dẫn migrations](database/migrations/README.md). Không nhập SQL thiết kế để tạo trùng bảng.
+Local bootstrap dùng SESSION_DRIVER=file, CACHE_STORE=file, QUEUE_CONNECTION=sync, BROADCAST_CONNECTION=reverb cho chat realtime; DB_CONNECTION vẫn là mysql. Điền DB_HOST/DB_PORT/DB_DATABASE/DB_USERNAME/DB_PASSWORD trong .env bằng tài khoản MySQL của bạn, chọn database mới rồi làm theo [hướng dẫn migrations](database/migrations/README.md). Không nhập SQL thiết kế để tạo trùng bảng.
 
 ### Lỗi CSRF cookie 500 sau khi clone
 
@@ -101,3 +101,9 @@ API KH chỉ cho đơn của chính mình, Admin xem đơn/ghi kết quả hoàn
 Đã có giờ rảnh PT, đặt/hủy lịch KH, PT xác nhận/từ chối/hoàn thành/vắng mặt, Admin xem/đóng buổi quá hạn. Chống chồng giờ/UUID/quota bằng khóa hàng + UNIQUE; chỉ hoàn thành mới trừ một buổi gói gốc cùng transaction/audit. Migration000032 đã chạy local, không reset dữ liệu.
 
 Sau khi pull, chạy php artisan migrate. Chạy php artisan schedule:work ở terminal BE riêng để dọn deadline mỗi phút; lệnh một lần php artisan lich-hen:don-qua-han. API luôn kiểm tra deadline ngay cả khi scheduler chưa chạy. [Hợp đồng và quyền](../docs/features/LICH_HUAN_LUYEN.md), [kiểm thử và giao diện](../docs/verification/M04_LICH_HUAN_LUYEN.md).
+
+## Chat realtime M07
+
+Đã có API hội thoại KH/PT, phân trang/cursor, gửi chống trùng và kênh cá nhân Reverb. Chạy migrations để bổ sung hội thoại cho phân công hiện có. Cấu hình khóa Reverb trong BE/FE rồi chạy php artisan reverb:start --host=127.0.0.1 --port=8080, hoặc dùng start.bat ở thư mục gốc. [Hợp đồng và cấu hình](../docs/features/REALTIME_CHAT.md), [kiểm chứng](../docs/verification/M07_CHAT.md).
+
+Đã bổ sung ảnh chat theo C30: chạy `php artisan migrate` để thêm migration000035, giữ tin cũ. 4 ảnh/tin, 5 MB/ảnh, JPG/PNG/WebP, tối đa 8.000 pixel mỗi chiều; tải ảnh bằng endpoint có session/quyền hiện tại, lưu tại `storage/app/private/chat`. Không cần `storage:link`. `serve:local` đặt PHP con nhận tệp 5M/body 24M; máy triển khai phải cấu hình giới hạn tương ứng ở PHP và web server. Không dùng rollback/fresh để cập nhật; rollback000035 từ chối khi đã có ảnh. [Kiểm chứng gửi ảnh](../docs/verification/CHAT_IMAGES.md).

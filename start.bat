@@ -33,6 +33,10 @@ if not exist "%~dp0BE\vendor\autoload.php" (
     echo [LỖI] Backend chưa có thư viện. Vào thư mục BE và chạy: composer install
     goto :loi
 )
+if not exist "%~dp0BE\vendor\laravel\reverb\src\ReverbServiceProvider.php" (
+    echo [LỖI] Chưa có thư viện Reverb. Vào thư mục BE và chạy: composer install
+    goto :loi
+)
 if not exist "%~dp0BE\.env" (
     echo [LỖI] Chưa có BE\.env. Sao chép BE\.env.example thành BE\.env và cấu hình database.
     echo Sau đó vào BE và chạy: php artisan key:generate
@@ -62,17 +66,18 @@ echo.
 
 rem Cửa sổ riêng giúp xem lỗi và dừng từng tiến trình bằng Ctrl+C.
 rem Giữ cùng hostname localhost để phiên đăng nhập Sanctum hoạt động.
-start "Backend Laravel - 8000" /D "%~dp0BE" "%ComSpec%" /d /k "php artisan serve --host=localhost --port=8000 --tries=1"
+start "Backend Laravel - 8000" /D "%~dp0BE" "%ComSpec%" /d /k "php artisan serve:local --host=localhost --port=8000 --tries=1"
+start "Reverb - Chat realtime 8080" /D "%~dp0BE" "%ComSpec%" /d /k "php artisan reverb:start --host=127.0.0.1 --port=8080"
 start "Frontend Vue - 5173" /D "%~dp0FE" "%ComSpec%" /d /k "call npm.cmd run dev"
 start "Laravel Scheduler" /D "%~dp0BE" "%ComSpec%" /d /k "php artisan schedule:work"
 start "ngrok - Webhook payOS" /D "%~dp0" "%ComSpec%" /d /k "ngrok http http://localhost:8000"
 
-echo Đã mở 4 cửa sổ khởi động. Xem kết quả và lỗi tại từng cửa sổ.
+echo Đã mở 5 cửa sổ khởi động. Xem kết quả và lỗi tại từng cửa sổ.
 echo Khi Vue báo sẵn sàng, mở: http://localhost:5173
 echo Kiểm tra Backend: http://localhost:8000/api/v1/health
 echo Trong cửa sổ ngrok, lấy URL HTTPS tại Forwarding và thêm /api/v1/payos/webhook.
 echo Nếu URL thay đổi, cập nhật Webhook URL trong kênh thanh toán payOS.
-echo Để dừng dự án, nhấn Ctrl+C trong cả 4 cửa sổ rồi đóng cửa sổ.
+echo Để dừng dự án, nhấn Ctrl+C trong cả 5 cửa sổ rồi đóng cửa sổ.
 echo.
 pause
 exit /b 0

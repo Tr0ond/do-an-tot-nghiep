@@ -84,18 +84,18 @@ dt {
 }
 
 .fact-icon-blue {
-  background: #eff6ff;
-  color: #2563eb;
+  background: rgba(37, 99, 235, 0.15);
+  color: #60a5fa;
 }
 
 .fact-icon-emerald {
-  background: #ecfdf5;
-  color: #059669;
+  background: rgba(244, 91, 32, 0.15);
+  color: #f45b20;
 }
 
 .fact-icon-purple {
-  background: #f5f3ff;
-  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.15);
+  color: #a78bfa;
 }
 
 dd {

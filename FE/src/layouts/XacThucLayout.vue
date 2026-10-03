@@ -4,7 +4,7 @@
     <aside class="auth-intro">
       <div class="auth-top">
         <RouterLink to="/" class="brand brand-light">
-          <span class="brand-mark" aria-hidden="true">H</span>
+          <LogoThuongHieu />
           <span>HUẤN LUYỆN CÁ NHÂN</span>
         </RouterLink>
       </div>
@@ -56,6 +56,9 @@
 
     <!-- Cột bên phải: Khu vực chứa biểu mẫu -->
     <section class="auth-form-area">
+      <div class="auth-top-action">
+        <NutChuyenChuDe kich-thuoc="sm" />
+      </div>
       <div class="auth-form-card animate__animated animate__fadeIn">
         <slot />
       </div>
@@ -68,24 +71,53 @@
 </template>
 
 <script>
+import NutChuyenChuDe from '../components/NutChuyenChuDe.vue'
+import LogoThuongHieu from '../components/LogoThuongHieu.vue'
+
 export default {
   name: 'XacThucLayout',
+  components: {
+    NutChuyenChuDe,
+    LogoThuongHieu,
+  },
 }
 </script>
 
 <style scoped>
+.auth-top-action {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  z-index: 10;
+}
+
 .auth-top {
   position: relative;
   z-index: 2;
 }
 
+.auth-intro {
+  background: #0a0a0a !important;
+}
+
+.auth-intro::before {
+  background: radial-gradient(circle, rgba(244, 91, 32, 0.28) 0%, transparent 70%) !important;
+}
+
+.auth-story h2 span {
+  background: linear-gradient(135deg, #f45b20 0%, #ff8c5a 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
 .auth-quotes-card {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(26, 26, 26, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 18px 20px;
   margin-top: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 </style>

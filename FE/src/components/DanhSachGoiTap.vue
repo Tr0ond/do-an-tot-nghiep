@@ -213,7 +213,7 @@
     <!-- Danh sách gói tập hiển thị -->
     <template v-else>
       <div class="d-flex align-items-center justify-content-between mb-3">
-        <span class="badge bg-secondary-subtle text-dark border px-3 py-2" role="status">
+        <span class="badge bg-secondary-subtle text-body border px-3 py-2" role="status">
           {{ dinhDangSo(meta.total) }} gói {{ quanTri ? 'trong danh mục quản trị' : 'đang mở bán' }}
         </span>
       </div>
@@ -542,7 +542,7 @@ export default {
   display: flex;
   align-items: flex-end;
   gap: 16px;
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   padding: 20px 24px;
   border-radius: var(--bo-goc-lg);
@@ -570,7 +570,7 @@ export default {
   margin: 0;
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
-  background: white;
+  background: var(--mau-the, #141414);
   overflow: hidden;
 }
 
@@ -589,7 +589,7 @@ export default {
 }
 
 .admin-package-row:hover {
-  background-color: #f8fafc;
+  background-color: var(--mau-the-hover, #1c1c1c);
 }
 
 .package-name-col {
@@ -639,7 +639,7 @@ export default {
 }
 
 .pricing-card-modern {
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-xl);
   padding: 36px 32px;
@@ -651,13 +651,15 @@ export default {
 
 .pricing-card-modern:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
-  border-color: #cbd5e1;
+  box-shadow:
+    0 20px 30px -10px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(244, 91, 32, 0.15);
+  border-color: rgba(244, 91, 32, 0.4);
 }
 
 .pricing-card-modern.is-featured {
   border: 2px solid var(--mau-chinh);
-  box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.15);
+  box-shadow: 0 10px 25px -5px rgba(244, 91, 32, 0.25);
 }
 
 .featured-ribbon {
@@ -671,7 +673,7 @@ export default {
   letter-spacing: 0.08em;
   padding: 4px 14px;
   border-radius: var(--bo-goc-tron);
-  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.35);
+  box-shadow: 0 4px 10px rgba(244, 91, 32, 0.4);
 }
 
 .package-type-pill {
@@ -686,8 +688,8 @@ export default {
 }
 
 .pill-pt {
-  background: #ecfdf5;
-  color: #059669;
+  background: rgba(244, 91, 32, 0.15);
+  color: #ff8c5a;
 }
 
 .pill-bot {
@@ -726,13 +728,13 @@ export default {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: #f1f5f9;
+  background: var(--mau-the-hover, #1e1e1e);
   display: grid;
   place-items: center;
 }
 
 .package-pagination-bar {
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   padding: 14px 20px;

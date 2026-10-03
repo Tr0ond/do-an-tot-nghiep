@@ -184,7 +184,7 @@
       <!-- Tiêu đề kết quả & Trạng thái -->
       <div class="result-heading bg-light border-bottom" aria-live="polite">
         <div class="d-flex align-items-center gap-2">
-          <span class="badge bg-secondary-subtle text-dark border">
+          <span class="badge bg-secondary-subtle text-body border">
             {{ dangTai ? 'Đang cập nhật…' : `${phanTrang.total} bài tập` }}
           </span>
           <span class="text-muted small">Bao gồm cả bài tập đang bật và tạm ngừng hiển thị</span>
@@ -497,7 +497,7 @@ export default {
 }
 
 .catalog-panel {
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   overflow: hidden;
@@ -509,7 +509,7 @@ export default {
   gap: 16px;
   padding: 20px 24px;
   align-items: end;
-  background: #f8fafc;
+  background: var(--mau-table-header-bg, #181818);
   border-bottom: 1px solid var(--mau-vien);
 }
 
@@ -538,7 +538,7 @@ export default {
 }
 
 .exercise-row:hover {
-  background-color: #f8fafc;
+  background-color: var(--mau-the-hover, #1c1c1c);
 }
 
 .exercise-thumbnail {
@@ -547,7 +547,7 @@ export default {
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-md);
   overflow: hidden;
-  background: #f8fafc;
+  background: #101010;
 }
 
 .exercise-copy {
@@ -588,7 +588,7 @@ export default {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: #f1f5f9;
+  background: #1e1e1e;
   display: grid;
   place-items: center;
 }
@@ -599,7 +599,7 @@ export default {
   justify-content: space-between;
   padding: 16px 24px;
   gap: 12px;
-  background: #ffffff;
+  background: var(--mau-the, #141414);
   border-top: 1px solid var(--mau-vien);
 }
 

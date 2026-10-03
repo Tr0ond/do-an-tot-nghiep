@@ -137,7 +137,7 @@
         </p>
 
         <!-- Lưới 4 thông số kỹ thuật then chốt -->
-        <div class="facts-grid mb-4">
+        <div class="facts-grid mb-4 contai">
           <div class="fact-box">
             <div class="fact-icon-wrap stat-icon-emerald">
               <i class="bi bi-person-arms-up"></i>
@@ -188,7 +188,7 @@
               <i class="bi bi-list-ol text-success"></i>
               <span>Hướng dẫn kỹ thuật thực hiện</span>
             </h2>
-            <span class="badge bg-light text-dark border">
+            <span class="badge bg-secondary-subtle text-body border">
               <i class="bi bi-translate me-1"></i>
               {{ baiTap.ngon_ngu_huong_dan === 'vi' ? 'Tiếng Việt' : 'Bản gốc tiếng Anh' }}
             </span>
@@ -235,7 +235,7 @@
             <div class="coach-icon-badge">
               <i class="bi bi-award-fill"></i>
             </div>
-            <strong class="text-dark small">Lưu ý chuẩn form từ Huấn Luyện Viên:</strong>
+            <strong class="text-body small">Lưu ý chuẩn form từ Huấn Luyện Viên:</strong>
           </div>
           <p class="small text-muted mb-0">
             Hãy kiểm soát nhịp thở đều đặn (hít sâu khi hạ tạ và thở dứt khoát khi phát lực). Không
@@ -338,7 +338,7 @@ export default {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: white;
+  background: var(--mau-the-sub, #181818);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-tron);
   font-size: 0.85rem;
@@ -350,7 +350,7 @@ export default {
 }
 
 .btn-back-library:hover {
-  background: #f8fafc;
+  background: var(--mau-the-hover, #242424);
   color: var(--mau-chinh);
   border-color: var(--mau-chinh);
   transform: translateX(-3px);
@@ -358,7 +358,7 @@ export default {
 
 .detail-state-card {
   min-height: 400px;
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-xl);
   display: flex;
@@ -374,7 +374,7 @@ export default {
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: #fffbeb;
+  background: rgba(245, 158, 11, 0.15);
   display: grid;
   place-items: center;
   font-size: 2.2rem;
@@ -395,7 +395,7 @@ export default {
 }
 
 .media-showcase-panel {
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-xl);
   overflow: hidden;
@@ -403,7 +403,7 @@ export default {
 
 .detail-media-container {
   position: relative;
-  background: #f8fafc;
+  background: #101010;
 }
 
 .media-live-badge {
@@ -453,7 +453,7 @@ export default {
 }
 
 .fact-box {
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-md);
   padding: 14px;
@@ -499,7 +499,7 @@ export default {
 .timeline-step-item {
   display: flex;
   gap: 16px;
-  background: #f8fafc;
+  background: var(--mau-the-sub, #181818);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-md);
   padding: 16px 20px;
@@ -507,9 +507,9 @@ export default {
 }
 
 .timeline-step-item:hover {
-  background: white;
-  border-color: #cbd5e1;
-  box-shadow: var(--bong-nhe);
+  background: var(--mau-the-hover, #202020);
+  border-color: rgba(244, 91, 32, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .step-badge-number {
@@ -536,7 +536,7 @@ export default {
 
 .step-desc {
   font-size: 0.95rem;
-  color: #334155;
+  color: var(--mau-chu);
   line-height: 1.6;
 }
 
@@ -546,15 +546,15 @@ export default {
 }
 
 .coach-tip-card {
-  background: #f0fdf4;
-  border-color: #bbf7d0 !important;
+  background: rgba(244, 91, 32, 0.1);
+  border-color: rgba(244, 91, 32, 0.25) !important;
 }
 
 .coach-icon-badge {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: #059669;
+  background: var(--mau-chinh, #f45b20);
   color: white;
   display: grid;
   place-items: center;

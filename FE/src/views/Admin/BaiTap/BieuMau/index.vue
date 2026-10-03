@@ -265,8 +265,8 @@
               </p>
             </div>
 
-            <div v-if="laBaiNhap" class="source-note p-3 bg-light rounded-3 border">
-              <div class="small fw-semibold text-dark mb-1">
+            <div v-if="laBaiNhap" class="source-note p-3 bg-body-secondary rounded-3 border">
+              <div class="small fw-semibold text-body mb-1">
                 <i class="bi bi-translate text-success me-1"></i>Đồng bộ đa ngôn ngữ:
               </div>
               <p class="small text-muted mb-0">
@@ -361,7 +361,7 @@
                     class="badge"
                     :class="
                       laBaiNhap
-                        ? 'bg-secondary-subtle text-dark border'
+                        ? 'bg-secondary-subtle text-body border'
                         : 'bg-primary-subtle text-primary border'
                     "
                   >
@@ -549,7 +549,7 @@ export default {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: white;
+  background: var(--mau-the-sub, #181818);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-tron);
   font-size: 0.85rem;
@@ -561,7 +561,7 @@ export default {
 }
 
 .btn-back-link:hover {
-  background: #f8fafc;
+  background: var(--mau-the-hover, #242424);
   color: var(--mau-chinh);
   border-color: var(--mau-chinh);
   transform: translateX(-3px);
@@ -575,7 +575,7 @@ export default {
 }
 
 .editor-panel {
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   padding: 28px;
@@ -616,7 +616,7 @@ export default {
 
 .preview-thumbnail-wrap {
   aspect-ratio: 4 / 3;
-  background: #f8fafc;
+  background: #101010;
 }
 
 @media (max-width: 992px) {

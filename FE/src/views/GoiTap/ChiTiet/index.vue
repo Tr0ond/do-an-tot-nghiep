@@ -92,7 +92,7 @@
             <div class="rule-item d-flex gap-3">
               <span class="rule-icon-box text-success"><i class="bi bi-clock-history"></i></span>
               <div>
-                <strong class="d-block small text-dark"
+                <strong class="d-block small text-body"
                   >Thời hạn kích hoạt {{ dinhDangSo(goi.thoi_han_ngay) }} ngày</strong
                 >
                 <span class="text-muted small"
@@ -105,7 +105,7 @@
             <div class="rule-item d-flex gap-3">
               <span class="rule-icon-box text-purple"><i class="bi bi-robot"></i></span>
               <div>
-                <strong class="d-block small text-dark"
+                <strong class="d-block small text-body"
                   >Hạn mức {{ dinhDangSo(goi.so_luot_chatbot_moi_ngay) }} lượt hỏi/ngày</strong
                 >
                 <span class="text-muted small"
@@ -117,7 +117,7 @@
             <div v-if="goi.so_buoi_pt > 0" class="rule-item d-flex gap-3">
               <span class="rule-icon-box text-emerald"><i class="bi bi-person-video3"></i></span>
               <div>
-                <strong class="d-block small text-dark">Buổi tập cùng PT 1:1</strong>
+                <strong class="d-block small text-body">Buổi tập cùng PT 1:1</strong>
                 <span class="text-muted small"
                   >Buổi tập diễn ra trong thời hạn gói. Khi dùng hết các buổi PT, bạn vẫn tiếp tục
                   được truy vấn Chatbot cho đến khi gói kết thúc.</span
@@ -128,7 +128,7 @@
             <div v-else class="rule-item d-flex gap-3">
               <span class="rule-icon-box text-secondary"><i class="bi bi-info-circle"></i></span>
               <div>
-                <strong class="d-block small text-dark">Gói chuyên biệt Chatbot AI</strong>
+                <strong class="d-block small text-body">Gói chuyên biệt Chatbot AI</strong>
                 <span class="text-muted small"
                   >Gói chatbot độc lập không bao gồm các buổi huấn luyện thể chất trực tiếp cùng
                   PT.</span
@@ -139,7 +139,7 @@
             <div class="rule-item d-flex gap-3">
               <span class="rule-icon-box text-primary"><i class="bi bi-person-badge"></i></span>
               <div>
-                <strong class="d-block small text-dark">Một tài khoản - Một gói hiệu lực</strong>
+                <strong class="d-block small text-body">Một tài khoản - Một gói hiệu lực</strong>
                 <span class="text-muted small"
                   >Mỗi học viên duy trì một gói dịch vụ đang hoạt động tại một thời điểm để tối ưu
                   giáo án theo dõi.</span
@@ -303,7 +303,7 @@ export default {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: white;
+  background: var(--mau-the-sub, #181818);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-tron);
   font-size: 0.85rem;
@@ -315,7 +315,7 @@ export default {
 }
 
 .btn-back-link:hover {
-  background: #f8fafc;
+  background: var(--mau-the-hover, #242424);
   color: var(--mau-chinh);
   border-color: var(--mau-chinh);
   transform: translateX(-3px);
@@ -323,7 +323,7 @@ export default {
 
 .detail-state-card {
   min-height: 380px;
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-xl);
   display: flex;
@@ -339,7 +339,7 @@ export default {
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: #fffbeb;
+  background: rgba(245, 158, 11, 0.15);
   display: grid;
   place-items: center;
   font-size: 2.2rem;
@@ -364,7 +364,7 @@ export default {
 }
 
 .usage-note-card {
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
 }
@@ -373,7 +373,7 @@ export default {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #f1f5f9;
+  background: #202020;
   display: grid;
   place-items: center;
   font-size: 1rem;
@@ -386,7 +386,7 @@ export default {
 }
 
 .detail-summary-card {
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-top: 4px solid var(--mau-chinh);
   border-radius: var(--bo-goc-lg);
@@ -408,8 +408,15 @@ export default {
 }
 
 .purchase-notice-box {
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+}
+
+:root[data-theme='light'] .purchase-notice-box,
+.light-theme .purchase-notice-box {
   background: #eff6ff;
-  border: 1px solid #bfdbfe;
+  border-color: #bfdbfe;
   color: #1e40af;
 }
 

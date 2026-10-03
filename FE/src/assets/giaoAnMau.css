@@ -1,26 +1,29 @@
 /* ==========================================================================
-   GIAO AN MAU - STYLESHEET CHUẨN FITNESS & ĐỒNG BỘ MÀU SẮC THƯƠNG HIỆU
-   Đồng bộ hoàn toàn với palette màu chính: Emerald Green (#059669 / #10b981)
-   Giao diện sáng sủa (Light & Vibrant), cao cấp, không bị tối đen.
+   GIAO AN MAU - STYLESHEET CHUẨN FITNESS & CINEMATIC DARK MODE
+   Đồng bộ hoàn toàn với palette màu chính: Fire Orange (#F45B20) & Pure Dark (#0A0A0A)
+   Phong cách Cinematic High-Performance Dark với chiều sâu 3D và ánh cam năng động.
    ========================================================================== */
 
 .ga {
-  --ga-primary: var(--mau-chinh, #059669);
-  --ga-primary-hover: var(--mau-chinh-hover, #10b981);
-  --ga-primary-dark: var(--mau-chinh-dam, #047857);
-  --ga-primary-light: var(--mau-chinh-nhat, #ecfdf5);
-  --ga-accent: #10b981;
-  --ga-accent-light: #34d399;
-  --ga-accent-glow: rgba(16, 185, 129, 0.35);
+  --ga-primary: var(--mau-chinh, #f45b20);
+  --ga-primary-hover: var(--mau-chinh-hover, #ff6f38);
+  --ga-primary-dark: var(--mau-chinh-dam, #d94a15);
+  --ga-primary-light: var(--mau-chinh-nhat, rgba(244, 91, 32, 0.12));
+  --ga-accent: #f45b20;
+  --ga-accent-light: #ff8c5a;
+  --ga-accent-glow: rgba(244, 91, 32, 0.35);
 
-  --ga-green: #059669;
-  --ga-green-dark: #047857;
-  --ga-green-light: #ecfdf5;
+  --ga-green: #f45b20;
+  --ga-green-dark: #d94a15;
+  --ga-green-light: rgba(244, 91, 32, 0.12);
 
-  --ga-ink: #0f172a;
-  --ga-ink-muted: #64748b;
-  --ga-border: #e2e8f0;
-  --ga-border-hover: #cbd5e1;
+  --ga-ink: var(--mau-chu, #ffffff);
+  --ga-ink-muted: var(--mau-phu, #94a3b8);
+  --ga-border: var(--mau-vien, rgba(255, 255, 255, 0.08));
+  --ga-border-hover: var(--mau-vien-hover, rgba(244, 91, 32, 0.4));
+  --ga-bg-card: var(--mau-the, #141414);
+  --ga-bg-card-sub: var(--mau-the-sub, #181818);
+  --ga-bg-card-hover: var(--mau-the-hover, #1c1c1c);
 
   color: var(--ga-ink);
   font-family:
@@ -31,6 +34,7 @@
 }
 
 .ga h1 {
+  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
   font-size: clamp(1.75rem, 3.2vw, 2.35rem);
   font-weight: 850;
   letter-spacing: -0.04em;
@@ -40,10 +44,12 @@
 }
 
 .ga h2 {
+  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
   font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   margin: 0;
+  color: var(--ga-ink);
 }
 
 .ga p {
@@ -76,7 +82,7 @@
 }
 
 /* ==========================================================================
-   BUTTONS (ĐỒNG BỘ GRADIENT XANH LỤC DỰ ÁN)
+   BUTTONS (ĐỒNG BỘ GRADIENT CAM RỰC LỬA DỰ ÁN)
    ========================================================================== */
 .ga .btn {
   min-height: 44px;
@@ -89,51 +95,51 @@
   border-radius: 12px;
   padding: 8px 18px;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 .ga .btn-primary {
-  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-  border-color: #059669;
+  background: linear-gradient(135deg, #f45b20 0%, #d94a15 100%);
+  border-color: #f45b20;
   color: #ffffff;
 }
 
 .ga .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, #047857 0%, #059669 100%);
-  border-color: #047857;
+  background: linear-gradient(135deg, #ff6f38 0%, #f45b20 100%);
+  border-color: #ff6f38;
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.4);
+  box-shadow: 0 4px 16px rgba(244, 91, 32, 0.45);
 }
 
 .ga .btn-success {
-  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-  border-color: #059669;
+  background: linear-gradient(135deg, #f45b20 0%, #d94a15 100%);
+  border-color: #f45b20;
   color: #ffffff;
 }
 
 .ga .btn-success:hover:not(:disabled) {
-  background: linear-gradient(135deg, #047857 0%, #065f46 100%);
-  border-color: #047857;
+  background: linear-gradient(135deg, #ff6f38 0%, #f45b20 100%);
+  border-color: #ff6f38;
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.4);
+  box-shadow: 0 4px 16px rgba(244, 91, 32, 0.45);
 }
 
 .ga .btn-outline-secondary {
-  color: #334155;
-  background: #ffffff;
-  border: 1.5px solid #cbd5e1;
+  color: var(--mau-btn-secondary-text, #ffffff);
+  background: var(--mau-btn-secondary-bg, #181818);
+  border: 1.5px solid var(--mau-btn-secondary-border, rgba(255, 255, 255, 0.12));
 }
 
 .ga .btn-outline-secondary:hover:not(:disabled) {
-  background: #f1f5f9;
-  color: #0f172a;
-  border-color: #94a3b8;
+  background: var(--mau-btn-secondary-hover-bg, #242424);
+  color: var(--mau-btn-secondary-text, #ffffff);
+  border-color: var(--mau-chinh);
   transform: translateY(-1px);
 }
 
 /* Nút Bắt đầu xem bài tập */
 .ga .btn-start-action {
-  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  background: linear-gradient(135deg, #f45b20 0%, #d94a15 100%);
   color: #ffffff;
   border: none;
   border-radius: 9999px;
@@ -141,20 +147,20 @@
   font-weight: 750;
   font-size: 1rem;
   letter-spacing: -0.01em;
-  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 8px 20px rgba(244, 91, 32, 0.4);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ga .btn-start-action:hover:not(:disabled) {
-  background: linear-gradient(135deg, #047857 0%, #059669 100%);
+  background: linear-gradient(135deg, #ff6f38 0%, #f45b20 100%);
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.55);
+  box-shadow: 0 10px 25px rgba(244, 91, 32, 0.55);
   color: #ffffff;
 }
 
 .ga button:disabled {
   cursor: not-allowed;
-  opacity: 0.55;
+  opacity: 0.45;
   transform: none !important;
   box-shadow: none !important;
 }
@@ -165,10 +171,10 @@
 .ga .ga-panel {
   border: 1px solid var(--ga-border);
   border-radius: 16px;
-  background: #ffffff;
+  background: var(--ga-bg-card);
   padding: 24px;
   min-width: 0;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  box-shadow: var(--bong-nhe);
 }
 
 .ga .ga-filter {
@@ -177,7 +183,7 @@
   flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 24px;
-  background: #ffffff;
+  background: var(--ga-bg-card);
   border: 1px solid var(--ga-border);
   border-radius: 16px;
   padding: 18px 22px;
@@ -192,7 +198,7 @@
   font-weight: 700;
   font-size: 0.875rem;
   margin-bottom: 7px;
-  color: #334155;
+  color: var(--ga-ink-muted);
 }
 
 .ga input,
@@ -201,10 +207,10 @@
   width: 100%;
   min-height: 44px;
   padding: 10px 14px;
-  border: 1.5px solid #cbd5e1;
+  border: 1.5px solid var(--mau-form-border, rgba(255, 255, 255, 0.1));
   border-radius: 10px;
-  background: #ffffff;
-  color: var(--ga-ink);
+  background: var(--mau-form-bg, #121212);
+  color: var(--mau-form-text, #ffffff);
   font-size: 0.925rem;
   transition: all 0.2s ease;
 }
@@ -212,9 +218,9 @@
 .ga input:focus,
 .ga select:focus,
 .ga textarea:focus {
-  border-color: #059669;
+  border-color: #f45b20;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+  box-shadow: 0 0 0 3px rgba(244, 91, 32, 0.25);
 }
 
 .ga textarea {
@@ -223,16 +229,16 @@
 }
 
 .ga :focus-visible {
-  outline: 3px solid #059669;
+  outline: 3px solid #f45b20;
   outline-offset: 2px;
 }
 
 /* ==========================================================================
-   BANNER GỢI Ý NHANH (SÁNG VÀ NỔI BẬT)
+   BANNER GỢI Ý NHANH (CINEMATIC ORANGE ACCENT)
    ========================================================================== */
 .ga-prompt-banner {
-  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-  color: #064e3b;
+  background: linear-gradient(135deg, rgba(244, 91, 32, 0.15) 0%, rgba(217, 74, 21, 0.08) 100%);
+  color: var(--ga-ink, #ffffff);
   border-radius: 18px;
   padding: 16px 22px;
   margin-bottom: 24px;
@@ -240,12 +246,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.08);
-  border: 1.5px solid #a7f3d0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  border: 1.5px solid rgba(244, 91, 32, 0.3);
 }
 
 .ga-prompt-banner p {
-  color: #064e3b;
+  color: var(--ga-ink, #ffffff);
   font-weight: 700;
   margin: 0;
   font-size: 0.95rem;
@@ -262,20 +268,20 @@
   padding: 7px 18px;
   font-size: 0.85rem;
   font-weight: 750;
-  background: #059669;
+  background: #f45b20;
   color: #ffffff;
   border: none;
-  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.25);
+  box-shadow: 0 2px 8px rgba(244, 91, 32, 0.35);
   transition: all 0.2s ease;
 }
 
 .ga-prompt-banner .btn-pill:hover {
-  background: #047857;
+  background: #ff6f38;
   color: #ffffff;
 }
 
 /* ==========================================================================
-   ROUTINE CARD & LIST (SÁNG SỦA, SANG TRỌNG, KHÔNG BỊ ĐEN)
+   ROUTINE CARD & LIST (CINEMATIC HIGH-PERFORMANCE 3D DARK MODE)
    ========================================================================== */
 .ga .ga-list {
   display: grid;
@@ -283,12 +289,12 @@
 }
 
 .ga-routine-card {
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
+  background: var(--ga-bg-card);
+  border: 1.5px solid var(--ga-border);
   border-radius: 20px;
   padding: 24px;
-  color: #0f172a;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+  color: var(--ga-ink);
+  box-shadow: var(--bong-nhe);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -301,13 +307,16 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #059669, #10b981, #34d399);
+  background: linear-gradient(90deg, #f45b20, #ff6f38, #d94a15);
 }
 
 .ga-routine-card:hover {
-  border-color: #10b981;
+  border-color: rgba(244, 91, 32, 0.5);
+  background: var(--ga-bg-card-hover);
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px -4px rgba(5, 150, 105, 0.15);
+  box-shadow:
+    0 12px 30px -4px rgba(244, 91, 32, 0.2),
+    var(--bong-trung);
 }
 
 .ga-routine-header {
@@ -317,11 +326,11 @@
   gap: 16px;
   margin-bottom: 18px;
   padding-bottom: 16px;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .ga-routine-title-wrap h2 {
-  color: #0f172a;
+  color: var(--ga-ink);
   font-size: 1.35rem;
   font-weight: 850;
   letter-spacing: -0.02em;
@@ -333,7 +342,7 @@
 }
 
 .ga-routine-title-wrap p {
-  color: #64748b;
+  color: #94a3b8;
   font-size: 0.925rem;
   margin: 0;
 }
@@ -360,14 +369,14 @@
   gap: 14px;
   padding: 12px 16px;
   border-radius: 14px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: var(--ga-bg-card-sub);
+  border: 1px solid var(--ga-border);
   transition: all 0.2s ease;
 }
 
 .ga-routine-row:hover {
-  background: #ecfdf5;
-  border-color: #a7f3d0;
+  background: var(--ga-bg-card-hover);
+  border-color: rgba(244, 91, 32, 0.35);
 }
 
 .ga-routine-row-left {
@@ -381,21 +390,21 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  border: 1.5px solid #a7f3d0;
+  border: 1.5px solid rgba(244, 91, 32, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.875rem;
   font-weight: 800;
-  color: #047857;
+  color: #f45b20;
   flex-shrink: 0;
-  background: #ecfdf5;
+  background: rgba(244, 91, 32, 0.12);
 }
 
 .ga-routine-row-name {
   font-weight: 750;
   font-size: 0.975rem;
-  color: #0f172a;
+  color: var(--ga-ink);
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -408,11 +417,11 @@
   align-items: center;
   gap: 4px;
   flex-shrink: 0;
-  background: #ffffff;
+  background: var(--ga-bg-card-sub);
   padding: 4px 6px;
   border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--ga-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .ga-thumb-box {
@@ -420,7 +429,7 @@
   height: 36px;
   border-radius: 8px;
   overflow: hidden;
-  background: #f1f5f9;
+  background: var(--ga-bg-card-hover);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -434,7 +443,7 @@
   padding: 0 6px;
   font-size: 0.8rem;
   font-weight: 800;
-  color: #059669;
+  color: #f45b20;
 }
 
 .ga-routine-footer {
@@ -443,7 +452,7 @@
   justify-content: space-between;
   gap: 12px;
   padding-top: 16px;
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .ga-routine-meta-pills {
@@ -461,9 +470,9 @@
   border-radius: 9999px;
   font-size: 0.825rem;
   font-weight: 700;
-  background: #ecfdf5;
-  color: #047857;
-  border: 1px solid #a7f3d0;
+  background: rgba(244, 91, 32, 0.12);
+  color: #ff8c5a;
+  border: 1px solid rgba(244, 91, 32, 0.25);
 }
 
 /* ==========================================================================
@@ -475,29 +484,29 @@
   gap: 5px;
   border-radius: 9999px;
   padding: 5px 12px;
-  background: #f1f5f9;
-  color: #334155;
+  background: var(--ga-bg-card-hover);
+  color: var(--ga-ink-muted);
   font-size: 0.775rem;
   font-weight: 800;
   letter-spacing: 0.02em;
 }
 
 .ga .ga-status.DA_DUYET {
-  background: #ecfdf5;
-  color: #065f46;
-  border: 1px solid #a7f3d0;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .ga .ga-status.NHAP {
-  background: #eff6ff;
-  color: #1e40af;
-  border: 1px solid #bfdbfe;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 .ga .ga-status.NGUNG_SU_DUNG {
-  background: #fff7ed;
-  color: #9a3412;
-  border: 1px solid #fed7aa;
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
 /* Empty State */
@@ -521,11 +530,11 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  color: #475569;
+  color: #94a3b8;
 }
 
 /* ==========================================================================
-   HERO BANNER & EXERCISE SHEET (SÁNG VÀ RỰC RỠ SẮC XANH THƯƠNG HIỆU)
+   HERO BANNER & EXERCISE SHEET (CINEMATIC HIGH-PERFORMANCE STYLE)
    ========================================================================== */
 .ga-detail-container {
   display: flex;
@@ -533,20 +542,22 @@
   gap: 24px;
 }
 
-/* Hero Banner màu xanh tươi sáng, năng động */
+/* Hero Banner màu đen điện ảnh với hiệu ứng hào quang lửa cam */
 .ga-hero-dark {
-  background: linear-gradient(135deg, #047857 0%, #059669 45%, #10b981 100%);
+  background: linear-gradient(135deg, #1c1008 0%, #141414 45%, #25140b 100%);
   border-radius: 24px;
   padding: 30px 36px;
-  color: #ffffff;
+  color: var(--ga-ink, #ffffff);
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 28px;
   align-items: center;
-  box-shadow: 0 16px 36px -4px rgba(5, 150, 105, 0.35);
+  box-shadow:
+    0 16px 36px -4px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(244, 91, 32, 0.15);
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(244, 91, 32, 0.35);
 }
 
 .ga-hero-dark::after {
@@ -556,13 +567,13 @@
   right: -20%;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(244, 91, 32, 0.2) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
 
 .ga-hero-dark h1 {
-  color: #ffffff;
+  color: var(--ga-ink, #ffffff);
   font-size: clamp(2rem, 3.5vw, 2.75rem);
   font-weight: 900;
   letter-spacing: -0.04em;
@@ -570,7 +581,7 @@
 }
 
 .ga-hero-sub {
-  color: #ecfdf5;
+  color: var(--ga-ink-muted, #94a3b8);
   font-size: 1.05rem;
   margin-bottom: 18px;
   display: flex;
@@ -593,31 +604,31 @@
   gap: 8px;
   padding: 8px 18px;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.22);
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  color: #ffffff;
+  background: var(--ga-primary-light, rgba(255, 255, 255, 0.08));
+  border: 1.5px solid var(--ga-border, rgba(255, 255, 255, 0.15));
+  color: var(--ga-ink, #ffffff);
   font-size: 0.9rem;
   font-weight: 750;
   backdrop-filter: blur(8px);
 }
 
 .ga-stats-pill i {
-  color: #ffffff;
+  color: #f45b20;
 }
 
-/* Nút Bắt đầu trong Hero Banner: Trắng tinh tế, chữ xanh đậm */
+/* Nút Bắt đầu trong Hero Banner: Cam rực lửa */
 .ga-hero-dark .btn-start-action {
-  background: #ffffff;
-  color: #047857;
+  background: linear-gradient(135deg, #f45b20 0%, #d94a15 100%);
+  color: #ffffff;
   border: none;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(244, 91, 32, 0.4);
 }
 
 .ga-hero-dark .btn-start-action:hover:not(:disabled) {
-  background: #f0fdf4;
-  color: #065f46;
+  background: linear-gradient(135deg, #ff6f38 0%, #f45b20 100%);
+  color: #ffffff;
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 28px rgba(244, 91, 32, 0.6);
 }
 
 /* Muscle silhouette graphic */
@@ -627,9 +638,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(244, 91, 32, 0.1);
   border-radius: 20px;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border: 1.5px solid rgba(244, 91, 32, 0.3);
   padding: 10px;
   backdrop-filter: blur(8px);
 }
@@ -637,7 +648,7 @@
 .ga-muscle-graphic svg {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
+  filter: drop-shadow(0 0 10px rgba(244, 91, 32, 0.4));
 }
 
 /* Day switcher bar */
@@ -658,45 +669,45 @@
   border-radius: 14px;
   font-weight: 800;
   font-size: 0.925rem;
-  background: #ffffff;
-  border: 1.5px solid var(--ga-border);
-  color: #475569;
+  background: #181818;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ga-day-tab:hover {
-  color: #059669;
-  border-color: #10b981;
+  color: var(--ga-ink, #ffffff);
+  border-color: rgba(244, 91, 32, 0.4);
 }
 
 .ga-day-tab.is-active {
-  background: #059669;
+  background: #f45b20;
   color: #ffffff;
-  border-color: #059669;
-  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+  border-color: #f45b20;
+  box-shadow: 0 4px 14px rgba(244, 91, 32, 0.4);
 }
 
 .ga-day-tab .tab-badge {
   font-size: 0.775rem;
   padding: 2px 7px;
   border-radius: 9999px;
-  background: rgba(0, 0, 0, 0.07);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .ga-day-tab.is-active .tab-badge {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.25);
   color: #ffffff;
 }
 
-/* Exercise Sheet (Khung bài tập sáng màu, sạch sẽ) */
+/* Exercise Sheet (Khung bài tập sang trọng) */
 .ga-exercise-sheet {
-  background: #ffffff;
+  background: var(--ga-bg-card, #141414);
   border-radius: 24px;
   padding: 24px;
-  border: 1.5px solid var(--ga-border);
-  box-shadow: 0 8px 30px -4px rgba(15, 23, 42, 0.06);
+  border: 1.5px solid var(--ga-border, rgba(255, 255, 255, 0.08));
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.2);
 }
 
 .ga-exercise-sheet-header {
@@ -705,18 +716,18 @@
   justify-content: space-between;
   margin-bottom: 20px;
   padding-bottom: 16px;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--ga-border, rgba(255, 255, 255, 0.06));
 }
 
 .ga-exercise-sheet-header h2 {
-  color: #0f172a;
+  color: var(--ga-ink, #ffffff);
   font-size: 1.25rem;
   font-weight: 850;
   margin: 0;
 }
 
 .ga-exercise-sheet-header .sheet-meta {
-  color: #059669;
+  color: #f45b20;
   font-size: 0.875rem;
   font-weight: 700;
 }
@@ -729,18 +740,18 @@
   gap: 18px;
   padding: 16px;
   border-radius: 16px;
-  background: #f8fafc;
-  border: 1.5px solid #e2e8f0;
+  background: #181818;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
   margin-bottom: 12px;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
 .ga-exercise-card:hover {
-  background: #ecfdf5;
-  border-color: #a7f3d0;
+  background: #202020;
+  border-color: rgba(244, 91, 32, 0.4);
   transform: translateX(3px);
-  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.08);
+  box-shadow: 0 4px 14px rgba(244, 91, 32, 0.15);
 }
 
 .ga-exercise-card-left {
@@ -756,13 +767,13 @@
   height: 64px;
   border-radius: 14px;
   overflow: hidden;
-  background: #ffffff;
+  background: #101010;
   flex-shrink: 0;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid #e2e8f0;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
 }
 
 .ga-exercise-thumb img {
@@ -772,7 +783,7 @@
 }
 
 .ga-exercise-thumb .thumb-fallback-icon {
-  color: #059669;
+  color: #f45b20;
   font-size: 1.6rem;
 }
 
@@ -782,7 +793,7 @@
 }
 
 .ga-exercise-info h3 {
-  color: #0f172a;
+  color: var(--ga-ink, #ffffff);
   font-size: 1.05rem;
   font-weight: 800;
   margin: 0 0 5px;
@@ -794,12 +805,12 @@
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-  color: #64748b;
+  color: #94a3b8;
   font-size: 0.85rem;
 }
 
 .ga-exercise-meta .meta-tag {
-  color: #059669;
+  color: #f45b20;
   font-weight: 700;
 }
 
@@ -811,9 +822,9 @@
 }
 
 .ga-btn-guide {
-  background: #ecfdf5;
-  color: #047857;
-  border: 1.5px solid #a7f3d0;
+  background: rgba(244, 91, 32, 0.15);
+  color: #ff8c5a;
+  border: 1.5px solid rgba(244, 91, 32, 0.35);
   border-radius: 10px;
   padding: 8px 16px;
   font-size: 0.825rem;
@@ -825,19 +836,19 @@
 }
 
 .ga-btn-guide:hover {
-  background: #059669;
-  border-color: #059669;
+  background: #f45b20;
+  border-color: #f45b20;
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+  box-shadow: 0 4px 14px rgba(244, 91, 32, 0.4);
 }
 
 /* ==========================================================================
    EXERCISE INSTRUCTIONS MODAL (ẢNH 3 & KHẮC PHỤC GIF HOÀN CHỈNH)
-   ========================================================================== */
+   ========================================================================= */
 .ga-modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(0, 0, 0, 0.82);
   backdrop-filter: blur(8px);
   z-index: 1050;
   display: flex;
@@ -848,14 +859,16 @@
 }
 
 .ga-modal-container {
-  background: #ffffff;
-  color: #0f172a;
+  background: var(--ga-bg-card, #141414);
+  color: var(--ga-ink, #ffffff);
   width: 100%;
   max-width: 580px;
   max-height: 90vh;
   border-radius: 24px;
-  border: 1.5px solid #a7f3d0;
-  box-shadow: 0 25px 60px -10px rgba(15, 23, 42, 0.25);
+  border: 1.5px solid rgba(244, 91, 32, 0.35);
+  box-shadow:
+    0 25px 60px -10px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(244, 91, 32, 0.15);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -867,14 +880,14 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  background: #f8fafc;
-  border-bottom: 1px solid #e2e8f0;
+  background: var(--ga-bg-card-sub, #181818);
+  border-bottom: 1px solid var(--ga-border, rgba(255, 255, 255, 0.08));
 }
 
 .ga-modal-close-btn {
   background: transparent;
   border: none;
-  color: #059669;
+  color: #f45b20;
   font-weight: 750;
   font-size: 0.95rem;
   cursor: pointer;
@@ -885,7 +898,7 @@
 }
 
 .ga-modal-close-btn:hover {
-  color: #047857;
+  color: #ff6f38;
 }
 
 .ga-modal-avatar {
@@ -893,12 +906,12 @@
   height: 44px;
   border-radius: 50%;
   overflow: hidden;
-  background: #ffffff;
-  border: 2px solid #10b981;
+  background: var(--ga-bg-card, #121212);
+  border: 2px solid #f45b20;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 .ga-modal-avatar img {
@@ -913,14 +926,14 @@
   justify-content: center;
   gap: 8px;
   padding: 12px 20px;
-  background: #f1f5f9;
-  border-bottom: 1px solid #e2e8f0;
+  background: var(--ga-bg-card-sub, #121212);
+  border-bottom: 1px solid var(--ga-border, rgba(255, 255, 255, 0.08));
 }
 
 .ga-modal-tab-btn {
   background: transparent;
   border: none;
-  color: #64748b;
+  color: var(--ga-ink-muted, #94a3b8);
   font-weight: 750;
   font-size: 0.85rem;
   padding: 7px 16px;
@@ -930,9 +943,9 @@
 }
 
 .ga-modal-tab-btn.is-active {
-  background: #059669;
+  background: #f45b20;
   color: #ffffff;
-  box-shadow: 0 2px 10px rgba(5, 150, 105, 0.35);
+  box-shadow: 0 2px 10px rgba(244, 91, 32, 0.45);
 }
 
 .ga-modal-content {
@@ -954,12 +967,12 @@
   max-height: 270px;
   border-radius: 18px;
   overflow: hidden;
-  background: #ffffff;
+  background: #0d0d0d;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #a7f3d0;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  border: 2px solid rgba(244, 91, 32, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
 
@@ -975,9 +988,9 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  background: #047857;
+  background: #d94a15;
   color: #ffffff;
-  border: 1px solid #34d399;
+  border: 1px solid #f45b20;
   padding: 4px 10px;
   border-radius: 9999px;
   font-size: 0.775rem;
@@ -985,7 +998,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   z-index: 2;
 }
 
@@ -993,8 +1006,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #34d399;
-  box-shadow: 0 0 8px #34d399;
+  background: #ff8c5a;
+  box-shadow: 0 0 8px #f45b20;
   animation: pulse 1.5s infinite;
 }
 
@@ -1018,21 +1031,21 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: rgba(5, 150, 105, 0.95);
+  background: rgba(244, 91, 32, 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
   font-size: 1.6rem;
   padding-left: 4px;
-  box-shadow: 0 8px 25px rgba(5, 150, 105, 0.5);
+  box-shadow: 0 8px 25px rgba(244, 91, 32, 0.5);
   transition: transform 0.2s ease;
   z-index: 2;
 }
 
 .ga-media-showcase:hover .ga-play-btn-circle {
   transform: scale(1.1);
-  background: #047857;
+  background: #ff6f38;
 }
 
 .ga-instructions-section {
@@ -1044,7 +1057,7 @@
 .ga-instructions-section h4 {
   font-size: 1.05rem;
   font-weight: 850;
-  color: #0f172a;
+  color: var(--ga-ink, #ffffff);
   margin: 0;
   display: flex;
   align-items: center;
@@ -1063,9 +1076,19 @@
 .ga-instructions-section li {
   position: relative;
   padding-left: 20px;
-  color: #334155;
+  color: var(--ga-ink-muted, #cbd5e1);
   font-size: 0.925rem;
   line-height: 1.6;
+}
+
+.ga-modal-info-card {
+  background: var(--ga-bg-card-sub, rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--ga-border, rgba(16, 185, 129, 0.2));
+  color: var(--ga-ink, inherit);
+}
+
+.ga-info-divider {
+  border-color: var(--ga-border, rgba(255, 255, 255, 0.1)) !important;
 }
 
 .ga-instructions-section li::before {
@@ -1073,7 +1096,7 @@
   position: absolute;
   left: 4px;
   top: 0;
-  color: #059669;
+  color: #f45b20;
   font-size: 1.25rem;
   line-height: 1.4;
 }
@@ -1105,33 +1128,40 @@
 .ga .ga-day {
   min-width: 96px;
   border: 1.5px solid var(--ga-border);
-  background: #ffffff;
-  color: #334155;
+  background: #181818;
+  color: #94a3b8;
   border-radius: 12px;
   font-weight: 750;
   padding: 8px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ga .ga-day:hover {
+  border-color: rgba(244, 91, 32, 0.35);
+  color: var(--ga-ink, #ffffff);
 }
 
 .ga .ga-day[aria-pressed='true'] {
-  background: #059669;
-  border-color: #059669;
+  background: #f45b20;
+  border-color: #f45b20;
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+  box-shadow: 0 4px 12px rgba(244, 91, 32, 0.4);
 }
 
 .ga .ga-row {
   padding: 22px;
   border: 1.5px solid var(--ga-border);
   border-radius: 16px;
-  background: #f8fafc;
+  background: var(--ga-bg-card-sub, #181818);
   margin-bottom: 16px;
   transition: all 0.2s ease;
 }
 
 .ga .ga-row:hover {
-  background: #ffffff;
-  border-color: #a7f3d0;
-  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.08);
+  background: var(--ga-bg-card-hover, #1e1e1e);
+  border-color: rgba(244, 91, 32, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
 .ga .ga-row-head {
@@ -1147,7 +1177,7 @@
   font-weight: 800;
   line-height: 1.4;
   margin: 0;
-  color: #0f172a;
+  color: var(--ga-ink, #ffffff);
   overflow-wrap: anywhere;
 }
 
@@ -1156,8 +1186,8 @@
   margin-top: 4px;
   padding: 3px 8px;
   border-radius: 6px;
-  background: #ecfdf5;
-  color: #047857;
+  background: rgba(244, 91, 32, 0.15);
+  color: #ff8c5a;
   font-weight: 700;
   font-size: 0.775rem;
 }
@@ -1184,10 +1214,10 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   margin-bottom: 14px;
-  background: #ffffff;
+  background: var(--ga-bg-card, #141414);
   padding: 14px;
   border-radius: 12px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--ga-border, rgba(255, 255, 255, 0.08));
 }
 
 .ga .ga-picker h2 {
@@ -1208,7 +1238,7 @@
 .ga .ga-picker-result strong {
   font-size: 0.9rem;
   display: block;
-  color: #0f172a;
+  color: var(--ga-ink, #ffffff);
   overflow-wrap: anywhere;
 }
 
@@ -1246,17 +1276,17 @@
 }
 
 .ga .ga-warning {
-  color: #9a3412;
-  background: #fff7ed;
+  color: #fb923c;
+  background: rgba(249, 115, 22, 0.12);
   padding: 14px;
   border-radius: 10px;
   margin: 14px 0;
   font-size: 0.875rem;
-  border: 1px solid #fed7aa;
+  border: 1px solid rgba(249, 115, 22, 0.25);
 }
 
 .ga .ga-errors {
-  color: #b91c1c;
+  color: #f87171;
   font-size: 0.85rem;
   margin-top: 6px;
   font-weight: 600;
@@ -1294,12 +1324,12 @@ fieldset {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   margin-top: 8px;
-  color: #475569;
+  color: #cbd5e1;
   font-size: 0.875rem;
-  background: #f1f5f9;
+  background: #181818;
   padding: 8px 12px;
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Animations */
@@ -1381,4 +1411,32 @@ fieldset {
   .ga .ga-foot .btn {
     flex: 1;
   }
+}
+
+/* ==========================================================================
+   LIGHT MODE OVERRIDES CHO GIAO AN MAU
+   ========================================================================== */
+:root[data-theme='light'] .ga-hero-dark,
+.light-theme .ga-hero-dark {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffffff 45%, #ffedd5 100%);
+  color: #0f172a;
+  border-color: rgba(244, 91, 32, 0.3);
+  box-shadow: 0 10px 25px rgba(244, 91, 32, 0.08);
+}
+
+:root[data-theme='light'] .ga-hero-dark::after,
+.light-theme .ga-hero-dark::after {
+  opacity: 0.35;
+}
+
+:root[data-theme='light'] .ga-routine-card,
+.light-theme .ga-routine-card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+:root[data-theme='light'] .ga-routine-card:hover,
+.light-theme .ga-routine-card:hover {
+  box-shadow:
+    0 12px 28px -4px rgba(244, 91, 32, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.06);
 }

@@ -26,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // SPA chỉ dùng session cookie, không phát hành hoặc nhận personal access token.
         Sanctum::getAccessTokenFromRequestUsing(fn () => null);
+        RateLimiter::for('chat-gui', fn (Request $request) => Limit::perMinute(30)->by('chat:'.$request->user()?->id));
         RateLimiter::for('dang-nhap', function (Request $request) {
             $email = $request->input('email');
             $khoaEmail = is_string($email) ? Str::lower(trim($email)) : '';

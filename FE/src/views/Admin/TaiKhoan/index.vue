@@ -110,7 +110,7 @@
             <i class="bi bi-table text-emerald" aria-hidden="true"></i>
             <span>Danh sách tài khoản</span>
           </h2>
-          <span class="badge bg-secondary-subtle text-dark border small">
+          <span class="badge bg-secondary-subtle text-body border small">
             Trang {{ phanTrang.current_page }} / {{ phanTrang.last_page }} ({{ phanTrang.total }}
             mục)
           </span>
@@ -152,7 +152,7 @@
           <div class="empty-icon-ring mx-auto mb-3">
             <i class="bi bi-inbox fs-2 text-muted" aria-hidden="true"></i>
           </div>
-          <p class="mb-2 fw-semibold text-dark">Không tìm thấy tài khoản nào phù hợp.</p>
+          <p class="mb-2 fw-semibold text-body">Không tìm thấy tài khoản nào phù hợp.</p>
           <button
             v-if="tuKhoaTimKiem"
             class="btn btn-outline-secondary btn-sm mt-1"
@@ -182,7 +182,7 @@
                       {{ taiKhoan.ho_ten ? taiKhoan.ho_ten.charAt(0).toUpperCase() : 'U' }}
                     </div>
                     <div>
-                      <strong class="d-block text-dark">{{ taiKhoan.ho_ten }}</strong>
+                      <strong class="d-block text-body">{{ taiKhoan.ho_ten }}</strong>
                       <span class="text-muted small d-flex align-items-center gap-1 font-monospace">
                         <i class="bi bi-envelope" aria-hidden="true"></i> {{ taiKhoan.email }}
                       </span>
@@ -291,7 +291,7 @@
             <i class="bi bi-person-plus me-1" aria-hidden="true"></i>
             <span>CẤP TÀI KHOẢN MỚI</span>
           </div>
-          <h2 id="tao-tai-khoan" class="h6 fw-bold mb-0 text-dark">Tạo tài khoản phân quyền</h2>
+          <h2 id="tao-tai-khoan" class="h6 fw-bold mb-0 text-body">Tạo tài khoản phân quyền</h2>
         </div>
 
         <form @submit.prevent="taoTaiKhoan" :aria-busy="dangLuu" novalidate>
@@ -439,10 +439,10 @@
         </div>
 
         <!-- Thông tin người dùng được chọn -->
-        <div class="target-user-card p-3 rounded-3 mb-3 bg-light border">
+        <div class="target-user-card p-3 rounded-3 mb-3 bg-body-secondary border">
           <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
             <div>
-              <strong class="d-block text-dark">{{ taiKhoanDoi.ho_ten }}</strong>
+              <strong class="d-block text-body">{{ taiKhoanDoi.ho_ten }}</strong>
               <span class="text-muted small email-xac-nhan font-monospace">{{
                 taiKhoanDoi.email
               }}</span>
@@ -738,14 +738,14 @@ export default {
 }
 
 .panel-table-header {
-  background: #f8fafc;
+  background: var(--mau-table-header-bg, #181818);
 }
 
 .empty-icon-ring {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: #f1f5f9;
+  background: var(--mau-the-hover, #1e1e1e);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -764,7 +764,7 @@ export default {
 }
 
 .avatar-emerald {
-  background: linear-gradient(135deg, #059669, #10b981);
+  background: linear-gradient(135deg, #f45b20, #d94a15);
 }
 .avatar-blue {
   background: linear-gradient(135deg, #2563eb, #3b82f6);
@@ -792,17 +792,17 @@ export default {
   gap: 10px;
   transition: all 0.2s ease;
   user-select: none;
-  background: #ffffff;
+  background: var(--mau-the-sub, #181818);
 }
 
 .role-card-option:hover {
-  border-color: #94a3b8;
-  background: #f8fafc;
+  border-color: rgba(244, 91, 32, 0.4);
+  background: var(--mau-the-hover, #242424);
 }
 
 .role-card-option.selected {
   border-color: var(--mau-chinh);
-  background: #ecfdf5;
+  background: rgba(244, 91, 32, 0.15);
   box-shadow: 0 0 0 1px var(--mau-chinh);
 }
 

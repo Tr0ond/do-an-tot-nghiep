@@ -60,6 +60,12 @@ class PhanCongService
                 DB::table('ke_hoach_tap')->where('phan_cong_id', $cu->id)->whereIn('trang_thai', ['NHAP', 'CHO_DUYET', 'CHO_XAC_NHAN'])->update(['trang_thai' => 'DA_HUY', 'updated_at' => $moc]);
             }
             $moi = PhanCongHuanLuyenVien::create(['khach_hang_id' => $khach->id, 'huan_luyen_vien_id' => $pt->id, 'nguoi_phan_cong_id' => $admin->id, 'bat_dau_luc' => $moc, 'client_request_id' => $ma, 'phan_cong_truoc_id' => $cu?->id]);
+            DB::table('hoi_thoai')->insert(['phan_cong_id' => $moi->id, 'created_at' => $moc, 'updated_at' => $moc]);
+            $nguoiNhan = [$khach->tai_khoan_id, $pt->tai_khoan_id];
+            if ($cu) {
+                $nguoiNhan[] = $cu->pt->tai_khoan_id;
+            }
+            app(ChatService::class)->baoCapNhat($nguoiNhan);
             DB::table('nhat_ky_he_thong')->insert(['tai_khoan_id' => $admin->id, 'hanh_dong' => $cu ? 'DOI_PT' : 'PHAN_CONG_PT', 'loai_tai_nguyen' => 'phan_cong_huan_luyen_vien', 'tai_nguyen_id' => $moi->id, 'metadata_an_toan' => json_encode(['phan_cong_truoc_id' => $cu?->id]), 'created_at' => $moc, 'updated_at' => $moc]);
 
             return $moi;

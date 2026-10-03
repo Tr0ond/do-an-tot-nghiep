@@ -77,14 +77,14 @@
                 {{ meta.pt.ho_ten ? meta.pt.ho_ten.charAt(0).toUpperCase() : 'P' }}
               </div>
               <div>
-                <strong class="d-block text-dark fs-6">{{ meta.pt.ho_ten }}</strong>
+                <strong class="d-block text-body fs-6">{{ meta.pt.ho_ten }}</strong>
                 <span class="d-block text-muted small">
                   {{ meta.pt.chuyen_mon || 'Huấn luyện viên cá nhân' }}
                 </span>
               </div>
             </div>
             <div
-              class="badge bg-emerald-subtle text-emerald-emphasis border border-emerald-subtle px-3 py-2 rounded-pill font-monospace fw-bold text-dark mt-3"
+              class="badge bg-emerald-subtle text-emerald-emphasis border border-emerald-subtle px-3 py-2 rounded-pill font-monospace fw-bold mt-3"
             >
               {{ meta.so_buoi_con_lai }} buổi còn lại
             </div>
@@ -251,12 +251,12 @@
               <i class="bi bi-calendar-check text-emerald" aria-hidden="true"></i>
               Yêu cầu đặt lịch
             </h2>
-            <div v-if="chon" class="p-3 bg-light rounded-3 border mb-3">
+            <div v-if="chon" class="p-3 bg-body-secondary rounded-3 border mb-3">
               <div class="small text-muted text-uppercase fw-semibold mb-1">
                 <i class="bi bi-check-circle-fill text-emerald me-1" aria-hidden="true"></i>
                 Khung giờ đã chọn
               </div>
-              <p class="fw-bold fs-6 mb-1 text-dark">
+              <p class="fw-bold fs-6 mb-1 text-body">
                 {{ dinhDangLuc(chon.bat_dau_luc) }}
               </p>
               <span class="d-block text-muted small">

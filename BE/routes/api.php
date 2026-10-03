@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\BaiTapAdminController;
 use App\Http\Controllers\Api\BaiTapController;
+use App\Http\Controllers\Api\ChatController;
 use App\Http\Controllers\Api\DonHangController;
 use App\Http\Controllers\Api\GiaoAnMauController;
 use App\Http\Controllers\Api\GoiTapController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\Api\LichHenController;
 use App\Http\Controllers\Api\NhomCoController;
 use App\Http\Controllers\Api\PhanCongController;
 use App\Http\Controllers\Api\TaiKhoanController;
+use App\Http\Controllers\Api\ThongBaoController;
 use App\Http\Controllers\Api\TongQuanController;
 use App\Http\Controllers\Api\XacThucController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +39,16 @@ Route::prefix('v1')->group(function () {
 });
 
 Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(function () {
+    Route::get('/thong-bao', [ThongBaoController::class, 'index']);
+    Route::post('/thong-bao/da-doc-tat-ca', [ThongBaoController::class, 'daDocTatCa'])->middleware('throttle:60,1');
+    Route::post('/thong-bao/{id}/da-doc', [ThongBaoController::class, 'daDoc'])->whereUuid('id')->middleware('throttle:120,1');
+    Route::middleware('vai_tro:KHACH_HANG,HUAN_LUYEN_VIEN')->group(function () {
+        Route::get('/hoi-thoai', [ChatController::class, 'index']);
+        Route::get('/hoi-thoai/{id}/tin-nhan', [ChatController::class, 'show'])->whereNumber('id');
+        Route::get('/hoi-thoai/{id}/tin-nhan/{tinId}/anh/{viTri}', [ChatController::class, 'anh'])->whereNumber(['id', 'tinId', 'viTri']);
+        Route::post('/hoi-thoai/{id}/tin-nhan', [ChatController::class, 'store'])->whereNumber('id')->middleware('throttle:chat-gui');
+        Route::post('/hoi-thoai/{id}/da-doc', [ChatController::class, 'daDoc'])->whereNumber('id')->name('chat.da-doc')->middleware('throttle:120,1');
+    });
     Route::get('/me', [XacThucController::class, 'me']);
     Route::prefix('khach-hang')->middleware('vai_tro:KHACH_HANG')->group(function () {
         Route::get('/khung-gio', [LichHenController::class, 'khungGio']);

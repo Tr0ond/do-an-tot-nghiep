@@ -1,218 +1,240 @@
 <template>
-  <div class="member-shell">
-    <!-- Thanh Header chuẩn Dashboard hiện đại -->
-    <header
-      class="member-header"
-      :class="{ 'co-menu-header': coMenuHeader, 'header-admin': laAdmin }"
+  <div class="member-shell member-with-sidebar" :class="{ 'sidebar-collapsed': dieuHuong.thuGon }">
+    <aside id="member-sidebar" class="member-sidebar">
+      <MenuCaNhan :vai-tro="vaiTro" :nhan-vai-tro="nhanVaiTro" :thu-gon="dieuHuong.thuGon" />
+    </aside>
+    <dialog
+      ref="menuDiDong"
+      class="sidebar-drawer"
+      aria-label="Menu điều hướng"
+      @close="dongMenuDiDong"
+      @click="bamNenMenu"
     >
-      <div class="d-flex align-items-center gap-3">
-        <RouterLink to="/" class="brand" aria-label="Huấn luyện cá nhân — trang chủ">
-          <span class="brand-mark" aria-hidden="true">H</span>
-          <span class="brand-title d-none d-sm-inline">HUẤN LUYỆN CÁ NHÂN</span>
-        </RouterLink>
-      </div>
-
-      <nav v-if="laAdmin" class="header-navigation" aria-label="Quản trị">
-        <RouterLink to="/admin/tong-quan">Tổng quan</RouterLink>
-        <RouterLink to="/admin/tai-khoan">Tài khoản</RouterLink>
-        <RouterLink to="/admin/ho-so">Hồ sơ của tôi</RouterLink>
-        <RouterLink to="/admin/bai-tap">Bài tập</RouterLink>
-        <RouterLink to="/admin/nhom-co">Nhóm cơ</RouterLink>
-        <RouterLink to="/admin/goi-tap">Gói tập</RouterLink>
-        <RouterLink to="/admin/giao-an-mau">Giáo án mẫu</RouterLink>
-        <RouterLink
-          to="/admin/don-hang"
-          :class="{ 'router-link-active': $route.path.startsWith('/admin/don-hang/') }"
-          >Đơn hàng</RouterLink
-        >
-        <RouterLink to="/admin/phan-cong">Phân công PT</RouterLink>
-        <RouterLink
-          to="/admin/lich-hen"
-          :class="{ 'router-link-active': $route.path.startsWith('/admin/lich-hen/') }"
-          >Lịch hẹn</RouterLink
-        >
-      </nav>
-      <nav v-if="laKhach" class="header-navigation" aria-label="Khách hàng">
-        <RouterLink to="/khach-hang/tong-quan">Tổng quan</RouterLink>
-        <RouterLink to="/khach-hang/ho-so">Hồ sơ của tôi</RouterLink>
-        <RouterLink to="/khach-hang/goi-cua-toi">Gói của tôi</RouterLink>
-        <RouterLink
-          to="/khach-hang/lich-hen"
-          :class="{ 'router-link-active': $route.path.startsWith('/khach-hang/lich-hen/') }"
-          >Lịch hẹn</RouterLink
-        >
-        <RouterLink
-          to="/khach-hang/don-hang"
-          :class="{ 'router-link-active': $route.path.startsWith('/khach-hang/don-hang/') }"
-          >Đơn hàng</RouterLink
-        >
-        <RouterLink to="/goi-tap">Gói tập</RouterLink>
-        <RouterLink to="/bai-tap">Thư viện bài tập</RouterLink>
-      </nav>
-
-      <nav v-if="laPT" class="header-navigation" aria-label="Huấn luyện viên">
-        <RouterLink to="/pt/tong-quan">Tổng quan</RouterLink>
-        <RouterLink to="/pt/ho-so">Hồ sơ PT</RouterLink>
-        <RouterLink to="/pt/giao-an-mau">Giáo án mẫu</RouterLink>
-        <RouterLink to="/pt/khung-gio">Khung giờ</RouterLink>
-        <RouterLink
-          to="/pt/lich-hen"
-          :class="{ 'router-link-active': $route.path.startsWith('/pt/lich-hen/') }"
-          >Lịch hẹn</RouterLink
-        >
-        <RouterLink to="/bai-tap">Thư viện bài tập</RouterLink>
-      </nav>
-
-      <nav aria-label="Tài khoản" class="account-nav">
-        <RouterLink v-if="!coMenuHeader" to="/bai-tap" class="btn btn-outline-secondary btn-sm"
-          >Bài tập</RouterLink
-        >
-        <!-- Huy hiệu tài khoản và vai trò -->
-        <div class="user-badge-header" v-if="xacThuc.taiKhoan">
-          <div class="user-avatar-circle" :class="avatarRoleClass">
-            {{ chuCaiDau }}
-          </div>
-          <div class="d-none d-md-block text-start">
-            <div class="fw-bold lh-1 text-truncate" style="max-width: 160px">
-              {{ xacThuc.taiKhoan.ho_ten }}
-            </div>
-            <small class="badge-role mt-1" :class="badgeRoleClass">
-              <i :class="bieuTuongVaiTro"></i>
-              <span>{{ nhanVaiTro }}</span>
-            </small>
-          </div>
-        </div>
-
-        <!-- Nút điều hướng về khu vực chính -->
-        <RouterLink
-          v-if="!coMenuHeader"
-          :to="xacThuc.duongDanCaNhan"
-          class="btn btn-outline-secondary btn-sm d-none d-sm-inline-flex"
-        >
-          <i class="bi bi-grid-1x2" aria-hidden="true"></i>
-          <span>Trang chủ</span>
-        </RouterLink>
-
-        <!-- Nút đăng xuất -->
-        <button
-          class="btn btn-outline-secondary btn-sm"
-          :disabled="dangXuat"
-          @click="thoat"
-          title="Đăng xuất khỏi hệ thống"
-        >
-          <span v-if="dangXuat" class="spinner-border spinner-border-sm me-1" role="status"></span>
-          <i v-else class="bi bi-box-arrow-right me-1"></i>
-          <span>{{ dangXuat ? 'Đang thoát…' : 'Đăng xuất' }}</span>
-        </button>
-      </nav>
-    </header>
-
-    <!-- Nội dung chính -->
-    <main class="member-content">
-      <div
-        v-if="thongBao"
-        class="alert alert-danger d-flex align-items-center gap-2 mb-4 rounded-3 animate__animated animate__shakeX"
-        role="alert"
+      <button
+        type="button"
+        class="shell-icon drawer-close"
+        aria-label="Đóng menu"
+        autofocus
+        @click="dongMenuDiDong"
       >
-        <i class="bi bi-exclamation-triangle-fill fs-5"></i>
-        <span>{{ thongBao }}</span>
-      </div>
-      <slot />
-    </main>
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+      </button>
+      <MenuCaNhan :vai-tro="vaiTro" :nhan-vai-tro="nhanVaiTro" @dieu-huong="dongMenuDiDong" />
+    </dialog>
 
-    <!-- Chân trang thành viên -->
-    <footer class="member-footer">
-      <div class="d-flex align-items-center gap-2">
-        <span class="status-dot"></span>
+    <div class="member-stage">
+      <header class="member-header">
+        <button
+          ref="nutMenu"
+          type="button"
+          class="shell-icon sidebar-toggle"
+          :aria-label="
+            laDiDong ? 'Mở menu điều hướng' : dieuHuong.thuGon ? 'Mở rộng menu' : 'Thu gọn menu'
+          "
+          :aria-expanded="laDiDong ? dangMoMenu : !dieuHuong.thuGon"
+          :aria-controls="laDiDong ? undefined : 'member-sidebar'"
+          :title="laDiDong ? 'Mở menu' : dieuHuong.thuGon ? 'Mở rộng menu' : 'Thu gọn menu'"
+          @click="doiMenu"
+        >
+          <i
+            :class="
+              laDiDong
+                ? 'bi bi-list'
+                : dieuHuong.thuGon
+                  ? 'bi bi-layout-sidebar'
+                  : 'bi bi-layout-sidebar-inset'
+            "
+            aria-hidden="true"
+          ></i>
+        </button>
+        <nav aria-label="Tài khoản" class="account-nav">
+          <NutChuyenChuDe kich-thuoc="lg" />
+          <ThongBaoHeader v-if="xacThuc.taiKhoan" ref="inbox" @mo-bang="dangMoTaiKhoan = false" />
+          <div
+            v-if="xacThuc.taiKhoan"
+            ref="khuVucTaiKhoan"
+            class="account-dropdown"
+            @focusout="matFocusTaiKhoan"
+          >
+            <button
+              ref="nutTaiKhoan"
+              type="button"
+              class="avatar-toggle"
+              :aria-label="`Tài khoản của ${xacThuc.taiKhoan.ho_ten}`"
+              :aria-expanded="dangMoTaiKhoan"
+              aria-controls="member-account"
+              title="Tài khoản"
+              @click="doiTaiKhoan"
+            >
+              <span class="user-avatar-circle">{{ chuCaiDau }}</span>
+            </button>
+            <section
+              v-if="dangMoTaiKhoan"
+              id="member-account"
+              class="account-panel"
+              aria-label="Tài khoản của tôi"
+            >
+              <div class="account-summary">
+                <strong>{{ xacThuc.taiKhoan.ho_ten }}</strong>
+                <span>{{ nhanVaiTro }}</span>
+              </div>
+              <RouterLink ref="hoSo" :to="duongDanHoSo" @click="dongTaiKhoan()">
+                <i class="bi bi-person" aria-hidden="true"></i> Hồ sơ của tôi
+              </RouterLink>
+              <button type="button" :disabled="dangXuat" @click="thoat">
+                <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+                {{ dangXuat ? 'Đang thoát…' : 'Đăng xuất' }}
+              </button>
+            </section>
+          </div>
+        </nav>
+      </header>
+
+      <main class="member-content">
+        <div v-if="thongBao" class="alert alert-danger" role="alert">{{ thongBao }}</div>
+        <slot />
+      </main>
+      <footer class="member-footer">
         <span>Hệ thống huấn luyện thể hình cá nhân trực tuyến</span>
-      </div>
-      <div class="text-muted small">Hành trình tập luyện của bạn · Phiên bản 2.0</div>
-    </footer>
+        <span class="small">Hành trình tập luyện của bạn · Phiên bản 2.0</span>
+      </footer>
+    </div>
   </div>
 </template>
 
 <script>
 import { useXacThucStore } from '../stores/xacThuc'
+import { useDieuHuongStore } from '../stores/dieuHuong'
 import { layLoiApi } from '../utils/loiApi'
+import NutChuyenChuDe from '../components/NutChuyenChuDe.vue'
+import ThongBaoHeader from '../components/ThongBaoHeader.vue'
+import MenuCaNhan from '../components/MenuCaNhan.vue'
 
 export default {
   name: 'CaNhanLayout',
+  components: { NutChuyenChuDe, ThongBaoHeader, MenuCaNhan },
   data() {
     return {
       dangXuat: false,
       thongBao: '',
+      dangMoTaiKhoan: false,
+      dangMoMenu: false,
+      laDiDong: false,
     }
   },
   computed: {
     xacThuc() {
       return useXacThucStore()
     },
-    laAdmin() {
-      return this.xacThuc.taiKhoan?.vai_tro === 'ADMIN'
+    dieuHuong() {
+      return useDieuHuongStore()
     },
-    laKhach() {
-      return this.xacThuc.taiKhoan?.vai_tro === 'KHACH_HANG'
-    },
-    laPT() {
-      return this.xacThuc.taiKhoan?.vai_tro === 'HUAN_LUYEN_VIEN'
-    },
-    coMenuHeader() {
-      return this.laAdmin || this.laKhach || this.laPT
-    },
-    chuCaiDau() {
-      const ten = this.xacThuc.taiKhoan?.ho_ten || 'U'
-      return ten.trim().charAt(0).toUpperCase()
+    vaiTro() {
+      return this.xacThuc.taiKhoan?.vai_tro || ''
     },
     nhanVaiTro() {
-      const vaiTro = this.xacThuc.taiKhoan?.vai_tro
       return (
-        {
-          KHACH_HANG: 'Khách hàng',
-          HUAN_LUYEN_VIEN: 'Huấn luyện viên',
-          ADMIN: 'Quản trị viên',
-        }[vaiTro] || 'Thành viên'
+        { KHACH_HANG: 'Khách hàng', HUAN_LUYEN_VIEN: 'Huấn luyện viên', ADMIN: 'Quản trị viên' }[
+          this.vaiTro
+        ] || 'Thành viên'
       )
     },
-    bieuTuongVaiTro() {
-      const vaiTro = this.xacThuc.taiKhoan?.vai_tro
+    duongDanHoSo() {
       return (
-        {
-          KHACH_HANG: 'bi bi-person-fill',
-          HUAN_LUYEN_VIEN: 'bi bi-award-fill',
-          ADMIN: 'bi bi-shield-check',
-        }[vaiTro] || 'bi bi-person'
+        { KHACH_HANG: '/khach-hang/ho-so', HUAN_LUYEN_VIEN: '/pt/ho-so', ADMIN: '/admin/ho-so' }[
+          this.vaiTro
+        ] || '/dang-nhap'
       )
     },
-    avatarRoleClass() {
-      const vaiTro = this.xacThuc.taiKhoan?.vai_tro
-      return (
-        {
-          ADMIN: 'bg-purple text-light',
-          HUAN_LUYEN_VIEN: 'bg-emerald text-light',
-          KHACH_HANG: 'bg-blue text-light',
-        }[vaiTro] || ''
-      )
-    },
-    badgeRoleClass() {
-      const vaiTro = this.xacThuc.taiKhoan?.vai_tro
-      return (
-        {
-          ADMIN: 'badge-role-admin',
-          HUAN_LUYEN_VIEN: 'badge-role-pt',
-          KHACH_HANG: 'badge-role-khach',
-        }[vaiTro] || ''
-      )
+    chuCaiDau() {
+      return (this.xacThuc.taiKhoan?.ho_ten || 'U').trim().charAt(0).toUpperCase()
     },
   },
+  watch: {
+    '$route.fullPath'() {
+      this.dongMenuDiDong()
+      this.dongTaiKhoan()
+    },
+    'xacThuc.taiKhoan.id'() {
+      this.dongMenuDiDong()
+      this.dongTaiKhoan()
+    },
+  },
+  mounted() {
+    this.dieuHuong.khoiTao()
+    this.theoDoiKichThuoc()
+    window.addEventListener('resize', this.theoDoiKichThuoc)
+    document.addEventListener('pointerdown', this.bamBenNgoai)
+    document.addEventListener('keydown', this.bamPhim)
+  },
+  beforeUnmount() {
+    this.$refs.menuDiDong?.close()
+    window.removeEventListener('resize', this.theoDoiKichThuoc)
+    document.removeEventListener('pointerdown', this.bamBenNgoai)
+    document.removeEventListener('keydown', this.bamPhim)
+  },
   methods: {
+    theoDoiKichThuoc() {
+      this.laDiDong = window.matchMedia('(max-width: 1023px)').matches
+      if (!this.laDiDong) this.dongMenuDiDong()
+    },
+    doiMenu() {
+      this.dongTaiKhoan()
+      this.$refs.inbox?.dong()
+      if (!this.laDiDong) return this.dieuHuong.doiTrangThai()
+      this.$refs.menuDiDong?.showModal()
+      this.dangMoMenu = true
+    },
+    dongMenuDiDong() {
+      const daMo = this.dangMoMenu
+      this.dangMoMenu = false
+      if (this.$refs.menuDiDong?.open) this.$refs.menuDiDong.close()
+      if (daMo) this.$refs.nutMenu?.focus()
+    },
+    bamNenMenu(suKien) {
+      if (suKien.target !== this.$refs.menuDiDong) return
+      const khung = this.$refs.menuDiDong.getBoundingClientRect()
+      if (
+        suKien.clientX < khung.left ||
+        suKien.clientX > khung.right ||
+        suKien.clientY < khung.top ||
+        suKien.clientY > khung.bottom
+      )
+        this.dongMenuDiDong()
+    },
+    async doiTaiKhoan() {
+      if (this.dangMoTaiKhoan) return this.dongTaiKhoan()
+      this.$refs.inbox?.dong()
+      this.dangMoTaiKhoan = true
+      await this.$nextTick()
+      this.$refs.hoSo?.$el?.focus()
+    },
+    dongTaiKhoan(traFocus = false) {
+      this.dangMoTaiKhoan = false
+      if (traFocus) this.$refs.nutTaiKhoan?.focus()
+    },
+    matFocusTaiKhoan(suKien) {
+      if (!this.$refs.khuVucTaiKhoan?.contains(suKien.relatedTarget)) this.dongTaiKhoan()
+    },
+    bamBenNgoai(suKien) {
+      if (!this.$refs.khuVucTaiKhoan?.contains(suKien.target)) this.dongTaiKhoan()
+    },
+    bamPhim(suKien) {
+      if (suKien.key === 'Escape' && this.dangMoTaiKhoan) {
+        suKien.preventDefault()
+        this.dongTaiKhoan(true)
+      }
+    },
     async thoat() {
       if (this.dangXuat) return
       this.dangXuat = true
+      this.thongBao = ''
       try {
         await this.xacThuc.dangXuat()
         await this.$router.replace('/dang-nhap')
       } catch (loi) {
         this.thongBao = layLoiApi(loi).thongBao
+        this.dongTaiKhoan(true)
       } finally {
         this.dangXuat = false
       }
@@ -222,128 +244,207 @@ export default {
 </script>
 
 <style scoped>
-.member-header.co-menu-header {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 24px;
-  padding: 16px 32px;
+.member-with-sidebar {
+  --sidebar-width: 264px;
 }
-.header-admin .brand-title {
-  display: none !important;
+.member-with-sidebar.sidebar-collapsed {
+  --sidebar-width: 84px;
 }
-.header-navigation {
+.member-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: var(--sidebar-width);
+  overflow-y: auto;
+  background: var(--mau-header-bg);
+  border-right: 1px solid var(--mau-vien);
+  z-index: 110;
+}
+.member-stage {
+  margin-left: var(--sidebar-width);
+  min-width: 0;
+  min-height: 100dvh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
+  flex-direction: column;
+}
+.member-with-sidebar .member-header {
+  height: 80px;
+  flex: 0 0 80px;
+  padding: 16px 32px;
+  gap: 16px;
+  flex-wrap: nowrap;
+}
+.member-with-sidebar .account-nav {
+  gap: 12px;
+  width: auto;
+  justify-content: flex-end;
+}
+.member-with-sidebar .member-content {
+  max-width: none;
+  padding: 32px;
   min-width: 0;
 }
-.header-navigation a {
-  display: inline-flex;
-  align-items: center;
-  padding: 12px;
-  min-height: 44px;
-  white-space: nowrap;
-  color: #475569;
-  font-size: 0.875rem;
-  font-weight: 650;
-  text-decoration: none;
-  border-bottom: 3px solid transparent;
+.member-with-sidebar.chat-layout .member-content {
+  width: calc(100% - 64px);
+  padding-inline: 0;
 }
-.header-navigation a:hover {
-  color: #047857;
-  background: #f0f8f4;
+.member-with-sidebar .member-footer {
+  padding: 24px 32px;
+  flex-wrap: wrap;
 }
-.header-navigation a.router-link-active {
-  color: #047857;
-  border-color: #047857;
-}
-.header-navigation a:focus-visible {
-  outline: 2px solid #047857;
-  outline-offset: -2px;
-}
-.co-menu-header .account-nav {
-  width: auto;
-  gap: 12px;
-}
-@media (max-width: 1500px) {
-  .member-header.co-menu-header {
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 12px 20px;
-    padding: 14px 24px 0;
-  }
-  .co-menu-header .account-nav {
-    grid-column: 2;
-    grid-row: 1;
-  }
-  .header-navigation {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    justify-content: flex-start;
-    overflow-x: auto;
-  }
-  .header-navigation a {
-    flex-shrink: 0;
-  }
-}
-@media (max-width: 600px) {
-  .member-header.co-menu-header {
-    padding: 12px 16px 0;
-    gap: 10px;
-  }
-  .header-navigation a {
-    padding: 12px 10px;
-  }
-}
-.account-nav .btn {
-  white-space: nowrap;
-  min-height: 44px;
-}
-@media (max-width: 900px) {
-  .member-header {
-    flex-wrap: nowrap;
-    gap: 8px;
-    padding: 14px 16px;
-  }
-  .member-header .brand-title {
-    display: none !important;
-  }
-  .account-nav {
-    width: auto;
-    gap: 8px;
-  }
-  .user-badge-header .text-start {
-    display: none !important;
-  }
-  .account-nav .btn {
-    padding: 9px 12px;
-  }
-}
-@media (max-width: 600px) {
-  .user-badge-header {
-    display: none;
-  }
-}
-.user-avatar-circle {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
+.shell-icon,
+.avatar-toggle {
   display: grid;
   place-items: center;
-  font-weight: 700;
-  font-size: 0.95rem;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  padding: 0;
+  border: 1px solid var(--mau-vien);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--mau-chu);
+  cursor: pointer;
+  font-size: 1.2rem;
 }
-
-.bg-purple {
-  background: linear-gradient(135deg, #7c3aed, #a855f7) !important;
+.shell-icon:hover,
+.avatar-toggle:hover {
+  background: var(--mau-the-hover);
 }
-
-.bg-emerald {
-  background: linear-gradient(135deg, #059669, #10b981) !important;
+.shell-icon:focus-visible,
+.avatar-toggle:focus-visible,
+.account-panel a:focus-visible,
+.account-panel button:focus-visible {
+  outline: 2px solid var(--mau-chinh);
+  outline-offset: 3px;
 }
-
-.bg-blue {
-  background: linear-gradient(135deg, #2563eb, #3b82f6) !important;
+.avatar-toggle {
+  border-radius: 50%;
+}
+.avatar-toggle .user-avatar-circle {
+  width: 38px;
+  height: 38px;
+  font-size: 1rem;
+}
+.account-dropdown {
+  position: relative;
+}
+.account-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 16px);
+  width: 260px;
+  max-width: calc(100vw - 32px);
+  border: 1px solid var(--mau-vien);
+  border-radius: 16px;
+  background: var(--mau-the, var(--mau-nen));
+  box-shadow: var(--bong-nhe);
+  padding: 8px;
+}
+.account-summary {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-bottom: 1px solid var(--mau-vien);
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
+}
+.account-summary strong {
+  color: var(--mau-chu);
+}
+.account-summary span {
+  font-size: 0.8rem;
+  color: var(--mau-phu);
+}
+.account-panel a,
+.account-panel button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 44px;
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--mau-chu);
+  font-size: 0.875rem;
+  text-decoration: none;
+  text-align: left;
+}
+.account-panel a:hover,
+.account-panel button:hover {
+  background: var(--mau-the-hover);
+}
+.account-panel button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.sidebar-drawer {
+  position: fixed;
+  inset: 0 auto 0 0;
+  margin: 0;
+  width: min(300px, calc(100vw - 48px));
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  border: 0;
+  border-right: 1px solid var(--mau-vien);
+  padding: 0;
+  background: var(--mau-the, var(--mau-nen));
+  color: var(--mau-chu);
+}
+:global(body:has(.sidebar-drawer[open])) {
+  overflow: hidden;
+}
+.sidebar-drawer::backdrop {
+  background: rgb(0 0 0 / 55%);
+}
+.drawer-close {
+  position: absolute;
+  top: 16px;
+  right: 12px;
+}
+.sidebar-drawer :deep(.sidebar-brand) {
+  margin-top: 48px;
+}
+@media (max-width: 1023px) {
+  .member-sidebar {
+    display: none;
+  }
+  .member-stage {
+    margin-left: 0;
+  }
+  .member-with-sidebar .member-header {
+    padding-inline: 24px;
+    height: 72px;
+    flex-basis: 72px;
+  }
+  .member-with-sidebar .member-content {
+    padding: 24px;
+  }
+  .member-with-sidebar.chat-layout .member-content {
+    width: calc(100% - 48px);
+    padding-inline: 0;
+  }
+}
+@media (max-width: 600px) {
+  .member-with-sidebar .member-header {
+    padding-inline: 16px;
+    gap: 8px;
+  }
+  .member-with-sidebar .account-nav {
+    gap: 8px;
+  }
+  .member-with-sidebar .member-content {
+    padding: 24px 16px;
+  }
+  .member-with-sidebar.chat-layout .member-content {
+    width: calc(100% - 32px);
+    padding-inline: 0;
+  }
+  .member-with-sidebar .member-footer {
+    padding: 24px 16px;
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 /* ========================================================
-   M04 — LỊCH HUẤN LUYỆN (FITNESS DESIGN SYSTEM)
+   M04 — LỊCH HUẤN LUYỆN (CINEMATIC HIGH-PERFORMANCE DARK)
    ======================================================== */
 
 .m04-page {
@@ -17,16 +17,17 @@
 }
 
 .m04-heading h1 {
+  font-family: var(--font-tieu-de, 'Outfit', sans-serif);
   font-size: 1.85rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: var(--mau-chu, #0f172a);
+  color: var(--mau-chu, #ffffff);
   margin-bottom: 6px;
 }
 
 .m04-heading p {
   margin: 0;
-  color: var(--mau-phu, #64748b);
+  color: var(--mau-phu, #94a3b8);
   max-width: 680px;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -40,19 +41,20 @@
   font-weight: 750;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--mau-chinh-dam, #047857);
+  color: var(--mau-chinh, #f45b20);
   margin-bottom: 6px;
 }
 
 /* Card Panel */
 .m04-panel {
-  background: #ffffff;
-  border: 1px solid var(--mau-vien, #e2e8f0);
+  background: var(--mau-the, #141414);
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
   border-radius: var(--bo-goc-lg, 16px);
   padding: 26px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   position: relative;
   transition: all 0.2s ease;
+  color: var(--mau-chu, #ffffff);
 }
 
 /* Filter Toolbar */
@@ -62,18 +64,18 @@
   flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 24px;
-  background: #ffffff;
-  border: 1px solid var(--mau-vien, #e2e8f0);
+  background: var(--mau-the, #141414);
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
   border-radius: var(--bo-goc-md, 14px);
   padding: 18px 22px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .m04-toolbar label {
   display: block;
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--mau-phu, #475569);
+  color: var(--mau-phu, #94a3b8);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-bottom: 6px;
@@ -86,7 +88,9 @@
 
 .m04-toolbar .form-control,
 .m04-toolbar .form-select {
-  border-color: #cbd5e1;
+  border-color: var(--mau-form-border, rgba(255, 255, 255, 0.12));
+  background-color: var(--mau-form-bg, #121212);
+  color: var(--mau-form-text, #ffffff);
   border-radius: 10px;
   padding: 9px 14px;
   font-size: 0.92rem;
@@ -97,8 +101,10 @@
 
 .m04-toolbar .form-control:focus,
 .m04-toolbar .form-select:focus {
-  border-color: var(--mau-chinh, #059669);
-  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+  background-color: var(--mau-form-bg-focus, #161616);
+  color: var(--mau-form-text, #ffffff);
+  border-color: var(--mau-chinh, #f45b20);
+  box-shadow: 0 0 0 3px rgba(244, 91, 32, 0.25);
 }
 
 /* Agenda / Schedule List */
@@ -115,23 +121,24 @@
   align-items: center;
   gap: 24px;
   padding: 20px 24px;
-  background: #ffffff;
-  border: 1px solid var(--mau-vien, #e2e8f0);
+  background: var(--mau-the, #141414);
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
   border-radius: var(--bo-goc-md, 14px);
   transition: all 0.2s ease;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  box-shadow: var(--bong-nhe);
 }
 
 .m04-row:hover {
-  border-color: #94a3b8;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-color: var(--mau-vien-hover, rgba(244, 91, 32, 0.4));
+  background: var(--mau-the-hover, #1a1a1a);
+  box-shadow: var(--bong-trung);
   transform: translateY(-1px);
 }
 
 .m04-date {
   min-width: 120px;
   padding-right: 22px;
-  border-right: 1px solid var(--mau-vien, #e2e8f0);
+  border-right: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -144,12 +151,12 @@
   font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: var(--mau-chinh-dam, #047857);
+  color: var(--mau-chinh, #f45b20);
 }
 
 .m04-date span {
   font-size: 0.85rem;
-  color: var(--mau-phu, #64748b);
+  color: var(--mau-phu, #94a3b8);
   display: flex;
   align-items: center;
   gap: 4px;
@@ -168,8 +175,8 @@
   width: 28px;
   height: 28px;
   border-radius: 999px;
-  background: var(--mau-chinh-nhat, #ecfdf5);
-  color: var(--mau-chinh-dam, #047857);
+  background: rgba(244, 91, 32, 0.18);
+  color: var(--mau-chinh, #f45b20);
   font-size: 0.75rem;
   font-weight: 800;
   flex-shrink: 0;
@@ -184,9 +191,9 @@
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 700;
-  border: 1px solid var(--mau-vien, #e2e8f0);
-  background: #f8fafc;
-  color: #475569;
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.1));
+  background: var(--mau-the-sub, #181818);
+  color: var(--mau-chu, #cbd5e1);
 }
 
 .status-dot {
@@ -198,45 +205,40 @@
 }
 
 .m04-state.CHO_XAC_NHAN {
-  color: #b45309;
-  background: #fffbeb;
-  border-color: #fde68a;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.3);
 }
 
 .m04-state.DA_XAC_NHAN {
-  color: #047857;
-  background: #ecfdf5;
-  border-color: #a7f3d0;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.3);
 }
 
 .m04-state.HOAN_THANH {
-  color: #15803d;
-  background: #f0fdf4;
-  border-color: #bbf7d0;
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.12);
+  border-color: rgba(52, 211, 153, 0.3);
 }
 
 .m04-state.VANG_MAT {
-  color: #be123c;
-  background: #fff1f2;
-  border-color: #fecdd3;
+  color: #fb7185;
+  background: rgba(251, 113, 133, 0.12);
+  border-color: rgba(251, 113, 133, 0.3);
 }
 
-.m04-state.DA_HUY {
-  color: #64748b;
-  background: #f1f5f9;
-  border-color: #cbd5e1;
-}
-
+.m04-state.DA_HUY,
 .m04-state.HET_HAN {
-  color: #64748b;
-  background: #f1f5f9;
-  border-color: #cbd5e1;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .m04-state.QUA_HAN_XAC_NHAN {
-  color: #c2410c;
-  background: #fff7ed;
-  border-color: #ffedd5;
+  color: #f45b20;
+  background: rgba(244, 91, 32, 0.12);
+  border-color: rgba(244, 91, 32, 0.3);
 }
 
 /* Details Page */
@@ -254,8 +256,8 @@
 }
 
 .m04-details dl > div {
-  background: #f8fafc;
-  border: 1px solid #edf2f7;
+  background: var(--mau-the-sub, #181818);
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
   border-radius: 12px;
   padding: 14px 16px;
   display: flex;
@@ -264,7 +266,7 @@
 
 .m04-details dt {
   font-weight: 650;
-  color: var(--mau-phu, #64748b);
+  color: var(--mau-phu, #94a3b8);
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -277,7 +279,7 @@
 .m04-details dd {
   margin: 0;
   font-weight: 750;
-  color: var(--mau-chu, #0f172a);
+  color: var(--mau-chu, #ffffff);
   font-size: 1rem;
   overflow-wrap: anywhere;
 }
@@ -285,27 +287,27 @@
 /* Callout Note Boxes */
 .m04-note {
   padding: 16px 18px;
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  border-left: 4px solid var(--mau-chinh, #059669);
+  background: rgba(244, 91, 32, 0.08);
+  border: 1px solid rgba(244, 91, 32, 0.25);
+  border-left: 4px solid var(--mau-chinh, #f45b20);
   border-radius: 10px;
-  color: #1e293b;
+  color: var(--mau-chu, #ffffff);
   line-height: 1.6;
   font-size: 0.92rem;
 }
 
 .m04-note.alert-warning-theme {
-  background: #fffbeb;
-  border-color: #fde68a;
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
   border-left-color: #f59e0b;
-  color: #78350f;
+  color: #fef3c7;
 }
 
 .m04-note.alert-danger-theme {
-  background: #fff1f2;
-  border-color: #fecdd3;
-  border-left-color: #f43f5e;
-  color: #881337;
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  border-left-color: #ef4444;
+  color: #fee2e2;
 }
 
 /* Layout for Time Slots (KhungGio) */
@@ -323,8 +325,8 @@
   justify-content: space-between;
   gap: 16px;
   padding: 16px 20px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: var(--mau-the-sub, #181818);
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
   border-radius: 12px;
   margin-bottom: 24px;
 }
@@ -333,7 +335,7 @@
   width: 44px;
   height: 44px;
   border-radius: 999px;
-  background: var(--mau-chinh-dam, #047857);
+  background: linear-gradient(135deg, #f45b20 0%, #d94a15 100%);
   color: white;
   font-weight: 800;
   display: flex;
@@ -351,12 +353,12 @@
 }
 
 .m04-slot {
-  border: 1.5px solid #cbd5e1;
+  border: 1.5px solid var(--mau-vien, rgba(255, 255, 255, 0.12));
   border-radius: 12px;
   padding: 18px 16px;
-  background: white;
+  background: var(--mau-the, #141414);
   text-align: left;
-  color: var(--mau-chu, #0f172a);
+  color: var(--mau-chu, #ffffff);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
@@ -369,35 +371,35 @@
   display: block;
   font-size: 1.1rem;
   font-weight: 800;
-  color: var(--mau-chu, #0f172a);
+  color: var(--mau-chu, #ffffff);
 }
 
 .m04-slot small {
   display: block;
-  color: var(--mau-phu, #64748b);
+  color: var(--mau-phu, #94a3b8);
   font-size: 0.85rem;
   font-weight: 600;
 }
 
 button.m04-slot:hover {
-  border-color: var(--mau-chinh, #059669);
-  background: #f0fdf4;
+  border-color: var(--mau-chinh, #f45b20);
+  background: rgba(244, 91, 32, 0.08);
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.1);
+  box-shadow: 0 4px 15px rgba(244, 91, 32, 0.2);
 }
 
 .m04-slot.chon {
-  border-color: var(--mau-chinh, #059669);
-  background: #ecfdf5;
-  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.25);
+  border-color: var(--mau-chinh, #f45b20);
+  background: rgba(244, 91, 32, 0.15);
+  box-shadow: 0 0 0 3px rgba(244, 91, 32, 0.25);
 }
 
 .m04-slot.chon strong {
-  color: var(--mau-chinh-dam, #047857);
+  color: var(--mau-chinh, #f45b20);
 }
 
 .m04-slot.chon small {
-  color: var(--mau-chinh-dam, #047857);
+  color: var(--mau-chinh, #f45b20);
   font-weight: 700;
 }
 
@@ -405,8 +407,8 @@ button.m04-slot:hover {
 .m04-empty {
   text-align: center;
   padding: 56px 24px;
-  color: var(--mau-phu, #64748b);
-  background: #ffffff;
+  color: var(--mau-phu, #94a3b8);
+  background: var(--mau-the, #141414);
 }
 
 .m04-empty i {
@@ -417,14 +419,14 @@ button.m04-slot:hover {
   height: 64px;
   border-radius: 50%;
   font-size: 2rem;
-  color: var(--mau-chinh, #059669);
-  background: var(--mau-chinh-nhat, #ecfdf5);
+  color: var(--mau-chinh, #f45b20);
+  background: rgba(244, 91, 32, 0.12);
   margin-bottom: 16px;
 }
 
 .m04-empty h2 {
   font-weight: 750;
-  color: var(--mau-chu, #0f172a);
+  color: var(--mau-chu, #ffffff);
   margin-bottom: 8px;
 }
 
@@ -453,7 +455,7 @@ button.m04-slot:hover {
 }
 
 .m04-page :focus-visible {
-  outline: 3px solid var(--mau-chinh, #059669);
+  outline: 3px solid var(--mau-chinh, #f45b20);
   outline-offset: 2px;
 }
 
@@ -492,7 +494,7 @@ button.m04-slot:hover {
     padding-right: 0;
     padding-bottom: 10px;
     border-right: none;
-    border-bottom: 1px solid var(--mau-vien, #e2e8f0);
+    border-bottom: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
     flex-direction: row;
     justify-content: space-between;
     align-items: center;

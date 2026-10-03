@@ -271,7 +271,7 @@
 
             <!-- Biểu mẫu xác nhận thao tác -->
             <form v-if="hanhDong" class="mt-4 border-top pt-4" @submit.prevent="luu">
-              <h3 class="h6 fw-bold text-dark">{{ tenHanhDong[hanhDong] }} buổi #{{ lich.id }}</h3>
+              <h3 class="h6 fw-bold text-body">{{ tenHanhDong[hanhDong] }} buổi #{{ lich.id }}</h3>
               <p class="text-muted small">
                 {{
                   hanhDong === 'hoan-thanh'

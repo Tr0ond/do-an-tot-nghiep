@@ -13,6 +13,21 @@ const router = createRouter({
     ...[
       ['khach-hang', 'KHACH_HANG'],
       ['pt', 'HUAN_LUYEN_VIEN'],
+    ].flatMap(([khuVuc, vaiTro]) => [
+      {
+        path: `/${khuVuc}/tin-nhan`,
+        component: () => import('../views/TinNhan/index.vue'),
+        meta: { vaiTro },
+      },
+      {
+        path: `/${khuVuc}/tin-nhan/:id`,
+        component: () => import('../views/TinNhan/index.vue'),
+        meta: { vaiTro },
+      },
+    ]),
+    ...[
+      ['khach-hang', 'KHACH_HANG'],
+      ['pt', 'HUAN_LUYEN_VIEN'],
       ['admin', 'ADMIN'],
     ].flatMap(([khuVuc, vaiTro]) => [
       {

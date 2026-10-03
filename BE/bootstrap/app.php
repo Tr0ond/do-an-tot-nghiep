@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
+    ->withBroadcasting(__DIR__.'/../routes/channels.php', ['prefix' => 'api/v1', 'middleware' => ['api', 'auth:sanctum', 'tai_khoan_hoat_dong', 'vai_tro:KHACH_HANG,HUAN_LUYEN_VIEN']])
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->statefulApi();
         $middleware->redirectGuestsTo(fn () => config('app.frontend_url').'/dang-nhap');
@@ -37,6 +38,7 @@ return Application::configure(basePath: dirname(__DIR__))
                     ? $duLieu['message'] : 'Bạn không có quyền thực hiện thao tác này.',
                 404 => 'Không tìm thấy tài nguyên.',
                 409 => $duLieu['message'] ?? 'Trạng thái hiện tại không cho phép thao tác.',
+                413 => 'Tổng dung lượng gửi quá lớn. Mỗi tin tối đa 4 ảnh, 5 MB/ảnh.',
                 419 => 'Phiên làm việc đã hết hạn. Vui lòng thử lại.',
                 422 => 'Vui lòng kiểm tra dữ liệu nhập.',
                 429 => 'Bạn thao tác quá nhiều lần. Vui lòng thử lại sau.',

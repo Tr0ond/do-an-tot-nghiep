@@ -396,10 +396,13 @@ Ràng buộc: `UNIQUE (phan_cong_id)`
 | `nguoi_gui_id` | `BIGINT UNSIGNED NOT NULL` | tai_khoan |
 | `client_message_id` | `CHAR(36) NOT NULL` |  |
 | `noi_dung` | `TEXT NOT NULL` |  |
+| `anh` | `JSON NULL` | Runtime migration000035; metadata tối đa 4 ảnh riêng tư |
 | `created_at` | `DATETIME(6) NULL` |  |
 | `updated_at` | `DATETIME(6) NULL` |  |
 
 Ràng buộc: `UNIQUE (hoi_thoai_id, nguoi_gui_id, client_message_id)`; `INDEX (hoi_thoai_id, id)`
+
+Tin chỉ có ảnh lưu nội dung rỗng. JSON gồm đường dẫn local ngẫu nhiên, MIME, tên gốc, dung lượng, SHA-256; API chỉ trả vị trí/tên/MIME/dung lượng. Cột bổ sung không có trong SQL/Draw.io baseline 28 bảng; xem migration000035 và [hợp đồng chat](features/REALTIME_CHAT.md).
 
 ## hoi_thoai_tro_ly
 

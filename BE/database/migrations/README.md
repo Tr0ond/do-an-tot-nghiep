@@ -55,3 +55,7 @@ Script dùng kết nối BE hiện tại, yêu cầu quyền CREATE/DROP DATABAS
 ## Migration bổ sung M04
 
 2026_10_02_000032_add_ghi_nhan_to_lich_hen.php thêm nguoi_ghi_nhan_id (FK RESTRICT), ghi_nhan_luc DATETIME(6), ly_do_ghi_nhan nullable trên T09, giữ dữ liệu cũ. Đã migrate trên database ứng dụng MariaDB10.4.32 ngày02/10/2026; không rollback/fresh/seed lại database thật. LichHenTest migrate trên DB riêng và kiểm tra transaction/hai process đặt lịch/trừ buổi. [Hợp đồng](../../../docs/features/LICH_HUAN_LUYEN.md), [kiểm chứng](../../../docs/verification/M04_LICH_HUAN_LUYEN.md).
+
+## Migration ảnh chat M07 — 000035
+
+`2026_10_03_000035_add_anh_to_tin_nhan_table.php` thêm JSON nullable `tin_nhan.anh`, tin cũ vẫn null. Đã chạy trên database ứng dụng ngày03/10/2026, không reset/seed lại. Chạy `php artisan migrate` khi clone/pull; `down` từ chối nếu có ảnh để tránh mất metadata lịch sử. Tệp ở disk local riêng tư, không xóa khi rollback. [Hợp đồng ảnh](../../../docs/features/REALTIME_CHAT.md), [kiểm chứng](../../../docs/verification/CHAT_IMAGES.md).

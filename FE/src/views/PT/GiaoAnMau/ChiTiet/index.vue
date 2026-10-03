@@ -76,28 +76,6 @@
             </div>
 
             <!-- Minh họa giải phẫu cơ thể / Muscle Silhouette Highlight (Ảnh 2) -->
-            <div class="ga-muscle-graphic" title="Minh họa nhóm cơ tác động">
-              <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Front silhouette -->
-                <circle cx="28" cy="16" r="8" fill="#ecfdf5" />
-                <path
-                  d="M18 28 C18 26 38 26 38 28 L40 55 L34 55 L35 95 L29 95 L27 62 L25 62 L23 95 L17 95 L18 55 L12 55 Z"
-                  fill="#a7f3d0"
-                />
-                <!-- Chest/Abs highlighted with deep green -->
-                <rect x="22" y="30" width="12" height="10" rx="3" fill="#047857" opacity="0.95" />
-                <rect x="23" y="42" width="10" height="12" rx="2" fill="#065f46" opacity="0.95" />
-
-                <!-- Back silhouette -->
-                <circle cx="72" cy="16" r="8" fill="#ecfdf5" />
-                <path
-                  d="M62 28 C62 26 82 26 82 28 L84 55 L78 55 L79 95 L73 95 L71 62 L69 62 L67 95 L61 95 L62 55 L56 55 Z"
-                  fill="#a7f3d0"
-                />
-                <!-- Lats/Back highlighted with deep green -->
-                <path d="M65 32 L79 32 L75 48 L69 48 Z" fill="#047857" opacity="0.95" />
-              </svg>
-            </div>
           </header>
 
           <!-- Day Switcher Navigation Bar (Ảnh 1 & 2) -->
@@ -355,7 +333,7 @@
             <!-- Tiêu đề bài tập & Huy hiệu khối lượng -->
             <div class="d-flex align-items-center justify-content-between pt-1">
               <div>
-                <h3 id="modal-exercise-title" class="fw-bold mb-1 text-white">
+                <h3 id="modal-exercise-title" class="fw-bold mb-1">
                   {{ baiTapHuongDan.ten_bai_tap }}
                 </h3>
                 <span class="text-success small fw-bold">
@@ -379,7 +357,7 @@
 
               <!-- Setup Steps -->
               <div>
-                <h4 class="text-white mb-2">
+                <h4 class="mb-2">
                   <i class="bi bi-check-circle-fill text-success"></i>
                   Tư thế chuẩn bị (Setup)
                 </h4>
@@ -401,7 +379,7 @@
 
               <!-- Execution Steps -->
               <div class="mt-2">
-                <h4 class="text-white mb-2">
+                <h4 class="mb-2">
                   <i class="bi bi-arrow-repeat text-success"></i>
                   Thực hiện động tác (Execution)
                 </h4>
@@ -426,21 +404,15 @@
 
             <!-- Tab 2: Thông tin bài tập -->
             <div v-else-if="tabHuongDan === 'info'" class="ga-instructions-section">
-              <div
-                class="p-3 rounded-3"
-                style="
-                  background: rgba(255, 255, 255, 0.05);
-                  border: 1px solid rgba(16, 185, 129, 0.2);
-                "
-              >
-                <h4 class="text-white mb-2">Tổng quan động tác</h4>
+              <div class="p-3 rounded-3 ga-modal-info-card">
+                <h4 class="mb-2">Tổng quan động tác</h4>
                 <p class="text-muted small mb-2">
                   Bài tập tác động chủ đạo vào nhóm cơ <strong>{{ baiTapHuongDan.nhom_co }}</strong
                   >, sử dụng dụng cụ
                   <strong>{{ baiTapHuongDan.dung_cu || 'Tiêu chuẩn phòng gym' }}</strong
                   >.
                 </p>
-                <p v-if="chiTietBaiTap?.huong_dan" class="text-light small mb-0">
+                <p v-if="chiTietBaiTap?.huong_dan" class="small mb-0">
                   {{ chiTietBaiTap.huong_dan }}
                 </p>
               </div>
@@ -448,24 +420,18 @@
 
             <!-- Tab 3: Khối lượng tập trong giáo án -->
             <div v-else class="ga-instructions-section">
-              <div
-                class="p-3 rounded-3"
-                style="
-                  background: rgba(255, 255, 255, 0.05);
-                  border: 1px solid rgba(16, 185, 129, 0.2);
-                "
-              >
-                <h4 class="text-white mb-3">Chỉ định của giáo án</h4>
+              <div class="p-3 rounded-3 ga-modal-info-card">
+                <h4 class="mb-3">Chỉ định của giáo án</h4>
                 <div class="d-flex flex-column gap-2">
-                  <div class="d-flex justify-content-between border-bottom pb-2 border-secondary">
+                  <div class="d-flex justify-content-between border-bottom pb-2 ga-info-divider">
                     <span class="text-muted">Số hiệp thực hiện:</span>
                     <strong class="text-success">{{ baiTapHuongDan.so_hiep }} hiệp</strong>
                   </div>
-                  <div class="d-flex justify-content-between border-bottom pb-2 border-secondary">
+                  <div class="d-flex justify-content-between border-bottom pb-2 ga-info-divider">
                     <span class="text-muted">Số lần lặp mỗi hiệp:</span>
                     <strong class="text-success">{{ baiTapHuongDan.so_lan_lap }} lần (reps)</strong>
                   </div>
-                  <div class="d-flex justify-content-between border-bottom pb-2 border-secondary">
+                  <div class="d-flex justify-content-between border-bottom pb-2 ga-info-divider">
                     <span class="text-muted">Thời gian nghỉ:</span>
                     <strong class="text-success">{{ baiTapHuongDan.nghi_giay }} giây</strong>
                   </div>

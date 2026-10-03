@@ -139,8 +139,8 @@
             </button>
           </div>
 
-          <div class="filter-tip-box mt-3 p-3 bg-light rounded-3 border">
-            <div class="small fw-bold text-dark mb-1 d-flex align-items-center gap-1">
+          <div class="filter-tip-box mt-3 p-3 bg-body-secondary rounded-3 border">
+            <div class="small fw-bold text-body mb-1 d-flex align-items-center gap-1">
               <i class="bi bi-lightbulb-fill text-warning"></i>
               <span>Mẹo tra cứu:</span>
             </div>
@@ -485,7 +485,7 @@ export default {
   align-items: center;
   gap: 12px;
   padding: 6px 6px 6px 18px;
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1.5px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   transition: all 0.25s ease;
@@ -493,7 +493,7 @@ export default {
 
 .exercise-search-box:focus-within {
   border-color: var(--mau-chinh);
-  box-shadow: 0 0 0 3.5px rgba(16, 185, 129, 0.18);
+  box-shadow: 0 0 0 3.5px rgba(244, 91, 32, 0.25);
 }
 
 .search-input-wrap {
@@ -547,7 +547,7 @@ export default {
 }
 
 .filter-card {
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   padding: 22px;
@@ -591,13 +591,13 @@ export default {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #f1f5f9;
-  border: 1px solid #cbd5e1;
+  background: var(--mau-the-sub, #1e1e1e);
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.12));
   padding: 3px 10px;
   border-radius: var(--bo-goc-tron);
   font-size: 0.78rem;
   font-weight: 600;
-  color: #334155;
+  color: var(--mau-chu, #ffffff);
 }
 
 .chip-remove-btn {
@@ -621,7 +621,7 @@ export default {
 /* Khung trạng thái (Loading, Error, Empty) */
 .catalog-state-box {
   min-height: 360px;
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px dashed var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   display: flex;
@@ -636,7 +636,7 @@ export default {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: #f1f5f9;
+  background: #1e1e1e;
   display: grid;
   place-items: center;
 }
@@ -649,7 +649,7 @@ export default {
 }
 
 .exercise-modern-card {
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   overflow: hidden;
@@ -663,13 +663,15 @@ export default {
 
 .exercise-modern-card:hover {
   transform: translateY(-5px);
-  border-color: #cbd5e1;
-  box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+  border-color: rgba(244, 91, 32, 0.4);
+  box-shadow:
+    0 12px 24px -6px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(244, 91, 32, 0.12);
 }
 
 .card-image-container {
   position: relative;
-  background: #f8fafc;
+  background: #101010;
   border-bottom: 1px solid var(--mau-vien);
 }
 
@@ -677,15 +679,15 @@ export default {
   position: absolute;
   top: 12px;
   left: 12px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(20, 20, 20, 0.92);
   backdrop-filter: blur(8px);
-  color: var(--mau-chinh-dam);
+  color: #ff8c5a;
   font-size: 0.72rem;
   font-weight: 700;
   padding: 4px 10px;
   border-radius: var(--bo-goc-tron);
-  border: 1px solid rgba(16, 185, 129, 0.2);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(244, 91, 32, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   z-index: 2;
 }
 
@@ -752,7 +754,7 @@ export default {
 
 /* Phân trang */
 .exercise-pagination-bar {
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   padding: 14px 20px;

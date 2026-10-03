@@ -108,6 +108,14 @@ Một người khoảng 8 giờ/ngày, một phòng gym, Vue Options API/JavaScr
 - Dữ liệu/môi trường: đã chuẩn hóa 1.324 bài/19 nhóm cơ/28 nhãn dụng cụ, sao chép 2.648 media và đối chiếu nguồn. Chưa khởi tạo Laravel/Vue, chưa chạy SQL/MySQL hoặc kiểm thử ứng dụng. Các quy tắc tiền/lượt/quyền hiện có không thay đổi.
 - Đóng gói GitHub: repository nguồn [hasaneyldrm/exercises-dataset](https://github.com/hasaneyldrm/exercises-dataset) không được lồng vào repository dự án; catalog, giấy phép/ghi công và media đã chuẩn bị vẫn được giữ trong `BE/`. Cần clone nguồn vào `exercises-dataset/` ở thư mục gốc để chạy lại scripts; hướng dẫn tại `BE/database/data/README.md`.
 
+## Ghi nhận xác nhận C30 — 03/10/2026
+
+- Người xác nhận: chủ dự án hỏi cách gửi ảnh như nền tảng chat và yêu cầu “nếu bạn làm được hãy làm cho tôi”.
+- Nội dung: bổ sung ảnh trong chat KH–PT, chọn nhiều ảnh/xem trước/bỏ ảnh, kéo thả/dán, chú thích tùy chọn, xem lớn và gửi lại khi lỗi. Giới hạn triển khai 4 ảnh/tin, 5 MB/ảnh, JPG/PNG/WebP; chiều rộng/cao tối đa 8.000 pixel.
+- Trạng thái: yêu cầu mở rộng ảnh đã xác nhận; các giới hạn cụ thể là lựa chọn triển khai đã thông báo. Thay phạm vi văn bản của bản chat đầu, giữ quyền C21/D07, không thêm Admin đọc chat, video hoặc tệp tùy ý.
+- Tác động: M07, migration000035 thêm JSON nullable `tin_nhan.anh`, API upload/đọc ảnh riêng tư, Vue chat, cách chạy PHP local và tài liệu module. Tin cũ giữ nguyên; rollback từ chối gỡ cột nếu đã có ảnh để tránh mất lịch sử.
+- Ảnh lưu disk local riêng tư; retry so UUID, chú thích và SHA-256 theo thứ tự ảnh. Không trả đường dẫn lưu/hash ra FE; khi transaction thất bại dọn tệp của thao tác đó. Giữ ảnh cùng lịch sử suốt đồ án, không tự purge theo D09.
+
 ## Cách ghi quyết định sau này
 
 Với mỗi decision: trạng thái, phương án chọn, lý do, người xác nhận, ngày xác nhận, file/module bị tác động. Nếu thay đổi phương án đã chốt, ghi thay thế và tác động migration/dữ liệu lịch sử.

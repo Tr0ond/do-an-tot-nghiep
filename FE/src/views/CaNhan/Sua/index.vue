@@ -310,7 +310,7 @@
               {{ chuCaiDau }}
             </div>
             <div class="sidebar-user-info">
-              <h2 class="h6 fw-bold mb-1 text-dark">
+              <h2 class="h6 fw-bold mb-1 text-body">
                 {{ xacThuc.taiKhoan?.ho_ten || 'Chưa đặt tên' }}
               </h2>
               <span class="status-pill status-active">
@@ -630,7 +630,7 @@ export default {
 }
 
 .avatar-emerald {
-  background: linear-gradient(135deg, #059669, #10b981);
+  background: linear-gradient(135deg, #f45b20, #d94a15);
 }
 
 .avatar-blue {

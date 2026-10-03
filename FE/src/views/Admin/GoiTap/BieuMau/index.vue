@@ -428,7 +428,7 @@ export default {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: white;
+  background: var(--mau-the-sub, #181818);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-tron);
   font-size: 0.85rem;
@@ -440,7 +440,7 @@ export default {
 }
 
 .btn-back-link:hover {
-  background: #f8fafc;
+  background: var(--mau-the-hover, #242424);
   color: var(--mau-chinh);
   border-color: var(--mau-chinh);
   transform: translateX(-3px);
@@ -454,7 +454,7 @@ export default {
 }
 
 .editor-panel {
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   padding: 28px;
@@ -466,7 +466,7 @@ export default {
 }
 
 .preview-panel {
-  background: white;
+  background: var(--mau-the, #141414);
   border: 1px solid var(--mau-vien);
   border-top: 4px solid var(--mau-chinh);
   border-radius: var(--bo-goc-lg);
@@ -485,13 +485,13 @@ export default {
 }
 
 .pill-pt {
-  background: #ecfdf5;
-  color: #059669;
+  background: rgba(244, 91, 32, 0.15);
+  color: #ff8c5a;
 }
 
 .pill-bot {
-  background: #f5f3ff;
-  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.15);
+  color: #a78bfa;
 }
 
 .preview-price-highlight {

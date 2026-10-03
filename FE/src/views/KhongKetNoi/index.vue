@@ -94,7 +94,7 @@
 
       <!-- Hướng dẫn xử lý sự cố mạng -->
       <div class="text-start bg-body-tertiary p-3 rounded-3 border">
-        <div class="small fw-bold text-dark mb-2">
+        <div class="small fw-bold text-body mb-2">
           <i class="bi bi-tools text-primary me-1"></i>Các bước kiểm tra gợi ý:
         </div>
         <ul class="small text-muted mb-0 ps-3">

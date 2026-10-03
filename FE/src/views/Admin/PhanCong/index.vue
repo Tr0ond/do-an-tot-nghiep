@@ -60,11 +60,11 @@
       <!-- Cột 1: Danh sách học viên cần phân công / đổi PT -->
       <section class="m03-panel shadow-sm">
         <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
-          <h2 class="h6 fw-bold mb-0 text-dark d-flex align-items-center gap-2">
+          <h2 class="h6 fw-bold mb-0 text-body d-flex align-items-center gap-2">
             <i class="bi bi-people-fill text-emerald" aria-hidden="true"></i>
             <span>Học viên có gói PT</span>
           </h2>
-          <span class="badge bg-secondary-subtle text-dark border small">
+          <span class="badge bg-secondary-subtle text-body border small">
             {{ danhSach.length }} học viên
           </span>
         </div>
@@ -90,7 +90,7 @@
               {{ k.ho_ten ? k.ho_ten.charAt(0).toUpperCase() : 'H' }}
             </div>
             <div>
-              <strong class="d-block text-dark">{{ k.ho_ten }}</strong>
+              <strong class="d-block text-body">{{ k.ho_ten }}</strong>
               <span
                 class="small badge mt-1"
                 :class="
@@ -151,17 +151,17 @@
             <span class="m03-kicker mb-1 d-block">
               <i class="bi bi-shield-check me-1" aria-hidden="true"></i>Thao tác điều phối
             </span>
-            <h2 class="h5 fw-bold mb-0 text-dark">
+            <h2 class="h5 fw-bold mb-0 text-body">
               {{ khachDaChon.pt ? 'Đổi PT phụ trách' : 'Phân công huấn luyện viên' }}
             </h2>
           </div>
 
           <!-- Thông tin học viên được chọn -->
-          <div class="selected-summary-card p-3 rounded-3 bg-light border mb-3">
+          <div class="selected-summary-card p-3 rounded-3 bg-body-secondary border mb-3">
             <span class="small text-muted d-block mb-1">Học viên được chọn:</span>
             <div class="d-flex align-items-center justify-content-between">
-              <strong class="fs-6 text-dark">{{ khachDaChon.ho_ten }}</strong>
-              <span v-if="khachDaChon.pt" class="badge bg-light text-muted border small">
+              <strong class="fs-6 text-body">{{ khachDaChon.ho_ten }}</strong>
+              <span v-if="khachDaChon.pt" class="badge bg-body text-muted border small">
                 PT hiện tại: {{ khachDaChon.pt.ho_ten }}
               </span>
             </div>
@@ -173,7 +173,7 @@
                 class="bi bi-exclamation-triangle-fill text-warning fs-5 flex-shrink-0"
                 aria-hidden="true"
               ></i>
-              <p class="mb-0 text-dark">
+              <p class="mb-0 text-body">
                 Đổi PT sẽ hủy lịch chưa bắt đầu và đề xuất chưa duyệt. Kế hoạch đã duyệt và lịch sử
                 được giữ lại.
               </p>
@@ -406,18 +406,18 @@ export default {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  background: #ffffff;
-  border: 1px solid #edf2f7;
+  background: var(--mau-the, #141414);
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
   transition: all 0.15s ease;
 }
 
 .pc-khach:hover {
-  background: #f8fafc;
-  border-color: #cbd5e1;
+  background: var(--mau-the-hover, #1c1c1c);
+  border-color: rgba(244, 91, 32, 0.3);
 }
 
 .pc-khach.selected-customer {
-  background: #ecfdf5;
+  background: rgba(244, 91, 32, 0.15);
   border-color: var(--mau-chinh);
   box-shadow: 0 0 0 1px var(--mau-chinh);
 }
@@ -440,7 +440,8 @@ export default {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: #f1f5f9;
+  background: var(--mau-the-sub, #1e1e1e);
+  border: 1px solid var(--mau-vien);
   display: flex;
   align-items: center;
   justify-content: center;

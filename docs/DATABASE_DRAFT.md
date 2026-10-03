@@ -68,6 +68,10 @@ erDiagram
 
 Sơ đồ Mermaid chỉ minh họa các quan hệ chính. [Bản draw.io](diagrams/database.drawio) đã vẽ lại theo file mẫu chủ dự án: **một canvas với đủ 28 bảng, 303 cột và 52 FK**, cột PK/FK riêng, đường nối trực tiếp giữa các hàng khóa. [SVG tổng thể](diagrams/database-full.svg) và [PNG tổng thể](diagrams/database-full.png) được xuất bằng draw MCP. [Bản chi tiết 29 tab cũ](diagrams/database-chi-tiet.drawio), [ảnh nhóm module](diagrams/database-overview.png), [chi tiết bài tập](diagrams/database-exercises.png) và [chi tiết lịch PT](diagrams/database-booking.png) vẫn giữ để tham khảo. Chỉ đổi cách trình bày; SQL chưa kiểm chứng trên MySQL, không thay kiểm tra quyền/trạng thái ở Backend.
 
+## Bổ sung runtime ảnh chat — 03/10/2026
+
+C30/migration000035 bổ sung JSON nullable `tin_nhan.anh` cho tối đa 4 ảnh riêng tư. Tin cũ không đổi; tin chỉ có ảnh dùng nội dung rỗng. Metadata chứa đường dẫn ngẫu nhiên/MIME/tên/dung lượng/SHA-256; quyền đọc bytes theo phân công hiện tại, không công khai đường dẫn. SQL/Draw.io baseline vẫn là bản thiết kế gốc; schema runtime gồm các migrations bổ sung. Xem [hợp đồng](features/REALTIME_CHAT.md) và [từ điển](DATABASE_DICTIONARY.md#tin_nhan).
+
 ## Ràng buộc cần thiết
 
 - Email normalized unique; role/status thuộc danh sách hợp lệ.

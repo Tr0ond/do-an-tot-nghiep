@@ -150,7 +150,7 @@
       <!-- Thanh kết quả và ghi chú -->
       <div class="nhom-result" aria-live="polite">
         <div class="d-flex align-items-center gap-2 flex-wrap">
-          <span class="badge bg-secondary-subtle text-dark border">
+          <span class="badge bg-secondary-subtle text-body border">
             {{ dangTai ? 'Đang tải…' : `${phanTrang.total} nhóm cơ` }}
           </span>
           <span class="text-muted small">
@@ -289,7 +289,7 @@
         <!-- Phân trang -->
         <nav class="nhom-pagination" aria-label="Phân trang nhóm cơ">
           <div class="text-muted small">
-            Trang <strong class="text-dark">{{ phanTrang.current_page }}</strong> /
+            Trang <strong class="text-body">{{ phanTrang.current_page }}</strong> /
             {{ phanTrang.last_page }}
           </div>
           <div class="d-flex gap-2">
@@ -649,7 +649,7 @@ export default {
   gap: 16px;
   align-items: end;
   padding: 20px 24px;
-  background: #fcfdfd;
+  background: var(--mau-the, #141414);
   border-bottom: 1px solid var(--mau-vien);
 }
 
@@ -688,7 +688,7 @@ export default {
 .form-control-sm:focus,
 .form-select-sm:focus {
   border-color: var(--mau-chinh);
-  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+  box-shadow: 0 0 0 3px rgba(244, 91, 32, 0.25);
 }
 
 .nhom-filter-actions {
@@ -723,7 +723,7 @@ export default {
 }
 
 .nhom-row:not(.nhom-labels):hover {
-  background-color: #f8fafc;
+  background-color: var(--mau-the-hover, #1c1c1c);
 }
 
 .nhom-labels {
@@ -732,7 +732,7 @@ export default {
   font-weight: 700;
   color: var(--mau-phu);
   letter-spacing: 0.05em;
-  background-color: #f8fafc;
+  background-color: var(--mau-table-header-bg, #181818);
   border-bottom: 1px solid var(--mau-vien);
 }
 
@@ -753,7 +753,7 @@ export default {
   background: var(--mau-chinh-nhat);
   color: var(--mau-chinh);
   font-size: 1.25rem;
-  border: 1px solid rgba(5, 150, 105, 0.2);
+  border: 1px solid rgba(244, 91, 32, 0.25);
 }
 
 .nhom-info-wrap {
@@ -771,10 +771,10 @@ export default {
 .nhom-code {
   font-size: 0.78rem;
   color: var(--mau-chinh-dam);
-  background: rgba(5, 150, 105, 0.08);
+  background: rgba(244, 91, 32, 0.12);
   padding: 2px 8px;
   border-radius: 6px;
-  border: 1px solid rgba(5, 150, 105, 0.15);
+  border: 1px solid rgba(244, 91, 32, 0.25);
 }
 
 /* Cột số bài tập */
@@ -790,7 +790,7 @@ export default {
 }
 
 .nhom-count:hover {
-  background: #f1f5f9;
+  background: #242424;
 }
 
 .nhom-count-badge {
@@ -821,15 +821,15 @@ export default {
 }
 
 .nhom-active {
-  background: var(--mau-chinh-nhat);
-  color: var(--mau-chinh-dam);
-  border-color: rgba(5, 150, 105, 0.2);
+  background: rgba(244, 91, 32, 0.15);
+  color: #ff8c5a;
+  border-color: rgba(244, 91, 32, 0.3);
 }
 
 .nhom-inactive {
-  background: #f1f5f9;
-  color: #64748b;
-  border-color: #e2e8f0;
+  background: var(--mau-the-sub, #1c1c1c);
+  color: var(--mau-phu, #94a3b8);
+  border-color: var(--mau-vien, rgba(255, 255, 255, 0.1));
 }
 
 .status-dot {
@@ -841,7 +841,7 @@ export default {
 
 .dot-active {
   background-color: var(--mau-chinh);
-  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.3);
+  box-shadow: 0 0 0 2px rgba(244, 91, 32, 0.4);
 }
 
 .dot-inactive {
@@ -947,7 +947,8 @@ export default {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: #f1f5f9;
+  background: var(--mau-the-sub, #1e1e1e);
+  border: 1px solid var(--mau-vien);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -5,7 +5,7 @@
         <i class="bi bi-plus-circle-fill text-success me-2"></i>
         Thêm bài vào Ngày {{ ngay }}
       </h2>
-      <span class="badge bg-light text-dark border">Ngày {{ ngay }}</span>
+      <span class="badge bg-secondary-subtle text-body border">Ngày {{ ngay }}</span>
     </div>
 
     <!-- Ô tìm kiếm bài tập -->

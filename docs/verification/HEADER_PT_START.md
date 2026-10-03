@@ -8,3 +8,11 @@
 ![Header PT 1280px](header-pt-desktop.png)
 
 ![Header PT 390px](header-pt-mobile.png)
+
+## Bổ sung: giữ header khi mở thư viện bài tập
+
+`DanhMucLayout.vue` đã có nhánh dùng `CaNhanLayout` cho KH/Admin nhưng bỏ sót PT. Bổ sung `HUAN_LUYEN_VIEN` để danh sách/chi tiết bài tập và danh mục gói dùng cùng header theo vai trò. `CaNhanLayout.vue` đánh dấu mục Thư viện bài tập ở trang chi tiết cho KH/PT. Giữ các thay đổi giao diện tối hiện có.
+
+Đã chạy build, lint, Prettier kiểm tra hai layout và 27 tests thuộc `baiTap.spec.js`/`tongQuan.spec.js`, đều đạt trên Windows/Node 22.20.0. Kiểm tra trình duyệt bằng hai page bài tập thật, API catalog local thật, tài khoản mẫu trong Pinia và router bộ nhớ: bấm từ menu PT vào thư viện rồi vào chi tiết vẫn có đúng một header thành viên, không có header danh mục công khai; mục thư viện giữ trạng thái đang mở. KH/Admin dùng header tương ứng, guest dùng header công khai. Kiểm tra PT tại 390px không tràn ngang toàn trang. Không đổi session hoặc ghi dữ liệu ứng dụng; preview tạm đã xóa.
+
+![Thư viện bài tập giữ header PT](catalog-header-pt.png)

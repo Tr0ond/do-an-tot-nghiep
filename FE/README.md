@@ -2,7 +2,7 @@
 
 **Trạng thái:** đã bootstrap Vue **3.5.43**, JavaScript/Options API, Vite **8.3.1**, cài dependencies và lưu package-lock.json. Đã chạy trên Node **22.20.0**, npm **10.9.3**. package.json ghi Node tương thích ^22.18.0 hoặc >=24.12.0.
 
-Đã cài Vue Router **5.3.1**, Pinia **4.0.3**, Axios **1.20.0**, Bootstrap **5.3.8**, ESLint/Oxlint/Prettier. Pinia Options Store giữ tài khoản trả từ Backend trong bộ nhớ; không lưu token/role vào localStorage. Chart.js/Echo sẽ được thêm khi làm module tương ứng.
+Đã cài Vue Router **5.3.1**, Pinia **4.0.3**, Axios **1.20.0**, Bootstrap **5.3.8**, ESLint/Oxlint/Prettier. Pinia Options Store giữ tài khoản trả từ Backend trong bộ nhớ; không lưu token/role vào localStorage. Đã cài Laravel Echo/Pusher cho chat realtime; Chart.js sẽ được thêm khi làm thống kê tương ứng.
 
 ## Chạy Frontend
 
@@ -15,9 +15,9 @@ rtk proxy npm.cmd run dev
 
 Mở [đăng ký](http://localhost:5173/dang-ky) hoặc [đăng nhập](http://localhost:5173/dang-nhap) khi Laravel chạy ở localhost:8000. Vite dùng port cố định 5173; hai bên dùng cùng hostname localhost. Khách tự đăng ký; PT/Admin được Admin cấp tài khoản. Admin đầu tiên tạo bằng lệnh ở [hướng dẫn tài khoản](../docs/features/TAI_KHOAN.md).
 
-Menu KH/PT/Admin đều nằm trong header của `CaNhanLayout.vue`; menu cuộn ngang trên màn hình nhỏ. PT có Tổng quan, Hồ sơ PT, Giáo án mẫu, Khung giờ, Lịch hẹn và Thư viện bài tập. [Kiểm chứng header PT và start.bat](../docs/verification/HEADER_PT_START.md).
+Menu KH/PT/Admin nằm trong thanh bên dọc của `CaNhanLayout.vue`, thu gọn còn biểu tượng; dưới 1024px mở dạng ngăn menu. PT có Tổng quan, Tin nhắn, Hồ sơ PT, Giáo án mẫu, Khung giờ, Lịch hẹn và Thư viện bài tập. [Kiểm chứng header PT và start.bat](../docs/verification/HEADER_PT_START.md).
 
-Đã tạo .env local từ .env.example. VITE_API_BASE_URL được Axios instance ở src/utils/http.js đọc; component gọi qua services/xacThucService.js và taiKhoanService.js. Service lấy CSRF cookie trước POST, Axios gửi credentials/XSRF. Đổi .env cần khởi động lại Vite. Các biến VITE_* là công khai, không đặt AI key/Reverb secret vào đây. Biến Reverb vẫn là placeholders.
+Đã tạo .env local từ .env.example. VITE_API_BASE_URL được Axios instance ở src/utils/http.js đọc; component gọi qua services/xacThucService.js và taiKhoanService.js. Service lấy CSRF cookie trước POST, Axios gửi credentials/XSRF. Đổi .env cần khởi động lại Vite. Các biến VITE_* là công khai, không đặt AI key/Reverb secret vào đây. Máy này đã cấu hình Reverb local; máy mới đặt public key khớp BE theo [hướng dẫn chat](../docs/features/REALTIME_CHAT.md).
 
 ## Kiểm tra đã chạy
 
@@ -39,7 +39,7 @@ Trang đăng nhập/đăng ký tại views/XacThuc, hồ sơ KH/PT dùng chung v
 
 Toàn bộ frontend đạt **102 Vitest tests**, build/lint/format. Có bảng giá `/goi-tap`, chi tiết `/goi-tap/:id`; Admin quản lý tại `/admin/goi-tap`, thêm `/admin/goi-tap/them`, sửa `/admin/goi-tap/:id/sua`. Options API/service dùng chung, bộ lọc URL, loading/empty/error/409, khóa gửi trùng, giữ UUID khi retry mạng và xử lý 409. Admin tự nhập giá/quyền lợi; không có giá giả hoặc cấp gói từ UI. [Hợp đồng gói](../docs/features/GOI_TAP.md), [kiểm chứng](../docs/verification/M02_GOI_TAP.md).
 
-Đã có mua/thanh toán gói M03. Chưa có upload media, chatbot hoặc realtime. Tham khảo [CODE_STYLE.md](../CODE_STYLE.md), [quyết định](../docs/DECISIONS.md) và [mẫu Frontend](../templates/README.md).
+Đã có mua/thanh toán gói M03. Chưa có upload media, chatbot. Đã có chat realtime KH/PT tại /khach-hang/tin-nhan và /pt/tin-nhan; [kiểm chứng M07](../docs/verification/M07_CHAT.md). Tham khảo [CODE_STYLE.md](../CODE_STYLE.md), [quyết định](../docs/DECISIONS.md) và [mẫu Frontend](../templates/README.md).
 
 ## Giáo án mẫu Admin/PT
 
@@ -59,16 +59,38 @@ Trang /quen-mat-khau gửi yêu cầu khôi phục; /dat-lai-mat-khau đọc tok
 ## Trang chủ và dashboard
 Người chưa đăng nhập vào / thấy trang giới thiệu. Router chờ /me trước khi chuyển người đã đăng nhập về /khach-hang/tong-quan, /pt/tong-quan hoặc /admin/tong-quan; áp dụng cả truy cập trực tiếp, refresh và URL cũ có hash. Đăng nhập/đăng ký thành công vào tổng quan, hồ sơ có link riêng trong menu. Nếu không xác minh được session do mất kết nối, hiển thị trang lỗi kết nối, không giả coi người dùng là guest.
 
-Dashboard KH/PT có thống kê thư viện và checklist mức đầy đủ hồ sơ; Admin có tổng tài khoản, phân bố vai trò/trạng thái và các danh mục. Thống kê lấy từ API thật, không lưu cache cá nhân vào localStorage. Trang tại views/TongQuan, service tongQuanService; loading/error/retry, hủy request và bỏ qua kết quả tới muộn. Menu KH/Admin nằm trong header, không lặp trong nội dung; danh mục Gói tập/Thư viện cũng giữ header theo vai trò khi đăng nhập. Trên màn hình nhỏ menu nằm ở hàng thứ hai của header và cuộn ngang trong vùng riêng, không làm tràn toàn trang. [Hợp đồng](../docs/features/TONG_QUAN.md), [ảnh và kiểm thử](../docs/verification/DASHBOARD.md).
+Dashboard KH/PT có thống kê thư viện và checklist mức đầy đủ hồ sơ; Admin có tổng tài khoản, phân bố vai trò/trạng thái và các danh mục. Thống kê lấy từ API thật, không lưu cache cá nhân vào localStorage. Trang tại views/TongQuan, service tongQuanService; loading/error/retry, hủy request và bỏ qua kết quả tới muộn. Menu KH/PT/Admin nằm trong thanh bên dọc, không lặp trong nội dung; danh mục Gói tập/Thư viện và trang chi tiết cũng giữ header theo vai trò khi đăng nhập. Khi KH/PT mở chi tiết bài tập, mục Thư viện bài tập vẫn được đánh dấu đang mở. Trên màn hình nhỏ menu mở dạng ngăn bên cạnh, không làm tràn toàn trang. [Hợp đồng](../docs/features/TONG_QUAN.md), [ảnh và kiểm thử](../docs/verification/DASHBOARD.md).
 
 ## Mua gói và quản trị thanh toán M03
 
 KH vào chi tiết /goi-tap/:id, bấm **Đặt mua gói này** để tạo đơn giữ giá 15 phút. Có /khach-hang/don-hang và /khach-hang/don-hang/:id, tạo link/mở payOS/kiểm tra thanh toán; /khach-hang/goi-cua-toi hiển thị snapshot quyền lợi, thời hạn, buổi còn lại và PT phụ trách. Trở về từ payOS đọc trạng thái Backend; chưa đủ chứng cứ chỉ từ query URL.
 
-Admin có /admin/don-hang, /admin/don-hang/:id xem khoản thu và ghi kết quả hoàn tiền thủ công; /admin/phan-cong phân công/đổi PT với phiên bản và UUID. Menu KH/Admin được thêm trong header. Options API, muaGoiService tập trung, khóa gửi trùng, bỏ response cũ khi chuyển trang/mất phiên; không đưa khóa payOS vào FE.
+Admin có /admin/don-hang, /admin/don-hang/:id xem khoản thu và ghi kết quả hoàn tiền thủ công; /admin/phan-cong phân công/đổi PT với phiên bản và UUID. Menu KH/Admin nằm trong thanh bên. Options API, muaGoiService tập trung, khóa gửi trùng, bỏ response cũ khi chuyển trang/mất phiên; không đưa khóa payOS vào FE.
 
 Toàn FE đạt 102 tests, build/lint/format. Các ảnh có dữ liệu trong [kiểm chứng M03](../docs/verification/M03_MUA_GOI.md) dùng fixture demo riêng, giữ nguyên phiên người dùng; không phải chứng cứ đã chuyển tiền. Lịch PT M04 đã triển khai; chat/chatbot là module sau.
 
 ## Lịch huấn luyện M04
 
 KH đặt lịch tại /khach-hang/dat-lich, xem/hủy ở /khach-hang/lich-hen và /khach-hang/lich-hen/:id; có nút đặt lịch từ Gói của tôi. PT mở/đóng giờ tại /pt/khung-gio, xử lý yêu cầu/kết quả tại /pt/lich-hen và /pt/lich-hen/:id. Admin xem/đóng quá hạn ở /admin/lich-hen và /admin/lich-hen/:id. Navigation có Lịch hẹn; Options API, service Axios chung, filter URL/paging, confirmation/lý do, loading/empty/error và bỏ response cũ. Giờ hiển thị/chuyển đổi theo Asia/Ho_Chi_Minh. [Hợp đồng](../docs/features/LICH_HUAN_LUYEN.md), [ảnh QA và kết quả](../docs/verification/M04_LICH_HUAN_LUYEN.md).
+
+## Chat KH/PT M07
+
+Đã triển khai Tin nhắn trong menu và bảng xem nhanh trên header, danh sách/tìm kiếm/phân trang, lịch sử/soạn/gửi lại, badge chưa đọc và đồng bộ Reverb. Frontend hiện đạt116tests; kiểm chứng API/socket/trình duyệt và cấu hình nằm tại [M07_CHAT.md](../docs/verification/M07_CHAT.md).
+
+Bổ sung gửi ảnh: nút ảnh, xem trước/bỏ ảnh, kéo thả và Ctrl+V, chú thích tùy chọn, grid và xem lớn. Tối đa 4 JPG/PNG/WebP, 5 MB/ảnh. Retry giữ File/UUID; hủy upload/tải ảnh và dọn blob khi rời trang/mất phiên. FE sau phần ảnh đạt 146 tests; [kiểm chứng](../docs/verification/CHAT_IMAGES.md).
+
+Chat giữ toàn bộ chiều rộng và chiều cao desktop520–820px; thu gọn riêng thanh soạn theo mẫu Zalo. Thanh công cụ và hàng nhập/Gửi khoảng102px; textarea một dòng44px tự giãn tối đa116px, thu lại khi xóa/gửi. Preview56px chỉ hiện khi có ảnh. Đã sửa gửi chữ bị validation ảnh rỗng ở FE/BE; thêm kiểm thử payload HTTP thực tế. FE đạt149tests, lint/build và format các file thay đổi PASS; [kiểm chứng lỗi gửi chữ](../docs/verification/CHAT_COMPACT_TEXT.md), [thanh soạn mới](../docs/verification/CHAT_COMPOSER.md). Không cần migration cho các thay đổi này.
+
+## Chuông và lối tắt tin nhắn trên header
+
+Biểu tượng tin nhắn KH/PT hiện mở bảng xem nhanh hội thoại, bấm từng người mới mở chat; có “Xem tất cả tin nhắn”. Bảng tối đa sáu dòng, đồng bộ dữ liệu thật, không đánh dấu đọc chỉ vì xem preview. [Kiểm chứng bảng xem nhanh](../docs/verification/HEADER_MESSAGE_PREVIEW.md). FE sau cập nhật đạt 132 tests và build/lint/format PASS.
+
+Chuông KH/PT/Admin có danh sách phân trang, đánh dấu đọc và số chưa đọc từ Backend. KH/PT có biểu tượng vào chat; Admin không đọc chat riêng. Có trạng thái trống/lỗi, Escape/bấm ngoài, dark/light và điện thoại. Chưa gắn sự kiện nghiệp vụ tự động; [phạm vi và đề xuất](../docs/features/NOTIFICATIONS.md), [ảnh kiểm tra](../docs/verification/HEADER_NOTIFICATIONS.md). Sau bổ sung bảng xem nhanh: 132 tests và build/lint/format PASS.
+
+## Menu dọc có thể thu gọn
+
+Khung nội dung KH/PT/Admin tại `CaNhanLayout.vue` đã bỏ giới hạn 1.240px, dùng hết chiều rộng còn lại bên cạnh menu. Giữ padding 32px desktop, 24px tablet và 16px hai bên mobile; chat giữ khoảng đệm riêng. QA PT1920px: main bằng stage (khoảng1.641px mở menu, 1.821px thu gọn), không tràn ngang; mobile390px không tràn. Build và format phần thay đổi PASS; thay CSS nên không thêm test nghiệp vụ. Bằng chứng `docs/verification/content-full-width.png`, `content-full-width-mobile.png`.
+
+Logo Tr0ond của chủ dự án thay chữ H ở trang chủ/header/footer, layout xác thực, danh mục công khai và menu KH/PT/Admin. Component dùng chung `src/components/LogoThuongHieu.vue` tự chọn ảnh theo Pinia chuDe: light dùng ảnh trước `public/images/logo-tr0ond.png`, dark dùng ảnh mới `public/images/logo-tr0ond-dark.png`. Hai ảnh giữ nguyên bản, nền trong suốt và object-fit contain; 56px ở thương hiệu công khai/xác thực, 48px trong sidebar mở/thu gọn. Kiểm tra trình duyệt PT chuyển dark → light → dark và tải lại, src đổi đúng và ảnh tải được; bằng chứng tại `docs/verification/logo-theme-dark.png`, `logo-theme-light.png`; phần mở/thu gọn ở `logo-sidebar.png`, `logo-sidebar-collapsed.png` là trước khi bổ sung hai biến thể. Sau cập nhật logo theo theme: FE 146 tests, build/lint/format PASS; không thay avatar tài khoản.
+
+KH/PT/Admin có thanh bên riêng theo vai trò, giữ bố cục khi mở thư viện bài tập hoặc gói tập. Nút ở góc trái header mở/thu gọn menu; tùy chọn được lưu trên trình duyệt. Header giữ đổi theme, chuông, tin nhắn KH/PT và avatar. Bấm avatar để xem hồ sơ hoặc đăng xuất. Admin không có chat riêng theo phạm vi đã chốt. [Kiểm chứng giao diện](../docs/verification/SIDEBAR_NAVIGATION.md).

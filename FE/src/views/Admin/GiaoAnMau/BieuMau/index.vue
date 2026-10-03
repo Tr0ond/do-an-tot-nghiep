@@ -143,7 +143,9 @@
                     @click="ngayChon = ngay"
                   >
                     Ngày {{ ngay }}
-                    <small class="badge bg-light text-dark ms-1">· {{ demBai(ngay) }}</small>
+                    <small class="badge bg-secondary-subtle text-body ms-1"
+                      >· {{ demBai(ngay) }}</small
+                    >
                   </button>
                 </nav>
               </div>
@@ -152,7 +154,7 @@
               <div
                 class="d-flex justify-content-between align-items-center gap-2 my-3 pb-2 border-bottom"
               >
-                <h3 class="fs-5 fw-bold text-dark m-0">
+                <h3 class="fs-5 fw-bold text-body m-0">
                   <i class="bi bi-list-check text-success me-1"></i>
                   Bài tập trong Ngày {{ ngayChon }}
                 </h3>

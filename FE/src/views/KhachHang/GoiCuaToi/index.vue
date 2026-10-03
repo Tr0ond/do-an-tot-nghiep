@@ -49,10 +49,10 @@
           </span>
         </div>
 
-        <h2 class="h3 fw-bold mb-2 text-dark">{{ goi.ten_goi }}</h2>
+        <h2 class="h3 fw-bold mb-2 text-body">{{ goi.ten_goi }}</h2>
 
         <!-- Khung quyền lợi -->
-        <div class="p-3 my-3 bg-light rounded-3 border">
+        <div class="p-3 my-3 bg-body-secondary rounded-3 border">
           <QuyenLoiGoiTap :goi="goi" />
         </div>
 
@@ -106,13 +106,13 @@
 
         <!-- Nếu đã có PT -->
         <template v-if="pt">
-          <div class="pt-profile-card p-3 rounded-3 bg-light border mb-3">
+          <div class="pt-profile-card p-3 rounded-3 surface-card mb-3">
             <div class="d-flex align-items-center gap-3">
               <div class="pt-avatar-circle">
                 {{ pt.ho_ten ? pt.ho_ten.charAt(0).toUpperCase() : 'P' }}
               </div>
               <div>
-                <strong class="d-block text-dark fs-6">{{ pt.ho_ten }}</strong>
+                <strong class="d-block text-body fs-6">{{ pt.ho_ten }}</strong>
                 <span class="small text-muted">{{
                   pt.chuyen_mon || 'Huấn luyện viên cá nhân'
                 }}</span>
@@ -121,7 +121,7 @@
           </div>
           <div class="badge-assigned mb-3">
             <i class="bi bi-check-circle-fill text-emerald me-1" aria-hidden="true"></i>
-            <span class="small fw-semibold text-dark">Đang phụ trách hướng dẫn bạn</span>
+            <span class="small fw-semibold text-body">Đang phụ trách hướng dẫn bạn</span>
           </div>
           <RouterLink
             v-if="goi.so_buoi_con_lai > 0"
@@ -132,7 +132,7 @@
         </template>
 
         <!-- Nếu chưa có PT -->
-        <div v-else class="alert alert-light border p-3 rounded-3 mb-3">
+        <div v-else class="surface-card p-3 rounded-3 mb-3">
           <div class="d-flex align-items-start gap-2">
             <i class="bi bi-hourglass-split text-amber fs-5 flex-shrink-0" aria-hidden="true"></i>
             <p class="text-muted small mb-0">
@@ -145,7 +145,7 @@
           </div>
         </div>
 
-        <div class="p-3 bg-light-subtle rounded-3 border small text-muted">
+        <div class="p-3 surface-card rounded-3 small text-muted">
           <i class="bi bi-info-circle me-1 text-emerald" aria-hidden="true"></i>
           Khi dùng hết buổi PT, quyền chatbot vẫn giữ đến hết hạn gói.
         </div>
@@ -262,14 +262,14 @@ export default {
 
 .fact-highlight-pt {
   background: var(--mau-chinh-nhat) !important;
-  border-color: rgba(5, 150, 105, 0.25) !important;
+  border-color: rgba(244, 91, 32, 0.25) !important;
 }
 
 .pt-avatar-circle {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #059669, #10b981);
+  background: linear-gradient(135deg, #f45b20, #d94a15);
   color: #ffffff;
   display: grid;
   place-items: center;
@@ -278,11 +278,17 @@ export default {
   flex-shrink: 0;
 }
 
+.surface-card {
+  background: var(--mau-the-sub, rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--mau-vien);
+}
+
 .empty-icon-ring {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: #f1f5f9;
+  background: var(--mau-the-sub, #1e1e1e);
+  border: 1px solid var(--mau-vien);
   display: flex;
   align-items: center;
   justify-content: center;

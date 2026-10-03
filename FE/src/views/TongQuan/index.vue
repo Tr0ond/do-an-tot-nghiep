@@ -188,7 +188,7 @@
             <!-- Thống kê trạng thái giáo án chi tiết -->
             <div class="plan-status-breakdown mt-4 pt-3 border-top">
               <div class="d-flex align-items-center justify-content-between mb-2">
-                <span class="small fw-semibold text-dark">
+                <span class="small fw-semibold text-body">
                   <i class="bi bi-journal-text text-emerald me-1" aria-hidden="true"></i>Tình trạng
                   duyệt giáo án mẫu
                 </span>
@@ -720,9 +720,9 @@ export default {
 }
 
 .dashboard {
-  --dashboard-ink: #183c33;
-  --dashboard-green: #047857;
-  --dashboard-muted: #52655e;
+  --dashboard-ink: var(--mau-chu, #ffffff);
+  --dashboard-green: var(--mau-chinh, #f45b20);
+  --dashboard-muted: var(--mau-phu, #94a3b8);
 }
 
 .dashboard-heading {
@@ -734,9 +734,11 @@ export default {
 }
 
 .dashboard-heading h1 {
+  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
   font-size: clamp(1.65rem, 3vw, 2.15rem);
   letter-spacing: -0.04em;
   margin: 4px 0 6px;
+  color: var(--dashboard-ink, #ffffff);
   overflow-wrap: anywhere;
 }
 
@@ -754,18 +756,22 @@ export default {
 }
 
 .metric-item {
-  background: white;
-  border: 1px solid var(--mau-vien);
+  background: var(--mau-the, #141414);
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
   border-radius: 16px;
   padding: 20px;
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .metric-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  border-color: rgba(244, 91, 32, 0.4);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(244, 91, 32, 0.12);
 }
 
 .metric-top {
@@ -786,19 +792,21 @@ export default {
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  background: var(--mau-chinh-nhat);
+  background: rgba(244, 91, 32, 0.12);
   color: var(--mau-chinh);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.15rem;
+  border: 1px solid rgba(244, 91, 32, 0.25);
 }
 
 .metric-item dd {
+  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
   font-size: 2.2rem;
   letter-spacing: -0.05em;
   font-weight: 800;
-  color: var(--dashboard-ink);
+  color: var(--dashboard-ink, var(--mau-chu));
   margin: 12px 0 4px;
   line-height: 1.1;
   font-variant-numeric: tabular-nums;
@@ -824,11 +832,12 @@ export default {
 }
 
 .dashboard-panel {
-  background: white;
-  border: 1px solid var(--mau-vien);
+  background: var(--mau-the, #141414);
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
   border-radius: 16px;
   padding: 26px;
   min-width: 0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
 .panel-heading {
@@ -840,18 +849,21 @@ export default {
 }
 
 .section-kicker {
-  color: var(--dashboard-green);
+  color: var(--mau-chinh, #f45b20);
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   font-weight: 750;
   display: block;
+  text-transform: uppercase;
 }
 
 .panel-heading h2 {
+  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
   font-size: 1.22rem;
   font-weight: 700;
   margin: 4px 0 0;
   letter-spacing: -0.025em;
+  color: var(--dashboard-ink, var(--mau-chu));
 }
 
 .btn-link-action {
@@ -860,18 +872,20 @@ export default {
   min-height: 36px;
   display: inline-flex;
   align-items: center;
-  color: var(--dashboard-green);
+  color: var(--mau-chinh, #f45b20);
   text-decoration: none;
+  transition: var(--chuyen-canh-nhanh);
 }
 
 .btn-link-action:hover {
+  color: var(--mau-chinh-hover, #ff6f38);
   text-decoration: underline;
 }
 
-/* Biểu đồ thuần CSS tương thích chuẩn charts.css */
+/* Biểu đồ thuần CSS tương thích chuẩn charts.css trong Dark Mode */
 .chart-container-box {
-  background: #fcfdfd;
-  border: 1px solid #eef2f6;
+  background: var(--mau-the-sub, #0d0d0d);
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
   border-radius: 12px;
   padding: 20px 20px 12px;
 }
@@ -904,7 +918,7 @@ export default {
   align-items: flex-end;
   height: 135px;
   width: 100%;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.12);
   padding-bottom: 0;
 }
 
@@ -937,7 +951,7 @@ export default {
   justify-content: center;
   align-items: flex-start;
   transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .charts-css.column td.chart-bar .data {
@@ -945,12 +959,12 @@ export default {
   top: -24px;
   font-size: 0.78rem;
   font-weight: 750;
-  color: var(--mau-chu);
-  background: white;
+  color: #ffffff;
+  background: #1e1e1e;
   padding: 1px 6px;
   border-radius: 4px;
-  border: 1px solid var(--mau-vien);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   white-space: nowrap;
 }
 
@@ -978,6 +992,7 @@ export default {
   gap: 16px;
   margin-bottom: 6px;
   font-size: 0.88rem;
+  color: var(--dashboard-ink, var(--mau-chu));
 }
 
 .role-legend-dot {
@@ -989,7 +1004,7 @@ export default {
 
 .bar-track {
   height: 8px;
-  background: #f1f5f9;
+  background: var(--mau-vien, #202020);
   border-radius: 6px;
   overflow: hidden;
 }
@@ -1042,11 +1057,12 @@ export default {
   height: 42px;
   display: grid;
   place-items: center;
-  background: var(--mau-chinh-nhat);
-  color: var(--dashboard-green);
+  background: rgba(244, 91, 32, 0.12);
+  color: var(--mau-chinh);
   border-radius: 12px;
   font-size: 1.15rem;
   flex-shrink: 0;
+  border: 1px solid rgba(244, 91, 32, 0.2);
 }
 
 .catalog-link-copy {
@@ -1076,7 +1092,7 @@ export default {
 .catalog-metric-pill b {
   font-size: 1.1rem;
   font-weight: 750;
-  color: var(--dashboard-ink);
+  color: var(--dashboard-ink, var(--mau-chu));
   font-variant-numeric: tabular-nums;
 }
 
@@ -1088,16 +1104,26 @@ export default {
   color: var(--mau-chinh);
 }
 
-/* Personal Focus (Khách hàng & PT) */
+/* Personal Focus (Khách hàng & PT) - Cinematic Dark Card */
 .personal-focus {
-  background: linear-gradient(145deg, #ecfdf5, #d1fae5);
-  border: 1px solid #a7f3d0;
+  background: linear-gradient(145deg, #1c1008 0%, #141414 70%);
+  border: 1px solid rgba(244, 91, 32, 0.35);
   border-radius: 16px;
   padding: 32px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   min-width: 0;
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(244, 91, 32, 0.1);
+}
+
+:root[data-theme='light'] .personal-focus,
+.light-theme .personal-focus {
+  background: linear-gradient(145deg, #fff7ed 0%, #ffffff 70%);
+  border-color: rgba(244, 91, 32, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
 .focus-badge {
@@ -1107,25 +1133,27 @@ export default {
   font-size: 0.72rem;
   font-weight: 750;
   letter-spacing: 0.1em;
-  color: var(--dashboard-green);
-  background: rgba(255, 255, 255, 0.7);
+  color: var(--mau-chinh);
+  background: rgba(244, 91, 32, 0.15);
+  border: 1px solid rgba(244, 91, 32, 0.3);
   padding: 4px 10px;
   border-radius: 20px;
 }
 
 .personal-focus h2 {
+  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
   font-size: 1.85rem;
   letter-spacing: -0.04em;
   line-height: 1.25;
   margin: 18px 0 12px;
   max-width: 440px;
-  color: var(--dashboard-ink);
+  color: var(--dashboard-ink, var(--mau-chu));
   font-weight: 800;
   overflow-wrap: anywhere;
 }
 
 .personal-focus p {
-  color: #065f46;
+  color: var(--dashboard-muted, var(--mau-phu));
   line-height: 1.6;
   margin-bottom: 24px;
   max-width: 420px;
@@ -1133,11 +1161,11 @@ export default {
 }
 
 .focus-footnote {
-  border-top: 1px solid rgba(5, 150, 105, 0.2);
+  border-top: 1px solid rgba(244, 91, 32, 0.2);
   margin-top: auto;
   padding-top: 20px;
   font-size: 0.82rem;
-  color: #065f46;
+  color: var(--dashboard-muted, var(--mau-phu));
   width: 100%;
   display: flex;
   align-items: center;
@@ -1154,8 +1182,8 @@ export default {
   align-items: center;
   gap: 20px;
   padding: 16px;
-  background: #fcfdfd;
-  border: 1px solid #eef2f6;
+  background: var(--mau-the-sub, #0d0d0d);
+  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
   border-radius: 14px;
 }
 
@@ -1174,13 +1202,13 @@ export default {
 
 .ring-bg {
   fill: none;
-  stroke: #edf3f0;
+  stroke: var(--mau-the-hover, #222222);
   stroke-width: 8;
 }
 
 .ring-indicator {
   fill: none;
-  stroke: var(--dashboard-green);
+  stroke: var(--mau-chinh);
   stroke-width: 8;
   stroke-linecap: round;
   transition: stroke-dashoffset 0.8s ease;
@@ -1200,7 +1228,7 @@ export default {
 .ring-number {
   font-size: 1.15rem;
   font-weight: 800;
-  color: var(--dashboard-ink);
+  color: var(--dashboard-ink, var(--mau-chu));
   line-height: 1;
 }
 
@@ -1213,13 +1241,14 @@ export default {
 
 .profile-percent {
   font-size: 1.8rem;
-  color: var(--dashboard-green);
+  color: var(--mau-chinh);
   letter-spacing: -0.04em;
+  font-weight: 800;
 }
 
 .profile-caption {
   font-size: 0.88rem;
-  color: var(--dashboard-ink);
+  color: var(--dashboard-muted, var(--mau-phu));
 }
 
 .profile-checklist {
@@ -1236,7 +1265,7 @@ export default {
   gap: 10px;
   font-size: 0.86rem;
   padding-bottom: 8px;
-  border-bottom: 1px dashed #f1f5f9;
+  border-bottom: 1px dashed var(--mau-vien, rgba(255, 255, 255, 0.08));
 }
 
 .profile-checklist li:last-child {
@@ -1245,12 +1274,12 @@ export default {
 }
 
 .profile-checklist i {
-  color: #94a3b8;
+  color: #64748b;
   font-size: 1rem;
 }
 
 .profile-checklist .da-co {
-  color: var(--dashboard-green);
+  color: var(--mau-chinh);
 }
 
 .checklist-name {
@@ -1262,7 +1291,7 @@ export default {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--dashboard-green);
+  color: var(--mau-chinh);
   font-size: 0.85rem;
   font-weight: 650;
   min-height: 40px;
@@ -1271,6 +1300,7 @@ export default {
 }
 
 .profile-link:hover {
+  color: var(--mau-chinh-hover);
   text-decoration: underline;
 }
 
@@ -1292,7 +1322,7 @@ export default {
   padding: 18px 20px;
   border: 1px solid var(--mau-vien);
   border-radius: 14px;
-  background: white;
+  background: var(--mau-the, #141414);
   color: var(--dashboard-ink);
   text-decoration: none;
   min-height: 82px;
@@ -1303,12 +1333,13 @@ export default {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: var(--mau-chinh-nhat);
-  color: var(--dashboard-green);
+  background: rgba(244, 91, 32, 0.12);
+  color: var(--mau-chinh);
   display: grid;
   place-items: center;
   font-size: 1.25rem;
   flex-shrink: 0;
+  border: 1px solid rgba(244, 91, 32, 0.2);
 }
 
 .quick-link-copy {
@@ -1330,7 +1361,7 @@ export default {
 }
 
 .quick-arrow-box {
-  color: #94a3b8;
+  color: #64748b;
   font-size: 0.9rem;
   transition:
     transform 0.2s ease,
@@ -1340,6 +1371,8 @@ export default {
 .quick-link:hover {
   transform: translateY(-2px);
   border-color: var(--mau-chinh);
+  background: var(--mau-the-hover, #1a1a1a);
+  box-shadow: var(--bong-trung);
 }
 
 .quick-link:hover .quick-arrow-box {
@@ -1372,14 +1405,14 @@ export default {
 }
 
 .btn-primary {
-  background: var(--mau-chinh);
+  background: var(--mau-gradient-chinh, linear-gradient(135deg, #f45b20 0%, #d94a15 100%));
   border-color: var(--mau-chinh);
   color: #ffffff;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: var(--mau-chinh-dam);
-  border-color: var(--mau-chinh-dam);
+  background: linear-gradient(135deg, #ff6f38 0%, #f45b20 100%);
+  border-color: #ff6f38;
 }
 
 /* Responsive */

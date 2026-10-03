@@ -174,7 +174,7 @@ describe('Render màn hình mua gói có dữ liệu', () => {
     const html = await render(DonHang, '/khach-hang/don-hang/7', { don })
     expect(html).toContain('Chờ thanh toán')
     expect(html).toContain('Tạo liên kết thanh toán')
-    expect(html).toMatch(/href="\/khach-hang\/don-hang"[^>]*router-link-active/)
+    expect(html).toMatch(/href="\/khach-hang\/don-hang"[^>]*is-active/)
   })
   it('danh sách có đơn hiển thị nhãn trạng thái', async () => {
     const html = await render(DonHang, '/khach-hang/don-hang', { danhSach: [don] })
