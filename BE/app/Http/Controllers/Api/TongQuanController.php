@@ -3,17 +3,19 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TongQuanRequest;
 use App\Models\BaiTap;
 use App\Models\GiaoAnMau;
 use App\Models\GoiTap;
 use App\Models\NhomCo;
 use App\Models\TaiKhoan;
+use App\Services\TongQuanKhachHangService;
+use App\Services\TongQuanPtService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class TongQuanController extends Controller
 {
-    public function index(Request $request): JsonResponse
+    public function index(TongQuanRequest $request): JsonResponse
     {
         $taiKhoan = $request->user();
         $thuVien = [
@@ -55,6 +57,9 @@ class TongQuanController extends Controller
             $duLieu['ho_so'] = ['hoan_thanh' => count(array_filter($cacMuc, fn ($muc) => $muc['da_co'])), 'tong_muc' => count($cacMuc), 'cac_muc' => $cacMuc];
             if ($laPt) {
                 $duLieu['giao_an_da_duyet'] = GiaoAnMau::where('trang_thai', 'DA_DUYET')->count();
+                $duLieu['huan_luyen'] = app(TongQuanPtService::class)->doc($taiKhoan);
+            } else {
+                $duLieu['hanh_trinh'] = app(TongQuanKhachHangService::class)->doc($taiKhoan, (int) ($request->validated('so_ngay') ?? 30));
             }
         }
 

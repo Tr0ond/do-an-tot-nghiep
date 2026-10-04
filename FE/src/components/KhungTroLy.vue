@@ -221,8 +221,10 @@
               <summary>Dữ liệu gửi Gemini · AI có thể sai</summary>
               <small
                 >Câu hỏi và lịch sử chatbot được gửi cho Google Gemini. Khi bật dữ liệu tập, gửi
-                thêm mục tiêu, kinh nghiệm, giáo án đang dùng và số buổi hoàn thành. Không dùng chat
-                riêng với PT. AI chỉ tư vấn; không dùng để chẩn đoán hoặc điều trị.</small
+                thêm mục tiêu, kinh nghiệm, giáo án đang dùng, số buổi hoàn thành và chiều cao, cân
+                nặng, BMI cùng các lần đo gần đây. Không gửi ghi chú chỉ số hoặc chat riêng với PT.
+                AI hỗ trợ tư vấn và tạo giáo án nháp khi bạn yêu cầu; không tự áp dụng, không dùng
+                để chẩn đoán hoặc điều trị.</small
               >
             </details>
           </div>

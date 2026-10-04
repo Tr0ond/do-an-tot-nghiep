@@ -13,8 +13,10 @@ Các module còn lại định tuyến qua `SCOPE.md`, `PROJECT_RULES.md`, `DATA
 - [GIAO_AN_MAU.md](GIAO_AN_MAU.md): Admin soạn/duyệt/ngừng giáo án; PT đọc thư viện, UUID/phiên bản/transaction, bảo toàn kế hoạch và seeder 5 giáo án demo.
 
 - [TONG_QUAN.md](TONG_QUAN.md): trang chủ guest và dashboard KH/PT/Admin, aggregate thật, quyền dữ liệu và điều hướng theo session.
+- [BAO_CAO.md](BAO_CAO.md): báo cáo Admin theo ngày/tháng, tiền nhận/hoàn/đối soát, đăng ký và buổi PT hoàn thành; phân bố tiền theo gói và học viên theo PT.
 
 - [MUA_GOI_THANH_TOAN.md](MUA_GOI_THANH_TOAN.md): đặt mua/payOS/kích hoạt/đối soát thủ công và Admin phân công PT, UUID/transaction/quyền theo tài nguyên.
 
 - [LICH_HUAN_LUYEN.md](LICH_HUAN_LUYEN.md): PT mở giờ 60 phút, KH đặt/hủy, PT ghi nhận hoàn thành/vắng mặt, Admin đóng quá hạn; deadline/transaction/quota/ownership và scheduler.
 - [NHAT_KY_TAP.md](NHAT_KY_TAP.md): KH tự lên lịch và ghi hiệp thực tế, PT xem/nhận xét, snapshot, version/UUID, thống kê từ phiên hoàn thành; không trừ buổi PT.
+- [CHI_SO_CO_THE.md](CHI_SO_CO_THE.md): KH ghi chiều cao/cân nặng, BMI và lịch sử theo ngày; PT hiện phụ trách chỉ đọc, AI nhận dữ liệu khi KH bật tùy chọn cá nhân.

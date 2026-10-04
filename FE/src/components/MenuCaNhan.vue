@@ -48,6 +48,7 @@ const menuVaiTro = {
     muc('Gói của tôi', '/khach-hang/goi-cua-toi', 'wallet2'),
     muc('Giáo án của tôi', '/khach-hang/ke-hoach', 'journal-check'),
     muc('Lịch & nhật ký tập', '/khach-hang/lich-tap', 'calendar2-week'),
+    muc('Chỉ số cơ thể', '/khach-hang/chi-so-co-the', 'activity'),
     muc('Lịch hẹn', '/khach-hang/lich-hen', 'calendar3', { lienQuan: '/khach-hang/dat-lich' }),
     muc('Đơn hàng', '/khach-hang/don-hang', 'receipt'),
     muc('Gói tập', '/goi-tap', 'box-seam'),

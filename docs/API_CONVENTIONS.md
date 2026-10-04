@@ -128,6 +128,14 @@ Tất cả endpoint ghi trên có CSRF. CORS bao gồm cả hai route session m�
 ## Tổng quan KH/PT/Admin đã triển khai
 GET /api/v1/khach-hang/tong-quan, /api/v1/pt/tong-quan và /api/v1/admin/tong-quan yêu cầu đúng vai trò và tài khoản hoạt động. Response status/message/data, Cache-Control: private, no-store. Data gồm vai_tro/cap_nhat_luc/thu_vien; KH/PT có ho_so (số mục/checklist), PT thêm giao_an_da_duyet; chỉ Admin có quan_tri (aggregate tài khoản và catalog). Query user ID/vai trò không thay đổi scope. 401/403 theo quyền; không ghi DB, không phát sinh gói/quyền sử dụng. [Hợp đồng chi tiết](features/TONG_QUAN.md).
 
+KH bổ sung `data.hanh_trinh`: lịch và phiên tự tập, giáo án đang áp dụng, gói snapshot/hạn mức AI, PT hiện tại, BMI và tiến độ. Query `so_ngay=7|30|90`, mặc định 30, sai định dạng/khoảng trả 422. Khoảng này chỉ đổi biểu đồ tự tập; BMI vẫn 30 ngày. Các aggregate lấy KH từ session, không nhận ID để mở rộng quyền; GET không bắt đầu buổi tập, gọi Gemini hoặc trừ lượt. Chi tiết cách tính tỷ lệ, khoảng ngày Việt Nam và trạng thái trống trong hợp đồng tổng quan.
+
+PT bổ sung `data.huan_luyen`: lịch hôm nay, việc chờ xử lý, học viên, giáo án, preview chat, tuần PT và khung giờ 7 ngày. Backend lấy PT từ session/phân công hiện tại; bỏ tham số ID tùy ý, không mở rộng quyền. Preview chat dùng cursor PT, không đánh dấu đọc. Deadline được tính động; GET không xác nhận hẹn, gửi giáo án hay tiêu hao buổi. [Cách tính và giới hạn hàng](features/TONG_QUAN.md#dashboard-pt-theo-thiết-kế-cung-cấp--04102026).
+
 ## M04 lịch huấn luyện đã triển khai
 
 Danh sách endpoint/payload/quyền/trạng thái/retry/deadline tại [LICH_HUAN_LUYEN.md](features/LICH_HUAN_LUYEN.md). Ba khu vực KH/PT/Admin dùng scope riêng. Ghi lịch/ghi nhận/trừ lượt/audit đi qua transaction; giờ Việt Nam chỉ ở UI/query ngày, thời điểm API lưu UTC. Bằng chứng chạy MariaDB, kiểm thử hai process và UI responsive tại [M04_LICH_HUAN_LUYEN.md](verification/M04_LICH_HUAN_LUYEN.md).
+
+## Chỉ số cơ thể C38 đã triển khai
+
+KH GET/POST `/api/v1/khach-hang/chi-so-co-the`, PUT `/{id}`; PT GET `/api/v1/pt/hoc-vien/{khachId}/chi-so-co-the`. KH chỉ truy cập bản thân; PT phải đang được phân công, không có quyền ghi. Payload không nhận vòng eo, BMI hoặc ID khách hàng; BMI tính ở server. POST cùng ngày/cùng dữ liệu trả bản cũ, khác dữ liệu trả409; PUT kiểm tra phiên bản micro giây và transaction. Danh sách có khoảng7/30/90 ngày, ngày kết thúc, phân trang và `private,no-store`. [Hợp đồng đầy đủ](features/CHI_SO_CO_THE.md).

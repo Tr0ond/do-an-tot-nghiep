@@ -169,3 +169,9 @@ Tách API client, chuẩn hóa response, cleanup listeners, tổ chức docs, fo
 ## C35 — Lịch tự tập và nhật ký (03/10/2026, ĐÃ CHỐT)
 
 Chủ dự án yêu cầu triển khai bước tiếp theo: KH chọn ngày từ giáo án đang dùng (tự tạo hoặc PT giao), ghi kết quả và hoàn thành buổi; PT phụ trách xem và nhận xét, thống kê từ dữ liệu thực. KH không mua gói vẫn tự tập; không trừ lượt PT, giữ lịch sử khi đổi giáo án. Chi tiết trạng thái, quyền và giới hạn kỹ thuật: [NHAT_KY_TAP.md](features/NHAT_KY_TAP.md).
+
+## C38 — Chỉ số cơ thể (04/10/2026, ĐÃ CHỐT)
+
+- Chủ dự án yêu cầu ghi chiều cao/cân nặng, tính BMI, theo dõi thay đổi và dùng cho PT/AI; yêu cầu bỏ vòng eo, sau đó xác nhận triển khai phương án.
+- KH ghi/sửa chỉ số của mình miễn phí, một bản/ngày, chiều cao snapshot; PT hiện phụ trách chỉ đọc; AI chỉ nhận dữ liệu khi KH bật tùy chọn cá nhân. Không xóa lịch sử, không suy ra cơ/mỡ hoặc tự áp dụng giáo án.
+- Dùng bảng hiện có, không gỡ cột vòng eo cũ để tránh mất dữ liệu; không đưa cột này vào API/UI/AI. Hợp đồng và lựa chọn triển khai tại [CHI_SO_CO_THE.md](features/CHI_SO_CO_THE.md).

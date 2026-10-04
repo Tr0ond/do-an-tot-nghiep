@@ -31,9 +31,42 @@ const duLieuKhach = {
 }
 
 describe('Trang chủ và dashboard', () => {
+  it('KH đổi kỳ chỉ gửi khoảng ngày hợp lệ và giữ lựa chọn khi làm mới', async () => {
+    setActivePinia(createPinia())
+    useXacThucStore().taiKhoan = { vai_tro: 'KHACH_HANG' }
+    tongQuanService.taiTongQuan.mockResolvedValue({ data: duLieuKhach })
+    const trang = taoTrang()
+    trang.doiKhoang(90)
+    await Promise.resolve()
+    expect(tongQuanService.taiTongQuan).toHaveBeenLastCalledWith(
+      'KHACH_HANG',
+      expect.any(AbortSignal),
+      { so_ngay: 90 },
+    )
+    const soLan = tongQuanService.taiTongQuan.mock.calls.length
+    trang.doiKhoang(8)
+    expect(tongQuanService.taiTongQuan).toHaveBeenCalledTimes(soLan)
+    await trang.taiTongQuan()
+    expect(tongQuanService.taiTongQuan).toHaveBeenLastCalledWith(
+      'KHACH_HANG',
+      expect.any(AbortSignal),
+      { so_ngay: 90 },
+    )
+  })
   beforeEach(() => {
     vi.resetAllMocks()
     setActivePinia(createPinia())
+  })
+  it('Cập nhật làm mới cả số liệu tổng quan và báo cáo theo kỳ đang xem', () => {
+    const trang = taoTrang()
+    trang.taiTongQuan = vi.fn()
+    const baoCao = { taiBaoCao: vi.fn(), trangPt: 2, boLocDaTai: { nhom: 'thang' } }
+    trang.$refs = { baoCao }
+    trang.capNhatTongQuan()
+    expect(trang.taiTongQuan).toHaveBeenCalledOnce()
+    expect(baoCao.taiBaoCao).toHaveBeenCalledWith(2, true)
+    trang.$refs = {}
+    expect(() => trang.capNhatTongQuan()).not.toThrow()
   })
   it.each([
     ['KHACH_HANG', '/khach-hang/tong-quan'],
@@ -92,14 +125,14 @@ describe('Trang chủ và dashboard', () => {
       await kiemTraDieuHuong({ path: '/dang-ky', meta: { khach: true } }, useXacThucStore()),
     ).toEqual({ path: '/khach-hang/tong-quan', replace: true })
   })
-  it('thư viện rỗng vẫn hiển thị 0 và phần trăm đúng, không thêm số liệu giả', async () => {
+  it('giữ dữ liệu API khi thư viện rỗng, không thêm số liệu giả', async () => {
     useXacThucStore().taiKhoan = { vai_tro: 'KHACH_HANG', ho_ten: 'Khách' }
     tongQuanService.taiTongQuan.mockResolvedValue({ data: duLieuKhach })
     const trang = taoTrang()
     await trang.taiTongQuan()
-    expect(trang.cacThongKe.map((muc) => muc.so)).toEqual([17, 0, 0, 0])
-    expect(trang.cacThongKe[0].nhan).toBe('Hồ sơ hoàn thiện')
-    expect(trang.cacLoiTat.every((muc) => !muc.to.startsWith('/admin'))).toBe(true)
+    expect(trang.duLieu).toEqual(duLieuKhach)
+    expect(trang.laKh).toBe(true)
+    expect(trang.laAdmin).toBe(false)
     expect(trang.dangTai).toBe(false)
   })
   it('cập nhật liên tiếp hủy request trước và bỏ qua kết quả đến muộn', async () => {

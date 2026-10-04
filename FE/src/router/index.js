@@ -11,6 +11,16 @@ const router = createRouter({
   },
   routes: [
     {
+      path: '/khach-hang/chi-so-co-the',
+      component: () => import('../views/ChiSoCoThe/index.vue'),
+      meta: { vaiTro: 'KHACH_HANG' },
+    },
+    {
+      path: '/pt/hoc-vien/:khachId/chi-so-co-the',
+      component: () => import('../views/ChiSoCoThe/index.vue'),
+      meta: { vaiTro: 'HUAN_LUYEN_VIEN' },
+    },
+    {
       path: '/khach-hang/chatbot',
       component: () => import('../views/Chatbot/index.vue'),
       meta: { vaiTro: 'KHACH_HANG' },

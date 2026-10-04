@@ -135,6 +135,12 @@
 
           <div class="kh-card-footer pt-3 mt-auto border-top d-flex flex-column gap-2">
             <RouterLink
+              :to="`/pt/hoc-vien/${kh.id}/chi-so-co-the`"
+              class="btn btn-outline-secondary w-100"
+            >
+              <i class="bi bi-activity" aria-hidden="true"></i> Chỉ số cơ thể
+            </RouterLink>
+            <RouterLink
               :to="`/pt/hoc-vien/${kh.id}/lich-tap`"
               class="btn btn-outline-secondary w-100"
               ><i class="bi bi-calendar2-week" aria-hidden="true"></i> Lịch & nhật ký học

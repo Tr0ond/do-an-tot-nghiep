@@ -92,6 +92,8 @@ Mascot/nút mở cũng kéo được độc lập, giữ vị trí qua đóng/m�
 
 ## Đánh giá để trình bày trong luận văn
 
+C38 bổ sung ngữ cảnh chỉ số cơ thể khi KH bật dữ liệu cá nhân: chiều cao/cân nặng/BMI lần gần nhất, tối đa10 lần đo trong90 ngày và thay đổi cân nặng từ đầu-cuối90 ngày. Không gửi ghi chú chỉ số hoặc vòng eo. Khi tắt không đưa nhóm dữ liệu này vào ngữ cảnh. BMI chỉ tham khảo, không suy ra tỷ lệ mỡ/chẩn đoán/phân loại người chưa trưởng thành; không dùng BMI làm căn cứ duy nhất lập giáo án. [Hợp đồng chỉ số cơ thể](CHI_SO_CO_THE.md).
+
 Chuẩn bị 40–60 câu hỏi có rubric; ghi provider/model/prompt version/dữ liệu nguồn/ngày test. Nhóm câu hỏi: gói/so sánh, mục tiêu thiếu dữ kiện, lịch mẫu, FAQ, catalog đã đổi/ngừng bán, dữ liệu không có, trái quyền và yêu cầu vượt phạm vi.
 
 Đo: độ đúng dữ liệu gói, nguồn có hỗ trợ câu trả lời không, có bịa catalog/chính sách không, hỏi lại hợp lý, tỷ lệ lỗi, độ trễ và token. Ghi rõ mẫu/tiêu chí/người chấm; không tuyên bố chính xác 100%.

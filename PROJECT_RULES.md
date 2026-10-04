@@ -66,6 +66,8 @@ Theo C35, KH cũng được tự lên lịch từ giáo án đang áp dụng c�
 
 **R13 — Nhật ký:** KH chỉ nhập kết quả của mình từ lịch tập hợp lệ. Phiên hoàn thành bất biến; PT thêm nhận xét ở dữ liệu riêng. Hủy/hoàn thành giữ lịch sử; hoàn thành lặp không sinh hai phiên/hiệu ứng.
 
+Bổ sung C38 đã được chủ dự án xác nhận: KH ghi chiều cao/cân nặng theo ngày, hệ thống tính BMI và giữ lịch sử; miễn phí, không cần lịch/gói/PT. PT hiện phụ trách chỉ đọc. Không dùng vòng eo. AI chỉ nhận số đo khi KH bật dữ liệu cá nhân, BMI chỉ tham khảo. [Hợp đồng](docs/features/CHI_SO_CO_THE.md).
+
 **R14 — Hết gói đã chốt:** KH giữ quyền đọc kế hoạch/lịch sử và ghi nhật ký từ lịch cá nhân hợp lệ đã có; không cấp buổi PT/chatbot mới khi gói hết hạn. Ngoại lệ xác nhận buổi PT đã diễn ra trong hạn theo R07; chat với PT theo phân công ở R21, không phụ thuộc gói. Nhật ký tự tập không tiêu hao buổi PT.
 
 ## 6. Chatbot AI — đã chốt D08

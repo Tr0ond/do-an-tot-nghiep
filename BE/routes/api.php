@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Api\BaiTapAdminController;
 use App\Http\Controllers\Api\BaiTapController;
+use App\Http\Controllers\Api\BaoCaoController;
 use App\Http\Controllers\Api\ChatbotController;
 use App\Http\Controllers\Api\ChatController;
+use App\Http\Controllers\Api\ChiSoCoTheController;
 use App\Http\Controllers\Api\DonHangController;
 use App\Http\Controllers\Api\GiaoAnMauController;
 use App\Http\Controllers\Api\GoiTapController;
@@ -62,6 +64,9 @@ Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(
     });
     Route::get('/me', [XacThucController::class, 'me']);
     Route::prefix('khach-hang')->middleware('vai_tro:KHACH_HANG')->group(function () {
+        Route::get('/chi-so-co-the', [ChiSoCoTheController::class, 'index']);
+        Route::post('/chi-so-co-the', [ChiSoCoTheController::class, 'store'])->middleware('throttle:30,1');
+        Route::put('/chi-so-co-the/{id}', [ChiSoCoTheController::class, 'update'])->whereNumber('id')->middleware('throttle:30,1');
         Route::get('/lich-tap', [NhatKyTapController::class, 'index']);
         Route::post('/lich-tap', [NhatKyTapController::class, 'store'])->middleware('throttle:30,1');
         Route::get('/lich-tap/{id}', [NhatKyTapController::class, 'show'])->whereNumber('id');
@@ -103,6 +108,7 @@ Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(
         Route::get('/phan-cong/pt', [PhanCongController::class, 'pt']);
         Route::post('/phan-cong', [PhanCongController::class, 'store']);
         Route::get('/tong-quan', [TongQuanController::class, 'index']);
+        Route::get('/bao-cao', [BaoCaoController::class, 'index']);
         Route::get('/nhom-co', [NhomCoController::class, 'index']);
         Route::post('/nhom-co', [NhomCoController::class, 'store']);
         Route::get('/nhom-co/{id}', [NhomCoController::class, 'show'])->whereNumber('id');
@@ -130,6 +136,7 @@ Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(
     });
     Route::get('/pt/ho-so', [XacThucController::class, 'me'])->middleware('vai_tro:HUAN_LUYEN_VIEN');
     Route::prefix('pt')->middleware('vai_tro:HUAN_LUYEN_VIEN')->group(function () {
+        Route::get('/hoc-vien/{khachId}/chi-so-co-the', [ChiSoCoTheController::class, 'index'])->whereNumber('khachId');
         Route::get('/hoc-vien/{khachId}/lich-tap', [NhatKyTapController::class, 'index'])->whereNumber('khachId');
         Route::post('/hoc-vien/{khachId}/lich-tap', [NhatKyTapController::class, 'store'])->whereNumber('khachId')->middleware('throttle:30,1');
         Route::get('/lich-tap/{id}', [NhatKyTapController::class, 'show'])->whereNumber('id');

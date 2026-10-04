@@ -46,6 +46,7 @@ class GeminiService
             .'Không gợi ý cần PT duyệt khi chính sách cho phép KH tự thao tác. Phân biệt chat riêng với PT và chatbot AI. '
             .'Câu hỏi chính sách chỉ trả theo chinh_sach hoặc tài liệu được cung cấp; điều chưa có trong nguồn thì nói chưa có thông tin, không khẳng định theo suy đoán.';
         $chiDan .= ' KH được yêu cầu tạo giáo án nháp. Nếu chưa có yeu_cau_tao_giao_an thì hỏi số buổi/tuần, số tuần, số bài/buổi; không nói đã tạo. ';
+        $chiDan .= ' Chỉ số cơ thể do KH tự ghi. BMI chỉ tham khảo, không phân biệt cơ/mỡ: không suy ra %mỡ, chẩn đoán, phân loại BMI trẻ em hoặc quyết định giáo án chỉ từ BMI. Kết hợp mục tiêu, kinh nghiệm và nhật ký; dữ liệu thiếu thì hỏi thêm. ';
         if ($taoGiaoAn) {
             $chiDan .= ' Khi đủ thông tin, trả giao_an_de_xuat với chính xác '.$tongBuoi.' phần tử buoi_tap: liệt kê đầy đủ '.$yeuCau['so_tuan'].' tuần, mỗi tuần '.$yeuCau['buoi_moi_tuan'].' buổi, mỗi buổi '.$yeuCau['bai_moi_buoi'].' bài. Không rút gọn thành một tuần mẫu; có thể lặp bài ở các tuần nhưng vẫn phải ghi đủ từng buổi. Không trùng bài trong một buổi. '
                 .'Chỉ chọn ID từ bai_tap. Mỗi bài có id, hiep(1–10), lan(1–100), nghi(0–600 giây), không kê mức tạ. Ghi chú buổi ngắn, dễ hiểu. '

@@ -230,6 +230,7 @@ class ChatbotService
             $kh = HoSoKhachHang::findOrFail($khachId);
             $k = KeHoachTap::where('khach_hang_id', $khachId)->where('trang_thai', 'DANG_AP_DUNG')->with(['cacBaiTap' => fn ($q) => $q->limit(20)])->first();
             $n['ca_nhan'] = ['muc_tieu' => $kh->muc_tieu, 'kinh_nghiem' => $kh->kinh_nghiem,
+                'chi_so_co_the' => app(ChiSoCoTheService::class)->nguCanhAi($khachId),
                 'giao_an' => $k ? ['ten' => $k->ten_ke_hoach, 'muc_tieu' => $k->muc_tieu, 'so_ngay' => $k->so_ngay_tap,
                     'bai_tap' => $k->cacBaiTap->map(fn ($b) => ['ten' => $b->ten_bai_tap_snapshot, 'ngay' => $b->ngay_thu, 'hiep' => $b->so_hiep, 'lan' => $b->so_lan_lap, 'ta_kg' => $b->muc_ta_kg])->all()] : null,
                 'buoi_hoan_thanh_30_ngay' => DB::table('lich_tap')->where('khach_hang_id', $khachId)->where('trang_thai', 'HOAN_THANH')->where('ngay_tap', '>=', now('Asia/Ho_Chi_Minh')->subDays(30)->toDateString())->count()];
