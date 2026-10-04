@@ -390,59 +390,104 @@
       </div>
 
       <!-- Bảng danh sách đơn hàng -->
-      <div v-else class="table-responsive">
-        <table class="m03-table">
-          <caption class="visually-hidden">
-            Danh sách đơn mua gói
-          </caption>
-          <thead>
-            <tr>
-              <th scope="col">Gói tập</th>
-              <th scope="col">Tổng tiền</th>
-              <th scope="col">Trạng thái</th>
-              <th scope="col">Ngày đặt</th>
-              <th scope="col" class="text-end">Chi tiết</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="d in danhSach" :key="d.id">
-              <td>
-                <div class="d-flex align-items-center gap-2">
-                  <div class="package-icon-box">
-                    <i class="bi bi-box-seam-fill text-emerald" aria-hidden="true"></i>
-                  </div>
-                  <div>
-                    <strong class="text-body d-block">{{ d.ten_goi }}</strong>
-                    <div v-if="d.khach_hang" class="small text-muted font-monospace">
-                      Khách: {{ d.khach_hang.ho_ten }}
+      <div v-else class="st-master-detail">
+        <div class="table-responsive">
+          <table class="m03-table">
+            <caption class="visually-hidden">
+              Danh sách đơn mua gói
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Gói tập</th>
+                <th scope="col">Tổng tiền</th>
+                <th scope="col">Trạng thái</th>
+                <th scope="col">Ngày đặt</th>
+                <th scope="col" class="text-end">Chi tiết</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="d in danhSach" :key="d.id">
+                <td>
+                  <div class="d-flex align-items-center gap-2">
+                    <div class="package-icon-box">
+                      <i class="bi bi-box-seam-fill text-emerald" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                      <strong class="text-body d-block">{{ d.ten_goi }}</strong>
+                      <div v-if="d.khach_hang" class="small text-muted font-monospace">
+                        Khách: {{ d.khach_hang.ho_ten }}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </td>
-              <td>
-                <span class="fw-bold text-body">{{ dinhDangGia(d.gia) }}</span>
-              </td>
-              <td>
-                <span class="m03-state" :class="d.trang_thai">
-                  <span class="status-dot"></span>
-                  <span>{{ nhanTrangThai[d.trang_thai] }}</span>
-                </span>
-              </td>
-              <td>
-                <span class="text-muted small font-monospace">{{ dinhDangLuc(d.created_at) }}</span>
-              </td>
-              <td class="text-end">
-                <RouterLink
-                  :to="`${goc}/${d.id}`"
-                  class="btn btn-sm btn-outline-secondary"
-                  :aria-label="`Xem đơn ${d.ma_don_payos}`"
-                >
-                  <i class="bi bi-eye me-1" aria-hidden="true"></i>Xem đơn
-                </RouterLink>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                </td>
+                <td>
+                  <span class="fw-bold text-body">{{ dinhDangGia(d.gia) }}</span>
+                </td>
+                <td>
+                  <span class="m03-state" :class="d.trang_thai">
+                    <span class="status-dot"></span>
+                    <span>{{ nhanTrangThai[d.trang_thai] }}</span>
+                  </span>
+                </td>
+                <td>
+                  <span class="text-muted small font-monospace">{{
+                    dinhDangLuc(d.created_at)
+                  }}</span>
+                </td>
+                <td class="text-end">
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary"
+                    :aria-label="`Xem đơn ${d.ma_don_payos}`"
+                    @click="donChon = d"
+                  >
+                    <i class="bi bi-eye me-1" aria-hidden="true"></i>Xem đơn
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <aside v-if="donChon" class="st-detail-rail" aria-label="Xem nhanh đơn hàng">
+          <div class="st-rail-heading">
+            <h2>Đơn #{{ donChon.ma_don_payos }}</h2>
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              aria-label="Đóng xem nhanh đơn hàng"
+              @click="donChon = null"
+            >
+              <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+          </div>
+          <span class="m03-state" :class="donChon.trang_thai">{{
+            nhanTrangThai[donChon.trang_thai]
+          }}</span>
+          <h3 class="h6 mt-4">{{ donChon.ten_goi }}</h3>
+          <dl class="st-fact-list">
+            <div>
+              <dt>Giá gói</dt>
+              <dd>{{ dinhDangGia(donChon.gia) }}</dd>
+            </div>
+            <div>
+              <dt>Ngày đặt</dt>
+              <dd>{{ dinhDangLuc(donChon.created_at) }}</dd>
+            </div>
+            <div v-if="donChon.khach_hang">
+              <dt>Khách hàng</dt>
+              <dd>{{ donChon.khach_hang.ho_ten }}</dd>
+            </div>
+          </dl>
+          <RouterLink :to="`${goc}/${donChon.id}`" class="btn btn-primary w-100 mt-3"
+            >{{ laAdmin ? 'Chi tiết & đối soát' : 'Chi tiết & thanh toán' }}
+            <i class="bi bi-arrow-right" aria-hidden="true"></i
+          ></RouterLink>
+        </aside>
+        <aside v-else class="st-detail-rail st-empty-rail">
+          <i class="bi bi-receipt" aria-hidden="true"></i>
+          <h2>Chi tiết đơn hàng</h2>
+          <p>Chưa chọn đơn hàng.</p>
+        </aside>
       </div>
 
       <!-- Phân trang -->
@@ -484,6 +529,7 @@ export default {
   components: { CaNhanLayout, QuyenLoiGoiTap },
   data() {
     return {
+      donChon: null,
       don: null,
       danhSach: [],
       meta: {},
@@ -549,6 +595,7 @@ export default {
       const signal = this.boHuy.signal
       this.don = null
       this.danhSach = []
+      this.donChon = null
       this.loi = ''
       this.doiSoat = null
       this.dangTai = true
@@ -656,7 +703,7 @@ export default {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: var(--mau-the-sub, #1e1e1e);
+  background: var(--mau-the-sub, var(--mau-the-hover));
   display: flex;
   align-items: center;
   justify-content: center;

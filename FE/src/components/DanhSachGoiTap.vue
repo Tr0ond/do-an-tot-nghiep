@@ -218,99 +218,86 @@
         </span>
       </div>
 
-      <!-- Giao diện Admin: Dạng hàng Card quản trị -->
-      <ul v-if="quanTri" class="admin-package-list shadow-sm">
-        <li v-for="goi in danhSach" :key="goi.id" class="admin-package-row">
-          <div class="package-name-col">
-            <div class="d-flex align-items-center gap-2 mb-1">
-              <span
-                class="badge-role"
-                :class="goi.so_buoi_pt > 0 ? 'badge-role-pt' : 'badge-role-khach'"
-              >
-                <i
-                  :class="
-                    goi.so_buoi_pt > 0 ? 'bi bi-person-check-fill' : 'bi bi-chat-square-text-fill'
-                  "
-                ></i>
-                <span>{{ goi.so_buoi_pt > 0 ? 'PT kèm chatbot' : 'Chatbot riêng' }}</span>
-              </span>
-              <span class="badge bg-light text-muted border font-monospace">#{{ goi.id }}</span>
-            </div>
-
-            <RouterLink :to="'/admin/goi-tap/' + goi.id + '/sua'" class="package-title-link">
-              {{ goi.ten_goi }}
-            </RouterLink>
-
-            <div class="small text-muted d-flex align-items-center gap-2 flex-wrap mt-1">
-              <span
-                ><i class="bi bi-calendar3 me-1"></i>{{ dinhDangSo(goi.thoi_han_ngay) }} ngày</span
-              >
-              <span>•</span>
-              <span :class="goi.so_buoi_pt > 0 ? 'text-success fw-semibold' : ''">
-                <i class="bi bi-person-video3 me-1"></i>{{ dinhDangSo(goi.so_buoi_pt) }} buổi PT
-              </span>
-              <span>•</span>
-              <span
-                ><i class="bi bi-robot me-1"></i>{{ dinhDangSo(goi.so_luot_chatbot_moi_ngay) }} lượt
-                chatbot/ngày</span
-              >
-            </div>
-          </div>
-
-          <div class="package-amount-col">
-            <strong class="package-price-bold">{{ dinhDangGia(goi.gia) }}</strong>
-            <span
-              class="status-pill mt-1"
-              :class="{ 'status-locked': goi.trang_thai !== 'HOAT_DONG' }"
-            >
-              <span
-                class="status-dot"
-                :class="{ 'dot-locked': goi.trang_thai !== 'HOAT_DONG' }"
-              ></span>
-              <span>{{ goi.trang_thai === 'HOAT_DONG' ? 'Đang mở bán' : 'Ngừng bán' }}</span>
-            </span>
-          </div>
-
-          <div class="package-actions-col">
-            <RouterLink
-              class="btn btn-outline-secondary btn-sm"
-              :to="'/admin/goi-tap/' + goi.id + '/sua'"
-            >
-              <i class="bi bi-pencil-square"></i>
-              <span>Sửa</span>
-            </RouterLink>
-
-            <button
-              class="btn btn-sm"
-              :class="goi.trang_thai === 'HOAT_DONG' ? 'btn-danger-soft' : 'btn-soft'"
-              :disabled="dangDoi !== null"
-              :aria-label="
-                (goi.trang_thai === 'HOAT_DONG' ? 'Ngừng bán ' : 'Mở bán ') + goi.ten_goi
-              "
-              @click="doiTrangThai(goi)"
-            >
-              <span
-                v-if="dangDoi === goi.id"
-                class="spinner-border spinner-border-sm me-1"
-                role="status"
-              ></span>
-              <i
-                v-else
-                :class="goi.trang_thai === 'HOAT_DONG' ? 'bi bi-pause-circle' : 'bi bi-play-circle'"
-              ></i>
-              <span>
-                {{
-                  dangDoi === goi.id
-                    ? 'Đang lưu…'
-                    : goi.trang_thai === 'HOAT_DONG'
-                      ? 'Ngừng bán'
-                      : 'Mở bán'
-                }}
-              </span>
-            </button>
-          </div>
-        </li>
-      </ul>
+      <div v-if="quanTri" class="st-table-frame">
+        <table class="st-data-table st-package-table">
+          <thead>
+            <tr>
+              <th scope="col">Gói tập</th>
+              <th scope="col">Đơn giá</th>
+              <th scope="col">Thời hạn</th>
+              <th scope="col">Quyền lợi</th>
+              <th scope="col">Trạng thái</th>
+              <th scope="col">Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="goi in danhSach" :key="goi.id">
+              <td>
+                <RouterLink :to="`/admin/goi-tap/${goi.id}/sua`" class="package-title-link">{{
+                  goi.ten_goi
+                }}</RouterLink
+                ><small class="d-block text-secondary"
+                  >#{{ goi.id }} ·
+                  {{ goi.so_buoi_pt > 0 ? 'PT kèm chatbot' : 'Chatbot riêng' }}</small
+                >
+              </td>
+              <td>
+                <strong>{{ dinhDangGia(goi.gia) }}</strong>
+              </td>
+              <td>{{ dinhDangSo(goi.thoi_han_ngay) }} ngày</td>
+              <td>
+                {{ dinhDangSo(goi.so_buoi_pt) }} buổi PT<small class="d-block text-secondary"
+                  >{{ dinhDangSo(goi.so_luot_chatbot_moi_ngay) }} lượt AI/ngày</small
+                >
+              </td>
+              <td>
+                <span
+                  class="status-pill"
+                  :class="{ 'status-locked': goi.trang_thai !== 'HOAT_DONG' }"
+                  ><span
+                    class="status-dot"
+                    :class="{ 'dot-locked': goi.trang_thai !== 'HOAT_DONG' }"
+                  ></span
+                  >{{ goi.trang_thai === 'HOAT_DONG' ? 'Đang mở bán' : 'Ngừng bán' }}</span
+                >
+              </td>
+              <td>
+                <div class="st-row-actions">
+                  <RouterLink
+                    class="btn btn-outline-secondary btn-sm"
+                    :to="`/admin/goi-tap/${goi.id}/sua`"
+                    :aria-label="`Sửa ${goi.ten_goi}`"
+                    :title="`Sửa ${goi.ten_goi}`"
+                    ><i class="bi bi-pencil" aria-hidden="true"></i></RouterLink
+                  ><button
+                    class="btn btn-sm"
+                    :class="goi.trang_thai === 'HOAT_DONG' ? 'btn-danger-soft' : 'btn-soft'"
+                    :disabled="dangDoi !== null"
+                    :aria-label="
+                      (goi.trang_thai === 'HOAT_DONG' ? 'Ngừng bán ' : 'Mở bán ') + goi.ten_goi
+                    "
+                    :title="goi.trang_thai === 'HOAT_DONG' ? 'Ngừng bán' : 'Mở bán'"
+                    @click="doiTrangThai(goi)"
+                  >
+                    <span
+                      v-if="dangDoi === goi.id"
+                      class="spinner-border spinner-border-sm"
+                      role="status"
+                    ></span
+                    ><i
+                      v-else
+                      :class="
+                        goi.trang_thai === 'HOAT_DONG' ? 'bi bi-pause-circle' : 'bi bi-play-circle'
+                      "
+                      aria-hidden="true"
+                    ></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <!-- Giao diện Bảng giá công khai: Dạng Card Pricing SaaS hiện đại -->
       <div v-else class="public-pricing-grid">
@@ -322,7 +309,7 @@
         >
           <!-- Huy hiệu đề xuất gói PT -->
           <div v-if="goi.so_buoi_pt > 0" class="featured-ribbon">
-            <i class="bi bi-star-fill me-1"></i>PHỔ BIẾN NHẤT
+            <i class="bi bi-person-check-fill me-1"></i>PT KÈM CHATBOT
           </div>
 
           <div class="pricing-card-header">
@@ -542,7 +529,7 @@ export default {
   display: flex;
   align-items: flex-end;
   gap: 16px;
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   padding: 20px 24px;
   border-radius: var(--bo-goc-lg);
@@ -570,7 +557,7 @@ export default {
   margin: 0;
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   overflow: hidden;
 }
 
@@ -589,7 +576,7 @@ export default {
 }
 
 .admin-package-row:hover {
-  background-color: var(--mau-the-hover, #1c1c1c);
+  background-color: var(--mau-the-hover, var(--mau-the-hover));
 }
 
 .package-name-col {
@@ -639,7 +626,7 @@ export default {
 }
 
 .pricing-card-modern {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-xl);
   padding: 36px 32px;
@@ -651,29 +638,27 @@ export default {
 
 .pricing-card-modern:hover {
   transform: translateY(-6px);
-  box-shadow:
-    0 20px 30px -10px rgba(0, 0, 0, 0.6),
-    0 0 20px rgba(244, 91, 32, 0.15);
-  border-color: rgba(244, 91, 32, 0.4);
+  box-shadow: var(--bong-nhe);
+  border-color: color-mix(in srgb, var(--mau-chinh) 40%, transparent);
 }
 
 .pricing-card-modern.is-featured {
   border: 2px solid var(--mau-chinh);
-  box-shadow: 0 10px 25px -5px rgba(244, 91, 32, 0.25);
+  box-shadow: var(--bong-nhe);
 }
 
 .featured-ribbon {
   position: absolute;
   top: -14px;
   right: 28px;
-  background: var(--mau-gradient-chinh);
+  background: var(--mau-the-sub);
   color: white;
   font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   padding: 4px 14px;
   border-radius: var(--bo-goc-tron);
-  box-shadow: 0 4px 10px rgba(244, 91, 32, 0.4);
+  box-shadow: var(--bong-nhe);
 }
 
 .package-type-pill {
@@ -682,19 +667,19 @@ export default {
   gap: 6px;
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   padding: 4px 10px;
   border-radius: var(--bo-goc-tron);
 }
 
 .pill-pt {
-  background: rgba(244, 91, 32, 0.15);
-  color: #ff8c5a;
+  background: color-mix(in srgb, var(--mau-chinh) 15%, transparent);
+  color: var(--mau-chinh);
 }
 
 .pill-bot {
   background: #f5f3ff;
-  color: #7c3aed;
+  color: var(--mau-thong-tin);
 }
 
 .price-display-wrap {
@@ -708,7 +693,7 @@ export default {
 .price-main {
   font-size: 2.3rem;
   font-weight: 800;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   color: var(--mau-chu);
   line-height: 1;
 }
@@ -728,13 +713,13 @@ export default {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: var(--mau-the-hover, #1e1e1e);
+  background: var(--mau-the-hover, var(--mau-the-hover));
   display: grid;
   place-items: center;
 }
 
 .package-pagination-bar {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   padding: 14px 20px;

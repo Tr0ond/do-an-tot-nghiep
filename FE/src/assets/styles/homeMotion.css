@@ -1,0 +1,340 @@
+.motion-home {
+  --cinematic-bg: var(--mau-nen);
+  --cinematic-bg-card: var(--mau-the);
+  --cinematic-bg-card-hover: var(--mau-the-hover);
+  --cinematic-primary: var(--mau-chinh);
+  --cinematic-primary-hover: var(--mau-chinh-hover);
+  --cinematic-text: var(--mau-chu);
+  --cinematic-text-muted: var(--mau-phu);
+  --cinematic-border: var(--mau-vien);
+  background-image: none !important;
+  font-family: var(--font-chinh);
+}
+#app .motion-home .cinematic-header {
+  padding-inline: max(24px, calc((100% - 1320px) / 2));
+  background: var(--mau-the);
+}
+.home-brand {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--mau-chu);
+  text-decoration: none;
+}
+.home-brand .logo-thuong-hieu {
+  --kich-thuoc-logo: 44px;
+}
+.home-brand strong {
+  font-size: 20px;
+  line-height: 1.2;
+}
+.home-brand strong span {
+  display: block;
+  font-size: 11px;
+  color: var(--mau-phu);
+  font-weight: 500;
+}
+.home-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#app .motion-home :is(.cinematic-btn-primary, .cinematic-btn-secondary) {
+  min-height: 48px;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-size: 14px;
+  box-shadow: none;
+}
+#app .motion-home .cinematic-btn-primary {
+  background: var(--mau-chinh);
+  color: var(--mau-tren-chinh) !important;
+}
+#app .motion-home .cinematic-btn-primary:hover {
+  background: var(--mau-chinh-hover);
+  transform: translateY(-1px);
+}
+#app .motion-home .cinematic-btn-secondary {
+  background: var(--mau-the);
+  border-color: var(--mau-vien);
+  color: var(--mau-chu) !important;
+}
+.home-hero {
+  max-width: 1320px;
+  margin-inline: auto;
+  min-height: 660px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 36px 24px;
+}
+.home-hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  width: 55%;
+}
+.home-eyebrow {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--mau-chinh);
+  font-size: 12px;
+  font-weight: 600;
+}
+.home-hero h1 {
+  font-size: 54px;
+  line-height: 1.25;
+  margin: 20px 0 24px;
+  font-weight: 800;
+}
+.home-hero h1 span {
+  display: block;
+  font-size: 36px;
+  color: var(--mau-chinh);
+  margin-top: 8px;
+  font-weight: 700;
+}
+.home-hero-copy > p {
+  max-width: 570px;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--mau-phu);
+  margin-bottom: 28px;
+}
+.home-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.home-hero-note {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--mau-phu);
+  font-size: 12px;
+  margin-top: 28px;
+}
+.home-hero-note i {
+  color: var(--mau-chinh);
+}
+.home-hero .phone-perspective-stage {
+  position: absolute;
+  right: 24px;
+  width: 40%;
+  top: 20px;
+}
+.home-hero .phone-perspective-stage:hover .phone-tilt-rig {
+  animation: none;
+}
+.home-journey {
+  padding: 48px max(24px, calc((100% - 1272px) / 2));
+  border-block: 1px solid var(--mau-vien);
+  background: var(--mau-the);
+}
+.home-section-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.home-section-title .home-eyebrow {
+  width: 100%;
+}
+.home-section-title h2 {
+  font-size: 30px;
+}
+.home-section-title > a {
+  margin-left: auto;
+  font-size: 13px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.home-service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px 40px;
+}
+.home-service {
+  display: block;
+  position: relative;
+  color: var(--mau-chu);
+  border-top: 1px solid var(--mau-vien);
+  padding-top: 24px;
+}
+.home-service > i:first-child {
+  font-size: 24px;
+  color: var(--mau-chinh);
+}
+.home-service:nth-child(2n) > i:first-child {
+  color: var(--mau-thong-tin);
+}
+.home-service h3 {
+  font-size: 18px;
+  margin: 16px 0 8px;
+}
+.home-service p {
+  color: var(--mau-phu);
+  font-size: 13px;
+  line-height: 1.8;
+  padding-right: 20px;
+  margin-bottom: 0;
+}
+.home-service-arrow {
+  position: absolute;
+  right: 0;
+  top: 28px;
+  color: var(--mau-phu);
+}
+.home-service:hover {
+  color: var(--mau-chinh);
+}
+.home-start {
+  padding: 64px max(24px, calc((100% - 1272px) / 2));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px;
+}
+.home-start h2 {
+  font-size: 30px;
+  line-height: 1.5;
+  margin: 16px 0 24px;
+}
+.home-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.home-steps li {
+  display: flex;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--mau-vien);
+}
+.home-steps li > span {
+  font-size: 20px;
+  color: var(--mau-tren-chanh);
+  background: var(--mau-chanh);
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.home-steps h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.home-steps p {
+  color: var(--mau-phu);
+  font-size: 13px;
+  margin: 0;
+}
+#app .motion-home .cinematic-footer {
+  padding: 24px max(24px, calc((100% - 1272px) / 2));
+  font-size: 12px;
+  background: var(--mau-the);
+}
+.motion-home .cinematic-footer nav {
+  display: flex;
+  gap: 24px;
+}
+@media (max-width: 1100px) {
+  .home-hero-copy {
+    width: 52%;
+  }
+  .home-hero h1 {
+    font-size: 44px;
+  }
+  .home-hero h1 span {
+    font-size: 30px;
+  }
+  .home-header-actions {
+    gap: 12px;
+  }
+}
+@media (max-width: 767px) {
+  #app .motion-home .cinematic-header {
+    padding-inline: 16px;
+  }
+  .home-brand strong {
+    font-size: 17px;
+  }
+  .home-header-actions {
+    gap: 12px;
+  }
+  .home-hero {
+    padding: 28px 20px 0;
+    min-height: 690px;
+    display: block;
+  }
+  .home-hero-copy {
+    width: 100%;
+    max-width: none;
+  }
+  .home-hero h1 {
+    font-size: 34px;
+    margin: 12px 0;
+  }
+  .home-hero h1 span {
+    font-size: 23px;
+    margin-top: 4px;
+  }
+  .home-hero-copy > p {
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .home-hero-actions {
+    gap: 8px;
+  }
+  #app .home-hero-actions :is(.cinematic-btn-primary, .cinematic-btn-secondary) {
+    padding-inline: 12px;
+    font-size: 12px;
+  }
+  .home-hero-note {
+    margin-top: 16px;
+    font-size: 11px;
+  }
+  .home-hero .phone-perspective-stage {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    min-height: 370px;
+    height: 370px;
+    margin-top: -4px;
+  }
+  .home-hero .phone-tilt-rig {
+    scale: 0.58;
+  }
+  .home-journey {
+    padding: 32px 20px;
+  }
+  .home-section-title {
+    margin-bottom: 16px;
+    gap: 8px;
+  }
+  .home-section-title h2,
+  .home-start h2 {
+    font-size: 25px;
+  }
+  .home-section-title > a {
+    margin-left: 0;
+  }
+  .home-service-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .home-start {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 36px 20px;
+  }
+}

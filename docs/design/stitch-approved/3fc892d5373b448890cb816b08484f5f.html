@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Đăng nhập hệ thống · Fitness Motion</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#3a4400",
+            "surface": "#f5f7f8",
+            "surface-variant": "#d9dddf",
+            "tertiary": "#0854c7",
+            "outline": "#747778",
+            "error-dim": "#9f0519",
+            "secondary-dim": "#495500",
+            "on-primary": "#ffffff",
+            "primary-fixed-dim": "#81dfd3",
+            "on-surface-variant": "#595c5d",
+            "on-tertiary-container": "#002c72",
+            "tertiary-fixed-dim": "#7aa0ff",
+            "surface-container-high": "#dfe3e4",
+            "primary-container": "#8fede1",
+            "on-tertiary": "#f1f2ff",
+            "surface-dim": "#d0d5d7",
+            "surface-bright": "#f5f7f8",
+            "primary": "#00675f",
+            "on-secondary-container": "#4b5700",
+            "surface-container-highest": "#d9dddf",
+            "on-secondary": "#182325",
+            "on-error-container": "#570008",
+            "on-secondary-fixed-variant": "#546200",
+            "on-primary-fixed-variant": "#00635b",
+            "background": "#f5f7f8",
+            "surface-container-low": "#eef1f2",
+            "error-container": "#fb5151",
+            "surface-container-lowest": "#ffffff",
+            "inverse-on-surface": "#9a9d9e",
+            "on-tertiary-fixed": "#00153f",
+            "on-tertiary-fixed-variant": "#003484",
+            "on-primary-container": "#005851",
+            "secondary-fixed": "#d6ef52",
+            "primary-dim": "#005a52",
+            "secondary": "#546200",
+            "inverse-primary": "#a0fff2",
+            "surface-tint": "#00675f",
+            "error": "#b31b25",
+            "on-error": "#ffefee",
+            "on-background": "#2c2f30",
+            "tertiary-dim": "#0049b1",
+            "on-primary-fixed": "#00443e",
+            "secondary-container": "#d6ef52",
+            "tertiary-container": "#90afff",
+            "surface-container": "#e5e9ea",
+            "tertiary-fixed": "#90afff",
+            "secondary-fixed-dim": "#c8e044",
+            "primary-fixed": "#8fede1",
+            "inverse-surface": "#0b0f10",
+            "outline-variant": "#abadae",
+            "on-surface": "#182325"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Be Vietnam Pro"],
+            "display": ["Be Vietnam Pro"],
+            "body": ["Be Vietnam Pro"],
+            "label": ["Be Vietnam Pro"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col justify-between selection:bg-secondary-fixed selection:text-on-secondary antialiased">
+<!-- Header Đơn giản dành riêng cho Flow Xác thực -->
+<header class="w-full h-16 border-b border-surface-container bg-surface-container-lowest px-6 lg:px-12 flex items-center justify-between z-20">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary text-surface-container-lowest flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-lg" data-icon="fitness_center">fitness_center</span>
+</div>
+<div>
+<span class="font-headline font-bold text-base text-primary tracking-normal">Fitness Motion</span>
+<span class="hidden sm:inline-block ml-2 text-xs py-0.5 px-2 rounded bg-surface-container text-on-surface-variant font-medium">Hệ thống quản lý PT</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-xs text-on-surface-variant font-medium">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+        Máy chủ vận hành ổn định
+      </span>
+<span class="hidden md:inline text-outline-variant">|</span>
+<a class="hidden md:inline hover:text-primary transition-colors" href="#">Trung tâm hỗ trợ</a>
+</div>
+</header>
+<!-- Vùng nội dung chính: Bố cục split panel gọn gàng -->
+<main class="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-8">
+<div class="w-full max-w-4xl bg-surface-container-lowest rounded-lg border border-surface-container shadow-sm overflow-hidden flex flex-col md:flex-row min-h-[540px]">
+<!-- Khối trái: Dải ảnh kỷ luật thể thao & Brand statement -->
+<div class="relative w-full md:w-5/12 bg-inverse-surface text-surface flex flex-col justify-between p-6 sm:p-8 overflow-hidden">
+<!-- Ảnh nền tập luyện chân thực và lớp phủ tối màu chuyên nghiệp -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover filter brightness-[0.4] contrast-105" data-alt="A focused male personal trainer in a clean charcoal-toned athletic studio closely observing a dedicated trainee performing a barbell deadlift. Soft cool lighting with subtle teal accents and natural high-contrast shadows emphasizing athletic form, discipline, and modern sports science environment in a bright professional fitness facility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBJCaUbaeJOAVDFqG092jIgMoCA1N-yV3UW8gZYluH1eZ6XU_k7yEVbC9s7zcIAqY0_ad0kABzt2gnqXlFCGBLbW4tbM2YaeYU47Yr8xcGk3wEQkvDI3spmztRkbgC_LToVPZeAuQXc78jOEG8XqwL6IGa9V6O532_m28dq-mogLdn9wBPvZiDUgBuHiZN3EJe-ygMkzHbs82OGhEMtHKCKjnVl8vGflwKm7mjdX2fQSWNMuZhpX3z4oBnVlR_k6RED4sdMWbueels"/>
+</div>
+<!-- Nội dung trên lớp phủ -->
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-surface-container-lowest/10 backdrop-blur-sm border border-surface-container-lowest/15 mb-4">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>
+<span class="text-xs font-semibold uppercase tracking-wider text-secondary-fixed">Cổng vận hành</span>
+</div>
+<h2 class="font-headline text-xl sm:text-2xl font-bold leading-snug text-surface-container-lowest">
+            Hệ thống số hóa quản lý huấn luyện cá nhân
+          </h2>
+</div>
+<div class="relative z-10 space-y-4 pt-8">
+<div class="border-l-2 border-primary-container pl-3 py-0.5">
+<p class="text-xs text-surface-variant font-normal leading-relaxed">
+              Tập trung điều phối lịch tập PT, đồng bộ nhật ký rèn luyện và chuẩn hóa lộ trình vận động cho từng hội viên.
+            </p>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-surface-variant">
+<span class="material-symbols-outlined text-sm text-secondary-fixed" data-icon="verified_user">verified_user</span>
+<span>Tự động phân quyền Khách hàng · Huấn luyện viên · Quản trị</span>
+</div>
+</div>
+</div>
+<!-- Khối phải: Form đăng nhập gọn gàng, chuẩn thao tác 44px -->
+<div class="w-full md:w-7/12 p-6 sm:p-10 flex flex-col justify-between bg-surface-container-lowest">
+<div>
+<div class="mb-6">
+<h1 class="font-headline text-2xl font-bold text-on-surface mb-1">Đăng nhập hệ thống</h1>
+<p class="text-xs sm:text-sm text-on-surface-variant font-normal">
+              Nhập thông tin tài khoản đã đăng ký để tiếp tục phiên làm việc
+            </p>
+</div>
+<form class="space-y-4" id="loginForm" onsubmit="event.preventDefault(); validateForm();">
+<!-- Trường Email / Tên đăng nhập -->
+<div class="space-y-1">
+<label class="block text-xs font-semibold text-on-surface" for="usernameInput">
+                Email hoặc Tên đăng nhập <span class="text-error">*</span>
+</label>
+<div class="relative">
+<input autocomplete="username" class="w-full h-11 px-3 text-sm rounded border border-outline-variant bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-160" id="usernameInput" name="username" placeholder="vidu@fitnessmotion.vn" required="" type="text"/>
+</div>
+<p class="text-[11px] text-on-surface-variant flex items-center gap-1 mt-0.5" id="usernameHelper">
+<span class="material-symbols-outlined text-[13px]" data-icon="info">info</span>
+                Sử dụng email đã được đăng ký trên hồ sơ dịch vụ
+              </p>
+</div>
+<!-- Trường Mật khẩu kèm Toggle ẩn/hiện -->
+<div class="space-y-1">
+<label class="block text-xs font-semibold text-on-surface" for="passwordInput">
+                Mật khẩu <span class="text-error">*</span>
+</label>
+<div class="relative flex items-center">
+<input autocomplete="current-password" class="w-full h-11 pl-3 pr-10 text-sm rounded border border-outline-variant bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-160" id="passwordInput" name="password" placeholder="••••••••••••" required="" type="password"/>
+<button aria-label="Ẩn hoặc hiện mật khẩu" class="absolute right-0 top-0 h-11 w-11 flex items-center justify-center text-outline hover:text-on-surface transition-colors" id="togglePasswordBtn" onclick="togglePasswordVisibility()" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="visibility" id="passwordEyeIcon">visibility</span>
+</button>
+</div>
+<div class="text-[11px] text-error flex items-center gap-1 mt-0.5 hidden" id="passwordError">
+<span class="material-symbols-outlined text-[13px]" data-icon="error">error</span>
+<span>Vui lòng nhập tối thiểu 8 ký tự bảo mật</span>
+</div>
+</div>
+<!-- Tùy chọn Ghi nhớ & Quên mật khẩu -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2 cursor-pointer select-none text-xs text-on-surface-variant hover:text-on-surface">
+<input checked="" class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary focus:ring-offset-0 transition-colors" name="rememberMe" type="checkbox"/>
+<span>Ghi nhớ đăng nhập trên thiết bị này</span>
+</label>
+<a class="text-xs font-medium text-primary hover:underline hover:text-primary-dim transition-colors" href="#">
+                Quên mật khẩu?
+              </a>
+</div>
+<!-- Nút Đăng nhập CTA (Chuẩn 44px, Màu chủ đạo Teal #087F75) -->
+<button class="w-full h-11 mt-2 rounded bg-primary text-on-primary font-bold text-sm hover:bg-primary-dim active:scale-[0.99] transition-all duration-160 flex items-center justify-center gap-2 shadow-sm" type="submit">
+<span>Đăng nhập ngay</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<!-- Lưu ý nghiệp vụ & Liên kết khách hàng -->
+<div class="mt-6 pt-5 border-t border-surface-container">
+<div class="text-center text-xs text-on-surface-variant">
+<span>Chưa có tài khoản hội viên? </span>
+<a class="font-semibold text-primary hover:underline hover:text-primary-dim" href="#">
+                Đăng ký gói tập cho Khách hàng
+              </a>
+</div>
+<div class="mt-2 text-center text-[11px] text-outline">
+<span>* Tài khoản Huấn luyện viên (PT) được cấp và quản lý trực tiếp bởi Quản trị viên phòng tập.</span>
+</div>
+</div>
+</div>
+<!-- Trạng thái xác thực bổ trợ (Optional Toast Demo UI) -->
+<div class="hidden mt-4 p-3 rounded bg-surface-container-low border border-surface-container text-xs text-on-surface flex items-start gap-2" id="statusAlert">
+<span class="material-symbols-outlined text-tertiary text-base shrink-0" data-icon="sync">sync</span>
+<div>
+<p class="font-medium text-on-surface">Đang xác thực thông tin...</p>
+<p class="text-[11px] text-on-surface-variant">Hệ thống đang kiểm tra danh tính và điều hướng đến bảng điều khiển phù hợp.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Chân trang pháp lý & bảo mật -->
+<footer class="w-full py-4 px-6 text-center text-xs text-on-surface-variant border-t border-surface-container bg-surface-container-lowest">
+<div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px]">
+<div class="flex items-center gap-1.5 text-outline">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="lock">lock</span>
+<span>Hệ thống bảo mật vận hành chuẩn ISO/IEC 27001</span>
+</div>
+<div class="text-outline">
+<span>Bản quyền © 2024 Fitness Motion v3.4 · Mọi quyền được bảo lưu</span>
+</div>
+</div>
+</footer>
+<script>
+    // Micro-interactions cho Form Đăng nhập
+    function togglePasswordVisibility() {
+      const passwordInput = document.getElementById('passwordInput');
+      const eyeIcon = document.getElementById('passwordEyeIcon');
+
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeIcon.textContent = 'visibility_off';
+      } else {
+        passwordInput.type = 'password';
+        eyeIcon.textContent = 'visibility';
+      }
+    }
+
+    function validateForm() {
+      const usernameInput = document.getElementById('usernameInput');
+      const passwordInput = document.getElementById('passwordInput');
+      const passwordError = document.getElementById('passwordError');
+      const statusAlert = document.getElementById('statusAlert');
+
+      let isValid = true;
+
+      // Kiểm tra độ dài mật khẩu cơ bản (tối thiểu 6 ký tự)
+      if (passwordInput.value.length < 6) {
+        passwordError.classList.remove('hidden');
+        passwordInput.classList.add('border-error');
+        isValid = false;
+      } else {
+        passwordError.classList.add('hidden');
+        passwordInput.classList.remove('border-error');
+      }
+
+      if (isValid) {
+        statusAlert.classList.remove('hidden');
+        setTimeout(() => {
+          statusAlert.innerHTML = `
+            <span class="material-symbols-outlined text-primary text-base shrink-0" data-icon="check_circle">check_circle</span>
+            <div>
+              <p class="font-medium text-primary">Xác thực thành công</p>
+              <p class="text-[11px] text-on-surface-variant">Đang tự động chuyển hướng đến bảng làm việc...</p>
+            </div>
+          `;
+        }, 800);
+      }
+    }
+  </script>
+</body></html>

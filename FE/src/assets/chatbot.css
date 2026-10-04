@@ -9,7 +9,7 @@
   margin-bottom: 24px;
 }
 .ai-heading h1 {
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: 1.75rem;
   margin: 6px 0;
 }
 .ai-heading p {
@@ -20,7 +20,7 @@
   color: var(--mau-chinh);
   font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
 }
 .ai-workspace {
   display: grid;
@@ -31,7 +31,7 @@
 .ai-chat {
   background: var(--mau-the);
   border: 1px solid var(--mau-vien);
-  border-radius: 20px;
+  border-radius: 8px;
   min-width: 0;
 }
 .ai-sidebar {
@@ -51,7 +51,7 @@
 .ai-quota {
   padding: 18px;
   background: var(--mau-the-sub);
-  border-radius: 14px;
+  border-radius: 8px;
   margin-top: 20px;
 }
 .ai-quota > span {
@@ -87,7 +87,7 @@
   padding: 12px;
   min-height: 44px;
   text-align: left;
-  border-radius: 10px;
+  border-radius: 8px;
   margin-bottom: 6px;
 }
 .ai-conversation span {
@@ -156,7 +156,7 @@
   margin-bottom: 16px;
 }
 .ai-welcome h2 {
-  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-size: 1.75rem;
   margin: 10px 0;
 }
 .ai-welcome p {
@@ -174,7 +174,7 @@
   min-height: 44px;
   background: var(--mau-the);
   border: 1px solid var(--mau-vien);
-  border-radius: 12px;
+  border-radius: 8px;
   color: var(--mau-chu);
   text-align: left;
   display: flex;
@@ -194,7 +194,7 @@
   max-width: 86%;
   background: var(--mau-the);
   border: 1px solid var(--mau-vien);
-  border-radius: 14px;
+  border-radius: 8px;
   padding: 16px 20px;
   overflow-wrap: anywhere;
 }
@@ -227,7 +227,7 @@
 }
 .ai-source-card {
   border: 1px solid var(--mau-vien);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 12px;
   text-decoration: none;
   background: var(--mau-the-sub);
@@ -292,7 +292,7 @@
   max-height: 120px;
   min-height: 52px;
   border: 1px solid var(--mau-vien);
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 10px 14px;
   background: var(--mau-the-sub);
   color: var(--mau-chu);
@@ -333,7 +333,7 @@
   background: var(--mau-the);
   border: 1px solid #dc2626;
   padding: 16px;
-  border-radius: 12px;
+  border-radius: 8px;
 }
 .ai-thinking {
   color: var(--mau-phu);
@@ -362,7 +362,7 @@
 .ai-faq-item {
   background: var(--mau-the);
   border: 1px solid var(--mau-vien);
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 24px;
   min-width: 0;
 }
@@ -454,9 +454,9 @@
   width: 264px;
   z-index: 1;
   border: 1px solid var(--mau-vien);
-  border-radius: 14px;
+  border-radius: 8px;
   background: var(--mau-the);
-  box-shadow: 0 8px 28px #0003;
+  box-shadow: var(--bong-nhe);
 }
 .ai-mascot-launcher .ai-mascot {
   --kich-thuoc-mascot: 88px;
@@ -467,7 +467,7 @@
   font-weight: 700;
   padding: 5px 12px;
   border: 1px solid var(--mau-vien);
-  border-radius: 20px;
+  border-radius: 8px;
   background: var(--mau-the);
 }
 .ai-mascot-launcher > i {
@@ -479,7 +479,7 @@
   background: var(--mau-chinh);
   color: white;
   font-size: 1.2rem;
-  box-shadow: 0 6px 18px #0003;
+  box-shadow: var(--bong-nhe);
 }
 .ai-floating-window {
   position: absolute;
@@ -492,9 +492,9 @@
   flex-direction: column;
   background: var(--mau-the);
   border: 1px solid var(--mau-vien);
-  border-radius: 22px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 18px 70px #0003;
+  box-shadow: var(--bong-nhe);
 }
 .ai-floating-window.is-expanded {
   width: min(760px, calc(100vw - 48px));
@@ -661,7 +661,7 @@
   z-index: 2;
   border-radius: 0;
   overflow: auto;
-  box-shadow: 0 8px 20px #0002;
+  box-shadow: var(--bong-nhe);
 }
 .ai-page--compact .ai-sidebar .ai-recent {
   display: block;
@@ -821,7 +821,7 @@
 }
 .ai-plan-week {
   border: 1px solid var(--mau-vien);
-  border-radius: 10px;
+  border-radius: 8px;
   margin-top: 10px;
   background: var(--mau-the);
 }

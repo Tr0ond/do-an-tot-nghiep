@@ -364,7 +364,7 @@ export default {
   position: relative;
   padding: 0;
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: 8px;
   background: transparent;
   color: var(--mau-chu);
   font-size: 1.25rem;
@@ -384,7 +384,7 @@ export default {
   display: grid;
   place-items: center;
   padding: 0 4px;
-  border-radius: 20px;
+  border-radius: 8px;
   background: #dc2626;
   color: #fff;
   font-size: 0.68rem;
@@ -401,8 +401,8 @@ export default {
   color: var(--mau-chu);
   background: var(--mau-the);
   border: 1px solid var(--mau-vien);
-  border-radius: 18px;
-  box-shadow: var(--bong-noi);
+  border-radius: 8px;
+  box-shadow: var(--bong-nhe);
   overflow: hidden;
 }
 .inbox-top {
@@ -485,7 +485,7 @@ export default {
   place-items: center;
   min-width: 22px;
   height: 22px;
-  border-radius: 20px;
+  border-radius: 8px;
   padding: 0 6px;
   color: #fff;
   background: #dc2626;
@@ -546,7 +546,7 @@ export default {
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  border-radius: 10px;
+  border-radius: 8px;
   color: var(--mau-chinh);
   background: var(--mau-the-sub);
 }

@@ -1,0 +1,3894 @@
+{
+  "environment": "Chrome / Vue dev server / isolated MySQL demo",
+  "cases": [
+    {
+      "role": "ADMIN",
+      "path": "/admin/tai-lieu-tu-van",
+      "route": "/admin/tai-lieu-tu-van",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-tai-lieu-tu-van-light-1440.jpg",
+      "actualPath": "/admin/tai-lieu-tu-van",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tài liệu & thống kê AI"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/faq",
+      "route": "/faq",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-faq-light-1440.jpg",
+      "actualPath": "/faq",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Câu hỏi & tài liệu"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/lich-hen",
+      "route": "/admin/lich-hen",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-lich-hen-light-1440.jpg",
+      "actualPath": "/admin/lich-hen",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Lịch hẹn huấn luyện"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/lich-hen/1",
+      "route": "/admin/lich-hen/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-lich-hen-1-light-1440.jpg",
+      "actualPath": "/admin/lich-hen/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chi tiết buổi tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/don-hang",
+      "route": "/admin/don-hang",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-don-hang-light-1440.jpg",
+      "actualPath": "/admin/don-hang",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Đơn hàng"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/don-hang/1",
+      "route": "/admin/don-hang/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-don-hang-1-light-1440.jpg",
+      "actualPath": "/admin/don-hang/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chi tiết đơn hàng"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/phan-cong",
+      "route": "/admin/phan-cong",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-phan-cong-light-1440.jpg",
+      "actualPath": "/admin/phan-cong",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Phân công PT"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/tong-quan",
+      "route": "/admin/tong-quan",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-tong-quan-light-1440.jpg",
+      "actualPath": "/admin/tong-quan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tổng quan hệ thống"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/ho-so",
+      "route": "/admin/ho-so",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-ho-so-light-1440.jpg",
+      "actualPath": "/admin/ho-so",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Hồ sơ của tôi"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/ho-so/sua",
+      "route": "/admin/ho-so/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-ho-so-sua-light-1440.jpg",
+      "actualPath": "/admin/ho-so/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Cập nhật hồ sơ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/nhom-co",
+      "route": "/admin/nhom-co",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-nhom-co-light-1440.jpg",
+      "actualPath": "/admin/nhom-co",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý nhóm cơ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/nhom-co/them",
+      "route": "/admin/nhom-co/them",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-nhom-co-them-light-1440.jpg",
+      "actualPath": "/admin/nhom-co/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thêm nhóm cơ mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/nhom-co/5/sua",
+      "route": "/admin/nhom-co/:id/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-nhom-co-5-sua-light-1440.jpg",
+      "actualPath": "/admin/nhom-co/5/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉnh sửa nhóm cơ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/giao-an-mau",
+      "route": "/admin/giao-an-mau",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-giao-an-mau-light-1440.jpg",
+      "actualPath": "/admin/giao-an-mau",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mẫu"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/giao-an-mau/them",
+      "route": "/admin/giao-an-mau/them",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-giao-an-mau-them-light-1440.jpg",
+      "actualPath": "/admin/giao-an-mau/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tạo giáo án mẫu mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/giao-an-mau/1/sua",
+      "route": "/admin/giao-an-mau/:id/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-giao-an-mau-1-sua-light-1440.jpg",
+      "actualPath": "/admin/giao-an-mau/1/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉnh sửa giáo án mẫu"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/goi-tap",
+      "route": "/goi-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-goi-tap-light-1440.jpg",
+      "actualPath": "/goi-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Bảng giá gói tập & Dịch vụ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/goi-tap/1",
+      "route": "/goi-tap/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-goi-tap-1-light-1440.jpg",
+      "actualPath": "/goi-tap/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Gói demo PT & AI"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/goi-tap",
+      "route": "/admin/goi-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-goi-tap-light-1440.jpg",
+      "actualPath": "/admin/goi-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý gói tập & Bảng giá"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/goi-tap/them",
+      "route": "/admin/goi-tap/them",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-goi-tap-them-light-1440.jpg",
+      "actualPath": "/admin/goi-tap/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thêm gói tập mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/goi-tap/1/sua",
+      "route": "/admin/goi-tap/:id/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-goi-tap-1-sua-light-1440.jpg",
+      "actualPath": "/admin/goi-tap/1/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉnh sửa cấu hình gói tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/bai-tap",
+      "route": "/admin/bai-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-bai-tap-light-1440.jpg",
+      "actualPath": "/admin/bai-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý thư viện bài tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/bai-tap/them",
+      "route": "/admin/bai-tap/them",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-bai-tap-them-light-1440.jpg",
+      "actualPath": "/admin/bai-tap/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thêm bài tập mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/bai-tap/1324/sua",
+      "route": "/admin/bai-tap/:id/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-bai-tap-1324-sua-light-1440.jpg",
+      "actualPath": "/admin/bai-tap/1324/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Biên tập nội dung bài tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/bai-tap",
+      "route": "/bai-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-bai-tap-light-1440.jpg",
+      "actualPath": "/bai-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thư viện bài tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/bai-tap/1324",
+      "route": "/bai-tap/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-bai-tap-1324-light-1440.jpg",
+      "actualPath": "/bai-tap/1324",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "dumbbell waiter biceps curl"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/tai-khoan",
+      "route": "/admin/tai-khoan",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-tai-khoan-light-1440.jpg",
+      "actualPath": "/admin/tai-khoan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý tài khoản & Phân quyền"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/tai-lieu-tu-van",
+      "route": "/admin/tai-lieu-tu-van",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-tai-lieu-tu-van-light-390.jpg",
+      "actualPath": "/admin/tai-lieu-tu-van",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tài liệu & thống kê AI"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/faq",
+      "route": "/faq",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-faq-light-390.jpg",
+      "actualPath": "/faq",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Câu hỏi & tài liệu"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/lich-hen",
+      "route": "/admin/lich-hen",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-lich-hen-light-390.jpg",
+      "actualPath": "/admin/lich-hen",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Lịch hẹn huấn luyện"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/lich-hen/1",
+      "route": "/admin/lich-hen/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-lich-hen-1-light-390.jpg",
+      "actualPath": "/admin/lich-hen/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chi tiết buổi tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/don-hang",
+      "route": "/admin/don-hang",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-don-hang-light-390.jpg",
+      "actualPath": "/admin/don-hang",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Đơn hàng"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/don-hang/1",
+      "route": "/admin/don-hang/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-don-hang-1-light-390.jpg",
+      "actualPath": "/admin/don-hang/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chi tiết đơn hàng"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/phan-cong",
+      "route": "/admin/phan-cong",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-phan-cong-light-390.jpg",
+      "actualPath": "/admin/phan-cong",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Phân công PT"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/tong-quan",
+      "route": "/admin/tong-quan",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-tong-quan-light-390.jpg",
+      "actualPath": "/admin/tong-quan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tổng quan hệ thống"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/ho-so",
+      "route": "/admin/ho-so",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-ho-so-light-390.jpg",
+      "actualPath": "/admin/ho-so",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Hồ sơ của tôi"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/ho-so/sua",
+      "route": "/admin/ho-so/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-ho-so-sua-light-390.jpg",
+      "actualPath": "/admin/ho-so/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Cập nhật hồ sơ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/nhom-co",
+      "route": "/admin/nhom-co",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-nhom-co-light-390.jpg",
+      "actualPath": "/admin/nhom-co",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý nhóm cơ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/nhom-co/them",
+      "route": "/admin/nhom-co/them",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-nhom-co-them-light-390.jpg",
+      "actualPath": "/admin/nhom-co/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thêm nhóm cơ mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/nhom-co/5/sua",
+      "route": "/admin/nhom-co/:id/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-nhom-co-5-sua-light-390.jpg",
+      "actualPath": "/admin/nhom-co/5/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉnh sửa nhóm cơ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/giao-an-mau",
+      "route": "/admin/giao-an-mau",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-giao-an-mau-light-390.jpg",
+      "actualPath": "/admin/giao-an-mau",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mẫu"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/giao-an-mau/them",
+      "route": "/admin/giao-an-mau/them",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-giao-an-mau-them-light-390.jpg",
+      "actualPath": "/admin/giao-an-mau/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tạo giáo án mẫu mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/giao-an-mau/1/sua",
+      "route": "/admin/giao-an-mau/:id/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-giao-an-mau-1-sua-light-390.jpg",
+      "actualPath": "/admin/giao-an-mau/1/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉnh sửa giáo án mẫu"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/goi-tap",
+      "route": "/goi-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-goi-tap-light-390.jpg",
+      "actualPath": "/goi-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Bảng giá gói tập & Dịch vụ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/goi-tap/1",
+      "route": "/goi-tap/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-goi-tap-1-light-390.jpg",
+      "actualPath": "/goi-tap/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Gói demo PT & AI"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/goi-tap",
+      "route": "/admin/goi-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-goi-tap-light-390.jpg",
+      "actualPath": "/admin/goi-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý gói tập & Bảng giá"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/goi-tap/them",
+      "route": "/admin/goi-tap/them",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-goi-tap-them-light-390.jpg",
+      "actualPath": "/admin/goi-tap/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thêm gói tập mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/goi-tap/1/sua",
+      "route": "/admin/goi-tap/:id/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-goi-tap-1-sua-light-390.jpg",
+      "actualPath": "/admin/goi-tap/1/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉnh sửa cấu hình gói tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/bai-tap",
+      "route": "/admin/bai-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-bai-tap-light-390.jpg",
+      "actualPath": "/admin/bai-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý thư viện bài tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/bai-tap/them",
+      "route": "/admin/bai-tap/them",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-bai-tap-them-light-390.jpg",
+      "actualPath": "/admin/bai-tap/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thêm bài tập mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/bai-tap/1324/sua",
+      "route": "/admin/bai-tap/:id/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-bai-tap-1324-sua-light-390.jpg",
+      "actualPath": "/admin/bai-tap/1324/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Biên tập nội dung bài tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/bai-tap",
+      "route": "/bai-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-bai-tap-light-390.jpg",
+      "actualPath": "/bai-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thư viện bài tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/bai-tap/1324",
+      "route": "/bai-tap/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-bai-tap-1324-light-390.jpg",
+      "actualPath": "/bai-tap/1324",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "dumbbell waiter biceps curl"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/tai-khoan",
+      "route": "/admin/tai-khoan",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-tai-khoan-light-390.jpg",
+      "actualPath": "/admin/tai-khoan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý tài khoản & Phân quyền"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/tai-lieu-tu-van",
+      "route": "/admin/tai-lieu-tu-van",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-tai-lieu-tu-van-dark-1440.jpg",
+      "actualPath": "/admin/tai-lieu-tu-van",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tài liệu & thống kê AI"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/faq",
+      "route": "/faq",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-faq-dark-1440.jpg",
+      "actualPath": "/faq",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Câu hỏi & tài liệu"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/lich-hen",
+      "route": "/admin/lich-hen",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-lich-hen-dark-1440.jpg",
+      "actualPath": "/admin/lich-hen",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Lịch hẹn huấn luyện"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/lich-hen/1",
+      "route": "/admin/lich-hen/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-lich-hen-1-dark-1440.jpg",
+      "actualPath": "/admin/lich-hen/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chi tiết buổi tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/don-hang",
+      "route": "/admin/don-hang",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-don-hang-dark-1440.jpg",
+      "actualPath": "/admin/don-hang",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Đơn hàng"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/don-hang/1",
+      "route": "/admin/don-hang/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-don-hang-1-dark-1440.jpg",
+      "actualPath": "/admin/don-hang/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chi tiết đơn hàng"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/phan-cong",
+      "route": "/admin/phan-cong",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-phan-cong-dark-1440.jpg",
+      "actualPath": "/admin/phan-cong",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Phân công PT"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/tong-quan",
+      "route": "/admin/tong-quan",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-tong-quan-dark-1440.jpg",
+      "actualPath": "/admin/tong-quan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tổng quan hệ thống"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/ho-so",
+      "route": "/admin/ho-so",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-ho-so-dark-1440.jpg",
+      "actualPath": "/admin/ho-so",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Hồ sơ của tôi"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/ho-so/sua",
+      "route": "/admin/ho-so/sua",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-ho-so-sua-dark-1440.jpg",
+      "actualPath": "/admin/ho-so/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Cập nhật hồ sơ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/nhom-co",
+      "route": "/admin/nhom-co",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-nhom-co-dark-1440.jpg",
+      "actualPath": "/admin/nhom-co",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý nhóm cơ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/nhom-co/them",
+      "route": "/admin/nhom-co/them",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-nhom-co-them-dark-1440.jpg",
+      "actualPath": "/admin/nhom-co/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thêm nhóm cơ mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/nhom-co/5/sua",
+      "route": "/admin/nhom-co/:id/sua",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-nhom-co-5-sua-dark-1440.jpg",
+      "actualPath": "/admin/nhom-co/5/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉnh sửa nhóm cơ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/giao-an-mau",
+      "route": "/admin/giao-an-mau",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-giao-an-mau-dark-1440.jpg",
+      "actualPath": "/admin/giao-an-mau",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mẫu"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/giao-an-mau/them",
+      "route": "/admin/giao-an-mau/them",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-giao-an-mau-them-dark-1440.jpg",
+      "actualPath": "/admin/giao-an-mau/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tạo giáo án mẫu mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/giao-an-mau/1/sua",
+      "route": "/admin/giao-an-mau/:id/sua",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-giao-an-mau-1-sua-dark-1440.jpg",
+      "actualPath": "/admin/giao-an-mau/1/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉnh sửa giáo án mẫu"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/goi-tap",
+      "route": "/goi-tap",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-goi-tap-dark-1440.jpg",
+      "actualPath": "/goi-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Bảng giá gói tập & Dịch vụ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/goi-tap/1",
+      "route": "/goi-tap/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-goi-tap-1-dark-1440.jpg",
+      "actualPath": "/goi-tap/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Gói demo PT & AI"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/goi-tap",
+      "route": "/admin/goi-tap",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-goi-tap-dark-1440.jpg",
+      "actualPath": "/admin/goi-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý gói tập & Bảng giá"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/goi-tap/them",
+      "route": "/admin/goi-tap/them",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-goi-tap-them-dark-1440.jpg",
+      "actualPath": "/admin/goi-tap/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thêm gói tập mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/goi-tap/1/sua",
+      "route": "/admin/goi-tap/:id/sua",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-goi-tap-1-sua-dark-1440.jpg",
+      "actualPath": "/admin/goi-tap/1/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉnh sửa cấu hình gói tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/bai-tap",
+      "route": "/admin/bai-tap",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-bai-tap-dark-1440.jpg",
+      "actualPath": "/admin/bai-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý thư viện bài tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/bai-tap/them",
+      "route": "/admin/bai-tap/them",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-bai-tap-them-dark-1440.jpg",
+      "actualPath": "/admin/bai-tap/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thêm bài tập mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/bai-tap/1324/sua",
+      "route": "/admin/bai-tap/:id/sua",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-bai-tap-1324-sua-dark-1440.jpg",
+      "actualPath": "/admin/bai-tap/1324/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Biên tập nội dung bài tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/bai-tap",
+      "route": "/bai-tap",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-bai-tap-dark-1440.jpg",
+      "actualPath": "/bai-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thư viện bài tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/bai-tap/1324",
+      "route": "/bai-tap/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-bai-tap-1324-dark-1440.jpg",
+      "actualPath": "/bai-tap/1324",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "dumbbell waiter biceps curl"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/tai-khoan",
+      "route": "/admin/tai-khoan",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "admin-admin-tai-khoan-dark-1440.jpg",
+      "actualPath": "/admin/tai-khoan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý tài khoản & Phân quyền"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/tai-lieu-tu-van",
+      "route": "/admin/tai-lieu-tu-van",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-tai-lieu-tu-van-dark-390.jpg",
+      "actualPath": "/admin/tai-lieu-tu-van",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tài liệu & thống kê AI"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/faq",
+      "route": "/faq",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-faq-dark-390.jpg",
+      "actualPath": "/faq",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Câu hỏi & tài liệu"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/lich-hen",
+      "route": "/admin/lich-hen",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-lich-hen-dark-390.jpg",
+      "actualPath": "/admin/lich-hen",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Lịch hẹn huấn luyện"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/lich-hen/1",
+      "route": "/admin/lich-hen/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-lich-hen-1-dark-390.jpg",
+      "actualPath": "/admin/lich-hen/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chi tiết buổi tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/don-hang",
+      "route": "/admin/don-hang",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-don-hang-dark-390.jpg",
+      "actualPath": "/admin/don-hang",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Đơn hàng"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/don-hang/1",
+      "route": "/admin/don-hang/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-don-hang-1-dark-390.jpg",
+      "actualPath": "/admin/don-hang/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chi tiết đơn hàng"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/phan-cong",
+      "route": "/admin/phan-cong",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-phan-cong-dark-390.jpg",
+      "actualPath": "/admin/phan-cong",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Phân công PT"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/tong-quan",
+      "route": "/admin/tong-quan",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-tong-quan-dark-390.jpg",
+      "actualPath": "/admin/tong-quan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tổng quan hệ thống"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/ho-so",
+      "route": "/admin/ho-so",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-ho-so-dark-390.jpg",
+      "actualPath": "/admin/ho-so",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Hồ sơ của tôi"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/ho-so/sua",
+      "route": "/admin/ho-so/sua",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-ho-so-sua-dark-390.jpg",
+      "actualPath": "/admin/ho-so/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Cập nhật hồ sơ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/nhom-co",
+      "route": "/admin/nhom-co",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-nhom-co-dark-390.jpg",
+      "actualPath": "/admin/nhom-co",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý nhóm cơ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/nhom-co/them",
+      "route": "/admin/nhom-co/them",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-nhom-co-them-dark-390.jpg",
+      "actualPath": "/admin/nhom-co/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thêm nhóm cơ mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/nhom-co/5/sua",
+      "route": "/admin/nhom-co/:id/sua",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-nhom-co-5-sua-dark-390.jpg",
+      "actualPath": "/admin/nhom-co/5/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉnh sửa nhóm cơ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/giao-an-mau",
+      "route": "/admin/giao-an-mau",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-giao-an-mau-dark-390.jpg",
+      "actualPath": "/admin/giao-an-mau",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mẫu"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/giao-an-mau/them",
+      "route": "/admin/giao-an-mau/them",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-giao-an-mau-them-dark-390.jpg",
+      "actualPath": "/admin/giao-an-mau/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tạo giáo án mẫu mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/giao-an-mau/1/sua",
+      "route": "/admin/giao-an-mau/:id/sua",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-giao-an-mau-1-sua-dark-390.jpg",
+      "actualPath": "/admin/giao-an-mau/1/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉnh sửa giáo án mẫu"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/goi-tap",
+      "route": "/goi-tap",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-goi-tap-dark-390.jpg",
+      "actualPath": "/goi-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Bảng giá gói tập & Dịch vụ"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/goi-tap/1",
+      "route": "/goi-tap/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-goi-tap-1-dark-390.jpg",
+      "actualPath": "/goi-tap/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Gói demo PT & AI"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/goi-tap",
+      "route": "/admin/goi-tap",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-goi-tap-dark-390.jpg",
+      "actualPath": "/admin/goi-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý gói tập & Bảng giá"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/goi-tap/them",
+      "route": "/admin/goi-tap/them",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-goi-tap-them-dark-390.jpg",
+      "actualPath": "/admin/goi-tap/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thêm gói tập mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/goi-tap/1/sua",
+      "route": "/admin/goi-tap/:id/sua",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-goi-tap-1-sua-dark-390.jpg",
+      "actualPath": "/admin/goi-tap/1/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉnh sửa cấu hình gói tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/bai-tap",
+      "route": "/admin/bai-tap",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-bai-tap-dark-390.jpg",
+      "actualPath": "/admin/bai-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý thư viện bài tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/bai-tap/them",
+      "route": "/admin/bai-tap/them",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-bai-tap-them-dark-390.jpg",
+      "actualPath": "/admin/bai-tap/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thêm bài tập mới"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/bai-tap/1324/sua",
+      "route": "/admin/bai-tap/:id/sua",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-bai-tap-1324-sua-dark-390.jpg",
+      "actualPath": "/admin/bai-tap/1324/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Biên tập nội dung bài tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/bai-tap",
+      "route": "/bai-tap",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-bai-tap-dark-390.jpg",
+      "actualPath": "/bai-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thư viện bài tập"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/bai-tap/1324",
+      "route": "/bai-tap/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-bai-tap-1324-dark-390.jpg",
+      "actualPath": "/bai-tap/1324",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "dumbbell waiter biceps curl"
+    },
+    {
+      "role": "ADMIN",
+      "path": "/admin/tai-khoan",
+      "route": "/admin/tai-khoan",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "admin-admin-tai-khoan-dark-390.jpg",
+      "actualPath": "/admin/tai-khoan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Quản lý tài khoản & Phân quyền"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/chi-so-co-the",
+      "route": "/pt/hoc-vien/:khachId/chi-so-co-the",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-chi-so-co-the-light-1440.jpg",
+      "actualPath": "/pt/hoc-vien/1/chi-so-co-the",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉ số cơ thể"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/faq",
+      "route": "/faq",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-faq-light-1440.jpg",
+      "actualPath": "/faq",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Câu hỏi & tài liệu"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/lich-tap",
+      "route": "/pt/hoc-vien/:khachId/lich-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-lich-tap-light-1440.jpg",
+      "actualPath": "/pt/hoc-vien/1/lich-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Lịch & nhật ký tập"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/lich-tap/1",
+      "route": "/pt/lich-tap/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-lich-tap-1-light-1440.jpg",
+      "actualPath": "/pt/lich-tap/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án demo toàn thân"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien",
+      "route": "/pt/hoc-vien",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-light-1440.jpg",
+      "actualPath": "/pt/hoc-vien",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Học viên & giáo án"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/ke-hoach",
+      "route": "/pt/hoc-vien/:khachId/ke-hoach",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-light-1440.jpg",
+      "actualPath": "/pt/hoc-vien/1/ke-hoach",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án của Demo kh"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/ke-hoach/them",
+      "route": "/pt/hoc-vien/:khachId/ke-hoach/them",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-them-light-1440.jpg",
+      "actualPath": "/pt/hoc-vien/1/ke-hoach/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mới"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ke-hoach/6/sua",
+      "route": "/pt/ke-hoach/:id/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-ke-hoach-6-sua-light-1440.jpg",
+      "actualPath": "/pt/ke-hoach/6/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Sửa bản nháp"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ke-hoach/1",
+      "route": "/pt/ke-hoach/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-ke-hoach-1-light-1440.jpg",
+      "actualPath": "/pt/ke-hoach/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án demo toàn thân"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/tin-nhan",
+      "route": "/pt/tin-nhan",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-tin-nhan-light-1440.jpg",
+      "actualPath": "/pt/tin-nhan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tin nhắn"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/tin-nhan/1",
+      "route": "/pt/tin-nhan/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-tin-nhan-1-light-1440.jpg",
+      "actualPath": "/pt/tin-nhan/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tin nhắn"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/lich-hen",
+      "route": "/pt/lich-hen",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-lich-hen-light-1440.jpg",
+      "actualPath": "/pt/lich-hen",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Lịch hẹn huấn luyện"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/lich-hen/1",
+      "route": "/pt/lich-hen/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-lich-hen-1-light-1440.jpg",
+      "actualPath": "/pt/lich-hen/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chi tiết buổi tập"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/khung-gio",
+      "route": "/pt/khung-gio",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-khung-gio-light-1440.jpg",
+      "actualPath": "/pt/khung-gio",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Khung giờ của tôi"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/tong-quan",
+      "route": "/pt/tong-quan",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-tong-quan-light-1440.jpg",
+      "actualPath": "/pt/tong-quan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chào pt!"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ho-so/sua",
+      "route": "/pt/ho-so/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-ho-so-sua-light-1440.jpg",
+      "actualPath": "/pt/ho-so/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Cập nhật hồ sơ"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/giao-an-mau",
+      "route": "/pt/giao-an-mau",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-giao-an-mau-light-1440.jpg",
+      "actualPath": "/pt/giao-an-mau",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mẫu"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/giao-an-mau/1",
+      "route": "/pt/giao-an-mau/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-giao-an-mau-1-light-1440.jpg",
+      "actualPath": "/pt/giao-an-mau/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mẫu kiểm tra giao diện"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/goi-tap",
+      "route": "/goi-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-goi-tap-light-1440.jpg",
+      "actualPath": "/goi-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Bảng giá gói tập & Dịch vụ"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/goi-tap/1",
+      "route": "/goi-tap/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-goi-tap-1-light-1440.jpg",
+      "actualPath": "/goi-tap/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Gói demo PT & AI"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/bai-tap",
+      "route": "/bai-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-bai-tap-light-1440.jpg",
+      "actualPath": "/bai-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thư viện bài tập"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/bai-tap/1324",
+      "route": "/bai-tap/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-bai-tap-1324-light-1440.jpg",
+      "actualPath": "/bai-tap/1324",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "dumbbell waiter biceps curl"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ho-so",
+      "route": "/pt/ho-so",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-ho-so-light-1440.jpg",
+      "actualPath": "/pt/ho-so",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Hồ sơ của tôi"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/chi-so-co-the",
+      "route": "/pt/hoc-vien/:khachId/chi-so-co-the",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-chi-so-co-the-light-390.jpg",
+      "actualPath": "/pt/hoc-vien/1/chi-so-co-the",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉ số cơ thể"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/faq",
+      "route": "/faq",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-faq-light-390.jpg",
+      "actualPath": "/faq",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Câu hỏi & tài liệu"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/lich-tap",
+      "route": "/pt/hoc-vien/:khachId/lich-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-lich-tap-light-390.jpg",
+      "actualPath": "/pt/hoc-vien/1/lich-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Lịch & nhật ký tập"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/lich-tap/1",
+      "route": "/pt/lich-tap/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-lich-tap-1-light-390.jpg",
+      "actualPath": "/pt/lich-tap/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án demo toàn thân"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien",
+      "route": "/pt/hoc-vien",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-light-390.jpg",
+      "actualPath": "/pt/hoc-vien",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Học viên & giáo án"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/ke-hoach",
+      "route": "/pt/hoc-vien/:khachId/ke-hoach",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-light-390.jpg",
+      "actualPath": "/pt/hoc-vien/1/ke-hoach",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án của Demo kh"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/ke-hoach/them",
+      "route": "/pt/hoc-vien/:khachId/ke-hoach/them",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-them-light-390.jpg",
+      "actualPath": "/pt/hoc-vien/1/ke-hoach/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mới"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ke-hoach/6/sua",
+      "route": "/pt/ke-hoach/:id/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-ke-hoach-6-sua-light-390.jpg",
+      "actualPath": "/pt/ke-hoach/6/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Sửa bản nháp"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ke-hoach/1",
+      "route": "/pt/ke-hoach/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-ke-hoach-1-light-390.jpg",
+      "actualPath": "/pt/ke-hoach/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án demo toàn thân"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/tin-nhan",
+      "route": "/pt/tin-nhan",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-tin-nhan-light-390.jpg",
+      "actualPath": "/pt/tin-nhan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tin nhắn"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/tin-nhan/1",
+      "route": "/pt/tin-nhan/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-tin-nhan-1-light-390.jpg",
+      "actualPath": "/pt/tin-nhan/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tin nhắn"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/lich-hen",
+      "route": "/pt/lich-hen",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-lich-hen-light-390.jpg",
+      "actualPath": "/pt/lich-hen",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Lịch hẹn huấn luyện"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/lich-hen/1",
+      "route": "/pt/lich-hen/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-lich-hen-1-light-390.jpg",
+      "actualPath": "/pt/lich-hen/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chi tiết buổi tập"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/khung-gio",
+      "route": "/pt/khung-gio",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-khung-gio-light-390.jpg",
+      "actualPath": "/pt/khung-gio",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Khung giờ của tôi"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/tong-quan",
+      "route": "/pt/tong-quan",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-tong-quan-light-390.jpg",
+      "actualPath": "/pt/tong-quan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chào pt!"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ho-so/sua",
+      "route": "/pt/ho-so/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-ho-so-sua-light-390.jpg",
+      "actualPath": "/pt/ho-so/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Cập nhật hồ sơ"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/giao-an-mau",
+      "route": "/pt/giao-an-mau",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-giao-an-mau-light-390.jpg",
+      "actualPath": "/pt/giao-an-mau",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mẫu"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/giao-an-mau/1",
+      "route": "/pt/giao-an-mau/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-giao-an-mau-1-light-390.jpg",
+      "actualPath": "/pt/giao-an-mau/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mẫu kiểm tra giao diện"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/goi-tap",
+      "route": "/goi-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-goi-tap-light-390.jpg",
+      "actualPath": "/goi-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Bảng giá gói tập & Dịch vụ"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/goi-tap/1",
+      "route": "/goi-tap/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-goi-tap-1-light-390.jpg",
+      "actualPath": "/goi-tap/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Gói demo PT & AI"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/bai-tap",
+      "route": "/bai-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-bai-tap-light-390.jpg",
+      "actualPath": "/bai-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thư viện bài tập"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/bai-tap/1324",
+      "route": "/bai-tap/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-bai-tap-1324-light-390.jpg",
+      "actualPath": "/bai-tap/1324",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "dumbbell waiter biceps curl"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ho-so",
+      "route": "/pt/ho-so",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-ho-so-light-390.jpg",
+      "actualPath": "/pt/ho-so",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Hồ sơ của tôi"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/chi-so-co-the",
+      "route": "/pt/hoc-vien/:khachId/chi-so-co-the",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-chi-so-co-the-dark-1440.jpg",
+      "actualPath": "/pt/hoc-vien/1/chi-so-co-the",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉ số cơ thể"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/faq",
+      "route": "/faq",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-faq-dark-1440.jpg",
+      "actualPath": "/faq",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Câu hỏi & tài liệu"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/lich-tap",
+      "route": "/pt/hoc-vien/:khachId/lich-tap",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-lich-tap-dark-1440.jpg",
+      "actualPath": "/pt/hoc-vien/1/lich-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Lịch & nhật ký tập"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/lich-tap/1",
+      "route": "/pt/lich-tap/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-lich-tap-1-dark-1440.jpg",
+      "actualPath": "/pt/lich-tap/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án demo toàn thân"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien",
+      "route": "/pt/hoc-vien",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-dark-1440.jpg",
+      "actualPath": "/pt/hoc-vien",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Học viên & giáo án"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/ke-hoach",
+      "route": "/pt/hoc-vien/:khachId/ke-hoach",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-dark-1440.jpg",
+      "actualPath": "/pt/hoc-vien/1/ke-hoach",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án của Demo kh"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/ke-hoach/them",
+      "route": "/pt/hoc-vien/:khachId/ke-hoach/them",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-them-dark-1440.jpg",
+      "actualPath": "/pt/hoc-vien/1/ke-hoach/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mới"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ke-hoach/6/sua",
+      "route": "/pt/ke-hoach/:id/sua",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-ke-hoach-6-sua-dark-1440.jpg",
+      "actualPath": "/pt/ke-hoach/6/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Sửa bản nháp"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ke-hoach/1",
+      "route": "/pt/ke-hoach/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-ke-hoach-1-dark-1440.jpg",
+      "actualPath": "/pt/ke-hoach/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án demo toàn thân"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/tin-nhan",
+      "route": "/pt/tin-nhan",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-tin-nhan-dark-1440.jpg",
+      "actualPath": "/pt/tin-nhan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tin nhắn"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/tin-nhan/1",
+      "route": "/pt/tin-nhan/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-tin-nhan-1-dark-1440.jpg",
+      "actualPath": "/pt/tin-nhan/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tin nhắn"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/lich-hen",
+      "route": "/pt/lich-hen",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-lich-hen-dark-1440.jpg",
+      "actualPath": "/pt/lich-hen",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Lịch hẹn huấn luyện"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/lich-hen/1",
+      "route": "/pt/lich-hen/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-lich-hen-1-dark-1440.jpg",
+      "actualPath": "/pt/lich-hen/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chi tiết buổi tập"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/khung-gio",
+      "route": "/pt/khung-gio",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-khung-gio-dark-1440.jpg",
+      "actualPath": "/pt/khung-gio",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Khung giờ của tôi"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/tong-quan",
+      "route": "/pt/tong-quan",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-tong-quan-dark-1440.jpg",
+      "actualPath": "/pt/tong-quan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chào pt!"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ho-so/sua",
+      "route": "/pt/ho-so/sua",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-ho-so-sua-dark-1440.jpg",
+      "actualPath": "/pt/ho-so/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Cập nhật hồ sơ"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/giao-an-mau",
+      "route": "/pt/giao-an-mau",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-giao-an-mau-dark-1440.jpg",
+      "actualPath": "/pt/giao-an-mau",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mẫu"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/giao-an-mau/1",
+      "route": "/pt/giao-an-mau/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-giao-an-mau-1-dark-1440.jpg",
+      "actualPath": "/pt/giao-an-mau/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mẫu kiểm tra giao diện"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/goi-tap",
+      "route": "/goi-tap",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-goi-tap-dark-1440.jpg",
+      "actualPath": "/goi-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Bảng giá gói tập & Dịch vụ"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/goi-tap/1",
+      "route": "/goi-tap/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-goi-tap-1-dark-1440.jpg",
+      "actualPath": "/goi-tap/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Gói demo PT & AI"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/bai-tap",
+      "route": "/bai-tap",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-bai-tap-dark-1440.jpg",
+      "actualPath": "/bai-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thư viện bài tập"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/bai-tap/1324",
+      "route": "/bai-tap/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-bai-tap-1324-dark-1440.jpg",
+      "actualPath": "/bai-tap/1324",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "dumbbell waiter biceps curl"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ho-so",
+      "route": "/pt/ho-so",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "huan_luyen_vien-pt-ho-so-dark-1440.jpg",
+      "actualPath": "/pt/ho-so",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Hồ sơ của tôi"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/chi-so-co-the",
+      "route": "/pt/hoc-vien/:khachId/chi-so-co-the",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-chi-so-co-the-dark-390.jpg",
+      "actualPath": "/pt/hoc-vien/1/chi-so-co-the",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉ số cơ thể"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/faq",
+      "route": "/faq",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-faq-dark-390.jpg",
+      "actualPath": "/faq",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Câu hỏi & tài liệu"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/lich-tap",
+      "route": "/pt/hoc-vien/:khachId/lich-tap",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-lich-tap-dark-390.jpg",
+      "actualPath": "/pt/hoc-vien/1/lich-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Lịch & nhật ký tập"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/lich-tap/1",
+      "route": "/pt/lich-tap/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-lich-tap-1-dark-390.jpg",
+      "actualPath": "/pt/lich-tap/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án demo toàn thân"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien",
+      "route": "/pt/hoc-vien",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-dark-390.jpg",
+      "actualPath": "/pt/hoc-vien",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Học viên & giáo án"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/ke-hoach",
+      "route": "/pt/hoc-vien/:khachId/ke-hoach",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-dark-390.jpg",
+      "actualPath": "/pt/hoc-vien/1/ke-hoach",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án của Demo kh"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/hoc-vien/1/ke-hoach/them",
+      "route": "/pt/hoc-vien/:khachId/ke-hoach/them",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-them-dark-390.jpg",
+      "actualPath": "/pt/hoc-vien/1/ke-hoach/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mới"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ke-hoach/6/sua",
+      "route": "/pt/ke-hoach/:id/sua",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-ke-hoach-6-sua-dark-390.jpg",
+      "actualPath": "/pt/ke-hoach/6/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Sửa bản nháp"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ke-hoach/1",
+      "route": "/pt/ke-hoach/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-ke-hoach-1-dark-390.jpg",
+      "actualPath": "/pt/ke-hoach/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án demo toàn thân"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/tin-nhan",
+      "route": "/pt/tin-nhan",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-tin-nhan-dark-390.jpg",
+      "actualPath": "/pt/tin-nhan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tin nhắn"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/tin-nhan/1",
+      "route": "/pt/tin-nhan/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-tin-nhan-1-dark-390.jpg",
+      "actualPath": "/pt/tin-nhan/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tin nhắn"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/lich-hen",
+      "route": "/pt/lich-hen",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-lich-hen-dark-390.jpg",
+      "actualPath": "/pt/lich-hen",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Lịch hẹn huấn luyện"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/lich-hen/1",
+      "route": "/pt/lich-hen/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-lich-hen-1-dark-390.jpg",
+      "actualPath": "/pt/lich-hen/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chi tiết buổi tập"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/khung-gio",
+      "route": "/pt/khung-gio",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-khung-gio-dark-390.jpg",
+      "actualPath": "/pt/khung-gio",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Khung giờ của tôi"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/tong-quan",
+      "route": "/pt/tong-quan",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-tong-quan-dark-390.jpg",
+      "actualPath": "/pt/tong-quan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chào pt!"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ho-so/sua",
+      "route": "/pt/ho-so/sua",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-ho-so-sua-dark-390.jpg",
+      "actualPath": "/pt/ho-so/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Cập nhật hồ sơ"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/giao-an-mau",
+      "route": "/pt/giao-an-mau",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-giao-an-mau-dark-390.jpg",
+      "actualPath": "/pt/giao-an-mau",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mẫu"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/giao-an-mau/1",
+      "route": "/pt/giao-an-mau/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-giao-an-mau-1-dark-390.jpg",
+      "actualPath": "/pt/giao-an-mau/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mẫu kiểm tra giao diện"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/goi-tap",
+      "route": "/goi-tap",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-goi-tap-dark-390.jpg",
+      "actualPath": "/goi-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Bảng giá gói tập & Dịch vụ"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/goi-tap/1",
+      "route": "/goi-tap/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-goi-tap-1-dark-390.jpg",
+      "actualPath": "/goi-tap/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Gói demo PT & AI"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/bai-tap",
+      "route": "/bai-tap",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-bai-tap-dark-390.jpg",
+      "actualPath": "/bai-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thư viện bài tập"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/bai-tap/1324",
+      "route": "/bai-tap/:id",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-bai-tap-1324-dark-390.jpg",
+      "actualPath": "/bai-tap/1324",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "dumbbell waiter biceps curl"
+    },
+    {
+      "role": "HUAN_LUYEN_VIEN",
+      "path": "/pt/ho-so",
+      "route": "/pt/ho-so",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "huan_luyen_vien-pt-ho-so-dark-390.jpg",
+      "actualPath": "/pt/ho-so",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Hồ sơ của tôi"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/chi-so-co-the",
+      "route": "/khach-hang/chi-so-co-the",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-chi-so-co-the-light-1440.jpg",
+      "actualPath": "/khach-hang/chi-so-co-the",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉ số cơ thể"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/chatbot",
+      "route": "/khach-hang/chatbot",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-chatbot-light-1440.jpg",
+      "actualPath": "/khach-hang/chatbot",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tr0ond AI"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/faq",
+      "route": "/faq",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-faq-light-1440.jpg",
+      "actualPath": "/faq",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Câu hỏi & tài liệu"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/lich-tap",
+      "route": "/khach-hang/lich-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-lich-tap-light-1440.jpg",
+      "actualPath": "/khach-hang/lich-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Lịch & nhật ký tập"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/lich-tap/1",
+      "route": "/khach-hang/lich-tap/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-lich-tap-1-light-1440.jpg",
+      "actualPath": "/khach-hang/lich-tap/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án demo toàn thân"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/ke-hoach",
+      "route": "/khach-hang/ke-hoach",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-ke-hoach-light-1440.jpg",
+      "actualPath": "/khach-hang/ke-hoach",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án của tôi"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/ke-hoach/them",
+      "route": "/khach-hang/ke-hoach/them",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-ke-hoach-them-light-1440.jpg",
+      "actualPath": "/khach-hang/ke-hoach/them",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án mới"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/ke-hoach/7/sua",
+      "route": "/khach-hang/ke-hoach/:id/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-ke-hoach-7-sua-light-1440.jpg",
+      "actualPath": "/khach-hang/ke-hoach/7/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Sửa bản nháp"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/ke-hoach/1",
+      "route": "/khach-hang/ke-hoach/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-ke-hoach-1-light-1440.jpg",
+      "actualPath": "/khach-hang/ke-hoach/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Giáo án demo toàn thân"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/tin-nhan",
+      "route": "/khach-hang/tin-nhan",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-tin-nhan-light-1440.jpg",
+      "actualPath": "/khach-hang/tin-nhan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tin nhắn"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/tin-nhan/1",
+      "route": "/khach-hang/tin-nhan/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-tin-nhan-1-light-1440.jpg",
+      "actualPath": "/khach-hang/tin-nhan/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tin nhắn"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/lich-hen",
+      "route": "/khach-hang/lich-hen",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-lich-hen-light-1440.jpg",
+      "actualPath": "/khach-hang/lich-hen",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Lịch hẹn huấn luyện"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/lich-hen/1",
+      "route": "/khach-hang/lich-hen/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-lich-hen-1-light-1440.jpg",
+      "actualPath": "/khach-hang/lich-hen/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chi tiết buổi tập"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/dat-lich",
+      "route": "/khach-hang/dat-lich",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-dat-lich-light-1440.jpg",
+      "actualPath": "/khach-hang/dat-lich",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Đặt lịch với PT"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/don-hang",
+      "route": "/khach-hang/don-hang",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-don-hang-light-1440.jpg",
+      "actualPath": "/khach-hang/don-hang",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Đơn hàng"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/don-hang/1",
+      "route": "/khach-hang/don-hang/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-don-hang-1-light-1440.jpg",
+      "actualPath": "/khach-hang/don-hang/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chi tiết đơn hàng"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/goi-cua-toi",
+      "route": "/khach-hang/goi-cua-toi",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-goi-cua-toi-light-1440.jpg",
+      "actualPath": "/khach-hang/goi-cua-toi",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Gói của tôi"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/tong-quan",
+      "route": "/khach-hang/tong-quan",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-tong-quan-light-1440.jpg",
+      "actualPath": "/khach-hang/tong-quan",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chào kh!"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/ho-so/sua",
+      "route": "/khach-hang/ho-so/sua",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-ho-so-sua-light-1440.jpg",
+      "actualPath": "/khach-hang/ho-so/sua",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Cập nhật hồ sơ"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/goi-tap",
+      "route": "/goi-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-goi-tap-light-1440.jpg",
+      "actualPath": "/goi-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Bảng giá gói tập & Dịch vụ"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/goi-tap/1",
+      "route": "/goi-tap/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-goi-tap-1-light-1440.jpg",
+      "actualPath": "/goi-tap/1",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Gói demo PT & AI"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/bai-tap",
+      "route": "/bai-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-bai-tap-light-1440.jpg",
+      "actualPath": "/bai-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Thư viện bài tập"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/bai-tap/1324",
+      "route": "/bai-tap/:id",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-bai-tap-1324-light-1440.jpg",
+      "actualPath": "/bai-tap/1324",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "dumbbell waiter biceps curl"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/ho-so",
+      "route": "/khach-hang/ho-so",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "screenshot": "khach_hang-khach-hang-ho-so-light-1440.jpg",
+      "actualPath": "/khach-hang/ho-so",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Hồ sơ của tôi"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/chi-so-co-the",
+      "route": "/khach-hang/chi-so-co-the",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "khach_hang-khach-hang-chi-so-co-the-light-390.jpg",
+      "actualPath": "/khach-hang/chi-so-co-the",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Chỉ số cơ thể"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/chatbot",
+      "route": "/khach-hang/chatbot",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "khach_hang-khach-hang-chatbot-light-390.jpg",
+      "actualPath": "/khach-hang/chatbot",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Tr0ond AI"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/faq",
+      "route": "/faq",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "khach_hang-faq-light-390.jpg",
+      "actualPath": "/faq",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Câu hỏi & tài liệu"
+    },
+    {
+      "role": "KHACH_HANG",
+      "path": "/khach-hang/lich-tap",
+      "route": "/khach-hang/lich-tap",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screenshot": "khach_hang-khach-hang-lich-tap-light-390.jpg",
+      "actualPath": "/khach-hang/lich-tap",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "contrast": [],
+      "brokenImages": [],
+      "heading": "Lịch & nhật ký tập"
+    }
+  ],
+  "interactions": [],
+  "errors": [],
+  "ids": {
+    "bai": 1324,
+    "nhom": 5,
+    "goi": 1,
+    "mau": 1,
+    "ptDraft": 6,
+    "khDraft": 7,
+    "hen": 1,
+    "chat": 1,
+    "don": 1
+  }
+}

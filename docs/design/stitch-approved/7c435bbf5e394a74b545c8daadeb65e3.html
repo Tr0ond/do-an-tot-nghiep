@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tr0ond Fitness - Màn hình ngoại lệ hệ thống</title>
+<!-- Google Fonts: Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#00153f",
+            "primary-dim": "#005a52",
+            "on-tertiary-container": "#002c72",
+            "outline-variant": "#abadae",
+            "on-primary-container": "#005851",
+            "secondary-dim": "#495500",
+            "on-secondary-fixed": "#3a4400",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#7aa0ff",
+            "tertiary": "#0854c7",
+            "on-tertiary": "#f1f2ff",
+            "primary": "#00675f",
+            "error-dim": "#9f0519",
+            "on-surface-variant": "#595c5d",
+            "on-secondary": "#e6ff63",
+            "tertiary-fixed": "#90afff",
+            "surface-variant": "#d9dddf",
+            "surface-container-high": "#dfe3e4",
+            "background": "#f5f7f8",
+            "surface-container-highest": "#d9dddf",
+            "surface-tint": "#00675f",
+            "secondary": "#546200",
+            "on-primary-fixed-variant": "#00635b",
+            "on-tertiary-fixed-variant": "#003484",
+            "secondary-fixed-dim": "#c8e044",
+            "primary-fixed-dim": "#81dfd3",
+            "tertiary-container": "#90afff",
+            "surface-bright": "#f5f7f8",
+            "surface-container": "#e5e9ea",
+            "surface": "#f5f7f8",
+            "primary-fixed": "#8fede1",
+            "surface-dim": "#d0d5d7",
+            "error": "#b31b25",
+            "on-error": "#ffefee",
+            "tertiary-dim": "#0049b1",
+            "primary-container": "#8fede1",
+            "inverse-surface": "#0b0f10",
+            "on-error-container": "#570008",
+            "on-background": "#2c2f30",
+            "secondary-container": "#d6ef52",
+            "on-primary-fixed": "#00443e",
+            "on-secondary-fixed-variant": "#546200",
+            "inverse-on-surface": "#9a9d9e",
+            "error-container": "#fb5151",
+            "on-primary": "#bffff5",
+            "secondary-fixed": "#d6ef52",
+            "outline": "#747778",
+            "on-secondary-container": "#4b5700",
+            "on-surface": "#2c2f30",
+            "inverse-primary": "#a0fff2",
+            "surface-container-low": "#eef1f2"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {},
+          "fontFamily": {
+            "headline": [
+              "Be Vietnam Pro"
+            ],
+            "display": [
+              "Be Vietnam Pro"
+            ],
+            "body": [
+              "Be Vietnam Pro"
+            ],
+            "label": [
+              "Be Vietnam Pro"
+            ]
+          },
+          "fontSize": {}
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      letter-spacing: 0;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    @keyframes spin-slow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .animate-spin-custom {
+      animation: spin-slow 1s linear infinite;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col antialiased select-none">
+<!-- Top App Bar (Minimal Shell: Semantic Header for Exception Flow) -->
+<header class="bg-surface-container-lowest text-primary flex justify-between items-center w-full h-16 px-6 shadow-sm z-30">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-surface-container-lowest font-bold text-sm tracking-tight shadow-sm">
+        FM
+      </div>
+<div>
+<span class="text-xl font-bold tracking-tight text-primary font-display">Fitness Motion</span>
+<span class="hidden sm:inline-block ml-2 px-2 py-0.5 text-xs font-semibold rounded bg-surface-container text-on-surface-variant">Vận hành &amp; Điều phối</span>
+</div>
+</div>
+<!-- User Session & Diagnostic Status -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low text-xs text-on-surface-variant font-medium">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim ring-2 ring-secondary-container"></span>
+<span>Phiên: PT-88219 (Tài khoản Huấn luyện viên)</span>
+</div>
+<div class="h-5 w-px bg-surface-variant"></div>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant font-semibold text-xs border border-surface-variant">
+          HL
+        </div>
+<span class="text-xs font-semibold text-on-surface hidden md:inline">HLV. Hoàng Long</span>
+</div>
+</div>
+</header>
+<!-- Scenario Switcher (Interactive Preview Bar for Operational Audit) -->
+<div class="bg-surface-container-low border-b border-surface-variant px-6 py-2 flex flex-wrap items-center justify-between gap-3 text-xs">
+<div class="flex items-center gap-2">
+<span class="text-on-surface-variant font-medium">Mã màn hình:</span>
+<span class="font-semibold text-primary font-mono bg-surface-container-lowest px-2 py-0.5 rounded border border-surface-variant">SCREEN-32 · EXCEPTION_HANDLER</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-lowest p-1 rounded-lg border border-surface-variant">
+<span class="text-on-surface-variant px-2 font-medium">Mô phỏng kịch bản:</span>
+<button class="px-3 py-1 rounded font-medium transition-colors bg-primary text-surface-container-lowest shadow-sm" id="btn-tab-403" onclick="switchTab('403')">
+        1. Lỗi 403 (Không có quyền)
+      </button>
+<button class="px-3 py-1 rounded font-medium transition-colors text-on-surface-variant hover:text-on-surface hover:bg-surface-container" id="btn-tab-network" onclick="switchTab('network')">
+        2. Mất kết nối mạng
+      </button>
+</div>
+</div>
+<!-- Main Canvas -->
+<main class="flex-1 flex flex-col justify-center items-center px-4 py-8 max-w-5xl mx-auto w-full">
+<!-- SCENARIO 1: Access Denied / 403 Forbidden -->
+<div class="w-full max-w-2xl flex flex-col items-center" id="scenario-403">
+<!-- Operational Status Badge -->
+<div class="mb-6 flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-semibold tracking-wide border border-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-error font-medium" data-icon="shield_lock">shield_lock</span>
+<span>TRẠNG THÁI HỆ THỐNG · MÃ LỖI 403 (ACCESS RESTRICTED)</span>
+</div>
+<!-- Icon Display -->
+<div class="w-16 h-16 rounded-xl bg-surface-container-lowest border border-surface-variant shadow-sm flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl text-primary font-normal" data-icon="lock">lock</span>
+</div>
+<!-- Heading -->
+<h1 class="text-2xl md:text-[28px] font-bold text-on-surface text-center mb-3 leading-snug tracking-tight">
+        Quyền hạn tài khoản không đủ để xem nội dung
+      </h1>
+<!-- Description -->
+<p class="text-sm md:text-base text-on-surface-variant text-center max-w-xl mb-8 leading-relaxed">
+        Khu vực này chỉ dành cho cấp Quản trị viên (Super Admin) hoặc Huấn luyện viên phụ trách được phân công. Tài khoản hiện tại của bạn không nằm trong danh sách phân quyền truy cập tính năng này.
+      </p>
+<!-- Technical Context Band -->
+<div class="w-full bg-surface-container-lowest rounded-lg border border-surface-variant p-4 mb-8 divide-y divide-surface-variant text-xs">
+<div class="flex justify-between items-center py-2">
+<span class="text-on-surface-variant">Tài khoản xác thực:</span>
+<span class="font-semibold text-on-surface">HLV. Hoàng Long (ID: USR-88219)</span>
+</div>
+<div class="flex justify-between items-center py-2">
+<span class="text-on-surface-variant">Vai trò hiện tại (Role):</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">Trainer / Huấn luyện viên cá nhân</span>
+</div>
+<div class="flex justify-between items-center py-2">
+<span class="text-on-surface-variant">Yêu cầu quyền tối thiểu:</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-semibold">Admin / Vận hành điều phối</span>
+</div>
+<div class="flex justify-between items-center py-2">
+<span class="text-on-surface-variant">Máy chủ kiểm soát:</span>
+<span class="font-mono text-on-surface-variant">auth-gateway-ap-southeast-1.tr0ond.internal</span>
+</div>
+</div>
+<!-- Primary & Secondary CTA Controls (44px target) -->
+<div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+<a class="w-full sm:w-auto min-h-[44px] h-[44px] px-6 rounded-lg bg-primary hover:bg-primary-dim text-surface-container-lowest font-medium text-sm flex items-center justify-center gap-2 transition-colors duration-150 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+<span>Quay lại trang Tổng quan</span>
+</a>
+<button class="w-full sm:w-auto min-h-[44px] h-[44px] px-5 rounded-lg bg-surface-container-lowest hover:bg-surface-container border border-surface-variant text-on-surface font-medium text-sm flex items-center justify-center gap-2 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-primary" onclick="showAdminModal()" type="button">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant" data-icon="support_agent">support_agent</span>
+<span>Liên hệ Quản trị viên hệ thống</span>
+</button>
+</div>
+</div>
+<!-- SCENARIO 2: Network / Server Disconnection -->
+<div class="w-full max-w-2xl flex-col items-center hidden" id="scenario-network">
+<!-- Operational Status Badge -->
+<div class="mb-6 flex items-center gap-2 px-3 py-1 rounded-full bg-error-container/20 text-error-dim text-xs font-semibold tracking-wide border border-error/20">
+<span class="material-symbols-outlined text-[16px] text-error font-medium" data-icon="cloud_off">cloud_off</span>
+<span>KẾT NỐI MẠNG · DISCONNECTED · CODE: ERR_NETWORK_IO_TIMEOUT</span>
+</div>
+<!-- Icon Display -->
+<div class="w-16 h-16 rounded-xl bg-surface-container-lowest border border-surface-variant shadow-sm flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl text-tertiary font-normal" data-icon="wifi_off">wifi_off</span>
+</div>
+<!-- Heading -->
+<h1 class="text-2xl md:text-[28px] font-bold text-on-surface text-center mb-3 leading-snug tracking-tight">
+        Mất kết nối máy chủ dữ liệu
+      </h1>
+<!-- Description -->
+<p class="text-sm md:text-base text-on-surface-variant text-center max-w-xl mb-8 leading-relaxed">
+        Không thể đồng bộ với máy chủ trung tâm Tr0ond. Vui lòng kiểm tra đường truyền mạng Internet của bạn hoặc kiểm tra trạng thái dịch vụ cục bộ.
+      </p>
+<!-- Network Diagnostic Panel -->
+<div class="w-full bg-surface-container-lowest rounded-lg border border-surface-variant p-4 mb-8 text-xs">
+<div class="flex items-center justify-between pb-3 border-b border-surface-variant">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-pulse"></span>
+<span class="font-medium text-on-surface">Đường truyền cục bộ: Mất gói dữ liệu (Packet Loss 100%)</span>
+</div>
+<span class="text-on-surface-variant font-mono">Ping: -- ms</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-3">
+<div class="p-2.5 rounded bg-surface-container-low border border-surface-variant flex items-center gap-2.5">
+<span class="material-symbols-outlined text-error text-[18px]" data-icon="cloud_sync">cloud_sync</span>
+<div>
+<div class="font-semibold text-on-surface">Máy chủ API Tr0ond</div>
+<div class="text-on-surface-variant text-[11px]">api.fitnessmotion.vn (Chờ kết nối)</div>
+</div>
+</div>
+<div class="p-2.5 rounded bg-surface-container-low border border-surface-variant flex items-center gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="storage">storage</span>
+<div>
+<div class="font-semibold text-on-surface">Bộ đệm ngoại tuyến</div>
+<div class="text-on-surface-variant text-[11px]">Đã lưu cục bộ: 3 nhật ký tập luyện</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary & Secondary CTA Controls (44px target) -->
+<div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+<button class="w-full sm:w-auto min-h-[44px] h-[44px] px-6 rounded-lg bg-surface-container-lowest hover:bg-surface-container border border-surface-variant text-primary font-semibold text-sm flex items-center justify-center gap-2 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" id="btn-reconnect" onclick="triggerReconnect()" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="refresh" id="reconnect-icon">refresh</span>
+<span id="reconnect-text">Thử kết nối lại</span>
+</button>
+<a class="w-full sm:w-auto min-h-[44px] h-[44px] px-5 rounded-lg bg-surface-container-lowest hover:bg-surface-container border border-surface-variant text-on-surface-variant font-medium text-sm flex items-center justify-center gap-2 transition-colors duration-150 focus:outline-none" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="wifi_find">wifi_find</span>
+<span>Kiểm tra mạng Internet</span>
+</a>
+</div>
+</div>
+<!-- Quick Operational Info Note (Unframed row as per Design System) -->
+<div class="mt-12 pt-6 border-t border-surface-variant text-center max-w-lg text-xs text-on-surface-variant">
+<span>Tr0ond Fitness Platform v4.12.0 · Hỗ trợ vận hành trực ban: </span>
+<a class="font-semibold text-primary hover:underline" href="tel:1900888999">1900 888 999</a>
+<span> (06:00 - 22:00 hàng ngày)</span>
+</div>
+</main>
+<!-- Modal: Liên hệ Quản trị viên (Hidden by default) -->
+<div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden" id="admin-modal">
+<div class="bg-surface-container-lowest w-full max-w-md rounded-lg border border-surface-variant shadow-lg p-6 flex flex-col">
+<div class="flex justify-between items-center pb-3 border-b border-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]" data-icon="admin_panel_settings">admin_panel_settings</span>
+<h2 class="text-base font-bold text-on-surface">Yêu cầu cấp quyền bổ sung</h2>
+</div>
+<button class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container text-lg" onclick="hideAdminModal()" type="button">
+          ×
+        </button>
+</div>
+<div class="py-4 space-y-3 text-xs text-on-surface">
+<p class="text-on-surface-variant">
+          Yêu cầu cấp quyền truy cập sẽ được gửi trực tiếp đến Ban điều hành và Bộ phận Quản trị hệ thống Tr0ond Fitness Motion.
+        </p>
+<div>
+<label class="block font-medium mb-1 text-on-surface">Lý do yêu cầu truy cập:</label>
+<select class="w-full text-xs rounded border border-surface-variant bg-surface-container-lowest py-2 px-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+<option>Thay đổi phân công lịch tập ca khẩn cấp</option>
+<option>Xem báo cáo tài chính buổi tập PT</option>
+<option>Kiểm duyệt tài khoản hội viên đặc biệt</option>
+<option>Lý do nghiệp vụ khác...</option>
+</select>
+</div>
+<div>
+<label class="block font-medium mb-1 text-on-surface">Ghi chú bổ sung:</label>
+<textarea class="w-full text-xs rounded border border-surface-variant bg-surface-container-lowest py-2 px-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none" placeholder="Nhập tóm tắt công việc hoặc mã học viên liên quan..." rows="3"></textarea>
+</div>
+</div>
+<div class="pt-3 border-t border-surface-variant flex justify-end gap-2">
+<button class="h-10 px-4 rounded border border-surface-variant text-xs font-medium text-on-surface hover:bg-surface-container" onclick="hideAdminModal()" type="button">
+          Hủy bỏ
+        </button>
+<button class="h-10 px-5 rounded bg-primary text-surface-container-lowest text-xs font-semibold hover:bg-primary-dim shadow-sm flex items-center gap-1.5" onclick="submitAccessRequest()" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="send">send</span>
+<span>Gửi yêu cầu</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Toast Notification (Vanilla JS for micro-interaction) -->
+<div class="fixed bottom-6 right-6 bg-inverse-surface text-surface-container-lowest px-4 py-3 rounded-lg shadow-lg text-xs font-medium flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-200 z-50" id="toast">
+<span class="material-symbols-outlined text-secondary-fixed text-[18px]" data-icon="check_circle">check_circle</span>
+<span id="toast-message">Đã gửi yêu cầu đến quản trị viên</span>
+</div>
+<script>
+    function switchTab(mode) {
+      const scenario403 = document.getElementById('scenario-403');
+      const scenarioNetwork = document.getElementById('scenario-network');
+      const btn403 = document.getElementById('btn-tab-403');
+      const btnNetwork = document.getElementById('btn-tab-network');
+
+      if (mode === '403') {
+        scenario403.classList.remove('hidden');
+        scenario403.classList.add('flex');
+        scenarioNetwork.classList.add('hidden');
+        scenarioNetwork.classList.remove('flex');
+
+        btn403.className = 'px-3 py-1 rounded font-medium transition-colors bg-primary text-surface-container-lowest shadow-sm';
+        btnNetwork.className = 'px-3 py-1 rounded font-medium transition-colors text-on-surface-variant hover:text-on-surface hover:bg-surface-container';
+      } else {
+        scenario403.classList.add('hidden');
+        scenario403.classList.remove('flex');
+        scenarioNetwork.classList.remove('hidden');
+        scenarioNetwork.classList.add('flex');
+
+        btnNetwork.className = 'px-3 py-1 rounded font-medium transition-colors bg-primary text-surface-container-lowest shadow-sm';
+        btn403.className = 'px-3 py-1 rounded font-medium transition-colors text-on-surface-variant hover:text-on-surface hover:bg-surface-container';
+      }
+    }
+
+    function triggerReconnect() {
+      const icon = document.getElementById('reconnect-icon');
+      const text = document.getElementById('reconnect-text');
+      const btn = document.getElementById('btn-reconnect');
+
+      icon.classList.add('animate-spin-custom');
+      text.textContent = 'Đang kiểm tra kết nối...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        icon.classList.remove('animate-spin-custom');
+        text.textContent = 'Thử kết nối lại';
+        btn.disabled = false;
+        showToast('Không có tín hiệu phản hồi từ máy chủ. Thử lại sau 10 giây.');
+      }, 1800);
+    }
+
+    function showAdminModal() {
+      document.getElementById('admin-modal').classList.remove('hidden');
+    }
+
+    function hideAdminModal() {
+      document.getElementById('admin-modal').classList.add('hidden');
+    }
+
+    function submitAccessRequest() {
+      hideAdminModal();
+      showToast('Đã gửi yêu cầu cấp quyền thành công tới Super Admin!');
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toast-message');
+      toastText.textContent = message;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3500);
+    }
+  </script>
+</body></html>

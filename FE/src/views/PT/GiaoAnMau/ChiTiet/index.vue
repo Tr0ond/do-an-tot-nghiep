@@ -69,7 +69,7 @@
                 <button type="button" class="btn btn-start-action" @click="ngayChon = 1">
                   <i class="bi bi-lightning-charge-fill me-1"></i> Bắt đầu xem bài tập
                 </button>
-                <small style="color: #a7f3d0">
+                <small style="color: var(--mau-phu)">
                   Hãy điều chỉnh theo thể trạng học viên khi áp dụng thực tế.
                 </small>
               </div>

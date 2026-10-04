@@ -48,7 +48,174 @@
             <p>{{ soNgay }} ngày · {{ duLieu.so_lan_ghi }} lần ghi</p>
           </article>
         </div>
-        <div class="cs-workspace" :class="{ 'cs-readonly': laPt }">
+        <div class="st-body-workspace" :class="{ 'cs-readonly': laPt }">
+          <div class="st-body-main">
+            <article class="cs-panel cs-chart">
+              <div class="cs-chart-heading">
+                <h2>Thay đổi theo thời gian</h2>
+                <label class="cs-period"
+                  >Khoảng xem<select
+                    v-model.number="soNgay"
+                    class="form-select"
+                    :disabled="dangTai || dangLuu"
+                    @change="doiKhoang"
+                  >
+                    <option :value="7">7 ngày</option>
+                    <option :value="30">30 ngày</option>
+                    <option :value="90">90 ngày</option>
+                  </select></label
+                >
+              </div>
+              <label class="cs-end-date" for="cs-den"
+                >Xem đến ngày
+                <input
+                  id="cs-den"
+                  v-model="denNgay"
+                  type="date"
+                  min="1900-01-01"
+                  :max="homNay"
+                  class="form-control"
+                  :disabled="dangTai || dangLuu"
+                  @change="doiKhoang"
+                />
+              </label>
+              <div class="cs-tabs" aria-label="Chỉ số biểu đồ">
+                <button
+                  v-for="(ten, cot) in { can_nang_kg: 'Cân nặng (kg)', bmi: 'BMI' }"
+                  :key="cot"
+                  type="button"
+                  :aria-pressed="cotBieuDo === cot"
+                  @click="cotBieuDo = cot"
+                >
+                  {{ ten }}
+                </button>
+              </div>
+              <p v-if="!bieuDo.diem.length" class="cs-empty">
+                Chưa có số đo trong {{ soNgay }} ngày này.
+              </p>
+              <template v-else>
+                <svg
+                  viewBox="0 0 660 240"
+                  class="cs-svg"
+                  role="img"
+                  :aria-label="`Biểu đồ ${cotBieuDo === 'bmi' ? 'BMI' : 'cân nặng'}, ${bieuDo.diem.length} lần đo từ ${ngay(duLieu.tu_ngay)} đến ${ngay(duLieu.den_ngay)}. Chi tiết trong bảng lịch sử bên dưới.`"
+                >
+                  <g v-for="muc in [0, 0.5, 1]" :key="muc">
+                    <line
+                      x1="60"
+                      x2="610"
+                      :y1="200 - 165 * muc"
+                      :y2="200 - 165 * muc"
+                      class="cs-grid"
+                    />
+                    <text x="48" :y="204 - 165 * muc" text-anchor="end">
+                      {{ so(bieuDo.min + (bieuDo.max - bieuDo.min) * muc) }}
+                    </text>
+                  </g>
+                  <path v-if="bieuDo.diem.length > 1" :d="bieuDo.duong" class="cs-line" />
+                  <circle
+                    v-for="moc in bieuDo.diem"
+                    :key="moc.id"
+                    :cx="moc.x"
+                    :cy="moc.y"
+                    r="4"
+                    class="cs-dot"
+                  >
+                    <title>
+                      {{ ngay(moc.ngay_ghi) }}: {{ so(moc.giaTri)
+                      }}{{ cotBieuDo === 'bmi' ? '' : ' kg' }}
+                    </title>
+                  </circle>
+                  <text x="60" y="230">{{ ngay(bieuDo.diem[0].ngay_ghi) }}</text>
+                  <text v-if="bieuDo.diem.length > 1" x="610" y="230" text-anchor="end">
+                    {{ ngay(bieuDo.diem.at(-1).ngay_ghi) }}
+                  </text>
+                </svg>
+                <p class="cs-muted">
+                  {{
+                    bieuDo.diem.length === 1
+                      ? 'Mới có một lần đo, chưa đủ để tính thay đổi.'
+                      : 'Các điểm là số đo đã ghi; đường nối thể hiện xu hướng giữa các lần đo.'
+                  }}
+                </p>
+              </template>
+              <p class="cs-bmi-note">
+                <i class="bi bi-info-circle" aria-hidden="true"></i> BMI không phân biệt cơ và mỡ.
+                Kết hợp chỉ số với mục tiêu và tiến độ tập luyện.
+              </p>
+            </article>
+            <section class="cs-panel cs-history" :aria-busy="dangTai">
+              <div class="cs-chart-heading">
+                <div>
+                  <h2>Lịch sử đo</h2>
+                  <p class="cs-muted">{{ ngay(duLieu.tu_ngay) }} – {{ ngay(duLieu.den_ngay) }}</p>
+                </div>
+                <span>{{ meta.total }} lần ghi</span>
+              </div>
+              <p v-if="!duLieu.lich_su.length" class="cs-empty">
+                {{
+                  laPt
+                    ? 'Học viên chưa ghi chỉ số trong khoảng này.'
+                    : 'Bạn chưa ghi chỉ số trong khoảng này. Bắt đầu bằng lần đo hôm nay.'
+                }}
+              </p>
+              <div v-else class="cs-table-scroll">
+                <table class="table align-middle mb-0">
+                  <caption class="visually-hidden">
+                    Lịch sử chiều cao, cân nặng và BMI
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Ngày ghi</th>
+                      <th scope="col">Cân nặng</th>
+                      <th scope="col">Chiều cao</th>
+                      <th scope="col">BMI</th>
+                      <th scope="col">Ghi chú</th>
+                      <th v-if="!laPt" scope="col">
+                        <span class="visually-hidden">Thao tác</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="ban in duLieu.lich_su" :key="ban.id">
+                      <td>{{ ngay(ban.ngay_ghi) }}</td>
+                      <td>{{ so(ban.can_nang_kg) }} kg</td>
+                      <td>{{ so(ban.chieu_cao_cm) }} cm</td>
+                      <td>{{ so(ban.bmi) }}</td>
+                      <td class="cs-note">{{ ban.ghi_chu || '—' }}</td>
+                      <td v-if="!laPt">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                          :disabled="dangTai || dangLuu"
+                          :aria-label="`Sửa lần ghi ngày ${ngay(ban.ngay_ghi)}`"
+                          @click="moSua(ban)"
+                        >
+                          Sửa
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <nav v-if="meta.last_page > 1" class="cs-pagination" aria-label="Phân trang lịch sử">
+                <button
+                  class="btn btn-outline-secondary"
+                  :disabled="dangTai || dangLuu || page <= 1"
+                  @click="chuyenTrang(-1)"
+                >
+                  Trước</button
+                ><span>{{ page }} / {{ meta.last_page }}</span
+                ><button
+                  class="btn btn-outline-secondary"
+                  :disabled="dangTai || dangLuu || page >= meta.last_page"
+                  @click="chuyenTrang(1)"
+                >
+                  Sau
+                </button>
+              </nav>
+            </section>
+          </div>
           <form v-if="!laPt" ref="form" class="cs-panel cs-form" @submit.prevent="luu">
             <h2>{{ suaId ? 'Sửa lần ghi' : 'Ghi chỉ số mới' }}</h2>
             <p class="cs-muted">Một lần ghi mỗi ngày. Chiều cao được gợi ý từ lần gần nhất.</p>
@@ -135,170 +302,7 @@
               </div>
             </fieldset>
           </form>
-          <article class="cs-panel cs-chart">
-            <div class="cs-chart-heading">
-              <h2>Thay đổi theo thời gian</h2>
-              <label class="cs-period"
-                >Khoảng xem<select
-                  v-model.number="soNgay"
-                  class="form-select"
-                  :disabled="dangTai || dangLuu"
-                  @change="doiKhoang"
-                >
-                  <option :value="7">7 ngày</option>
-                  <option :value="30">30 ngày</option>
-                  <option :value="90">90 ngày</option>
-                </select></label
-              >
-            </div>
-            <label class="cs-end-date" for="cs-den"
-              >Xem đến ngày
-              <input
-                id="cs-den"
-                v-model="denNgay"
-                type="date"
-                min="1900-01-01"
-                :max="homNay"
-                class="form-control"
-                :disabled="dangTai || dangLuu"
-                @change="doiKhoang"
-              />
-            </label>
-            <div class="cs-tabs" aria-label="Chỉ số biểu đồ">
-              <button
-                v-for="(ten, cot) in { can_nang_kg: 'Cân nặng (kg)', bmi: 'BMI' }"
-                :key="cot"
-                type="button"
-                :aria-pressed="cotBieuDo === cot"
-                @click="cotBieuDo = cot"
-              >
-                {{ ten }}
-              </button>
-            </div>
-            <p v-if="!bieuDo.diem.length" class="cs-empty">
-              Chưa có số đo trong {{ soNgay }} ngày này.
-            </p>
-            <template v-else>
-              <svg
-                viewBox="0 0 660 240"
-                class="cs-svg"
-                role="img"
-                :aria-label="`Biểu đồ ${cotBieuDo === 'bmi' ? 'BMI' : 'cân nặng'}, ${bieuDo.diem.length} lần đo từ ${ngay(duLieu.tu_ngay)} đến ${ngay(duLieu.den_ngay)}. Chi tiết trong bảng lịch sử bên dưới.`"
-              >
-                <g v-for="muc in [0, 0.5, 1]" :key="muc">
-                  <line
-                    x1="60"
-                    x2="610"
-                    :y1="200 - 165 * muc"
-                    :y2="200 - 165 * muc"
-                    class="cs-grid"
-                  />
-                  <text x="48" :y="204 - 165 * muc" text-anchor="end">
-                    {{ so(bieuDo.min + (bieuDo.max - bieuDo.min) * muc) }}
-                  </text>
-                </g>
-                <path v-if="bieuDo.diem.length > 1" :d="bieuDo.duong" class="cs-line" />
-                <circle
-                  v-for="moc in bieuDo.diem"
-                  :key="moc.id"
-                  :cx="moc.x"
-                  :cy="moc.y"
-                  r="4"
-                  class="cs-dot"
-                >
-                  <title>
-                    {{ ngay(moc.ngay_ghi) }}: {{ so(moc.giaTri)
-                    }}{{ cotBieuDo === 'bmi' ? '' : ' kg' }}
-                  </title>
-                </circle>
-                <text x="60" y="230">{{ ngay(bieuDo.diem[0].ngay_ghi) }}</text>
-                <text v-if="bieuDo.diem.length > 1" x="610" y="230" text-anchor="end">
-                  {{ ngay(bieuDo.diem.at(-1).ngay_ghi) }}
-                </text>
-              </svg>
-              <p class="cs-muted">
-                {{
-                  bieuDo.diem.length === 1
-                    ? 'Mới có một lần đo, chưa đủ để tính thay đổi.'
-                    : 'Các điểm là số đo đã ghi; đường nối thể hiện xu hướng giữa các lần đo.'
-                }}
-              </p>
-            </template>
-            <p class="cs-bmi-note">
-              <i class="bi bi-info-circle" aria-hidden="true"></i> BMI không phân biệt cơ và mỡ. Kết
-              hợp chỉ số với mục tiêu và tiến độ tập luyện.
-            </p>
-          </article>
         </div>
-        <section class="cs-panel cs-history" :aria-busy="dangTai">
-          <div class="cs-chart-heading">
-            <div>
-              <h2>Lịch sử đo</h2>
-              <p class="cs-muted">{{ ngay(duLieu.tu_ngay) }} – {{ ngay(duLieu.den_ngay) }}</p>
-            </div>
-            <span>{{ meta.total }} lần ghi</span>
-          </div>
-          <p v-if="!duLieu.lich_su.length" class="cs-empty">
-            {{
-              laPt
-                ? 'Học viên chưa ghi chỉ số trong khoảng này.'
-                : 'Bạn chưa ghi chỉ số trong khoảng này. Bắt đầu bằng lần đo hôm nay.'
-            }}
-          </p>
-          <div v-else class="cs-table-scroll">
-            <table class="table align-middle mb-0">
-              <caption class="visually-hidden">
-                Lịch sử chiều cao, cân nặng và BMI
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Ngày ghi</th>
-                  <th scope="col">Cân nặng</th>
-                  <th scope="col">Chiều cao</th>
-                  <th scope="col">BMI</th>
-                  <th scope="col">Ghi chú</th>
-                  <th v-if="!laPt" scope="col"><span class="visually-hidden">Thao tác</span></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="ban in duLieu.lich_su" :key="ban.id">
-                  <td>{{ ngay(ban.ngay_ghi) }}</td>
-                  <td>{{ so(ban.can_nang_kg) }} kg</td>
-                  <td>{{ so(ban.chieu_cao_cm) }} cm</td>
-                  <td>{{ so(ban.bmi) }}</td>
-                  <td class="cs-note">{{ ban.ghi_chu || '—' }}</td>
-                  <td v-if="!laPt">
-                    <button
-                      type="button"
-                      class="btn btn-outline-secondary btn-sm"
-                      :disabled="dangTai || dangLuu"
-                      :aria-label="`Sửa lần ghi ngày ${ngay(ban.ngay_ghi)}`"
-                      @click="moSua(ban)"
-                    >
-                      Sửa
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <nav v-if="meta.last_page > 1" class="cs-pagination" aria-label="Phân trang lịch sử">
-            <button
-              class="btn btn-outline-secondary"
-              :disabled="dangTai || dangLuu || page <= 1"
-              @click="chuyenTrang(-1)"
-            >
-              Trước</button
-            ><span>{{ page }} / {{ meta.last_page }}</span
-            ><button
-              class="btn btn-outline-secondary"
-              :disabled="dangTai || dangLuu || page >= meta.last_page"
-              @click="chuyenTrang(1)"
-            >
-              Sau
-            </button>
-          </nav>
-        </section>
       </template>
     </section>
   </CaNhanLayout>
@@ -498,14 +502,14 @@ export default {
 }
 .cs-eyebrow {
   font-size: 0.75rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0;
   font-weight: 800;
   color: var(--mau-chinh);
 }
 .cs-panel {
   background: var(--mau-the);
   border: 1px solid var(--mau-vien);
-  border-radius: 18px;
+  border-radius: 8px;
   padding: 24px;
   min-width: 0;
 }
@@ -580,7 +584,7 @@ export default {
   align-items: center;
   padding: 12px 16px;
   background: var(--mau-nen);
-  border-radius: 10px;
+  border-radius: 8px;
   margin-top: 16px;
 }
 .cs-preview strong {
@@ -622,7 +626,7 @@ export default {
   border: 1px solid var(--mau-vien);
   background: var(--mau-the);
   color: var(--mau-chu);
-  border-radius: 9px;
+  border-radius: 8px;
   padding: 10px 14px;
   min-height: 44px;
 }

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>25 · Tài liệu &amp; AI Admin - Fitness Motion</title>
+<!-- Google Fonts: Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-tint": "#00675f",
+            "primary-fixed": "#8fede1",
+            "secondary-fixed-dim": "#c8e044",
+            "on-primary-fixed-variant": "#00635b",
+            "outline-variant": "#abadae",
+            "on-secondary-fixed-variant": "#546200",
+            "on-tertiary": "#f1f2ff",
+            "primary-container": "#8fede1",
+            "tertiary": "#0854c7",
+            "error": "#b31b25",
+            "secondary-dim": "#495500",
+            "inverse-surface": "#0b0f10",
+            "on-primary": "#bffff5",
+            "secondary-fixed": "#d6ef52",
+            "on-primary-fixed": "#00443e",
+            "inverse-primary": "#a0fff2",
+            "on-tertiary-fixed": "#00153f",
+            "on-tertiary-container": "#002c72",
+            "tertiary-container": "#90afff",
+            "surface-container-low": "#eef1f2",
+            "on-secondary": "#e6ff63",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#2c2f30",
+            "primary-fixed-dim": "#81dfd3",
+            "surface-bright": "#f5f7f8",
+            "on-tertiary-fixed-variant": "#003484",
+            "on-secondary-container": "#4b5700",
+            "on-surface-variant": "#595c5d",
+            "on-secondary-fixed": "#3a4400",
+            "surface-container": "#e5e9ea",
+            "outline": "#747778",
+            "surface-variant": "#d9dddf",
+            "error-container": "#fb5151",
+            "on-primary-container": "#005851",
+            "tertiary-fixed-dim": "#7aa0ff",
+            "surface-dim": "#d0d5d7",
+            "tertiary-fixed": "#90afff",
+            "secondary": "#546200",
+            "surface-container-high": "#dfe3e4",
+            "background": "#f5f7f8",
+            "primary": "#00675f",
+            "surface-container-highest": "#d9dddf",
+            "error-dim": "#9f0519",
+            "surface": "#f5f7f8",
+            "tertiary-dim": "#0049b1",
+            "inverse-on-surface": "#9a9d9e",
+            "on-error-container": "#570008",
+            "primary-dim": "#005a52",
+            "secondary-container": "#d6ef52",
+            "on-error": "#ffefee",
+            "on-background": "#2c2f30"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Be Vietnam Pro", "sans-serif"],
+            "display": ["Be Vietnam Pro", "sans-serif"],
+            "body": ["Be Vietnam Pro", "sans-serif"],
+            "label": ["Be Vietnam Pro", "sans-serif"]
+          }
+        },
+      }
+    }
+  </script>
+<style>
+    * {
+      letter-spacing: 0 !important;
+    }
+    .material-symbols-outlined {
+      font-size: 20px;
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1;
+    }
+  </style>
+</head>
+<body class="bg-background dark:bg-inverse-surface text-on-surface dark:text-surface-bright font-body min-h-screen flex antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar: Standard Admin Sidebar (232px) -->
+<aside class="fixed top-0 left-0 h-screen w-[232px] bg-surface-container-low dark:bg-inverse-surface border-r border-surface-variant dark:border-outline z-30 flex flex-col justify-between py-4 px-3 select-none">
+<div class="flex flex-col gap-5">
+<!-- Header App Identity -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-on-primary font-headline font-bold text-lg shadow-sm">
+          FM
+        </div>
+<div class="flex flex-col">
+<span class="text-base font-bold text-primary dark:text-inverse-primary font-display leading-tight">Fitness Motion</span>
+<span class="text-xs text-on-surface-variant dark:text-outline-variant font-medium">Vận hành &amp; Điều phối</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1 overflow-y-auto max-h-[calc(100vh-230px)] pr-1">
+<!-- Item 1 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant hover:text-on-surface transition-colors duration-150 text-sm font-medium" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Tổng quan</span>
+</a>
+<!-- Item 2 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant hover:text-on-surface transition-colors duration-150 text-sm font-medium" href="#">
+<span class="material-symbols-outlined">manage_accounts</span>
+<span>Tài khoản</span>
+</a>
+<!-- Item 3 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant hover:text-on-surface transition-colors duration-150 text-sm font-medium" href="#">
+<span class="material-symbols-outlined">card_membership</span>
+<span>Gói dịch vụ</span>
+</a>
+<!-- Item 4 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant hover:text-on-surface transition-colors duration-150 text-sm font-medium" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span>Đơn hàng &amp; thanh toán</span>
+</a>
+<!-- Item 5 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant hover:text-on-surface transition-colors duration-150 text-sm font-medium" href="#">
+<span class="material-symbols-outlined">assignment_ind</span>
+<span>Phân công PT</span>
+</a>
+<!-- Item 6 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant hover:text-on-surface transition-colors duration-150 text-sm font-medium" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span>Lịch hẹn</span>
+</a>
+<!-- Item 7 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant hover:text-on-surface transition-colors duration-150 text-sm font-medium" href="#">
+<span class="material-symbols-outlined">fitness_center</span>
+<span>Bài tập</span>
+</a>
+<!-- Item 8 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant hover:text-on-surface transition-colors duration-150 text-sm font-medium" href="#">
+<span class="material-symbols-outlined">accessibility_new</span>
+<span>Nhóm cơ</span>
+</a>
+<!-- Item 9 -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant hover:text-on-surface transition-colors duration-150 text-sm font-medium" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span>Giáo án mẫu</span>
+</a>
+<!-- Item 10: ACTIVE Tab: Tài liệu & AI -->
+<a aria-current="page" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary-container text-on-primary-container dark:bg-primary dark:text-on-primary font-medium text-sm transition-colors duration-150 shadow-sm" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span>Tài liệu &amp; AI</span>
+</a>
+</nav>
+</div>
+<!-- Footer of Sidebar -->
+<div class="flex flex-col gap-1 pt-3 border-t border-surface-variant dark:border-outline">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant hover:text-on-surface transition-colors duration-150 text-sm font-medium" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Cài đặt hệ thống</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-error hover:bg-surface-container dark:hover:bg-surface-variant transition-colors duration-150 text-sm font-medium" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Đăng xuất</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper: Shifted 232px to the right -->
+<div class="ml-[232px] flex-1 flex flex-col min-h-screen bg-background dark:bg-inverse-surface">
+<!-- TopNavBar 64px -->
+<header class="h-16 px-8 flex items-center justify-between bg-surface-container-lowest dark:bg-inverse-surface border-b border-surface-variant dark:border-outline sticky top-0 z-20">
+<!-- Breadcrumb on Left -->
+<div class="flex items-center gap-2 text-sm text-on-surface-variant dark:text-outline-variant font-medium">
+<span class="text-on-surface-variant dark:text-outline-variant">Hệ thống</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary dark:text-inverse-primary font-semibold">Quản lý Tài liệu &amp; Cấu hình Tr0ond AI</span>
+</div>
+<!-- Right Action Cluster -->
+<div class="flex items-center gap-4">
+<!-- Search Knowledge Base -->
+<div class="relative w-72">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[18px]">search</span>
+</span>
+<input class="w-full pl-9 pr-4 py-2 text-xs md:text-sm bg-surface-bright dark:bg-surface-container-high border border-surface-variant dark:border-outline rounded-lg text-on-surface dark:text-surface-bright placeholder-on-surface-variant dark:placeholder-outline-variant focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="Tìm tài liệu tri thức, mã KB..." type="text"/>
+</div>
+<!-- Notification Bell -->
+<button aria-label="Thông báo" class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span>
+</button>
+<!-- Divider -->
+<div class="h-6 w-px bg-surface-variant dark:bg-outline"></div>
+<!-- Super Admin Profile -->
+<div class="flex items-center gap-3 pl-1">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary font-bold text-sm border border-surface-variant overflow-hidden">
+<span class="material-symbols-outlined">shield_person</span>
+</div>
+<div class="flex flex-col text-left">
+<span class="text-sm font-semibold text-on-surface dark:text-surface-bright leading-tight">Trần Đình Trí</span>
+<span class="text-[11px] font-medium text-primary dark:text-inverse-primary leading-tight">Super Admin</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="p-8 max-w-7xl w-full mx-auto flex flex-col gap-6">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-surface-variant dark:border-outline">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h1 class="text-2xl font-bold font-headline text-on-surface dark:text-surface-bright">Quản trị Tài liệu tri thức &amp; Vận hành Tr0ond AI</h1>
+<span class="px-2 py-0.5 rounded text-xs font-semibold bg-secondary-container text-on-secondary-fixed">Cố vấn nội bộ</span>
+</div>
+<p class="text-sm text-on-surface-variant dark:text-outline-variant font-body">Biên tập tài liệu kỹ thuật tập luyện làm nguồn tham khảo cho Tr0ond AI và giám sát hạn mức tiêu thụ token/lượt truy vấn thực tế</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="h-11 px-4 rounded-lg bg-surface-container-lowest dark:bg-surface-container border border-surface-variant dark:border-outline text-on-surface dark:text-surface-bright text-sm font-medium hover:bg-surface-container transition-colors duration-150 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span>Nhật ký truy vấn AI</span>
+</button>
+<a class="h-11 px-5 rounded-lg bg-primary hover:bg-primary-dim text-on-primary font-medium text-sm flex items-center gap-2 shadow-sm transition-colors duration-150" href="#quick-create">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Thêm tài liệu tri thức mới</span>
+</a>
+</div>
+</div>
+<!-- Operational Notice Banner -->
+<div class="p-4 rounded-lg bg-surface-container-low dark:bg-surface-container border-l-4 border-primary flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[22px] flex-shrink-0 mt-0.5">verified_user</span>
+<div class="text-xs md:text-sm text-on-surface-variant dark:text-outline-variant leading-relaxed">
+<strong class="font-semibold text-on-surface dark:text-surface-bright">Lưu ý vận hành:</strong> Tr0ond AI chỉ đóng vai trò trợ lý kỹ thuật thể hình dựa trên tài liệu đã được HLV trưởng và Admin phê duyệt. Không tự ý tạo lời khuyên y tế, đơn thuốc hoặc chẩn đoán bệnh. Mọi câu hỏi không có cơ sở trong tài liệu sẽ tự động chuyển hướng liên hệ HLV trực tiếp.
+        </div>
+</div>
+<!-- Bento Cards: Quota & Real AI Usage Metrics -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: Daily Query Quota -->
+<div class="bg-surface-container-lowest dark:bg-surface-container-low p-5 rounded-lg border border-surface-variant dark:border-outline flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant dark:text-outline-variant mb-2">
+<span class="text-xs font-semibold uppercase tracking-wider">Hạn mức trong ngày</span>
+<span class="material-symbols-outlined text-primary">data_usage</span>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-headline text-on-surface dark:text-surface-bright">248</span>
+<span class="text-sm text-on-surface-variant font-medium">/ 500 lượt</span>
+</div>
+<div class="w-full bg-surface-container-high dark:bg-surface-variant h-2 rounded-full mt-3 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 49.6%"></div>
+</div>
+</div>
+<div class="mt-3 text-xs text-on-surface-variant dark:text-outline-variant flex items-center justify-between">
+<span>Đã dùng 49.6% hạn mức</span>
+<span class="font-semibold text-primary">Còn 252 lượt</span>
+</div>
+</div>
+<!-- Card 2: Active Users -->
+<div class="bg-surface-container-lowest dark:bg-surface-container-low p-5 rounded-lg border border-surface-variant dark:border-outline flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant dark:text-outline-variant mb-2">
+<span class="text-xs font-semibold uppercase tracking-wider">Học viên sử dụng AI</span>
+<span class="material-symbols-outlined text-tertiary">groups</span>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-headline text-on-surface dark:text-surface-bright">32</span>
+<span class="text-xs font-medium text-primary bg-primary-container px-1.5 py-0.5 rounded">Hoạt động hôm nay</span>
+</div>
+<p class="text-xs text-on-surface-variant dark:text-outline-variant mt-2 font-medium">Tỷ lệ sử dụng trung bình:</p>
+<p class="text-sm font-semibold text-on-surface dark:text-surface-bright mt-0.5">7.7 lượt truy vấn / học viên</p>
+</div>
+<div class="mt-3 text-xs text-on-surface-variant dark:text-outline-variant">
+            Tối đa 15 lượt / học viên / ngày
+          </div>
+</div>
+<!-- Card 3: Top Consulted Topic -->
+<div class="bg-surface-container-lowest dark:bg-surface-container-low p-5 rounded-lg border border-surface-variant dark:border-outline flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant dark:text-outline-variant mb-2">
+<span class="text-xs font-semibold uppercase tracking-wider">Chủ đề hỏi nhiều nhất</span>
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<div>
+<div class="text-sm font-bold text-on-surface dark:text-surface-bright leading-snug line-clamp-2">
+              Form Squat &amp; Chấn thương khớp gối
+            </div>
+<div class="flex items-center gap-2 mt-2">
+<span class="px-2 py-0.5 text-xs font-bold bg-secondary-container text-on-secondary-fixed rounded">Chiếm 42%</span>
+<span class="text-xs text-on-surface-variant">tổng số câu hỏi</span>
+</div>
+</div>
+<div class="mt-3 text-xs text-on-surface-variant dark:text-outline-variant">
+            Nguồn tham khảo: <strong class="text-primary font-medium">KB-101</strong>
+</div>
+</div>
+<!-- Card 4: Moderation Gate Status -->
+<div class="bg-surface-container-lowest dark:bg-surface-container-low p-5 rounded-lg border border-surface-variant dark:border-outline flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant dark:text-outline-variant mb-2">
+<span class="text-xs font-semibold uppercase tracking-wider">Kiểm duyệt an toàn</span>
+<span class="material-symbols-outlined text-primary">security</span>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-headline text-primary dark:text-inverse-primary">100%</span>
+<span class="text-xs font-medium text-on-surface-variant">qua màng lọc</span>
+</div>
+<p class="text-xs text-on-surface-variant dark:text-outline-variant mt-2 leading-relaxed">
+              Chặn tuyệt đối kê đơn thuốc &amp; thực đơn bệnh lý tự động.
+            </p>
+</div>
+<div class="mt-3 text-xs flex items-center gap-1.5 text-primary font-medium">
+<span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+            Bộ lọc kỹ thuật thể hình đang bật
+          </div>
+</div>
+</div>
+<!-- Main Layout: 2/3 Knowledge Base Table & 1/3 Quick Creation Panel -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+<!-- Left 2 Cols: Knowledge Base Management -->
+<div class="lg:col-span-2 flex flex-col gap-4">
+<!-- Category Filter Bar & Counters -->
+<div class="bg-surface-container-lowest dark:bg-surface-container-low p-3 rounded-lg border border-surface-variant dark:border-outline flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0">
+<button class="h-9 px-3.5 rounded-lg bg-primary-container text-on-primary-container dark:bg-primary dark:text-on-primary text-xs font-semibold transition-colors duration-150 whitespace-nowrap">
+                Tất cả (28 tài liệu)
+              </button>
+<button class="h-9 px-3.5 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container hover:text-on-surface text-xs font-medium transition-colors duration-150 whitespace-nowrap">
+                Kỹ thuật vận động cơ bản (12)
+              </button>
+<button class="h-9 px-3.5 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container hover:text-on-surface text-xs font-medium transition-colors duration-150 whitespace-nowrap">
+                Phục hồi &amp; Khớp (8)
+              </button>
+<button class="h-9 px-3.5 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container hover:text-on-surface text-xs font-medium transition-colors duration-150 whitespace-nowrap">
+                Quy định phòng tập &amp; Gói dịch vụ (8)
+              </button>
+</div>
+<div class="text-xs text-on-surface-variant dark:text-outline-variant font-medium pr-2">
+              Hiển thị 4 tài liệu tiêu biểu
+            </div>
+</div>
+<!-- Table Container -->
+<div class="bg-surface-container-lowest dark:bg-surface-container-low rounded-lg border border-surface-variant dark:border-outline overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container dark:bg-surface-variant text-on-surface font-semibold text-xs border-b border-surface-variant dark:border-outline">
+<th class="py-3 px-4 w-20">Mã TL</th>
+<th class="py-3 px-4">Tên tài liệu &amp; Chủ đề</th>
+<th class="py-3 px-4 w-36">Trạng thái AI</th>
+<th class="py-3 px-4 w-44">Lần cập nhật cuối</th>
+<th class="py-3 px-4 text-center w-28">Tham chiếu</th>
+<th class="py-3 px-4 text-right w-44">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant dark:divide-outline text-xs sm:text-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-lowest/60 dark:hover:bg-surface-variant/40 transition-colors">
+<td class="py-3.5 px-4 font-mono font-bold text-xs text-primary dark:text-inverse-primary align-top">
+                      KB-101
+                    </td>
+<td class="py-3.5 px-4 align-top">
+<div class="font-semibold text-on-surface dark:text-surface-bright leading-tight">
+                        Hướng dẫn kỹ thuật Squat chuẩn sinh học &amp; Điểm dừng an toàn
+                      </div>
+<div class="flex items-center gap-2 mt-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container dark:bg-surface-container-high text-on-surface-variant">
+                          Kỹ thuật vận động
+                        </span>
+<span class="text-[11px] text-outline">Đã duyệt bởi Admin</span>
+</div>
+</td>
+<td class="py-3.5 px-4 align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold bg-primary-container text-on-primary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        Đang kích hoạt
+                      </span>
+</td>
+<td class="py-3.5 px-4 align-top text-xs text-on-surface-variant">
+<div class="font-medium text-on-surface dark:text-surface-bright">01/10/2026</div>
+<div class="text-[11px] text-outline">bởi HLV Trưởng Lê Hoàng Anh</div>
+</td>
+<td class="py-3.5 px-4 align-top text-center font-bold text-on-surface dark:text-surface-bright">
+                      142 lần
+                    </td>
+<td class="py-3.5 px-4 align-top text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="h-11 px-3 rounded-lg border border-surface-variant hover:bg-surface-container text-xs font-medium text-on-surface transition-colors flex items-center gap-1" title="Chỉnh sửa tài liệu">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Sửa</span>
+</button>
+<button class="h-11 px-3 rounded-lg border border-surface-variant hover:bg-surface-container text-xs font-medium text-error hover:border-error transition-colors flex items-center gap-1" title="Tạm ngưng cho AI tham chiếu">
+<span class="material-symbols-outlined text-[16px]">pause_circle</span>
+<span>Tắt</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-lowest/60 dark:hover:bg-surface-variant/40 transition-colors">
+<td class="py-3.5 px-4 font-mono font-bold text-xs text-primary dark:text-inverse-primary align-top">
+                      KB-102
+                    </td>
+<td class="py-3.5 px-4 align-top">
+<div class="font-semibold text-on-surface dark:text-surface-bright leading-tight">
+                        Phân tích cơ chế Hip Hinge trong Deadlift &amp; Phòng ngừa căng lưng dưới
+                      </div>
+<div class="flex items-center gap-2 mt-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container dark:bg-surface-container-high text-on-surface-variant">
+                          Kỹ thuật vận động
+                        </span>
+<span class="text-[11px] text-outline">Đã duyệt bởi Admin</span>
+</div>
+</td>
+<td class="py-3.5 px-4 align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold bg-primary-container text-on-primary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        Đang kích hoạt
+                      </span>
+</td>
+<td class="py-3.5 px-4 align-top text-xs text-on-surface-variant">
+<div class="font-medium text-on-surface dark:text-surface-bright">28/09/2026</div>
+<div class="text-[11px] text-outline">bởi HLV Trưởng Lê Hoàng Anh</div>
+</td>
+<td class="py-3.5 px-4 align-top text-center font-bold text-on-surface dark:text-surface-bright">
+                      98 lần
+                    </td>
+<td class="py-3.5 px-4 align-top text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="h-11 px-3 rounded-lg border border-surface-variant hover:bg-surface-container text-xs font-medium text-on-surface transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Sửa</span>
+</button>
+<button class="h-11 px-3 rounded-lg border border-surface-variant hover:bg-surface-container text-xs font-medium text-error hover:border-error transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">pause_circle</span>
+<span>Tắt</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-lowest/60 dark:hover:bg-surface-variant/40 transition-colors">
+<td class="py-3.5 px-4 font-mono font-bold text-xs text-primary dark:text-inverse-primary align-top">
+                      KB-103
+                    </td>
+<td class="py-3.5 px-4 align-top">
+<div class="font-semibold text-on-surface dark:text-surface-bright leading-tight">
+                        Nguyên tắc giãn cơ động (Dynamic Stretching) trước buổi tập tạ
+                      </div>
+<div class="flex items-center gap-2 mt-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container dark:bg-surface-container-high text-on-surface-variant">
+                          Phục hồi &amp; Khớp
+                        </span>
+<span class="text-[11px] text-outline">Đã duyệt bởi Admin</span>
+</div>
+</td>
+<td class="py-3.5 px-4 align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold bg-primary-container text-on-primary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        Đang kích hoạt
+                      </span>
+</td>
+<td class="py-3.5 px-4 align-top text-xs text-on-surface-variant">
+<div class="font-medium text-on-surface dark:text-surface-bright">25/09/2026</div>
+<div class="text-[11px] text-outline">bởi Quản trị viên Trần Đình Trí</div>
+</td>
+<td class="py-3.5 px-4 align-top text-center font-bold text-on-surface dark:text-surface-bright">
+                      65 lần
+                    </td>
+<td class="py-3.5 px-4 align-top text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="h-11 px-3 rounded-lg border border-surface-variant hover:bg-surface-container text-xs font-medium text-on-surface transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Sửa</span>
+</button>
+<button class="h-11 px-3 rounded-lg border border-surface-variant hover:bg-surface-container text-xs font-medium text-error hover:border-error transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">pause_circle</span>
+<span>Tắt</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-lowest/60 dark:hover:bg-surface-variant/40 transition-colors">
+<td class="py-3.5 px-4 font-mono font-bold text-xs text-primary dark:text-inverse-primary align-top">
+                      KB-104
+                    </td>
+<td class="py-3.5 px-4 align-top">
+<div class="font-semibold text-on-surface dark:text-surface-bright leading-tight">
+                        Quy định thời gian đặt &amp; hủy ca tập cùng Huấn luyện viên cá nhân
+                      </div>
+<div class="flex items-center gap-2 mt-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container dark:bg-surface-container-high text-on-surface-variant">
+                          Quy định &amp; Gói
+                        </span>
+<span class="text-[11px] text-outline">Chính sách vận hành</span>
+</div>
+</td>
+<td class="py-3.5 px-4 align-top">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold bg-primary-container text-on-primary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        Đang kích hoạt
+                      </span>
+</td>
+<td class="py-3.5 px-4 align-top text-xs text-on-surface-variant">
+<div class="font-medium text-on-surface dark:text-surface-bright">15/09/2026</div>
+<div class="text-[11px] text-outline">bởi Ban Điều Hành Fitness Motion</div>
+</td>
+<td class="py-3.5 px-4 align-top text-center font-bold text-on-surface dark:text-surface-bright">
+                      210 lần
+                    </td>
+<td class="py-3.5 px-4 align-top text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="h-11 px-3 rounded-lg border border-surface-variant hover:bg-surface-container text-xs font-medium text-on-surface transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>Sửa</span>
+</button>
+<button class="h-11 px-3 rounded-lg border border-surface-variant hover:bg-surface-container text-xs font-medium text-error hover:border-error transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">pause_circle</span>
+<span>Tắt</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Pagination -->
+<div class="px-4 py-3 bg-surface-bright dark:bg-surface-container border-t border-surface-variant dark:border-outline flex items-center justify-between text-xs text-on-surface-variant">
+<span>Đang hiển thị 1-4 trên tổng 28 tài liệu tri thức</span>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded border border-surface-variant flex items-center justify-center hover:bg-surface-container text-outline" disabled="">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary text-on-primary font-semibold flex items-center justify-center">1</button>
+<button class="w-8 h-8 rounded border border-surface-variant flex items-center justify-center hover:bg-surface-container text-on-surface font-medium">2</button>
+<button class="w-8 h-8 rounded border border-surface-variant flex items-center justify-center hover:bg-surface-container text-on-surface font-medium">3</button>
+<button class="w-8 h-8 rounded border border-surface-variant flex items-center justify-center hover:bg-surface-container text-on-surface font-medium">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right 1 Col: Quick Document Add/Edit Panel -->
+<div class="bg-surface-container-lowest dark:bg-surface-container-low p-5 rounded-lg border border-surface-variant dark:border-outline flex flex-col gap-4 sticky top-24" id="quick-create">
+<div class="flex items-center justify-between border-b border-surface-variant dark:border-outline pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">post_add</span>
+<h2 class="text-base font-bold text-on-surface dark:text-surface-bright font-headline">Biên tập tài liệu nhanh</h2>
+</div>
+<span class="text-xs px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">Mã mới: KB-105</span>
+</div>
+<form class="flex flex-col gap-3.5" onsubmit="event.preventDefault();">
+<!-- Title Input -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface dark:text-surface-bright flex items-center justify-between">
+<span>Tiêu đề tài liệu tri thức <span class="text-error">*</span></span>
+<span class="text-[11px] font-normal text-outline">Rõ ràng, trực quan</span>
+</label>
+<input class="w-full h-11 px-3 text-xs md:text-sm bg-surface-bright dark:bg-surface-container border border-surface-variant dark:border-outline rounded-lg text-on-surface dark:text-surface-bright placeholder-outline focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" placeholder="VD: Kỹ thuật thở valsalva khi thực hiện Bench Press nặng" required="" type="text"/>
+</div>
+<!-- Category Select -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface dark:text-surface-bright">Chủ đề phân loại <span class="text-error">*</span></label>
+<select class="w-full h-11 px-3 text-xs md:text-sm bg-surface-bright dark:bg-surface-container border border-surface-variant dark:border-outline rounded-lg text-on-surface dark:text-surface-bright focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary">
+<option value="1">Kỹ thuật vận động cơ bản</option>
+<option value="2">Phục hồi &amp; Chăm sóc khớp</option>
+<option value="3">Quy định phòng tập &amp; Gói dịch vụ</option>
+<option value="4">An toàn phòng tạ &amp; Điểm dừng</option>
+</select>
+</div>
+<!-- Standardized Summary for AI Learning -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface dark:text-surface-bright flex items-center justify-between">
+<span>Tóm tắt chuẩn hóa cho Tr0ond AI <span class="text-error">*</span></span>
+<span class="text-[11px] font-medium text-primary">Tối đa 1200 từ</span>
+</label>
+<textarea class="w-full p-3 text-xs md:text-sm bg-surface-bright dark:bg-surface-container border border-surface-variant dark:border-outline rounded-lg text-on-surface dark:text-surface-bright placeholder-outline focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary leading-relaxed" placeholder="Nhập nội dung ngắn gọn, súc tích chứa các nguyên tắc cốt lõi, quy tắc góc khớp an toàn, lỗi sai phổ biến và giải pháp khắc phục. Tránh dùng từ ngữ chẩn đoán y khoa..." required="" rows="6"></textarea>
+</div>
+<!-- Activation Checkbox -->
+<div class="flex items-start gap-2.5 p-3 rounded-lg bg-surface-bright dark:bg-surface-container border border-surface-variant dark:border-outline">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-primary focus:ring-primary border-outline" id="ai-active" type="checkbox"/>
+<label class="text-xs text-on-surface-variant select-none cursor-pointer" for="ai-active">
+<span class="font-semibold text-on-surface dark:text-surface-bright">Kích hoạt ngay cho Tr0ond AI:</span> Cho phép AI nhúng nội dung này vào vector database ngay sau khi lưu.
+              </label>
+</div>
+<!-- Submit CTA Button (Height: 44px) -->
+<button class="h-11 w-full mt-1 rounded-lg bg-primary hover:bg-primary-dim text-on-primary font-semibold text-sm flex items-center justify-center gap-2 transition-colors duration-150 shadow-sm" type="submit">
+<span class="material-symbols-outlined text-[20px]">save</span>
+<span>Lưu tài liệu vào bộ tri thức AI</span>
+</button>
+</form>
+</div>
+</div>
+</main>
+</div>
+</body></html>

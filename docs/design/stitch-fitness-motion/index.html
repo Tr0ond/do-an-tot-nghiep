@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fitness Motion - Bộ thiết kế giao diện</title>
+  <style>
+    :root { color-scheme: light; --bg:#f5f7f8; --surface:#fff; --text:#182325; --muted:#526568; --border:#dce5e6; --accent:#087f75; --on-accent:#fff; }
+    [data-theme="dark"] { color-scheme:dark; --bg:#111719; --surface:#1a2326; --text:#f3f8f7; --muted:#b4c4c3; --border:#35464b; --accent:#4ed8c5; --on-accent:#062f2a; }
+    * { box-sizing:border-box; letter-spacing:0; }
+    body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 system-ui,sans-serif; }
+    header { border-bottom:1px solid var(--border); background:var(--surface); padding:20px 24px; }
+    .heading { max-width:1440px; margin:auto; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    h1 { font-size:24px; margin:0; }
+    p { color:var(--muted); margin:4px 0 0; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    nav { max-width:1440px; margin:auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .group { display:flex; gap:4px; flex-wrap:wrap; }
+    button { min-height:44px; padding:10px 16px; border:1px solid transparent; border-radius:6px; background:transparent; color:var(--muted); font:inherit; font-weight:600; cursor:pointer; }
+    button:hover { background:var(--surface); color:var(--text); }
+    button[aria-pressed="true"] { background:var(--accent); color:var(--on-accent); }
+    button:focus-visible,a:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+    main { max-width:1440px; margin:auto; padding:0 24px 32px; }
+    .caption { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:12px 0; border-top:1px solid var(--border); }
+    .caption span { color:var(--muted); }
+    figure { margin:0; }
+    #screen { display:block; width:100%; height:auto; border:1px solid var(--border); border-radius:6px; background:var(--surface); }
+    figure.mobile #screen { width:min(390px,100%); margin:auto; }
+    footer { max-width:1440px; margin:auto; padding:0 24px 28px; color:var(--muted); font-size:13px; }
+    @media(max-width:600px) { header,nav { padding:16px; } main { padding:0 16px 24px; } footer { padding:0 16px 24px; } .group { gap:4px; } button { padding:10px 12px; } h1 { font-size:22px; } }
+  </style>
+</head>
+<body>
+  <header><div class="heading"><div><h1>Fitness Motion</h1><p>Huấn luyện cá nhân · Xanh ngọc + vàng chanh</p></div><a href="https://stitch.withgoogle.com/projects/10304506651660798975" target="_blank" rel="noopener">Mở dự án Stitch</a></div></header>
+  <nav aria-label="Chọn bản thiết kế">
+    <div class="group" aria-label="Màn hình">
+      <button type="button" data-screen="kh" aria-pressed="true">Khách hàng</button>
+      <button type="button" data-screen="pt" aria-pressed="false">Huấn luyện viên</button>
+      <button type="button" data-screen="admin" aria-pressed="false">Admin</button>
+      <button type="button" data-screen="mobile" aria-pressed="false">Điện thoại</button>
+    </div>
+    <div class="group" aria-label="Nền giao diện">
+      <button type="button" data-mode="light" aria-pressed="true">Sáng</button>
+      <button type="button" data-mode="dark" aria-pressed="false">Tối</button>
+    </div>
+  </nav>
+  <main>
+    <div class="caption"><strong id="label" aria-live="polite">Khách hàng · Sáng</strong><a id="html-link" href="kh-light.html" target="_blank" rel="noopener">Mở bản HTML</a></div>
+    <figure id="preview"><img id="screen" src="kh-light.png" width="1280" height="1263" alt="Thiết kế tổng quan Khách hàng, nền sáng"></figure>
+  </main>
+  <footer>8 bản mẫu: tổng quan Khách hàng, PT, Admin và Khách hàng trên điện thoại, mỗi màn hình có nền sáng và tối. Dữ liệu minh họa; chưa áp dụng vào ứng dụng Vue.</footer>
+  <script>
+    const nhan = {kh:'Khách hàng',pt:'Huấn luyện viên',admin:'Admin',mobile:'Khách hàng trên điện thoại'}
+    let manHinh = 'kh'
+    let chuDe = 'light'
+    function capNhat() {
+      const ten = nhan[manHinh] + ' · ' + (chuDe === 'light' ? 'Sáng' : 'Tối')
+      document.documentElement.dataset.theme = chuDe
+      document.getElementById('label').textContent = ten
+      document.getElementById('screen').src = manHinh + '-' + chuDe + '.png'
+      document.getElementById('screen').alt = ten
+      document.getElementById('screen').removeAttribute('width')
+      document.getElementById('screen').removeAttribute('height')
+      document.getElementById('html-link').href = manHinh + '-' + chuDe + '.html'
+      document.getElementById('preview').classList.toggle('mobile',manHinh === 'mobile')
+      document.querySelectorAll('[data-screen]').forEach(nut => nut.setAttribute('aria-pressed',String(nut.dataset.screen === manHinh)))
+      document.querySelectorAll('[data-mode]').forEach(nut => nut.setAttribute('aria-pressed',String(nut.dataset.mode === chuDe)))
+    }
+    document.querySelectorAll('[data-screen]').forEach(nut => nut.addEventListener('click',() => { manHinh = nut.dataset.screen; capNhat() }))
+    document.querySelectorAll('[data-mode]').forEach(nut => nut.addEventListener('click',() => { chuDe = nut.dataset.mode; capNhat() }))
+  </script>
+</body>
+</html>

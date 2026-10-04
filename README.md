@@ -12,7 +12,9 @@ C32/M05: KH mở chi tiết giáo án tự tạo đã hủy/lưu trữ để **�
 
 ## Trạng thái hiện tại
 
-M09 bước báo cáo Admin đã triển khai tại **Tổng quan hệ thống**: lọc ngày/tháng, tiền thực nhận/đã hoàn/chờ đối soát, biểu đồ sau hoàn, đơn mới/kích hoạt, buổi PT hoàn thành, học viên theo PT và bảng theo gói snapshot. Không cộng đơn chưa thanh toán, không cần migration mới. Toàn Backend 227 tests/5.905 assertions trên MariaDB và Frontend 216 tests đạt; lint/format/build đạt. [Hợp đồng](docs/features/BAO_CAO.md), [kiểm chứng và giới hạn](docs/verification/M09_BAO_CAO_ADMIN.md). Dashboard KH và PT đã áp dụng mẫu cung cấp với dữ liệu thật, giữ sidebar/header hiện tại. PT có lịch hôm nay, việc chờ xử lý, học viên, giáo án, tin nhắn và hoạt động tuần ([kiểm chứng PT](docs/verification/DASHBOARD_PT.md)). Bổ sung sự kiện thông báo là bước M09 tiếp theo.
+M09 đã bổ sung **thông báo nghiệp vụ KH/PT/Admin**: thanh toán/kích hoạt, phân công/đổi PT, trạng thái lịch hẹn, nhật ký/nhận xét, giáo án mẫu cần duyệt và ngoại lệ Admin cần xử lý. Dùng chuông hiện có, cùng transaction và chống gửi lặp, không cần migration mới. Khởi động lại `start.bat`, giữ scheduler; mở chuông để cập nhật. [Phạm vi](docs/features/NOTIFICATIONS.md), [kiểm chứng](docs/verification/M09_THONG_BAO.md). Bước tiếp theo là kiểm thử hành trình đầu-cuối và hoàn tất đánh giá chatbot trước triển khai.
+
+M09 bước báo cáo Admin đã triển khai tại **Tổng quan hệ thống**: lọc ngày/tháng, tiền thực nhận/đã hoàn/chờ đối soát, biểu đồ sau hoàn, đơn mới/kích hoạt, buổi PT hoàn thành, học viên theo PT và bảng theo gói snapshot. Không cộng đơn chưa thanh toán, không cần migration mới. Toàn Backend 227 tests/5.905 assertions trên MariaDB và Frontend 216 tests đạt; lint/format/build đạt. [Hợp đồng](docs/features/BAO_CAO.md), [kiểm chứng và giới hạn](docs/verification/M09_BAO_CAO_ADMIN.md). Dashboard KH và PT đã áp dụng mẫu cung cấp với dữ liệu thật, giữ sidebar/header hiện tại. PT có lịch hôm nay, việc chờ xử lý, học viên, giáo án, tin nhắn và hoạt động tuần ([kiểm chứng PT](docs/verification/DASHBOARD_PT.md)). Thông báo nghiệp vụ đã bổ sung theo C39; tiếp theo là kiểm thử hành trình đầu-cuối và đánh giá chatbot.
 
 M08 đã có **Tr0ond AI** cho KH, **Tài liệu & AI** cho Admin và **FAQ** công khai. Gemini gọi từ Backend; mascot dùng GIF robot của chủ dự án, có tạm dừng chuyển động. Đã chạy 216 Backend tests/5.772 assertions trên MariaDB và 193 Frontend tests; lint/format/build đạt. Đánh giá Gemini thật mới chạy một phần, chưa nghiệm thu toàn bộ chất lượng câu trả lời. [Kiểm chứng và hướng dẫn M08](docs/verification/M08_CHATBOT.md).
 
@@ -114,6 +116,8 @@ Repository nguồn [`hasaneyldrm/exercises-dataset`](https://github.com/hasaneyl
 Chi tiết mẫu đã đọc và nhận xét có giới hạn nằm ở [REFERENCE_CODE_REVIEW.md](docs/REFERENCE_CODE_REVIEW.md). Không sao chép secrets, dependencies hay mã nguồn của ba dự án vào bộ khung này.
 
 ## Việc tiếp theo
+
+Mốc 04/10/2026: đã bổ sung kiểm thử tích hợp hành trình KH–PT–Admin và sửa lỗi chung bộ đếm hạn mức giữa các thao tác. Toàn Backend267tests/6.641assertions, Frontend253tests đạt. Chạy demo riêng và xem tài khoản tại [DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md); [kết quả và giới hạn](docs/verification/HANH_TRINH_NGHIEP_VU.md). Bước kế tiếp là hoàn tất đánh giá AI thật, triển khai và nghiệm thu. Các đoạn dưới ghi nhận lịch sử từng module.
 
 Ngày04/10/2026 đã bổ sung **Chỉ số cơ thể** theo C38: KH ghi chiều cao/cân nặng, tính BMI, xem biểu đồ/lịch sử và sửa lần đo; miễn phí, không cần gói/PT. PT hiện phụ trách chỉ đọc; chatbot dùng số đo khi KH bật dữ liệu cá nhân. Không dùng vòng eo. Bảng đã có, không cần migration mới. [Hợp đồng](docs/features/CHI_SO_CO_THE.md), [kiểm chứng](docs/verification/M06_CHI_SO_CO_THE.md).
 

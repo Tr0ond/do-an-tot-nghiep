@@ -428,7 +428,7 @@ export default {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-tron);
   font-size: 0.85rem;
@@ -440,7 +440,7 @@ export default {
 }
 
 .btn-back-link:hover {
-  background: var(--mau-the-hover, #242424);
+  background: var(--mau-the-hover, var(--mau-the-hover));
   color: var(--mau-chinh);
   border-color: var(--mau-chinh);
   transform: translateX(-3px);
@@ -454,7 +454,7 @@ export default {
 }
 
 .editor-panel {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   padding: 28px;
@@ -466,7 +466,7 @@ export default {
 }
 
 .preview-panel {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-top: 4px solid var(--mau-chinh);
   border-radius: var(--bo-goc-lg);
@@ -479,19 +479,19 @@ export default {
   gap: 6px;
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   padding: 4px 10px;
   border-radius: var(--bo-goc-tron);
 }
 
 .pill-pt {
-  background: rgba(244, 91, 32, 0.15);
-  color: #ff8c5a;
+  background: color-mix(in srgb, var(--mau-chinh) 15%, transparent);
+  color: var(--mau-chinh);
 }
 
 .pill-bot {
   background: rgba(124, 58, 237, 0.15);
-  color: #a78bfa;
+  color: var(--mau-thong-tin);
 }
 
 .preview-price-highlight {
@@ -504,7 +504,7 @@ export default {
   font-size: 1.85rem;
   font-weight: 800;
   color: var(--mau-chu);
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
 }
 
 .preview-note-box {

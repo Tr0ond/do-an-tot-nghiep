@@ -15,6 +15,14 @@
 
       <div class="d-flex gap-2">
         <button
+          ref="nutTao"
+          type="button"
+          class="btn btn-primary"
+          @click="$refs.formTao.showModal()"
+        >
+          <i class="bi bi-person-plus" aria-hidden="true"></i> Tạo tài khoản
+        </button>
+        <button
           class="btn btn-outline-secondary btn-sm"
           :disabled="dangTai"
           title="Làm mới dữ liệu từ máy chủ"
@@ -285,121 +293,143 @@
       </section>
 
       <!-- Cột phải: Form tạo tài khoản HLV hoặc Admin mới -->
-      <section class="profile-panel shadow-sm" aria-labelledby="tao-tai-khoan">
-        <div class="panel-heading mb-3">
-          <div class="eyebrow mb-1">
-            <i class="bi bi-person-plus me-1" aria-hidden="true"></i>
-            <span>CẤP TÀI KHOẢN MỚI</span>
-          </div>
-          <h2 id="tao-tai-khoan" class="h6 fw-bold mb-0 text-body">Tạo tài khoản phân quyền</h2>
-        </div>
-
-        <form @submit.prevent="taoTaiKhoan" :aria-busy="dangLuu" novalidate>
-          <TruongNhap
-            id="ho_ten_moi"
-            v-model="duLieu.ho_ten"
-            nhan="Họ và tên"
-            goi-y-nhap="Ví dụ: Huấn Luyện Viên Trần Nam"
-            tu-dong-dien="off"
-            bieu-tuong="bi bi-person"
-            :loi="loiTruong.ho_ten"
-            :vo-hieu="dangLuu"
-          />
-
-          <TruongNhap
-            id="email_moi"
-            v-model="duLieu.email"
-            nhan="Địa chỉ Email"
-            loai="email"
-            goi-y-nhap="pt.nam@gymfit.vn"
-            bieu-tuong="bi bi-envelope"
-            :toi-da="191"
-            :loi="loiTruong.email"
-            :vo-hieu="dangLuu"
-          />
-
-          <!-- Chọn vai trò dạng Thẻ trực quan -->
-          <div class="mb-3">
-            <label class="form-label fw-bold">
-              Chọn vai trò cấp quyền <span class="text-danger">*</span>
-            </label>
-            <div class="role-picker-grid">
-              <label
-                class="role-card-option"
-                :class="{ selected: duLieu.vai_tro === 'HUAN_LUYEN_VIEN' }"
-              >
-                <input
-                  v-model="duLieu.vai_tro"
-                  type="radio"
-                  value="HUAN_LUYEN_VIEN"
-                  name="vai_tro_select"
-                  class="d-none"
-                  :disabled="dangLuu"
-                />
-                <div class="role-card-icon text-success">
-                  <i class="bi bi-award-fill" aria-hidden="true"></i>
-                </div>
-                <div>
-                  <strong class="d-block small">Huấn luyện viên</strong>
-                  <small class="text-muted">Kèm cặp học viên & giáo án</small>
-                </div>
-              </label>
-
-              <label class="role-card-option" :class="{ selected: duLieu.vai_tro === 'ADMIN' }">
-                <input
-                  v-model="duLieu.vai_tro"
-                  type="radio"
-                  value="ADMIN"
-                  name="vai_tro_select"
-                  class="d-none"
-                  :disabled="dangLuu"
-                />
-                <div class="role-card-icon text-purple">
-                  <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
-                </div>
-                <div>
-                  <strong class="d-block small">Quản trị viên</strong>
-                  <small class="text-muted">Toàn quyền hệ thống</small>
-                </div>
-              </label>
+      <dialog
+        ref="formTao"
+        class="st-drawer"
+        aria-labelledby="tao-tai-khoan"
+        @cancel="huyTao"
+        @close="$refs.nutTao.focus()"
+      >
+        <button
+          type="button"
+          class="st-drawer-close btn btn-outline-secondary"
+          aria-label="Đóng form tạo tài khoản"
+          :disabled="dangLuu"
+          @click="$refs.formTao.close()"
+        >
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+        <p v-if="thongBao && coLoi" class="alert alert-danger" role="alert">{{ thongBao }}</p>
+        <section class="profile-panel shadow-sm" aria-labelledby="tao-tai-khoan">
+          <div class="panel-heading mb-3">
+            <div class="eyebrow mb-1">
+              <i class="bi bi-person-plus me-1" aria-hidden="true"></i>
+              <span>CẤP TÀI KHOẢN MỚI</span>
             </div>
+            <h2 id="tao-tai-khoan" class="h6 fw-bold mb-0 text-body">Tạo tài khoản phân quyền</h2>
           </div>
 
-          <TruongNhap
-            id="mat_khau_moi"
-            v-model="duLieu.password"
-            nhan="Mật khẩu khởi tạo"
-            loai="password"
-            goi-y-nhap="Ít nhất 8 ký tự"
-            tu-dong-dien="new-password"
-            bieu-tuong="bi bi-lock"
-            :toi-thieu="8"
-            :toi-da="72"
-            :loi="loiTruong.password"
-            :vo-hieu="dangLuu"
-          />
+          <form @submit.prevent="taoTaiKhoan" :aria-busy="dangLuu" novalidate>
+            <TruongNhap
+              id="ho_ten_moi"
+              v-model="duLieu.ho_ten"
+              nhan="Họ và tên"
+              goi-y-nhap="Ví dụ: Huấn Luyện Viên Trần Nam"
+              tu-dong-dien="off"
+              bieu-tuong="bi bi-person"
+              :loi="loiTruong.ho_ten"
+              :vo-hieu="dangLuu"
+            />
 
-          <TruongNhap
-            id="mat_khau_xac_nhan"
-            v-model="duLieu.password_confirmation"
-            nhan="Nhập lại mật khẩu"
-            loai="password"
-            goi-y-nhap="Xác nhận lại mật khẩu"
-            tu-dong-dien="new-password"
-            bieu-tuong="bi bi-shield-check"
-            :toi-thieu="8"
-            :toi-da="72"
-            :loi="loiTruong.password_confirmation"
-            :vo-hieu="dangLuu"
-          />
+            <TruongNhap
+              id="email_moi"
+              v-model="duLieu.email"
+              nhan="Địa chỉ Email"
+              loai="email"
+              goi-y-nhap="pt.nam@gymfit.vn"
+              bieu-tuong="bi bi-envelope"
+              :toi-da="191"
+              :loi="loiTruong.email"
+              :vo-hieu="dangLuu"
+            />
 
-          <button class="btn btn-primary w-100 shadow-sm mt-2" :disabled="dangLuu" type="submit">
-            <span v-if="dangLuu" class="spinner-border spinner-border-sm me-1" role="status"></span>
-            <i v-else class="bi bi-plus-circle me-1" aria-hidden="true"></i>
-            <span>{{ dangLuu ? 'Đang tạo tài khoản…' : 'Xác nhận tạo tài khoản' }}</span>
-          </button>
-        </form>
-      </section>
+            <!-- Chọn vai trò dạng Thẻ trực quan -->
+            <div class="mb-3">
+              <label class="form-label fw-bold">
+                Chọn vai trò cấp quyền <span class="text-danger">*</span>
+              </label>
+              <div class="role-picker-grid">
+                <label
+                  class="role-card-option"
+                  :class="{ selected: duLieu.vai_tro === 'HUAN_LUYEN_VIEN' }"
+                >
+                  <input
+                    v-model="duLieu.vai_tro"
+                    type="radio"
+                    value="HUAN_LUYEN_VIEN"
+                    name="vai_tro_select"
+                    class="d-none"
+                    :disabled="dangLuu"
+                  />
+                  <div class="role-card-icon text-success">
+                    <i class="bi bi-award-fill" aria-hidden="true"></i>
+                  </div>
+                  <div>
+                    <strong class="d-block small">Huấn luyện viên</strong>
+                    <small class="text-muted">Kèm cặp học viên & giáo án</small>
+                  </div>
+                </label>
+
+                <label class="role-card-option" :class="{ selected: duLieu.vai_tro === 'ADMIN' }">
+                  <input
+                    v-model="duLieu.vai_tro"
+                    type="radio"
+                    value="ADMIN"
+                    name="vai_tro_select"
+                    class="d-none"
+                    :disabled="dangLuu"
+                  />
+                  <div class="role-card-icon text-purple">
+                    <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
+                  </div>
+                  <div>
+                    <strong class="d-block small">Quản trị viên</strong>
+                    <small class="text-muted">Toàn quyền hệ thống</small>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <TruongNhap
+              id="mat_khau_moi"
+              v-model="duLieu.password"
+              nhan="Mật khẩu khởi tạo"
+              loai="password"
+              goi-y-nhap="Ít nhất 8 ký tự"
+              tu-dong-dien="new-password"
+              bieu-tuong="bi bi-lock"
+              :toi-thieu="8"
+              :toi-da="72"
+              :loi="loiTruong.password"
+              :vo-hieu="dangLuu"
+            />
+
+            <TruongNhap
+              id="mat_khau_xac_nhan"
+              v-model="duLieu.password_confirmation"
+              nhan="Nhập lại mật khẩu"
+              loai="password"
+              goi-y-nhap="Xác nhận lại mật khẩu"
+              tu-dong-dien="new-password"
+              bieu-tuong="bi bi-shield-check"
+              :toi-thieu="8"
+              :toi-da="72"
+              :loi="loiTruong.password_confirmation"
+              :vo-hieu="dangLuu"
+            />
+
+            <button class="btn btn-primary w-100 shadow-sm mt-2" :disabled="dangLuu" type="submit">
+              <span
+                v-if="dangLuu"
+                class="spinner-border spinner-border-sm me-1"
+                role="status"
+              ></span>
+              <i v-else class="bi bi-plus-circle me-1" aria-hidden="true"></i>
+              <span>{{ dangLuu ? 'Đang tạo tài khoản…' : 'Xác nhận tạo tài khoản' }}</span>
+            </button>
+          </form>
+        </section>
+      </dialog>
     </div>
 
     <!-- Hộp thoại xác nhận Khóa / Mở khóa tài khoản & Thu hồi phiên -->
@@ -598,6 +628,9 @@ export default {
     this.$refs.xacNhan?.close()
   },
   methods: {
+    huyTao(e) {
+      if (this.dangLuu) e.preventDefault()
+    },
     async moXacNhan(taiKhoan) {
       if (this.dangDoi || taiKhoan.id === this.xacThuc.taiKhoan?.id) return
       this.taiKhoanDoi = { ...taiKhoan }
@@ -706,6 +739,7 @@ export default {
         this.thongBao = phanHoi.message || 'Tạo tài khoản thành công.'
         this.coLoi = false
         this.duLieu = bieuMauMoi()
+        this.$refs.formTao?.close()
         await this.taiDanhSach()
       } catch (loi) {
         if (this.daHuy) return
@@ -727,7 +761,7 @@ export default {
 }
 
 .text-purple {
-  color: #7c3aed;
+  color: var(--mau-thong-tin);
 }
 
 .admin-grid {
@@ -738,14 +772,14 @@ export default {
 }
 
 .panel-table-header {
-  background: var(--mau-table-header-bg, #181818);
+  background: var(--mau-table-header-bg, var(--mau-the-sub));
 }
 
 .empty-icon-ring {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: var(--mau-the-hover, #1e1e1e);
+  background: var(--mau-the-hover, var(--mau-the-hover));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -764,16 +798,16 @@ export default {
 }
 
 .avatar-emerald {
-  background: linear-gradient(135deg, #f45b20, #d94a15);
+  background: var(--mau-the-sub);
 }
 .avatar-blue {
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  background: var(--mau-the-sub);
 }
 .avatar-purple {
-  background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+  background: var(--mau-the-sub);
 }
 .avatar-gray {
-  background: #64748b;
+  background: var(--mau-phu);
 }
 
 .role-picker-grid {
@@ -784,7 +818,7 @@ export default {
 
 .role-card-option {
   border: 1.5px solid var(--mau-vien);
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 12px;
   cursor: pointer;
   display: flex;
@@ -792,18 +826,18 @@ export default {
   gap: 10px;
   transition: all 0.2s ease;
   user-select: none;
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
 }
 
 .role-card-option:hover {
-  border-color: rgba(244, 91, 32, 0.4);
-  background: var(--mau-the-hover, #242424);
+  border-color: color-mix(in srgb, var(--mau-chinh) 40%, transparent);
+  background: var(--mau-the-hover, var(--mau-the-hover));
 }
 
 .role-card-option.selected {
   border-color: var(--mau-chinh);
-  background: rgba(244, 91, 32, 0.15);
-  box-shadow: 0 0 0 1px var(--mau-chinh);
+  background: color-mix(in srgb, var(--mau-chinh) 15%, transparent);
+  box-shadow: var(--bong-nhe);
 }
 
 .role-card-icon {
@@ -833,7 +867,7 @@ export default {
   max-height: calc(100dvh - 32px);
   overflow-y: auto;
   border: 1px solid var(--mau-vien);
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 28px;
   color: var(--mau-chu);
   background: var(--mau-the);
@@ -847,7 +881,7 @@ export default {
 .dialog-icon-wrapper {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;

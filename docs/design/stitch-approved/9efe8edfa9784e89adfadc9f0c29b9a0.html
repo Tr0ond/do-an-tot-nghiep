@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cập nhật hồ sơ &amp; Bảo mật - Fitness Motion</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#3a4400",
+            "surface-dim": "#d0d5d7",
+            "surface-tint": "#00675f",
+            "on-surface": "#182325",
+            "on-surface-variant": "#595c5d",
+            "inverse-primary": "#a0fff2",
+            "primary-fixed-dim": "#81dfd3",
+            "on-primary": "#ffffff",
+            "primary-fixed": "#8fede1",
+            "secondary-container": "#d6ef52",
+            "on-secondary-fixed-variant": "#546200",
+            "error": "#b31b25",
+            "tertiary-container": "#90afff",
+            "background": "#f5f7f8",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary": "#f1f2ff",
+            "secondary": "#546200",
+            "inverse-on-surface": "#9a9d9e",
+            "on-primary-fixed": "#00443e",
+            "inverse-surface": "#0b0f10",
+            "surface-container-high": "#dfe3e4",
+            "surface-container-low": "#eef1f2",
+            "primary": "#087F75",
+            "on-secondary-container": "#4b5700",
+            "tertiary-dim": "#0049b1",
+            "tertiary-fixed-dim": "#7aa0ff",
+            "on-error": "#ffefee",
+            "error-container": "#fb5151",
+            "on-error-container": "#570008",
+            "primary-dim": "#005a52",
+            "on-secondary": "#e6ff63",
+            "on-primary-fixed-variant": "#00635b",
+            "primary-container": "#8fede1",
+            "error-dim": "#9f0519",
+            "surface": "#f5f7f8",
+            "tertiary": "#0854c7",
+            "surface-container-highest": "#d9dddf",
+            "surface-variant": "#d9dddf",
+            "surface-container": "#e5e9ea",
+            "secondary-dim": "#495500",
+            "on-tertiary-fixed": "#00153f",
+            "surface-bright": "#f5f7f8",
+            "outline": "#747778",
+            "tertiary-fixed": "#90afff",
+            "on-background": "#182325",
+            "secondary-fixed": "#d6ef52",
+            "on-tertiary-container": "#002c72",
+            "on-primary-container": "#005851",
+            "on-tertiary-fixed-variant": "#003484",
+            "outline-variant": "#abadae",
+            "secondary-fixed-dim": "#c8e044"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Be Vietnam Pro", "sans-serif"],
+            "display": ["Be Vietnam Pro", "sans-serif"],
+            "body": ["Be Vietnam Pro", "sans-serif"],
+            "label": ["Be Vietnam Pro", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      letter-spacing: 0;
+      color: #182325;
+      background-color: #f5f7f8;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 20px;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex">
+<!-- ASIDE: SideNavBar (Fixed 232px) -->
+<aside class="fixed top-0 left-0 h-screen w-[232px] rounded-none border-r border-outline-variant bg-surface-container-lowest flex flex-col justify-between p-3 shrink-0 z-40">
+<div class="flex flex-col gap-5">
+<!-- Brand & Header -->
+<div class="px-2 pt-1 pb-2 flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center font-headline font-bold text-base shadow-sm">
+          M
+        </div>
+<div class="flex flex-col">
+<span class="font-headline text-base font-bold text-primary tracking-normal leading-tight">Fitness Motion</span>
+<span class="text-[11px] text-on-surface-variant font-medium">Hệ thống quản lý PT</span>
+</div>
+</div>
+<!-- Navigation tabs -->
+<nav class="flex flex-col gap-1 font-body text-sm font-medium">
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>Lịch &amp; Nhật ký</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">fitness_center</span>
+<span>Soạn giáo án</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span>Chat trực tuyến</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Quản lý gói tập</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Học viên &amp; Yêu cầu</span>
+</a>
+<div class="my-2 border-t border-surface-container"></div>
+<!-- Active Item: Hồ sơ của tôi -->
+<a class="bg-primary text-on-primary font-semibold rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200 shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span>Hồ sơ của tôi</span>
+</a>
+</nav>
+</div>
+<!-- AI Advisor callout & Footer settings -->
+<div class="flex flex-col gap-2 pt-2 border-t border-surface-container">
+<div class="p-2.5 rounded-lg bg-surface-container-low border border-surface-container flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span> Tr0ond AI Hỗ trợ
+          </span>
+<span class="text-[10px] font-medium px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-fixed">8/10 lượt</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-tight">Phân tích nhịp tim &amp; đề xuất khối lượng tập</p>
+</div>
+<nav class="flex flex-col gap-1 font-body text-sm font-medium">
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Cài đặt</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Đăng xuất</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- MAIN WRAPPER (Left padding 232px) -->
+<div class="ml-[232px] flex-1 flex flex-col min-h-screen">
+<!-- HEADER: TopNavBar (Fixed 64px) -->
+<header class="fixed top-0 right-0 left-[232px] h-16 w-[calc(100%-232px)] border-b border-outline-variant bg-surface-container-lowest px-6 flex items-center justify-between z-30">
+<!-- Breadcrumb navigation -->
+<div class="flex items-center gap-2 text-sm">
+<span class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer">Hồ sơ cá nhân</span>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Cập nhật thông tin</span>
+</div>
+<!-- Quick global actions & Profile info -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button aria-label="Thông báo" class="w-9 h-9 rounded-lg hover:bg-surface-container-low flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button aria-label="Trợ giúp" class="w-9 h-9 rounded-lg hover:bg-surface-container-low flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+<div class="h-6 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-3 pl-1">
+<div class="w-9 h-9 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Close up photographic portrait of a 28-year-old Vietnamese male fitness member in athletic attire against an organized studio gym background in natural morning illumination." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy0d3SrCVfo64oW7CFPJnNLje-tcdg0VMvfD5ImIEZcGbDsTZIJ4sgsPhijCxaweosH_APluPB323TnXIk2J3f0f_wTPLWCkNV8VVGc6EzptVO-V1qAeL81SLwiyRAeqyaPsGVhOSqwuVdh1iuhixVCQo89tyZ8tQNza_39hMM6iYRQLBLxxQHG92ZE0J4wmubVs4PnBBlh7jHzDttoXB_McEWfSgiqXjFspv0YwgQnUx0_VIXyQ5AY9xlArvLV6lX8FsRmYGiAK6v"/>
+</div>
+<div class="flex flex-col text-left">
+<span class="text-xs font-semibold text-on-surface leading-snug">Nguyễn Minh Quân</span>
+<span class="text-[11px] text-on-surface-variant leading-none">Hội viên cá nhân</span>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN WORKSPACE CONTENT -->
+<main class="mt-16 p-8 max-w-[1208px] w-full flex-1 flex flex-col gap-6">
+<!-- PAGE HEADER & ACTION TOOLBAR -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-surface-container">
+<div>
+<h1 class="text-2xl font-headline font-bold text-on-surface tracking-tight">Cập nhật hồ sơ &amp; Bảo mật</h1>
+<p class="text-sm text-on-surface-variant mt-1">Quản lý định danh tài khoản, thể trạng huấn luyện và phân quyền bảo mật thành viên</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="h-11 px-5 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container-low text-sm font-semibold transition-colors duration-160 flex items-center gap-2" type="button">
+<span>Hủy thay đổi</span>
+</button>
+<button class="h-11 px-6 rounded-lg bg-primary hover:bg-primary-dim text-on-primary text-sm font-semibold transition-colors duration-160 shadow-sm flex items-center gap-2" form="profile-form" type="submit">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>Lưu thông tin</span>
+</button>
+</div>
+</div>
+<!-- FORM WORKFLOW -->
+<form class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start" id="profile-form">
+<!-- COLUMN LEFT: Thông tin cá nhân & Thể trạng mục tiêu (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- Box 1: Thông tin liên hệ căn bản -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6">
+<div class="flex items-center justify-between pb-4 border-b border-surface-container mb-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">badge</span>
+<h2 class="text-base font-semibold text-on-surface">Thông tin cá nhân &amp; Liên lạc</h2>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">Mã hội viên: #FM-8890</span>
+</div>
+<div class="space-y-4">
+<!-- Avatar mini profile management -->
+<div class="flex items-center gap-4 pb-2">
+<div class="relative w-16 h-16 rounded-full border border-outline-variant overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Studio portrait of a focused Vietnamese athlete with short black hair wearing a teal technical sportswear top, clean neutral indoor gymnasium background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCEERhcimRkuzrlV9-MQrV_aPgwpaf0GvhA_fxm-dJJSy2whJsfrrE-TLLoaJy2W5GjS-e0cj3dnR2eee_77LxWnIp1H2wuHyhN6A5VYHl3JrLILjRiRvFiJkT6zG3W5838WcQDEGGwzvdUTenYkEHzb1XUxWDs9bV9OuUjdJRz84uH7rJFZyvf_wxSWjCMXQDz5u-v890n5R_DsTLIbtvqLP02s-4_nsVrLqLtPhm4zGukFAT_kXEZ9FMl7cgLYVubARXYnhflMRy"/>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<button class="h-8 px-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-xs font-semibold text-on-surface hover:bg-surface-container-low transition-colors" type="button">
+                      Đổi ảnh đại diện
+                    </button>
+<button class="h-8 px-2 text-xs font-medium text-error hover:underline transition-colors" type="button">
+                      Xóa ảnh
+                    </button>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-1.5">Định dạng JPG, PNG dung lượng dưới 5MB. Khuyến nghị tỉ lệ 1:1.</p>
+</div>
+</div>
+<!-- Họ và tên -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface" for="fullName">Họ và tên <span class="text-error">*</span></label>
+<input class="h-11 px-3.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="fullName" type="text" value="Nguyễn Minh Quân"/>
+</div>
+<!-- Số điện thoại & Xác thực -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface" for="phone">Số điện thoại đăng ký <span class="text-error">*</span></label>
+<div class="flex gap-2">
+<div class="relative flex-1">
+<input class="w-full h-11 px-3.5 rounded-lg border border-outline-variant bg-surface-container-low text-sm text-on-surface-variant cursor-not-allowed" disabled="" id="phone" type="text" value="0912 345 889"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 text-[11px] font-semibold text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                      Đã xác thực
+                    </span>
+</div>
+<button class="h-11 px-3.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-xs font-semibold text-on-surface hover:bg-surface-container-low transition-colors whitespace-nowrap" type="button">
+                    Thay đổi SĐT
+                  </button>
+</div>
+</div>
+<!-- Email thông báo -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface" for="email">Email nhận thông báo lịch tập <span class="text-error">*</span></label>
+<input class="h-11 px-3.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="email" type="email" value="quan.nm@email.com"/>
+</div>
+<!-- Ngày sinh & Giới tính -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface" for="dob">Ngày sinh</label>
+<input class="h-11 px-3.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="dob" type="date" value="1996-04-18"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface" for="gender">Giới tính</label>
+<select class="h-11 px-3.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="gender">
+<option selected="" value="male">Nam</option>
+<option value="female">Nữ</option>
+<option value="other">Khác</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<!-- Box 2: Mục tiêu & Giới hạn sức khỏe cho HLV -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6">
+<div class="flex items-center gap-2 pb-4 border-b border-surface-container mb-5">
+<span class="material-symbols-outlined text-primary">monitoring</span>
+<h2 class="text-base font-semibold text-on-surface">Mục tiêu huấn luyện &amp; Sức khỏe</h2>
+</div>
+<div class="space-y-4">
+<!-- Mục tiêu dropdown -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface" for="goal">Mục tiêu tập luyện chính</label>
+<select class="h-11 px-3.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="goal">
+<option selected="" value="hypertrophy">Tăng cơ nạc &amp; Sức mạnh (Hypertrophy)</option>
+<option value="fat-loss">Giảm mỡ &amp; Săn chắc</option>
+<option value="endurance">Tăng thể lực chung</option>
+</select>
+</div>
+<!-- Ghi chú thể trạng cho HLV -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="text-xs font-semibold text-on-surface" for="healthNote">Ghi chú thể trạng cho HLV cá nhân</label>
+<span class="text-[11px] text-on-surface-variant">Hiển thị trong giáo án của PT</span>
+</div>
+<textarea class="p-3.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none leading-relaxed" id="healthNote" rows="3">Hạn chế các bài squat áp lực trực tiếp khớp gối trái vượt quá 90 độ.</textarea>
+<div class="flex items-start gap-2 mt-1 p-2.5 rounded bg-surface-container-low border border-surface-container">
+<span class="material-symbols-outlined text-tertiary text-[18px] shrink-0 mt-0.5">info</span>
+<p class="text-xs text-on-surface-variant">Huấn luyện viên phụ trách sẽ nhận được cảnh báo này trước mỗi buổi hướng dẫn bài tập chân và tạ đòn.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- COLUMN RIGHT: Đổi mật khẩu & Cấu hình bảo mật (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- Box 3: Đổi mật khẩu tài khoản -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6">
+<div class="flex items-center gap-2 pb-4 border-b border-surface-container mb-5">
+<span class="material-symbols-outlined text-primary">lock_reset</span>
+<h2 class="text-base font-semibold text-on-surface">Đổi mật khẩu tài khoản</h2>
+</div>
+<div class="space-y-4">
+<!-- Mật khẩu hiện tại -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface" for="currentPassword">Mật khẩu hiện tại <span class="text-error">*</span></label>
+<div class="relative">
+<input class="w-full h-11 px-3.5 pr-10 rounded-lg border border-outline-variant bg-surface-container-lowest text-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="currentPassword" placeholder="Nhập mật khẩu hiện tại" type="password"/>
+<button aria-label="Hiện mật khẩu" class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Mật khẩu mới -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface" for="newPassword">Mật khẩu mới <span class="text-error">*</span></label>
+<div class="relative">
+<input class="w-full h-11 px-3.5 pr-10 rounded-lg border border-outline-variant bg-surface-container-lowest text-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="newPassword" type="password" value="MotionPT@2024"/>
+<button aria-label="Ẩn mật khẩu" class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility_off</span>
+</button>
+</div>
+</div>
+<!-- Xác nhận mật khẩu mới -->
+<div class="flex flex-col gap-1.5">
+<label class="text-xs font-semibold text-on-surface" for="confirmPassword">Xác nhận mật khẩu mới <span class="text-error">*</span></label>
+<div class="relative">
+<input class="w-full h-11 px-3.5 pr-10 rounded-lg border border-outline-variant bg-surface-container-lowest text-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="confirmPassword" type="password" value="MotionPT@2024"/>
+<button aria-label="Ẩn mật khẩu" class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility_off</span>
+</button>
+</div>
+</div>
+<!-- Chỉ số độ mạnh mật khẩu trực quan -->
+<div class="p-3.5 rounded-lg bg-surface-container-low border border-surface-container space-y-2.5">
+<div class="flex items-center justify-between text-xs">
+<span class="font-medium text-on-surface-variant">Độ mạnh mật khẩu:</span>
+<span class="font-semibold text-primary">Rất mạnh (4/4)</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden flex gap-1">
+<div class="h-full w-1/4 bg-primary rounded-full"></div>
+<div class="h-full w-1/4 bg-primary rounded-full"></div>
+<div class="h-full w-1/4 bg-primary rounded-full"></div>
+<div class="h-full w-1/4 bg-primary rounded-full"></div>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1 text-[11px]">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Tối thiểu 8 ký tự</span>
+</div>
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Ít nhất 1 chữ hoa</span>
+</div>
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Ít nhất 1 chữ số</span>
+</div>
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>1 ký tự đặc biệt (@#$)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Box 4: Cấu hình thông báo vận hành -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6">
+<div class="flex items-center gap-2 pb-4 border-b border-surface-container mb-5">
+<span class="material-symbols-outlined text-primary">notifications_active</span>
+<h2 class="text-base font-semibold text-on-surface">Tùy chọn thông báo</h2>
+</div>
+<div class="space-y-4">
+<!-- Option 1 -->
+<label class="flex items-start gap-3 cursor-pointer group">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-on-surface group-hover:text-primary transition-colors">Nhắc nhở lịch tập trước 2 tiếng</span>
+<span class="text-[11px] text-on-surface-variant">Gửi thông báo đẩy SMS và chuông ứng dụng trước buổi tập với HLV</span>
+</div>
+</label>
+<div class="border-t border-surface-container"></div>
+<!-- Option 2 -->
+<label class="flex items-start gap-3 cursor-pointer group">
+<input checked="" class="mt-0.5 w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-on-surface group-hover:text-primary transition-colors">Thông báo phản hồi nhật ký</span>
+<span class="text-[11px] text-on-surface-variant">Nhận tin tức thời khi HLV ghi chú điều chỉnh tạ hoặc duyệt chỉ số dinh dưỡng</span>
+</div>
+</label>
+<div class="border-t border-surface-container"></div>
+<!-- Option 3 -->
+<label class="flex items-start gap-3 cursor-pointer group">
+<input class="mt-0.5 w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-on-surface group-hover:text-primary transition-colors">Cảnh báo hết hạn gói tập</span>
+<span class="text-[11px] text-on-surface-variant">Thông báo trước 5 ngày khi số buổi PT cá nhân còn dưới 2 buổi</span>
+</div>
+</label>
+</div>
+</div>
+</div>
+</form>
+<!-- STICKY BOTTOM ACTION BAR FOR COMPLIANCE -->
+<div class="sticky bottom-4 w-full bg-surface-container-lowest/95 backdrop-blur-sm border border-outline-variant rounded-lg p-4 flex items-center justify-between shadow-sm mt-auto z-20">
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<span>Dữ liệu cá nhân được lưu trữ bảo mật theo giao thức mã hóa vận hành hệ thống Tr0ond.</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="h-10 px-4 rounded-lg border border-outline-variant bg-surface-container-lowest text-xs font-semibold text-on-surface hover:bg-surface-container-low transition-colors" type="button">
+            Hủy thay đổi
+          </button>
+<button class="h-10 px-6 rounded-lg bg-primary hover:bg-primary-dim text-on-primary text-xs font-semibold transition-colors shadow-sm flex items-center gap-1.5" form="profile-form" type="submit">
+<span class="material-symbols-outlined text-[16px]">done</span>
+<span>Lưu thông tin</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -70,6 +70,41 @@ describe('Lịch và nhật ký tập', () => {
     vi.stubGlobal('window', { confirm: vi.fn(() => true) })
   })
   afterEach(() => vi.unstubAllGlobals())
+  it('lịch tuần qua tháng và năm chỉ dùng các buổi đã tải', () => {
+    const p = trang(DanhSach, {
+      tuanBatDau: '2026-12-29',
+      danhSach: [
+        { id: 1, ngay_tap: '2026-12-31' },
+        { id: 2, ngay_tap: '2027-01-02' },
+        { id: 3, ngay_tap: '2027-01-05' },
+      ],
+    })
+    expect(p.cacNgayTrongTuan.map((n) => n.ngay)).toEqual([
+      '2026-12-29',
+      '2026-12-30',
+      '2026-12-31',
+      '2027-01-01',
+      '2027-01-02',
+      '2027-01-03',
+      '2027-01-04',
+    ])
+    expect(p.cacNgayTrongTuan.flatMap((n) => n.cacBuoi).map((l) => l.id)).toEqual([1, 2])
+    p.tuanBatDau = ''
+    expect(p.cacNgayTrongTuan).toEqual([])
+  })
+  it('đổi tuần đồng bộ bộ lọc và tải lại trang đầu, không ghi nhật ký', () => {
+    const p = trang(DanhSach, { tuanBatDau: '2026-12-29' })
+    p.taiDanhSach = vi.fn()
+    p.doiTuan()
+    expect(p.boLoc.tu_ngay).toBe('2026-12-29')
+    expect(p.boLoc.den_ngay).toBe('2027-01-04')
+    expect(p.taiDanhSach).toHaveBeenCalledWith(1)
+    expect(nhatKyTapService.tao).not.toHaveBeenCalled()
+    expect(nhatKyTapService.luu).not.toHaveBeenCalled()
+    p.tuanBatDau = ''
+    p.doiTuan()
+    expect(p.taiDanhSach).toHaveBeenCalledOnce()
+  })
   it('xác nhận ngay trong trang không gửi thao tác trước khi đồng ý', async () => {
     const focus = vi.fn()
     const p = trang(ChiTiet, {

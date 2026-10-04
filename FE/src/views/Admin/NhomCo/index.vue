@@ -560,7 +560,7 @@ export default {
   gap: 6px;
   font-size: 0.75rem;
   font-weight: 750;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
   color: var(--mau-chinh-dam);
   margin-bottom: 8px;
 }
@@ -587,13 +587,13 @@ export default {
 
 .stat-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--bong-nhe);
 }
 
 .stat-icon-wrapper {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -618,7 +618,7 @@ export default {
 
 .stat-icon-purple {
   background: #f5f3ff;
-  color: #7c3aed;
+  color: var(--mau-thong-tin);
 }
 
 .stat-value {
@@ -649,7 +649,7 @@ export default {
   gap: 16px;
   align-items: end;
   padding: 20px 24px;
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border-bottom: 1px solid var(--mau-vien);
 }
 
@@ -688,7 +688,7 @@ export default {
 .form-control-sm:focus,
 .form-select-sm:focus {
   border-color: var(--mau-chinh);
-  box-shadow: 0 0 0 3px rgba(244, 91, 32, 0.25);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mau-chinh) 25%, transparent);
 }
 
 .nhom-filter-actions {
@@ -723,7 +723,7 @@ export default {
 }
 
 .nhom-row:not(.nhom-labels):hover {
-  background-color: var(--mau-the-hover, #1c1c1c);
+  background-color: var(--mau-the-hover, var(--mau-the-hover));
 }
 
 .nhom-labels {
@@ -731,8 +731,8 @@ export default {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--mau-phu);
-  letter-spacing: 0.05em;
-  background-color: var(--mau-table-header-bg, #181818);
+  letter-spacing: 0;
+  background-color: var(--mau-table-header-bg, var(--mau-the-sub));
   border-bottom: 1px solid var(--mau-vien);
 }
 
@@ -749,11 +749,11 @@ export default {
   width: 44px;
   height: 44px;
   flex-shrink: 0;
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--mau-chinh-nhat);
   color: var(--mau-chinh);
   font-size: 1.25rem;
-  border: 1px solid rgba(244, 91, 32, 0.25);
+  border: 1px solid color-mix(in srgb, var(--mau-chinh) 25%, transparent);
 }
 
 .nhom-info-wrap {
@@ -771,10 +771,10 @@ export default {
 .nhom-code {
   font-size: 0.78rem;
   color: var(--mau-chinh-dam);
-  background: rgba(244, 91, 32, 0.12);
+  background: color-mix(in srgb, var(--mau-chinh) 12%, transparent);
   padding: 2px 8px;
   border-radius: 6px;
-  border: 1px solid rgba(244, 91, 32, 0.25);
+  border: 1px solid color-mix(in srgb, var(--mau-chinh) 25%, transparent);
 }
 
 /* Cột số bài tập */
@@ -790,7 +790,7 @@ export default {
 }
 
 .nhom-count:hover {
-  background: #242424;
+  background: var(--mau-the-hover);
 }
 
 .nhom-count-badge {
@@ -815,20 +815,20 @@ export default {
   gap: 6px;
   font-size: 0.8rem;
   font-weight: 650;
-  border-radius: 20px;
+  border-radius: 8px;
   padding: 5px 12px;
   border: 1px solid transparent;
 }
 
 .nhom-active {
-  background: rgba(244, 91, 32, 0.15);
-  color: #ff8c5a;
-  border-color: rgba(244, 91, 32, 0.3);
+  background: color-mix(in srgb, var(--mau-chinh) 15%, transparent);
+  color: var(--mau-chinh);
+  border-color: color-mix(in srgb, var(--mau-chinh) 30%, transparent);
 }
 
 .nhom-inactive {
-  background: var(--mau-the-sub, #1c1c1c);
-  color: var(--mau-phu, #94a3b8);
+  background: var(--mau-the-sub, var(--mau-the-hover));
+  color: var(--mau-phu, var(--mau-phu));
   border-color: var(--mau-vien, rgba(255, 255, 255, 0.1));
 }
 
@@ -841,11 +841,11 @@ export default {
 
 .dot-active {
   background-color: var(--mau-chinh);
-  box-shadow: 0 0 0 2px rgba(244, 91, 32, 0.4);
+  box-shadow: var(--bong-nhe);
 }
 
 .dot-inactive {
-  background-color: #94a3b8;
+  background-color: var(--mau-phu);
 }
 
 /* Thao tác */
@@ -887,12 +887,10 @@ export default {
   width: calc(100% - 32px);
   padding: 24px;
   border: 1px solid var(--mau-vien);
-  border-radius: 16px;
+  border-radius: 8px;
   color: var(--mau-chu);
   background: var(--mau-the);
-  box-shadow:
-    0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--bong-nhe);
 }
 
 .nhom-dialog::backdrop {
@@ -910,7 +908,7 @@ export default {
 .dialog-icon-wrapper {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -921,7 +919,7 @@ export default {
 .nhom-dialog-eyebrow {
   font-size: 0.7rem;
   font-weight: 750;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
   color: var(--mau-phu);
   margin-bottom: 4px;
 }
@@ -947,7 +945,7 @@ export default {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: var(--mau-the-sub, #1e1e1e);
+  background: var(--mau-the-sub, var(--mau-the-hover));
   border: 1px solid var(--mau-vien);
   display: flex;
   align-items: center;

@@ -56,6 +56,23 @@
 
     <!-- Chi tiết bài tập -->
     <article v-else-if="baiTap" class="exercise-detail-layout animate__animated animate__fadeIn">
+      <header class="st-exercise-heading">
+        <div class="d-flex align-items-center gap-2 mb-2">
+          <span class="badge-role badge-role-pt"
+            ><i class="bi bi-fire" aria-hidden="true"></i>{{ baiTap.nhom_co.ten_nhom_co }}</span
+          ><span class="badge bg-secondary-subtle text-muted border"
+            >#{{ baiTap.ma_nguon || baiTap.id }}</span
+          >
+        </div>
+        <h1 class="exercise-main-title fw-bold mb-1">{{ tenHienThi }}</h1>
+        <p
+          v-if="baiTap.ten_tieng_viet && baiTap.ten_tieng_viet !== baiTap.ten_bai_tap"
+          class="original-title text-muted mb-0"
+          lang="en"
+        >
+          {{ baiTap.ten_bai_tap }}
+        </p>
+      </header>
       <!-- Cột trái: Media hình ảnh / GIF minh họa chuyển động -->
       <aside class="detail-visual-col">
         <div class="media-showcase-panel shadow-sm">
@@ -114,28 +131,6 @@
 
       <!-- Cột phải: Thông tin kỹ thuật & Hướng dẫn từng bước -->
       <section class="detail-content-col">
-        <!-- Huy hiệu nhóm cơ chính -->
-        <div class="d-flex align-items-center gap-2 mb-2">
-          <span class="badge-role badge-role-pt">
-            <i class="bi bi-fire"></i>
-            <span>{{ baiTap.nhom_co.ten_nhom_co }}</span>
-          </span>
-          <span class="badge bg-secondary-subtle text-muted border"
-            >Mã: #{{ baiTap.ma_nguon || baiTap.id }}</span
-          >
-        </div>
-
-        <!-- Tên bài tập -->
-        <h1 class="exercise-main-title fw-bold mb-1">{{ tenHienThi }}</h1>
-        <p
-          v-if="baiTap.ten_tieng_viet && baiTap.ten_tieng_viet !== baiTap.ten_bai_tap"
-          class="original-title text-muted mb-4"
-          lang="en"
-        >
-          <i class="bi bi-globe me-1"></i>Tên gốc tiếng Anh:
-          <strong>{{ baiTap.ten_bai_tap }}</strong>
-        </p>
-
         <!-- Lưới 4 thông số kỹ thuật then chốt -->
         <div class="facts-grid mb-4 contai">
           <div class="fact-box">
@@ -338,7 +333,7 @@ export default {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-tron);
   font-size: 0.85rem;
@@ -350,7 +345,7 @@ export default {
 }
 
 .btn-back-library:hover {
-  background: var(--mau-the-hover, #242424);
+  background: var(--mau-the-hover, var(--mau-the-hover));
   color: var(--mau-chinh);
   border-color: var(--mau-chinh);
   transform: translateX(-3px);
@@ -358,7 +353,7 @@ export default {
 
 .detail-state-card {
   min-height: 400px;
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-xl);
   display: flex;
@@ -395,7 +390,7 @@ export default {
 }
 
 .media-showcase-panel {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-xl);
   overflow: hidden;
@@ -425,7 +420,7 @@ export default {
 
 .media-credit-link {
   font-size: 0.75rem;
-  color: #94a3b8;
+  color: var(--mau-phu);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -436,7 +431,7 @@ export default {
 
 /* Cột phải: Thông tin */
 .exercise-main-title {
-  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-size: 1.75rem;
   line-height: 1.2;
   color: var(--mau-chu);
 }
@@ -453,7 +448,7 @@ export default {
 }
 
 .fact-box {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-md);
   padding: 14px;
@@ -478,7 +473,7 @@ export default {
   font-size: 0.75rem;
   color: var(--mau-phu);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   font-weight: 600;
 }
 
@@ -499,7 +494,7 @@ export default {
 .timeline-step-item {
   display: flex;
   gap: 16px;
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-md);
   padding: 16px 20px;
@@ -508,22 +503,22 @@ export default {
 
 .timeline-step-item:hover {
   background: var(--mau-the-hover, #202020);
-  border-color: rgba(244, 91, 32, 0.35);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  border-color: color-mix(in srgb, var(--mau-chinh) 35%, transparent);
+  box-shadow: var(--bong-nhe);
 }
 
 .step-badge-number {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: var(--mau-gradient-chinh);
-  color: white;
+  background: var(--mau-the-sub);
+  color: var(--mau-chinh);
   display: grid;
   place-items: center;
   font-weight: 800;
   font-size: 0.9rem;
   flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+  box-shadow: var(--bong-nhe);
 }
 
 .step-label {
@@ -546,15 +541,15 @@ export default {
 }
 
 .coach-tip-card {
-  background: rgba(244, 91, 32, 0.1);
-  border-color: rgba(244, 91, 32, 0.25) !important;
+  background: color-mix(in srgb, var(--mau-chinh) 10%, transparent);
+  border-color: color-mix(in srgb, var(--mau-chinh) 25%, transparent) !important;
 }
 
 .coach-icon-badge {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--mau-chinh, #f45b20);
+  background: var(--mau-chinh, var(--mau-chinh));
   color: white;
   display: grid;
   place-items: center;

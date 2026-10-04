@@ -43,6 +43,24 @@
         <span>{{ loi }}</span>
       </div>
 
+      <!-- Thống kê trạng thái slot trong ngày (Stitch Screen 20 Slot Metrics) -->
+      <div v-if="!loi && ds.length" class="st-kpi-ribbon">
+        <div class="st-kpi-chip">
+          <span>Tổng số slot:</span>
+          <strong>{{ ds.length }} ca</strong>
+        </div>
+        <div class="st-kpi-chip">
+          <span class="st-kpi-dot success"></span>
+          <span>Còn trống:</span>
+          <strong>{{ ds.filter((s) => s.trang_thai === 'MO' && !s.dang_giu).length }} slot</strong>
+        </div>
+        <div class="st-kpi-chip">
+          <span class="st-kpi-dot warning"></span>
+          <span>Đã có lịch:</span>
+          <strong>{{ ds.filter((s) => s.dang_giu).length }} slot</strong>
+        </div>
+      </div>
+
       <!-- Bố cục 2 cột chính -->
       <div class="m04-layout">
         <!-- Cột trái: Chọn ngày và danh sách khung giờ -->
@@ -70,7 +88,7 @@
             </button>
           </form>
 
-          <!-- Thẻ tóm tắt thông tin PT phụ trách (dành cho Khách hàng) -->
+          <!-- Thẻ tóm tắt thông tin PT phụ trách (dành cho Khách hàng - Screen 20) -->
           <div v-if="meta.pt" class="pt-companion-card mb-4">
             <div class="d-flex align-items-center gap-3">
               <div class="pt-avatar-circle">
@@ -83,11 +101,11 @@
                 </span>
               </div>
             </div>
-            <div
-              class="badge bg-emerald-subtle text-emerald-emphasis border border-emerald-subtle px-3 py-2 rounded-pill font-monospace fw-bold mt-3"
+            <span
+              class="m04-state DA_XAC_NHAN font-monospace fw-bold"
             >
               {{ meta.so_buoi_con_lai }} buổi còn lại
-            </div>
+            </span>
           </div>
 
           <!-- Các trạng thái danh sách giờ -->

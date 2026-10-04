@@ -620,7 +620,7 @@ export default {
 .sidebar-avatar {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: 8px;
   display: grid;
   place-items: center;
   font-size: 1.25rem;
@@ -630,19 +630,19 @@ export default {
 }
 
 .avatar-emerald {
-  background: linear-gradient(135deg, #f45b20, #d94a15);
+  background: var(--mau-the-sub);
 }
 
 .avatar-blue {
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  background: var(--mau-the-sub);
 }
 
 .avatar-purple {
-  background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+  background: var(--mau-the-sub);
 }
 
 .avatar-gray {
-  background: #64748b;
+  background: var(--mau-phu);
 }
 
 .sidebar-user-info {
@@ -679,7 +679,7 @@ export default {
   font-size: 0.75rem;
   font-weight: 650;
   padding: 3px 8px;
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--mau-chinh-nhat);
   color: var(--mau-chinh-dam);
 }
@@ -693,7 +693,7 @@ export default {
 }
 
 .dot-active {
-  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.3);
+  box-shadow: var(--bong-nhe);
 }
 
 .btn-primary {

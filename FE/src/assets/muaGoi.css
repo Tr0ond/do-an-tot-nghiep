@@ -7,11 +7,11 @@
 }
 
 .m03-heading h1 {
-  font-family: var(--font-tieu-de, 'Outfit', sans-serif);
+  font-family: var(--font-chinh);
   font-size: 2rem;
   margin: 4px 0 8px;
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   color: var(--mau-chu);
 }
 
@@ -21,19 +21,19 @@
   color: var(--mau-chinh);
   font-weight: 750;
   font-size: 0.78rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .m03-panel {
   border: 1px solid var(--mau-vien);
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   color: var(--mau-chu, #ffffff);
   border-radius: var(--bo-goc-lg);
   padding: 28px;
   margin-bottom: 24px;
   min-width: 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--bong-nhe);
 }
 
 .m03-grid {
@@ -51,9 +51,9 @@
 }
 
 .m03-facts > div {
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   border: 1px solid var(--mau-vien);
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 14px 16px;
 }
 
@@ -62,7 +62,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   margin-bottom: 4px;
 }
 
@@ -83,27 +83,27 @@
   border-radius: 999px;
   font-size: 0.82rem;
   font-weight: 650;
-  background: var(--mau-the-sub, #181818);
-  color: var(--mau-chu, #cbd5e1);
+  background: var(--mau-the-sub, var(--mau-the-sub));
+  color: var(--mau-chu, var(--mau-phu));
 }
 
 .m03-state.DANG_SU_DUNG,
 .m03-state.DA_XAC_MINH {
-  color: #10b981;
+  color: var(--mau-thanh-cong);
   border-color: rgba(16, 185, 129, 0.3);
   background: rgba(16, 185, 129, 0.12);
 }
 
 .m03-state.CAN_DOI_SOAT,
 .m03-state.CHO_THANH_TOAN {
-  color: #f59e0b;
+  color: var(--mau-canh-bao);
   border-color: rgba(245, 158, 11, 0.3);
   background: rgba(245, 158, 11, 0.12);
 }
 
 .m03-state.DA_HUY,
 .m03-state.DA_HOAN_TIEN {
-  color: #94a3b8;
+  color: var(--mau-phu);
   border-color: rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.05);
 }
@@ -111,7 +111,7 @@
 .m03-empty {
   text-align: center;
   padding: 56px 24px;
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
 }
 
 .m03-empty i {
@@ -122,10 +122,10 @@
 }
 
 .m03-money {
-  font-family: var(--font-tieu-de, 'Outfit', sans-serif);
+  font-family: var(--font-chinh);
   font-size: 2.2rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   color: var(--mau-chinh);
   margin-bottom: 16px;
 }
@@ -147,9 +147,9 @@
   font-size: 0.76rem;
   color: var(--mau-phu);
   font-weight: 750;
-  letter-spacing: 0.05em;
+  letter-spacing: 0;
   text-transform: uppercase;
-  background: var(--mau-table-header-bg, #181818);
+  background: var(--mau-table-header-bg, var(--mau-the-sub));
 }
 
 .m03-table tbody tr:hover {
@@ -192,7 +192,7 @@
 .m03-panel select:focus,
 .m03-panel textarea:focus {
   border-color: var(--mau-chinh);
-  box-shadow: 0 0 0 3px rgba(244, 91, 32, 0.25);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mau-chinh) 25%, transparent);
   background-color: #161616;
 }
 
@@ -221,15 +221,15 @@
 
 .customer-item-card.border-primary {
   border-color: var(--mau-chinh) !important;
-  background: rgba(244, 91, 32, 0.08) !important;
-  box-shadow: 0 0 0 1px var(--mau-chinh);
+  background: color-mix(in srgb, var(--mau-chinh) 8%, transparent) !important;
+  box-shadow: var(--bong-nhe);
 }
 
 .pt-avatar-circle {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #f45b20 0%, #d94a15 100%);
+  background: var(--mau-the-sub);
   color: white;
   display: grid;
   place-items: center;

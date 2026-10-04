@@ -27,7 +27,10 @@
       <span>{{ thongBao }}</span>
     </div>
 
-    <div class="chat-workspace" :class="{ 'co-hoi-thoai': idHoiThoai }">
+    <div
+      class="chat-workspace"
+      :class="{ 'co-hoi-thoai': idHoiThoai, 'st-chat-context-open': hoiThoai }"
+    >
       <!-- Cột trái: Danh sách hội thoại -->
       <aside class="chat-sidebar" aria-label="Danh sách hội thoại">
         <div class="chat-sidebar-heading">
@@ -479,7 +482,7 @@
               >
                 <i class="bi bi-image" aria-hidden="true"></i>
               </button>
-              <span class="chat-composer-help">Enter gửi · Shift + Enter xuống dòng</span>
+              <span class="chat-composer-help">Nội dung tin nhắn</span>
               <small class="chat-char-counter">
                 <span v-if="anhCho.length" class="chat-attachment-count">
                   {{ anhCho.length }}/4 ảnh ·
@@ -524,6 +527,34 @@
           </form>
         </template>
       </section>
+      <aside v-if="hoiThoai" class="st-chat-context" aria-label="Thông tin hội thoại">
+        <span class="st-profile-avatar" aria-hidden="true">{{
+          hoiThoai.doi_phuong.ho_ten.charAt(0).toUpperCase()
+        }}</span>
+        <h2>{{ hoiThoai.doi_phuong.ho_ten }}</h2>
+        <p>{{ laKhach ? 'Huấn luyện viên' : 'Học viên' }}</p>
+        <dl class="st-rail-facts">
+          <div>
+            <dt>Phân công</dt>
+            <dd>{{ hoiThoai.da_ket_thuc ? 'Đã kết thúc' : 'Đang hoạt động' }}</dd>
+          </div>
+          <div>
+            <dt>Trao đổi</dt>
+            <dd>{{ hoiThoai.co_the_gui ? 'Có thể gửi tin' : 'Chỉ xem lịch sử' }}</dd>
+          </div>
+        </dl>
+        <nav v-if="!hoiThoai.da_ket_thuc" class="st-quick-links" aria-label="Theo dõi tập luyện">
+          <RouterLink :to="laKhach ? '/khach-hang/lich-hen' : '/pt/lich-hen'"
+            ><i class="bi bi-calendar3" aria-hidden="true"></i>Lịch hẹn</RouterLink
+          >
+          <RouterLink v-if="laKhach" to="/khach-hang/goi-cua-toi"
+            ><i class="bi bi-box-seam" aria-hidden="true"></i>Gói đang dùng</RouterLink
+          >
+          <RouterLink v-else to="/pt/hoc-vien"
+            ><i class="bi bi-people" aria-hidden="true"></i>Danh sách học viên</RouterLink
+          >
+        </nav>
+      </aside>
     </div>
 
     <!-- Hộp thoại phóng to ảnh -->

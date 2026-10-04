@@ -74,8 +74,8 @@
         <p class="detail-intro text-muted mb-4">
           {{
             goi.so_buoi_pt > 0
-              ? 'Tập luyện trực tiếp cùng huấn luyện viên riêng và nhận tư vấn giải đáp thắc mắc liên tục từ trợ lý AI trong cùng một gói dịch vụ.'
-              : 'Trợ lý AI thông minh sẵn sàng đồng hành cùng bạn 24/7, cung cấp thực đơn dinh dưỡng và phân tích kỹ thuật các bài tập thể hình.'
+              ? 'Buổi tập cùng huấn luyện viên và lượt tư vấn AI theo quyền lợi của gói.'
+              : 'Lượt tư vấn tập luyện và dinh dưỡng tham khảo theo hạn mức mỗi ngày.'
           }}
         </p>
 
@@ -303,7 +303,7 @@ export default {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-tron);
   font-size: 0.85rem;
@@ -315,7 +315,7 @@ export default {
 }
 
 .btn-back-link:hover {
-  background: var(--mau-the-hover, #242424);
+  background: var(--mau-the-hover, var(--mau-the-hover));
   color: var(--mau-chinh);
   border-color: var(--mau-chinh);
   transform: translateX(-3px);
@@ -323,7 +323,7 @@ export default {
 
 .detail-state-card {
   min-height: 380px;
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-xl);
   display: flex;
@@ -353,7 +353,7 @@ export default {
 }
 
 .package-detail-title {
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-size: 1.75rem;
   line-height: 1.2;
   color: var(--mau-chu);
 }
@@ -364,7 +364,7 @@ export default {
 }
 
 .usage-note-card {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
 }
@@ -386,7 +386,7 @@ export default {
 }
 
 .detail-summary-card {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-top: 4px solid var(--mau-chinh);
   border-radius: var(--bo-goc-lg);
@@ -402,7 +402,7 @@ export default {
 .detail-price-main {
   font-size: 2.2rem;
   font-weight: 800;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   color: var(--mau-chu);
   line-height: 1;
 }
@@ -410,7 +410,7 @@ export default {
 .purchase-notice-box {
   background: rgba(59, 130, 246, 0.12);
   border: 1px solid rgba(59, 130, 246, 0.3);
-  color: #93c5fd;
+  color: var(--mau-thong-tin);
 }
 
 :root[data-theme='light'] .purchase-notice-box,

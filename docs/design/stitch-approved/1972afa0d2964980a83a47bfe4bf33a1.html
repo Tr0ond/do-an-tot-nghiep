@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Học viên &amp; Giáo án · Huấn luyện viên · Fitness Motion</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#3a4400",
+            "surface-dim": "#d0d5d7",
+            "surface-tint": "#00675f",
+            "on-surface": "#2c2f30",
+            "on-surface-variant": "#595c5d",
+            "inverse-primary": "#a0fff2",
+            "primary-fixed-dim": "#81dfd3",
+            "on-primary": "#bffff5",
+            "primary-fixed": "#8fede1",
+            "secondary-container": "#d6ef52",
+            "on-secondary-fixed-variant": "#546200",
+            "error": "#b31b25",
+            "tertiary-container": "#90afff",
+            "background": "#f5f7f8",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary": "#f1f2ff",
+            "secondary": "#546200",
+            "inverse-on-surface": "#9a9d9e",
+            "on-primary-fixed": "#00443e",
+            "inverse-surface": "#0b0f10",
+            "surface-container-high": "#dfe3e4",
+            "surface-container-low": "#eef1f2",
+            "primary": "#00675f",
+            "on-secondary-container": "#4b5700",
+            "tertiary-dim": "#0049b1",
+            "tertiary-fixed-dim": "#7aa0ff",
+            "on-error": "#ffefee",
+            "error-container": "#fb5151",
+            "on-error-container": "#570008",
+            "primary-dim": "#005a52",
+            "on-secondary": "#e6ff63",
+            "on-primary-fixed-variant": "#00635b",
+            "primary-container": "#8fede1",
+            "error-dim": "#9f0519",
+            "surface": "#f5f7f8",
+            "tertiary": "#0854c7",
+            "surface-container-highest": "#d9dddf",
+            "surface-variant": "#d9dddf",
+            "surface-container": "#e5e9ea",
+            "secondary-dim": "#495500",
+            "on-tertiary-fixed": "#00153f",
+            "surface-bright": "#f5f7f8",
+            "outline": "#747778",
+            "tertiary-fixed": "#90afff",
+            "on-background": "#2c2f30",
+            "secondary-fixed": "#d6ef52",
+            "on-tertiary-container": "#002c72",
+            "on-primary-container": "#005851",
+            "on-tertiary-fixed-variant": "#003484",
+            "outline-variant": "#abadae",
+            "secondary-fixed-dim": "#c8e044"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {},
+          "fontFamily": {
+            "headline": [
+              "Be Vietnam Pro"
+            ],
+            "display": [
+              "Be Vietnam Pro"
+            ],
+            "body": [
+              "Be Vietnam Pro"
+            ],
+            "label": [
+              "Be Vietnam Pro"
+            ]
+          },
+          "fontSize": {}
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 20px;
+      line-height: 1;
+    }
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      letter-spacing: 0;
+    }
+    /* Custom scrollbar for dense data density */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f5f7f8;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #abadae;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex antialiased selection:bg-primary selection:text-white">
+<!-- SideNavBar Component (232px Desktop Fixed) -->
+<aside class="fixed top-0 left-0 h-screen w-[232px] rounded-none border-r border-outline-variant/40 bg-surface-container-lowest flex flex-col justify-between p-3 shrink-0 z-40">
+<div class="flex flex-col gap-4">
+<!-- App Brand -->
+<div class="px-2 pt-2 pb-1 flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fitness_center</span>
+</div>
+<div>
+<span class="font-headline text-base font-bold text-primary block leading-tight">Fitness Motion</span>
+<span class="text-[11px] text-on-surface-variant font-medium leading-none">Hệ thống quản lý PT</span>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav class="flex flex-col gap-1 mt-1 font-body text-sm font-medium">
+<!-- 1. Lịch & Nhật ký -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>Lịch &amp; Nhật ký</span>
+</a>
+<!-- 2. Soạn giáo án -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">fitness_center</span>
+<span>Soạn giáo án</span>
+</a>
+<!-- 3. Chat trực tuyến -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">chat</span>
+<div class="flex items-center justify-between w-full">
+<span>Chat trực tuyến</span>
+<span class="bg-error text-surface-container-lowest text-[11px] font-bold px-1.5 py-0.5 rounded-full leading-none">3</span>
+</div>
+</a>
+<!-- 4. Quản lý gói tập -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Quản lý gói tập</span>
+</a>
+<!-- 5. Học viên & Yêu cầu (Active item: "Học viên & giáo án / Học viên & Yêu cầu") -->
+<a class="bg-primary text-on-primary font-semibold rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200 shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span>Học viên &amp; Yêu cầu</span>
+</a>
+</nav>
+<!-- Advisor AI Section (Gated advisor, not 4th actor) -->
+<div class="mt-2 p-2.5 bg-surface-container-low rounded-lg border border-outline-variant/30 flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="text-xs font-bold text-primary">Tr0ond AI Hỗ trợ</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-relaxed">Cố vấn phân tích form động tác &amp; đề xuất tần suất hồi phục theo tuần.</p>
+<div class="flex items-center justify-between pt-1">
+<span class="text-[10px] text-on-surface-variant">Hạn mức tháng: <strong>48/100</strong></span>
+<span class="inline-block w-2 h-2 rounded-full bg-secondary-container"></span>
+</div>
+</div>
+</div>
+<!-- SideNav Footer -->
+<div class="flex flex-col gap-1 pt-3 border-t border-outline-variant/30 font-body text-sm font-medium">
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Cài đặt</span>
+</a>
+<a class="text-on-surface-variant hover:text-error hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Đăng xuất</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar Component (64px Fixed Header) -->
+<header class="fixed top-0 right-0 left-[232px] h-16 w-[calc(100%-232px)] border-b border-outline-variant/40 bg-surface-container-lowest h-16 px-6 flex items-center justify-between w-full z-30">
+<!-- Breadcrumb & Workspace context -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 text-sm">
+<span class="text-on-surface-variant font-medium">Huấn luyện viên</span>
+<span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span>
+<span class="text-on-surface font-semibold text-base">Danh sách học viên phụ trách</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+        12 Học viên
+      </span>
+</div>
+<!-- Actions & Profile Info -->
+<div class="flex items-center gap-4">
+<!-- Quick Notification & Help icons -->
+<div class="flex items-center gap-1 border-r border-outline-variant/40 pr-3">
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors relative" title="Thông báo">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full ring-2 ring-surface-container-lowest"></span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Trợ giúp nghiệp vụ">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+<!-- Coach Avatar & Credentials -->
+<div class="flex items-center gap-3 pl-1">
+<div class="relative">
+<img class="w-9 h-9 rounded-full object-cover border border-primary/20" data-alt="Close-up professional portrait of a Vietnamese certified male personal trainer wearing a sleek dark teal athletic polo shirt with athletic posture against a clean modern gym environment with natural bright ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtAn3xLmHJhFHq2npgldYX933sg3cq-iWnM-KjQUpq3ft1yjwqTcDLzswzoeSHg6PnUtkRnu0iVCr1y_MoWBu_mE6tgnCcndQa0eR5SHZp1O6AXV421ZF8FxQ4PGYnvSNctcaMqd1jRMv1RvJC-kW7mLwceNaMeG262xvQ0fOPzhTaxUN-uOE3KqgDbJN5ektcsrM3HTnHxtzY1VGwAe8HVtiIXjyYuGpF5T4ILSYwpskmjThgWmguUzus6AObwLL2I6NS0ndMSWYI"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-primary rounded-full ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col text-left">
+<span class="text-sm font-semibold text-on-surface leading-tight">HLV Lê Hoàng Anh</span>
+<span class="text-[11px] text-on-surface-variant">Chuyên gia Tăng cơ &amp; Sức mạnh</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas (Offset 232px left, 64px top) -->
+<main class="ml-[232px] pt-16 flex-1 min-h-screen bg-background p-6">
+<div class="max-w-[1208px] mx-auto flex flex-col gap-6">
+<!-- Page Headline Section & Action -->
+<div class="flex items-center justify-between pt-1">
+<div>
+<h1 class="text-[26px] font-bold text-on-surface font-headline leading-tight">Quản lý học viên &amp; Tiến độ giáo án</h1>
+<p class="text-sm text-on-surface-variant mt-0.5">Theo dõi lịch trình, buổi tập còn lại, đánh giá nhật ký và gán trực tiếp giáo án tập luyện.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="h-10 px-4 rounded-lg bg-surface-container-lowest border border-outline-variant/60 text-on-surface font-medium text-sm flex items-center gap-2 hover:bg-surface-container-low transition-colors duration-160">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>Xuất báo cáo tuần</span>
+</button>
+<button class="h-10 px-4 rounded-lg bg-primary hover:bg-primary-dim text-white font-medium text-sm flex items-center gap-2 shadow-sm transition-colors duration-160">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span>Tiếp nhận học viên mới</span>
+</button>
+</div>
+</div>
+<!-- Quick KPI Stats Cards (Bento Metric Layout) -->
+<section class="grid grid-cols-4 gap-4">
+<!-- Metric 1: Tổng học viên -->
+<div class="bg-surface-container-lowest rounded-lg p-4 border border-outline-variant/30 flex items-start justify-between">
+<div>
+<span class="text-xs font-medium text-on-surface-variant block uppercase tracking-wider">Tổng học viên phụ trách</span>
+<div class="flex items-baseline gap-2 mt-1.5">
+<span class="text-3xl font-bold font-headline text-on-surface">12</span>
+<span class="text-xs text-on-surface-variant font-medium">học viên cá nhân</span>
+</div>
+<div class="flex items-center gap-1.5 mt-2 text-[12px] text-primary font-medium">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span>100% hồ sơ đã hoàn thiện</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">groups</span>
+</div>
+</div>
+<!-- Metric 2: Đang hoạt động -->
+<div class="bg-surface-container-lowest rounded-lg p-4 border border-outline-variant/30 flex items-start justify-between">
+<div>
+<span class="text-xs font-medium text-on-surface-variant block uppercase tracking-wider">Đang hoạt động tuần này</span>
+<div class="flex items-baseline gap-2 mt-1.5">
+<span class="text-3xl font-bold font-headline text-primary">10</span>
+<span class="text-xs text-on-surface-variant font-medium">/ 12 học viên</span>
+</div>
+<div class="flex items-center gap-1.5 mt-2 text-[12px] text-tertiary font-medium">
+<span class="material-symbols-outlined text-[15px]">event_repeat</span>
+<span>24 buổi đã hoàn thành tuần</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">directions_run</span>
+</div>
+</div>
+<!-- Metric 3: Sắp hết buổi tập (Semantic Alert) -->
+<div class="bg-surface-container-lowest rounded-lg p-4 border border-error-container/40 flex items-start justify-between bg-gradient-to-br from-surface-container-lowest to-error/5">
+<div>
+<span class="text-xs font-medium text-error block uppercase tracking-wider">Sắp hết buổi tập</span>
+<div class="flex items-baseline gap-2 mt-1.5">
+<span class="text-3xl font-bold font-headline text-error">02</span>
+<span class="text-xs text-error font-medium">≤ 2 buổi còn lại</span>
+</div>
+<div class="flex items-center gap-1.5 mt-2 text-[12px] text-error font-semibold">
+<span class="material-symbols-outlined text-[15px]">notification_important</span>
+<span>Cần nhắc tái ký hợp đồng</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[22px]">hourglass_bottom</span>
+</div>
+</div>
+<!-- Metric 4: Cần kiểm tra giáo án tuần -->
+<div class="bg-surface-container-lowest rounded-lg p-4 border border-secondary-container/80 flex items-start justify-between">
+<div>
+<span class="text-xs font-medium text-on-secondary-fixed-variant block uppercase tracking-wider">Cần duyệt giáo án / Nhật ký</span>
+<div class="flex items-baseline gap-2 mt-1.5">
+<span class="text-3xl font-bold font-headline text-on-surface">03</span>
+<span class="text-xs text-on-surface-variant font-medium">yêu cầu chờ xử lý</span>
+</div>
+<div class="flex items-center gap-1.5 mt-2 text-[12px] text-on-secondary-fixed-variant font-medium">
+<span class="material-symbols-outlined text-[15px]">pending_actions</span>
+<span>1 nhật ký mới nộp hôm nay</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary-container/40 flex items-center justify-center text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined text-[22px]">rate_review</span>
+</div>
+</div>
+</section>
+<!-- Filter and Operational Toolbar -->
+<section class="bg-surface-container-lowest p-3.5 rounded-lg border border-outline-variant/30 flex flex-wrap items-center justify-between gap-3">
+<!-- Search Input -->
+<div class="relative flex-1 min-w-[320px]">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[19px]">search</span>
+<input class="w-full h-11 pl-9 pr-4 bg-surface rounded-lg border border-outline-variant/50 text-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-outline" placeholder="Tìm học viên theo tên, SĐT, mã HV (VD: FM-KH-8821)..." type="text"/>
+</div>
+<!-- Filter Dropdowns -->
+<div class="flex items-center gap-3">
+<!-- Gói tập Filter -->
+<div class="relative">
+<select class="h-11 pl-3 pr-8 bg-surface rounded-lg border border-outline-variant/50 text-xs font-medium text-on-surface appearance-none focus:outline-none focus:border-primary cursor-pointer hover:border-outline transition-colors">
+<option value="all">Gói tập: Tất cả gói</option>
+<option value="pt-standard">Gói PT Standard + AI</option>
+<option value="pt-24">Gói Hypertrophy 24 buổi</option>
+<option value="pt-giammo">Gói PT Giảm mỡ cấp tốc</option>
+<option value="pt-strength">Gói PT Sức mạnh Foundation</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-outline text-[18px]">keyboard_arrow_down</span>
+</div>
+<!-- Trạng thái Filter -->
+<div class="relative">
+<select class="h-11 pl-3 pr-8 bg-surface rounded-lg border border-outline-variant/50 text-xs font-medium text-on-surface appearance-none focus:outline-none focus:border-primary cursor-pointer hover:border-outline transition-colors">
+<option value="all">Trạng thái: Tất cả</option>
+<option value="active">Đang tập (10)</option>
+<option value="warning">Sắp hết hạn buổi (2)</option>
+<option value="paused">Tạm dừng (0)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-outline text-[18px]">keyboard_arrow_down</span>
+</div>
+<!-- Nút lọc nâng cao -->
+<button class="h-11 px-3.5 rounded-lg border border-outline-variant/50 bg-surface hover:bg-surface-container text-on-surface text-xs font-semibold flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>Bộ lọc nâng cao</span>
+</button>
+</div>
+</section>
+<!-- Main Professional Table Component -->
+<section class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse text-sm">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/40 text-[12px] font-semibold text-on-surface-variant uppercase tracking-wider">
+<th class="py-3 px-4 w-[260px]">Học viên phụ trách</th>
+<th class="py-3 px-4 w-[210px]">Gói tập &amp; Số buổi còn lại</th>
+<th class="py-3 px-4 w-[190px]">Mục tiêu thể lực</th>
+<th class="py-3 px-4 w-[240px]">Giáo án đang gán (HLV)</th>
+<th class="py-3 px-4 w-[170px]">Tiến độ gần nhất</th>
+<th class="py-3 px-4 text-right pr-4 w-[138px]">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<!-- ROW 1: Nguyễn Minh Quân -->
+<tr class="hover:bg-surface transition-colors group">
+<!-- Học viên -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant/40 shrink-0" data-alt="Realistic portrait of a focused young Vietnamese male fitness trainee wearing a clean gray workout tee in an open athletic facility with neutral daylight tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByLeiAgcncl5HyVM3Dz0tsGEWRqEbUpCeEQNFrpYMYKcdRJRpA_dE_LNTUPV8e1ysz4NEwkDRXxOJz6JF6bLrDcNNV-srd4eVuIOqGpeehl2cl3ZYKzRjF9SIl0NLiDePc5psieWwG75Qs6N_lAQRPF0eYz_blTZsQqpadPjqNDipPhsFWcJTTLQpWCdmBMMyKBx-IGbITP_XLAD2oxG27x9vNhJNoykd9ZcSlaGMrPqvUVYr50OIsFtocVIrNFvpGabgXdKm8QfFm"/>
+<div>
+<a class="font-semibold text-on-surface hover:text-primary transition-colors flex items-center gap-1.5" href="#">
+<span>Nguyễn Minh Quân</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block" title="Đang trực tuyến"></span>
+</a>
+<div class="text-[12px] text-on-surface-variant flex items-center gap-2 mt-0.5">
+<span class="font-mono bg-surface-container px-1 rounded text-[11px]">FM-KH-8821</span>
+<span>0912.443.891</span>
+</div>
+</div>
+</div>
+</td>
+<!-- Gói tập & Số buổi -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex flex-col gap-1">
+<span class="font-medium text-xs text-on-surface">PT Standard 1 kèm 1 + AI</span>
+<div class="flex items-center justify-between text-xs mt-0.5">
+<span class="text-on-surface font-semibold">Còn 8 / 12 buổi</span>
+<span class="text-[11px] text-on-surface-variant">66%</span>
+</div>
+<!-- Progress bar -->
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-0.5">
+<div class="bg-primary h-full rounded-full" style="width: 66.6%;"></div>
+</div>
+<span class="text-[11px] text-on-surface-variant">Hạn dùng: 28/05/2025</span>
+</div>
+</td>
+<!-- Mục tiêu -->
+<td class="py-3.5 px-4 align-top">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-surface-container text-on-surface border border-outline-variant/40">
+                    Tăng cơ ngực &amp; vai
+                  </span>
+<span class="block text-[11px] text-on-surface-variant mt-1.5">Trọng lượng: 68.2kg (+1.4kg)</span>
+</td>
+<!-- Giáo án đang gán -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex flex-col gap-1">
+<a class="text-xs font-semibold text-primary hover:underline flex items-center gap-1 leading-snug" href="#">
+<span class="material-symbols-outlined text-[16px] shrink-0 text-primary">menu_book</span>
+<span>Tăng cơ &amp; Sức mạnh 8 tuần</span>
+</a>
+<div class="flex items-center gap-2 text-[11px] text-on-surface-variant">
+<span class="font-medium text-on-surface bg-surface-container-high px-1.5 py-0.5 rounded text-[11px]">Tuần 4 / 8</span>
+<span>Gán bởi HLV ngày 12/03</span>
+</div>
+</div>
+</td>
+<!-- Tiến độ gần nhất -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-xs text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-medium">Buổi 4: Hoàn thành hôm nay</span>
+</div>
+<span class="inline-flex items-center text-[11px] text-primary font-medium">
+                      Nhật ký buổi: Đã nộp
+                    </span>
+</div>
+</td>
+<!-- Thao tác nhanh -->
+<td class="py-3.5 pr-4 text-right align-top">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded border border-outline-variant/40 hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" title="Xem &amp; đổi giáo án">
+<span class="material-symbols-outlined text-[17px]">assignment</span>
+</button>
+<button class="w-8 h-8 rounded border border-outline-variant/40 hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-tertiary transition-colors" title="Mở chat học viên">
+<span class="material-symbols-outlined text-[17px]">chat</span>
+</button>
+<button class="w-8 h-8 rounded border border-outline-variant/40 hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" title="Tùy chọn khác">
+<span class="material-symbols-outlined text-[17px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 2: Phạm Thị M (Cảnh báo hết buổi tập & Chờ duyệt) -->
+<tr class="hover:bg-surface transition-colors group bg-error/5">
+<!-- Học viên -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant/40 shrink-0" data-alt="Realistic close-up portrait of a determined Vietnamese female trainee with tied hair in modern athletic attire inside a well-lit functional training fitness area." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjOJs_WvCP-rSFfoB4hMpGk0A4tldqF9fnXJaliqiyBDqts1mD7DYoxHs75Aq27YU1OCCgb4rCuWvJK-6W-EdvRlmyRrE7sxdMN3duJDr6kDGWSBocj37_0e3PQrLevJdRZgQKUXC-1K71s2SqlqUDc5WSNmJHchRpkiei3I0TyE0vFlPlk25kTW2aAL9CmJ2ynD_j8m7VZr_oogV_yOWxKUQwsWK24m2QMZfyH_8es3_c_DZS3wvy_2QOk4QHzv_Md5d_-Y0tuUYm"/>
+<div>
+<a class="font-semibold text-on-surface hover:text-primary transition-colors flex items-center gap-1.5" href="#">
+<span>Phạm Thị M</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-error text-surface-container-lowest">Sắp hết gói</span>
+</a>
+<div class="text-[12px] text-on-surface-variant flex items-center gap-2 mt-0.5">
+<span class="font-mono bg-surface-container px-1 rounded text-[11px]">FM-KH-4412</span>
+<span>0988.312.990</span>
+</div>
+</div>
+</div>
+</td>
+<!-- Gói tập & Số buổi -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex flex-col gap-1">
+<span class="font-medium text-xs text-on-surface">Gói PT Giảm mỡ cấp tốc</span>
+<div class="flex items-center justify-between text-xs mt-0.5">
+<span class="text-error font-bold">Còn 1 / 10 buổi</span>
+<span class="text-[11px] text-error font-semibold">10%</span>
+</div>
+<!-- Progress bar -->
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-0.5">
+<div class="bg-error h-full rounded-full" style="width: 10%;"></div>
+</div>
+<span class="text-[11px] text-error font-medium">Cần tư vấn tái ký buổi cuối</span>
+</div>
+</td>
+<!-- Mục tiêu -->
+<td class="py-3.5 px-4 align-top">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-surface-container text-on-surface border border-outline-variant/40">
+                    Giảm mỡ &amp; Săn chắc
+                  </span>
+<span class="block text-[11px] text-on-surface-variant mt-1.5">Vòng eo: 64cm (-3.5cm)</span>
+</td>
+<!-- Giáo án đang gán -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex flex-col gap-1">
+<a class="text-xs font-semibold text-primary hover:underline flex items-center gap-1 leading-snug" href="#">
+<span class="material-symbols-outlined text-[16px] shrink-0 text-primary">menu_book</span>
+<span>Cut Mỡ Thần Tốc Giai đoạn 2</span>
+</a>
+<div class="flex items-center gap-2 text-[11px] text-on-surface-variant">
+<span class="font-medium text-on-surface bg-surface-container-high px-1.5 py-0.5 rounded text-[11px]">Tuần 2 / 4</span>
+<span>HLV gán cập nhật 3 ngày trước</span>
+</div>
+</div>
+</td>
+<!-- Tiến độ gần nhất -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-xs text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-outline">schedule</span>
+<span class="font-medium">Buổi tập: Hôm qua 18:00</span>
+</div>
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-on-secondary-fixed-variant bg-secondary-container/40 px-1.5 py-0.5 rounded w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Chờ duyệt nhật ký</span>
+</span>
+</div>
+</td>
+<!-- Thao tác nhanh -->
+<td class="py-3.5 pr-4 text-right align-top">
+<div class="flex items-center justify-end gap-1">
+<button class="h-8 px-2.5 rounded bg-primary text-white text-xs font-medium hover:bg-primary-dim transition-colors flex items-center gap-1" title="Duyệt nhật ký học viên">
+<span class="material-symbols-outlined text-[15px]">fact_check</span>
+<span>Duyệt</span>
+</button>
+<button class="w-8 h-8 rounded border border-outline-variant/40 hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-tertiary transition-colors" title="Mở chat">
+<span class="material-symbols-outlined text-[17px]">chat</span>
+</button>
+<button class="w-8 h-8 rounded border border-outline-variant/40 hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[17px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 3: Trần Văn B -->
+<tr class="hover:bg-surface transition-colors group">
+<!-- Học viên -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant/40 shrink-0" data-alt="Realistic medium shot of an adult Vietnamese male fitness participant in sports performance singlet in a well-equipped gym setting with clean minimalist equipment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx3__dlPICBDClMuliURy2c72lbWZw3iqiqj8VufkaxAsgUtKwuxuG37yHsIemWwbu1aPMT4tNP6oAp9xXMsx2YfkDHKgoGb5iYDxo7cEJRh1lrDmUOLsH5OjvSIZy-yHlm6mdjF0FSOtKlCIWYUOWVcsyo29az4n_2znC9_NDJqYymNR0aQn28GlaRKFdkjI-_qZ1c1JX5xZ-pJIL2PSj-e5yfeGpP1Fad70A1FsTxhL12PeJFJEn192eeyY6P7tjwElRizfSD9JQ"/>
+<div>
+<a class="font-semibold text-on-surface hover:text-primary transition-colors flex items-center gap-1.5" href="#">
+<span>Trần Văn B</span>
+</a>
+<div class="text-[12px] text-on-surface-variant flex items-center gap-2 mt-0.5">
+<span class="font-mono bg-surface-container px-1 rounded text-[11px]">FM-KH-9102</span>
+<span>0973.109.845</span>
+</div>
+</div>
+</div>
+</td>
+<!-- Gói tập & Số buổi -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex flex-col gap-1">
+<span class="font-medium text-xs text-on-surface">Gói Strength Foundation 1:1</span>
+<div class="flex items-center justify-between text-xs mt-0.5">
+<span class="text-on-surface font-semibold">Còn 6 / 12 buổi</span>
+<span class="text-[11px] text-on-surface-variant">50%</span>
+</div>
+<!-- Progress bar -->
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-0.5">
+<div class="bg-primary h-full rounded-full" style="width: 50%;"></div>
+</div>
+<span class="text-[11px] text-on-surface-variant">Hạn dùng: 15/06/2025</span>
+</div>
+</td>
+<!-- Mục tiêu -->
+<td class="py-3.5 px-4 align-top">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-surface-container text-on-surface border border-outline-variant/40">
+                    Tăng sức mạnh Deadlift &amp; Squat
+                  </span>
+<span class="block text-[11px] text-on-surface-variant mt-1.5">Deadlift 1RM: 140kg</span>
+</td>
+<!-- Giáo án đang gán -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex flex-col gap-1">
+<a class="text-xs font-semibold text-primary hover:underline flex items-center gap-1 leading-snug" href="#">
+<span class="material-symbols-outlined text-[16px] shrink-0 text-primary">menu_book</span>
+<span>Power Strength 6 Tuần</span>
+</a>
+<div class="flex items-center gap-2 text-[11px] text-on-surface-variant">
+<span class="font-medium text-on-surface bg-surface-container-high px-1.5 py-0.5 rounded text-[11px]">Tuần 3 / 6</span>
+<span>HLV hiệu chỉnh thứ 2</span>
+</div>
+</div>
+</td>
+<!-- Tiến độ gần nhất -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-xs text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-tertiary">calendar_today</span>
+<span class="font-medium">Lịch tập tới: Ngày mai 07:00</span>
+</div>
+<span class="inline-flex items-center text-[11px] text-on-surface-variant">
+                      Nhật ký buổi 5: Đã duyệt
+                    </span>
+</div>
+</td>
+<!-- Thao tác nhanh -->
+<td class="py-3.5 pr-4 text-right align-top">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded border border-outline-variant/40 hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" title="Xem giáo án">
+<span class="material-symbols-outlined text-[17px]">assignment</span>
+</button>
+<button class="w-8 h-8 rounded border border-outline-variant/40 hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-tertiary transition-colors" title="Mở chat">
+<span class="material-symbols-outlined text-[17px]">chat</span>
+</button>
+<button class="w-8 h-8 rounded border border-outline-variant/40 hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[17px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 4: Đỗ Tuấn K (Mới bắt đầu) -->
+<tr class="hover:bg-surface transition-colors group">
+<!-- Học viên -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant/40 shrink-0" data-alt="Realistic portrait photo of an approachable young Vietnamese male client in fresh dark gym apparel looking forward with ready posture, clean crisp bright athletic center lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ7DBlxzSFt_MIiU-tRMWrFVLRcVDA-Nooz9oteifQ0nZq0GmGAvJMhBHd_L1o-NK44G0y2O8mCz9DQ3nbm4Zdv3NW-z8AljSU-7oHLNs9ATZ5SQkD_iR6XslLK_S61tboBYmGaH8x-ZH9n2-2QY8sgQJOt7v2E5_JlY0XsmnN7A3nNcZEYUJ48AwKFco5TfORkID_8m2WlLlDTMRFzZBaREKTkw06cZFEjwZi9kqD8kDopnSjICGPnuOQYBAKx7YbPVnQyVTgJDcJ"/>
+<div>
+<a class="font-semibold text-on-surface hover:text-primary transition-colors flex items-center gap-1.5" href="#">
+<span>Đỗ Tuấn K</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-secondary-container text-on-secondary-container">Mới tiếp nhận</span>
+</a>
+<div class="text-[12px] text-on-surface-variant flex items-center gap-2 mt-0.5">
+<span class="font-mono bg-surface-container px-1 rounded text-[11px]">FM-KH-3310</span>
+<span>0904.551.202</span>
+</div>
+</div>
+</div>
+</td>
+<!-- Gói tập & Số buổi -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex flex-col gap-1">
+<span class="font-medium text-xs text-on-surface">Gói PT Khảo sát &amp; Test thể lực</span>
+<div class="flex items-center justify-between text-xs mt-0.5">
+<span class="text-on-surface font-semibold">Đã tập 1 / 12 buổi (Còn 11)</span>
+<span class="text-[11px] text-on-surface-variant">8%</span>
+</div>
+<!-- Progress bar -->
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-0.5">
+<div class="bg-primary h-full rounded-full" style="width: 8.3%;"></div>
+</div>
+<span class="text-[11px] text-on-surface-variant">Bắt đầu từ: 18/03/2025</span>
+</div>
+</td>
+<!-- Mục tiêu -->
+<td class="py-3.5 px-4 align-top">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-surface-container text-on-surface border border-outline-variant/40">
+                    Cải thiện tư thế &amp; Cột sống
+                  </span>
+<span class="block text-[11px] text-on-surface-variant mt-1.5">Vấn đề: Gù lưng nhẹ &amp; khớp vai</span>
+</td>
+<!-- Giáo án đang gán -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex flex-col gap-1">
+<a class="text-xs font-semibold text-primary hover:underline flex items-center gap-1 leading-snug" href="#">
+<span class="material-symbols-outlined text-[16px] shrink-0 text-primary">menu_book</span>
+<span>Mobility &amp; Posture Alignment 4W</span>
+</a>
+<div class="flex items-center gap-2 text-[11px] text-on-surface-variant">
+<span class="font-medium text-on-surface bg-surface-container-high px-1.5 py-0.5 rounded text-[11px]">Tuần 1 / 4</span>
+<span>HLV trực tiếp gán</span>
+</div>
+</div>
+</td>
+<!-- Tiến độ gần nhất -->
+<td class="py-3.5 px-4 align-top">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-xs text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-outline">fitness_center</span>
+<span class="font-medium">Hoàn thành bài Test vận động</span>
+</div>
+<span class="inline-flex items-center text-[11px] text-primary font-medium">
+                      Đã cập nhật chỉ số InBody
+                    </span>
+</div>
+</td>
+<!-- Thao tác nhanh -->
+<td class="py-3.5 pr-4 text-right align-top">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded border border-outline-variant/40 hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" title="Xem giáo án">
+<span class="material-symbols-outlined text-[17px]">assignment</span>
+</button>
+<button class="w-8 h-8 rounded border border-outline-variant/40 hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-tertiary transition-colors" title="Mở chat">
+<span class="material-symbols-outlined text-[17px]">chat</span>
+</button>
+<button class="w-8 h-8 rounded border border-outline-variant/40 hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[17px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Orderly Table Pagination -->
+<div class="px-4 py-3 bg-surface-container-lowest border-t border-outline-variant/30 flex items-center justify-between text-xs text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span>Hiển thị <strong>1 - 4</strong> trong <strong>12</strong> học viên phụ trách</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded border border-outline-variant/40 flex items-center justify-center text-outline hover:bg-surface-container disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary text-white font-semibold flex items-center justify-center">1</button>
+<button class="w-8 h-8 rounded border border-outline-variant/40 text-on-surface hover:bg-surface-container flex items-center justify-center font-medium">2</button>
+<button class="w-8 h-8 rounded border border-outline-variant/40 text-on-surface hover:bg-surface-container flex items-center justify-center font-medium">3</button>
+<button class="w-8 h-8 rounded border border-outline-variant/40 flex items-center justify-center text-on-surface hover:bg-surface-container">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Operational Guidance Banner (Non-marketing, strictly PT operations) -->
+<section class="bg-surface-container-low rounded-lg p-4 border border-outline-variant/40 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary border border-outline-variant/30 shrink-0">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-on-surface">Nguyên tắc gán giáo án HLV</h3>
+<p class="text-xs text-on-surface-variant mt-0.5">Giáo án luôn do HLV trực tiếp gán hoặc hiệu chỉnh dựa trên khả năng của học viên. Tr0ond AI chỉ đóng vai trò phân tích form và đưa ra cảnh báo quá tải cơ bắp.</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-9 px-3.5 rounded-lg bg-surface-container-lowest border border-outline-variant/50 text-xs font-semibold text-on-surface hover:bg-surface-container transition-colors">
+            Xem thư viện mẫu
+          </button>
+<button class="h-9 px-3.5 rounded-lg bg-primary hover:bg-primary-dim text-white text-xs font-semibold transition-colors">
+            Tạo giáo án mới
+          </button>
+</div>
+</section>
+</div>
+</main>
+</body></html>

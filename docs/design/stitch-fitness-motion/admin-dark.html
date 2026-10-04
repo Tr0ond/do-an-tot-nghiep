@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>06 · Admin · Tối | Fitness Motion Quản Trị Hệ Thống</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Be Vietnam Pro Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "fm-bg": "#111719",
+            "fm-surface": "#1A2326",
+            "fm-inset": "#233034",
+            "fm-border": "#35464B",
+            "fm-text-primary": "#F3F8F7",
+            "fm-text-secondary": "#B4C4C3",
+            "fm-teal": "#4ED8C5",
+            "fm-teal-dim": "#184540",
+            "fm-red": "#FF9C9C",
+            "fm-red-dim": "#482323",
+            "fm-lime": "#D6EF52",
+            "fm-lime-dark": "#263000",
+            "fm-amber": "#FFD17C",
+            "fm-amber-dark": "#3D2B00",
+            "fm-blue": "#90afff",
+            "fm-blue-dark": "#16284f"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["Be Vietnam Pro", "sans-serif"],
+            display: ["Be Vietnam Pro", "sans-serif"],
+            body: ["Be Vietnam Pro", "sans-serif"],
+            label: ["Be Vietnam Pro", "sans-serif"]
+          }
+        },
+      },
+    }
+</script>
+<style>
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      letter-spacing: 0;
+      color: #F3F8F7;
+      background-color: #111719;
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+</style>
+</head>
+<body class="bg-fm-bg min-h-screen text-fm-text-primary antialiased overflow-x-hidden selection:bg-fm-teal selection:text-fm-lime-dark">
+<!-- APP SHELL CONTAINER -->
+<div class="flex min-h-screen w-full bg-fm-bg">
+<!-- 1. LEFT SIDEBAR (232px width) -->
+<aside class="fixed top-0 left-0 h-screen w-[232px] flex flex-col z-30 bg-fm-surface border-r border-fm-border">
+<!-- Brand & Role Area -->
+<div class="h-16 px-4 flex items-center justify-between border-b border-fm-border">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-lg bg-fm-teal flex items-center justify-center text-fm-lime-dark font-bold shadow-sm">
+<span class="material-symbols-outlined" data-icon="fitness_center">fitness_center</span>
+</div>
+<div>
+<div class="font-headline text-[13px] font-bold text-fm-text-primary tracking-tight uppercase leading-none">HUẤN LUYỆN CÁ NHÂN</div>
+<div class="text-[11px] font-medium text-fm-text-secondary mt-0.5">Fitness Motion</div>
+</div>
+</div>
+</div>
+<!-- Admin Identity Badge -->
+<div class="px-4 py-2.5 bg-fm-inset mx-3 mt-3 rounded-lg flex items-center justify-between border border-fm-border">
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-fm-teal animate-pulse"></span>
+<span class="text-xs font-semibold text-fm-teal">Quản trị viên</span>
+</div>
+<span class="text-[10px] bg-fm-lime text-fm-lime-dark font-bold px-1.5 py-0.5 rounded">Hệ thống</span>
+</div>
+<!-- Navigation Menu Items -->
+<nav class="flex-1 overflow-y-auto px-3 py-3 space-y-1">
+<!-- Tổng quan (Active) -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-fm-teal font-semibold bg-fm-teal/15 rounded-lg text-sm transition-colors duration-150" href="#tong-quan">
+<span class="material-symbols-outlined text-fm-teal" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Tổng quan</span>
+</a>
+<!-- Tài khoản -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-fm-text-secondary hover:text-fm-text-primary hover:bg-fm-inset rounded-lg text-sm font-medium transition-colors duration-150" href="#tai-khoan">
+<span class="material-symbols-outlined" data-icon="manage_accounts">manage_accounts</span>
+<span>Tài khoản</span>
+</a>
+<!-- Gói dịch vụ -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-fm-text-secondary hover:text-fm-text-primary hover:bg-fm-inset rounded-lg text-sm font-medium transition-colors duration-150" href="#goi-dich-vu">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Gói dịch vụ</span>
+</a>
+<!-- Đơn hàng & thanh toán -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-fm-text-secondary hover:text-fm-text-primary hover:bg-fm-inset rounded-lg text-sm font-medium transition-colors duration-150" href="#don-hang">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Đơn hàng &amp; thanh toán</span>
+</a>
+<!-- Phân công PT -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-fm-text-secondary hover:text-fm-text-primary hover:bg-fm-inset rounded-lg text-sm font-medium transition-colors duration-150" href="#phan-cong">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+<span>Phân công PT</span>
+</a>
+<!-- Lịch hẹn -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-fm-text-secondary hover:text-fm-text-primary hover:bg-fm-inset rounded-lg text-sm font-medium transition-colors duration-150" href="#lich-hen">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span>Lịch hẹn</span>
+</a>
+<!-- Bài tập -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-fm-text-secondary hover:text-fm-text-primary hover:bg-fm-inset rounded-lg text-sm font-medium transition-colors duration-150" href="#bai-tap">
+<span class="material-symbols-outlined" data-icon="directions_run">directions_run</span>
+<span>Bài tập</span>
+</a>
+<!-- Nhóm cơ -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-fm-text-secondary hover:text-fm-text-primary hover:bg-fm-inset rounded-lg text-sm font-medium transition-colors duration-150" href="#nhom-co">
+<span class="material-symbols-outlined" data-icon="accessibility_new">accessibility_new</span>
+<span>Nhóm cơ</span>
+</a>
+<!-- Giáo án mẫu -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-fm-text-secondary hover:text-fm-text-primary hover:bg-fm-inset rounded-lg text-sm font-medium transition-colors duration-150" href="#giao-an">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span>Giáo án mẫu</span>
+</a>
+<!-- Tr0ond AI Hỗ trợ / Tài liệu & AI -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-fm-text-secondary hover:text-fm-text-primary hover:bg-fm-inset rounded-lg text-sm font-medium transition-colors duration-150" href="#ai-docs">
+<span class="material-symbols-outlined text-fm-blue" data-icon="smart_toy">smart_toy</span>
+<span class="flex-1">Tài liệu &amp; AI</span>
+<span class="text-[10px] font-bold text-fm-blue bg-fm-blue/20 border border-fm-blue/30 px-1 py-0.5 rounded">Tr0ond</span>
+</a>
+</nav>
+<!-- Sidebar Footer -->
+<div class="p-3 border-t border-fm-border">
+<a class="flex items-center space-x-2.5 px-3 py-2 text-fm-text-secondary hover:text-fm-text-primary hover:bg-fm-inset rounded-lg text-sm font-medium transition-colors duration-150" href="#cai-dat">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Cài đặt hệ thống</span>
+</a>
+</div>
+</aside>
+<!-- 2. MAIN APPLICATION WORKSPACE -->
+<div class="flex-1 ml-[232px] flex flex-col min-h-screen">
+<!-- TOP NAVIGATION BAR (64px) -->
+<header class="fixed top-0 right-0 left-[232px] h-16 z-20 bg-fm-surface border-b border-fm-border flex items-center justify-between px-8">
+<!-- Breadcrumbs Navigation -->
+<nav aria-label="Breadcrumb" class="flex items-center text-xs font-medium text-fm-text-secondary space-x-1.5">
+<span class="hover:text-fm-teal cursor-pointer transition-colors duration-150">Trang chủ</span>
+<span class="material-symbols-outlined text-fm-text-secondary/60 text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="hover:text-fm-teal cursor-pointer transition-colors duration-150">Quản trị viên</span>
+<span class="material-symbols-outlined text-fm-text-secondary/60 text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-fm-text-primary font-semibold text-xs">Tổng quan hệ thống</span>
+</nav>
+<!-- Trailing Actions & Profile -->
+<div class="flex items-center space-x-4">
+<!-- Light/Dark Mode Toggle with accessible aria-label (Switch to Light Mode button in Dark Mode) -->
+<button aria-label="Chuyển chế độ sáng" class="w-9 h-9 rounded-lg border border-fm-border flex items-center justify-center text-fm-text-secondary hover:text-fm-teal hover:bg-fm-inset transition-colors duration-150" title="Chuyển chế độ sáng" type="button">
+<span class="material-symbols-outlined" data-icon="light_mode">light_mode</span>
+</button>
+<!-- Notification Bell with exact '5' badge -->
+<div class="relative">
+<button aria-label="Thông báo" class="w-9 h-9 rounded-lg border border-fm-border flex items-center justify-center text-fm-text-secondary hover:text-fm-teal hover:bg-fm-inset transition-colors duration-150" type="button">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<span class="absolute -top-1 -right-1 bg-fm-red text-fm-lime-dark text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center ring-2 ring-fm-surface">
+              5
+            </span>
+</div>
+<!-- Divider -->
+<div class="h-6 w-px bg-fm-border"></div>
+<!-- Admin Avatar & Name -->
+<div class="flex items-center space-x-2.5 pl-1">
+<img alt="Ảnh đại diện Huấn luyện viên trưởng" class="w-8 h-8 rounded-lg object-cover ring-1 ring-fm-border" data-alt="Professional corporate headshot of a Vietnamese senior administrator in a minimalist studio setting. Soft neutral ambient light, pristine sharp focus, corporate business casual attire with natural confident expression. High-key light modern editorial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI895btft23FeXGWCC1LB9gTpiyxvYzGrEDj6c9CPRmbCTzzlrlbNZuucv3ZfwbsZU6CcoQWT8ZQXGiO64zgqI19I1xMs0PQS1YadYh6hL_AOMQH4Za6lLJmGZcIZTVmAwbznXy2eQD2z2RD_o5i1n7wAj4AbefkESWwIRX2pKq9RzFU1MJ8Mh4MJeyTubvXj8YVwv7fBAwYt6Y_OhWLcnshtjwkHQDOCCMiInW45VSth8pb7l6Yy6MGmzRyjrPy12D25UXoV45gbK"/>
+<div class="text-left">
+<div class="text-xs font-semibold text-fm-text-primary leading-tight">Trần Đình Trí</div>
+<div class="text-[11px] text-fm-text-secondary">Super Admin</div>
+</div>
+</div>
+</div>
+</header>
+<!-- 3. PAGE BODY CONTENT (Top offset 64px, Padding 32px) -->
+<main class="mt-16 p-8 flex-1 flex flex-col space-y-6">
+<!-- SECTION 1: TOP BAR WITH HEADING & CONTROLS -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h1 class="text-2xl font-bold text-fm-text-primary tracking-tight font-headline">Tổng quan hệ thống</h1>
+<p class="text-xs text-fm-text-secondary mt-0.5">Dữ liệu vận hành thực tế tại hệ thống cá nhân hóa Fitness Motion</p>
+</div>
+<!-- Filter Controls -->
+<div class="flex items-center space-x-3">
+<!-- Segmented Pills -->
+<div class="bg-fm-inset p-1 rounded-lg flex items-center border border-fm-border">
+<button class="px-3 py-1 text-xs font-medium text-fm-text-secondary hover:text-fm-text-primary rounded transition-colors duration-150">7 ngày</button>
+<button class="px-3 py-1 text-xs font-semibold text-fm-teal bg-fm-surface rounded shadow-sm border border-fm-border transition-colors duration-150">30 ngày</button>
+<button class="px-3 py-1 text-xs font-medium text-fm-text-secondary hover:text-fm-text-primary rounded transition-colors duration-150">90 ngày</button>
+</div>
+<!-- Date Range Picker Input -->
+<div class="flex items-center space-x-2 bg-fm-surface border border-fm-border px-3 py-1.5 rounded-lg text-xs font-medium text-fm-text-primary">
+<span class="material-symbols-outlined text-fm-text-secondary text-[18px]" data-icon="calendar_today">calendar_today</span>
+<span>05/09/2026 - 04/10/2026</span>
+<span class="material-symbols-outlined text-fm-text-secondary text-[16px]" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+<!-- Export Audit Action -->
+<button class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-fm-surface border border-fm-border text-xs font-semibold text-fm-teal hover:bg-fm-inset transition-colors duration-150">
+<span class="material-symbols-outlined text-[16px]" data-icon="download">download</span>
+<span>Xuất đối soát</span>
+</button>
+</div>
+</div>
+<!-- SECTION 2: COMPACT MONEY STATS STRIP -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: Đã nhận -->
+<div class="bg-fm-surface border border-fm-border rounded-lg p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-medium text-fm-text-secondary">Đã nhận</span>
+<span class="w-6 h-6 rounded bg-fm-teal/15 text-fm-teal flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="account_balance">account_balance</span>
+</span>
+</div>
+<div class="mt-2">
+<div class="text-xl font-bold text-fm-text-primary">48.000.000đ</div>
+<div class="text-[11px] text-fm-text-secondary mt-1">Tổng thu qua ngân hàng / CK</div>
+</div>
+</div>
+<!-- Card 2: Đã hoàn -->
+<div class="bg-fm-surface border border-fm-border rounded-lg p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-medium text-fm-text-secondary">Đã hoàn</span>
+<span class="w-6 h-6 rounded bg-fm-red/15 text-fm-red flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="assignment_return">assignment_return</span>
+</span>
+</div>
+<div class="mt-2">
+<div class="text-xl font-bold text-fm-red">2.000.000đ</div>
+<div class="text-[11px] text-fm-text-secondary mt-1">1 giao dịch hoàn tiền theo quy định</div>
+</div>
+</div>
+<!-- Card 3: Sau hoàn (Doanh thu thực tế) -->
+<div class="bg-fm-surface border border-fm-teal/60 rounded-lg p-4 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-3 -top-3 w-12 h-12 bg-fm-teal/10 rounded-full pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-1.5">
+<span class="text-xs font-bold text-fm-teal">Sau hoàn (Thực tế)</span>
+<span class="w-1.5 h-1.5 rounded-full bg-fm-lime"></span>
+</div>
+<span class="w-6 h-6 rounded bg-fm-teal text-fm-lime-dark flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified">verified</span>
+</span>
+</div>
+<div class="mt-2">
+<div class="text-xl font-extrabold text-fm-teal">46.000.000đ</div>
+<div class="text-[11px] text-fm-teal/80 font-medium mt-1">48.000.000đ - 2.000.000đ</div>
+</div>
+</div>
+<!-- Card 4: Chờ đối soát (Tách riêng) -->
+<div class="bg-fm-surface border border-fm-border rounded-lg p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-medium text-fm-text-secondary">Chờ đối soát</span>
+<span class="text-[10px] font-bold bg-fm-amber/20 text-fm-amber border border-fm-amber/30 px-1.5 py-0.5 rounded">Tách riêng chờ duyệt</span>
+</div>
+<div class="mt-2">
+<div class="text-xl font-bold text-fm-text-primary">1.500.000đ</div>
+<div class="text-[11px] text-fm-text-secondary mt-1">2 lệnh treo đối soát ngân hàng</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: OPERATIONS KPI STRIP -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-fm-surface border border-fm-border rounded-lg px-4 py-3 flex items-center space-x-3.5">
+<div class="w-10 h-10 rounded-lg bg-fm-inset flex items-center justify-center text-fm-teal shadow-xs border border-fm-border">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<div>
+<div class="text-lg font-bold text-fm-text-primary leading-none">24 đơn mới</div>
+<div class="text-[11px] text-fm-text-secondary mt-1">Đơn mua gói PT trong tháng</div>
+</div>
+</div>
+<div class="bg-fm-surface border border-fm-border rounded-lg px-4 py-3 flex items-center space-x-3.5">
+<div class="w-10 h-10 rounded-lg bg-fm-inset flex items-center justify-center text-fm-teal shadow-xs border border-fm-border">
+<span class="material-symbols-outlined" data-icon="play_circle">play_circle</span>
+</div>
+<div>
+<div class="text-lg font-bold text-fm-text-primary leading-none">18 gói kích hoạt</div>
+<div class="text-[11px] text-fm-text-secondary mt-1">Học viên đã bắt đầu giáo án tập</div>
+</div>
+</div>
+<div class="bg-fm-surface border border-fm-border rounded-lg px-4 py-3 flex items-center space-x-3.5">
+<div class="w-10 h-10 rounded-lg bg-fm-inset flex items-center justify-center text-fm-blue shadow-xs border border-fm-border">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<div class="text-lg font-bold text-fm-text-primary leading-none">56 buổi PT hoàn thành</div>
+<div class="text-[11px] text-fm-text-secondary mt-1">Ca tập đã HLV &amp; Học viên ký xác nhận</div>
+</div>
+</div>
+</div>
+<!-- SECTION 4: MIDDLE GRID (Chart 65% + Alert Widget 35%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT 65% (8/12 cols): Financial Trends Chart -->
+<div class="lg:col-span-8 bg-fm-surface border border-fm-border rounded-lg p-5">
+<div class="flex items-center justify-between pb-4 border-b border-fm-border">
+<div>
+<h2 class="text-sm font-bold text-fm-text-primary uppercase tracking-normal">Dòng tiền hệ thống</h2>
+<p class="text-[11px] text-fm-text-secondary">Đối chiếu thực thu và tiền hoàn trả theo tuần</p>
+</div>
+<!-- Legend: Jade Teal #4ED8C5 & Soft Red #FF9C9C -->
+<div class="flex items-center space-x-4 text-xs">
+<div class="flex items-center space-x-1.5">
+<span class="w-3 h-3 rounded-xs bg-[#4ED8C5]"></span>
+<span class="font-medium text-fm-text-secondary">Đã nhận</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="w-3 h-3 rounded-xs bg-[#FF9C9C]"></span>
+<span class="font-medium text-fm-text-secondary">Đã hoàn</span>
+</div>
+</div>
+</div>
+<!-- Chart Canvas -->
+<div class="pt-6 pb-2">
+<div class="h-56 w-full flex flex-col justify-between">
+<!-- Y-Axis Grid & Bars Structure -->
+<div class="relative h-44 w-full flex items-end justify-around px-4 border-b border-fm-border pb-1">
+<!-- Week 1 -->
+<div class="flex items-end space-x-1.5 h-full justify-center">
+<div class="w-6 rounded-t bg-[#4ED8C5] h-[55%] transition-all hover:opacity-90 relative group">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-7 left-1/2 -translate-x-1/2 bg-fm-inset text-fm-text-primary text-[10px] px-1.5 py-0.5 rounded border border-fm-border whitespace-nowrap pointer-events-none">12.000.000đ</div>
+</div>
+<div class="w-6 rounded-t bg-[#FF9C9C] h-[0%]"></div>
+</div>
+<!-- Week 2 -->
+<div class="flex items-end space-x-1.5 h-full justify-center">
+<div class="w-6 rounded-t bg-[#4ED8C5] h-[72%] transition-all hover:opacity-90 relative group">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-7 left-1/2 -translate-x-1/2 bg-fm-inset text-fm-text-primary text-[10px] px-1.5 py-0.5 rounded border border-fm-border whitespace-nowrap pointer-events-none">16.000.000đ</div>
+</div>
+<div class="w-6 rounded-t bg-[#FF9C9C] h-[15%] transition-all hover:opacity-90 relative group">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-7 left-1/2 -translate-x-1/2 bg-fm-inset text-fm-text-primary text-[10px] px-1.5 py-0.5 rounded border border-fm-border whitespace-nowrap pointer-events-none">2.000.000đ</div>
+</div>
+</div>
+<!-- Week 3 -->
+<div class="flex items-end space-x-1.5 h-full justify-center">
+<div class="w-6 rounded-t bg-[#4ED8C5] h-[45%] transition-all hover:opacity-90 relative group">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-7 left-1/2 -translate-x-1/2 bg-fm-inset text-fm-text-primary text-[10px] px-1.5 py-0.5 rounded border border-fm-border whitespace-nowrap pointer-events-none">10.000.000đ</div>
+</div>
+<div class="w-6 rounded-t bg-[#FF9C9C] h-[0%]"></div>
+</div>
+<!-- Week 4 -->
+<div class="flex items-end space-x-1.5 h-full justify-center">
+<div class="w-6 rounded-t bg-[#4ED8C5] h-[48%] transition-all hover:opacity-90 relative group">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-7 left-1/2 -translate-x-1/2 bg-fm-inset text-fm-text-primary text-[10px] px-1.5 py-0.5 rounded border border-fm-border whitespace-nowrap pointer-events-none">10.000.000đ</div>
+</div>
+<div class="w-6 rounded-t bg-[#FF9C9C] h-[0%]"></div>
+</div>
+</div>
+<!-- X-Axis Labels -->
+<div class="flex justify-around px-4 text-xs text-fm-text-secondary font-medium pt-2">
+<div class="w-28 text-center text-[11px] leading-tight">Tuần 1<br/><span class="text-[10px] text-fm-text-secondary/70">(05 - 11/09)</span></div>
+<div class="w-28 text-center text-[11px] leading-tight">Tuần 2<br/><span class="text-[10px] text-fm-text-secondary/70">(12 - 18/09)</span></div>
+<div class="w-28 text-center text-[11px] leading-tight">Tuần 3<br/><span class="text-[10px] text-fm-text-secondary/70">(19 - 25/09)</span></div>
+<div class="w-28 text-center text-[11px] leading-tight">Tuần 4<br/><span class="text-[10px] text-fm-text-secondary/70">(26/09 - 04/10)</span></div>
+</div>
+</div>
+</div>
+<div class="mt-2 pt-3 border-t border-fm-border flex items-center justify-between text-[11px] text-fm-text-secondary">
+<span>* Nguồn dữ liệu: Cổng thanh toán nội địa và giao dịch xác thực tự động</span>
+<span class="font-medium text-fm-teal">Tần suất làm mới: Thời gian thực</span>
+</div>
+</div>
+<!-- RIGHT 35% (4/12 cols): Prominent 'Cần xử lý' Action Panel -->
+<div class="lg:col-span-4 bg-fm-surface border-l-4 border-l-fm-teal border border-fm-border rounded-lg p-5">
+<div class="flex items-center justify-between pb-3 border-b border-fm-border">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-fm-teal text-[20px]" data-icon="pending_actions">pending_actions</span>
+<h2 class="text-sm font-bold text-fm-text-primary uppercase tracking-normal">Cần xử lý ngay</h2>
+</div>
+<span class="text-xs bg-fm-red/20 text-fm-red font-bold px-2 py-0.5 rounded border border-fm-red/30">3 mục</span>
+</div>
+<!-- Task List -->
+<div class="divide-y divide-fm-border mt-1">
+<!-- Task 1: 3 Khách hàng chờ phân công PT -->
+<div class="py-3.5 space-y-1.5">
+<div class="flex items-start justify-between">
+<div class="text-xs font-bold text-fm-text-primary">3 Khách hàng chờ phân công PT</div>
+<span class="text-[10px] font-semibold text-fm-blue bg-fm-blue/20 border border-fm-blue/30 px-1.5 py-0.5 rounded">Khẩn</span>
+</div>
+<p class="text-[11px] text-fm-text-secondary leading-relaxed">
+                  Học viên mới kích hoạt gói chưa có HLV phụ trách tại khu vực.
+                </p>
+<div class="pt-1 flex items-center justify-between">
+<span class="text-[10px] text-fm-text-secondary/70">Kích hoạt: 4 giờ trước</span>
+<a class="inline-flex items-center text-xs font-semibold text-fm-teal hover:underline" href="#phan-cong">
+<span>Xem xử lý</span>
+<span class="material-symbols-outlined text-[14px] ml-0.5" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Task 2: 2 khoản thu cần đối soát -->
+<div class="py-3.5 space-y-1.5">
+<div class="flex items-start justify-between">
+<div class="text-xs font-bold text-fm-text-primary">2 khoản thu cần đối soát</div>
+<span class="text-[10px] font-semibold text-fm-amber bg-fm-amber/20 border border-fm-amber/30 px-1.5 py-0.5 rounded">Tài chính</span>
+</div>
+<p class="text-[11px] text-fm-text-secondary leading-relaxed">
+                  Giao dịch chuyển khoản đang treo xác nhận ngân hàng (1.500.000đ).
+                </p>
+<div class="pt-1 flex items-center justify-between">
+<span class="text-[10px] text-fm-text-secondary/70">Lệnh: #TRX-9481</span>
+<a class="inline-flex items-center text-xs font-semibold text-fm-teal hover:underline" href="#don-hang">
+<span>Xem xử lý</span>
+<span class="material-symbols-outlined text-[14px] ml-0.5" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Task 3: 1 buổi quá hạn xác nhận -->
+<div class="py-3.5 space-y-1.5">
+<div class="flex items-start justify-between">
+<div class="text-xs font-bold text-fm-red">1 buổi quá hạn xác nhận (Hôm qua)</div>
+<span class="text-[10px] font-semibold text-fm-red bg-fm-red/20 border border-fm-red/30 px-1.5 py-0.5 rounded">Vận hành</span>
+</div>
+<p class="text-[11px] text-fm-text-secondary leading-relaxed">
+                  Ca tập của HLV chưa nhấn hoàn thành sau 24h. Lưu ý: Chỉ điều phối/liên hệ HLV giải trình.
+                </p>
+<div class="pt-1 flex items-center justify-between">
+<span class="text-[10px] text-fm-text-secondary/70">HLV: Trần Quang Nam</span>
+<a class="inline-flex items-center text-xs font-semibold text-fm-teal hover:underline" href="#lich-hen">
+<span>Xem xử lý</span>
+<span class="material-symbols-outlined text-[14px] ml-0.5" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 5: BOTTOM SECTION (Two Data Tables) -->
+<div class="flex flex-col gap-6 w-full">
+<!-- TABLE 1: HOẠT ĐỘNG HUẤN LUYỆN VIÀN (FULL WIDTH) -->
+<div class="bg-fm-surface border border-fm-border rounded-lg overflow-hidden flex flex-col justify-between w-full">
+<div class="p-4 border-b border-fm-border flex items-center justify-between">
+<div>
+<h2 class="text-sm font-bold text-fm-text-primary uppercase tracking-tight">Hoạt động huấn luyện viê n</h2>
+<p class="text-[11px] text-fm-text-secondary mt-0.5">Theo dõi tải học viê n và trạng thái xác nhận ca tập thực tế</p>
+</div>
+<span class="text-[11px] font-semibold text-fm-teal bg-fm-teal/15 border border-fm-teal/30 px-2 py-0.5 rounded-full">3 HLV phụ trách</span>
+</div>
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse text-xs">
+<thead>
+<tr class="bg-fm-inset border-b border-fm-border text-fm-text-secondary font-semibold">
+<th class="py-3 px-4">PT</th>
+<th class="py-3 px-4">Học viê n đang phụ trách</th>
+<th class="py-3 px-4">Buổi PT hoàn thành</th>
+<th class="py-3 px-4 text-right">Chờ xác nhận</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-fm-border">
+<tr class="hover:bg-fm-inset/70 transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center space-x-2.5">
+<div class="w-7 h-7 rounded-lg bg-fm-inset border border-fm-border flex items-center justify-center font-bold text-fm-teal text-xs">HA</div>
+<div>
+<div class="font-semibold text-fm-text-primary">Lê  Hoàng Anh</div>
+<div class="text-[10px] text-fm-text-secondary">Strength &amp; Conditioning</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-medium text-fm-text-primary">12 học viê n</td>
+<td class="py-3 px-4 font-semibold text-fm-teal">18 buổi</td>
+<td class="py-3 px-4 text-right">
+<span class="inline-flex items-center text-[11px] font-semibold text-fm-amber bg-fm-amber/20 border border-fm-amber/30 px-2 py-0.5 rounded-full">2 ca chờ</span>
+</td>
+</tr>
+<tr class="hover:bg-fm-inset/70 transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center space-x-2.5">
+<div class="w-7 h-7 rounded-lg bg-fm-inset border border-fm-border flex items-center justify-center font-bold text-fm-teal text-xs">MT</div>
+<div>
+<div class="font-semibold text-fm-text-primary">Vũ Minh Trí</div>
+<div class="text-[10px] text-fm-text-secondary">Kháng lực &amp; Phục hồi</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-medium text-fm-text-primary">10 học viê n</td>
+<td class="py-3 px-4 font-semibold text-fm-teal">15 buổi</td>
+<td class="py-3 px-4 text-right">
+<span class="inline-flex items-center text-[11px] font-semibold text-fm-amber bg-fm-amber/20 border border-fm-amber/30 px-2 py-0.5 rounded-full">1 ca chờ</span>
+</td>
+</tr>
+<tr class="hover:bg-fm-inset/70 transition-colors">
+<td class="py-3 px-4">
+<div class="flex items-center space-x-2.5">
+<div class="w-7 h-7 rounded-lg bg-fm-inset border border-fm-border flex items-center justify-center font-bold text-fm-teal text-xs">PM</div>
+<div>
+<div class="font-semibold text-fm-text-primary">Đỗ Phương Mai</div>
+<div class="text-[10px] text-fm-text-secondary">Giảm mỡ Nữ &amp; Mobility</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-medium text-fm-text-primary">8 học viê n</td>
+<td class="py-3 px-4 font-semibold text-fm-teal">12 buổi</td>
+<td class="py-3 px-4 text-right">
+<span class="inline-flex items-center text-[11px] font-semibold text-fm-text-secondary bg-fm-inset border border-fm-border px-2 py-0.5 rounded-full">0 ca chờ</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-4 py-2.5 bg-fm-inset border-t border-fm-border flex items-center justify-between text-[11px] text-fm-text-secondary">
+<span>Tổng số: 30 học viê n đang theo lịch</span>
+<span class="font-semibold text-fm-text-primary">Tổng: 45 buổi PT hoàn thành</span>
+</div>
+</div>
+<!-- TABLE 2: GÓI CÓ ĐƠN NHẬN TIỀN (FULL WIDTH) -->
+<div class="bg-fm-surface border border-fm-border rounded-lg overflow-hidden flex flex-col justify-between w-full">
+<div class="p-4 border-b border-fm-border flex items-center justify-between">
+<div>
+<h2 class="text-sm font-bold text-fm-text-primary uppercase tracking-tight">Gói có đơn nhận tiền</h2>
+<p class="text-[11px] text-fm-text-secondary mt-0.5">Đối soát doanh thu theo snapshot gói trong kỳ 30 ngày</p>
+</div>
+<span class="text-[11px] font-semibold text-fm-teal bg-fm-teal/15 border border-fm-teal/30 px-2 py-0.5 rounded-full">2 gói phát sinh</span>
+</div>
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse text-xs">
+<thead>
+<tr class="bg-fm-inset border-b border-fm-border text-fm-text-secondary font-semibold">
+<th class="py-3 px-4">Gói (snapshot)</th>
+<th class="py-3 px-4"> Đơn nhận tiền</th>
+<th class="py-3 px-4">Đã nhận</th>
+<th class="py-3 px-4">Đã hoàn</th>
+<th class="py-3 px-4 text-right">Sau hoàn</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-fm-border">
+<tr class="hover:bg-fm-inset/70 transition-colors">
+<td class="py-3 px-4">
+<div class="font-semibold text-fm-text-primary">PT Standard + AI</div>
+<div class="text-[10px] text-fm-text-secondary">Gói 1 kèm 1 kèm bài tập AI</div>
+</td>
+<td class="py-3 px-4 font-medium text-fm-text-primary">10 đơn</td>
+<td class="py-3 px-4 text-fm-text-primary">30.000.000đ</td>
+<td class="py-3 px-4 text-fm-red font-medium">2.000.000đ</td>
+<td class="py-3 px-4 font-bold text-fm-teal text-right">28.000.000đ</td>
+</tr>
+<tr class="hover:bg-fm-inset/70 transition-colors">
+<td class="py-3 px-4">
+<div class="font-semibold text-fm-text-primary">AI Coach</div>
+<div class="text-[10px] text-fm-text-secondary">Tự luyện tập có AI hỗ trợ</div>
+</td>
+<td class="py-3 px-4 font-medium text-fm-text-primary">8 đơn</td>
+<td class="py-3 px-4 text-fm-text-primary">18.000.000đ</td>
+<td class="py-3 px-4 text-fm-text-secondary font-medium">0đ</td>
+<td class="py-3 px-4 font-bold text-fm-teal text-right">18.000.000đ</td>
+</tr>
+<tr class="bg-fm-inset/60 font-semibold border-t-2 border-fm-border">
+<td class="py-3 px-4 font-bold text-fm-text-primary">Tổng cộng</td>
+<td class="py-3 px-4 font-bold text-fm-text-primary">18 đơn</td>
+<td class="py-3 px-4 font-bold text-fm-text-primary">48.000.000đ</td>
+<td class="py-3 px-4 font-bold text-fm-red">2.000.000đ</td>
+<td class="py-3 px-4 font-extrabold text-fm-teal text-right">46.000.000đ</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-4 py-2.5 bg-fm-inset border-t border-fm-border flex items-center justify-between text-[11px] text-fm-text-secondary">
+<span>Khớp 100% dữ liệu đối soát cổng thanh toán</span>
+<span class="font-semibold text-fm-teal">Thực thu: 46.000.000đ</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Operational Compliance Footer Bar -->
+<footer class="h-10 px-8 bg-fm-surface border-t border-fm-border flex items-center justify-between text-[11px] text-fm-text-secondary">
+<div>Hệ thống Quản trị Vận hành Fitness Motion v3.4 · Tr0ond AI Advisory Module Active</div>
+<div class="flex items-center space-x-3">
+<span class="flex items-center space-x-1"><span class="w-1.5 h-1.5 rounded-full bg-fm-teal"></span><span>Máy chủ Vận hành Ổn định</span></span>
+<span>Bảo mật hệ thống ISO/IEC 27001</span>
+</div>
+</footer>
+</div>
+</div>
+<link rel="stylesheet" href="preview-polish.css"/>
+<script src="preview-polish.js"></script>
+</body></html>

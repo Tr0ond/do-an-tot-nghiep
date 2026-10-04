@@ -58,13 +58,13 @@ export default {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.12));
   color: var(--mau-chu, #ffffff);
   border-radius: var(--bo-goc-tron, 9999px);
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--bong-nhe);
   user-select: none;
   padding: 0;
   position: relative;
@@ -93,7 +93,7 @@ export default {
 .btn-theme-toggle:has(.label-theme) {
   width: auto;
   padding: 6px 14px;
-  border-radius: var(--bo-goc-md, 12px);
+  border-radius: var(--bo-goc-md, 8px);
 }
 
 .icon-toggle-wrapper {
@@ -106,13 +106,13 @@ export default {
 
 /* Icon mặt trời trong Dark Mode */
 .icon-sun {
-  color: #fbbf24;
+  color: var(--mau-canh-bao);
   filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.5));
 }
 
 /* Icon mặt trăng trong Light Mode */
 .icon-moon {
-  color: #6366f1;
+  color: var(--mau-thong-tin);
   filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.4));
 }
 
@@ -125,7 +125,7 @@ export default {
 .btn-theme-toggle:hover {
   transform: translateY(-2px) scale(1.04);
   border-color: var(--mau-chinh);
-  box-shadow: 0 6px 18px rgba(244, 91, 32, 0.25);
+  box-shadow: var(--bong-nhe);
 }
 
 .btn-theme-toggle:hover .icon-toggle-wrapper {

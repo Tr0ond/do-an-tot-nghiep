@@ -105,6 +105,69 @@ class LichHenTest extends TestCase
         $this->actingAs($nguoi, 'web');
     }
 
+    public function test_dat_xac_nhan_huy_va_tu_choi_thong_bao_dung_nguoi_retry_khong_lap(): void
+    {
+        $b = $this->boDuLieu();
+        // Kiểm tra riêng sự kiện lịch hẹn, giữ thông báo phân công của fixture ngoài các số đếm này.
+        $b['khach']->notifications()->delete();
+        $b['pt']->notifications()->delete();
+        $s = app(LichHenService::class);
+        $slot = $this->slot($b);
+        $d = ['khung_gio_id' => $slot->id, 'client_request_id' => (string) Str::uuid()];
+        $l = $s->datLich($b['khach'], $d);
+        $s->datLich($b['khach'], $d);
+        $this->assertSame(1, $b['pt']->notifications()->count());
+        $this->assertSame('Có yêu cầu đặt lịch', $b['pt']->notifications()->first()->data['tieu_de']);
+        $s->thaoTac($b['pt'], $l->id, 'xac-nhan');
+        $s->thaoTac($b['pt'], $l->id, 'xac-nhan');
+        $this->assertSame(1, $b['khach']->notifications()->count());
+        $this->assertSame('Lịch hẹn đã được xác nhận', $b['khach']->notifications()->first()->data['tieu_de']);
+        $s->thaoTac($b['khach'], $l->id, 'huy', 'Bận');
+        $s->thaoTac($b['khach'], $l->id, 'huy', 'Bận');
+        $this->assertSame(2, $b['pt']->notifications()->count());
+        $l2 = $s->datLich($b['khach'], ['khung_gio_id' => $slot->id, 'client_request_id' => (string) Str::uuid()]);
+        $s->thaoTac($b['pt'], $l2->id, 'tu-choi', 'Bận');
+        $s->thaoTac($b['pt'], $l2->id, 'tu-choi', 'Bận');
+        $this->assertSame(2, $b['khach']->notifications()->count());
+        $this->assertSame(0, $b['admin']->notifications()->count());
+        $this->assertSame(8, $b['don']->fresh()->so_buoi_con_lai);
+    }
+
+    public function test_het_han_lazy_va_worker_chi_mot_thong_bao(): void
+    {
+        $b = $this->boDuLieu();
+        $s = app(LichHenService::class);
+        $l = $this->dat($b);
+        $this->travelTo($l->han_xac_nhan_dat_lich);
+        // Mở/đóng slot cũng dọn hết hạn: phải ghi thông báo cùng transaction đó.
+        $s->doiKhungGio($b['pt'], $l->khung_gio_id, 'DONG');
+        $s->donQuaHan();
+        $tin = $b['khach']->notifications()->get()->filter(fn ($n) => $n->data['tieu_de'] === 'Yêu cầu đặt lịch đã hết hạn');
+        $this->assertCount(1, $tin);
+        $this->assertSame('HET_HAN', $l->fresh()->trang_thai);
+        $this->assertSame('/khach-hang/lich-hen/'.$l->id, $tin->first()->data['duong_dan']);
+        $this->travelBack();
+    }
+
+    public function test_hoan_thanh_va_vang_mat_bao_kh_khong_tieu_hao_lap(): void
+    {
+        $b = $this->boDuLieu();
+        $s = app(LichHenService::class);
+        $l1 = $this->dat($b, $this->slot($b, 8));
+        $l2 = $this->dat($b, $this->slot($b, 10));
+        $s->thaoTac($b['pt'], $l1->id, 'xac-nhan');
+        $s->thaoTac($b['pt'], $l2->id, 'xac-nhan');
+        $this->travelTo($l2->ket_thuc_luc->addMinute());
+        $s->thaoTac($b['pt'], $l1->id, 'hoan-thanh');
+        $s->thaoTac($b['pt'], $l1->id, 'hoan-thanh');
+        $s->thaoTac($b['pt'], $l2->id, 'vang-mat', 'Không đến');
+        $s->thaoTac($b['pt'], $l2->id, 'vang-mat', 'Không đến');
+        $this->assertCount(1, $b['khach']->notifications()->get()->filter(fn ($n) => $n->data['tieu_de'] === 'Buổi PT đã hoàn thành'));
+        $this->assertCount(1, $b['khach']->notifications()->get()->filter(fn ($n) => $n->data['tieu_de'] === 'Buổi PT đã ghi nhận vắng mặt'));
+        $this->assertSame(7, $b['don']->fresh()->so_buoi_con_lai);
+        $this->travelBack();
+    }
+
     public function test_dat_xac_nhan_hoan_thanh_retry_dung_mot_buoi(): void
     {
         $bo = $this->boDuLieu();

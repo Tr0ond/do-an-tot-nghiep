@@ -1,0 +1,174 @@
+{
+  "project": "https://stitch.withgoogle.com/projects/10304506651660798975",
+  "purpose": "Tham chiếu thị giác. Giao diện Vue và quyền nghiệp vụ hiện có là nguồn triển khai, không coi dữ liệu hay cam kết trong mẫu sinh tự động là chức năng thật.",
+  "screens": [
+    {
+      "id": "9c0637f0878a420793f03f70f0e49abf",
+      "title": "13 · Quản lý gói tập",
+      "name": "projects/10304506651660798975/screens/9c0637f0878a420793f03f70f0e49abf",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzA5OGIwN2YwMGEwNjQ0Yzg4YjMzZGRlYTI1NjRiNzU0EgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1V3A_ks9cundwv6E0529eTIyJnj6IxKA94e9Q_beGA1uvSmS446U_MkRgjUP1aq5s5HNqTrmCslXfFccuBFzBFWIRz3_QEduomPaSBSsLQth9AZMpNWmhCsQTaTWZ4sWrP3vx0MVpv5h3fn_SNK6995sBQbevu9V_OF2LzAbrMN14U4PjVdrssNlYm4-lCN1VA7j_R4nUs2hCW-AbPQ0zCjtKnLaj8EfQPIE8qHi2ZMj-niti2Cx2l9a08w"
+    },
+    {
+      "id": "44d9ff8b82bf4694927e2971e86547cc",
+      "title": "11 · Soạn giáo án",
+      "name": "projects/10304506651660798975/screens/44d9ff8b82bf4694927e2971e86547cc",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzVmY2ZiOGRhZDIyYTRjY2M5MzM3Yjc1NWYwY2M5MzA2EgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1Wfbp5PcLmJ5QpEPFBphNzgkdpFpRH86RHui-R-0WVjsfPHMPI0ad5NOuqB4JjC5ULqy8v86ISaupCZFspp-fcZrrqHftfRNsV8lx8vU49qrQIYbASPGOBS44KUeKCyE1EZ5M__vKgfAuJmt0ZyKeXKSGNGnH1r46qBWG-A_jOeVf4VeJ_Y_e1YsC2U4gEZjl2tFf7kbd_0ZLK4vMKV7FYJSOdRqdN8mCKVxpEEADvM5y4HnSeqzCeFpLGu"
+    },
+    {
+      "id": "27243b1139e24850bb2e99501f2fcd05",
+      "title": "10 · Lịch & nhật ký",
+      "name": "projects/10304506651660798975/screens/27243b1139e24850bb2e99501f2fcd05",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzJjYjMwNDA4Njc3MjQyNTg4OTQzODJlOGZjNjViNTIwEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1UDGSwsMbQctQej_b6mtv4VaMqTdYEYXvThbwYAjY5op4odfwy75pjAxcVaCAd19pzOyRvkeef5Kileby6RzHrunlr3IpvXLFTk25HcNRNRXjaqHc2YXvrz45QHVFs7dEod0hPVwxwsmHJyfctd-fgQf4NlrBLQZ3rnqEvekooFohHwZPhPH-AdkSjXF9HekVDfgm16gWwn6SX6paPELp9J4U-gV7evO5imC7n7z4vVI4eKHiV059AvbTFV"
+    },
+    {
+      "id": "42e6d33dbe7f44b58d423f97c284c29e",
+      "title": "12 · Chat trực tuyến",
+      "name": "projects/10304506651660798975/screens/42e6d33dbe7f44b58d423f97c284c29e",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2U5ZDIxMzBjMWMzMzRlNDA5OGExOTk5MWE5YmRjNDVmEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1VaEW-4-R-PhohsjH4MN3eiRZMrKgh4OZ9SQMO6nD7YpAPFnqgclsDokLg-RLyqlJt6blSMl06FMEdEMEMVIVpG2dMpIoH003hgu2WnLkgNgF4BZ048nDi19Kv1wduTtsAWRhFBz0VfcmLLolxDOB_6wxoqXXS5F4qAoZo5-S3ATJBxtgOL56y-VFnWEs_XepupnJ6uOTD95_2kTIJGbMcHyzUc1jd1IZOJ61zBkSptaMnIUlhK-iRUO7I"
+    },
+    {
+      "id": "3fc892d5373b448890cb816b08484f5f",
+      "title": "14 · Đăng nhập",
+      "name": "projects/10304506651660798975/screens/3fc892d5373b448890cb816b08484f5f",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2Y3OGEwZGMwZmU4YjRlZTQ5MjNiYTFjOTk3ZjgzN2RkEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1UNHHgB8g3NKsK49P5Nbb5z74gv2meY7uh_7LYdCjN-bXmrcydZ2u3umF_hqa6PYhyg4Z3hlDmfroqYfrZiEvNV6S2vszXZOT7ZFhJ7dz2w00N-0xPIE5D7EA3VUFCCLtA5RfPIdqBZVnQKoTHHBJvlJ0lV4n_R4rFDLs5GIx3F8esfmOzZtBSkJ8xcC2AUOA0ojDe7cRj6xKl90wQkThcUrTcrHwzmTvQ-lKuSs6sTzBKjF-tBteEysDLU"
+    },
+    {
+      "id": "7430bf866ee743d6822cb4fb22e4048f",
+      "title": "09 · Thư viện bài tập",
+      "name": "projects/10304506651660798975/screens/7430bf866ee743d6822cb4fb22e4048f",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzM4NzY3OTlhNWFlNzRiODBiOTVmZTkxZGMzZjYwNWU2EgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1XwcS0Eyqju3zlcqdxAHecPM-BD_namtthLd5q3MiQYGsaIwkOSo-UEDN3TldNUC4yyZ0GgSwxESH3htNGbRUHjjHh1kN3CUvJx9At8Ax8_hEPOa_kbNbhdSC-nbwpn2CUpzb5wIzFajO0Nq5vtmcQOohwI3GEV38_Q0n-X4sAg8wd9sxvANtcCaQHfQJjXNWGaupZI_K0qvKmaKC-6h1YnbjhXmJspRosbNNxqNZBWuzcrus-YZS4_-ywh"
+    },
+    {
+      "id": "995ed5ed36c6436090a92566c2494632",
+      "title": "15 · Hồ sơ cá nhân",
+      "name": "projects/10304506651660798975/screens/995ed5ed36c6436090a92566c2494632",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzMzMGQ4MDZiZGI1MTQyMDc4NGRlMWFmMzI0ZTk5MzI4EgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1UeUOfHCeu191ruNescEQ_BcQ0GwvQFbx0vCIvq6Xohn8lj1v_53X3Ox2UBXJ3pTYurm3C_Xt_74ajkWBtcdljysB4RYrDbHphXwu4SCYCRECiAr_DdjDjKZgTLzQ7lbSLql9Im83Ml01oPFt-nEdS8cr8C_PnM16zZuVuWllDiePcxWZhSK3Vx7Kw_V2wwQ-6sqYIQXDtlR1bdWtwMT-PaE0x_w7C78hwvYXo7bQKWpa4vE2xD_g2eihMS"
+    },
+    {
+      "id": "9efe8edfa9784e89adfadc9f0c29b9a0",
+      "title": "16 · Sửa hồ sơ",
+      "name": "projects/10304506651660798975/screens/9efe8edfa9784e89adfadc9f0c29b9a0",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzBjZTYzNmMyNTA2NjQ4OGViNDVhOTU2MDRiYTY5MzNhEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1Vqk74BAILHX6qSI5hGW7Kn93lIZwGBkGUwSwprsvYtP2-qHvpENtd6Lnr1XOirVMVZSeVJfxzG2i66KbvEMDqbVH-_xqc7BwvkHF9_mMF6PnLNjwgM2y-HCnJzi3CjF-u8t6liPUSa2B0DwSvx30X-W__ahzxpQvfRoBC7bt3wV7dKMysMj2oPUPzoPlzpaunSM2lHg7M0M6AF8g6uso3SXyrL9Pfyl2KxpbrDzZH4M2IqwPJazbwIOH0"
+    },
+    {
+      "id": "635a63659dab43028d8f2fea39fd80f4",
+      "title": "17 · Chỉ số cơ thể",
+      "name": "projects/10304506651660798975/screens/635a63659dab43028d8f2fea39fd80f4",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2U5OGY5ZDhkYzI0YTQ3MGI4OTFhYmU1NGQ2YjE1ZjZkEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1UNcJDrQPg2JzAmSpPGne_H1aqlFUFty3x98uFpTTk-LhbMFznK54pqlp0qrq2yyBhOnmcw5Uhg6FK6trOV3LSIm-738_wKI2ZjCbb_EI_-92bQDGoMXfghLmuRu_7xPZVQEU1DDDUZqdnYH6AHebYFW7blNHP4uZsLrdxX0iUUifVPUSd3KKURAr7gPHlmkG34HPX9TUUWQjdIa6yTfQqpdaHvo8nfQfll8CA7A3ksgZYKaktXfNMb3n7i"
+    },
+    {
+      "id": "95355f5ea0454df98b627dfac117f7c3",
+      "title": "19 · Lịch hẹn PT",
+      "name": "projects/10304506651660798975/screens/95355f5ea0454df98b627dfac117f7c3",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzdiNWZiOTY5OTkwNTQwMmQ4MzI3ZDM5ZTg2NDlhNGNlEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1W96CL1XwMtHzvTmtp-jXITPbdWdSeY4XKUc6GGyySJZ69_Iv78gGexn-V1WhqXOu_6qMCuWRcuIbRgzsj7DSv9_bw3b7UrN0_Mv1rKderyYkZc4zOPxGNq0fAgCuR2eWvNMJf3-byHjHA-Hr5rsjZTR9fV-8UhEXfsaWBjE6RZxo_MninI8OECtIPTU4iN2BebItsHj8wkybmI_2LR6WAwwul14ZRIOLMklvrbgn_C6OhfLL81nqWzewc"
+    },
+    {
+      "id": "1972afa0d2964980a83a47bfe4bf33a1",
+      "title": "18 · Học viên PT",
+      "name": "projects/10304506651660798975/screens/1972afa0d2964980a83a47bfe4bf33a1",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2UwZTgyMmM0YTg0ZTRlZTY4ZDlhODYyYjZmYTNjY2Q4EgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1VsSzt7mXgoWEjXA7n1Z15-nfoSGXkHQC0GJfhvLfwB0_jcPw-AhFrGAi6H4LEcgyZ9SPNFOcU6czhB3D6Sii56lqGKfj30bM5l1yqVYi4t7FtAe2sbGcvlhBL3WB19gxpE5QqiDhtJ3OjpGN1rPSjs8Tm5cQBXslJvEWFqJY4GTcsSLiV_i21nenpJV6ZuwqHaiGZP99rO5NAjXygpF4KFZp03ZbX5MFuL9PnO2pvHH7vwjX2p4IpgTOKg"
+    },
+    {
+      "id": "e9e2108bbd94451a882fa77241e9ba61",
+      "title": "20 · Khung giờ PT/KH",
+      "name": "projects/10304506651660798975/screens/e9e2108bbd94451a882fa77241e9ba61",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzY4ZDdhY2EzMmE5MTQwMjNiMmI0MWZhMmQ2M2UyNzM3EgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1XweNPXo3OUc8Zn2AJlYMgf-w_o1SKQdceFin0urdIvKMsD8IOagMJnwQSkl5Rydro1jqQQ7yeqfn366CcZJXzBf9832Es41gGWokI7Wyd7WX2nfwFdxQ1RK-kSwhYRtrZjVOZFlbqEysHhF4tMgO3NcYoJvGc5yM6vCumoACcQ1BO6u9Y-diYVPL7MC3NSb7RaN6W3SCi78P9vmA0U1Rh_UyTtqg5q7asmyEFQbcDqrjfQs9ue6o-uciM"
+    },
+    {
+      "id": "d6d0318408cb41f798cacb1264382eb0",
+      "title": "22 · Gói của tôi KH",
+      "name": "projects/10304506651660798975/screens/d6d0318408cb41f798cacb1264382eb0",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzdiM2EzNjc3NTFkOTRlYjY5MTZhODcwZGVjZDg4ZDdlEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1V-ju4Zj5OVP7N4WIxCRyBEpSvPmU3CeiFlRcI9ILExUvFf5kOtIBDdy-chGoy85NBrDegsk6Q4j0hhp2dx2CcBC7GLndDXeHtgrdyhCuUl8Is68gQ_UzgR-O6Dnzet9TFGEvobr62PQXu399craGRmqmc79BhQQmrSEJjnrOhXKTobq8P7uu9yuWxMF2Mzmutlh6ETEN_3ov5yArvf7DdUf0NAETHnOzjNLRxisXZ3UoaujxDQfkDv9TY"
+    },
+    {
+      "id": "b742c277281245748a5e8ad982774da8",
+      "title": "21 · Đơn hàng KH/Admin",
+      "name": "projects/10304506651660798975/screens/b742c277281245748a5e8ad982774da8",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzZmZDhmMDRiOTkxNDRkOGVhMmRlMTNmZTQ5MGI5OTdiEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1VpzheHAJVFlIy50M_DMiWJMw1QPEqOA9F2pWNWmLPeex_oQAEkD-4DUIL-U0W27s9YnDH8t9Nlw5FWUjClALxIgYXtQzGJaXHOValMnJYxOc_JY5M0noJoQsx8YoF7gneekrNIMNqdqGELnXtNNGajNQNPFTlH7Oe9p5edxaD4hq4aVXtN8tiwS8G8iNd9NQ-O3sSKUiGYP7b9pAwvC18YVKGfKw-W1vw1CodNDXcnZAKZsdeEsYnlPVg"
+    },
+    {
+      "id": "3f402d898c914219bc0b4c58d6392554",
+      "title": "23 · Phân công PT Admin",
+      "name": "projects/10304506651660798975/screens/3f402d898c914219bc0b4c58d6392554",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzg1ODVkMjMyMzBmMDRlMTlhMTdlYjM1MWYzMGZhOTQ1EgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1XJrza0qFIWBoApM46dKX8EvSw_JxpiYddf6W6kBkirl9mL9MTSmWf3fKGiPY2U6necdiliEucAbTV5FVR07J7L9SFaGlxO2MPCJ1T38ZELXiExDUhGLPU4kcLPI_bK5DuSQi5OY3ecG6zPmSx3jQnF1S93XM10i86mBuOrtnDdtC8oZvHBkLoD7PyooZFkJNW6b7J1Nk14SbtFwBLk5vi3FAiHioum_SGTyjnyeB_swBKB_psuRrRuNbNL"
+    },
+    {
+      "id": "d21b55bcb1d44c5f836ea7e570b27bdc",
+      "title": "24 · Tài khoản Admin",
+      "name": "projects/10304506651660798975/screens/d21b55bcb1d44c5f836ea7e570b27bdc",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2M2ZjRlODY1MWM4ZjQ2Mjk4ZmE0NTc2YmViOGQ1YTQwEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1U6f6I2kzJkCUVr_jmokJttLXalIsVdRcSHoCCEhFaqqegb5sv9J5anEeLIy7saLJt7GzloOBn63xyNcVHd98nlBy_fO9v5VActfLD0hRJBSRuuJ0bwbs6mjWKxqfe1ZsoGbeL_iNKqHkEQiOlaniHws1xCHdW1S_1FDuhbn5yzv1ElvQEl8pRsUI7_uXeVYtJck1kno7YREn5DbrSNdmas2dsIK-3oeDlyAQuyqvH7YkdITLLpSkMpT6gH"
+    },
+    {
+      "id": "818cac6763494bd29fcf9f43a6e30d7c",
+      "title": "25 · Tài liệu & AI Admin",
+      "name": "projects/10304506651660798975/screens/818cac6763494bd29fcf9f43a6e30d7c",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2U0ZThjNWIxZjlkMTRjODdiMzg0MzAyOTk5MWM4ZmZjEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1XHrZnM9gsNMDk98B3IaQOVRF0KYa-kjfPiS5lfr_Aq0d5P3_oUkzJ2cNEMcLX4fOaCNNjD_T9jMy7BpB3OSzMgrFDDWU2fRHVWTgVZ3pRgP2y_2842Td_iuystIOtu49lL42Vnh5suJ0IqZFwAQryGG7TlgGtibRl5sybEOBczEc6HcvKeGRMYE_VrrS6RQtk5KzqzNQLBR5P-vQOGnZJMbGrEdD2B2-gi6KtMeZgR-4oviEMT_cMP5qE"
+    },
+    {
+      "id": "aaba45fae3a7492f907dc15765a98a50",
+      "title": "26 · FAQ public",
+      "name": "projects/10304506651660798975/screens/aaba45fae3a7492f907dc15765a98a50",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2YwYmU0M2Y1NDRiODRlNzg4MGZlYTYyYmRkMjFmYWZmEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1X0xa9hn2WQR4CEGeOp5hF4MPBvH17zo8x9XqGQjgwoX6ZW2BdYRxrXlZEAxDJyJFfW1Jrn3gewTvpYvxtbv8dhi9L6udZFjdWHfKxEKbVN4-50xuDFrnBRIqtCtwlvv7yKvlRlh47NAnx_42x1HmnG2-bYzo64GAMFxJyrZ13YoByV8Pfs9xDZ_IqzW9bCx6rFnjlCo8Awp9Q8iS1MoZDGgdxFP9pc8Q1JMMPfCELQx8Ypiil44WXjt4tJ"
+    },
+    {
+      "id": "dc65a97386274e41bb0de16546b05255",
+      "title": "27 · Chi tiết bài tập",
+      "name": "projects/10304506651660798975/screens/dc65a97386274e41bb0de16546b05255",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzZjZGYzMjIzYjRkMjRkNDdhZTYxZTcyMTY5ZmNmODdlEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1UCSIFqeqUNxqJSxLGs8KZXOHcn4LE3xB19BCLUUGipC1Wuix8F8OqOI_UjXiuLu4xihcaIIyc2x4uDfibRoI3k_tInWhEYE3WSwAGtzJJ7HerWkwp7Lyayz0etD9dDOQ3iDgAblZkgzdNoxBzPp1UqQh3WhEijSTBUiIO1gijlIUmP0f4np4afoEAAtNLShBoocsria1VqQgdRqrf6V4X6iC6PN_kvhbZvV8NAiElWTApjsDa4C7QOvA"
+    },
+    {
+      "id": "40040946bd15494abdb2e4086b1078fb",
+      "title": "28 · Chi tiết gói public",
+      "name": "projects/10304506651660798975/screens/40040946bd15494abdb2e4086b1078fb",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzY2N2RjODYyOWIyYzQ5MTliNTU2OTRjY2FmNmJkNDExEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1UfLDY9TygF9l7LTbdLrwVss5woguK6wCJPXGCQdWJ39Dm4CDRCg1sFrLReqsR3vmf1GVjcvouX91mioB0K8G4GfhHlbVUXKfzxlugJvv_vXJEQNvlhzmTmJ8dW66AMmls1tAc6iV_afqUxDh1fR7ZfVtM3lc3zGtDxabWKLTLGRVPS7bLj85YwmEs7TF0iqCBY5qheIfR3VX5jHIgiVc3TwC2n4NMk42mYAlhte8cVgVAbla0dQd6hBdbH"
+    },
+    {
+      "id": "80e93bfd469542b18e46bc53670fc321",
+      "title": "29 · Form danh mục Admin",
+      "name": "projects/10304506651660798975/screens/80e93bfd469542b18e46bc53670fc321",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzk1MDBjODViYzU0YjQwNmFiNmZlYWNlNjZkMGYzMWIyEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1VEvE_MHy3y0o5SRLJrN7VusaSafSoJUPnZ2lzpVrqbvuAdZGfW6wzXoi792AgxnXXs0LFs6p5DG4Dl4VwW55_xb3vPaaCVjzUEw3Ijp1GBn85Bw56C7MD-XHJ_ghhJwZq10hloEJ2BJEktRmSttp-g7Udkk6GvSNBcpDRXKKkVSalFdadNoua0q_mzNg22HeKXUi49lcuWrC6FB9srOxNZlJpkl_HAk6vrth6-iUE0jSWLE3Y2UMoNnaBP"
+    },
+    {
+      "id": "1090075feb284313a892a0dc83b32751",
+      "title": "30 · Chi tiết giáo án KH/PT",
+      "name": "projects/10304506651660798975/screens/1090075feb284313a892a0dc83b32751",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzFiMGE2MTZmNWQxYjQ0NGQ4Y2MyYTI1MDQxNWRkNGUxEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1VWIj-yoDWN5H7d6sx7Au2S74JkvJDWdoKT_EZkvSMg7EScz-VfxTkyQsox3JoTO5Pwkm_9XIWcn6UHAvxN7fNpJU1joBdGuQNGpCKJ7kDeZBjVHmH2f8L4uQ4xNB0nKCg_cwqsMhDtpKoLsHWSAyFJcEChFyJCiIb-JvDyUQFKQGORYHr0xEYXox5Jwv2c3bToHFqrQCge97tZI-gPwrH0Vjn-h8wRhNlt2fHtaQ4XDff2KdQjHEWoXBRp"
+    },
+    {
+      "id": "7c435bbf5e394a74b545c8daadeb65e3",
+      "title": "32 · Không có quyền/Mất kết nối",
+      "name": "projects/10304506651660798975/screens/7c435bbf5e394a74b545c8daadeb65e3",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sX2JjNjkyYjFkNWJhYjRiOGRiYmVlZjk4MTRlNzY4ZDVkEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1VgNjodL_uIwIlD-J1-A_9vjBH7iMXqqYvFNgH8xo68IXpWyOcFbSNNQhjmnZqnbP5AUtVQ1dlCNYzu0HqtV_u49dNjoHuXZIFh0LUYL4hKtEooMgFAG0_-c5V9ZO4dxe_ZD_yUmIZ1s3tyJ9C44NLHifUB9F3pblE3kairw-4xIpzLOzPX2pnWs_dg8X20dekyi0RfuZtTeo66NjfAhIZomoYZBTxdwPTS0pP5bKFqu83PJJB5q9y9gwk"
+    },
+    {
+      "id": "1ed379e8e4194cf89184663f9ff4f419",
+      "title": "31 · Khôi phục mật khẩu",
+      "name": "projects/10304506651660798975/screens/1ed379e8e4194cf89184663f9ff4f419",
+      "html": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzQ0NGRiMDE3M2MyNDRhMmQ4NDBkMjdkNzJiN2RkMDYzEgsSBxDq3M2a4B8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMDMwNDUwNjY1MTY2MDc5ODk3NQ&filename=&opi=96797242",
+      "screenshot": "https://lh3.googleusercontent.com/aida/AEtjO1V1bcrYiJ6rwrIeau7v8Tnb_4w_3pOXGTXNB96eoCjfesLQc2JRNcbhxwH8AX7z-wNikou4dwzeWLPaaqi5m-f_mHNTjDJCao84iEsSiI6aVESkF1iB8_TKbRtSRLSlAxqbvYli6XLs6gkO5N94iO3fpOVkWNEI_QmzMZgMrAG2JjMlzx5GqQXqwDonxOnprZZDhExXB1OaRPp4j4_qc41089Gd57YPnNDVfjO6x6WGkvbHVrUZyiPxQns"
+    }
+  ]
+}

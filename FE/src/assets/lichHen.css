@@ -1,11 +1,11 @@
 /* ========================================================
-   M04 — LỊCH HUẤN LUYỆN (CINEMATIC HIGH-PERFORMANCE DARK)
+   M04 — LỊCH HUẤN LUYỆN (STITCH DEEP TEAL DESIGN SYSTEM)
    ======================================================== */
 
 .m04-page {
-  max-width: 1200px;
+  max-width: 1208px;
   margin: 0 auto;
-  padding-bottom: 40px;
+  padding-bottom: 48px;
 }
 
 .m04-heading {
@@ -13,23 +13,23 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 20px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .m04-heading h1 {
-  font-family: var(--font-tieu-de, 'Outfit', sans-serif);
-  font-size: 1.85rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--mau-chu, #ffffff);
-  margin-bottom: 6px;
+  font-family: var(--font-chinh, 'Be Vietnam Pro', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--mau-chu, #182325);
+  margin-bottom: 4px;
 }
 
 .m04-heading p {
   margin: 0;
-  color: var(--mau-phu, #94a3b8);
+  color: var(--mau-phu, #595c5d);
   max-width: 680px;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   line-height: 1.5;
 }
 
@@ -37,74 +37,158 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.78rem;
-  font-weight: 750;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--mau-chinh, #f45b20);
-  margin-bottom: 6px;
+  color: var(--mau-chinh, #087f75);
+  margin-bottom: 4px;
 }
 
-/* Card Panel */
-.m04-panel {
-  background: var(--mau-the, #141414);
-  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
-  border-radius: var(--bo-goc-lg, 16px);
-  padding: 26px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  position: relative;
-  transition: all 0.2s ease;
-  color: var(--mau-chu, #ffffff);
+/* Thẻ tóm tắt số liệu tuần (Stitch KPI Ribbon) */
+.st-kpi-ribbon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
-/* Filter Toolbar */
+.st-kpi-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--mau-the, #ffffff);
+  border: 1px solid var(--mau-vien, #e2e8f0);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: var(--mau-phu, #595c5d);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.st-kpi-chip strong {
+  color: var(--mau-chu, #182325);
+  font-weight: 700;
+}
+
+.st-kpi-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.st-kpi-dot.primary {
+  background-color: var(--mau-chinh, #087f75);
+}
+
+.st-kpi-dot.warning {
+  background-color: #d97706;
+}
+
+.st-kpi-dot.danger {
+  background-color: #dc2626;
+}
+
+.st-kpi-dot.success {
+  background-color: #059669;
+}
+
+/* Filter Toolbar chuẩn Stitch */
 .m04-toolbar {
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 24px;
-  background: var(--mau-the, #141414);
-  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
-  border-radius: var(--bo-goc-md, 14px);
-  padding: 18px 22px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  gap: 14px;
+  margin-bottom: 16px;
+  background: var(--mau-the, #ffffff);
+  border: 1px solid var(--mau-vien, #e2e8f0);
+  border-radius: 8px;
+  padding: 16px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .m04-toolbar label {
   display: block;
-  font-size: 0.82rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: var(--mau-phu, #94a3b8);
+  color: var(--mau-phu, #595c5d);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   margin-bottom: 6px;
 }
 
 .m04-toolbar > div {
-  flex: 1 1 200px;
-  min-width: 180px;
+  flex: 1 1 180px;
+  min-width: 160px;
 }
 
 .m04-toolbar .form-control,
 .m04-toolbar .form-select {
-  border-color: var(--mau-form-border, rgba(255, 255, 255, 0.12));
-  background-color: var(--mau-form-bg, #121212);
-  color: var(--mau-form-text, #ffffff);
-  border-radius: 10px;
-  padding: 9px 14px;
-  font-size: 0.92rem;
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
+  border-color: var(--mau-form-border, #cbd5e1);
+  background-color: var(--mau-form-bg, #ffffff);
+  color: var(--mau-form-text, #182325);
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 0.85rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
 .m04-toolbar .form-control:focus,
 .m04-toolbar .form-select:focus {
-  background-color: var(--mau-form-bg-focus, #161616);
-  color: var(--mau-form-text, #ffffff);
-  border-color: var(--mau-chinh, #f45b20);
-  box-shadow: 0 0 0 3px rgba(244, 91, 32, 0.25);
+  border-color: var(--mau-chinh, #087f75);
+  box-shadow: 0 0 0 3px rgba(8, 127, 117, 0.15);
+}
+
+/* Bộ lọc trạng thái dạng Pills (Stitch Status Pills) */
+.st-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 1px solid var(--mau-vien, #f1f5f9);
+  width: 100%;
+}
+
+.st-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid var(--mau-vien, #e2e8f0);
+  background: var(--mau-the, #ffffff);
+  color: var(--mau-phu, #595c5d);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.st-pill-btn:hover {
+  background: var(--mau-hover, #f8fafc);
+  color: var(--mau-chu, #182325);
+}
+
+.st-pill-btn.is-active {
+  background: var(--mau-chu, #182325);
+  color: #ffffff;
+  border-color: var(--mau-chu, #182325);
+  font-weight: 600;
+}
+
+/* Panel card chuẩn Stitch */
+.m04-panel {
+  background: var(--mau-the, #ffffff);
+  border: 1px solid var(--mau-vien, #e2e8f0);
+  border-radius: 8px;
+  padding: 22px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  position: relative;
+  transition: all 0.15s ease;
+  color: var(--mau-chu, #182325);
 }
 
 /* Agenda / Schedule List */
@@ -113,50 +197,47 @@
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .m04-row {
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding: 20px 24px;
-  background: var(--mau-the, #141414);
-  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
-  border-radius: var(--bo-goc-md, 14px);
-  transition: all 0.2s ease;
-  box-shadow: var(--bong-nhe);
+  gap: 20px;
+  padding: 16px 20px;
+  background: var(--mau-the, #ffffff);
+  border: 1px solid var(--mau-vien, #e2e8f0);
+  border-radius: 8px;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .m04-row:hover {
-  border-color: var(--mau-vien-hover, rgba(244, 91, 32, 0.4));
-  background: var(--mau-the-hover, #1a1a1a);
-  box-shadow: var(--bong-trung);
-  transform: translateY(-1px);
+  border-color: var(--mau-chinh, #087f75);
+  box-shadow: 0 2px 6px rgba(8, 127, 117, 0.06);
 }
 
 .m04-date {
   min-width: 120px;
-  padding-right: 22px;
-  border-right: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
+  padding-right: 18px;
+  border-right: 1px solid var(--mau-vien, #e2e8f0);
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 
 .m04-date strong {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 1.35rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--mau-chinh, #f45b20);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--mau-chinh, #087f75);
 }
 
 .m04-date span {
-  font-size: 0.85rem;
-  color: var(--mau-phu, #94a3b8);
+  font-size: 0.8rem;
+  color: var(--mau-phu, #595c5d);
   display: flex;
   align-items: center;
   gap: 4px;
@@ -174,102 +255,139 @@
   justify-content: center;
   width: 28px;
   height: 28px;
-  border-radius: 999px;
-  background: rgba(244, 91, 32, 0.18);
-  color: var(--mau-chinh, #f45b20);
+  border-radius: 50%;
+  background: rgba(8, 127, 117, 0.1);
+  color: var(--mau-chinh, #087f75);
   font-size: 0.75rem;
-  font-weight: 800;
+  font-weight: 700;
   flex-shrink: 0;
 }
 
-/* Status Badges */
+/* Status Badges chuẩn Stitch */
 .m04-state {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 12px;
+  padding: 3px 10px;
   border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.1));
-  background: var(--mau-the-sub, #181818);
-  color: var(--mau-chu, #cbd5e1);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  line-height: 1.25;
 }
 
 .status-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: currentColor;
   display: inline-block;
 }
 
 .m04-state.CHO_XAC_NHAN {
-  color: #f59e0b;
-  background: rgba(245, 158, 11, 0.12);
-  border-color: rgba(245, 158, 11, 0.3);
+  color: #b45309;
+  background: #fef3c7;
+  border-color: #fde68a;
 }
 
 .m04-state.DA_XAC_NHAN {
-  color: #10b981;
-  background: rgba(16, 185, 129, 0.12);
-  border-color: rgba(16, 185, 129, 0.3);
+  color: #087f75;
+  background: #e0f2f1;
+  border-color: rgba(8, 127, 117, 0.25);
 }
 
 .m04-state.HOAN_THANH {
-  color: #34d399;
-  background: rgba(52, 211, 153, 0.12);
-  border-color: rgba(52, 211, 153, 0.3);
+  color: #047857;
+  background: #d1fae5;
+  border-color: #a7f3d0;
 }
 
 .m04-state.VANG_MAT {
-  color: #fb7185;
-  background: rgba(251, 113, 133, 0.12);
-  border-color: rgba(251, 113, 133, 0.3);
+  color: #b91c1c;
+  background: #fee2e2;
+  border-color: #fecaca;
 }
 
 .m04-state.DA_HUY,
 .m04-state.HET_HAN {
-  color: #94a3b8;
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
+  color: #475569;
+  background: #f1f5f9;
+  border-color: #e2e8f0;
 }
 
 .m04-state.QUA_HAN_XAC_NHAN {
-  color: #f45b20;
-  background: rgba(244, 91, 32, 0.12);
-  border-color: rgba(244, 91, 32, 0.3);
+  color: #dc2626;
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+/* Dark mode adjustments for badges */
+[data-bs-theme='dark'] .m04-state.DA_XAC_NHAN {
+  color: #4ed8c5;
+  background: rgba(78, 216, 197, 0.12);
+  border-color: rgba(78, 216, 197, 0.25);
+}
+
+[data-bs-theme='dark'] .m04-state.CHO_XAC_NHAN {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.12);
+  border-color: rgba(251, 191, 36, 0.25);
+}
+
+[data-bs-theme='dark'] .m04-state.HOAN_THANH {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.12);
+  border-color: rgba(52, 211, 153, 0.25);
+}
+
+[data-bs-theme='dark'] .m04-state.VANG_MAT,
+[data-bs-theme='dark'] .m04-state.QUA_HAN_XAC_NHAN {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.12);
+  border-color: rgba(248, 113, 113, 0.25);
+}
+
+[data-bs-theme='dark'] .m04-state.DA_HUY,
+[data-bs-theme='dark'] .m04-state.HET_HAN {
+  color: #94a3b8;
+  background: rgba(148, 163, 184, 0.12);
+  border-color: rgba(148, 163, 184, 0.2);
 }
 
 /* Details Page */
 .m04-details {
   display: grid;
-  gap: 24px;
-  max-width: 900px;
+  gap: 20px;
+  max-width: 960px;
 }
 
 .m04-details dl {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 14px;
   margin: 0;
 }
 
 .m04-details dl > div {
-  background: var(--mau-the-sub, #181818);
-  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
-  border-radius: 12px;
+  background: var(--mau-the-sub, #f8fafc);
+  border: 1px solid var(--mau-vien, #e2e8f0);
+  border-radius: 8px;
   padding: 14px 16px;
   display: flex;
   flex-direction: column;
 }
 
+[data-bs-theme='dark'] .m04-details dl > div {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
 .m04-details dt {
-  font-weight: 650;
-  color: var(--mau-phu, #94a3b8);
-  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--mau-phu, #595c5d);
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   margin-bottom: 4px;
   display: flex;
   align-items: center;
@@ -278,169 +396,187 @@
 
 .m04-details dd {
   margin: 0;
-  font-weight: 750;
-  color: var(--mau-chu, #ffffff);
-  font-size: 1rem;
+  font-weight: 700;
+  color: var(--mau-chu, #182325);
+  font-size: 0.95rem;
   overflow-wrap: anywhere;
 }
 
 /* Callout Note Boxes */
 .m04-note {
-  padding: 16px 18px;
-  background: rgba(244, 91, 32, 0.08);
-  border: 1px solid rgba(244, 91, 32, 0.25);
-  border-left: 4px solid var(--mau-chinh, #f45b20);
-  border-radius: 10px;
-  color: var(--mau-chu, #ffffff);
-  line-height: 1.6;
-  font-size: 0.92rem;
+  padding: 14px 18px;
+  background: rgba(8, 127, 117, 0.05);
+  border: 1px solid rgba(8, 127, 117, 0.2);
+  border-left: 4px solid var(--mau-chinh, #087f75);
+  border-radius: 8px;
+  color: var(--mau-chu, #182325);
+  line-height: 1.5;
+  font-size: 0.85rem;
 }
 
 .m04-note.alert-warning-theme {
-  background: rgba(245, 158, 11, 0.1);
-  border-color: rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.25);
   border-left-color: #f59e0b;
-  color: #fef3c7;
+  color: #b45309;
 }
 
 .m04-note.alert-danger-theme {
-  background: rgba(239, 68, 68, 0.1);
-  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.25);
   border-left-color: #ef4444;
-  color: #fee2e2;
+  color: #dc2626;
 }
 
-/* Layout for Time Slots (KhungGio) */
+[data-bs-theme='dark'] .m04-note.alert-warning-theme {
+  color: #fbbf24;
+}
+
+[data-bs-theme='dark'] .m04-note.alert-danger-theme {
+  color: #f87171;
+}
+
+/* Layout for Time Slots (KhungGio - Stitch Screen 20) */
 .m04-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: 24px;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 20px;
   align-items: start;
 }
 
-/* PT Card in KhungGio */
+/* PT Companion Card in KhungGio (Stitch Screen 20) */
 .pt-companion-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 16px 20px;
-  background: var(--mau-the-sub, #181818);
-  border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
-  border-radius: 12px;
-  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 16px 18px;
+  background: var(--mau-the-sub, #f8fafc);
+  border: 1px solid var(--mau-vien, #e2e8f0);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+[data-bs-theme='dark'] .pt-companion-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .pt-avatar-circle {
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #f45b20 0%, #d94a15 100%);
-  color: white;
-  font-weight: 800;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(8, 127, 117, 0.12);
+  color: var(--mau-chinh, #087f75);
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1rem;
   flex-shrink: 0;
 }
 
-/* Slots Grid */
+/* Slots Grid chuẩn Stitch 60p */
 .m04-slots {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 12px;
 }
 
 .m04-slot {
-  border: 1.5px solid var(--mau-vien, rgba(255, 255, 255, 0.12));
-  border-radius: 12px;
-  padding: 18px 16px;
-  background: var(--mau-the, #141414);
+  border: 1px dashed var(--mau-vien, #cbd5e1);
+  border-radius: 8px;
+  padding: 14px 16px;
+  background: var(--mau-the, #ffffff);
   text-align: left;
-  color: var(--mau-chu, #ffffff);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--mau-chu, #182325);
+  transition: all 0.15s ease;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
   position: relative;
   cursor: pointer;
 }
 
 .m04-slot strong {
   display: block;
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--mau-chu, #ffffff);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--mau-chu, #182325);
 }
 
 .m04-slot small {
   display: block;
-  color: var(--mau-phu, #94a3b8);
-  font-size: 0.85rem;
-  font-weight: 600;
+  color: var(--mau-phu, #595c5d);
+  font-size: 0.78rem;
+  font-weight: 500;
 }
 
 button.m04-slot:hover {
-  border-color: var(--mau-chinh, #f45b20);
-  background: rgba(244, 91, 32, 0.08);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(244, 91, 32, 0.2);
+  border-style: solid;
+  border-color: var(--mau-chinh, #087f75);
+  background: rgba(8, 127, 117, 0.04);
+  transform: translateY(-1px);
 }
 
 .m04-slot.chon {
-  border-color: var(--mau-chinh, #f45b20);
-  background: rgba(244, 91, 32, 0.15);
-  box-shadow: 0 0 0 3px rgba(244, 91, 32, 0.25);
+  border-style: solid;
+  border-color: var(--mau-chinh, #087f75);
+  background: rgba(8, 127, 117, 0.08);
+  box-shadow: 0 0 0 1px var(--mau-chinh, #087f75);
 }
 
 .m04-slot.chon strong {
-  color: var(--mau-chinh, #f45b20);
+  color: var(--mau-chinh, #087f75);
 }
 
 .m04-slot.chon small {
-  color: var(--mau-chinh, #f45b20);
-  font-weight: 700;
+  color: var(--mau-chinh, #087f75);
+  font-weight: 600;
 }
 
 /* Empty State */
 .m04-empty {
   text-align: center;
-  padding: 56px 24px;
-  color: var(--mau-phu, #94a3b8);
-  background: var(--mau-the, #141414);
+  padding: 48px 24px;
+  color: var(--mau-phu, #595c5d);
+  background: var(--mau-the, #ffffff);
+  border-radius: 8px;
+  border: 1px solid var(--mau-vien, #e2e8f0);
 }
 
 .m04-empty i {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  font-size: 2rem;
-  color: var(--mau-chinh, #f45b20);
-  background: rgba(244, 91, 32, 0.12);
-  margin-bottom: 16px;
+  font-size: 1.6rem;
+  color: var(--mau-chinh, #087f75);
+  background: rgba(8, 127, 117, 0.1);
+  margin-bottom: 12px;
 }
 
 .m04-empty h2 {
-  font-weight: 750;
-  color: var(--mau-chu, #ffffff);
-  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--mau-chu, #182325);
+  margin-bottom: 6px;
 }
 
 .m04-empty p {
-  max-width: 480px;
+  max-width: 440px;
   margin: 0 auto;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   line-height: 1.5;
 }
 
 /* Actions */
 .m04-actions {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -450,17 +586,18 @@ button.m04-slot:hover {
 .m04-page .btn,
 .m04-page input,
 .m04-page select {
-  min-height: 42px;
-  border-radius: 8px;
+  min-height: 38px;
+  border-radius: 6px;
+  font-size: 0.875rem;
 }
 
 .m04-page :focus-visible {
-  outline: 3px solid var(--mau-chinh, #f45b20);
+  outline: 2px solid var(--mau-chinh, #087f75);
   outline-offset: 2px;
 }
 
 .m04-page [disabled] {
-  opacity: 0.65;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 

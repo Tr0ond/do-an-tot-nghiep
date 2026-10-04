@@ -98,6 +98,55 @@ class MuaGoiTest extends TestCase
         return $data;
     }
 
+    public function test_thanh_toan_thong_bao_kich_hoat_va_can_phan_cong_retry_khong_lap(): void
+    {
+        $kh = $this->khach();
+        $admin = $this->khach(TaiKhoan::ADMIN);
+        $adminKhoa = $this->khach(TaiKhoan::ADMIN);
+        $adminKhoa->forceFill(['trang_thai' => TaiKhoan::BI_KHOA])->save();
+        $don = $this->don($kh);
+        $this->giaLap($don);
+        app(MuaGoiService::class)->dongBo($don);
+        app(MuaGoiService::class)->dongBo($don->fresh());
+        $this->assertSame(1, $kh->notifications()->count());
+        $this->assertSame('Thanh toán thành công', $kh->notifications()->first()->data['tieu_de']);
+        $this->assertSame('/khach-hang/don-hang/'.$don->id, $kh->notifications()->first()->data['duong_dan']);
+        $this->assertSame(1, $admin->notifications()->count());
+        $this->assertSame('Khách hàng cần phân công PT', $admin->notifications()->first()->data['tieu_de']);
+        $this->assertSame(0, $adminKhoa->notifications()->count());
+        $this->assertSame(8, $don->fresh()->so_buoi_con_lai);
+    }
+
+    public function test_tien_ngoai_le_bao_doi_soat_dung_admin_khong_bao_kich_hoat(): void
+    {
+        $kh = $this->khach();
+        $a1 = $this->khach(TaiKhoan::ADMIN);
+        $a2 = $this->khach(TaiKhoan::ADMIN);
+        $don = $this->don($kh);
+        $this->giaLap($don, 50000);
+        app(MuaGoiService::class)->dongBo($don);
+        app(MuaGoiService::class)->dongBo($don->fresh());
+        foreach ([$a1, $a2] as $a) {
+            $this->assertSame(1, $a->notifications()->count());
+            $this->assertSame('Khoản thanh toán cần đối soát', $a->notifications()->first()->data['tieu_de']);
+            $this->assertSame('/admin/don-hang/'.$don->id, $a->notifications()->first()->data['duong_dan']);
+        }
+        $this->assertSame(0, $kh->notifications()->count());
+        $this->assertNull($don->fresh()->kich_hoat_luc);
+        $this->assertSame('CAN_DOI_SOAT', $don->fresh()->trang_thai);
+    }
+
+    public function test_goi_chatbot_rieng_khong_bao_phan_cong_pt(): void
+    {
+        $kh = $this->khach();
+        $a = $this->khach(TaiKhoan::ADMIN);
+        $don = app(MuaGoiService::class)->taoDon($kh, ['goi_tap_id' => $this->goi(0)->id, 'client_request_id' => (string) Str::uuid()]);
+        $this->giaLap($don);
+        app(MuaGoiService::class)->dongBo($don);
+        $this->assertSame(1, $kh->notifications()->count());
+        $this->assertSame(0, $a->notifications()->count());
+    }
+
     public function test_dat_mua_retry_snapshot_va_chan_don_goi_trung(): void
     {
         $khach = $this->khach();

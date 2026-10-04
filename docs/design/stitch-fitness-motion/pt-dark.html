@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>05 · Huấn luyện viên · Tối | Fitness Motion</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-low": "#111719",
+            "on-tertiary": "#001d50",
+            "on-surface": "#F3F8F7",
+            "secondary-container": "#576500",
+            "inverse-on-surface": "#505658",
+            "tertiary-dim": "#719bff",
+            "secondary-fixed-dim": "#c8e044",
+            "primary": "#4ED8C5",
+            "outline": "#707679",
+            "on-error-container": "#ffa8a3",
+            "surface-container": "#233034",
+            "on-secondary": "#4b5700",
+            "on-primary-fixed": "#00443c",
+            "on-primary-container": "#002823",
+            "error-container": "#9f0519",
+            "on-background": "#F3F8F7",
+            "outline-variant": "#35464B",
+            "secondary-dim": "#c8e044",
+            "on-primary-fixed-variant": "#006359",
+            "background": "#111719",
+            "surface-variant": "#233034",
+            "tertiary": "#89B4FF",
+            "on-secondary-fixed": "#3a4400",
+            "on-tertiary-fixed": "#00153f",
+            "tertiary-fixed-dim": "#7aa0ff",
+            "tertiary-fixed": "#90afff",
+            "on-secondary-container": "#263000",
+            "inverse-surface": "#f5fafd",
+            "error-dim": "#d7383b",
+            "inverse-primary": "#006b60",
+            "error": "#ff716c",
+            "on-secondary-fixed-variant": "#546200",
+            "primary-container": "#0fb4a2",
+            "on-tertiary-container": "#000822",
+            "tertiary-container": "#5589fe",
+            "primary-dim": "#5ce4d0",
+            "surface-tint": "#4ED8C5",
+            "on-primary": "#062F2A",
+            "surface-container-lowest": "#1A2326",
+            "primary-fixed": "#6cf2de",
+            "surface": "#111719",
+            "secondary": "#D6EF52",
+            "surface-dim": "#090f11",
+            "secondary-fixed": "#D6EF52",
+            "surface-bright": "#242e31",
+            "primary-fixed-dim": "#5ce4d0",
+            "surface-container-highest": "#233034",
+            "on-error": "#490006",
+            "on-tertiary-fixed-variant": "#003484",
+            "on-surface-variant": "#B4C4C3",
+            "surface-container-high": "#1f272a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Be Vietnam Pro", "sans-serif"],
+            "display": ["Be Vietnam Pro", "sans-serif"],
+            "body": ["Be Vietnam Pro", "sans-serif"],
+            "label": ["Be Vietnam Pro", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      letter-spacing: 0;
+      color: #F3F8F7;
+      background-color: #111719;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="bg-[#111719] text-[#F3F8F7] antialiased">
+<!-- Left Sidebar (Shared Component Anchor - 232px width) -->
+<aside class="fixed top-0 left-0 h-screen w-[232px] flex flex-col z-30 bg-[#1A2326] border-r border-[#35464B]">
+<div class="w-[232px] flex flex-col justify-between p-4 h-full">
+<!-- Top Section -->
+<div class="flex flex-col gap-6">
+<!-- Brand Header -->
+<div class="flex items-center gap-3 px-1 pt-1">
+<div class="w-9 h-9 rounded-lg bg-[#4ED8C5] flex items-center justify-center text-[#062F2A] shrink-0 font-bold">
+<span class="material-symbols-outlined text-[#062F2A]" data-icon="fitness_center">fitness_center</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-base font-bold text-[#F3F8F7] tracking-tight leading-none">HUẤN LUYỆN CÁ NHÂN</span>
+<span class="inline-block mt-1.5 px-2 py-0.5 text-[11px] font-medium tracking-normal text-[#4ED8C5] bg-[#4ED8C5]/15 border border-[#4ED8C5]/30 rounded-full w-max">Huấn luyện viên</span>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav class="flex flex-col gap-1 font-body text-sm font-medium tracking-normal">
+<a class="text-[#4ED8C5] font-semibold bg-[#4ED8C5]/15 border border-[#4ED8C5]/20 rounded-lg flex items-center gap-3 px-3 py-2.5 transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[#4ED8C5]" data-icon="dashboard">dashboard</span>
+<span>Tổng quan</span>
+</a>
+<a class="text-[#B4C4C3] font-medium rounded-lg flex items-center gap-3 px-3 py-2.5 hover:bg-[#233034] hover:text-[#F3F8F7] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span>Học viên &amp; giáo án</span>
+</a>
+<a class="text-[#B4C4C3] font-medium rounded-lg flex items-center gap-3 px-3 py-2.5 hover:bg-[#233034] hover:text-[#F3F8F7] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span>Giáo án mẫu</span>
+</a>
+<a class="text-[#B4C4C3] font-medium rounded-lg flex items-center gap-3 px-3 py-2.5 hover:bg-[#233034] hover:text-[#F3F8F7] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+<span>Khung giờ</span>
+</a>
+<a class="text-[#B4C4C3] font-medium rounded-lg flex items-center justify-between px-3 py-2.5 hover:bg-[#233034] hover:text-[#F3F8F7] transition-colors duration-150" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span>Lịch hẹn</span>
+</div>
+<span class="px-1.5 py-0.5 text-xs font-bold rounded-full bg-error-container text-white">2</span>
+</a>
+<a class="text-[#B4C4C3] font-medium rounded-lg flex items-center gap-3 px-3 py-2.5 hover:bg-[#233034] hover:text-[#F3F8F7] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span>Tin nhắn</span>
+</a>
+<a class="text-[#B4C4C3] font-medium rounded-lg flex items-center gap-3 px-3 py-2.5 hover:bg-[#233034] hover:text-[#F3F8F7] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+<span>Hồ sơ PT</span>
+</a>
+<a class="text-[#B4C4C3] font-medium rounded-lg flex items-center gap-3 px-3 py-2.5 hover:bg-[#233034] hover:text-[#F3F8F7] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="fitness_center">fitness_center</span>
+<span>Thư viện bài tập</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Quick CTA & Technical Support -->
+<div class="flex flex-col gap-3 pt-4 border-t border-[#35464B]">
+<a class="flex items-center gap-3 px-3 py-2 text-[#B4C4C3] hover:bg-[#233034] hover:text-[#F3F8F7] text-sm font-medium rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span>Hỗ trợ kỹ thuật</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Top Navigation Header (Shared Component Anchor) -->
+<header class="fixed top-0 right-0 left-[232px] h-16 z-20 bg-[#1A2326] border-b border-[#35464B]">
+<div class="flex justify-between items-center h-16 px-6 max-w-full">
+<!-- Breadcrumb Navigation -->
+<div class="flex items-center gap-2 text-sm font-medium text-[#B4C4C3]">
+<span class="hover:text-[#4ED8C5] cursor-pointer transition-colors duration-150">Trang chủ</span>
+<span class="material-symbols-outlined text-[16px] text-[#707679]" data-icon="chevron_right">chevron_right</span>
+<span class="hover:text-[#4ED8C5] cursor-pointer transition-colors duration-150">Huấn luyện viên</span>
+<span class="material-symbols-outlined text-[16px] text-[#707679]" data-icon="chevron_right">chevron_right</span>
+<span class="text-[#F3F8F7] font-semibold">Tổng quan</span>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center gap-4">
+<!-- Secondary / Dark mode toggle (Sun icon for switching to light mode) -->
+<button aria-label="Chuyển chế độ sáng" class="p-2 rounded-lg text-[#B4C4C3] hover:text-[#F3F8F7] hover:bg-[#233034] transition-colors duration-150" title="Chuyển chế độ sáng" type="button">
+<span class="material-symbols-outlined" data-icon="light_mode">light_mode</span>
+</button>
+<!-- Notification Bell with Badge -->
+<button class="relative p-2 rounded-lg text-[#B4C4C3] hover:text-[#F3F8F7] hover:bg-[#233034] transition-colors duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 bg-error text-[#111719] text-[10px] font-bold rounded-full flex items-center justify-center leading-none">3</span>
+</button>
+<!-- Vertical Divider -->
+<!-- Trailing Primary Action: Điểm danh -->
+<!-- PT Profile Avatar Info -->
+<div class="flex items-center gap-3 pl-2">
+<img class="w-9 h-9 rounded-full object-cover border border-[#35464B]" data-alt="Close-up professional photographic portrait of a Vietnamese male certified personal trainer wearing a clean athletic performance teal polo shirt in a well-lit modern gym facility with confident welcoming posture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDdtwGHibmPx5ApE0GkdtWruvAjcaxVmcEjuFQVl-xLSI24guzM7R3B8RhM5EXIf77ZbZuNEhex53dRCWp86HfOPYb2j-VyKuRytAKNIexVi2Tle6zQwzv5_aLz2N3wEubuQCzQF47jGuRW8yuj1o8NL-kwpDP-kGjfztB4F5Ci7htRaqGH5WFZp77iNFVGSdbGL14V1ikAh97tJW976rjK-iEzCQO0EanLcILcqedsySHWBME2AKcj7l4iKw9A6wOjvonIJRZd397"/>
+<div class="flex flex-col text-left">
+<span class="text-sm font-bold text-[#F3F8F7] leading-snug">Lê Hoàng Anh</span>
+<span class="text-xs text-[#B4C4C3] font-normal">Senior PT</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas (Layout: Left 232px offset, Top 64px offset, padding 32px) -->
+<main class="ml-[232px] pt-16 min-h-screen bg-[#111719]">
+<div class="p-8 max-w-[1208px] mx-auto flex flex-col gap-6">
+<!-- 1. Header Row -->
+<section class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<div>
+<h1 class="text-[28px] font-bold text-[#F3F8F7] tracking-tight leading-tight">Ngày huấn luyện của bạn</h1>
+<div class="flex items-center gap-2 mt-1 text-sm text-[#B4C4C3]"><span class="material-symbols-outlined text-[#4ED8C5] text-[18px]" data-icon="calendar_today">calendar_today</span><span class="font-medium text-[#F3F8F7]">Chủ Nhật, 04/10/2026</span></div>
+</div>
+<div class="flex items-center gap-3">
+<button class="h-10 px-4 flex items-center gap-2 bg-[#233034] border border-[#35464B] text-[#F3F8F7] hover:bg-[#35464B] font-medium text-sm rounded-lg transition-colors duration-150">
+<span class="material-symbols-outlined text-[18px]" data-icon="history">history</span>
+<span>Xem lịch tuần</span>
+</button>
+<button class="h-10 px-4 flex items-center gap-2 bg-[#4ED8C5] text-[#062F2A] font-bold text-sm rounded-lg hover:brightness-105 transition-all duration-150">
+<span class="material-symbols-outlined text-[18px] text-[#062F2A]" data-icon="add_circle">add_circle</span>
+<span>Tạo khung giờ</span>
+</button>
+</div>
+</section>
+<!-- 2. Slim Stats Row (4 Dense Cards) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Stat 1 -->
+<div class="bg-[#1A2326] border border-[#35464B] rounded-lg p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-[#B4C4C3] uppercase tracking-wider">Lịch trong ngày</span>
+<span class="w-7 h-7 rounded bg-[#4ED8C5]/20 flex items-center justify-center text-[#4ED8C5]">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+</span>
+</div>
+<div class="mt-2">
+<div class="text-2xl font-bold text-[#F3F8F7]">4 buổi hôm nay</div>
+<div class="text-xs text-[#B4C4C3] mt-1 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#4ED8C5]"></span><span>1 đã hoàn thành · 1 chờ xác nhận · 2 sắp tới</span></div>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="bg-[#1A2326] border border-[#35464B] rounded-lg p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-[#B4C4C3] uppercase tracking-wider">Học viên quản lý</span>
+<span class="w-7 h-7 rounded bg-[#233034] flex items-center justify-center text-[#F3F8F7]">
+<span class="material-symbols-outlined text-[18px]" data-icon="groups">groups</span>
+</span>
+</div>
+<div class="mt-2">
+<div class="text-2xl font-bold text-[#F3F8F7]">12 học viên</div>
+<div class="text-xs text-[#B4C4C3] mt-1">Đang hoạt động thường xuyên</div>
+</div>
+</div>
+<!-- Stat 3: Alert -->
+<div class="bg-[#1A2326] border border-[#35464B] rounded-lg p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-[#B4C4C3] uppercase tracking-wider">Yêu cầu xếp lịch</span>
+<span class="px-2 py-0.5 text-[11px] font-bold rounded bg-[#FFD17C]/20 text-[#FFD17C] border border-[#FFD17C]/30">Cần duyệt</span>
+</div>
+<div class="mt-2">
+<div class="text-2xl font-bold text-[#F3F8F7]">2 yêu cầu lịch chờ</div>
+<div class="text-xs text-[#FFD17C] font-medium mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="priority_high">priority_high</span>
+<span>Phản hồi trước ca 12h</span>
+</div>
+</div>
+</div>
+<!-- Stat 4 -->
+<div class="bg-[#1A2326] border border-[#35464B] rounded-lg p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-[#B4C4C3] uppercase tracking-wider">Kiểm tra bài tập</span>
+<span class="w-7 h-7 rounded bg-[#D6EF52]/20 flex items-center justify-center text-[#D6EF52]">
+<span class="material-symbols-outlined text-[18px]" data-icon="rate_review">rate_review</span>
+</span>
+</div>
+<div class="mt-2">
+<div class="text-2xl font-bold text-[#F3F8F7]">3 nhật ký cần nhận xét</div>
+<div class="text-xs text-[#B4C4C3] mt-1">Học viên vừa nộp bài tập</div>
+</div>
+</div>
+</section>
+<!-- 3. Main Split Layout (Left 60%, Right 40%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT COLUMN (60% ~ 7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- Section: Lịch dạy hôm nay -->
+<div class="bg-[#1A2326] border border-[#35464B] rounded-lg overflow-hidden">
+<div class="px-5 py-4 border-b border-[#35464B] flex items-center justify-between bg-[#1A2326]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#4ED8C5]" data-icon="event_note">event_note</span>
+<h2 class="text-base font-bold text-[#F3F8F7]">Lịch dạy hôm nay (04/10/2026)</h2>
+</div>
+<span class="text-xs font-medium text-[#B4C4C3]">Tổng số 4 ca huấn luyện</span>
+</div>
+<div class="divide-y divide-[#35464B]">
+<!-- Slot 1 (08:00 - 09:00) -->
+<div class="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#233034]/70">
+<div class="flex items-start sm:items-center gap-3.5">
+<div class="w-20 text-center sm:text-left shrink-0">
+<span class="block text-sm font-bold text-[#F3F8F7]">08:00</span>
+<span class="block text-xs text-[#B4C4C3]">09:00</span>
+</div>
+<div class="w-9 h-9 rounded-full bg-[#1A2326] border border-[#35464B] flex items-center justify-center font-bold text-xs text-[#B4C4C3] shrink-0">
+                    TB
+                  </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-sm font-semibold text-[#F3F8F7]">Trần Văn B</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#1A2326] text-[#B4C4C3] border border-[#35464B]">Buổi 6/12</span>
+</div>
+<p class="text-xs text-[#B4C4C3] mt-0.5">Strength Foundation · Ca kết thúc cách đây 3h</p>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end sm:self-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium bg-[#4ED8C5]/15 text-[#4ED8C5] border border-[#4ED8C5]/30">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+Đã hoàn thành
+</span>
+<button class="h-8 px-3 text-xs font-medium text-[#F3F8F7] bg-[#233034] hover:bg-[#35464B] border border-[#35464B] rounded transition-colors duration-150">
+Xem chi tiết
+</button>
+</div>
+</div>
+<!-- Slot 2 (10:00 - 11:00) -->
+<div class="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#233034] hover:bg-[#233034]/90 transition-colors">
+<div class="flex items-start sm:items-center gap-3.5">
+<div class="w-20 text-center sm:text-left shrink-0">
+<span class="block text-sm font-bold text-[#F3F8F7]">10:00</span>
+<span class="block text-xs text-[#B4C4C3]">11:00</span>
+</div>
+<div class="w-9 h-9 rounded-full bg-[#FFD17C]/20 border border-[#FFD17C]/40 text-[#FFD17C] flex items-center justify-center font-bold text-xs shrink-0">
+                    PM
+                  </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-sm font-semibold text-[#F3F8F7]">Phạm Thị M</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#1A2326] text-[#B4C4C3] border border-[#35464B]">Buổi 3/10</span>
+</div>
+<p class="text-xs text-[#B4C4C3] mt-0.5">Fat Loss Phase 1 · Vừa kết thúc (còn 23h để chốt)</p>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end sm:self-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium bg-[#FFD17C]/15 text-[#FFD17C] border border-[#FFD17C]/30">
+<span class="w-1.5 h-1.5 rounded-full bg-[#FFD17C]"></span>
+                    Vừa kết thúc
+                  </span>
+<button class="h-8 px-3 text-xs font-bold text-[#062F2A] bg-[#4ED8C5] hover:brightness-105 rounded transition-colors duration-150">
+                    Xác nhận hoàn thành
+                  </button>
+</div>
+</div>
+<!-- Slot 3 (15:00 - 16:00) -->
+<div class="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#233034] hover:bg-[#233034]/90 transition-colors">
+<div class="flex items-start sm:items-center gap-3.5">
+<div class="w-20 text-center sm:text-left shrink-0">
+<span class="block text-sm font-bold text-[#89B4FF]">15:00</span>
+<span class="block text-xs text-[#B4C4C3]">16:00</span>
+</div>
+<div class="w-9 h-9 rounded-full bg-[#89B4FF]/20 border border-[#89B4FF]/40 text-[#89B4FF] flex items-center justify-center font-bold text-xs shrink-0">
+                    NQ
+                  </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-sm font-semibold text-[#F3F8F7]">Nguyễn Minh Quân</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#1A2326] text-[#B4C4C3] border border-[#35464B]">Buổi 5/12</span>
+</div>
+<p class="text-xs text-[#B4C4C3] mt-0.5">Hypertrophy 8W · Trọng tâm Ngực &amp; Tay sau</p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-center"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium bg-[#89B4FF]/15 text-[#89B4FF] border border-[#89B4FF]/30">Sắp diễn ra</span><button class="h-8 px-3 text-xs font-medium text-[#F3F8F7] bg-[#233034] hover:bg-[#35464B] border border-[#35464B] rounded transition-colors duration-150">Chi tiết</button></div>
+</div>
+<!-- Slot 4 (17:30 - 18:30) -->
+<div class="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#233034] hover:bg-[#233034]/90 transition-colors">
+<div class="flex items-start sm:items-center gap-3.5">
+<div class="w-20 text-center sm:text-left shrink-0">
+<span class="block text-sm font-bold text-[#F3F8F7]">17:30</span>
+<span class="block text-xs text-[#B4C4C3]">18:30</span>
+</div>
+<div class="w-9 h-9 rounded-full bg-[#1A2326] border border-[#35464B] text-[#B4C4C3] flex items-center justify-center font-bold text-xs shrink-0">
+                    ĐK
+                  </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-sm font-semibold text-[#F3F8F7]">Đỗ Tuấn K</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-[#D6EF52] text-[#263000]">Buổi 1/12</span>
+</div>
+<p class="text-xs text-[#B4C4C3] mt-0.5">Kiểm tra thể lực ban đầu &amp; Đánh giá tư thế</p>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end sm:self-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium bg-[#1A2326] text-[#B4C4C3] border border-[#35464B]">
+                    Chưa bắt đầu
+                  </span>
+<button class="h-8 px-3 text-xs font-medium text-[#F3F8F7] bg-[#233034] hover:bg-[#35464B] border border-[#35464B] rounded transition-colors">
+                    Chi tiết
+                  </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Yêu cầu đặt lịch chờ duyệt (Pending Requests ONLY) -->
+<div class="bg-[#1A2326] border border-[#35464B] rounded-lg overflow-hidden">
+<div class="px-5 py-4 border-b border-[#35464B] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#FFD17C]" data-icon="pending_actions">pending_actions</span>
+<h2 class="text-base font-bold text-[#F3F8F7]">Yêu cầu đặt lịch chờ duyệt (Pending Requests)</h2>
+</div>
+<span class="px-2 py-0.5 text-xs font-bold rounded-full bg-[#FFD17C]/20 text-[#FFD17C] border border-[#FFD17C]/30">2 cần xử lý</span>
+</div>
+<div class="divide-y divide-[#35464B]">
+<!-- Item 1 -->
+<div class="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#233034]">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-full bg-[#4ED8C5]/20 text-[#4ED8C5] border border-[#4ED8C5]/30 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                    LT
+                  </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-sm font-semibold text-[#F3F8F7]">Lê Thu Trang</span>
+<span class="text-xs text-[#B4C4C3]">· Gói PT 24 buổi</span>
+</div>
+<p class="text-xs font-medium text-[#4ED8C5] mt-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]" data-icon="alarm">alarm</span>
+                      Yêu cầu ca: <strong>Thứ Ba 06/10 · 09:00 - 10:00</strong>
+</p>
+<p class="text-[11px] text-[#B4C4C3] mt-0.5">Ghi chú học viên: Em muốn đổi sang sáng do bận làm thêm chiều.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0 self-end sm:self-center"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium bg-[#FFD17C]/15 text-[#FFD17C] border border-[#FFD17C]/30"><span class="w-1.5 h-1.5 rounded-full bg-[#FFD17C]"></span>Chờ xác nhận</span><button class="h-8 px-3 text-xs font-medium text-[#B4C4C3] hover:text-error bg-[#233034] border border-[#35464B] hover:border-error/40 rounded transition-colors duration-150">Từ chối</button><button class="h-8 px-3 text-xs font-bold text-[#062F2A] bg-[#4ED8C5] hover:brightness-105 rounded transition-colors duration-150">Xác nhận</button></div>
+</div>
+<!-- Item 2 -->
+<div class="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#233034]">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-full bg-[#1A2326] border border-[#35464B] text-[#F3F8F7] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                    HN
+                  </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-sm font-semibold text-[#F3F8F7]">Hoàng Nam</span>
+<span class="text-xs text-[#B4C4C3]">· Gói PT 12 buổi</span>
+</div>
+<p class="text-xs font-medium text-[#4ED8C5] mt-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]" data-icon="alarm">alarm</span>
+                      Yêu cầu ca: <strong>Thứ Tư 07/10 · 18:00 - 19:00</strong>
+</p>
+<p class="text-[11px] text-[#B4C4C3] mt-0.5">Ca tự chọn trong khung giờ trống của HLV.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0 self-end sm:self-center"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium bg-[#FFD17C]/15 text-[#FFD17C] border border-[#FFD17C]/30"><span class="w-1.5 h-1.5 rounded-full bg-[#FFD17C]"></span>Chờ xác nhận</span><button class="h-8 px-3 text-xs font-medium text-[#B4C4C3] hover:text-error bg-[#233034] border border-[#35464B] hover:border-error/40 rounded transition-colors duration-150">Từ chối</button><button class="h-8 px-3 text-xs font-bold text-[#062F2A] bg-[#4ED8C5] hover:brightness-105 rounded transition-colors duration-150">Xác nhận</button></div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (40% ~ 5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- Section: Học viên phụ trách & Tiến độ -->
+<div class="bg-[#1A2326] border border-[#35464B] rounded-lg overflow-hidden">
+<div class="px-5 py-4 border-b border-[#35464B] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#4ED8C5]" data-icon="speed">speed</span>
+<h2 class="text-base font-bold text-[#F3F8F7]">Học viên phụ trách &amp; Tiến độ</h2>
+</div>
+<a class="text-xs font-medium text-[#4ED8C5] hover:underline" href="#">Tất cả (12)</a>
+</div>
+<div class="divide-y divide-[#35464B]">
+<!-- Learner 1 -->
+<div class="p-4 flex flex-col gap-2.5 bg-[#233034]">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-sm font-semibold text-[#F3F8F7]">Nguyễn Minh Quân</h3>
+<span class="text-xs text-[#B4C4C3]">Giáo án: Hypertrophy 8W</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-[#4ED8C5]/15 text-[#4ED8C5] border border-[#4ED8C5]/30">
+                    Đúng tiến độ
+                  </span>
+</div>
+<div class="flex items-center justify-between text-xs text-[#B4C4C3]">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium bg-[#4ED8C5]/15 text-[#4ED8C5] border border-[#4ED8C5]/30">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+Đã hoàn thành
+</span>
+<button class="h-8 px-3 text-xs font-medium text-[#F3F8F7] bg-[#1A2326] hover:bg-[#35464B] border border-[#35464B] rounded transition-colors duration-150">
+Xem chi tiết
+</button>
+</div>
+</div>
+<!-- Learner 2 -->
+<div class="p-4 flex flex-col gap-2.5 bg-[#233034]">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-sm font-semibold text-[#F3F8F7]">Phạm Thị M</h3>
+<span class="text-xs text-[#B4C4C3]">Giáo án: Fat Loss Phase 1</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#1A2326] text-[#B4C4C3] border border-[#35464B]">
+1/3 buổi tuần này
+</span>
+</div>
+<div class="flex items-center justify-between text-xs text-[#B4C4C3]">
+<span>Buổi tự tập: <strong class="text-error">1/3</strong> tuần này</span>
+<div class="flex items-center gap-2">
+<button class="text-xs text-[#B4C4C3] hover:text-[#4ED8C5] font-medium">
+                      Điều chỉnh
+                    </button>
+<span class="text-[#35464B]">•</span>
+<button class="flex items-center gap-1 text-[#4ED8C5] hover:brightness-110 font-medium">
+<span class="material-symbols-outlined text-[14px]" data-icon="chat">chat</span>
+<span>Nhắn tin</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Learner 3 -->
+<div class="p-4 flex flex-col gap-2.5 bg-[#233034]">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-sm font-semibold text-[#F3F8F7]">Trần Văn B</h3>
+<span class="text-xs text-[#B4C4C3]">Giáo án: Strength Foundation</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-[#4ED8C5]/15 text-[#4ED8C5] border border-[#4ED8C5]/30">
+                    Hoàn thành tốt
+                  </span>
+</div>
+<div class="flex items-center justify-between text-xs text-[#B4C4C3]">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium bg-[#89B4FF]/15 text-[#89B4FF] border border-[#89B4FF]/30">
+Sắp diễn ra
+</span>
+<div class="flex items-center gap-2">
+<button class="h-8 px-2.5 text-xs font-medium text-[#F3F8F7] bg-[#1A2326] hover:bg-[#35464B] border border-[#35464B] rounded transition-colors">
+Xem giáo án
+</button>
+<button class="h-8 px-2.5 text-xs font-medium text-[#F3F8F7] bg-[#1A2326] hover:bg-[#35464B] border border-[#35464B] rounded transition-colors">
+Chi tiết
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Nhật ký tập học viên cần nhận xét (3) -->
+<div class="bg-[#1A2326] border border-[#35464B] rounded-lg p-5 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#4ED8C5]" data-icon="rate_review">rate_review</span>
+<h2 class="text-base font-bold text-[#F3F8F7]">Nhật ký cần nhận xét</h2>
+</div>
+<span class="text-xs font-bold px-2 py-0.5 rounded bg-[#D6EF52] text-[#263000]">3 lượt</span>
+</div>
+<!-- Quick Feedback Card for Nguyễn Minh Quân -->
+<div class="bg-[#233034] p-3.5 rounded-lg border border-[#35464B] flex flex-col gap-3">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-[#F3F8F7]">Nguyễn Minh Quân</span>
+<span class="text-[11px] text-[#B4C4C3]">· 45 phút trước</span>
+</div>
+<span class="text-xs font-medium text-[#89B4FF]">Buổi tự tập: Upper Body A</span>
+</div>
+<span class="material-symbols-outlined text-[#707679] text-[16px]" data-icon="fitness_center">fitness_center</span>
+</div>
+<!-- Exercise Metrics Data -->
+<div class="grid grid-cols-2 gap-2 text-xs bg-[#1A2326] p-2.5 rounded border border-[#35464B]">
+<div>
+<span class="text-[#B4C4C3] block text-[11px]">Back Squat:</span>
+<span class="font-bold text-[#F3F8F7]">4 hiệp x 80kg</span>
+</div>
+<div>
+<span class="text-[#B4C4C3] block text-[11px]">Dumbbell Bench:</span>
+<span class="font-bold text-[#F3F8F7]">3 hiệp x 24kg</span>
+</div>
+</div>
+<!-- Input Area for Quick Feedback -->
+<div class="flex flex-col gap-2">
+<label class="sr-only" for="pt-feedback">Nhập nhận xét nhanh</label>
+<textarea class="w-full text-xs p-2.5 rounded border border-[#35464B] focus:ring-1 focus:ring-[#4ED8C5] focus:border-[#4ED8C5] bg-[#1A2326] text-[#F3F8F7] resize-none placeholder:text-[#707679]" id="pt-feedback" placeholder="Nhập nhận xét nhanh của HLV..." rows="2"></textarea>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-1.5 text-[11px] text-[#B4C4C3]">
+<span class="material-symbols-outlined text-[14px] text-[#D6EF52]" data-icon="smart_toy">smart_toy</span>
+<span>Gợi ý bởi Tr0ond AI</span>
+</div>
+<button class="h-7 px-3 text-xs font-bold text-[#062F2A] bg-[#4ED8C5] hover:brightness-105 rounded transition-colors duration-150">
+                    Gửi phản hồi
+                  </button>
+</div>
+</div>
+</div>
+<!-- Additional Pending Review Mini Row -->
+<div class="flex items-center justify-between text-xs py-2 px-3 border border-[#35464B] rounded-lg bg-[#233034]">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#FFD17C]"></span>
+<span class="font-medium text-[#F3F8F7]">Phạm Thị M · Cardio &amp; Core</span>
+</div>
+<button class="text-[#4ED8C5] hover:underline font-medium">Nhận xét</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<link rel="stylesheet" href="preview-polish.css"/>
+<script src="preview-polish.js"></script>
+</body></html>

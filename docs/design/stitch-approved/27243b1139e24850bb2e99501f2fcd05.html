@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lịch &amp; Nhật ký tập | Fitness Motion</title>
+<!-- Google Fonts: Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#3a4400",
+            "surface": "#f5f7f8",
+            "surface-variant": "#d9dddf",
+            "tertiary": "#0854c7",
+            "outline": "#747778",
+            "error-dim": "#9f0519",
+            "secondary-dim": "#495500",
+            "on-primary": "#bffff5",
+            "primary-fixed-dim": "#81dfd3",
+            "on-surface-variant": "#595c5d",
+            "on-tertiary-container": "#002c72",
+            "tertiary-fixed-dim": "#7aa0ff",
+            "surface-container-high": "#dfe3e4",
+            "primary-container": "#8fede1",
+            "on-tertiary": "#f1f2ff",
+            "surface-dim": "#d0d5d7",
+            "surface-bright": "#f5f7f8",
+            "primary": "#00675f",
+            "on-secondary-container": "#4b5700",
+            "surface-container-highest": "#d9dddf",
+            "on-secondary": "#e6ff63",
+            "on-error-container": "#570008",
+            "on-secondary-fixed-variant": "#546200",
+            "on-primary-fixed-variant": "#00635b",
+            "background": "#f5f7f8",
+            "surface-container-low": "#eef1f2",
+            "error-container": "#fb5151",
+            "surface-container-lowest": "#ffffff",
+            "inverse-on-surface": "#9a9d9e",
+            "on-tertiary-fixed": "#00153f",
+            "on-tertiary-fixed-variant": "#003484",
+            "on-primary-container": "#005851",
+            "secondary-fixed": "#d6ef52",
+            "primary-dim": "#005a52",
+            "secondary": "#546200",
+            "inverse-primary": "#a0fff2",
+            "surface-tint": "#00675f",
+            "error": "#b31b25",
+            "on-error": "#ffefee",
+            "on-background": "#2c2f30",
+            "tertiary-dim": "#0049b1",
+            "on-primary-fixed": "#00443e",
+            "secondary-container": "#d6ef52",
+            "tertiary-container": "#90afff",
+            "surface-container": "#e5e9ea",
+            "tertiary-fixed": "#90afff",
+            "secondary-fixed-dim": "#c8e044",
+            "primary-fixed": "#8fede1",
+            "inverse-surface": "#0b0f10",
+            "outline-variant": "#abadae",
+            "on-surface": "#2c2f30"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {},
+          "fontFamily": {
+            "headline": ["Be Vietnam Pro", "sans-serif"],
+            "display": ["Be Vietnam Pro", "sans-serif"],
+            "body": ["Be Vietnam Pro", "sans-serif"],
+            "label": ["Be Vietnam Pro", "sans-serif"]
+          },
+          "fontSize": {}
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      letter-spacing: 0;
+      color: #182325;
+      background-color: #F5F7F8;
+    }
+    /* Custom subtle scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F5F7F8;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased flex h-screen overflow-hidden">
+<!-- ================= SIDEBAR (232px) ================= -->
+<!-- Shared Component: SideNavBar -->
+<aside class="w-[232px] h-screen flex flex-col justify-between p-3 shrink-0 z-40 fixed top-0 left-0 bg-surface-container-lowest border-r border-outline-variant/30">
+<div class="flex flex-col gap-5">
+<!-- Brand Header -->
+<div class="px-2 pt-2 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary font-black text-base shadow-sm">
+            FM
+          </div>
+<div>
+<div class="font-headline text-base font-bold text-primary tracking-normal leading-tight">Fitness Motion</div>
+<div class="text-[11px] text-on-surface-variant font-medium">Hệ thống quản lý PT</div>
+</div>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav class="flex flex-col gap-1">
+<!-- Tab 1: Active (Lịch & Nhật ký) -->
+<a class="bg-primary text-on-primary font-semibold rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="text-sm font-medium tracking-normal">Lịch &amp; Nhật ký</span>
+</a>
+<!-- Tab 2: Soạn giáo án / Kế hoạch tập -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">fitness_center</span>
+<span class="text-sm font-medium">Soạn giáo án</span>
+</a>
+<!-- Tab 3: Chat trực tuyến -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+<span class="text-sm font-medium flex-1">Chat trực tuyến</span>
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+</a>
+<!-- Tab 4: Quản lý gói tập -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+<span class="text-sm font-medium">Quản lý gói tập</span>
+</a>
+<!-- Tab 5: Học viên & Yêu cầu -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="text-sm font-medium">Học viên &amp; Yêu cầu</span>
+</a>
+</nav>
+<!-- Advisor Widget: Tr0ond AI (Gated Advisor) -->
+<div class="mx-1 p-3 rounded-lg bg-surface-container-low border border-outline-variant/30 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-xs font-semibold text-primary">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+<span>Tr0ond AI Hỗ trợ</span>
+</div>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-fixed font-bold">Quota: 12/15</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-relaxed">Gợi ý tuần này: Duy trì tạ ngực 65kg để chuẩn bị test 1RM vào Chủ Nhật.</p>
+</div>
+</div>
+<!-- Sidebar Footer -->
+<div class="flex flex-col gap-1 pt-2 border-t border-outline-variant/20">
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-sm font-medium">Cài đặt</span>
+</a>
+<a class="text-on-surface-variant hover:text-error hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="text-sm font-medium">Đăng xuất</span>
+</a>
+</div>
+</aside>
+<!-- ================= MAIN CONTENT WRAPPER ================= -->
+<div class="ml-[232px] flex-1 flex flex-col h-screen overflow-hidden">
+<!-- ================= TOP APP BAR (64px) ================= -->
+<!-- Shared Component: TopNavBar -->
+<header class="h-16 px-6 bg-surface-container-lowest border-b border-outline-variant/30 flex items-center justify-between shrink-0 z-30">
+<!-- Search Input -->
+<div class="w-72 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-3 text-xs bg-surface-container-low border border-outline-variant/40 rounded-lg text-on-surface focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary placeholder:text-on-surface-variant/70 font-body" placeholder="Tìm buổi tập, giáo án, chỉ số..." type="text"/>
+</div>
+<!-- Quick Nav Links -->
+<div class="hidden lg:flex items-center gap-6">
+<a class="text-xs text-on-surface-variant hover:text-on-surface font-medium transition-colors" href="#">Thư viện bài tập</a>
+<a class="text-xs text-primary font-semibold border-b-2 border-primary pb-0.5" href="#">Lịch tập</a>
+<a class="text-xs text-on-surface-variant hover:text-on-surface font-medium transition-colors" href="#">Kế hoạch</a>
+</div>
+<!-- Trailing Cluster -->
+<div class="flex items-center gap-3">
+<!-- Theme Toggle -->
+<button class="w-9 h-9 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" title="Chế độ giao diện">
+<span class="material-symbols-outlined text-[20px]">light_mode</span>
+</button>
+<!-- Notification Bell -->
+<button class="w-9 h-9 relative flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" title="Thông báo">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<div class="h-6 w-[1px] bg-outline-variant/30 mx-1"></div>
+<!-- User Profile Pill -->
+<div class="flex items-center gap-2.5 pl-1 cursor-pointer">
+<img class="w-8 h-8 rounded-full object-cover border border-outline-variant/30" data-alt="Close up realistic portrait photograph of a confident young Vietnamese male fitness trainee wearing a clean sport athletic tee shirt in a brightly illuminated modern gym studio setting with cool neutral tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYyEx5SeSQNLXw5rQRuc8XjVIiERRcODrEXiq_ZZEALHBxjRIsGo0PCRttHa4rFHllLrRZOFFD4jaBsPJfbOd5ocgl5bVeIk4jjcNHY7aPisR2t70hhgm3IH3uG3JdtmBc_4joPF7FhkcGjMNew9jZFuCIXICjaF5ezgSayY_p7jef1nF_G3xOrIVtA-GGtZ_BfApzhkHUzkMUme2Fvgz5_SpnfA_vMg8cfPKgYlGuEu3MGj8wkPqSOFCeVtL7w14ht8q17JvWNuR9"/>
+<div class="hidden sm:block text-left">
+<div class="text-xs font-bold text-on-surface leading-tight">Nguyễn Minh Quân</div>
+<div class="text-[10px] text-on-surface-variant">Học viên Cá nhân</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</header>
+<!-- ================= CANVAS (Scrollable) ================= -->
+<main class="flex-1 overflow-y-auto p-6 space-y-6 bg-surface">
+<!-- PAGE HEADER & ACTION CONTROLS -->
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+<div>
+<div class="flex items-center gap-2">
+<h1 class="text-2xl font-bold tracking-tight text-on-surface font-headline">Lịch tập &amp; Nhật ký vận động</h1>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container-high text-on-surface-variant border border-outline-variant/30">
+              Giáo án: Tăng cơ 8 tuần (Tuần 4)
+            </span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">
+            Theo dõi kế hoạch tự tập, lịch hẹn trực tiếp với PT và ghi nhận tải trọng thực tế.
+          </p>
+</div>
+<div class="flex items-center flex-wrap gap-2.5">
+<!-- View Switcher -->
+<div class="flex items-center bg-surface-container-low p-1 rounded-lg border border-outline-variant/30">
+<button class="px-3 py-1.5 text-xs font-semibold rounded bg-surface-container-lowest text-primary shadow-sm transition-all">
+              Theo tuần
+            </button>
+<button class="px-3 py-1.5 text-xs font-medium text-on-surface-variant hover:text-on-surface transition-all">
+              Theo ngày
+            </button>
+</div>
+<!-- Secondary CTA: Log entry -->
+<button class="h-10 px-4 rounded-lg bg-surface-container-lowest border border-outline-variant/50 text-xs font-semibold text-on-surface hover:bg-surface-container-low flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit_calendar</span>
+<span>Ghi nhận nhật ký</span>
+</button>
+<!-- Primary CTA (44px target) -->
+<button class="h-11 px-4 rounded-lg bg-primary text-on-primary hover:bg-primary-dim text-xs font-bold flex items-center gap-2 shadow-sm transition-colors cursor-pointer" onclick="document.getElementById('drawer-workout-template').classList.remove('translate-x-full')">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Tạo buổi tự tập từ giáo án</span>
+</button>
+</div>
+</div>
+<!-- PROGRESS SUMMARY BAR & LEGEND -->
+<div class="bg-surface-container-lowest rounded-lg p-4 border border-outline-variant/30 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<!-- Trainee Progress -->
+<div class="flex items-center gap-6">
+<div>
+<div class="text-[11px] font-medium text-on-surface-variant">Tiến độ tập tuần 4</div>
+<div class="text-base font-bold text-on-surface mt-0.5 flex items-center gap-2">
+<span>3 / 4 buổi hoàn thành</span>
+<span class="text-xs px-2 py-0.5 rounded font-bold bg-secondary-container text-on-secondary-fixed">75% đạt chuẩn</span>
+</div>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30 hidden sm:block"></div>
+<div>
+<div class="text-[11px] font-medium text-on-surface-variant">Số buổi với PT còn lại</div>
+<div class="text-base font-bold text-tertiary mt-0.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>14 buổi</span>
+<span class="text-xs font-normal text-on-surface-variant">(Gói 24 buổi)</span>
+</div>
+</div>
+</div>
+<!-- Color Legend -->
+<div class="flex items-center flex-wrap gap-4 text-xs">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-sm bg-[#EBF2FF] border border-[#2864D7]"></span>
+<span class="text-on-surface-variant font-medium">Lịch hẹn PT (#2864D7)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-sm bg-[#E6F6F4] border border-[#087F75]"></span>
+<span class="text-on-surface-variant font-medium">Tự tập theo giáo án (#087F75)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-sm bg-surface-container-high border border-outline-variant"></span>
+<span class="text-on-surface-variant font-medium">Ngày nghỉ</span>
+</div>
+</div>
+</div>
+<!-- ================= WEEK CALENDAR GRID (7 DAYS) ================= -->
+<section class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 overflow-hidden">
+<!-- Calendar Header Navigation -->
+<div class="px-5 py-3 border-b border-outline-variant/20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="text-sm font-bold text-on-surface">Tuần 14: 15/04/2024 - 21/04/2024</span>
+<span class="text-xs text-primary font-medium bg-primary-container/30 px-2 py-0.5 rounded">Hiện tại</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 rounded hover:bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="px-2.5 py-1 text-xs font-medium rounded hover:bg-surface-container-low text-on-surface">Hôm nay</button>
+<button class="p-1 rounded hover:bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- 7-Column Grid -->
+<div class="grid grid-cols-1 md:grid-cols-7 divide-y md:divide-y-0 md:divide-x divide-outline-variant/20 min-h-[300px]">
+<!-- THỨ HAI (15/04) -->
+<div class="p-3 flex flex-col gap-2.5 bg-surface-container-lowest">
+<div class="flex items-center justify-between text-xs">
+<span class="font-semibold text-on-surface">Thứ 2</span>
+<span class="text-on-surface-variant">15/04</span>
+</div>
+<!-- Buổi tự tập completed -->
+<div class="p-2.5 rounded-lg bg-[#E6F6F4] border border-[#087F75]/40 text-left flex flex-col gap-1.5 shadow-xs">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold uppercase tracking-wider text-[#087F75] bg-white/70 px-1.5 py-0.5 rounded">Tự tập</span>
+<span class="material-symbols-outlined text-[14px] text-[#087F75]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="text-xs font-bold text-[#005851] leading-snug">Upper Body A</div>
+<div class="text-[11px] text-on-surface-variant">4 bài · 60 phút</div>
+<div class="text-[10px] text-[#00675f] font-semibold mt-1">Đã hoàn thành 100%</div>
+</div>
+</div>
+<!-- THỨ BA (16/04) - Lịch hẹn PT -->
+<div class="p-3 flex flex-col gap-2.5 bg-surface-container-lowest">
+<div class="flex items-center justify-between text-xs">
+<span class="font-semibold text-on-surface">Thứ 3</span>
+<span class="text-on-surface-variant">16/04</span>
+</div>
+<!-- PT Appointment card -->
+<div class="p-2.5 rounded-lg bg-[#EBF2FF] border border-[#2864D7] text-left flex flex-col gap-1.5 shadow-xs">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold uppercase tracking-wider text-[#2864D7] bg-white/80 px-1.5 py-0.5 rounded">Lịch PT</span>
+<span class="material-symbols-outlined text-[14px] text-[#2864D7]" style="font-variation-settings: 'FILL' 1;">event_available</span>
+</div>
+<div class="text-xs font-bold text-[#002c72] leading-snug">17:00 - 18:00</div>
+<div class="text-[11px] text-[#0854c7] font-medium leading-tight">PT Lê Hoàng Anh</div>
+<div class="text-[10px] text-on-surface-variant">Kỹ thuật Squat &amp; Deadlift</div>
+<span class="inline-block text-[10px] text-[#0854c7] font-bold bg-[#D4E3FF] px-1.5 py-0.5 rounded w-max mt-0.5">
+                Đã hoàn thành
+              </span>
+</div>
+</div>
+<!-- THỨ TƯ (17/04) - Ngày nghỉ phục hồi -->
+<div class="p-3 flex flex-col gap-2.5 bg-surface-container-low/40">
+<div class="flex items-center justify-between text-xs">
+<span class="font-semibold text-on-surface-variant">Thứ 4</span>
+<span class="text-on-surface-variant">17/04</span>
+</div>
+<div class="p-3 rounded-lg border border-dashed border-outline-variant/40 bg-surface-container-lowest text-center my-auto py-6">
+<span class="material-symbols-outlined text-outline-variant text-[22px]">bed</span>
+<div class="text-[11px] font-medium text-on-surface-variant mt-1">Nghỉ phục hồi</div>
+<div class="text-[10px] text-outline-variant">Giãn cơ nhẹ nhàng</div>
+</div>
+</div>
+<!-- THỨ NĂM (18/04) - HÔM NAY -->
+<div class="p-3 flex flex-col gap-2.5 bg-primary/5 relative">
+<!-- Today highlight indicator -->
+<div class="flex items-center justify-between text-xs">
+<span class="font-bold text-primary">Hôm nay (T5)</span>
+<span class="text-primary font-bold">18/04</span>
+</div>
+<!-- Buổi tự tập hôm nay -->
+<div class="p-2.5 rounded-lg bg-[#E6F6F4] border-2 border-[#087F75] text-left flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold uppercase tracking-wider text-[#087F75] bg-white px-1.5 py-0.5 rounded">Tự tập</span>
+<span class="text-[10px] font-bold text-primary px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-fixed">Chưa tập</span>
+</div>
+<div class="text-xs font-bold text-[#005851] leading-snug">Lower Body B</div>
+<div class="text-[11px] text-on-surface-variant">5 bài tập · Giáo án Tuần 4</div>
+<button class="mt-1 text-[11px] font-bold text-center py-1 rounded bg-[#087F75] text-white hover:bg-[#005a52] transition-colors" onclick="document.getElementById('today-workout-section').scrollIntoView({ behavior: 'smooth' })">
+                Nhập số tạ ngay
+              </button>
+</div>
+</div>
+<!-- THỨ SÁU (19/04) -->
+<div class="p-3 flex flex-col gap-2.5 bg-surface-container-lowest">
+<div class="flex items-center justify-between text-xs">
+<span class="font-semibold text-on-surface">Thứ 6</span>
+<span class="text-on-surface-variant">19/04</span>
+</div>
+<!-- PT Appointment confirmed -->
+<div class="p-2.5 rounded-lg bg-[#EBF2FF] border border-[#2864D7] text-left flex flex-col gap-1.5 shadow-xs">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold uppercase tracking-wider text-[#2864D7] bg-white/80 px-1.5 py-0.5 rounded">Lịch PT</span>
+<span class="material-symbols-outlined text-[14px] text-[#2864D7]">schedule</span>
+</div>
+<div class="text-xs font-bold text-[#002c72] leading-snug">07:30 - 08:30</div>
+<div class="text-[11px] text-[#0854c7] font-medium leading-tight">PT Lê Hoàng Anh</div>
+<div class="text-[10px] text-on-surface-variant">Hiệu chỉnh form vai &amp; lưng</div>
+<span class="inline-block text-[10px] text-[#002c72] font-semibold bg-[#D4E3FF] px-1.5 py-0.5 rounded w-max mt-0.5">
+                Đã xác nhận
+              </span>
+</div>
+</div>
+<!-- THỨ BẢY (20/04) -->
+<div class="p-3 flex flex-col gap-2.5 bg-surface-container-lowest">
+<div class="flex items-center justify-between text-xs">
+<span class="font-semibold text-on-surface">Thứ 7</span>
+<span class="text-on-surface-variant">20/04</span>
+</div>
+<!-- Empty slot -->
+<button class="h-full border border-dashed border-outline-variant/40 rounded-lg flex flex-col items-center justify-center p-3 text-center hover:bg-surface-container-low transition-colors group cursor-pointer" onclick="document.getElementById('drawer-workout-template').classList.remove('translate-x-full')">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary text-[20px]">add_circle</span>
+<span class="text-[11px] text-on-surface-variant group-hover:text-primary mt-1 font-medium">Thêm buổi tập</span>
+</button>
+</div>
+<!-- CHỦ NHẬT (21/04) -->
+<div class="p-3 flex flex-col gap-2.5 bg-surface-container-low/40">
+<div class="flex items-center justify-between text-xs">
+<span class="font-semibold text-on-surface-variant">Chủ Nhật</span>
+<span class="text-on-surface-variant">21/04</span>
+</div>
+<div class="p-3 rounded-lg border border-dashed border-outline-variant/40 bg-surface-container-lowest text-center my-auto py-6">
+<span class="material-symbols-outlined text-outline-variant text-[22px]">spa</span>
+<div class="text-[11px] font-medium text-on-surface-variant mt-1">Nghỉ phục hồi</div>
+<div class="text-[10px] text-outline-variant">Tái tạo cơ bắp</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= TODAY WORKOUT & LOG INPUT SECTION ================= -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6" id="today-workout-section">
+<!-- Left 2 Cols: Due Workout Details & Live Set Logging -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-lg border border-outline-variant/30 p-5 space-y-4">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-3">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#087F75]"></span>
+<h2 class="text-base font-bold text-on-surface">Buổi tập hôm nay: Lower Body B (Chân - Bắp chân)</h2>
+</div>
+<p class="text-xs text-on-surface-variant mt-0.5">Giáo án Tăng cơ 8 tuần · Tuần 4 Buổi 2 · Dự kiến: 5 bài tập</p>
+</div>
+<span class="text-xs px-2.5 py-1 rounded bg-[#E6F6F4] text-[#087F75] font-bold border border-[#087F75]/30">
+              Trạng thái: Đang diễn ra
+            </span>
+</div>
+<!-- Table of Exercises with Real Input for Sets / Reps / Weight -->
+<div class="space-y-4">
+<!-- Exercise 1 -->
+<div class="border border-outline-variant/30 rounded-lg p-3.5 bg-surface-container-lowest space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-primary/10 text-primary font-bold text-xs flex items-center justify-center">
+                    01
+                  </div>
+<div>
+<h3 class="text-xs font-bold text-on-surface">Barbell Back Squat (Gánh tạ đòn)</h3>
+<p class="text-[11px] text-on-surface-variant">Mục tiêu: 4 hiệp x 8-10 reps · Nghỉ 90s</p>
+</div>
+</div>
+<span class="text-[11px] font-semibold text-primary">Tải trọng trước: 70kg</span>
+</div>
+<!-- Sets Input Grid -->
+<div class="bg-surface-container-low/60 rounded p-2.5 space-y-2">
+<div class="grid grid-cols-12 gap-2 text-[11px] font-bold text-on-surface-variant px-1">
+<span class="col-span-2">Hiệp (Set)</span>
+<span class="col-span-4">Mục tiêu gợi ý</span>
+<span class="col-span-3">Mức tạ (kg)</span>
+<span class="col-span-3">Số Reps thực tế</span>
+</div>
+<!-- Set 1 (Completed) -->
+<div class="grid grid-cols-12 gap-2 items-center text-xs">
+<span class="col-span-2 font-medium text-on-surface pl-1">Hiệp 1</span>
+<span class="col-span-4 text-on-surface-variant text-[11px]">70 kg x 10 reps</span>
+<div class="col-span-3">
+<input class="w-full h-8 px-2 text-xs bg-white border border-outline-variant/50 rounded text-center font-bold text-on-surface focus:ring-1 focus:ring-primary" type="number" value="70"/>
+</div>
+<div class="col-span-3 flex items-center gap-1.5">
+<input class="w-full h-8 px-2 text-xs bg-white border border-outline-variant/50 rounded text-center font-bold text-on-surface focus:ring-1 focus:ring-primary" type="number" value="10"/>
+<span class="material-symbols-outlined text-[18px] text-[#087F75]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Set 2 (Current) -->
+<div class="grid grid-cols-12 gap-2 items-center text-xs">
+<span class="col-span-2 font-medium text-on-surface pl-1">Hiệp 2</span>
+<span class="col-span-4 text-on-surface-variant text-[11px]">72.5 kg x 8 reps</span>
+<div class="col-span-3">
+<input class="w-full h-8 px-2 text-xs bg-white border border-primary rounded text-center font-bold text-primary focus:ring-1 focus:ring-primary" step="0.5" type="number" value="72.5"/>
+</div>
+<div class="col-span-3 flex items-center gap-1.5">
+<input class="w-full h-8 px-2 text-xs bg-white border border-outline-variant/50 rounded text-center font-bold text-on-surface focus:ring-1 focus:ring-primary" placeholder="Reps" type="number"/>
+<span class="material-symbols-outlined text-[18px] text-outline-variant">radio_button_unchecked</span>
+</div>
+</div>
+<!-- Set 3 -->
+<div class="grid grid-cols-12 gap-2 items-center text-xs">
+<span class="col-span-2 font-medium text-on-surface pl-1">Hiệp 3</span>
+<span class="col-span-4 text-on-surface-variant text-[11px]">72.5 kg x 8 reps</span>
+<div class="col-span-3">
+<input class="w-full h-8 px-2 text-xs bg-white border border-outline-variant/30 rounded text-center text-on-surface focus:ring-1 focus:ring-primary" placeholder="kg" type="number"/>
+</div>
+<div class="col-span-3 flex items-center gap-1.5">
+<input class="w-full h-8 px-2 text-xs bg-white border border-outline-variant/30 rounded text-center text-on-surface focus:ring-1 focus:ring-primary" placeholder="Reps" type="number"/>
+<span class="material-symbols-outlined text-[18px] text-outline-variant">radio_button_unchecked</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Exercise 2 -->
+<div class="border border-outline-variant/30 rounded-lg p-3.5 bg-surface-container-lowest space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-primary/10 text-primary font-bold text-xs flex items-center justify-center">
+                    02
+                  </div>
+<div>
+<h3 class="text-xs font-bold text-on-surface">Romanian Deadlift (RDL với tạ đơn)</h3>
+<p class="text-[11px] text-on-surface-variant">Mục tiêu: 3 hiệp x 10-12 reps · Chú trọng điểm dãn đùi sau</p>
+</div>
+</div>
+<span class="text-[11px] font-semibold text-on-surface-variant">Tải trọng trước: 24kg/tay</span>
+</div>
+<!-- Quick action to expand -->
+<div class="flex items-center justify-between pt-1 text-xs text-on-surface-variant">
+<span>3 hiệp chưa hoàn thành</span>
+<button class="text-primary hover:underline text-xs font-semibold flex items-center gap-1">
+<span>Mở bảng điền nhanh</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Exercise 3: Bulgarian Split Squat -->
+<div class="border border-outline-variant/30 rounded-lg p-3.5 bg-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-primary/10 text-primary font-bold text-xs flex items-center justify-center">
+                  03
+                </div>
+<div>
+<h3 class="text-xs font-bold text-on-surface">Bulgarian Split Squat</h3>
+<p class="text-[11px] text-on-surface-variant">3 hiệp x 10 reps mỗi chân</p>
+</div>
+</div>
+<span class="text-[11px] text-outline-variant">Chờ thực hiện</span>
+</div>
+</div>
+<!-- Bottom Action Buttons for Workout Logging -->
+<div class="pt-3 border-t border-outline-variant/20 flex items-center justify-between">
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">timer</span>
+<span>Thời gian tập: 28:14</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-lg border border-outline-variant/40 text-xs font-medium hover:bg-surface-container-low text-on-surface">
+                Tạm dừng
+              </button>
+<button class="px-5 py-2 rounded-lg bg-primary text-on-primary text-xs font-bold hover:bg-primary-dim transition-colors flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>Lưu nhật ký buổi tập</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right 1 Col: Trainee Insights & PT Notes -->
+<div class="space-y-5">
+<!-- PT Assigned Card -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 p-4 space-y-3">
+<div class="flex items-center justify-between">
+<h3 class="text-xs font-bold text-on-surface uppercase tracking-wider">Huấn luyện viên phụ trách</h3>
+<span class="text-[10px] px-1.5 py-0.5 rounded font-bold bg-[#EBF2FF] text-[#2864D7]">Trực tuyến</span>
+</div>
+<div class="flex items-center gap-3 pt-1">
+<img class="w-11 h-11 rounded-lg object-cover border border-outline-variant/40" data-alt="Professional portrait shot of an experienced male certified fitness coach in athletic sportswear, posing with a focused supportive smile in an ambient modern gym environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPVP-UYkO2WutNB8Rw3F5quFQjgr9tMaeO5Uc6TqBNLkgTj4xuum27K2dmwFrES3AVb7JlYqcaP7Rp1KCXBIICXL3I_gLzd6hMcZ8PTBpqFxb15PCBsnmxhVOqb_EvVx-N2F25KMy52lcxi33DPKj5Meoeiw0JKGh76LIAKAu740pJZpzim-oCL6dJL5K9xHxS9R43wLD7UWBgeDj91RMhbcjkwQ8c8eJF6iBuDTydJaeMhWdM02u8jOZOxQq5QYs0s2j3DoQmWIBy"/>
+<div>
+<div class="text-xs font-bold text-on-surface">Lê Hoàng Anh</div>
+<div class="text-[11px] text-on-surface-variant">HLV Chuyên sâu Sức mạnh &amp; Phục hồi</div>
+<div class="text-[10px] text-tertiary font-semibold mt-0.5">Ca tới: Thứ 6 (19/04) · 07:30</div>
+</div>
+</div>
+<div class="p-2.5 rounded bg-surface-container-low/70 border border-outline-variant/30 text-xs text-on-surface leading-relaxed">
+<div class="flex items-center gap-1 text-[11px] font-bold text-[#0854c7] mb-1">
+<span class="material-symbols-outlined text-[14px]">comment</span>
+<span>Lời dặn của PT cho buổi tập hôm nay:</span>
+</div>
+              "Quân chú ý kiểm soát pha hạ tạ (eccentric 3s) khi tập Squat, giữ gối thẳng trục mũi chân. Nếu cảm thấy lưng dưới căng thì dừng ở 70kg, không tăng thêm."
+            </div>
+<a class="w-full py-2 rounded-lg bg-surface-container-low hover:bg-surface-container border border-outline-variant/30 text-xs font-semibold text-primary flex items-center justify-center gap-1.5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+<span>Nhắn tin trao đổi với PT</span>
+</a>
+</div>
+<!-- Activity Log Feed -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 p-4 space-y-3">
+<div class="flex items-center justify-between">
+<h3 class="text-xs font-bold text-on-surface uppercase tracking-wider">Nhật ký hoàn thành gần đây</h3>
+<span class="text-[11px] text-primary font-medium hover:underline cursor-pointer">Xem tất cả</span>
+</div>
+<div class="space-y-3 text-xs">
+<!-- Item 1 -->
+<div class="flex gap-2.5 pb-2.5 border-b border-outline-variant/20">
+<div class="w-2 h-2 rounded-full bg-[#087F75] mt-1.5 shrink-0"></div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-bold text-on-surface">Upper Body A · Tự tập</span>
+<span class="text-[10px] text-on-surface-variant">Thứ 2, 15/04</span>
+</div>
+<div class="text-[11px] text-on-surface-variant mt-0.5">Bench Press đạt 62.5kg x 8 reps (Kỷ lục mới)</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-2.5 pb-2.5 border-b border-outline-variant/20">
+<div class="w-2 h-2 rounded-full bg-[#2864D7] mt-1.5 shrink-0"></div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-bold text-on-surface">Buổi tập cùng PT Hoàng Anh</span>
+<span class="text-[10px] text-on-surface-variant">Thứ 7, 13/04</span>
+</div>
+<div class="text-[11px] text-on-surface-variant mt-0.5">Sửa tư thế Deadlift, chấm dứt hiện tượng võng lưng.</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex gap-2.5">
+<div class="w-2 h-2 rounded-full bg-[#087F75] mt-1.5 shrink-0"></div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-bold text-on-surface">Cardio &amp; Core · Tự tập</span>
+<span class="text-[10px] text-on-surface-variant">Thứ 5, 11/04</span>
+</div>
+<div class="text-[11px] text-on-surface-variant mt-0.5">Chạy máy cự ly 4.2km trong 25 phút.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- ================= DRAWER: TẠO BUỔI TỰ TẬP TỪ GIÁO ÁN ================= -->
+<!-- Clean sliding drawer from right side -->
+<aside class="fixed inset-y-0 right-0 w-[420px] max-w-full bg-surface-container-lowest border-l border-outline-variant/30 shadow-2xl z-50 transform translate-x-full transition-transform duration-200 ease-in-out flex flex-col" id="drawer-workout-template">
+<!-- Drawer Header -->
+<div class="p-4 border-b border-outline-variant/20 flex items-center justify-between bg-surface-container-lowest">
+<div>
+<h3 class="text-sm font-bold text-on-surface font-headline">Tạo buổi tự tập từ giáo án</h3>
+<p class="text-[11px] text-on-surface-variant">Chọn bài tập từ chương trình 'Tăng cơ 8 tuần'</p>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors" onclick="document.getElementById('drawer-workout-template').classList.add('translate-x-full')">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Drawer Body (Scrollable) -->
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<!-- Target Date Picker -->
+<div class="bg-surface-container-low/70 p-3 rounded-lg border border-outline-variant/30 space-y-1.5">
+<label class="text-[11px] font-bold text-on-surface uppercase tracking-wide">Chọn ngày đưa vào lịch</label>
+<div class="relative">
+<input class="w-full h-9 px-3 text-xs bg-surface-container-lowest border border-outline-variant/40 rounded-lg text-on-surface focus:ring-1 focus:ring-primary font-medium" type="date" value="2024-04-20"/>
+</div>
+</div>
+<div class="text-xs font-bold text-on-surface-variant uppercase tracking-wider pt-1">
+        Danh sách buổi tập sẵn có trong giáo án
+      </div>
+<!-- Plan Item 1: Selected -->
+<div class="border-2 border-primary rounded-lg p-3.5 bg-[#E6F6F4]/40 space-y-2 relative">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold text-[#087F75] bg-[#E6F6F4] px-2 py-0.5 rounded border border-[#087F75]/30">
+            Tuần 4 · Buổi 1
+          </span>
+<span class="text-xs font-bold text-primary">Đã chọn</span>
+</div>
+<h4 class="text-xs font-bold text-on-surface">Ngực - Tay sau (Chest &amp; Triceps Focus)</h4>
+<p class="text-[11px] text-on-surface-variant">4 bài tập · Thời gian khuyến nghị: 50-60 phút</p>
+<div class="text-[11px] text-on-surface/80 bg-white/80 p-2 rounded border border-outline-variant/20 space-y-1">
+<div class="flex items-center justify-between">
+<span>• Barbell Flat Bench Press</span>
+<span class="text-on-surface-variant font-medium">4x8-10</span>
+</div>
+<div class="flex items-center justify-between">
+<span>• Incline Dumbbell Press</span>
+<span class="text-on-surface-variant font-medium">3x10-12</span>
+</div>
+<div class="flex items-center justify-between">
+<span>• Cable Chest Fly</span>
+<span class="text-on-surface-variant font-medium">3x12-15</span>
+</div>
+<div class="flex items-center justify-between">
+<span>• Triceps Rope Pushdown</span>
+<span class="text-on-surface-variant font-medium">3x12</span>
+</div>
+</div>
+</div>
+<!-- Plan Item 2 -->
+<div class="border border-outline-variant/30 rounded-lg p-3.5 bg-surface-container-lowest hover:border-primary/50 transition-colors space-y-2 cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded">
+            Tuần 4 · Buổi 2
+          </span>
+<span class="text-[11px] text-on-surface-variant">Chưa gán</span>
+</div>
+<h4 class="text-xs font-bold text-on-surface">Lưng - Tay trước (Back &amp; Biceps Focus)</h4>
+<p class="text-[11px] text-on-surface-variant">5 bài tập · Lat Pulldown, Seated Cable Row, Barbell Curl...</p>
+</div>
+<!-- Plan Item 3 -->
+<div class="border border-outline-variant/30 rounded-lg p-3.5 bg-surface-container-lowest hover:border-primary/50 transition-colors space-y-2 cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded">
+            Tuần 4 · Buổi 3
+          </span>
+<span class="text-[11px] text-on-surface-variant">Chưa gán</span>
+</div>
+<h4 class="text-xs font-bold text-on-surface">Chân - Bắp chân &amp; Bụng (Legs &amp; Core)</h4>
+<p class="text-[11px] text-on-surface-variant">5 bài tập · Leg Press, Lying Leg Curl, Hanging Leg Raise...</p>
+</div>
+<!-- Advisor Hint in Drawer -->
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/30 text-xs text-on-surface-variant leading-relaxed flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">tips_and_updates</span>
+<span>PT Lê Hoàng Anh đã kích hoạt tự động theo dõi mức tạ lũy tiến cho các bài tập này.</span>
+</div>
+</div>
+<!-- Drawer Footer Actions -->
+<div class="p-4 border-t border-outline-variant/20 bg-surface-container-lowest flex items-center justify-between gap-3">
+<button class="w-1/2 py-2.5 rounded-lg border border-outline-variant/40 text-xs font-semibold text-on-surface hover:bg-surface-container-low transition-colors" onclick="document.getElementById('drawer-workout-template').classList.add('translate-x-full')">
+        Hủy bỏ
+      </button>
+<button class="w-1/2 py-2.5 rounded-lg bg-primary text-on-primary text-xs font-bold hover:bg-primary-dim transition-colors flex items-center justify-center gap-1.5 shadow-sm" onclick="document.getElementById('drawer-workout-template').classList.add('translate-x-full')">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Xác nhận thêm</span>
+</button>
+</div>
+</aside>
+<!-- Notification Toast (Micro-interaction mock) -->
+<div class="fixed bottom-6 right-6 bg-[#087F75] text-white px-4 py-2.5 rounded-lg shadow-lg flex items-center gap-2 text-xs font-medium translate-y-24 opacity-0 transition-all duration-300 pointer-events-none z-50" id="toast-success">
+<span class="material-symbols-outlined text-[18px]">task_alt</span>
+<span>Dữ liệu nhật ký buổi tập đã được đồng bộ với PT!</span>
+</div>
+</body></html>

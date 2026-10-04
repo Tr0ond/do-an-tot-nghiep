@@ -106,6 +106,7 @@ class NhatKyTapService
                 $p->hoan_thanh_luc = now();
                 $p->save();
                 $lich->trang_thai = 'HOAN_THANH';
+                app(ThongBaoService::class)->choPtHienTai($lich->khach_hang_id, 'nhat-ky/'.$p->id.'/hoan-thanh', 'Có nhật ký tập mới', 'Học viên đã hoàn thành buổi tự tập. Bạn có thể xem kết quả và nhận xét.', '/pt/lich-tap/'.$lich->id);
             } elseif ($hanhDong === 'huy') {
                 if (! in_array($lich->trang_thai, ['DA_LEN_LICH', 'DANG_TAP'], true)) {
                     throw new ConflictHttpException('Buổi đã hoàn thành không thể hủy.');
@@ -185,8 +186,9 @@ class NhatKyTapService
 
                 return $lich;
             }
-            $p->nhanXet()->create(['huan_luyen_vien_id' => $pc->huan_luyen_vien_id, 'phan_cong_id' => $pc->id,
+            $nhanXet = $p->nhanXet()->create(['huan_luyen_vien_id' => $pc->huan_luyen_vien_id, 'phan_cong_id' => $pc->id,
                 'noi_dung' => $noiDung, 'ma_yeu_cau_tao' => $ma, 'hash_yeu_cau_tao' => $hash]);
+            app(ThongBaoService::class)->choKhach($lich->khach_hang_id, 'nhan-xet/'.$nhanXet->id, 'PT đã nhận xét buổi tập', 'Bạn có nhận xét mới từ PT phụ trách. Mở nhật ký để xem nội dung.', '/khach-hang/lich-tap/'.$lich->id);
 
             return $lich;
         });

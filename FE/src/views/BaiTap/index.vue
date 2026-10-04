@@ -1,249 +1,108 @@
 <template>
   <DanhMucLayout>
-    <!-- Tiêu đề trang Thư viện bài tập với giao diện hiện đại -->
-    <header class="library-heading animate__animated animate__fadeIn">
-      <div>
-        <div class="eyebrow mb-2">
-          <i class="bi bi-stars"></i>
-          <span>THƯ VIỆN VẬN ĐỘNG & BÀI TẬP CHUẨN FORM</span>
+    <section class="st-library">
+      <header class="st-page-heading">
+        <div>
+          <span class="st-kicker">THƯ VIỆN VẬN ĐỘNG</span>
+          <h1>Thư viện bài tập</h1>
+          <p>Kỹ thuật thực hiện, nhóm cơ và dụng cụ tập luyện.</p>
         </div>
-        <h1 class="h2 fw-bold mb-2">Danh mục bài tập thể hình</h1>
-        <p class="library-intro text-muted">
-          Tra cứu hơn 1,300+ động tác theo nhóm cơ và dụng cụ. Xem kỹ thuật từng bước cùng hình ảnh
-          minh họa và chuyển động trực quan.
-        </p>
-      </div>
-
-      <div class="d-none d-sm-flex align-items-center">
-        <span class="status-pill">
-          <span class="status-dot"></span>
-          <span>Truy cập mở miễn phí</span>
-        </span>
-      </div>
-    </header>
-
-    <!-- Thanh tìm kiếm chính phong cách SaaS -->
-    <form class="exercise-search-box shadow-sm mb-4" @submit.prevent="apDungBoLoc">
-      <div class="search-input-wrap">
-        <i class="bi bi-search search-icon" aria-hidden="true"></i>
-        <label for="tu-khoa-bai-tap" class="visually-hidden">Tên hoặc mã bài tập</label>
-        <input
-          id="tu-khoa-bai-tap"
-          v-model="boLoc.tu_khoa"
-          type="search"
-          maxlength="100"
-          class="search-native-input"
-          placeholder="Tìm kiếm bài tập theo tên tiếng Việt hoặc tên gốc tiếng Anh…"
-          autocomplete="off"
-        />
-        <button
-          v-if="boLoc.tu_khoa"
-          type="button"
-          class="btn-clear-search"
-          title="Xóa từ khóa"
-          @click="boLoc.tu_khoa = ''"
+        <span class="st-status"
+          ><i class="bi bi-unlock" aria-hidden="true"></i> Truy cập miễn phí</span
         >
-          <i class="bi bi-x-circle-fill"></i>
+      </header>
+      <form class="st-library-toolbar" @submit.prevent="apDungBoLoc">
+        <div class="st-search">
+          <i class="bi bi-search" aria-hidden="true"></i
+          ><label for="tu-khoa-bai-tap" class="visually-hidden">Tên hoặc mã bài tập</label
+          ><input
+            id="tu-khoa-bai-tap"
+            v-model="boLoc.tu_khoa"
+            type="search"
+            maxlength="100"
+            class="form-control"
+            placeholder="Tên bài tập, nhóm cơ hoặc mã…"
+          />
+        </div>
+        <label for="nhom-co"
+          >Nhóm cơ<select
+            id="nhom-co"
+            v-model="boLoc.nhom_co_id"
+            class="form-select"
+            :disabled="dangTaiBoLoc"
+          >
+            <option value="">Tất cả nhóm cơ</option>
+            <option v-for="nhom in danhSachNhomCo" :key="nhom.id" :value="String(nhom.id)">
+              {{ nhom.ten_nhom_co }} ({{ nhom.so_bai_tap }})
+            </option>
+          </select></label
+        >
+        <label for="dung-cu"
+          >Dụng cụ<select
+            id="dung-cu"
+            v-model="boLoc.dung_cu_nguon"
+            class="form-select"
+            :disabled="dangTaiBoLoc"
+          >
+            <option value="">Tất cả dụng cụ</option>
+            <option v-for="dc in danhSachDungCu" :key="dc.dung_cu_nguon" :value="dc.dung_cu_nguon">
+              {{ dc.dung_cu }}
+            </option>
+          </select></label
+        >
+        <button type="submit" class="btn btn-primary" :disabled="dangTai">
+          <i class="bi bi-search" aria-hidden="true"></i> Tìm kiếm</button
+        ><button
+          v-if="coBoLocDangChon"
+          type="button"
+          class="btn btn-outline-secondary"
+          aria-label="Đặt lại bộ lọc"
+          title="Đặt lại bộ lọc"
+          @click="xoaBoLoc"
+        >
+          <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i>
+        </button>
+      </form>
+      <div class="st-muscle-tabs" aria-label="Nhóm cơ">
+        <button type="button" :aria-pressed="!boLoc.nhom_co_id" @click="chonNhomCo('')">
+          Tất cả
+        </button>
+        <button
+          v-for="nhom in danhSachNhomCo"
+          :key="nhom.id"
+          type="button"
+          :aria-pressed="String(boLoc.nhom_co_id) === String(nhom.id)"
+          @click="chonNhomCo(String(nhom.id))"
+        >
+          {{ nhom.ten_nhom_co }}
         </button>
       </div>
-      <button class="btn btn-primary search-submit-btn" type="submit" :disabled="dangTai">
-        <i class="bi bi-search"></i>
-        <span class="d-none d-sm-inline">Tìm kiếm</span>
-      </button>
-    </form>
-
-    <!-- Thân trang: Bộ lọc bên trái + Lưới bài tập bên phải -->
-    <div class="library-body">
-      <!-- Cột bộ lọc bên trái -->
-      <aside class="library-filters" aria-label="Bộ lọc bài tập">
-        <div class="filter-card">
-          <div class="filters-heading">
-            <h2 class="h6 fw-bold mb-0 d-flex align-items-center gap-2">
-              <i class="bi bi-funnel-fill text-success"></i>
-              <span>Bộ lọc tìm kiếm</span>
-            </h2>
-            <button
-              v-if="coBoLocDangChon"
-              type="button"
-              class="clear-filters-btn"
-              @click="xoaBoLoc"
-            >
-              <i class="bi bi-arrow-counterclockwise"></i>
-              <span>Đặt lại</span>
-            </button>
-          </div>
-
-          <form @submit.prevent="apDungBoLoc">
-            <!-- Nhóm cơ -->
-            <div class="filter-field mb-3">
-              <label for="nhom-co" class="form-label d-flex align-items-center gap-1">
-                <i class="bi bi-person-arms-up text-primary"></i>
-                <span>Nhóm cơ tác động</span>
-              </label>
-              <select
-                id="nhom-co"
-                v-model="boLoc.nhom_co_id"
-                class="form-select form-select-sm"
-                :disabled="dangTaiBoLoc"
-              >
-                <option value="">Tất cả nhóm cơ</option>
-                <option v-for="nhom in danhSachNhomCo" :key="nhom.id" :value="String(nhom.id)">
-                  {{ nhom.ten_nhom_co }} ({{ nhom.so_bai_tap }})
-                </option>
-              </select>
-            </div>
-
-            <!-- Dụng cụ -->
-            <div class="filter-field mb-3">
-              <label for="dung-cu" class="form-label d-flex align-items-center gap-1">
-                <i class="bi bi-tools text-amber"></i>
-                <span>Dụng cụ tập luyện</span>
-              </label>
-              <select
-                id="dung-cu"
-                v-model="boLoc.dung_cu_nguon"
-                class="form-select form-select-sm"
-                :disabled="dangTaiBoLoc"
-              >
-                <option value="">Tất cả dụng cụ</option>
-                <option
-                  v-for="dungCu in danhSachDungCu"
-                  :key="dungCu.dung_cu_nguon"
-                  :value="dungCu.dung_cu_nguon"
-                >
-                  {{ dungCu.dung_cu }}
-                </option>
-              </select>
-            </div>
-
-            <!-- Nút áp dụng bộ lọc -->
-            <button
-              class="btn btn-primary w-100 btn-sm shadow-sm"
-              type="submit"
-              :disabled="dangTai"
-            >
-              <i class="bi bi-check2-circle"></i>
-              <span>Áp dụng bộ lọc</span>
-            </button>
-          </form>
-
-          <div v-if="dangTaiBoLoc" class="filter-note mt-3 text-muted small" role="status">
-            <span class="spinner-border spinner-border-sm me-1"></span>
-            Đang tải dữ liệu bộ lọc…
-          </div>
-
-          <div v-if="loiBoLoc" class="filter-error mt-3 alert alert-warning p-2 small" role="alert">
-            <p class="mb-1">{{ loiBoLoc }}</p>
-            <button type="button" class="btn btn-outline-secondary btn-sm w-100" @click="taiBoLoc">
-              Tải lại bộ lọc
-            </button>
-          </div>
-
-          <div class="filter-tip-box mt-3 p-3 bg-body-secondary rounded-3 border">
-            <div class="small fw-bold text-body mb-1 d-flex align-items-center gap-1">
-              <i class="bi bi-lightbulb-fill text-warning"></i>
-              <span>Mẹo tra cứu:</span>
-            </div>
-            <p class="small text-muted mb-0">
-              Có thể tìm bằng tên tiếng Anh như <em>bench press</em>, <em>squat</em> hoặc tên cơ thể
-              tiếng Việt.
-            </p>
-          </div>
-        </div>
-      </aside>
-
-      <!-- Cột kết quả bên phải -->
+      <p v-if="loiBoLoc" class="alert alert-warning" role="alert">
+        {{ loiBoLoc }}
+        <button type="button" class="btn btn-outline-secondary" @click="taiBoLoc">
+          Tải lại bộ lọc
+        </button>
+      </p>
       <section
         ref="ketQua"
         class="library-results"
         aria-label="Kết quả bài tập"
         :aria-busy="dangTai"
       >
-        <!-- Thanh trạng thái kết quả & Tags đang lọc -->
-        <div class="results-header mb-3">
-          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
-            <h2 class="h5 fw-bold mb-0 d-flex align-items-center gap-2">
-              <i class="bi bi-grid-fill text-success"></i>
-              <span>Danh sách bài tập</span>
-            </h2>
-            <span
-              class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2"
-              role="status"
-              aria-live="polite"
-            >
-              {{ dangTai ? 'Đang tìm kiếm bài tập…' : `${dinhDangSo(phanTrang.total)} bài tập` }}
-            </span>
-          </div>
-
-          <!-- Huy hiệu các điều kiện lọc đang chọn -->
-          <div
-            v-if="coBoLocDangChon"
-            class="active-filter-chips mt-2 d-flex flex-wrap gap-2 align-items-center"
-          >
-            <span class="small text-muted me-1">Đang lọc theo:</span>
-            <span v-if="boLoc.tu_khoa" class="filter-chip">
-              <span>Từ khóa: "{{ boLoc.tu_khoa }}"</span>
-              <button type="button" class="chip-remove-btn" @click="xoaTuKhoa">×</button>
-            </span>
-            <span v-if="tenNhomCoHienTai" class="filter-chip">
-              <span>Cơ: {{ tenNhomCoHienTai }}</span>
-              <button type="button" class="chip-remove-btn" @click="xoaNhomCo">×</button>
-            </span>
-            <span v-if="tenDungCuHienTai" class="filter-chip">
-              <span>Dụng cụ: {{ tenDungCuHienTai }}</span>
-              <button type="button" class="chip-remove-btn" @click="xoaDungCu">×</button>
-            </span>
-          </div>
+        <div class="st-list-heading">
+          <strong>{{ dinhDangSo(phanTrang.total) }} bài tập phù hợp</strong
+          ><span>Trang {{ phanTrang.current_page }} / {{ phanTrang.last_page }}</span>
         </div>
-
-        <!-- Trạng thái Đang tải -->
-        <div
-          v-if="dangTai"
-          class="catalog-state-box animate__animated animate__fadeIn"
-          role="status"
-        >
-          <div
-            class="spinner-border text-success mb-3"
-            style="width: 3rem; height: 3rem"
-            role="status"
-          ></div>
-          <h3 class="h5 fw-bold mb-1">Đang tải danh sách bài tập…</h3>
-          <p class="text-muted small mb-0">Hệ thống đang đồng bộ kho dữ liệu bài tập.</p>
+        <p v-if="dangTai" class="st-empty" role="status">Đang tải danh sách bài tập…</p>
+        <div v-else-if="thongBao" class="alert alert-danger" role="alert">
+          {{ thongBao }}
+          <button class="btn btn-outline-secondary" @click="taiDanhSach">Thử lại</button>
         </div>
-
-        <!-- Trạng thái Báo lỗi -->
-        <div
-          v-else-if="thongBao"
-          class="catalog-state-box alert alert-danger border-danger-subtle"
-          role="alert"
-        >
-          <i class="bi bi-exclamation-triangle-fill fs-1 text-danger mb-2"></i>
-          <h3 class="h5 fw-bold text-danger mb-2">Chưa tải được danh sách bài tập</h3>
-          <p class="mb-3">{{ thongBao }}</p>
-          <p v-for="(loi, truong) in loiTruong" :key="truong" class="small text-muted">
-            {{ loi.join(' ') }}
-          </p>
-          <button class="btn btn-outline-danger btn-sm" @click="taiDanhSach">
-            <i class="bi bi-arrow-clockwise me-1"></i>Thử lại
-          </button>
+        <div v-else-if="!danhSach.length" class="st-empty">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <h2>Không tìm thấy bài tập phù hợp</h2>
+          <button class="btn btn-outline-secondary" @click="xoaBoLoc">Xem tất cả bài tập</button>
         </div>
-
-        <!-- Trạng thái Không có kết quả -->
-        <div v-else-if="!danhSach.length" class="catalog-state-box">
-          <div class="empty-icon-ring mb-3">
-            <i class="bi bi-search fs-2 text-muted"></i>
-          </div>
-          <h3 class="h5 fw-bold mb-2">Không tìm thấy bài tập nào</h3>
-          <p class="text-muted small mb-3">
-            Không có động tác nào khớp với tiêu chí tìm kiếm hiện tại. Hãy thử chọn nhóm cơ khác
-            hoặc đặt lại bộ lọc.
-          </p>
-          <button class="btn btn-outline-secondary btn-sm" @click="xoaBoLoc">
-            <i class="bi bi-arrow-counterclockwise me-1"></i>Xem tất cả bài tập
-          </button>
-        </div>
-
-        <!-- Lưới thẻ bài tập hiện đại -->
         <div v-else class="exercise-grid">
           <RouterLink
             v-for="bai in danhSach"
@@ -289,32 +148,28 @@
           </RouterLink>
         </div>
 
-        <!-- Phân trang hiện đại -->
         <nav
           v-if="!dangTai && !thongBao && phanTrang.last_page > 1"
-          class="exercise-pagination-bar mt-4 shadow-sm"
+          class="st-pagination"
           aria-label="Phân trang bài tập"
         >
           <button
-            class="btn btn-outline-secondary btn-sm"
+            class="btn btn-outline-secondary"
             :disabled="phanTrang.current_page <= 1"
             @click="chuyenTrang(phanTrang.current_page - 1)"
           >
-            <i class="bi bi-chevron-left me-1"></i>Trang trước
-          </button>
-          <span class="small fw-semibold text-muted" aria-live="polite">
-            Trang {{ phanTrang.current_page }} / {{ phanTrang.last_page }}
-          </span>
-          <button
-            class="btn btn-outline-secondary btn-sm"
+            <i class="bi bi-chevron-left" aria-hidden="true"></i> Trước</button
+          ><span>{{ phanTrang.current_page }} / {{ phanTrang.last_page }}</span
+          ><button
+            class="btn btn-outline-secondary"
             :disabled="phanTrang.current_page >= phanTrang.last_page"
             @click="chuyenTrang(phanTrang.current_page + 1)"
           >
-            Trang sau<i class="bi bi-chevron-right ms-1"></i>
+            Sau <i class="bi bi-chevron-right" aria-hidden="true"></i>
           </button>
         </nav>
       </section>
-    </div>
+    </section>
   </DanhMucLayout>
 </template>
 
@@ -379,6 +234,10 @@ export default {
     this.huyYeuCau?.abort()
   },
   methods: {
+    chonNhomCo(id) {
+      this.boLoc.nhom_co_id = id
+      this.apDungBoLoc()
+    },
     urlMedia: baiTapService.urlMedia,
     dinhDangSo(so) {
       return new Intl.NumberFormat('vi-VN').format(so)
@@ -485,7 +344,7 @@ export default {
   align-items: center;
   gap: 12px;
   padding: 6px 6px 6px 18px;
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1.5px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   transition: all 0.25s ease;
@@ -493,7 +352,7 @@ export default {
 
 .exercise-search-box:focus-within {
   border-color: var(--mau-chinh);
-  box-shadow: 0 0 0 3.5px rgba(244, 91, 32, 0.25);
+  box-shadow: 0 0 0 3.5px color-mix(in srgb, var(--mau-chinh) 25%, transparent);
 }
 
 .search-input-wrap {
@@ -522,7 +381,7 @@ export default {
 .btn-clear-search {
   border: none;
   background: transparent;
-  color: #94a3b8;
+  color: var(--mau-phu);
   font-size: 1.1rem;
   padding: 4px;
   cursor: pointer;
@@ -547,7 +406,7 @@ export default {
 }
 
 .filter-card {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   padding: 22px;
@@ -591,7 +450,7 @@ export default {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--mau-the-sub, #1e1e1e);
+  background: var(--mau-the-sub, var(--mau-the-hover));
   border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.12));
   padding: 3px 10px;
   border-radius: var(--bo-goc-tron);
@@ -602,7 +461,7 @@ export default {
 
 .chip-remove-btn {
   border: none;
-  background: #e2e8f0;
+  background: var(--mau-vien);
   color: #475569;
   border-radius: 50%;
   width: 16px;
@@ -615,13 +474,13 @@ export default {
 }
 
 .chip-remove-btn:hover {
-  background: #cbd5e1;
+  background: var(--mau-phu);
 }
 
 /* Khung trạng thái (Loading, Error, Empty) */
 .catalog-state-box {
   min-height: 360px;
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px dashed var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   display: flex;
@@ -636,7 +495,7 @@ export default {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: #1e1e1e;
+  background: var(--mau-the-hover);
   display: grid;
   place-items: center;
 }
@@ -649,7 +508,7 @@ export default {
 }
 
 .exercise-modern-card {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   overflow: hidden;
@@ -663,10 +522,8 @@ export default {
 
 .exercise-modern-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(244, 91, 32, 0.4);
-  box-shadow:
-    0 12px 24px -6px rgba(0, 0, 0, 0.6),
-    0 0 20px rgba(244, 91, 32, 0.12);
+  border-color: color-mix(in srgb, var(--mau-chinh) 40%, transparent);
+  box-shadow: var(--bong-nhe);
 }
 
 .card-image-container {
@@ -681,13 +538,13 @@ export default {
   left: 12px;
   background: rgba(20, 20, 20, 0.92);
   backdrop-filter: blur(8px);
-  color: #ff8c5a;
+  color: var(--mau-chinh);
   font-size: 0.72rem;
   font-weight: 700;
   padding: 4px 10px;
   border-radius: var(--bo-goc-tron);
-  border: 1px solid rgba(244, 91, 32, 0.3);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  border: 1px solid color-mix(in srgb, var(--mau-chinh) 30%, transparent);
+  box-shadow: var(--bong-nhe);
   z-index: 2;
 }
 
@@ -754,7 +611,7 @@ export default {
 
 /* Phân trang */
 .exercise-pagination-bar {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   padding: 14px 20px;

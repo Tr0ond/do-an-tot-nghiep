@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>03 · Admin · Sáng | Fitness Motion Quản Trị Hệ Thống</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Be Vietnam Pro Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-low": "#eef1f2",
+            "on-tertiary": "#f1f2ff",
+            "on-surface": "#2c2f30",
+            "secondary-container": "#d6ef52",
+            "inverse-on-surface": "#9a9d9e",
+            "tertiary-dim": "#0049b1",
+            "secondary-fixed-dim": "#c8e044",
+            "primary": "#00675f",
+            "outline": "#747778",
+            "on-error-container": "#570008",
+            "surface-container": "#e5e9ea",
+            "on-secondary": "#e6ff63",
+            "on-primary-fixed": "#00443e",
+            "on-primary-container": "#005851",
+            "error-container": "#fb5151",
+            "on-background": "#2c2f30",
+            "outline-variant": "#abadae",
+            "secondary-dim": "#495500",
+            "on-primary-fixed-variant": "#00635b",
+            "background": "#f5f7f8",
+            "surface-variant": "#d9dddf",
+            "tertiary": "#0854c7",
+            "on-secondary-fixed": "#3a4400",
+            "on-tertiary-fixed": "#00153f",
+            "tertiary-fixed-dim": "#7aa0ff",
+            "tertiary-fixed": "#90afff",
+            "on-secondary-container": "#4b5700",
+            "inverse-surface": "#0b0f10",
+            "error-dim": "#9f0519",
+            "inverse-primary": "#a0fff2",
+            "error": "#b31b25",
+            "on-secondary-fixed-variant": "#546200",
+            "primary-container": "#8fede1",
+            "on-tertiary-container": "#002c72",
+            "tertiary-container": "#90afff",
+            "primary-dim": "#005a52",
+            "surface-tint": "#00675f",
+            "on-primary": "#bffff5",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed": "#8fede1",
+            "surface": "#f5f7f8",
+            "secondary": "#546200",
+            "surface-dim": "#d0d5d7",
+            "secondary-fixed": "#d6ef52",
+            "surface-bright": "#f5f7f8",
+            "primary-fixed-dim": "#81dfd3",
+            "surface-container-highest": "#d9dddf",
+            "on-error": "#ffefee",
+            "on-tertiary-fixed-variant": "#003484",
+            "on-surface-variant": "#595c5d",
+            "surface-container-high": "#dfe3e4"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Be Vietnam Pro", "sans-serif"],
+            "display": ["Be Vietnam Pro", "sans-serif"],
+            "body": ["Be Vietnam Pro", "sans-serif"],
+            "label": ["Be Vietnam Pro", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      letter-spacing: 0;
+      color: #182325;
+      background-color: #f5f7f8;
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="bg-background min-h-screen text-on-surface antialiased overflow-x-hidden">
+<!-- APP SHELL CONTAINER (Desktop 1440px wide baseline) -->
+<div class="flex min-h-screen w-full bg-background">
+<!-- 1. LEFT SIDEBAR (232px width) -->
+<aside class="fixed top-0 left-0 h-screen w-[232px] flex flex-col z-30 bg-surface-container-lowest border-r border-surface-container">
+<!-- Brand & Role Area -->
+<div class="h-16 px-4 flex items-center justify-between border-b border-surface-container">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined" data-icon="fitness_center">fitness_center</span>
+</div>
+<div>
+<div class="font-headline text-[13px] font-bold text-on-surface tracking-tight uppercase leading-none">HUẤN LUYỆN CÁ NHÂN</div>
+<div class="text-[11px] font-medium text-on-surface-variant mt-0.5">Fitness Motion</div>
+</div>
+</div>
+</div>
+<!-- Admin Identity Badge -->
+<div class="px-4 py-2.5 bg-surface-container-low mx-3 mt-3 rounded-lg flex items-center justify-between border border-surface-container">
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-semibold text-primary">Quản trị viên</span>
+</div>
+<span class="text-[10px] bg-secondary-container text-on-secondary-container font-bold px-1.5 py-0.5 rounded">Hệ thống</span>
+</div>
+<!-- Navigation Menu Items -->
+<nav class="flex-1 overflow-y-auto px-3 py-3 space-y-1">
+<!-- Tổng quan (Active) -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-primary font-semibold bg-primary-container/20 rounded-lg text-sm transition-colors duration-150" href="#tong-quan">
+<span class="material-symbols-outlined text-primary" data-icon="dashboard" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Tổng quan</span>
+</a>
+<!-- Tài khoản -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg text-sm font-medium transition-colors duration-150" href="#tai-khoan">
+<span class="material-symbols-outlined" data-icon="manage_accounts">manage_accounts</span>
+<span>Tài khoản</span>
+</a>
+<!-- Gói dịch vụ -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg text-sm font-medium transition-colors duration-150" href="#goi-dich-vu">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Gói dịch vụ</span>
+</a>
+<!-- Đơn hàng & thanh toán -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg text-sm font-medium transition-colors duration-150" href="#don-hang">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Đơn hàng &amp; thanh toán</span>
+</a>
+<!-- Phân công PT -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg text-sm font-medium transition-colors duration-150" href="#phan-cong">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+<span>Phân công PT</span>
+</a>
+<!-- Lịch hẹn -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg text-sm font-medium transition-colors duration-150" href="#lich-hen">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span>Lịch hẹn</span>
+</a>
+<!-- Bài tập -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg text-sm font-medium transition-colors duration-150" href="#bai-tap">
+<span class="material-symbols-outlined" data-icon="directions_run">directions_run</span>
+<span>Bài tập</span>
+</a>
+<!-- Nhóm cơ -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg text-sm font-medium transition-colors duration-150" href="#nhom-co">
+<span class="material-symbols-outlined" data-icon="accessibility_new">accessibility_new</span>
+<span>Nhóm cơ</span>
+</a>
+<!-- Giáo án mẫu -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg text-sm font-medium transition-colors duration-150" href="#giao-an">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span>Giáo án mẫu</span>
+</a>
+<!-- Tr0ond AI Hỗ trợ / Tài liệu & AI -->
+<a class="flex items-center space-x-2.5 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg text-sm font-medium transition-colors duration-150" href="#ai-docs">
+<span class="material-symbols-outlined text-tertiary" data-icon="smart_toy">smart_toy</span>
+<span class="flex-1">Tài liệu &amp; AI</span>
+<span class="text-[10px] font-bold text-tertiary bg-tertiary-fixed/30 px-1 py-0.5 rounded">Tr0ond</span>
+</a>
+</nav>
+<!-- Sidebar Footer -->
+<div class="p-3 border-t border-surface-container">
+<a class="flex items-center space-x-2.5 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg text-sm font-medium transition-colors duration-150" href="#cai-dat">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Cài đặt hệ thống</span>
+</a>
+</div>
+</aside>
+<!-- 2. MAIN APPLICATION WORKSPACE -->
+<div class="flex-1 ml-[232px] flex flex-col min-h-screen">
+<!-- TOP NAVIGATION BAR (64px) -->
+<header class="fixed top-0 right-0 left-[232px] h-16 z-20 bg-surface-container-lowest border-b border-surface-container flex items-center justify-between px-8">
+<!-- Breadcrumbs Navigation -->
+<nav aria-label="Breadcrumb" class="flex items-center text-xs font-medium text-on-surface-variant space-x-1.5">
+<span class="hover:text-primary cursor-pointer transition-colors duration-150">Trang chủ</span>
+<span class="material-symbols-outlined text-outline-variant text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="hover:text-primary cursor-pointer transition-colors duration-150">Quản trị viên</span>
+<span class="material-symbols-outlined text-outline-variant text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface font-semibold text-xs">Tổng quan hệ thống</span>
+</nav>
+<!-- Trailing Actions & Profile -->
+<div class="flex items-center space-x-4">
+<!-- Light/Dark Mode Toggle with accessible aria-label -->
+<button aria-label="Chuyển chế độ tối" class="w-9 h-9 rounded-lg border border-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-150" type="button">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<!-- Notification Bell with exact '5' badge -->
+<div class="relative">
+<button aria-label="Thông báo" class="w-9 h-9 rounded-lg border border-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-150" type="button">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<span class="absolute -top-1 -right-1 bg-error text-surface-container-lowest text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center ring-2 ring-surface-container-lowest">
+              5
+            </span>
+</div>
+<!-- Divider -->
+<div class="h-6 w-px bg-surface-container"></div>
+<!-- Admin Avatar & Name -->
+<div class="flex items-center space-x-2.5 pl-1">
+<img alt="Ảnh đại diện Huấn luyện viên trưởng" class="w-8 h-8 rounded-lg object-cover ring-1 ring-surface-container" data-alt="Professional corporate headshot of a Vietnamese senior administrator in a minimalist studio setting. Soft neutral ambient light, pristine sharp focus, corporate business casual attire with natural confident expression. High-key light modern editorial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI895btft23FeXGWCC1LB9gTpiyxvYzGrEDj6c9CPRmbCTzzlrlbNZuucv3ZfwbsZU6CcoQWT8ZQXGiO64zgqI19I1xMs0PQS1YadYh6hL_AOMQH4Za6lLJmGZcIZTVmAwbznXy2eQD2z2RD_o5i1n7wAj4AbefkESWwIRX2pKq9RzFU1MJ8Mh4MJeyTubvXj8YVwv7fBAwYt6Y_OhWLcnshtjwkHQDOCCMiInW45VSth8pb7l6Yy6MGmzRyjrPy12D25UXoV45gbK"/>
+<div class="text-left">
+<div class="text-xs font-semibold text-on-surface leading-tight">Trần Đình Trí</div>
+<div class="text-[11px] text-on-surface-variant">Super Admin</div>
+</div>
+</div>
+</div>
+</header>
+<!-- 3. PAGE BODY CONTENT (Top offset 64px, Padding 32px) -->
+<main class="mt-16 p-8 flex-1 flex flex-col space-y-6">
+<!-- SECTION 1: TOP BAR WITH HEADING & CONTROLS -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h1 class="text-2xl font-bold text-on-surface tracking-tight font-headline">Tổng quan hệ thống</h1>
+<p class="text-xs text-on-surface-variant mt-0.5">Dữ liệu vận hành thực tế tại hệ thống cá nhân hóa Fitness Motion</p>
+</div>
+<!-- Filter Controls -->
+<div class="flex items-center space-x-3">
+<!-- Segmented Pills -->
+<div class="bg-surface-container-low p-1 rounded-lg flex items-center border border-surface-container">
+<button class="px-3 py-1 text-xs font-medium text-on-surface-variant hover:text-on-surface rounded transition-colors duration-150">7 ngày</button>
+<button class="px-3 py-1 text-xs font-semibold text-primary bg-surface-container-lowest rounded shadow-sm border border-surface-container transition-colors duration-150">30 ngày</button>
+<button class="px-3 py-1 text-xs font-medium text-on-surface-variant hover:text-on-surface rounded transition-colors duration-150">90 ngày</button>
+</div>
+<!-- Date Range Picker Input -->
+<div class="flex items-center space-x-2 bg-surface-container-lowest border border-surface-container px-3 py-1.5 rounded-lg text-xs font-medium text-on-surface"><span class="material-symbols-outlined text-outline text-[18px]" data-icon="calendar_today">calendar_today</span><span>05/09/2026 - 04/10/2026</span><span class="material-symbols-outlined text-outline text-[16px]" data-icon="arrow_drop_down">arrow_drop_down</span></div>
+<!-- Export Audit Action -->
+<button class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-surface-container text-xs font-semibold text-primary hover:bg-surface-container transition-colors duration-150">
+<span class="material-symbols-outlined text-[16px]" data-icon="download">download</span>
+<span>Xuất đối soát</span>
+</button>
+</div>
+</div>
+<!-- SECTION 2: COMPACT MONEY STATS STRIP (Strict Arithmetic, No Invented Growth) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: Đã nhận -->
+<div class="bg-surface-container-lowest border border-surface-container rounded-lg p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-medium text-on-surface-variant">Đã nhận</span>
+<span class="w-6 h-6 rounded bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="account_balance">account_balance</span>
+</span>
+</div>
+<div class="mt-2">
+<div class="text-xl font-bold text-on-surface">48.000.000đ</div>
+<div class="text-[11px] text-on-surface-variant mt-1">Tổng thu qua ngân hàng / CK</div>
+</div>
+</div>
+<!-- Card 2: Đã hoàn -->
+<div class="bg-surface-container-lowest border border-surface-container rounded-lg p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-medium text-on-surface-variant">Đã hoàn</span>
+<span class="w-6 h-6 rounded bg-error/10 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="assignment_return">assignment_return</span>
+</span>
+</div>
+<div class="mt-2">
+<div class="text-xl font-bold text-error">2.000.000đ</div>
+<div class="text-[11px] text-on-surface-variant mt-1">1 giao dịch hoàn tiền theo quy định</div>
+</div>
+</div>
+<!-- Card 3: Sau hoàn (Doanh thu thực tế) -->
+<div class="bg-surface-container-lowest border-2 border-primary/40 rounded-lg p-4 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-3 -top-3 w-12 h-12 bg-primary/5 rounded-full pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-1.5">
+<span class="text-xs font-bold text-primary">Sau hoàn (Thực tế)</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+</div>
+<span class="w-6 h-6 rounded bg-primary text-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified">verified</span>
+</span>
+</div>
+<div class="mt-2">
+<div class="text-xl font-extrabold text-primary">46.000.000đ</div>
+<div class="text-[11px] text-primary/80 font-medium mt-1">48.000.000đ - 2.000.000đ</div>
+</div>
+</div>
+<!-- Card 4: Chờ đối soát (Tách riêng) -->
+<div class="bg-surface-container-lowest border border-surface-container rounded-lg p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-xs font-medium text-on-surface-variant">Chờ đối soát</span>
+<span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded">Tách riêng chờ duyệt</span>
+</div>
+<div class="mt-2">
+<div class="text-xl font-bold text-on-surface">1.500.000đ</div>
+<div class="text-[11px] text-on-surface-variant mt-1">2 lệnh treo đối soát ngân hàng</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: OPERATIONS KPI STRIP -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-surface-container-low border border-surface-container rounded-lg px-4 py-3 flex items-center space-x-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs border border-surface-container">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<div>
+<div class="text-lg font-bold text-on-surface leading-none">24 đơn mới</div>
+<div class="text-[11px] text-on-surface-variant mt-1">Đơn mua gói PT trong tháng</div>
+</div>
+</div>
+<div class="bg-surface-container-low border border-surface-container rounded-lg px-4 py-3 flex items-center space-x-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs border border-surface-container">
+<span class="material-symbols-outlined" data-icon="play_circle">play_circle</span>
+</div>
+<div>
+<div class="text-lg font-bold text-on-surface leading-none">18 gói kích hoạt</div>
+<div class="text-[11px] text-on-surface-variant mt-1">Học viên đã bắt đầu giáo án tập</div>
+</div>
+</div>
+<div class="bg-surface-container-low border border-surface-container rounded-lg px-4 py-3 flex items-center space-x-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-tertiary shadow-xs border border-surface-container">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<div class="text-lg font-bold text-on-surface leading-none">56 buổi PT hoàn thành</div>
+<div class="text-[11px] text-on-surface-variant mt-1">Ca tập đã HLV &amp; Học viên ký xác nhận</div>
+</div>
+</div>
+</div>
+<!-- SECTION 4: MIDDLE GRID (Chart 65% + Alert Widget 35%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT 65% (8/12 cols): Financial Trends Chart -->
+<div class="lg:col-span-8 bg-surface-container-lowest border border-surface-container rounded-lg p-5">
+<div class="flex items-center justify-between pb-4 border-b border-surface-container">
+<div>
+<h2 class="text-sm font-bold text-on-surface uppercase tracking-normal">Dòng tiền hệ thống</h2>
+<p class="text-[11px] text-on-surface-variant">Đối chiếu thực thu và tiền hoàn trả theo tuần</p>
+</div>
+<!-- Legend: Exact solid teal #087F75 & Coral Red #E53E3E -->
+<div class="flex items-center space-x-4 text-xs">
+<div class="flex items-center space-x-1.5">
+<span class="w-3 h-3 rounded-xs bg-[#087F75]"></span>
+<span class="font-medium text-on-surface-variant">Đã nhận</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="w-3 h-3 rounded-xs bg-[#E53E3E]"></span>
+<span class="font-medium text-on-surface-variant">Đã hoàn</span>
+</div>
+</div>
+</div>
+<!-- Chart Canvas (Precision Operational Visualization) -->
+<div class="pt-6 pb-2">
+<div class="h-56 w-full flex flex-col justify-between">
+<!-- Y-Axis Grid & Bars Structure -->
+<div class="relative h-44 w-full flex items-end justify-between px-6 border-b border-surface-container pb-1"><div class="w-20 text-center">Tuần 1 (05 - 11/09)</div><div class="w-20 text-center">Tuần 2 (12 - 18/09)</div><div class="w-20 text-center">Tuần 3 (19 - 25/09)</div><div class="w-20 text-center">Tuần 4 (26/09 - 04/10)</div></div>
+<!-- X-Axis Labels -->
+<div class="flex justify-between px-6 text-xs text-on-surface-variant font-medium pt-2"><div class="w-20 text-center">Tuần 1 (05 - 11/09)</div><div class="w-20 text-center">Tuần 2 (12 - 18/09)</div><div class="w-20 text-center">Tuần 3 (19 - 25/09)</div><div class="w-20 text-center">Tuần 4 (26/09 - 04/10)</div></div>
+</div>
+</div>
+<div class="mt-2 pt-3 border-t border-surface-container flex items-center justify-between text-[11px] text-on-surface-variant">
+<span>* Nguồn dữ liệu: Cổng thanh toán nội địa và giao dịch xác thực tự động</span>
+<span class="font-medium text-primary">Tần suất làm mới: Thời gian thực</span>
+</div>
+</div>
+<!-- RIGHT 35% (4/12 cols): Prominent 'Cần xử lý' Action Panel -->
+<div class="lg:col-span-4 bg-surface-container-lowest border-l-4 border-l-[#087F75] border border-surface-container rounded-lg p-5">
+<div class="flex items-center justify-between pb-3 border-b border-surface-container">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="pending_actions">pending_actions</span>
+<h2 class="text-sm font-bold text-on-surface uppercase tracking-normal">Cần xử lý ngay</h2>
+</div>
+<span class="text-xs bg-error-container/20 text-error-dim font-bold px-2 py-0.5 rounded">3 mục</span>
+</div>
+<!-- Task List -->
+<div class="divide-y divide-surface-container mt-1">
+<!-- Task 1: 3 Khách hàng chờ phân công PT -->
+<div class="py-3.5 space-y-1.5">
+<div class="flex items-start justify-between">
+<div class="text-xs font-bold text-on-surface">3 Khách hàng chờ phân công PT</div>
+<span class="text-[10px] font-semibold text-tertiary bg-tertiary-fixed/30 px-1.5 py-0.5 rounded">Khẩn</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-relaxed">
+                  Học viên mới kích hoạt gói chưa có HLV phụ trách tại khu vực.
+                </p>
+<div class="pt-1 flex items-center justify-between">
+<span class="text-[10px] text-outline">Kích hoạt: 4 giờ trước</span>
+<a class="inline-flex items-center text-xs font-semibold text-primary hover:underline" href="#phan-cong">
+<span>Xem xử lý</span>
+<span class="material-symbols-outlined text-[14px] ml-0.5" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Task 2: 2 khoản thu cần đối soát -->
+<div class="py-3.5 space-y-1.5">
+<div class="flex items-start justify-between">
+<div class="text-xs font-bold text-on-surface">2 khoản thu cần đối soát</div>
+<span class="text-[10px] font-semibold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded">Tài chính</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-relaxed">
+                  Giao dịch chuyển khoản đang treo xác nhận ngân hàng (1.500.000đ).
+                </p>
+<div class="pt-1 flex items-center justify-between">
+<span class="text-[10px] text-outline">Lệnh: #TRX-9481</span>
+<a class="inline-flex items-center text-xs font-semibold text-primary hover:underline" href="#don-hang">
+<span>Xem xử lý</span>
+<span class="material-symbols-outlined text-[14px] ml-0.5" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Task 3: 1 buổi quá hạn xác nhận (Lưu ý: Chỉ điều phối, Admin NEVER complete PT session) -->
+<div class="py-3.5 space-y-1.5">
+<div class="flex items-start justify-between">
+<div class="text-xs font-bold text-error">1 buổi quá hạn xác nhận (Hôm qua)</div>
+<span class="text-[10px] font-semibold text-error bg-error-container/20 px-1.5 py-0.5 rounded">Vận hành</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-relaxed">
+                  Ca tập của HLV chưa nhấn hoàn thành sau 24h. Lưu ý: Chỉ điều phối/liên hệ HLV giải trình.
+                </p>
+<div class="pt-1 flex items-center justify-between">
+<span class="text-[10px] text-outline">HLV: Trần Quang Nam</span>
+<a class="inline-flex items-center text-xs font-semibold text-primary hover:underline" href="#lich-hen">
+<span>Xem xử lý</span>
+<span class="material-symbols-outlined text-[14px] ml-0.5" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 5: BOTTOM SECTION (Data Table) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6"><div class="bg-surface-container-lowest border border-surface-container rounded-lg overflow-hidden flex flex-col justify-between"><div class="p-4 border-b border-surface-container flex items-center justify-between"><div><h2 class="text-sm font-bold text-on-surface uppercase tracking-tight">Hoạt động huấn luyện viên</h2><p class="text-[11px] text-on-surface-variant mt-0.5">Theo dõi tải học viên và trạng thái xác nhận ca tập thực tế</p></div><span class="text-[11px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">3 HLV phụ trách</span></div><div class="overflow-x-auto"><table class="w-full text-left border-collapse text-xs"><thead><tr class="bg-surface-container-low border-b border-surface-container text-on-surface-variant font-semibold"><th class="py-3 px-4">PT</th><th class="py-3 px-4">Học viên đang phụ trách</th><th class="py-3 px-4">Buổi PT hoàn thành</th><th class="py-3 px-4 text-right">Chờ xác nhận</th></tr></thead><tbody class="divide-y divide-surface-container"><tr class="hover:bg-surface-container-low/50 transition-colors"><td class="py-3 px-4"><div class="flex items-center space-x-2.5"><div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center font-bold text-primary text-xs">HA</div><div><div class="font-semibold text-on-surface">Lê Hoàng Anh</div><div class="text-[10px] text-on-surface-variant">Strength &amp; Conditioning</div></div></div></td><td class="py-3 px-4 font-medium text-on-surface">12 học viên</td><td class="py-3 px-4 font-semibold text-primary">18 buổi</td><td class="py-3 px-4 text-right"><span class="inline-flex items-center text-[11px] font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">2 ca chờ</span></td></tr><tr class="hover:bg-surface-container-low/50 transition-colors"><td class="py-3 px-4"><div class="flex items-center space-x-2.5"><div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center font-bold text-primary text-xs">MT</div><div><div class="font-semibold text-on-surface">Vũ Minh Trí</div><div class="text-[10px] text-on-surface-variant">Kháng lực &amp; Phục hồi</div></div></div></td><td class="py-3 px-4 font-medium text-on-surface">10 học viên</td><td class="py-3 px-4 font-semibold text-primary">15 buổi</td><td class="py-3 px-4 text-right"><span class="inline-flex items-center text-[11px] font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">1 ca chờ</span></td></tr><tr class="hover:bg-surface-container-low/50 transition-colors"><td class="py-3 px-4"><div class="flex items-center space-x-2.5"><div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center font-bold text-primary text-xs">PM</div><div><div class="font-semibold text-on-surface">Đỗ Phương Mai</div><div class="text-[10px] text-on-surface-variant">Giảm mỡ Nữ &amp; Mobility</div></div></div></td><td class="py-3 px-4 font-medium text-on-surface">8 học viên</td><td class="py-3 px-4 font-semibold text-primary">12 buổi</td><td class="py-3 px-4 text-right"><span class="inline-flex items-center text-[11px] font-semibold text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">0 ca chờ</span></td></tr></tbody></table></div><div class="px-4 py-2 bg-surface-container-low border-t border-surface-container flex items-center justify-between text-[11px] text-on-surface-variant"><span>Tổng số: 30 học viên đang theo lịch</span><span class="font-semibold text-on-surface">Tổng: 45 buổi PT hoàn thành</span></div></div><div class="bg-surface-container-lowest border border-surface-container rounded-lg overflow-hidden flex flex-col justify-between"><div class="p-4 border-b border-surface-container flex items-center justify-between"><div><h2 class="text-sm font-bold text-on-surface uppercase tracking-tight">Gói có đơn nhận tiền</h2><p class="text-[11px] text-on-surface-variant mt-0.5">Đối soát doanh thu theo snapshot gói trong kỳ 30 ngày</p></div><span class="text-[11px] font-semibold text-[#087F75] bg-[#087F75]/10 px-2 py-0.5 rounded-full">2 gói phát sinh</span></div><div class="overflow-x-auto"><table class="w-full text-left border-collapse text-xs"><thead><tr class="bg-surface-container-low border-b border-surface-container text-on-surface-variant font-semibold"><th class="py-3 px-4">Gói (snapshot)</th><th class="py-3 px-4">Đơn nhận tiền</th><th class="py-3 px-4">Đã nhận</th><th class="py-3 px-4">Đã hoàn</th><th class="py-3 px-4 text-right">Sau hoàn</th></tr></thead><tbody class="divide-y divide-surface-container"><tr class="hover:bg-surface-container-low/50 transition-colors"><td class="py-3 px-4"><div class="font-semibold text-on-surface">PT Standard + AI</div><div class="text-[10px] text-on-surface-variant">Gói 1 kèm 1 kèm bài tập AI</div></td><td class="py-3 px-4 font-medium text-on-surface">10 đơn</td><td class="py-3 px-4 text-on-surface">30.000.000đ</td><td class="py-3 px-4 text-error font-medium">2.000.000đ</td><td class="py-3 px-4 font-bold text-primary text-right">28.000.000đ</td></tr><tr class="hover:bg-surface-container-low/50 transition-colors"><td class="py-3 px-4"><div class="font-semibold text-on-surface">AI Coach</div><div class="text-[10px] text-on-surface-variant">Tự luyện tập có AI hỗ trợ</div></td><td class="py-3 px-4 font-medium text-on-surface">8 đơn</td><td class="py-3 px-4 text-on-surface">18.000.000đ</td><td class="py-3 px-4 text-on-surface-variant font-medium">0đ</td><td class="py-3 px-4 font-bold text-primary text-right">18.000.000đ</td></tr><tr class="bg-surface-container-low/40 font-semibold border-t-2 border-surface-container"><td class="py-3 px-4 font-bold text-on-surface">Tổng cộng</td><td class="py-3 px-4 font-bold text-on-surface">18 đơn</td><td class="py-3 px-4 font-bold text-on-surface">48.000.000đ</td><td class="py-3 px-4 font-bold text-error">2.000.000đ</td><td class="py-3 px-4 font-extrabold text-[#087F75] text-right">46.000.000đ</td></tr></tbody></table></div><div class="px-4 py-2 bg-surface-container-low border-t border-surface-container flex items-center justify-between text-[11px] text-on-surface-variant"><span>Khớp 100% dữ liệu đối soát cổng thanh toán</span><span class="font-semibold text-primary">Thực thu: 46.000.000đ</span></div></div></div>
+</main>
+<!-- Operational Compliance Footer Bar -->
+<footer class="h-10 px-8 bg-surface-container-lowest border-t border-surface-container flex items-center justify-between text-[11px] text-on-surface-variant">
+<div>Hệ thống Quản trị Vận hành Fitness Motion v3.4 · Tr0ond AI Advisory Module Active</div>
+<div class="flex items-center space-x-3">
+<span class="flex items-center space-x-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>Máy chủ Vận hành Ổn định</span></span>
+<span>Bảo mật hệ thống ISO/IEC 27001</span>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

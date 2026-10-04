@@ -1,0 +1,198 @@
+{
+  "ngay": "2026-10-04",
+  "moiTruong": "Chromium / Playwright, file HTML cục bộ; dữ liệu minh họa",
+  "manHinh": [
+    {
+      "ten": "kh-light",
+      "rong": 1280,
+      "tranNgang": false,
+      "anh": [
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        }
+      ],
+      "nen": "rgb(245, 247, 248)",
+      "diemDanh": false,
+      "tieuDe": "01 · Khách hàng · Sáng | Fitness Motion",
+      "loiJavaScript": []
+    },
+    {
+      "ten": "kh-dark",
+      "rong": 1280,
+      "tranNgang": false,
+      "anh": [
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        }
+      ],
+      "nen": "rgb(17, 23, 25)",
+      "diemDanh": false,
+      "tieuDe": "04 · Khách hàng · Tối | Fitness Motion",
+      "loiJavaScript": []
+    },
+    {
+      "ten": "pt-light",
+      "rong": 1280,
+      "tranNgang": false,
+      "anh": [
+        {
+          "taiDuoc": true
+        }
+      ],
+      "nen": "rgb(245, 247, 248)",
+      "diemDanh": false,
+      "tieuDe": "02 · Huấn luyện viên · Sáng | Fitness Motion",
+      "loiJavaScript": []
+    },
+    {
+      "ten": "pt-dark",
+      "rong": 1280,
+      "tranNgang": false,
+      "anh": [
+        {
+          "taiDuoc": true
+        }
+      ],
+      "nen": "rgb(17, 23, 25)",
+      "diemDanh": false,
+      "tieuDe": "05 · Huấn luyện viên · Tối | Fitness Motion",
+      "loiJavaScript": []
+    },
+    {
+      "ten": "admin-light",
+      "rong": 1280,
+      "tranNgang": false,
+      "anh": [
+        {
+          "taiDuoc": true
+        }
+      ],
+      "nen": "rgb(245, 247, 248)",
+      "diemDanh": false,
+      "tieuDe": "03 · Admin · Sáng | Fitness Motion Quản Trị Hệ Thống",
+      "loiJavaScript": []
+    },
+    {
+      "ten": "admin-dark",
+      "rong": 1280,
+      "tranNgang": false,
+      "anh": [
+        {
+          "taiDuoc": true
+        }
+      ],
+      "nen": "rgb(17, 23, 25)",
+      "diemDanh": false,
+      "tieuDe": "06 · Admin · Tối | Fitness Motion Quản Trị Hệ Thống",
+      "loiJavaScript": []
+    },
+    {
+      "ten": "mobile-light",
+      "rong": 390,
+      "tranNgang": false,
+      "anh": [
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        }
+      ],
+      "nen": "rgb(229, 233, 234)",
+      "diemDanh": false,
+      "tieuDe": "Khách hàng Mobile · Fitness Motion",
+      "loiJavaScript": []
+    },
+    {
+      "ten": "mobile-dark",
+      "rong": 390,
+      "tranNgang": false,
+      "anh": [
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        },
+        {
+          "taiDuoc": true
+        }
+      ],
+      "nen": "rgb(0, 0, 0)",
+      "diemDanh": false,
+      "tieuDe": "Fitness Motion - 08 · Khách hàng Mobile · Tối",
+      "loiJavaScript": []
+    }
+  ],
+  "trangXem": [
+    {
+      "rong": 390,
+      "soLuotDoi": 8,
+      "tranNgang": false,
+      "anhTaiDuoc": true
+    },
+    {
+      "rong": 768,
+      "soLuotDoi": 8,
+      "tranNgang": false,
+      "anhTaiDuoc": true
+    },
+    {
+      "rong": 1440,
+      "soLuotDoi": 8,
+      "tranNgang": false,
+      "anhTaiDuoc": true
+    }
+  ]
+}

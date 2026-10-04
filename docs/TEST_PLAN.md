@@ -1,6 +1,6 @@
 # Kế hoạch kiểm thử và nghiệm thu
 
-**Trạng thái hiện tại:** chưa có ứng dụng, chưa chạy kiểm thử nghiệp vụ/build/realtime/AI. Danh sách dưới đây là tiêu chí cho implementation, không phải kết quả PASS.
+**Trạng thái ngày 04/10/2026:** ứng dụng đã chạy; toàn Backend đạt 267 tests/6.641 assertions trên MariaDB 10.4.32, Frontend đạt 253 tests. Đã bổ sung 8 ca tích hợp nối hành trình KH–PT–Admin và [demo có thể chạy lại](DEMO_SCRIPT.md); [bằng chứng/giới hạn](verification/HANH_TRINH_NGHIEP_VU.md). Các mục dưới đây vẫn là tiêu chí nghiệm thu: không suy ra mọi mục PASS từ tổng số test; AI thật, thanh toán thật và môi trường triển khai cần kiểm chứng riêng.
 
 ## Những nhóm bắt buộc
 

@@ -50,6 +50,33 @@ describe('Menu dọc theo vai trò', () => {
     expect(chon('/bai-tap-khac', { duongDan: '/bai-tap' })).toBe(false)
   })
 
+  it.each(['KHACH_HANG', 'HUAN_LUYEN_VIEN', 'ADMIN'])(
+    'chia nhóm menu %s không mất hoặc lặp liên kết',
+    (vaiTro) => {
+      const danhSach = MenuCaNhan.computed.danhSach.call({ vaiTro })
+      const nhom = MenuCaNhan.computed.cacNhom.call({ vaiTro, danhSach })
+      expect(nhom).toHaveLength(3)
+      expect(nhom.every((n) => n.cacMuc.length > 0)).toBe(true)
+      expect(
+        nhom
+          .flatMap((n) => n.cacMuc)
+          .map((m) => m.duongDan)
+          .sort(),
+      ).toEqual(danhSach.map((m) => m.duongDan).sort())
+    },
+  )
+
+  it.each([
+    ['KHACH_HANG', '/khach-hang/ho-so', '/khach-hang/lich-tap'],
+    ['HUAN_LUYEN_VIEN', '/pt/ho-so', '/pt/hoc-vien'],
+    ['ADMIN', '/admin/ho-so', '/admin/phan-cong'],
+  ])('điều hướng nhanh %s giữ đúng khu vực', (vaiTro, duongDanHoSo, muc) => {
+    const menu = CaNhanLayout.computed.menuNhanh.call({ vaiTro, duongDanHoSo })
+    expect(menu).toHaveLength(4)
+    expect(menu.map((m) => m.to)).toContain(muc)
+    expect(menu.every((m) => m.to.startsWith(duongDanHoSo.replace('/ho-so', '/')))).toBe(true)
+  })
+
   it('giữ tùy chọn thu gọn qua tải lại, chỉ khởi tạo một lần', () => {
     const getItem = vi.fn(() => 'true'),
       setItem = vi.fn()
@@ -89,6 +116,17 @@ describe('Menu dọc theo vai trò', () => {
     expect(vm.dangMoMenu).toBe(false)
     expect(close).toHaveBeenCalledOnce()
     expect(focus).toHaveBeenCalledOnce()
+  })
+  it('trả focus về nút Thêm khi mở menu từ thanh dưới', () => {
+    const focus = vi.fn()
+    const vm = {
+      dangMoMenu: true,
+      nutMoMenu: { focus },
+      $refs: { menuDiDong: { open: true, close: vi.fn() }, nutMenu: { focus: vi.fn() } },
+    }
+    CaNhanLayout.methods.dongMenuDiDong.call(vm)
+    expect(focus).toHaveBeenCalledOnce()
+    expect(vm.$refs.nutMenu.focus).not.toHaveBeenCalled()
   })
 
   it('lỗi đăng xuất được báo và mở lại khả năng thử, không điều hướng', async () => {

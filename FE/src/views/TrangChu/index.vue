@@ -1,93 +1,44 @@
 <template>
-  <div class="cinematic-site">
-    <!-- Thanh điều hướng cố định chuẩn Cinematic Dark (Cao: 64px) -->
+  <div class="cinematic-site motion-home">
     <header class="cinematic-header">
-      <div class="d-flex align-items-center gap-3">
-        <RouterLink
-          to="/"
-          class="d-flex align-items-center gap-2 text-decoration-none"
-          aria-label="Huấn luyện cá nhân — trang chủ"
-        >
-          <LogoThuongHieu />
-          <span class="cinematic-headline fs-6 d-none d-sm-inline"> HUẤN LUYỆN CÁ NHÂN </span>
-        </RouterLink>
-      </div>
-
+      <RouterLink to="/" class="home-brand" aria-label="Tr0ond Fitness, trang chủ"
+        ><LogoThuongHieu /><strong>Tr0ond<span>Fitness</span></strong></RouterLink
+      >
       <nav class="cinematic-nav-links d-none d-lg-flex" aria-label="Điều hướng chính">
-        <RouterLink to="/bai-tap" class="cinematic-link">Bài tập</RouterLink>
-        <RouterLink to="/goi-tap" class="cinematic-link">Bảng giá</RouterLink>
-        <a href="#tinh-nang" class="cinematic-link">Tính năng</a>
-        <a href="#quy-trinh" class="cinematic-link">Quy trình</a>
+        <RouterLink to="/bai-tap" class="cinematic-link">Thư viện bài tập</RouterLink>
+        <RouterLink to="/goi-tap" class="cinematic-link">Gói tập</RouterLink>
+        <a href="#hanh-trinh" class="cinematic-link">Hành trình</a>
+        <RouterLink to="/faq" class="cinematic-link">Hỗ trợ</RouterLink>
       </nav>
-
-      <div class="d-flex align-items-center gap-3">
-        <!-- Nút chuyển đổi giao diện Sáng / Tối -->
-        <NutChuyenChuDe kich-thuoc="sm" />
-
-        <RouterLink to="/dang-nhap" class="cinematic-link d-none d-sm-inline">
-          Đăng nhập
-        </RouterLink>
-        <RouterLink to="/dang-ky" class="cinematic-btn-primary">
-          <span>Bắt đầu ngay</span>
-          <i class="bi bi-arrow-right" aria-hidden="true"></i>
-        </RouterLink>
+      <div class="home-header-actions">
+        <NutChuyenChuDe /><RouterLink to="/dang-nhap" class="cinematic-link">Đăng nhập</RouterLink
+        ><RouterLink to="/dang-ky" class="cinematic-btn-primary d-none d-sm-inline-flex"
+          >Đăng ký<i class="bi bi-arrow-right" aria-hidden="true"></i
+        ></RouterLink>
       </div>
     </header>
-
-    <!-- Phân đoạn Hero 50/50 với Mô phỏng điện thoại 3D và các huy hiệu nổi -->
-    <section class="cinematic-hero">
-      <!-- Cột trái: Tiêu đề, thông điệp và hành động CTA -->
-      <div class="hero-left-content">
-        <div class="cinematic-tagline">
-          <i class="bi bi-fire me-2" aria-hidden="true"></i>
-          <span>NỀN TẢNG HUẤN LUYỆN THỂ HÌNH 1:1 ĐỈNH CAO</span>
-        </div>
-
-        <h1 class="cinematic-headline cinematic-hero-h1">
-          Bứt phá giới hạn, <br />
-          <span class="text-orange-glow">kiến tạo thể hình</span> cùng HLV riêng.
-        </h1>
-
-        <p class="cinematic-hero-desc">
-          Lộ trình tập luyện và dinh dưỡng được cá nhân hóa hoàn toàn theo thể trạng của bạn. Kết
-          nối trực tiếp cùng đội ngũ huấn luyện viên đạt chuẩn quốc tế để chinh phục mục tiêu nhanh
-          nhất.
-        </p>
-
-        <!-- Cụm nút bấm CTA -->
-        <div class="cinematic-cta-cluster">
-          <RouterLink to="/dang-ky" class="cinematic-btn-primary cinematic-btn-large">
-            <span>Đăng ký khách hàng ngay</span>
-            <i class="bi bi-arrow-right fs-5" aria-hidden="true"></i>
-          </RouterLink>
-
-          <RouterLink
-            to="/bai-tap"
-            class="d-flex align-items-center gap-3 text-decoration-none ms-sm-2"
-          >
-            <div class="cinematic-play-btn">
-              <i class="bi bi-play-fill ms-1" aria-hidden="true"></i>
-            </div>
-            <span class="small fw-semibold cinematic-muted-text">Khám phá bài tập</span>
-          </RouterLink>
-        </div>
-
-        <!-- Chỉ số cam kết nhanh -->
-        <div
-          class="d-flex align-items-center gap-4 flex-wrap pt-3 border-top border-secondary-subtle"
+    <section class="home-hero">
+      <div class="home-hero-copy">
+        <span class="home-eyebrow"
+          ><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i> MOVE. TRACK. GROW.</span
         >
-          <div class="d-flex align-items-center gap-2">
-            <i class="bi bi-shield-check text-orange-glow fs-5" aria-hidden="true"></i>
-            <span class="small cinematic-muted-text">100% HLV chứng chỉ quốc tế</span>
-          </div>
-          <div class="d-flex align-items-center gap-2">
-            <i class="bi bi-check-circle-fill text-orange-glow fs-5" aria-hidden="true"></i>
-            <span class="small cinematic-muted-text">Theo dõi 1-kèm-1 khoa học</span>
-          </div>
+        <h1>Tr0ond Fitness<span>Huấn luyện cá nhân.</span></h1>
+        <p>
+          Mỗi buổi tập là một bước tiến. Xây dựng giáo án, ghi lại hành trình và kết nối cùng huấn
+          luyện viên của bạn.
+        </p>
+        <div class="home-hero-actions">
+          <RouterLink to="/dang-ky" class="cinematic-btn-primary"
+            >Bắt đầu hành trình<i class="bi bi-arrow-up-right" aria-hidden="true"></i></RouterLink
+          ><RouterLink to="/bai-tap" class="cinematic-btn-secondary"
+            ><i class="bi bi-collection-play" aria-hidden="true"></i> Khám phá bài tập</RouterLink
+          >
+        </div>
+        <div class="home-hero-note">
+          <i class="bi bi-check2-circle" aria-hidden="true"></i> Tự tập theo nhịp của bạn
+          <span>·</span> Đồng hành cùng PT
         </div>
       </div>
-
-      <!-- Cột phải: Mô phỏng điện thoại 3D tương tác với hình ảnh giải phẫu -->
       <div
         class="phone-perspective-stage"
         @mousemove="xuLyHoverPhone"
@@ -144,326 +95,71 @@
         </div>
       </div>
     </section>
-
-    <!-- Thanh số liệu ấn tượng -->
-    <section
-      class="py-4 border-top border-bottom border-white-5"
-      style="background: rgba(18, 18, 18, 0.6)"
-    >
-      <div class="container-fluid px-lg-5">
-        <div class="row text-center g-4">
-          <div class="col-6 col-md-3">
-            <div class="cinematic-headline fs-2 text-orange-glow">1,200+</div>
-            <p class="small cinematic-muted-text mb-0">Học viên đã đồng hành</p>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="cinematic-headline fs-2">50+</div>
-            <p class="small cinematic-muted-text mb-0">HLV chứng chỉ quốc tế</p>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="cinematic-headline fs-2 text-orange-glow">98.5%</div>
-            <p class="small cinematic-muted-text mb-0">Hài lòng về kết quả</p>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="cinematic-headline fs-2">1 - 1</div>
-            <p class="small cinematic-muted-text mb-0">Kèm cặp & điều chỉnh form</p>
-          </div>
-        </div>
+    <section id="hanh-trinh" class="home-journey">
+      <div class="home-section-title">
+        <span class="home-eyebrow">01 / HÀNH TRÌNH TẬP LUYỆN</span>
+        <h2>Chủ động từng bước.</h2>
+        <RouterLink to="/bai-tap"
+          >Thư viện bài tập <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+        ></RouterLink>
+      </div>
+      <div class="home-service-grid">
+        <RouterLink v-for="muc in dichVu" :key="muc.ten" :to="muc.duongDan" class="home-service"
+          ><i :class="'bi bi-' + muc.icon" aria-hidden="true"></i>
+          <h3>{{ muc.ten }}</h3>
+          <p>{{ muc.moTa }}</p>
+          <i class="bi bi-arrow-up-right home-service-arrow" aria-hidden="true"></i
+        ></RouterLink>
       </div>
     </section>
-
-    <!-- Lưới tính năng 3x2 với thẻ tương tác nghiêng 3D (3D Interactive Cards) -->
-    <section id="tinh-nang" class="cinematic-features-section">
-      <div class="text-center max-w-700 mx-auto mb-5">
-        <span class="cinematic-tagline mb-2">TẠI SAO CHỌN CHÚNG TÔI</span>
-        <h2 class="cinematic-headline fs-1 mt-2">Trải nghiệm tập luyện chuẩn khoa học</h2>
-        <p class="cinematic-muted-text">
-          Mỗi tính năng được thiết kế tối ưu bằng chuyển động 3D để bạn kiểm soát thể chất toàn
-          diện.
-        </p>
+    <section class="home-start">
+      <div>
+        <span class="home-eyebrow">02 / BẮT ĐẦU</span>
+        <h2>Một mục tiêu.<br />Một hành trình của riêng bạn.</h2>
+        <RouterLink to="/dang-ky" class="cinematic-btn-primary"
+          >Tạo tài khoản<i class="bi bi-arrow-right" aria-hidden="true"></i
+        ></RouterLink>
       </div>
-
-      <div class="cinematic-grid-3x2">
-        <!-- Thẻ 1 -->
-        <div class="cinematic-card-3d" @mousemove="xuLyCardMouseMove" @mouseleave="resetCard">
-          <div class="cinematic-icon-box">
-            <i class="bi bi-person-lines-fill" aria-hidden="true"></i>
+      <ol class="home-steps">
+        <li>
+          <span>01</span>
+          <div>
+            <h3>Tạo tài khoản</h3>
+            <p>Cập nhật hồ sơ và mục tiêu tập luyện của bạn.</p>
           </div>
-          <h3 class="cinematic-card-title">Lộ trình cá nhân hóa 1:1</h3>
-          <p class="cinematic-card-desc">
-            Thiết kế giáo án độc bản theo cơ địa, khả năng phục hồi và mục tiêu tăng cơ, giảm mỡ của
-            từng học viên.
-          </p>
-        </div>
-
-        <!-- Thẻ 2 -->
-        <div class="cinematic-card-3d" @mousemove="xuLyCardMouseMove" @mouseleave="resetCard">
-          <div class="cinematic-icon-box">
-            <i class="bi bi-award-fill" aria-hidden="true"></i>
+        </li>
+        <li>
+          <span>02</span>
+          <div>
+            <h3>Chọn cách tập</h3>
+            <p>Tự xây dựng giáo án hoặc chọn gói để đồng hành cùng PT.</p>
           </div>
-          <h3 class="cinematic-card-title">Đội ngũ PT kiểm duyệt</h3>
-          <p class="cinematic-card-desc">
-            100% huấn luyện viên sở hữu bằng cấp uy tín quốc tế (NASM, ACE), giàu kinh nghiệm chỉnh
-            form và động viên kiên trì.
-          </p>
-        </div>
-
-        <!-- Thẻ 3 -->
-        <div class="cinematic-card-3d" @mousemove="xuLyCardMouseMove" @mouseleave="resetCard">
-          <div class="cinematic-icon-box">
-            <i class="bi bi-diagram-3-fill" aria-hidden="true"></i>
+        </li>
+        <li>
+          <span>03</span>
+          <div>
+            <h3>Theo dõi tiến bộ</h3>
+            <p>Ghi nhật ký từng hiệp, cập nhật chỉ số và trao đổi cùng PT phụ trách.</p>
           </div>
-          <h3 class="cinematic-card-title">Phân tích giải phẫu nhóm cơ</h3>
-          <p class="cinematic-card-desc">
-            Minh họa trực quan các nhóm cơ tác động chính và phụ trong từng bài tập giúp tập chuẩn
-            xác, tránh chấn thương.
-          </p>
-        </div>
-
-        <!-- Thẻ 4 -->
-        <div class="cinematic-card-3d" @mousemove="xuLyCardMouseMove" @mouseleave="resetCard">
-          <div class="cinematic-icon-box">
-            <i class="bi bi-activity" aria-hidden="true"></i>
-          </div>
-          <h3 class="cinematic-card-title">Theo dõi Calo & Nhịp tim</h3>
-          <p class="cinematic-card-desc">
-            Ghi nhận chính xác lượng calo tiêu thụ, nhịp tim mục tiêu và chuỗi ngày tập luyện streak
-            bền vững.
-          </p>
-        </div>
-
-        <!-- Thẻ 5 -->
-        <div class="cinematic-card-3d" @mousemove="xuLyCardMouseMove" @mouseleave="resetCard">
-          <div class="cinematic-icon-box">
-            <i class="bi bi-calendar2-check-fill" aria-hidden="true"></i>
-          </div>
-          <h3 class="cinematic-card-title">Lịch hẹn huấn luyện linh hoạt</h3>
-          <p class="cinematic-card-desc">
-            Chủ động chọn giờ tập 60 phút với PT phụ trách, gửi yêu cầu đặt lịch và cập nhật trạng
-            thái ngay trong tài khoản.
-          </p>
-        </div>
-
-        <!-- Thẻ 6 -->
-        <div class="cinematic-card-3d" @mousemove="xuLyCardMouseMove" @mouseleave="resetCard">
-          <div class="cinematic-icon-box">
-            <i class="bi bi-robot" aria-hidden="true"></i>
-          </div>
-          <h3 class="cinematic-card-title">Trợ lý AI thể hình 24/7</h3>
-          <p class="cinematic-card-desc">
-            Giải đáp dinh dưỡng, tính toán macro khẩu phần ăn và tư vấn điều chỉnh thói quen sinh
-            hoạt bất kỳ lúc nào.
-          </p>
-        </div>
-      </div>
+        </li>
+      </ol>
     </section>
-
-    <!-- Thư viện giao diện ứng dụng xếp vòng cung 3D (App Screenshot Gallery) -->
-    <section id="thu-vien-3d" class="cinematic-gallery-section">
-      <div class="text-center max-w-700 mx-auto mb-4">
-        <span class="cinematic-tagline mb-2">GIAO DIỆN ỨNG DỤNG</span>
-        <h2 class="cinematic-headline fs-1">Hệ sinh thái huấn luyện toàn diện</h2>
-        <p class="cinematic-muted-text">
-          Quan sát trực quan lộ trình, lịch hẹn và bài tập qua giao diện thiết kế chuyên biệt.
-        </p>
-      </div>
-
-      <!-- Vòng cung 5 màn hình 3D -->
-      <div class="gallery-arc-container">
-        <!-- Màn 1: Cực trái -->
-        <div class="gallery-screen-card screen-arc-far-left">
-          <div
-            class="p-3 border-bottom border-white-5 d-flex align-items-center justify-content-between"
-          >
-            <span class="small fw-bold cinematic-muted-text">Thư viện bài tập</span>
-            <i class="bi bi-collection-play text-orange-glow"></i>
-          </div>
-          <div class="p-3">
-            <div class="p-2 mb-2 rounded cinematic-screen-inner-card border">
-              <span class="d-block small fw-bold">Kéo xô hẹp tay</span>
-              <span class="small cinematic-muted-text font-monospace">4 hiệp · 12 lần</span>
-            </div>
-            <div class="p-2 rounded cinematic-screen-inner-card border">
-              <span class="d-block small fw-bold">Chèo tạ đơn</span>
-              <span class="small cinematic-muted-text font-monospace">4 hiệp · 10 lần</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Màn 2: Trái -->
-        <div class="gallery-screen-card screen-arc-left">
-          <div
-            class="p-3 border-bottom border-white-5 d-flex align-items-center justify-content-between"
-          >
-            <span class="small fw-bold cinematic-muted-text">Giáo án mẫu</span>
-            <i class="bi bi-journal-check text-orange-glow"></i>
-          </div>
-          <div class="p-3">
-            <span class="badge bg-danger-subtle text-danger mb-2">Nâng cao</span>
-            <h4 class="fs-6 fw-bold mb-1">Hypertrophy Upper</h4>
-            <p class="small cinematic-muted-text">
-              Phát triển cơ lưng xô & ngực toàn diện trong 8 tuần.
-            </p>
-          </div>
-        </div>
-
-        <!-- Màn 3: Trung tâm nổi bật -->
-        <div class="gallery-screen-card screen-arc-center">
-          <div
-            class="p-3 border-bottom border-warning-subtle d-flex align-items-center justify-content-between"
-          >
-            <span class="small fw-bold text-orange-glow">Đang tập luyện</span>
-            <span class="spinner-grow spinner-grow-sm text-danger" role="status"></span>
-          </div>
-          <div
-            class="p-3 text-center flex-grow-1 d-flex flex-direction-column justify-content-center"
-          >
-            <div class="my-auto">
-              <i class="bi bi-heart-pulse-fill text-danger fs-1 mb-2 d-block"></i>
-              <div class="cinematic-headline fs-2">124 BPM</div>
-              <p class="small text-orange-glow font-monospace mb-3">847 KCAL TIÊU HAO</p>
-              <div
-                class="p-2 rounded cinematic-screen-inner-card border small cinematic-muted-text"
-              >
-                Hiệp 3/4 · Nghỉ 60s
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Màn 4: Phải -->
-        <div class="gallery-screen-card screen-arc-right">
-          <div
-            class="p-3 border-bottom border-white-5 d-flex align-items-center justify-content-between"
-          >
-            <span class="small fw-bold cinematic-muted-text">Lịch huấn luyện</span>
-            <i class="bi bi-calendar-event text-orange-glow"></i>
-          </div>
-          <div class="p-3">
-            <div class="p-2 mb-2 rounded cinematic-screen-inner-card border">
-              <span class="badge bg-success-subtle text-success small mb-1">Đã xác nhận</span>
-              <strong class="d-block small">08:00 - 09:00</strong>
-              <span class="small cinematic-muted-text">HLV Nguyễn Minh Tuấn</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Màn 5: Cực phải -->
-        <div class="gallery-screen-card screen-arc-far-right">
-          <div
-            class="p-3 border-bottom border-white-5 d-flex align-items-center justify-content-between"
-          >
-            <span class="small fw-bold cinematic-muted-text">Gói tập cá nhân</span>
-            <i class="bi bi-award text-orange-glow"></i>
-          </div>
-          <div class="p-3">
-            <span class="badge bg-warning-subtle text-warning small mb-1">12 Buổi PT</span>
-            <h4 class="fs-6 fw-bold mb-1">Gói Chiến Binh</h4>
-            <p class="small cinematic-muted-text">Kèm chatbot AI 24/7 và đối soát payOS tức thì.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quy trình 3 bước -->
-    <section id="quy-trinh" class="py-5 cinematic-steps-section">
-      <div class="container py-4">
-        <div class="text-center mb-5">
-          <span class="cinematic-tagline mb-2">QUY TRÌNH TINH GỌN</span>
-          <h2 class="cinematic-headline fs-1">Bắt đầu chỉ trong 3 bước</h2>
-        </div>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="p-4 rounded-4 border cinematic-card-box h-100 position-relative">
-              <span class="cinematic-headline fs-1 text-orange-glow opacity-50 d-block mb-3"
-                >01</span
-              >
-              <h3 class="fs-5 fw-bold mb-2">Đăng ký & Chọn mục tiêu</h3>
-              <p class="small cinematic-muted-text mb-0">
-                Tạo tài khoản và cập nhật mong muốn thể chất: Tăng cơ bắp, giảm mỡ thừa hoặc nâng
-                cao sức bền.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="p-4 rounded-4 border cinematic-card-box h-100 position-relative">
-              <span class="cinematic-headline fs-1 text-orange-glow opacity-50 d-block mb-3"
-                >02</span
-              >
-              <h3 class="fs-5 fw-bold mb-2">Kết nối Huấn luyện viên</h3>
-              <p class="small cinematic-muted-text mb-0">
-                Admin phân công PT phù hợp nhất, xây dựng lộ trình tập luyện và lên lịch rảnh 60
-                phút mỗi buổi.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="p-4 rounded-4 border cinematic-card-box h-100 position-relative">
-              <span class="cinematic-headline fs-1 text-orange-glow opacity-50 d-block mb-3"
-                >03</span
-              >
-              <h3 class="fs-5 fw-bold mb-2">Tập luyện & Bứt phá</h3>
-              <p class="small cinematic-muted-text mb-0">
-                Thực hiện từng bài tập theo đúng form giải phẫu, kiểm soát calo và đạt hình thể mơ
-                ước.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Phân đoạn Kêu gọi Hành động (CTA Transformation Section với Glow 600px) -->
-    <section class="cinematic-cta-section">
-      <div class="cta-glow-backdrop" aria-hidden="true"></div>
-
-      <span class="cinematic-tagline position-relative z-1 mb-3">SẴN SÀNG CHINH PHỤC</span>
-      <h2 class="cinematic-headline cinematic-cta-h2">
-        Bắt đầu hành trình <br />
-        <span class="text-orange-glow">chuyển mình vượt bậc</span> ngay hôm nay.
-      </h2>
-      <p class="cinematic-muted-text position-relative z-1 max-w-600 mx-auto">
-        Trở thành phiên bản mạnh mẽ, săn chắc và khỏe khoắn hơn với sự đồng hành 1:1 từ các chuyên
-        gia thể hình hàng đầu.
-      </p>
-
-      <div class="cinematic-cta-buttons">
-        <RouterLink to="/dang-ky" class="cinematic-btn-primary cinematic-btn-large">
-          <i class="bi bi-fire fs-5" aria-hidden="true"></i>
-          <span>Bắt đầu ngay hôm nay</span>
-        </RouterLink>
-        <RouterLink to="/goi-tap" class="cinematic-btn-secondary cinematic-btn-large">
-          <i class="bi bi-tag-fill me-1" aria-hidden="true"></i>
-          <span>Bảng giá gói tập</span>
-        </RouterLink>
-        <RouterLink to="/dang-nhap" class="cinematic-btn-secondary cinematic-btn-large">
-          <i class="bi bi-box-arrow-in-right me-1" aria-hidden="true"></i>
-          <span>Đăng nhập</span>
-        </RouterLink>
-      </div>
-    </section>
-
-    <!-- Chân trang phong cách Dark Cinematic -->
     <footer class="cinematic-footer">
-      <div class="d-flex align-items-center gap-2">
-        <LogoThuongHieu />
-        <span class="cinematic-headline fs-6">HUẤN LUYỆN CÁ NHÂN</span>
-      </div>
-      <div class="d-flex align-items-center gap-4 text-muted small flex-wrap">
-        <RouterLink to="/bai-tap" class="cinematic-link">Thư viện bài tập</RouterLink>
-        <RouterLink to="/goi-tap" class="cinematic-link">Bảng giá dịch vụ</RouterLink>
-        <RouterLink to="/dang-nhap" class="cinematic-link">Đăng nhập</RouterLink>
-        <RouterLink to="/dang-ky" class="cinematic-link">Đăng ký khách hàng</RouterLink>
-      </div>
-      <p class="small text-muted mb-0 w-100 text-center text-md-end mt-2 mt-md-0">
-        © 2026 Quản lý huấn luyện cá nhân · Cinematic Dark 3D Edition.
-      </p>
+      <RouterLink to="/" class="home-brand"
+        ><LogoThuongHieu /><strong>Tr0ond<span>Fitness</span></strong></RouterLink
+      >
+      <nav aria-label="Liên kết cuối trang">
+        <RouterLink to="/bai-tap">Bài tập</RouterLink><RouterLink to="/goi-tap">Gói tập</RouterLink
+        ><RouterLink to="/faq">Hỗ trợ</RouterLink>
+      </nav>
+      <span>© 2026 Tr0ond Fitness</span>
     </footer>
   </div>
 </template>
 
 <script>
 import '../../assets/styles/cinematicDark.css'
+import '../../assets/styles/homeMotion.css'
 import NutChuyenChuDe from '../../components/NutChuyenChuDe.vue'
 import LogoThuongHieu from '../../components/LogoThuongHieu.vue'
 
@@ -478,6 +174,44 @@ export default {
       phoneRotateX: 8,
       phoneRotateY: -18,
       phoneTranslateY: 0,
+      dichVu: [
+        {
+          ten: 'Giáo án cá nhân',
+          moTa: 'Sắp xếp bài tập, số hiệp và số lần theo mục tiêu của bạn.',
+          icon: 'journal-check',
+          duongDan: '/dang-ky',
+        },
+        {
+          ten: 'Thư viện bài tập',
+          moTa: 'Tìm động tác theo nhóm cơ, dụng cụ và hình ảnh minh họa.',
+          icon: 'collection-play',
+          duongDan: '/bai-tap',
+        },
+        {
+          ten: 'Lịch & nhật ký',
+          moTa: 'Lên lịch tự tập và ghi lại kết quả thực tế của từng hiệp.',
+          icon: 'calendar2-week',
+          duongDan: '/dang-ky',
+        },
+        {
+          ten: 'Đồng hành cùng PT',
+          moTa: 'Đặt lịch và trao đổi với huấn luyện viên được phân công.',
+          icon: 'people',
+          duongDan: '/goi-tap',
+        },
+        {
+          ten: 'Chỉ số cơ thể',
+          moTa: 'Theo dõi cân nặng, chiều cao và thay đổi qua từng lần đo.',
+          icon: 'activity',
+          duongDan: '/dang-ky',
+        },
+        {
+          ten: 'Tr0ond AI',
+          moTa: 'Hỏi đáp kiến thức tập luyện theo quyền lợi của gói đang dùng.',
+          icon: 'robot',
+          duongDan: '/goi-tap',
+        },
+      ],
     }
   },
   methods: {

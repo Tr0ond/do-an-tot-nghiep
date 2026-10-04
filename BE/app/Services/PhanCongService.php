@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\HoSoHuanLuyenVien;
 use App\Models\HoSoKhachHang;
+use App\Models\LichHenHuanLuyen;
 use App\Models\PhanCongHuanLuyenVien;
 use App\Models\TaiKhoan;
 use Illuminate\Support\Facades\DB;
@@ -56,8 +57,12 @@ class PhanCongService
                 }
                 $moc = $cu->bat_dau_luc && $moc->lessThanOrEqualTo($cu->bat_dau_luc) ? $cu->bat_dau_luc->addMicrosecond() : $moc;
                 $cu->update(['ket_thuc_luc' => $moc, 'ly_do_ket_thuc' => $lyDo]);
+                $lichHuy = LichHenHuanLuyen::where('phan_cong_id', $cu->id)->where('bat_dau_luc', '>', $moc)->whereIn('trang_thai', ['CHO_XAC_NHAN', 'DA_XAC_NHAN'])->get();
                 DB::table('lich_hen_huan_luyen')->where('phan_cong_id', $cu->id)->where('bat_dau_luc', '>', $moc)->whereIn('trang_thai', ['CHO_XAC_NHAN', 'DA_XAC_NHAN'])->update(['trang_thai' => 'DA_HUY', 'nguoi_huy_id' => $admin->id, 'huy_luc' => $moc, 'ly_do_huy' => 'Đổi PT: '.$lyDo, 'updated_at' => $moc]);
                 DB::table('ke_hoach_tap')->where('phan_cong_id', $cu->id)->whereIn('trang_thai', ['NHAP', 'CHO_DUYET', 'CHO_XAC_NHAN'])->update(['trang_thai' => 'DA_HUY', 'updated_at' => $moc]);
+                foreach ($lichHuy as $lich) {
+                    app(ThongBaoService::class)->lichHen($lich, 'doi-pt');
+                }
             }
             $moi = PhanCongHuanLuyenVien::create(['khach_hang_id' => $khach->id, 'huan_luyen_vien_id' => $pt->id, 'nguoi_phan_cong_id' => $admin->id, 'bat_dau_luc' => $moc, 'client_request_id' => $ma, 'phan_cong_truoc_id' => $cu?->id]);
             DB::table('hoi_thoai')->insert(['phan_cong_id' => $moi->id, 'created_at' => $moc, 'updated_at' => $moc]);
@@ -66,6 +71,12 @@ class PhanCongService
                 $nguoiNhan[] = $cu->pt->tai_khoan_id;
             }
             app(ChatService::class)->baoCapNhat($nguoiNhan);
+            $thongBao = app(ThongBaoService::class);
+            $thongBao->gui($khach->tai_khoan_id, 'phan-cong/'.$moi->id.'/kh', $cu ? 'PT phụ trách đã thay đổi' : 'Bạn đã được phân công PT', 'PT mới đã được phân công. Bạn có thể xem hồ sơ và trao đổi trong tin nhắn.', '/khach-hang/ho-so');
+            $thongBao->gui($pt->tai_khoan_id, 'phan-cong/'.$moi->id.'/pt', 'Bạn có học viên mới', 'Một học viên đã được phân công cho bạn. Mở hồ sơ để bắt đầu theo dõi.', '/pt/hoc-vien/'.$khach->id.'/ke-hoach');
+            if ($cu) {
+                $thongBao->gui($cu->pt->tai_khoan_id, 'phan-cong/'.$cu->id.'/ket-thuc', 'Phân công học viên đã kết thúc', 'Admin đã đổi PT cho một học viên. Quyền truy cập học viên và hội thoại cũ đã kết thúc.', '/pt/hoc-vien');
+            }
             DB::table('nhat_ky_he_thong')->insert(['tai_khoan_id' => $admin->id, 'hanh_dong' => $cu ? 'DOI_PT' : 'PHAN_CONG_PT', 'loai_tai_nguyen' => 'phan_cong_huan_luyen_vien', 'tai_nguyen_id' => $moi->id, 'metadata_an_toan' => json_encode(['phan_cong_truoc_id' => $cu?->id]), 'created_at' => $moc, 'updated_at' => $moc]);
 
             return $moi;

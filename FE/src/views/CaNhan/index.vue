@@ -1,10 +1,10 @@
 <template>
   <CaNhanLayout>
-    <div class="page-heading mb-4">
+    <header class="st-page-heading">
       <div>
-        <div class="eyebrow">KHU VỰC CÁ NHÂN</div>
-        <h1 class="h2">Hồ sơ của tôi</h1>
-        <p class="text-muted mb-0">
+        <span class="st-kicker">TÀI KHOẢN CỦA BẠN</span>
+        <h1>Hồ sơ của tôi</h1>
+        <p>
           {{
             laKhach
               ? 'Thông tin cá nhân và hồ sơ tập luyện.'
@@ -17,53 +17,110 @@
       <RouterLink :to="duongDanHoSo + '/sua'" class="btn btn-primary"
         ><i class="bi bi-pencil-square" aria-hidden="true"></i> Cập nhật hồ sơ</RouterLink
       >
-    </div>
-    <div class="ho-so-grid">
-      <section class="profile-panel" aria-labelledby="thong-tin">
-        <div class="d-flex gap-3 align-items-center mb-4">
-          <div class="anh-chu">{{ chuCaiDau }}</div>
+    </header>
+    <section class="st-identity-band" aria-label="Thông tin tài khoản">
+      <span class="st-avatar st-avatar-large" aria-hidden="true">{{ chuCaiDau }}</span>
+      <div>
+        <h2>{{ xacThuc.taiKhoan?.ho_ten }}</h2>
+        <p>{{ nhanVaiTro }} · #{{ xacThuc.taiKhoan?.id }}</p>
+      </div>
+      <span class="st-status"><i class="bi bi-check-circle" aria-hidden="true"></i> Hoạt động</span>
+    </section>
+    <div class="st-profile-grid">
+      <section class="st-section" aria-labelledby="thong-tin">
+        <h2 id="thong-tin">
+          <i class="bi bi-person-vcard" aria-hidden="true"></i> Thông tin liên hệ & cơ bản
+        </h2>
+        <dl class="st-fact-list">
           <div>
-            <h2 id="thong-tin" class="h4 mb-1">{{ xacThuc.taiKhoan?.ho_ten }}</h2>
-            <span class="status-pill">Hoạt động</span>
+            <dt>Họ và tên</dt>
+            <dd>{{ xacThuc.taiKhoan?.ho_ten }}</dd>
           </div>
-        </div>
-        <dl>
-          <dt>Email</dt>
-          <dd>{{ xacThuc.taiKhoan?.email }}</dd>
-          <dt>Vai trò</dt>
-          <dd>{{ nhanVaiTro }}</dd>
+          <div>
+            <dt>Email</dt>
+            <dd>{{ xacThuc.taiKhoan?.email }}</dd>
+          </div>
+          <div>
+            <dt>Vai trò</dt>
+            <dd>{{ nhanVaiTro }}</dd>
+          </div>
           <template v-if="laKhach"
-            ><dt>Ngày sinh</dt>
-            <dd>{{ ngaySinhDinhDang }}</dd>
-            <dt>Giới tính</dt>
-            <dd>{{ nhanGioiTinh }}</dd></template
+            ><div>
+              <dt>Ngày sinh</dt>
+              <dd>{{ ngaySinhDinhDang }}</dd>
+            </div>
+            <div>
+              <dt>Giới tính</dt>
+              <dd>{{ nhanGioiTinh }}</dd>
+            </div></template
           >
         </dl>
       </section>
-      <section v-if="laKhach || laPt" class="profile-panel" aria-labelledby="ho-so">
-        <h2 id="ho-so" class="h5 mb-4">{{ laPt ? 'Hồ sơ chuyên môn' : 'Hồ sơ tập luyện' }}</h2>
-        <dl>
+      <section v-if="laKhach || laPt" class="st-section" aria-labelledby="ho-so">
+        <h2 id="ho-so">
+          <i class="bi bi-bullseye" aria-hidden="true"></i>
+          {{ laPt ? 'Hồ sơ chuyên môn' : 'Thông tin tập luyện & mục tiêu' }}
+        </h2>
+        <dl class="st-fact-list">
           <template v-if="laKhach"
-            ><dt>Mục tiêu tập luyện</dt>
-            <dd>{{ hoSo?.muc_tieu || 'Chưa cung cấp' }}</dd>
-            <dt>Kinh nghiệm</dt>
-            <dd>{{ hoSo?.kinh_nghiem || 'Chưa cung cấp' }}</dd>
-            <dt>Thời gian có thể tập</dt>
-            <dd>
-              <ul v-if="thoiGianTap.length" class="ps-3 mb-0">
-                <li v-for="(gio, viTri) in thoiGianTap" :key="viTri">{{ gio }}</li>
-              </ul>
-              <span v-else>Chưa cung cấp</span>
-            </dd></template
+            ><div>
+              <dt>Mục tiêu tập luyện</dt>
+              <dd>{{ hoSo?.muc_tieu || 'Chưa cung cấp' }}</dd>
+            </div>
+            <div>
+              <dt>Kinh nghiệm</dt>
+              <dd>{{ hoSo?.kinh_nghiem || 'Chưa cung cấp' }}</dd>
+            </div>
+            <div>
+              <dt>Thời gian có thể tập</dt>
+              <dd>
+                <ul v-if="thoiGianTap.length">
+                  <li v-for="(gio, i) in thoiGianTap" :key="i">{{ gio }}</li>
+                </ul>
+                <span v-else>Chưa cung cấp</span>
+              </dd>
+            </div></template
           ><template v-else
-            ><dt>Chuyên môn</dt>
-            <dd>{{ hoSo?.chuyen_mon || 'Chưa cung cấp' }}</dd>
-            <dt>Giới thiệu</dt>
-            <dd class="gioi-thieu">{{ hoSo?.gioi_thieu || 'Chưa cung cấp' }}</dd></template
+            ><div>
+              <dt>Chuyên môn</dt>
+              <dd>{{ hoSo?.chuyen_mon || 'Chưa cung cấp' }}</dd>
+            </div>
+            <div>
+              <dt>Giới thiệu</dt>
+              <dd class="gioi-thieu">{{ hoSo?.gioi_thieu || 'Chưa cung cấp' }}</dd>
+            </div></template
           >
         </dl>
-        <RouterLink :to="duongDanHoSo + '/sua'"
-          >Bổ sung thông tin hồ sơ <i class="bi bi-arrow-right" aria-hidden="true"></i
+        <RouterLink :to="duongDanHoSo + '/sua'" class="st-text-link"
+          >Bổ sung thông tin hồ sơ <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+        ></RouterLink>
+      </section>
+      <section v-if="laKhach" class="st-section">
+        <h2><i class="bi bi-activity" aria-hidden="true"></i> Hành trình tập luyện</h2>
+        <RouterLink to="/khach-hang/chi-so-co-the" class="st-link-row"
+          ><span>Chỉ số cơ thể</span><i class="bi bi-arrow-right" aria-hidden="true"></i
+        ></RouterLink>
+        <RouterLink to="/khach-hang/ke-hoach" class="st-link-row"
+          ><span>Giáo án của tôi</span><i class="bi bi-arrow-right" aria-hidden="true"></i
+        ></RouterLink>
+        <RouterLink to="/khach-hang/goi-cua-toi" class="st-link-row"
+          ><span>Gói & huấn luyện viên</span><i class="bi bi-arrow-right" aria-hidden="true"></i
+        ></RouterLink>
+      </section>
+      <section class="st-section">
+        <h2><i class="bi bi-shield-check" aria-hidden="true"></i> Tài khoản & truy cập</h2>
+        <dl class="st-fact-list">
+          <div>
+            <dt>Trạng thái</dt>
+            <dd>Đang hoạt động</dd>
+          </div>
+          <div>
+            <dt>Email đăng nhập</dt>
+            <dd>{{ xacThuc.taiKhoan?.email }}</dd>
+          </div>
+        </dl>
+        <RouterLink to="/quen-mat-khau" class="st-text-link"
+          >Khôi phục mật khẩu <i class="bi bi-arrow-up-right" aria-hidden="true"></i
         ></RouterLink>
       </section>
     </div>
@@ -127,9 +184,9 @@ export default {
   height: 64px;
   display: grid;
   place-items: center;
-  border-radius: 18px;
+  border-radius: 8px;
   background: var(--mau-chinh);
-  color: white;
+  color: var(--mau-tren-chinh);
   font-size: 28px;
   font-weight: 700;
   flex-shrink: 0;

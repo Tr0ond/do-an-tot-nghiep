@@ -1,17 +1,13 @@
 <template>
   <CaNhanLayout>
-    <section class="ga kh-plan">
-      <RouterLink v-if="laPt" to="/pt/hoc-vien" class="btn btn-outline-secondary kh-back-btn">
-        <i class="bi bi-arrow-left" aria-hidden="true"></i>
-        <span>Học viên của tôi</span>
-      </RouterLink>
-
-      <header class="kh-heading">
+    <section class="ga st-plans">
+      <RouterLink v-if="laPt" to="/pt/hoc-vien" class="st-text-link"
+        ><i class="bi bi-arrow-left" aria-hidden="true"></i> Học viên của tôi</RouterLink
+      >
+      <header class="st-page-heading">
         <div>
-          <span class="ga-eyebrow">
-            <i class="bi bi-journal-text me-1 text-emerald" aria-hidden="true"></i>GIÁO ÁN CÁ NHÂN
-          </span>
-          <h1 class="h2 fw-bold">
+          <span class="st-kicker">GIÁO ÁN CÁ NHÂN</span>
+          <h1>
             {{
               laPt
                 ? hocVien
@@ -25,12 +21,11 @@
           <p>
             {{
               laPt
-                ? 'Theo dõi toàn bộ giáo án PT giao và giáo án học viên tự tạo, bao gồm cả bản nháp và kế hoạch đang áp dụng.'
-                : 'Tự tạo giáo án miễn phí từ thư viện hoặc xem giáo án do PT giao. Bạn có một giáo án đang áp dụng; chọn bản mới sẽ tự động lưu trữ bản cũ.'
+                ? 'Giáo án PT giao và giáo án học viên tự tạo.'
+                : 'Tự tạo miễn phí hoặc nhận giáo án từ PT phụ trách.'
             }}
           </p>
         </div>
-
         <RouterLink
           v-if="!laPt || hocVien"
           :to="
@@ -38,212 +33,146 @@
               ? `/pt/hoc-vien/${$route.params.khachId}/ke-hoach/them`
               : '/khach-hang/ke-hoach/them'
           "
-          class="btn btn-primary d-inline-flex align-items-center gap-2"
+          class="btn btn-primary"
+          ><i class="bi bi-plus-lg" aria-hidden="true"></i>
+          {{ laPt ? 'Soạn giáo án mới' : 'Tự tạo giáo án' }}</RouterLink
         >
-          <i class="bi bi-plus-lg" aria-hidden="true"></i>
-          <span>{{ laPt ? 'Soạn giáo án mới' : 'Tự tạo giáo án' }}</span>
-        </RouterLink>
       </header>
-
-      <!-- Thanh công cụ lọc nguồn & trạng thái hiển thị -->
-      <div class="kh-filter-toolbar">
-        <div class="kh-filter-group">
-          <div class="kh-filter-item">
-            <label for="nguon-giao-an">
-              <i class="bi bi-funnel text-emerald" aria-hidden="true"></i>Nguồn giáo án:
-            </label>
-            <select
-              id="nguon-giao-an"
-              v-model="nguonTao"
-              class="kh-filter-select"
-              @change="doiNguon"
-            >
-              <option value="">Tất cả giáo án</option>
-              <option value="KHACH_HANG">KH tự tạo</option>
-              <option value="PT">PT giao</option>
-            </select>
-          </div>
-
-          <div v-if="!laPt" class="kh-filter-item">
-            <label for="hien-thi-giao-an">
-              <i class="bi bi-eye text-primary" aria-hidden="true"></i>Hiển thị:
-            </label>
-            <select
-              id="hien-thi-giao-an"
-              :value="daAn ? '1' : '0'"
-              class="kh-filter-select"
-              @change="doiHienThi"
-            >
-              <option value="0">Giáo án của tôi</option>
-              <option value="1">Đã ẩn</option>
-            </select>
-          </div>
-        </div>
-
-        <div v-if="!laPt" class="kh-filter-hint">
-          <span>
-            <i class="bi bi-info-circle me-1" aria-hidden="true"></i>
-            {{
-              daAn
-                ? 'Mở giáo án để hiện lại. Nội dung và lịch sử tập vẫn được giữ an toàn.'
-                : 'Có thể ẩn giáo án tự tạo đã hủy hoặc ngừng áp dụng trong trang chi tiết.'
-            }}
-          </span>
-        </div>
-      </div>
-
-      <!-- Trạng thái tải -->
-      <div v-if="dangTai" class="p-5 text-center" role="status">
-        <div class="spinner-border text-primary mb-3" role="status"></div>
-        <p class="text-muted small mb-0">Đang tải danh sách giáo án…</p>
-      </div>
-
-      <!-- Báo lỗi -->
-      <div v-else-if="loi" class="kh-notice" role="alert">
-        <div class="d-flex align-items-start gap-3">
-          <i
-            class="bi bi-exclamation-triangle-fill text-danger fs-4 flex-shrink-0"
-            aria-hidden="true"
-          ></i>
-          <div>
-            <h2 class="h6 fw-bold mb-1 text-danger">Chưa tải được danh sách giáo án</h2>
-            <p class="mb-2 small">{{ loi }}</p>
-            <button class="btn btn-outline-secondary btn-sm" @click="taiDanhSach">Thử lại</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Danh sách rỗng -->
-      <div v-else-if="!danhSach.length" class="ga-panel text-center py-5">
-        <div
-          class="empty-icon-ring mx-auto mb-3"
-          style="
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background: var(--mau-the-sub, #1e1e1e);
-            display: grid;
-            place-items: center;
-          "
+      <div class="st-toolbar">
+        <label for="nguon-giao-an"
+          >Nguồn giáo án<select
+            id="nguon-giao-an"
+            v-model="nguonTao"
+            class="form-select"
+            @change="doiNguon"
+          >
+            <option value="">Tất cả giáo án</option>
+            <option value="KHACH_HANG">KH tự tạo</option>
+            <option value="PT">PT giao</option>
+          </select></label
         >
-          <i class="bi bi-journal-x fs-2 text-muted" aria-hidden="true"></i>
-        </div>
-        <h2 class="h5 fw-bold mb-2">
-          {{ daAn ? 'Chưa có giáo án đã ẩn' : 'Chưa có giáo án nào' }}
-        </h2>
-        <p class="text-muted small mb-3" style="max-width: 460px; margin: 0 auto">
-          {{
-            daAn
-              ? 'Giáo án bạn ẩn sẽ xuất hiện tại đây để xem lại hoặc khôi phục hiển thị.'
-              : laPt
-                ? 'Bắt đầu soạn giáo án mới từ giáo án mẫu đã duyệt hoặc chọn bài tập trong thư viện.'
-                : 'Bạn có thể tự chọn bài từ thư viện bài tập và lưu giáo án ngay, kể cả khi chưa có huấn luyện viên.'
-          }}
-        </p>
-        <RouterLink
-          v-if="!daAn && (!laPt || hocVien)"
-          :to="
-            laPt
-              ? `/pt/hoc-vien/${$route.params.khachId}/ke-hoach/them`
-              : '/khach-hang/ke-hoach/them'
-          "
-          class="btn btn-primary btn-sm"
+        <label v-if="!laPt" for="hien-thi-giao-an"
+          >Hiển thị<select
+            id="hien-thi-giao-an"
+            :value="daAn ? '1' : '0'"
+            class="form-select"
+            @change="doiHienThi"
+          >
+            <option value="0">Giáo án của tôi</option>
+            <option value="1">Đã ẩn</option>
+          </select></label
         >
-          <i class="bi bi-plus-lg me-1" aria-hidden="true"></i>
-          {{ laPt ? 'Soạn giáo án ngay' : 'Tự tạo giáo án mới' }}
-        </RouterLink>
+        <span class="st-result-count">{{ meta.total || danhSach.length }} giáo án</span>
       </div>
-
-      <!-- Danh sách giáo án dạng thẻ -->
-      <div v-else class="kh-cards">
-        <article v-for="k in danhSach" :key="k.id" class="kh-card">
-          <div class="kh-card-top">
-            <div class="kh-card-badges">
-              <span class="kh-status" :class="k.trang_thai_hien_thi">
-                <i
-                  :class="{
-                    'bi bi-check-circle-fill': k.trang_thai_hien_thi === 'DANG_AP_DUNG',
-                    'bi bi-hourglass-split': k.trang_thai_hien_thi === 'CHO_DUYET',
-                    'bi bi-pencil-square': k.trang_thai_hien_thi === 'NHAP',
-                    'bi bi-archive': k.trang_thai_hien_thi === 'LUU_TRU',
-                    'bi bi-x-circle':
-                      k.trang_thai_hien_thi === 'DA_HUY' || k.trang_thai_hien_thi === 'QUA_HAN',
-                  }"
-                  aria-hidden="true"
-                ></i>
-                {{ nhanTrangThai(k) }}
-              </span>
-              <span v-if="k.da_an" class="kh-status ms-1">
-                <i class="bi bi-eye-slash" aria-hidden="true"></i> KH đã ẩn
-              </span>
-            </div>
-
-            <span class="kh-source-tag">
+      <p v-if="dangTai" role="status" class="st-empty">Đang tải danh sách giáo án…</p>
+      <div v-else-if="loi" class="alert alert-danger" role="alert">
+        {{ loi }} <button class="btn btn-outline-secondary" @click="taiDanhSach">Thử lại</button>
+      </div>
+      <div v-else class="st-plan-workspace">
+        <div>
+          <div v-if="!danhSach.length" class="st-empty">
+            <i class="bi bi-journal" aria-hidden="true"></i>
+            <h2>{{ daAn ? 'Chưa có giáo án đã ẩn' : 'Chưa có giáo án nào' }}</h2>
+            <p>
+              {{
+                daAn
+                  ? 'Giáo án đã ẩn vẫn giữ nội dung và lịch sử.'
+                  : 'Bắt đầu bằng một giáo án mới từ thư viện bài tập.'
+              }}
+            </p>
+          </div>
+          <article v-for="k in danhSach" :key="k.id" class="st-plan-row">
+            <div class="st-plan-symbol" aria-hidden="true">
               <i
-                :class="`bi ${k.nguon_tao === 'KHACH_HANG' ? 'bi-person text-secondary' : 'bi-award-fill text-primary'}`"
-                aria-hidden="true"
+                class="bi"
+                :class="
+                  k.trang_thai_hien_thi === 'DANG_AP_DUNG' ? 'bi-journal-check' : 'bi-journal-text'
+                "
               ></i>
-              {{ k.nguon_tao === 'KHACH_HANG' ? 'KH tự tạo' : 'PT giao' }}
-            </span>
-          </div>
-
-          <h2>{{ k.ten_ke_hoach }}</h2>
-          <p class="kh-card-desc">{{ k.muc_tieu || 'Giáo án tập luyện cá nhân' }}</p>
-
-          <div class="kh-meta">
-            <span class="kh-meta-item">
-              <i class="bi bi-calendar3" aria-hidden="true"></i>
-              <span
-                ><strong>{{ k.so_ngay_tap }}</strong> ngày tập</span
-              >
-            </span>
-            <span class="kh-meta-item">
-              <i class="bi bi-activity" aria-hidden="true"></i>
-              <span
-                ><strong>{{ k.so_bai_tap }}</strong> bài tập</span
-              >
-            </span>
-          </div>
-
-          <div v-if="k.trang_thai_hien_thi === 'CHO_DUYET'" class="kh-deadline-callout">
-            <i class="bi bi-clock-history" aria-hidden="true"></i>
-            <span
-              >Xác nhận trước <strong>{{ thoiGian(k.han_duyet) }}</strong></span
-            >
-          </div>
-
-          <div class="kh-card-footer">
+            </div>
+            <div class="st-plan-copy">
+              <div class="st-row-actions">
+                <span class="kh-status" :class="k.trang_thai_hien_thi">{{ nhanTrangThai(k) }}</span
+                ><span v-if="k.da_an" class="kh-status">KH đã ẩn</span
+                ><small>{{ k.nguon_tao === 'KHACH_HANG' ? 'KH tự tạo' : 'PT giao' }}</small>
+              </div>
+              <h2>{{ k.ten_ke_hoach }}</h2>
+              <p>{{ k.muc_tieu || 'Giáo án tập luyện cá nhân' }}</p>
+              <div class="st-plan-meta">
+                <span
+                  ><i class="bi bi-calendar3" aria-hidden="true"></i> {{ k.so_ngay_tap }} ngày
+                  tập</span
+                ><span
+                  ><i class="bi bi-activity" aria-hidden="true"></i> {{ k.so_bai_tap }} bài
+                  tập</span
+                ><span v-if="k.trang_thai_hien_thi === 'CHO_DUYET'" class="text-warning"
+                  >Xác nhận trước {{ thoiGian(k.han_duyet) }}</span
+                >
+              </div>
+            </div>
             <RouterLink
               :to="`/${laPt ? 'pt' : 'khach-hang'}/ke-hoach/${k.id}`"
-              class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2"
+              class="btn btn-outline-secondary"
+              >Xem giáo án <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+            ></RouterLink>
+          </article>
+          <nav v-if="meta.last_page > 1" class="st-pagination" aria-label="Phân trang giáo án">
+            <button
+              class="btn btn-outline-secondary"
+              :disabled="dangTai || page <= 1"
+              @click="chuyenTrang(-1)"
             >
-              <span>Xem giáo án</span>
-              <i class="bi bi-arrow-right" aria-hidden="true"></i>
-            </RouterLink>
+              Trước</button
+            ><span>{{ page }} / {{ meta.last_page }}</span
+            ><button
+              class="btn btn-outline-secondary"
+              :disabled="dangTai || page >= meta.last_page"
+              @click="chuyenTrang(1)"
+            >
+              Sau
+            </button>
+          </nav>
+        </div>
+        <aside class="st-plan-rail">
+          <h2><i class="bi bi-check2-circle" aria-hidden="true"></i> Đang áp dụng</h2>
+          <template
+            v-for="k in danhSach
+              .filter((k) => k.trang_thai_hien_thi === 'DANG_AP_DUNG')
+              .slice(0, 1)"
+            :key="k.id"
+            ><h3>{{ k.ten_ke_hoach }}</h3>
+            <p>{{ k.muc_tieu }}</p>
+            <dl class="st-fact-list">
+              <div>
+                <dt>Ngày tập</dt>
+                <dd>{{ k.so_ngay_tap }}</dd>
+              </div>
+              <div>
+                <dt>Bài tập</dt>
+                <dd>{{ k.so_bai_tap }}</dd>
+              </div>
+            </dl>
+            <RouterLink
+              :to="laPt ? `/pt/hoc-vien/${$route.params.khachId}/lich-tap` : '/khach-hang/lich-tap'"
+              class="btn btn-primary"
+              ><i class="bi bi-calendar-plus" aria-hidden="true"></i> Lên lịch tự tập</RouterLink
+            ></template
+          >
+          <p v-if="!danhSach.some((k) => k.trang_thai_hien_thi === 'DANG_AP_DUNG')">
+            Không có bản đang áp dụng trong danh sách này.
+          </p>
+          <div class="st-rule-note">
+            <i class="bi bi-info-circle" aria-hidden="true"></i>
+            <p>
+              {{
+                daAn
+                  ? 'Mở giáo án để hiện lại. Nội dung và lịch sử tập vẫn được giữ.'
+                  : 'Chỉ một giáo án được áp dụng tại một thời điểm. Áp dụng bản mới sẽ lưu trữ bản cũ.'
+              }}
+            </p>
           </div>
-        </article>
+        </aside>
       </div>
-
-      <!-- Phân trang -->
-      <nav v-if="meta.last_page > 1" class="kh-pages" aria-label="Phân trang giáo án">
-        <button
-          class="btn btn-outline-secondary btn-sm"
-          :disabled="dangTai || page <= 1"
-          @click="chuyenTrang(-1)"
-        >
-          <i class="bi bi-chevron-left me-1" aria-hidden="true"></i>Trước
-        </button>
-        <span class="badge bg-secondary-subtle text-body border px-3 py-2 small">
-          Trang {{ page }} / {{ meta.last_page }}
-        </span>
-        <button
-          class="btn btn-outline-secondary btn-sm"
-          :disabled="dangTai || page >= meta.last_page"
-          @click="chuyenTrang(1)"
-        >
-          Sau<i class="bi bi-chevron-right ms-1" aria-hidden="true"></i>
-        </button>
-      </nav>
     </section>
   </CaNhanLayout>
 </template>

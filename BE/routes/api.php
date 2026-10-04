@@ -35,10 +35,12 @@ Route::get('/v1/health', function () {
     ]);
 });
 
+// Tách bộ đếm theo thao tác: gửi tin/ghi nhật ký không tiêu hao hạn mức tạo đơn hay AI.
+// Không đưa ID tài nguyên vào tiền tố để tránh đổi hội thoại nhằm vượt hạn mức.
 Route::prefix('v1')->group(function () {
-    Route::post('/payos/webhook', [DonHangController::class, 'webhook'])->withoutMiddleware(EnsureFrontendRequestsAreStateful::class)->middleware('throttle:120,1');
+    Route::post('/payos/webhook', [DonHangController::class, 'webhook'])->withoutMiddleware(EnsureFrontendRequestsAreStateful::class)->middleware('throttle:120,1,donhang-webhook:');
     Route::get('/goi-tap', [GoiTapController::class, 'index']);
-    Route::get('/faq', [TaiLieuTuVanController::class, 'faq'])->middleware('throttle:60,1');
+    Route::get('/faq', [TaiLieuTuVanController::class, 'faq'])->middleware('throttle:60,1,tailieutuvan-faq:');
     Route::get('/goi-tap/{id}', [GoiTapController::class, 'show'])->whereNumber('id');
     Route::get('/bai-tap/bo-loc', [BaiTapController::class, 'boLoc']);
     Route::get('/bai-tap', [BaiTapController::class, 'index']);
@@ -48,46 +50,46 @@ Route::prefix('v1')->group(function () {
 Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(function () {
     Route::prefix('khach-hang/chatbot')->middleware('vai_tro:KHACH_HANG')->group(function () {
         Route::get('/hoi-thoai', [ChatbotController::class, 'index']);
-        Route::post('/hoi-thoai', [ChatbotController::class, 'store'])->middleware('throttle:20,1');
+        Route::post('/hoi-thoai', [ChatbotController::class, 'store'])->middleware('throttle:20,1,chatbot-store:');
         Route::get('/hoi-thoai/{id}', [ChatbotController::class, 'show'])->whereNumber('id');
-        Route::post('/hoi-thoai/{id}/tin-nhan', [ChatbotController::class, 'gui'])->whereNumber('id')->middleware('throttle:6,1');
+        Route::post('/hoi-thoai/{id}/tin-nhan', [ChatbotController::class, 'gui'])->whereNumber('id')->middleware('throttle:6,1,chatbot-gui:');
     });
     Route::get('/thong-bao', [ThongBaoController::class, 'index']);
-    Route::post('/thong-bao/da-doc-tat-ca', [ThongBaoController::class, 'daDocTatCa'])->middleware('throttle:60,1');
-    Route::post('/thong-bao/{id}/da-doc', [ThongBaoController::class, 'daDoc'])->whereUuid('id')->middleware('throttle:120,1');
+    Route::post('/thong-bao/da-doc-tat-ca', [ThongBaoController::class, 'daDocTatCa'])->middleware('throttle:60,1,thongbao-dadoctatca:');
+    Route::post('/thong-bao/{id}/da-doc', [ThongBaoController::class, 'daDoc'])->whereUuid('id')->middleware('throttle:120,1,thongbao-dadoc:');
     Route::middleware('vai_tro:KHACH_HANG,HUAN_LUYEN_VIEN')->group(function () {
         Route::get('/hoi-thoai', [ChatController::class, 'index']);
         Route::get('/hoi-thoai/{id}/tin-nhan', [ChatController::class, 'show'])->whereNumber('id');
         Route::get('/hoi-thoai/{id}/tin-nhan/{tinId}/anh/{viTri}', [ChatController::class, 'anh'])->whereNumber(['id', 'tinId', 'viTri']);
         Route::post('/hoi-thoai/{id}/tin-nhan', [ChatController::class, 'store'])->whereNumber('id')->middleware('throttle:chat-gui');
-        Route::post('/hoi-thoai/{id}/da-doc', [ChatController::class, 'daDoc'])->whereNumber('id')->name('chat.da-doc')->middleware('throttle:120,1');
+        Route::post('/hoi-thoai/{id}/da-doc', [ChatController::class, 'daDoc'])->whereNumber('id')->name('chat.da-doc')->middleware('throttle:120,1,chat-dadoc:');
     });
     Route::get('/me', [XacThucController::class, 'me']);
     Route::prefix('khach-hang')->middleware('vai_tro:KHACH_HANG')->group(function () {
         Route::get('/chi-so-co-the', [ChiSoCoTheController::class, 'index']);
-        Route::post('/chi-so-co-the', [ChiSoCoTheController::class, 'store'])->middleware('throttle:30,1');
-        Route::put('/chi-so-co-the/{id}', [ChiSoCoTheController::class, 'update'])->whereNumber('id')->middleware('throttle:30,1');
+        Route::post('/chi-so-co-the', [ChiSoCoTheController::class, 'store'])->middleware('throttle:30,1,chisocothe-store:');
+        Route::put('/chi-so-co-the/{id}', [ChiSoCoTheController::class, 'update'])->whereNumber('id')->middleware('throttle:30,1,chisocothe-update:');
         Route::get('/lich-tap', [NhatKyTapController::class, 'index']);
-        Route::post('/lich-tap', [NhatKyTapController::class, 'store'])->middleware('throttle:30,1');
+        Route::post('/lich-tap', [NhatKyTapController::class, 'store'])->middleware('throttle:30,1,nhatkytap-store:');
         Route::get('/lich-tap/{id}', [NhatKyTapController::class, 'show'])->whereNumber('id');
-        Route::put('/lich-tap/{id}', [NhatKyTapController::class, 'update'])->whereNumber('id')->middleware('throttle:60,1');
-        Route::post('/lich-tap/{id}/{hanhDong}', [NhatKyTapController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'bat-dau|hoan-thanh|huy')->middleware('throttle:60,1');
+        Route::put('/lich-tap/{id}', [NhatKyTapController::class, 'update'])->whereNumber('id')->middleware('throttle:60,1,nhatkytap-update:');
+        Route::post('/lich-tap/{id}/{hanhDong}', [NhatKyTapController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'bat-dau|hoan-thanh|huy')->middleware('throttle:60,1,nhatkytap-thaotac:');
         Route::get('/ke-hoach', [KeHoachTapController::class, 'index']);
-        Route::post('/ke-hoach', [KeHoachTapController::class, 'store'])->middleware('throttle:30,1');
-        Route::put('/ke-hoach/{id}', [KeHoachTapController::class, 'update'])->whereNumber('id')->middleware('throttle:30,1');
+        Route::post('/ke-hoach', [KeHoachTapController::class, 'store'])->middleware('throttle:30,1,kehoachtap-store:');
+        Route::put('/ke-hoach/{id}', [KeHoachTapController::class, 'update'])->whereNumber('id')->middleware('throttle:30,1,kehoachtap-update:');
         Route::get('/ke-hoach/{id}', [KeHoachTapController::class, 'show'])->whereNumber('id');
-        Route::post('/ke-hoach/{id}/{hanhDong}', [KeHoachTapController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'xac-nhan|ap-dung|luu-tru|huy|an|hien-lai')->middleware('throttle:30,1');
+        Route::post('/ke-hoach/{id}/{hanhDong}', [KeHoachTapController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'xac-nhan|ap-dung|luu-tru|huy|an|hien-lai')->middleware('throttle:30,1,kehoachtap-thaotac:');
         Route::get('/khung-gio', [LichHenController::class, 'khungGio']);
         Route::get('/lich-hen', [LichHenController::class, 'index']);
         Route::get('/lich-hen/{id}', [LichHenController::class, 'show'])->whereNumber('id');
-        Route::post('/lich-hen', [LichHenController::class, 'store'])->middleware('throttle:20,1');
+        Route::post('/lich-hen', [LichHenController::class, 'store'])->middleware('throttle:20,1,lichhen-store:');
         Route::post('/lich-hen/{id}/{hanhDong}', [LichHenController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'huy');
         Route::get('/goi-cua-toi', [DonHangController::class, 'goiCuaToi']);
         Route::get('/don-hang', [DonHangController::class, 'index']);
-        Route::post('/don-hang', [DonHangController::class, 'store'])->middleware('throttle:20,1');
+        Route::post('/don-hang', [DonHangController::class, 'store'])->middleware('throttle:20,1,donhang-store:');
         Route::get('/don-hang/{id}', [DonHangController::class, 'show'])->whereNumber('id');
-        Route::post('/don-hang/{id}/link-thanh-toan', [DonHangController::class, 'taoLink'])->whereNumber('id')->middleware('throttle:10,1');
-        Route::post('/don-hang/{id}/dong-bo', [DonHangController::class, 'dongBo'])->whereNumber('id')->middleware('throttle:10,1');
+        Route::post('/don-hang/{id}/link-thanh-toan', [DonHangController::class, 'taoLink'])->whereNumber('id')->middleware('throttle:10,1,donhang-taolink:');
+        Route::post('/don-hang/{id}/dong-bo', [DonHangController::class, 'dongBo'])->whereNumber('id')->middleware('throttle:10,1,donhang-dongbo:');
     });
     Route::get('/khach-hang/tong-quan', [TongQuanController::class, 'index'])->middleware('vai_tro:KHACH_HANG');
     Route::put('/me/ho-so', [HoSoTaiKhoanController::class, 'update']);
@@ -95,9 +97,9 @@ Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(
     Route::prefix('admin')->middleware('vai_tro:ADMIN')->group(function () {
         Route::get('/chatbot/thong-ke', [TaiLieuTuVanController::class, 'thongKe']);
         Route::get('/tai-lieu-tu-van', [TaiLieuTuVanController::class, 'index']);
-        Route::post('/tai-lieu-tu-van', [TaiLieuTuVanController::class, 'store'])->middleware('throttle:20,1');
-        Route::put('/tai-lieu-tu-van/{id}', [TaiLieuTuVanController::class, 'update'])->whereNumber('id')->middleware('throttle:30,1');
-        Route::post('/tai-lieu-tu-van/{id}/{hanhDong}', [TaiLieuTuVanController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'xuat-ban|ngung')->middleware('throttle:30,1');
+        Route::post('/tai-lieu-tu-van', [TaiLieuTuVanController::class, 'store'])->middleware('throttle:20,1,tailieutuvan-store:');
+        Route::put('/tai-lieu-tu-van/{id}', [TaiLieuTuVanController::class, 'update'])->whereNumber('id')->middleware('throttle:30,1,tailieutuvan-update:');
+        Route::post('/tai-lieu-tu-van/{id}/{hanhDong}', [TaiLieuTuVanController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'xuat-ban|ngung')->middleware('throttle:30,1,tailieutuvan-thaotac:');
         Route::get('/lich-hen', [LichHenController::class, 'index']);
         Route::get('/lich-hen/{id}', [LichHenController::class, 'show'])->whereNumber('id');
         Route::post('/lich-hen/{id}/{hanhDong}', [LichHenController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'dong-xu-ly');
@@ -138,15 +140,15 @@ Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(
     Route::prefix('pt')->middleware('vai_tro:HUAN_LUYEN_VIEN')->group(function () {
         Route::get('/hoc-vien/{khachId}/chi-so-co-the', [ChiSoCoTheController::class, 'index'])->whereNumber('khachId');
         Route::get('/hoc-vien/{khachId}/lich-tap', [NhatKyTapController::class, 'index'])->whereNumber('khachId');
-        Route::post('/hoc-vien/{khachId}/lich-tap', [NhatKyTapController::class, 'store'])->whereNumber('khachId')->middleware('throttle:30,1');
+        Route::post('/hoc-vien/{khachId}/lich-tap', [NhatKyTapController::class, 'store'])->whereNumber('khachId')->middleware('throttle:30,1,nhatkytap-store:');
         Route::get('/lich-tap/{id}', [NhatKyTapController::class, 'show'])->whereNumber('id');
-        Route::post('/lich-tap/{id}/{hanhDong}', [NhatKyTapController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'nhan-xet')->middleware('throttle:30,1');
+        Route::post('/lich-tap/{id}/{hanhDong}', [NhatKyTapController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'nhan-xet')->middleware('throttle:30,1,nhatkytap-thaotac:');
         Route::get('/hoc-vien', [KeHoachTapController::class, 'hocVien']);
         Route::get('/hoc-vien/{khachId}/ke-hoach', [KeHoachTapController::class, 'index'])->whereNumber('khachId');
-        Route::post('/hoc-vien/{khachId}/ke-hoach', [KeHoachTapController::class, 'store'])->whereNumber('khachId')->middleware('throttle:30,1');
+        Route::post('/hoc-vien/{khachId}/ke-hoach', [KeHoachTapController::class, 'store'])->whereNumber('khachId')->middleware('throttle:30,1,kehoachtap-store:');
         Route::get('/ke-hoach/{id}', [KeHoachTapController::class, 'show'])->whereNumber('id');
-        Route::put('/ke-hoach/{id}', [KeHoachTapController::class, 'update'])->whereNumber('id')->middleware('throttle:30,1');
-        Route::post('/ke-hoach/{id}/{hanhDong}', [KeHoachTapController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'gui|huy')->middleware('throttle:30,1');
+        Route::put('/ke-hoach/{id}', [KeHoachTapController::class, 'update'])->whereNumber('id')->middleware('throttle:30,1,kehoachtap-update:');
+        Route::post('/ke-hoach/{id}/{hanhDong}', [KeHoachTapController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'gui|huy')->middleware('throttle:30,1,kehoachtap-thaotac:');
         Route::get('/khung-gio', [LichHenController::class, 'khungGio']);
         Route::post('/khung-gio', [LichHenController::class, 'taoKhung']);
         Route::patch('/khung-gio/{id}', [LichHenController::class, 'doiKhung'])->whereNumber('id');

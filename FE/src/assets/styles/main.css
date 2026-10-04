@@ -1,160 +1,3 @@
-:root,
-:root[data-theme='dark'],
-.dark-theme {
-  color-scheme: dark;
-  --font-chinh:
-    'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    sans-serif;
-  --font-tieu-de: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
-
-  /* Bảng màu nhận diện thương hiệu Fitness cao cấp (Cinematic High-Performance Dark) */
-  --mau-chinh: #f45b20;
-  --mau-chinh-dam: #d94a15;
-  --mau-chinh-nhat: rgba(244, 91, 32, 0.12);
-  --mau-chinh-hover: #ff6f38;
-  --mau-gradient-chinh: linear-gradient(135deg, #f45b20 0%, #d94a15 100%);
-  --mau-gradient-dark: linear-gradient(145deg, #1c1c1c 0%, #0a0a0a 100%);
-  --mau-gradient-accent: linear-gradient(135deg, #f45b20 0%, #ff8c5a 100%);
-  --mau-gradient-cam: linear-gradient(135deg, #f45b20 0%, #ea580c 100%);
-  --mau-gradient-tim: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-
-  /* Bảng màu Dark Mode */
-  --mau-nen: #0a0a0a;
-  --mau-the: #141414;
-  --mau-the-hover: #1c1c1c;
-  --mau-the-sub: #181818;
-  --mau-chu: #ffffff;
-  --mau-chu-tieu-de: #ffffff;
-  --mau-phu: #94a3b8;
-  --mau-vien: rgba(255, 255, 255, 0.08);
-  --mau-vien-hover: rgba(244, 91, 32, 0.4);
-  --mau-diem: #f45b20;
-  --mau-diem-sang: #ff6f38;
-
-  /* Biểu mẫu và điều hướng Dark Mode */
-  --mau-form-bg: #121212;
-  --mau-form-bg-focus: #161616;
-  --mau-form-border: rgba(255, 255, 255, 0.12);
-  --mau-form-text: #ffffff;
-  --mau-form-label: #cbd5e1;
-  --mau-header-bg: rgba(10, 10, 10, 0.88);
-  --mau-footer-bg: #0d0d0d;
-  --mau-table-header-bg: #181818;
-  --mau-table-hover-bg: #1c1c1c;
-  --mau-user-badge-bg: #1c1c1c;
-  --mau-auth-form-area-bg: #0a0a0a;
-  --mau-auth-card-bg: #141414;
-  --mau-auth-tab-bg: #1c1c1c;
-  --mau-auth-tab-active-bg: #262626;
-  --mau-btn-secondary-bg: rgba(255, 255, 255, 0.05);
-  --mau-btn-secondary-border: rgba(255, 255, 255, 0.14);
-  --mau-btn-secondary-text: #ffffff;
-  --mau-btn-secondary-hover-bg: rgba(255, 255, 255, 0.1);
-  --mau-glass-bg: rgba(20, 20, 20, 0.85);
-  --mau-glass-border: rgba(255, 255, 255, 0.08);
-
-  /* Bảng màu Cinematic High-Performance Dark Mode */
-  --mau-dark-bg: #0a0a0a;
-  --mau-dark-card: #141414;
-  --mau-dark-card-hover: #1c1c1c;
-  --mau-dark-border: rgba(255, 255, 255, 0.08);
-  --mau-cam-chinh: #f45b20;
-  --mau-cam-hover: #ff6f38;
-  --mau-cam-dam: #d94a15;
-  --mau-cam-glow: rgba(244, 91, 32, 0.35);
-
-  --mau-loi: #ef4444;
-  --mau-canh-bao: #f59e0b;
-  --mau-thanh-cong: #10b981;
-  --mau-thong-tin: #38bdf8;
-
-  /* Bóng đổ hiện đại Dark Mode */
-  --bong-nhe: 0 1px 3px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.18);
-  --bong-trung: 0 4px 6px -1px rgb(0 0 0 / 0.35), 0 2px 4px -2px rgb(0 0 0 / 0.22);
-  --bong-dam: 0 10px 25px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.3);
-  --bong-noi: 0 20px 35px -5px rgb(0 0 0 / 0.65), 0 10px 10px -5px rgb(0 0 0 / 0.4);
-  --bong-glow: 0 0 25px rgba(16, 185, 129, 0.3);
-  --bong-glow-cam: 0 0 25px rgba(244, 91, 32, 0.35);
-
-  /* Bán kính bo góc */
-  --bo-goc-sm: 8px;
-  --bo-goc-md: 12px;
-  --bo-goc-lg: 18px;
-  --bo-goc-xl: 24px;
-  --bo-goc-tron: 9999px;
-
-  /* Hiệu ứng chuyển cảnh */
-  --chuyen-canh-nhanh: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --chuyen-canh-muot: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* Đồng bộ biến hệ thống Bootstrap Dark Mode */
-  --bs-body-color: var(--mau-chu);
-  --bs-body-bg: var(--mau-nen);
-  --bs-emphasis-color: var(--mau-chu);
-  --bs-secondary-color: var(--mau-phu);
-  --bs-tertiary-color: var(--mau-phu);
-  --bs-border-color: rgba(255, 255, 255, 0.08);
-}
-
-/* ========================================================
-   LIGHT THEME (GIAO DIỆN SÁNG CAO CẤP)
-   ======================================================== */
-:root[data-theme='light'],
-.light-theme {
-  color-scheme: light;
-
-  /* Nền và bề mặt Light Mode */
-  --mau-nen: #f8fafc;
-  --mau-the: #ffffff;
-  --mau-the-hover: #f1f5f9;
-  --mau-the-sub: #f8fafc;
-  --mau-chu: #0f172a;
-  --mau-chu-tieu-de: #020617;
-  --mau-phu: #64748b;
-  --mau-vien: #e2e8f0;
-  --mau-vien-hover: rgba(244, 91, 32, 0.5);
-  --mau-diem: #f45b20;
-  --mau-diem-sang: #ea580c;
-  --mau-chinh-nhat: rgba(244, 91, 32, 0.08);
-
-  /* Biểu mẫu và điều hướng Light Mode */
-  --mau-form-bg: #ffffff;
-  --mau-form-bg-focus: #ffffff;
-  --mau-form-border: #cbd5e1;
-  --mau-form-text: #0f172a;
-  --mau-form-label: #334155;
-  --mau-header-bg: rgba(255, 255, 255, 0.92);
-  --mau-footer-bg: #ffffff;
-  --mau-table-header-bg: #f8fafc;
-  --mau-table-hover-bg: #f1f5f9;
-  --mau-user-badge-bg: #f1f5f9;
-  --mau-auth-form-area-bg: #f8fafc;
-  --mau-auth-card-bg: #ffffff;
-  --mau-auth-tab-bg: #f1f5f9;
-  --mau-auth-tab-active-bg: #ffffff;
-  --mau-btn-secondary-bg: #ffffff;
-  --mau-btn-secondary-border: #cbd5e1;
-  --mau-btn-secondary-text: #0f172a;
-  --mau-btn-secondary-hover-bg: #f1f5f9;
-  --mau-glass-bg: rgba(255, 255, 255, 0.92);
-  --mau-glass-border: rgba(0, 0, 0, 0.08);
-
-  /* Bóng đổ Light Mode */
-  --bong-nhe: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
-  --bong-trung: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-  --bong-dam: 0 10px 25px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
-  --bong-noi: 0 20px 35px -5px rgb(0 0 0 / 0.08), 0 10px 10px -5px rgb(0 0 0 / 0.03);
-  --bong-glow-cam: 0 0 25px rgba(244, 91, 32, 0.2);
-
-  /* Đồng bộ biến hệ thống Bootstrap Light Mode */
-  --bs-body-color: var(--mau-chu);
-  --bs-body-bg: var(--mau-nen);
-  --bs-emphasis-color: var(--mau-chu);
-  --bs-secondary-color: var(--mau-phu);
-  --bs-tertiary-color: var(--mau-phu);
-  --bs-border-color: var(--mau-vien);
-}
-
 /* ========================================================
    KHẮC PHỤC TRIỆT ĐỂ TEXT-DARK KHI Ở DARK THEME
    Khi ở Dark Mode, text-dark tự động đổi màu sáng var(--mau-chu),
@@ -168,14 +11,14 @@
 
 :root[data-theme='dark'] .bg-light,
 .dark-theme .bg-light {
-  background-color: var(--mau-the-sub, #181818) !important;
+  background-color: var(--mau-the-sub, var(--mau-the-sub)) !important;
   color: var(--mau-chu, #ffffff) !important;
 }
 
 :root[data-theme='dark'] .bg-light-subtle,
 .dark-theme .bg-light-subtle {
   background-color: var(--mau-the-sub, rgba(255, 255, 255, 0.04)) !important;
-  color: var(--mau-phu, #94a3b8) !important;
+  color: var(--mau-phu, var(--mau-phu)) !important;
 }
 
 /* ========================================================
@@ -207,7 +50,7 @@ h6 {
   font-family: var(--font-tieu-de);
   font-weight: 700;
   color: var(--mau-chu);
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   line-height: 1.25;
 }
 
@@ -250,7 +93,7 @@ a:hover {
   gap: 6px;
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: var(--mau-chinh);
   background: var(--mau-chinh-nhat);
@@ -275,10 +118,10 @@ a:hover {
 @keyframes pulseGlow {
   0%,
   100% {
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+    box-shadow: var(--bong-nhe);
   }
   50% {
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.55);
+    box-shadow: var(--bong-nhe);
   }
 }
 
@@ -319,7 +162,7 @@ a:hover {
   align-items: center;
   gap: 12px;
   font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   font-weight: 800;
   text-decoration: none;
   color: var(--mau-chu);
@@ -334,20 +177,20 @@ a:hover {
 .brand-mark {
   width: 38px;
   height: 38px;
-  background: var(--mau-gradient-chinh);
+  background: var(--mau-the-sub);
   color: white;
   display: inline-grid;
   place-items: center;
   font-size: 1.25rem;
   font-weight: 900;
   border-radius: var(--bo-goc-md);
-  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.35);
+  box-shadow: var(--bong-nhe);
   transition: var(--chuyen-canh-nhanh);
 }
 
 .brand:hover .brand-mark {
   transform: scale(1.05) rotate(3deg);
-  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.45);
+  box-shadow: var(--bong-nhe);
 }
 
 .brand-light {
@@ -355,7 +198,7 @@ a:hover {
 }
 
 .brand-light:hover {
-  color: #a7f3d0;
+  color: var(--mau-thanh-cong);
 }
 
 .brand-light .brand-mark {
@@ -363,7 +206,7 @@ a:hover {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--bong-nhe);
 }
 
 /* ========================================================
@@ -390,17 +233,17 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--mau-gradient-chinh);
+  background: var(--mau-chinh);
   color: white;
   border: none;
-  box-shadow: 0 4px 14px rgba(244, 91, 32, 0.35);
+  box-shadow: var(--bong-nhe);
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-  background: linear-gradient(135deg, #ff6f38 0%, #f45b20 100%);
+  background: var(--mau-chinh);
   color: white;
-  box-shadow: 0 6px 20px rgba(244, 91, 32, 0.45);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--mau-chinh) 45%, transparent);
   transform: translateY(-2px);
 }
 
@@ -423,7 +266,7 @@ a:hover {
 .btn-soft {
   background: var(--mau-chinh-nhat);
   color: var(--mau-chinh);
-  border: 1px solid rgba(244, 91, 32, 0.25);
+  border: 1px solid color-mix(in srgb, var(--mau-chinh) 25%, transparent);
 }
 
 .btn-soft:hover {
@@ -434,7 +277,7 @@ a:hover {
 
 .btn-danger-soft {
   background: rgba(239, 68, 68, 0.12);
-  color: #ef4444;
+  color: var(--mau-loi);
   border: 1px solid rgba(239, 68, 68, 0.25);
 }
 
@@ -468,7 +311,7 @@ a:hover {
 
 .form-control:hover,
 .form-select:hover {
-  border-color: rgba(244, 91, 32, 0.4);
+  border-color: color-mix(in srgb, var(--mau-chinh) 40%, transparent);
 }
 
 .form-control:focus,
@@ -476,7 +319,7 @@ a:hover {
   background-color: var(--mau-form-bg-focus);
   color: var(--mau-form-text);
   border-color: var(--mau-chinh);
-  box-shadow: 0 0 0 3.5px rgba(244, 91, 32, 0.25);
+  box-shadow: 0 0 0 3.5px color-mix(in srgb, var(--mau-chinh) 25%, transparent);
   outline: none;
 }
 
@@ -539,7 +382,7 @@ a:hover {
 
 .profile-panel:hover,
 .card-modern:hover {
-  box-shadow: var(--bong-trung);
+  box-shadow: var(--bong-nhe);
   border-color: var(--mau-vien-hover);
 }
 
@@ -549,7 +392,7 @@ a:hover {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--mau-glass-border);
   border-radius: var(--bo-goc-lg);
-  box-shadow: var(--bong-dam);
+  box-shadow: var(--bong-nhe);
 }
 
 .panel-heading {
@@ -641,24 +484,24 @@ a:hover {
   font-weight: 700;
   padding: 4px 10px;
   border-radius: var(--bo-goc-sm);
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
 }
 
 .badge-role-admin {
   background: rgba(124, 58, 237, 0.15);
-  color: #a78bfa;
+  color: var(--mau-thong-tin);
   border: 1px solid rgba(124, 58, 237, 0.3);
 }
 
 .badge-role-pt {
-  background: rgba(244, 91, 32, 0.15);
-  color: #ff8c5a;
-  border: 1px solid rgba(244, 91, 32, 0.3);
+  background: color-mix(in srgb, var(--mau-chinh) 15%, transparent);
+  color: var(--mau-chinh);
+  border: 1px solid color-mix(in srgb, var(--mau-chinh) 30%, transparent);
 }
 
 .badge-role-khach {
   background: rgba(59, 130, 246, 0.15);
-  color: #60a5fa;
+  color: var(--mau-thong-tin);
   border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
@@ -691,7 +534,7 @@ a:hover {
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0;
   margin-bottom: 6px;
   display: flex;
   align-items: center;
@@ -730,7 +573,7 @@ a:hover {
 
 .stat-item-card:hover {
   transform: translateY(-3px);
-  box-shadow: var(--bong-trung);
+  box-shadow: var(--bong-nhe);
   border-color: var(--mau-vien-hover);
 }
 
@@ -745,20 +588,20 @@ a:hover {
 }
 
 .stat-icon-emerald {
-  background: rgba(244, 91, 32, 0.15);
-  color: #f45b20;
+  background: color-mix(in srgb, var(--mau-chinh) 15%, transparent);
+  color: var(--mau-chinh);
 }
 .stat-icon-amber {
   background: rgba(245, 158, 11, 0.15);
-  color: #fbbf24;
+  color: var(--mau-canh-bao);
 }
 .stat-icon-blue {
   background: rgba(59, 130, 246, 0.15);
-  color: #60a5fa;
+  color: var(--mau-thong-tin);
 }
 .stat-icon-purple {
   background: rgba(124, 58, 237, 0.15);
-  color: #a78bfa;
+  color: var(--mau-thong-tin);
 }
 
 .stat-info-content h3 {
@@ -785,7 +628,7 @@ a:hover {
 }
 
 .auth-intro {
-  background: var(--mau-gradient-dark);
+  background: var(--mau-the-sub);
   color: white;
   padding: 56px 48px;
   display: flex;
@@ -802,7 +645,7 @@ a:hover {
   right: -20%;
   width: 450px;
   height: 450px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%);
+  background: var(--mau-the-sub);
   pointer-events: none;
   animation: floatOrb 8s ease-in-out infinite;
 }
@@ -814,7 +657,7 @@ a:hover {
   left: -20%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+  background: var(--mau-the-sub);
   pointer-events: none;
   animation: floatOrb 10s ease-in-out infinite reverse;
 }
@@ -828,7 +671,7 @@ a:hover {
 
 .auth-story .eyebrow {
   background: rgba(16, 185, 129, 0.2);
-  color: #34d399;
+  color: var(--mau-thanh-cong);
   border: 1px solid rgba(52, 211, 153, 0.3);
 }
 
@@ -841,13 +684,13 @@ a:hover {
 }
 
 .auth-story h2 span {
-  background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
+  background: var(--mau-the-sub);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .auth-story > p:last-child {
-  color: #cbd5e1;
+  color: var(--mau-phu);
   font-size: 1.05rem;
   line-height: 1.7;
 }
@@ -860,14 +703,14 @@ a:hover {
   border-radius: var(--bo-goc-lg);
   padding: 20px;
   margin-top: 32px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--bong-nhe);
 }
 
 .auth-foot {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   padding-top: 24px;
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: var(--mau-phu);
   margin: 0;
   display: flex;
   align-items: center;
@@ -893,7 +736,7 @@ a:hover {
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-xl);
   padding: 40px;
-  box-shadow: var(--bong-dam);
+  box-shadow: var(--bong-nhe);
 }
 
 .auth-tabs-nav {
@@ -994,7 +837,7 @@ a:hover {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--mau-gradient-chinh);
+  background: var(--mau-the-sub);
   color: white;
   display: grid;
   place-items: center;
@@ -1047,7 +890,7 @@ a:hover {
 }
 
 .table-container-modern {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   overflow: hidden;
@@ -1067,7 +910,7 @@ a:hover {
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   padding: 14px 18px;
   border-bottom: 1.5px solid var(--mau-vien);
 }
@@ -1089,7 +932,7 @@ a:hover {
   justify-content: space-between;
   gap: 16px;
   padding: 16px 20px;
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border-top: 1px solid var(--mau-vien);
   border-radius: 0 0 var(--bo-goc-lg) var(--bo-goc-lg);
 }
@@ -1108,12 +951,12 @@ a:hover {
 .error-card-modern {
   max-width: 600px;
   width: 100%;
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-xl);
   padding: 48px 40px;
   text-align: center;
-  box-shadow: var(--bong-dam);
+  box-shadow: var(--bong-nhe);
   position: relative;
   overflow: hidden;
 }
@@ -1131,20 +974,20 @@ a:hover {
 
 .error-halo-danger {
   background: rgba(239, 68, 68, 0.15);
-  color: #ef4444;
-  box-shadow: 0 0 30px rgba(239, 68, 68, 0.2);
+  color: var(--mau-loi);
+  box-shadow: var(--bong-nhe);
 }
 
 .error-halo-warning {
   background: rgba(245, 158, 11, 0.15);
-  color: #f59e0b;
-  box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
+  color: var(--mau-canh-bao);
+  box-shadow: var(--bong-nhe);
 }
 
 .error-halo-offline {
-  background: #1e1e1e;
-  color: #94a3b8;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  background: var(--mau-the-hover);
+  color: var(--mau-phu);
+  box-shadow: var(--bong-nhe);
 }
 
 /* ========================================================

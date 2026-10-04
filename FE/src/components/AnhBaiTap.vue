@@ -92,7 +92,7 @@ export default {
 .image-skeleton-shimmer {
   position: absolute;
   inset: 0;
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,11 +123,11 @@ export default {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--mau-the-hover, #e2e8f0);
+  background: var(--mau-the-hover, var(--mau-vien));
   display: grid;
   place-items: center;
   font-size: 1.25rem;
-  color: var(--mau-phu, #94a3b8);
+  color: var(--mau-phu, var(--mau-phu));
 }
 
 @keyframes spin {

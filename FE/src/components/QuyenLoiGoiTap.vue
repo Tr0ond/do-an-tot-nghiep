@@ -69,7 +69,7 @@ export default {
 dt {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #475569;
+  color: var(--mau-phu);
   margin: 0;
 }
 
@@ -85,17 +85,17 @@ dt {
 
 .fact-icon-blue {
   background: rgba(37, 99, 235, 0.15);
-  color: #60a5fa;
+  color: var(--mau-thong-tin);
 }
 
 .fact-icon-emerald {
-  background: rgba(244, 91, 32, 0.15);
-  color: #f45b20;
+  background: color-mix(in srgb, var(--mau-chinh) 15%, transparent);
+  color: var(--mau-chinh);
 }
 
 .fact-icon-purple {
   background: rgba(124, 58, 237, 0.15);
-  color: #a78bfa;
+  color: var(--mau-thong-tin);
 }
 
 dd {

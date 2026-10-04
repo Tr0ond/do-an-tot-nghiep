@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>24 · Tài khoản Admin - Fitness Motion</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-tint": "#00675f",
+            "primary-fixed": "#8fede1",
+            "secondary-fixed-dim": "#c8e044",
+            "on-primary-fixed-variant": "#00635b",
+            "outline-variant": "#abadae",
+            "on-secondary-fixed-variant": "#546200",
+            "on-tertiary": "#f1f2ff",
+            "primary-container": "#8fede1",
+            "tertiary": "#0854c7",
+            "error": "#b31b25",
+            "secondary-dim": "#495500",
+            "inverse-surface": "#0b0f10",
+            "on-primary": "#bffff5",
+            "secondary-fixed": "#d6ef52",
+            "on-primary-fixed": "#00443e",
+            "inverse-primary": "#a0fff2",
+            "on-tertiary-fixed": "#00153f",
+            "on-tertiary-container": "#002c72",
+            "tertiary-container": "#90afff",
+            "surface-container-low": "#eef1f2",
+            "on-secondary": "#e6ff63",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#2c2f30",
+            "primary-fixed-dim": "#81dfd3",
+            "surface-bright": "#f5f7f8",
+            "on-tertiary-fixed-variant": "#003484",
+            "on-secondary-container": "#4b5700",
+            "on-surface-variant": "#595c5d",
+            "on-secondary-fixed": "#3a4400",
+            "surface-container": "#e5e9ea",
+            "outline": "#747778",
+            "surface-variant": "#d9dddf",
+            "error-container": "#fb5151",
+            "on-primary-container": "#005851",
+            "tertiary-fixed-dim": "#7aa0ff",
+            "surface-dim": "#d0d5d7",
+            "tertiary-fixed": "#90afff",
+            "secondary": "#546200",
+            "surface-container-high": "#dfe3e4",
+            "background": "#f5f7f8",
+            "primary": "#00675f",
+            "surface-container-highest": "#d9dddf",
+            "error-dim": "#9f0519",
+            "surface": "#f5f7f8",
+            "tertiary-dim": "#0049b1",
+            "inverse-on-surface": "#9a9d9e",
+            "on-error-container": "#570008",
+            "primary-dim": "#005a52",
+            "secondary-container": "#d6ef52",
+            "on-error": "#ffefee",
+            "on-background": "#2c2f30"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["Be Vietnam Pro", "sans-serif"],
+            display: ["Be Vietnam Pro", "sans-serif"],
+            body: ["Be Vietnam Pro", "sans-serif"],
+            label: ["Be Vietnam Pro", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    * {
+      letter-spacing: 0 !important;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1;
+    }
+    /* Scrollbar refinement */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f2f3;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cdd1d3;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #abadae;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased flex min-h-screen">
+<!-- 1. SideNavBar 232px Chuyên Biệt Cho Admin -->
+<aside class="fixed top-0 left-0 h-screen w-[232px] bg-surface-container-low dark:bg-inverse-surface border-r border-surface-variant dark:border-outline flex flex-col justify-between py-4 px-3 z-30 select-none">
+<div class="flex flex-col gap-4">
+<!-- Brand Anchor Header -->
+<div class="px-2 pt-1 pb-2 flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-surface-container-lowest shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">fitness_center</span>
+</div>
+<div class="overflow-hidden">
+<div class="text-base font-bold text-primary dark:text-inverse-primary font-display truncate">Fitness Motion</div>
+<div class="text-[11px] text-on-surface-variant dark:text-outline-variant font-medium tracking-tight">Hệ thống Quản trị</div>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1 text-sm font-medium overflow-y-auto max-h-[calc(100vh-220px)] pr-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#tong-quan">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span>Tổng quan</span>
+</a>
+<!-- Active Item: Tài khoản (Jade accent tone) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary-container text-on-primary-container dark:bg-primary dark:text-on-primary font-semibold transition-colors duration-150 shadow-sm" href="#tai-khoan">
+<span class="material-symbols-outlined text-[20px] fill-icon">manage_accounts</span>
+<span>Tài khoản</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#goi-dich-vu">
+<span class="material-symbols-outlined text-[20px]">card_membership</span>
+<span>Gói dịch vụ</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#don-hang">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+<span>Đơn hàng &amp; thanh toán</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#phan-cong-pt">
+<span class="material-symbols-outlined text-[20px]">assignment_ind</span>
+<span>Phân công PT</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#lich-hen">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span>Lịch hẹn</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#bai-tap">
+<span class="material-symbols-outlined text-[20px]">sports_gymnastics</span>
+<span>Bài tập</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#nhom-co">
+<span class="material-symbols-outlined text-[20px]">accessibility_new</span>
+<span>Nhóm cơ</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#giao-an-mau">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span>Giáo án mẫu</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#ai-advisory">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+<span>Tài liệu &amp; AI</span>
+</a>
+</nav>
+</div>
+<!-- Footer of Sidebar -->
+<div class="pt-3 border-t border-surface-variant dark:border-outline flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 text-sm font-medium" href="#cai-dat">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span>Cài đặt hệ thống</span>
+</a>
+<button class="flex items-center gap-3 px-3 py-2 rounded-lg text-error hover:bg-error-container/20 transition-colors duration-150 text-sm font-medium w-full text-left" type="button">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span>Đăng xuất</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Container with left offset for 232px sidebar -->
+<div class="ml-[232px] flex-1 flex flex-col min-w-0">
+<!-- 2. TopNavBar 64px Cố định thanh điều hướng ngang -->
+<header class="h-16 bg-surface-container-lowest dark:bg-inverse-surface border-b border-surface-variant dark:border-outline px-6 flex items-center justify-between sticky top-0 z-20">
+<!-- Left side: Breadcrumb & Search -->
+<div class="flex items-center gap-6 flex-1 max-w-2xl">
+<div class="hidden lg:flex items-center text-xs font-medium text-on-surface-variant">
+<span>Hệ thống</span>
+<span class="material-symbols-outlined text-[16px] mx-1.5 text-outline-variant">chevron_right</span>
+<span class="text-on-surface font-semibold">Quản lý người dùng &amp; Phân quyền</span>
+</div>
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full h-10 pl-9 pr-4 text-xs font-normal bg-surface-container-low border border-surface-variant rounded-lg text-on-surface placeholder:text-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Tìm theo mã ID, tên, email hoặc SĐT..." type="search"/>
+</div>
+</div>
+<!-- Right side: Notifications, Tr0ond AI Status, Super Admin Profile -->
+<div class="flex items-center gap-3">
+<!-- AI Advisor Ping Badge -->
+<div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary-container/40 text-on-secondary-fixed text-[11px] font-semibold border border-secondary-fixed/50" title="Cố vấn Tr0ond AI sẵn sàng hỗ trợ">
+<span class="material-symbols-outlined text-[15px] text-secondary">smart_toy</span>
+<span>Tr0ond AI: Hoạt động</span>
+</div>
+<!-- Notification Bell -->
+<button class="w-10 h-10 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container text-on-surface relative transition-colors duration-150">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<!-- Divider -->
+<div class="h-6 w-px bg-surface-variant"></div>
+<!-- Super Admin Profile Widget -->
+<div class="flex items-center gap-2.5 pl-1 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-primary text-surface-container-lowest flex items-center justify-center font-bold text-xs shadow-inner">
+            TĐ
+          </div>
+<div class="text-left hidden md:block leading-tight">
+<div class="text-xs font-bold text-on-surface">Trần Đình Trí</div>
+<div class="text-[10px] text-primary font-semibold">Super Admin</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</header>
+<!-- 3. Nội dung chính Quản lý Tài khoản -->
+<main class="p-6 flex-1 flex flex-col gap-6 max-w-7xl w-full mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h1 class="text-2xl md:text-[28px] font-bold text-on-surface tracking-tight font-headline">Quản lý tài khoản &amp; Phân quyền hệ thống</h1>
+<p class="text-sm text-on-surface-variant mt-1">Quản trị hồ sơ nội bộ, cấp quyền vận hành cho Huấn luyện viên, Quản trị viên và theo dõi tài khoản học viên.</p>
+</div>
+<!-- Secondary Stat Chips -->
+<div class="flex items-center gap-2">
+<div class="px-3 py-1.5 bg-surface-container-lowest border border-surface-variant rounded-lg text-xs flex items-center gap-2 shadow-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-on-surface-variant font-medium">Tổng số tài khoản:</span>
+<span class="font-bold text-on-surface">54</span>
+</div>
+<div class="px-3 py-1.5 bg-surface-container-lowest border border-surface-variant rounded-lg text-xs flex items-center gap-2 shadow-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-on-surface-variant font-medium">PT đang vận hành:</span>
+<span class="font-bold text-tertiary">8</span>
+</div>
+</div>
+</div>
+<!-- Action Toolbar & Create Drawer Panel -->
+<div class="bg-surface-container-lowest border border-surface-variant rounded-lg p-4 shadow-sm flex flex-col gap-4">
+<!-- Controls Bar: Filter tabs & CTA button -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+<!-- Role Filters -->
+<div class="flex flex-wrap items-center gap-1.5 bg-surface-container-low p-1 rounded-lg">
+<button class="px-3.5 py-1.5 rounded text-xs font-semibold bg-surface-container-lowest text-primary shadow-xs transition-colors">
+              Tất cả (54)
+            </button>
+<button class="px-3.5 py-1.5 rounded text-xs font-medium text-on-surface-variant hover:text-on-surface transition-colors">
+              Khách hàng / Học viên (42)
+            </button>
+<button class="px-3.5 py-1.5 rounded text-xs font-medium text-on-surface-variant hover:text-on-surface transition-colors">
+              Huấn luyện viên (PT) (8)
+            </button>
+<button class="px-3.5 py-1.5 rounded text-xs font-medium text-on-surface-variant hover:text-on-surface transition-colors">
+              Quản trị viên (Admin) (4)
+            </button>
+</div>
+<!-- Primary Action CTA (Ngọc Jade, height 44px) -->
+<div class="flex items-center gap-2.5">
+<button class="h-11 px-4 bg-primary hover:bg-primary-dim text-surface-container-lowest font-medium text-xs rounded-lg flex items-center gap-2 shadow-sm transition-colors duration-150" id="toggleQuickCreateBtn" onclick="document.getElementById('quickCreateForm').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span>+ Tạo tài khoản PT / Admin nội bộ</span>
+</button>
+</div>
+</div>
+<!-- Inline Quick Create Drawer (Thanh tạo nhanh nội bộ với ghi chú nghiêm ngặt) -->
+<div class="pt-4 border-t border-surface-variant flex flex-col gap-3" id="quickCreateForm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">badge</span>
+<span class="text-xs font-bold text-on-surface uppercase tracking-wider">Cấp mới tài khoản nhân sự nội bộ</span>
+</div>
+<span class="text-[11px] text-error font-medium bg-error/10 px-2 py-0.5 rounded">
+              Bảo mật: Chỉ Super Admin được cấp quyền tạo nội bộ
+            </span>
+</div>
+<form class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-end" onsubmit="event.preventDefault();">
+<!-- Role Selection -->
+<div class="flex flex-col gap-1">
+<label class="text-[11px] font-semibold text-on-surface-variant">Vai trò nhân sự</label>
+<select class="h-10 text-xs bg-surface-container-low border border-surface-variant rounded-lg px-2.5 text-on-surface focus:outline-none focus:border-primary">
+<option value="PT">Huấn luyện viên (PT)</option>
+<option value="ADMIN">Quản trị viên (Admin)</option>
+</select>
+</div>
+<!-- Full Name -->
+<div class="flex flex-col gap-1">
+<label class="text-[11px] font-semibold text-on-surface-variant">Họ và tên nhân sự</label>
+<input class="h-10 text-xs bg-surface-container-low border border-surface-variant rounded-lg px-3 text-on-surface focus:outline-none focus:border-primary" placeholder="VD: Lê Thị Hồng" type="text"/>
+</div>
+<!-- Work Email -->
+<div class="flex flex-col gap-1">
+<label class="text-[11px] font-semibold text-on-surface-variant">Email công việc (@fitnessmotion.vn)</label>
+<input class="h-10 text-xs bg-surface-container-low border border-surface-variant rounded-lg px-3 text-on-surface focus:outline-none focus:border-primary" placeholder="hong.lt@fitnessmotion.vn" type="email"/>
+</div>
+<!-- Phone Number -->
+<div class="flex flex-col gap-1">
+<label class="text-[11px] font-semibold text-on-surface-variant">Số điện thoại</label>
+<input class="h-10 text-xs bg-surface-container-low border border-surface-variant rounded-lg px-3 text-on-surface focus:outline-none focus:border-primary" placeholder="0912 xxx xxx" type="tel"/>
+</div>
+<!-- Submit Button & Note -->
+<div class="flex items-center gap-2">
+<button class="h-10 flex-1 bg-secondary-container hover:bg-secondary-fixed text-on-secondary-fixed font-bold text-xs rounded-lg transition-colors duration-150 flex items-center justify-center gap-1.5" type="submit">
+<span class="material-symbols-outlined text-[16px]">send</span>
+<span>Tạo &amp; Gửi mật khẩu</span>
+</button>
+<button class="h-10 w-10 border border-surface-variant rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container" onclick="document.getElementById('quickCreateForm').classList.add('hidden')" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</form>
+<p class="text-[11px] text-on-surface-variant italic">Mật khẩu tạm thời sẽ được máy chủ tạo tự động và gửi mã kích hoạt trực tiếp đến hòm thư nội bộ của nhân sự.</p>
+</div>
+</div>
+<!-- Account Table View -->
+<div class="bg-surface-container-lowest border border-surface-variant rounded-lg shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse text-xs">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-semibold border-b border-surface-variant">
+<th class="py-3 px-4 w-24">Mã ID</th>
+<th class="py-3 px-4 min-w-[220px]">Tên người dùng &amp; Email</th>
+<th class="py-3 px-4 min-w-[150px]">Vai trò</th>
+<th class="py-3 px-4 min-w-[120px]">Số điện thoại</th>
+<th class="py-3 px-4 min-w-[100px]">Ngày tạo</th>
+<th class="py-3 px-4 min-w-[130px]">Trạng thái</th>
+<th class="py-3 px-4 text-right min-w-[160px]">Thao tác quản trị</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant font-body">
+<!-- ROW 1: Super Admin Trần Đình Trí -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-4 font-mono font-bold text-primary">ADM-001</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center text-xs flex-shrink-0">
+                      TĐ
+                    </div>
+<div>
+<div class="font-bold text-on-surface flex items-center gap-1.5">
+<span>Trần Đình Trí</span>
+<span class="material-symbols-outlined text-primary text-[14px] fill-icon" title="Đã xác thực hệ thống">verified</span>
+</div>
+<div class="text-[11px] text-on-surface-variant">tri.td@fitnessmotion.vn</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-primary/15 text-primary border border-primary/25">
+                    Super Admin
+                  </span>
+</td>
+<td class="py-3 px-4 text-on-surface font-medium">0988 123 456</td>
+<td class="py-3 px-4 text-on-surface-variant">01/01/2026</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-[11px] font-semibold bg-primary-container text-on-primary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    Hoạt động
+                  </span>
+</td>
+<td class="py-3 px-4 text-right">
+<div class="inline-flex items-center gap-1.5">
+<button class="h-9 px-3 bg-surface-container hover:bg-surface-container-high text-on-surface font-medium rounded text-xs transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">admin_panel_settings</span>
+<span>Sửa quyền</span>
+</button>
+<button class="h-9 px-3 bg-error/10 hover:bg-error/20 text-error font-medium rounded text-xs transition-colors flex items-center gap-1" title="Khóa tài khoản này">
+<span class="material-symbols-outlined text-[15px]">lock</span>
+<span>Khóa</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 2: PT Lead Lê Hoàng Anh -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-4 font-mono font-semibold text-tertiary">PT-101</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2.5">
+<img class="w-8 h-8 rounded-full object-cover border border-surface-variant flex-shrink-0" data-alt="Chân dung nam huấn luyện viên thể hình cá nhân phong cách hiện đại chuyên nghiệp tại phòng tập Fitness Motion cao cấp ánh sáng tự nhiên phông nền xám trắng sạch sẽ" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD23AunG52yg1SPvOhAGZVG6-DG3x5Rhb2DBwpDrN_Swwv_xw4VEOB0xv129Kdl3xCz9RhrvD0fq5UdMffTzI6Hd5rPOfg0g6pIUs479-MsjLMzj-EBwPNNliDevy7JvTDMernF6NtcDZaPGcVymchVyC-sABZ6_hXb1HFu3YeYyjpHmbzYUX_c1CYpmFKGpoHNzKjhqdz5VwoWYyJMB69AkBEpdfyhY1VnkW_C9yTe29b5b9wjkTtYKO9dmRwFOGutloCp0aNJ6r_u"/>
+<div>
+<div class="font-bold text-on-surface">Lê Hoàng Anh</div>
+<div class="text-[11px] text-on-surface-variant">anh.lh@fitnessmotion.vn</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-tertiary/10 text-tertiary border border-tertiary/20">
+                    Huấn luyện viên Lead
+                  </span>
+</td>
+<td class="py-3 px-4 text-on-surface font-medium">0912 884 102</td>
+<td class="py-3 px-4 text-on-surface-variant">15/01/2026</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-[11px] font-semibold bg-primary-container text-on-primary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    Hoạt động
+                  </span>
+</td>
+<td class="py-3 px-4 text-right">
+<button class="h-11 px-3.5 border border-surface-variant hover:border-error hover:bg-error/10 text-on-surface hover:text-error font-medium rounded-lg text-xs transition-colors inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">lock_person</span>
+<span>Khóa tài khoản</span>
+</button>
+</td>
+</tr>
+<!-- ROW 3: PT Vũ Minh Trí -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-4 font-mono font-semibold text-tertiary">PT-102</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2.5">
+<img class="w-8 h-8 rounded-full object-cover border border-surface-variant flex-shrink-0" data-alt="Chân dung huấn luyện viên gym cơ bắp nam thể hình chuyên môn cao mỉm cười thân thiện trong đồng phục thể thao xanh ngọc phòng tập hiện đại Fitness Motion" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPTiEpTfYHcdpLXNjtb1t1H0w1XS3V5G-mkL-ktZwzaWwX49KPpyT_rhBFlmrmwcUXFfzMVGAslQ36HG1RvWjVAA7qiokyHl_bW3rQarMseP_EeSTZH3uXLVqbsxZ7lfyn0pX1O65zFwGuuymp2tNH9bpGKDTAGkuSQmsWv6kBA_trIuAdSdoSLL9NUNV5kvLH_TQp12C8b8dn5-U4mZNc4OGUTdDOv-3PMRBb0kpozRod5na9KvaodmOD7bwmaCtkWwGkPrtPC7xM"/>
+<div>
+<div class="font-bold text-on-surface">Vũ Minh Trí</div>
+<div class="text-[11px] text-on-surface-variant">tri.vm@fitnessmotion.vn</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-tertiary/10 text-tertiary">
+                    Huấn luyện viên
+                  </span>
+</td>
+<td class="py-3 px-4 text-on-surface font-medium">0903 771 992</td>
+<td class="py-3 px-4 text-on-surface-variant">20/01/2026</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-[11px] font-semibold bg-primary-container text-on-primary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    Hoạt động
+                  </span>
+</td>
+<td class="py-3 px-4 text-right">
+<button class="h-11 px-3.5 border border-surface-variant hover:border-error hover:bg-error/10 text-on-surface hover:text-error font-medium rounded-lg text-xs transition-colors inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">lock_person</span>
+<span>Khóa tài khoản</span>
+</button>
+</td>
+</tr>
+<!-- ROW 4: PT Đỗ Phương Mai -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-4 font-mono font-semibold text-tertiary">PT-103</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2.5">
+<img class="w-8 h-8 rounded-full object-cover border border-surface-variant flex-shrink-0" data-alt="Nữ huấn luyện viên pilates và thể hình cá nhân tự tin tươi tắn áo thể thao chuyên nghiệp không gian studio tập luyện thể hình cao cấp ánh sáng tự nhiên dịu mát" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAky1Q4l1GIwNN2h7kN2u7Tx7Hu6nXGtLlExLBNb6LedxztkOVi6jvS2qutEimeQ145kW8KW-moB0oIfCoU0xIlVBp_9Pd3JpM7KGB8682pXU7Yb5jpZhlQJWbt-142Zp7yPISknBe5Ow_NJ5EUdKnW1mudRHAipotCMQrx4K3oHBGj4dNvTX6wd4LaAa3-6Zx1OwM8gHR48hZ-mgzJyTa3r6hhgHrC6q3cuj-twI4IabVCl7wfM3HURhoZBWPAlR1GSOnBxYU3GAac"/>
+<div>
+<div class="font-bold text-on-surface">Đỗ Phương Mai</div>
+<div class="text-[11px] text-on-surface-variant">mai.dp@fitnessmotion.vn</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-tertiary/10 text-tertiary">
+                    Huấn luyện viên
+                  </span>
+</td>
+<td class="py-3 px-4 text-on-surface font-medium">0914 552 331</td>
+<td class="py-3 px-4 text-on-surface-variant">01/02/2026</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-[11px] font-semibold bg-primary-container text-on-primary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    Hoạt động
+                  </span>
+</td>
+<td class="py-3 px-4 text-right">
+<button class="h-11 px-3.5 border border-surface-variant hover:border-error hover:bg-error/10 text-on-surface hover:text-error font-medium rounded-lg text-xs transition-colors inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">lock_person</span>
+<span>Khóa tài khoản</span>
+</button>
+</td>
+</tr>
+<!-- ROW 5: Khách hàng Nguyễn Minh Quân -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-4 font-mono font-medium text-on-surface-variant">KH-8821</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface font-semibold flex items-center justify-center text-xs flex-shrink-0">
+                      MQ
+                    </div>
+<div>
+<div class="font-bold text-on-surface">Nguyễn Minh Quân</div>
+<div class="text-[11px] text-on-surface-variant">quan.nm@email.com</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">Khách hàng</span>
+<span class="text-[11px] text-tertiary font-semibold">(Học viên PT)</span>
+</div>
+</td>
+<td class="py-3 px-4 text-on-surface font-medium">0912 345 889</td>
+<td class="py-3 px-4 text-on-surface-variant">15/01/2026</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-[11px] font-semibold bg-primary-container text-on-primary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    Hoạt động
+                  </span>
+</td>
+<td class="py-3 px-4 text-right">
+<button class="h-11 px-3.5 border border-surface-variant hover:border-error hover:bg-error/10 text-on-surface hover:text-error font-medium rounded-lg text-xs transition-colors inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">block</span>
+<span>Khóa tài khoản</span>
+</button>
+</td>
+</tr>
+<!-- ROW 6: Khách hàng Hoàng Bảo Nam (Bị tạm khóa) -->
+<tr class="hover:bg-surface-container-low/50 bg-surface-container-low/20 transition-colors">
+<td class="py-3 px-4 font-mono font-medium text-on-surface-variant">KH-7740</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant font-semibold flex items-center justify-center text-xs flex-shrink-0">
+                      BN
+                    </div>
+<div>
+<div class="font-bold text-on-surface line-through opacity-80">Hoàng Bảo Nam</div>
+<div class="text-[11px] text-on-surface-variant">nam.hb@email.com</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="text-on-surface font-medium">Khách hàng</span>
+</td>
+<td class="py-3 px-4 text-on-surface font-medium">0989 334 112</td>
+<td class="py-3 px-4 text-on-surface-variant">10/02/2026</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-[11px] font-semibold bg-error/10 text-error border border-error/20">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                    Đang bị tạm khóa
+                  </span>
+</td>
+<td class="py-3 px-4 text-right">
+<!-- Touch target cao 44px -->
+<button class="h-11 px-3.5 bg-primary hover:bg-primary-dim text-surface-container-lowest font-medium rounded-lg text-xs transition-colors inline-flex items-center gap-1.5 shadow-xs">
+<span class="material-symbols-outlined text-[16px]">lock_open</span>
+<span>Mở khóa tài khoản</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination Footer -->
+<div class="py-3 px-4 bg-surface-container-low/60 border-t border-surface-variant flex items-center justify-between text-xs">
+<div class="text-on-surface-variant">
+            Hiển thị <span class="font-semibold text-on-surface">6</span> trên <span class="font-semibold text-on-surface">54</span> tài khoản
+          </div>
+<div class="flex items-center gap-1.5">
+<button class="h-8 px-2.5 rounded border border-surface-variant bg-surface-container-lowest text-on-surface-variant hover:text-on-surface disabled:opacity-40" disabled="">
+              Trước
+            </button>
+<button class="h-8 w-8 rounded font-semibold bg-primary text-surface-container-lowest">1</button>
+<button class="h-8 w-8 rounded border border-surface-variant bg-surface-container-lowest hover:bg-surface-container text-on-surface">2</button>
+<button class="h-8 w-8 rounded border border-surface-variant bg-surface-container-lowest hover:bg-surface-container text-on-surface">3</button>
+<button class="h-8 px-2.5 rounded border border-surface-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container">
+              Sau
+            </button>
+</div>
+</div>
+</div>
+<!-- Security Principle Alert Box (Hộp thông báo nguyên tắc bảo mật) -->
+<div class="bg-surface-container-low border border-surface-variant rounded-lg p-4 flex items-start gap-3 text-xs text-on-surface-variant">
+<div class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+</div>
+<div class="leading-relaxed">
+<span class="font-bold text-on-surface">Nguyên tắc bảo mật phân quyền:</span>
+          Hệ thống tuân thủ kiểm soát phân quyền nghiêm ngặt: Học viên đăng ký tài khoản qua quy trình mua gói dịch vụ; tài khoản Huấn luyện viên (PT) và Quản trị viên (Admin) chỉ được tạo và kích hoạt bởi Super Admin nội bộ. Không mở cổng đăng ký PT công khai.
+        </div>
+</div>
+</main>
+</div>
+</body></html>

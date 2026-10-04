@@ -182,7 +182,7 @@ export default {
 
 .catalog-nav-item.active {
   color: var(--mau-chinh);
-  background: rgba(244, 91, 32, 0.12);
+  background: color-mix(in srgb, var(--mau-chinh) 12%, transparent);
 }
 
 .catalog-main {
@@ -194,7 +194,7 @@ export default {
 
 .catalog-footer {
   border-top: 1px solid var(--mau-vien);
-  background: var(--mau-footer-bg, #0a0a0a);
+  background: var(--mau-footer-bg, var(--mau-nen));
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -213,6 +213,33 @@ export default {
 .credit-link {
   color: var(--mau-chinh);
   font-weight: 600;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--mau-chu);
+}
+.brand-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--mau-chinh);
+  color: var(--mau-tren-chinh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.brand-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--mau-chu);
 }
 
 @media (max-width: 1024px) {

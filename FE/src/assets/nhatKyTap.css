@@ -5,11 +5,11 @@
    ========================================================================== */
 
 .nk {
-  --nk-mau-nhan: var(--mau-chinh, #f45b20);
-  --nk-mau-nhan-hover: var(--mau-chinh-hover, #ff6f38);
-  --nk-mau-nhan-dam: var(--mau-chinh-dam, #d94a15);
-  --nk-mau-nhan-nhat: rgba(244, 91, 32, 0.12);
-  --nk-glow: rgba(244, 91, 32, 0.35);
+  --nk-mau-nhan: var(--mau-chinh, var(--mau-chinh));
+  --nk-mau-nhan-hover: var(--mau-chinh-hover, var(--mau-chinh-hover));
+  --nk-mau-nhan-dam: var(--mau-chinh-dam, var(--mau-chinh-dam));
+  --nk-mau-nhan-nhat: color-mix(in srgb, var(--mau-chinh) 12%, transparent);
+  --nk-glow: color-mix(in srgb, var(--mau-chinh) 35%, transparent);
 
   color: var(--mau-chu, #ffffff);
   padding: 1.5rem 0 3rem;
@@ -18,8 +18,8 @@
 
 [data-theme='dark'] .nk,
 .dark-theme .nk {
-  --nk-mau-nhan: #f45b20;
-  --nk-mau-nhan-hover: #ff6f38;
+  --nk-mau-nhan: var(--mau-chinh);
+  --nk-mau-nhan-hover: var(--mau-chinh-hover);
 }
 
 /* ==========================================================================
@@ -31,7 +31,7 @@
   justify-content: center;
   gap: 0.5rem;
   font-weight: 650;
-  border-radius: 12px;
+  border-radius: 8px;
   min-height: 42px;
   padding: 0.55rem 1.25rem;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -39,24 +39,24 @@
 }
 
 .nk .btn-primary {
-  background: linear-gradient(135deg, #f45b20 0%, #d94a15 100%);
-  border: 1px solid #f45b20;
+  background: var(--mau-chinh);
+  border: 1px solid var(--mau-chinh);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(244, 91, 32, 0.35);
+  box-shadow: var(--bong-nhe);
 }
 
 .nk .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, #ff6f38 0%, #ea580c 100%);
-  border-color: #ff6f38;
+  background: var(--mau-chinh);
+  border-color: var(--mau-chinh-hover);
   color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(244, 91, 32, 0.45);
+  box-shadow: var(--bong-nhe);
 }
 
 .nk .btn-primary:disabled {
   opacity: 0.65;
-  background: #a33810;
-  border-color: #a33810;
+  background: var(--mau-chinh);
+  border-color: var(--mau-chinh);
   box-shadow: none;
   cursor: not-allowed;
 }
@@ -69,32 +69,32 @@
 
 .nk .btn-outline-secondary:hover:not(:disabled) {
   background: var(--mau-the-hover, rgba(255, 255, 255, 0.08));
-  border-color: var(--mau-vien-hover, rgba(244, 91, 32, 0.4));
-  color: var(--mau-chinh, #f45b20);
+  border-color: var(--mau-vien-hover, color-mix(in srgb, var(--mau-chinh) 40%, transparent));
+  color: var(--mau-chinh, var(--mau-chinh));
 }
 
 .nk .btn-sm {
   min-height: 34px;
   padding: 0.35rem 0.85rem;
   font-size: 0.825rem;
-  border-radius: 9px;
+  border-radius: 8px;
 }
 
 /* ==========================================================================
    TYPOGRAPHY & TIÊU ĐỀ
    ========================================================================== */
 .nk h1 {
-  font-size: clamp(1.6rem, 2.8vw, 2.25rem);
+  font-size: 1.75rem;
   font-weight: 850;
   margin: 0.4rem 0 0.6rem;
-  letter-spacing: -0.035em;
+  letter-spacing: 0;
   color: var(--mau-chu);
 }
 
 .nk h2 {
   font-size: 1.2rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   margin-bottom: 0.85rem;
   color: var(--mau-chu);
 }
@@ -123,13 +123,13 @@
 .nk-heading p:not(.nk-eyebrow),
 .nk-muted,
 .nk-footnote {
-  color: var(--mau-phu, #94a3b8);
+  color: var(--mau-phu, var(--mau-phu));
   font-size: 0.9rem;
 }
 
 .nk-eyebrow {
   font-size: 0.75rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0;
   color: var(--nk-mau-nhan);
   font-weight: 850;
   text-transform: uppercase;
@@ -150,7 +150,7 @@
   font-size: 0.875rem;
   padding: 0.4rem 0.9rem;
   border-radius: 9999px;
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   transition: all 0.2s ease;
 }
@@ -158,19 +158,19 @@
 .nk-back:hover {
   color: var(--mau-chinh);
   border-color: var(--mau-chinh);
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
 }
 
 /* ==========================================================================
    PANEL / CONTAINER THẺ CHUẨN
    ========================================================================== */
 .nk-panel {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
-  border-radius: 18px;
+  border-radius: 8px;
   padding: 1.5rem;
   min-width: 0;
-  box-shadow: var(--bong-nhe, 0 4px 20px rgba(0, 0, 0, 0.25));
+  box-shadow: var(--bong-nhe);
   transition: all 0.2s ease;
 }
 
@@ -203,8 +203,8 @@
   padding: 1.35rem 1.4rem;
   position: relative;
   overflow: hidden;
-  border-radius: 16px;
-  background: var(--mau-the, #141414);
+  border-radius: 8px;
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
 }
 
@@ -215,15 +215,15 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--mau-chinh) 0%, transparent 100%);
+  background: var(--mau-the-sub);
   opacity: 0.6;
 }
 
 .nk-stats .nk-stat-icon {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
-  background: rgba(244, 91, 32, 0.12);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--mau-chinh) 12%, transparent);
   color: var(--mau-chinh);
   display: inline-flex;
   align-items: center;
@@ -242,7 +242,7 @@
   font-size: 0.825rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0;
   margin-bottom: 0.35rem;
 }
 
@@ -252,7 +252,7 @@
   line-height: 1.15;
   color: var(--mau-chu);
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .nk-stats strong small {
@@ -276,9 +276,9 @@
   grid-template-columns: 1fr 1fr 1.2fr auto;
   gap: 1.25rem;
   align-items: end;
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   padding: 1.25rem 1.5rem;
-  border-radius: 16px;
+  border-radius: 8px;
   margin-bottom: 1.75rem;
 }
 
@@ -295,10 +295,10 @@
 .nk .form-control,
 .nk .form-select {
   min-height: 42px;
-  background: var(--mau-nen, #0a0a0a);
+  background: var(--mau-nen, var(--mau-nen));
   border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.12));
   color: var(--mau-chu, #ffffff);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 0.5rem 0.9rem;
   font-size: 0.875rem;
   transition: all 0.2s ease;
@@ -308,7 +308,7 @@
 .nk .form-select:focus {
   border-color: var(--mau-chinh);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(244, 91, 32, 0.22);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mau-chinh) 22%, transparent);
 }
 
 /* ==========================================================================
@@ -328,7 +328,7 @@
   color: var(--mau-phu);
   font-size: 0.825rem;
   font-weight: 600;
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   padding: 4px 10px;
   border-radius: 9999px;
   border: 1px solid var(--mau-vien);
@@ -340,8 +340,8 @@
   align-items: center;
   padding: 1.15rem 1.25rem;
   margin-bottom: 0.75rem;
-  border-radius: 14px;
-  background: var(--mau-the-sub, #181818);
+  border-radius: 8px;
+  background: var(--mau-the-sub, var(--mau-the-sub));
   border: 1px solid var(--mau-vien);
   text-decoration: none;
   color: var(--mau-chu);
@@ -349,10 +349,10 @@
 }
 
 .nk-schedule:hover {
-  background: var(--mau-the-hover, #1e1e1e);
-  border-color: var(--mau-vien-hover, rgba(244, 91, 32, 0.35));
+  background: var(--mau-the-hover, var(--mau-the-hover));
+  border-color: var(--mau-vien-hover, color-mix(in srgb, var(--mau-chinh) 35%, transparent));
   transform: translateX(4px);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--bong-nhe);
 }
 
 .nk-date {
@@ -361,9 +361,9 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: var(--mau-nen, #0a0a0a);
+  background: var(--mau-nen, var(--mau-nen));
   border: 1px solid var(--mau-vien);
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 0.6rem 0.8rem;
   min-width: 68px;
   flex-shrink: 0;
@@ -381,7 +381,7 @@
   font-weight: 700;
   color: var(--mau-chinh);
   margin-top: 3px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0;
 }
 
 .nk-schedule-content {
@@ -430,31 +430,31 @@
   border-radius: 8px;
   font-size: 0.75rem;
   font-weight: 750;
-  letter-spacing: 0.02em;
-  background: var(--mau-the, #141414);
+  letter-spacing: 0;
+  background: var(--mau-the, var(--mau-the));
 }
 
 .nk-badge.HOAN_THANH {
-  color: #10b981;
+  color: var(--mau-thanh-cong);
   background: rgba(16, 185, 129, 0.12);
   border-color: rgba(16, 185, 129, 0.3);
 }
 
 .nk-badge.DANG_TAP {
-  color: #f45b20;
-  background: rgba(244, 91, 32, 0.14);
-  border-color: rgba(244, 91, 32, 0.35);
-  box-shadow: 0 0 10px rgba(244, 91, 32, 0.2);
+  color: var(--mau-chinh);
+  background: color-mix(in srgb, var(--mau-chinh) 14.000000000000002%, transparent);
+  border-color: color-mix(in srgb, var(--mau-chinh) 35%, transparent);
+  box-shadow: var(--bong-nhe);
 }
 
 .nk-badge.DA_LEN_LICH {
-  color: #38bdf8;
+  color: var(--mau-thong-tin);
   background: rgba(56, 189, 248, 0.12);
   border-color: rgba(56, 189, 248, 0.28);
 }
 
 .nk-badge.DA_HUY {
-  color: #94a3b8;
+  color: var(--mau-phu);
   background: rgba(148, 163, 184, 0.12);
   border-color: rgba(148, 163, 184, 0.25);
 }
@@ -468,14 +468,14 @@
 }
 
 .nk-chart {
-  background: var(--mau-nen, #0a0a0a);
+  background: var(--mau-nen, var(--mau-nen));
   border: 1px solid var(--mau-vien);
-  border-radius: 16px;
+  border-radius: 8px;
   margin: 1.25rem 0;
   padding: 1.25rem 1rem 0.75rem;
   position: relative;
   overflow: hidden;
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--bong-nhe);
 }
 
 .nk-chart svg {
@@ -501,11 +501,11 @@
 
 .nk-line {
   fill: none;
-  stroke: var(--mau-chinh, #f45b20);
+  stroke: var(--mau-chinh, var(--mau-chinh));
   stroke-width: 3.5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 4px 8px rgba(244, 91, 32, 0.45));
+  filter: drop-shadow(0 4px 8px color-mix(in srgb, var(--mau-chinh) 45%, transparent));
 }
 
 .nk-area {
@@ -514,7 +514,7 @@
 }
 
 .nk-point {
-  fill: #f45b20;
+  fill: var(--mau-chinh);
   stroke: #ffffff;
   stroke-width: 2;
   transition: r 0.2s ease;
@@ -523,16 +523,16 @@
 
 .nk-point:hover {
   r: 6;
-  fill: #ff6f38;
+  fill: var(--mau-chinh-hover);
 }
 
 .nk-pr-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(244, 91, 32, 0.14);
+  background: color-mix(in srgb, var(--mau-chinh) 14.000000000000002%, transparent);
   color: var(--mau-chinh);
-  border: 1px solid rgba(244, 91, 32, 0.3);
+  border: 1px solid color-mix(in srgb, var(--mau-chinh) 30%, transparent);
   padding: 0.35rem 0.8rem;
   border-radius: 8px;
   font-size: 0.85rem;
@@ -552,9 +552,9 @@
   display: grid;
   gap: 0.45rem;
   padding: 1.15rem;
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   border: 1px solid var(--mau-vien);
-  border-radius: 14px;
+  border-radius: 8px;
   margin: 1.25rem 0;
 }
 
@@ -563,7 +563,7 @@
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0;
 }
 
 .nk-plan strong {
@@ -590,7 +590,7 @@
   line-height: 1.8;
   margin: 0;
   border-left: 2px solid var(--mau-chinh);
-  background: rgba(244, 91, 32, 0.04);
+  background: color-mix(in srgb, var(--mau-chinh) 4%, transparent);
   padding: 0.65rem 0.85rem 0.65rem 1.25rem;
   border-radius: 0 8px 8px 0;
 }
@@ -604,8 +604,8 @@
   line-height: 1.55;
   margin: 1.25rem 0 0;
   padding: 0.75rem 0.9rem;
-  background: var(--mau-the-sub, #181818);
-  border-radius: 10px;
+  background: var(--mau-the-sub, var(--mau-the-sub));
+  border-radius: 8px;
   border: 1px solid var(--mau-vien);
   display: flex;
   align-items: flex-start;
@@ -634,18 +634,18 @@
   border-spacing: 0;
   font-size: 0.875rem;
   margin: 0.85rem 0;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--mau-vien);
 }
 
 .nk-data-table th {
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   color: var(--mau-phu);
   font-size: 0.78rem;
   font-weight: 750;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   padding: 0.75rem 0.9rem;
   border-bottom: 1px solid var(--mau-vien);
 }
@@ -678,7 +678,7 @@
    ========================================================================== */
 .nk-exercise {
   margin-bottom: 1.25rem;
-  border-radius: 18px;
+  border-radius: 8px;
 }
 
 .nk-exercise-heading {
@@ -707,12 +707,12 @@
   width: 72px;
   height: 72px;
   border: 1px solid var(--mau-vien);
-  border-radius: 14px;
+  border-radius: 8px;
   overflow: hidden;
   display: grid;
   place-items: center;
   color: var(--mau-chinh);
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   font-size: 1.6rem;
 }
 
@@ -736,7 +736,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   border: 1px solid var(--mau-vien);
   padding: 0.25rem 0.65rem;
   border-radius: 8px;
@@ -752,9 +752,9 @@
 /* Guidance accordion */
 .nk-guidance {
   margin: 0.85rem 0 1.25rem;
-  background: var(--mau-nen, #0a0a0a);
+  background: var(--mau-nen, var(--mau-nen));
   border: 1px solid var(--mau-vien);
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 0.5rem 1rem;
 }
 
@@ -801,7 +801,7 @@
   font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   color: var(--mau-phu);
   margin-top: 1.15rem;
   padding: 0 0.25rem;
@@ -809,15 +809,15 @@
 
 .nk-set {
   margin: 0.65rem 0;
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   padding: 0.5rem 0.65rem;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid var(--mau-vien);
   transition: border-color 0.2s ease;
 }
 
 .nk-set:focus-within {
-  border-color: rgba(244, 91, 32, 0.4);
+  border-color: color-mix(in srgb, var(--mau-chinh) 40%, transparent);
 }
 
 .nk-set > strong {
@@ -825,7 +825,7 @@
   text-align: center;
   font-weight: 850;
   color: var(--mau-chinh);
-  background: rgba(244, 91, 32, 0.1);
+  background: color-mix(in srgb, var(--mau-chinh) 10%, transparent);
   width: 32px;
   height: 32px;
   border-radius: 8px;
@@ -849,9 +849,9 @@
   width: 40px;
   height: 40px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   color: var(--mau-phu);
-  background: var(--mau-nen, #0a0a0a);
+  background: var(--mau-nen, var(--mau-nen));
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -861,7 +861,7 @@
 }
 
 .nk-icon-btn:hover:not(:disabled) {
-  color: #ef4444;
+  color: var(--mau-loi);
   background: rgba(239, 68, 68, 0.12);
 }
 
@@ -898,7 +898,7 @@
 .nk-confirm {
   margin-bottom: 1.5rem;
   border-left: 4px solid var(--mau-chinh);
-  background: color-mix(in srgb, var(--mau-chinh) 6%, var(--mau-the, #141414));
+  background: color-mix(in srgb, var(--mau-chinh) 6%, var(--mau-the, var(--mau-the)));
 }
 
 .nk-confirm h2 {
@@ -923,8 +923,8 @@
 .nk-comment {
   padding: 1rem;
   margin-bottom: 0.75rem;
-  border-radius: 12px;
-  background: var(--mau-the-sub, #181818);
+  border-radius: 8px;
+  background: var(--mau-the-sub, var(--mau-the-sub));
   border: 1px solid var(--mau-vien);
 }
 
@@ -954,8 +954,8 @@
   overflow-wrap: anywhere;
   font-size: 0.9rem;
   padding: 0.85rem 1rem;
-  background: var(--mau-the-sub, #181818);
-  border-radius: 12px;
+  background: var(--mau-the-sub, var(--mau-the-sub));
+  border-radius: 8px;
   border: 1px solid var(--mau-vien);
 }
 
@@ -965,7 +965,7 @@
 .nk-alert,
 .nk-success {
   padding: 1rem 1.25rem;
-  border-radius: 12px;
+  border-radius: 8px;
   margin-bottom: 1.25rem;
   font-size: 0.9rem;
   display: flex;
@@ -975,7 +975,7 @@
 
 .nk-alert {
   background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
+  color: var(--mau-loi);
   border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
@@ -995,7 +995,7 @@
 
 .nk-success {
   background: rgba(16, 185, 129, 0.1);
-  color: #10b981;
+  color: var(--mau-thanh-cong);
   border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
@@ -1022,8 +1022,8 @@
 :root[data-theme='light'] .nk-panel,
 .light-theme .nk-panel {
   background: #ffffff;
-  border-color: #e2e8f0;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  border-color: var(--mau-vien);
+  box-shadow: var(--bong-nhe);
 }
 
 :root[data-theme='light'] .nk-filter,
@@ -1031,7 +1031,7 @@
 :root[data-theme='light'] .nk-chart,
 .light-theme .nk-chart {
   background: #ffffff;
-  border-color: #e2e8f0;
+  border-color: var(--mau-vien);
 }
 
 :root[data-theme='light'] .nk-schedule,
@@ -1044,8 +1044,8 @@
 .light-theme .nk-comment,
 :root[data-theme='light'] .nk-note,
 .light-theme .nk-note {
-  background: #f8fafc;
-  border-color: #e2e8f0;
+  background: var(--mau-the-sub);
+  border-color: var(--mau-vien);
 }
 
 :root[data-theme='light'] .nk-date,
@@ -1053,7 +1053,7 @@
 :root[data-theme='light'] .nk-guidance,
 .light-theme .nk-guidance {
   background: #ffffff;
-  border-color: #cbd5e1;
+  border-color: var(--mau-phu);
 }
 
 :root[data-theme='light'] .nk label .form-control,
@@ -1063,33 +1063,33 @@
 .light-theme .nk .form-control,
 .light-theme .nk .form-select {
   background: #ffffff;
-  border-color: #cbd5e1;
-  color: #0f172a;
+  border-color: var(--mau-phu);
+  color: var(--mau-chu);
 }
 
 :root[data-theme='light'] .nk-data-table th,
 .light-theme .nk-data-table th {
-  background: #f1f5f9;
-  border-color: #e2e8f0;
+  background: var(--mau-the-sub);
+  border-color: var(--mau-vien);
   color: #475569;
 }
 
 :root[data-theme='light'] .nk-data-table td,
 .light-theme .nk-data-table td {
-  border-color: #e2e8f0;
-  color: #0f172a;
+  border-color: var(--mau-vien);
+  color: var(--mau-chu);
 }
 
 :root[data-theme='light'] .nk-icon-btn,
 .light-theme .nk-icon-btn {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--mau-vien);
 }
 
 :root[data-theme='light'] .nk-footnote,
 .light-theme .nk-footnote {
-  background: #f8fafc;
-  border-color: #e2e8f0;
+  background: var(--mau-the-sub);
+  border-color: var(--mau-vien);
 }
 
 /* ==========================================================================
@@ -1128,7 +1128,7 @@
   }
   .nk-panel {
     padding: 1.15rem;
-    border-radius: 14px;
+    border-radius: 8px;
   }
   .nk-heading {
     flex-direction: column;
@@ -1175,7 +1175,7 @@
     flex: 0 0 54px;
     width: 54px;
     height: 54px;
-    border-radius: 10px;
+    border-radius: 8px;
     font-size: 1.3rem;
   }
   .nk-save-bar {

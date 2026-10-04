@@ -204,76 +204,97 @@
               Chọn bài từ thư viện để bắt đầu.<br />
               Mỗi ngày cần ít nhất một bài khi {{ laPt ? 'gửi' : 'áp dụng' }}.
             </p>
-            <fieldset :disabled="voHieu" class="border-0 p-0 m-0">
-              <article v-for="(b, viTri) in baiTrongNgay" :key="b.khoa" class="kh-editor-row">
-                <div class="kh-row-title">
-                  <div class="d-flex align-items-center gap-2">
-                    <span class="badge bg-secondary rounded-pill">{{ viTri + 1 }}</span>
-                    <strong>{{ b.ten_bai_tap }}</strong>
-                  </div>
-                  <div class="kh-actions">
-                    <button
-                      type="button"
-                      class="btn btn-outline-secondary btn-sm"
-                      :disabled="viTri === 0"
-                      :aria-label="`Đưa ${b.ten_bai_tap} lên`"
-                      title="Đưa lên"
-                      @click="doiBai(b.khoa, -1)"
-                    >
-                      <i class="bi bi-arrow-up" aria-hidden="true"></i>
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-outline-secondary btn-sm"
-                      :disabled="viTri === baiTrongNgay.length - 1"
-                      :aria-label="`Đưa ${b.ten_bai_tap} xuống`"
-                      title="Đưa xuống"
-                      @click="doiBai(b.khoa, 1)"
-                    >
-                      <i class="bi bi-arrow-down" aria-hidden="true"></i>
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-outline-secondary btn-sm text-danger"
-                      :aria-label="`Bỏ ${b.ten_bai_tap}`"
-                      title="Bỏ bài"
-                      @click="boBai(b.khoa)"
-                    >
-                      <i class="bi bi-trash" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="kh-inputs">
-                  <div v-for="truong in truongSo" :key="truong.key" class="kh-input-field">
-                    <label :for="`${truong.key}-${b.khoa}`">{{ truong.ten }}</label>
-                    <div class="kh-input-wrapper">
-                      <input
-                        :id="`${truong.key}-${b.khoa}`"
-                        v-model="b[truong.key]"
-                        type="number"
-                        :required="truong.key !== 'muc_ta_kg'"
-                        :min="truong.min"
-                        :max="truong.max"
-                        :step="truong.step || 1"
-                      />
-                      <span v-if="truong.donVi" class="kh-input-unit">{{ truong.donVi }}</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="mt-3">
-                  <label :for="`ghi-chu-${b.khoa}`" class="form-label small fw-bold text-secondary">
-                    Lưu ý thực hiện
-                  </label>
-                  <textarea
-                    :id="`ghi-chu-${b.khoa}`"
-                    v-model="b.ghi_chu"
-                    maxlength="2000"
-                    rows="2"
-                    class="form-control"
-                    placeholder="Lưu ý kỹ thuật hoặc dặn dò học viên..."
-                  ></textarea>
-                </div>
-              </article>
+            <fieldset :disabled="voHieu" class="st-exercise-sheet">
+              <div class="st-table-wrap">
+                <table class="table st-exercise-table">
+                  <caption class="visually-hidden">
+                    Thông số các bài tập trong ngày
+                    {{
+                      ngayChon
+                    }}
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Thứ tự</th>
+                      <th scope="col">Bài tập</th>
+                      <th v-for="truong in truongSo" :key="truong.key" scope="col">
+                        {{ truong.ten }}
+                      </th>
+                      <th scope="col">Thao tác</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <template v-for="(b, viTri) in baiTrongNgay" :key="b.khoa">
+                      <tr>
+                        <td>{{ viTri + 1 }}</td>
+                        <th scope="row">{{ b.ten_bai_tap }}</th>
+                        <td v-for="truong in truongSo" :key="truong.key">
+                          <label :for="`${truong.key}-${b.khoa}`" class="visually-hidden">{{
+                            truong.ten
+                          }}</label>
+                          <input
+                            :id="`${truong.key}-${b.khoa}`"
+                            :aria-label="`${truong.ten} cho ${b.ten_bai_tap}`"
+                            v-model="b[truong.key]"
+                            type="number"
+                            :required="truong.key !== 'muc_ta_kg'"
+                            :min="truong.min"
+                            :max="truong.max"
+                            :step="truong.step || 1"
+                            class="form-control"
+                          />
+                        </td>
+                        <td>
+                          <div class="st-row-actions">
+                            <button
+                              type="button"
+                              class="btn btn-outline-secondary"
+                              :disabled="viTri === 0"
+                              :aria-label="`Đưa ${b.ten_bai_tap} lên`"
+                              title="Đưa lên"
+                              @click="doiBai(b.khoa, -1)"
+                            >
+                              <i class="bi bi-arrow-up" aria-hidden="true"></i>
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-secondary"
+                              :disabled="viTri === baiTrongNgay.length - 1"
+                              :aria-label="`Đưa ${b.ten_bai_tap} xuống`"
+                              title="Đưa xuống"
+                              @click="doiBai(b.khoa, 1)"
+                            >
+                              <i class="bi bi-arrow-down" aria-hidden="true"></i>
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-danger"
+                              :aria-label="`Bỏ ${b.ten_bai_tap}`"
+                              title="Bỏ bài"
+                              @click="boBai(b.khoa)"
+                            >
+                              <i class="bi bi-trash" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="st-exercise-note">
+                        <td></td>
+                        <td colspan="6">
+                          <label :for="`ghi-chu-${b.khoa}`">Lưu ý thực hiện</label
+                          ><textarea
+                            :id="`ghi-chu-${b.khoa}`"
+                            v-model="b.ghi_chu"
+                            maxlength="2000"
+                            rows="1"
+                            class="form-control"
+                          />
+                        </td>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+              </div>
             </fieldset>
           </div>
           <ChonBaiTapGiaoAn

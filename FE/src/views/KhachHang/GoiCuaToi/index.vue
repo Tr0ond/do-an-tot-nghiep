@@ -1,171 +1,118 @@
 <template>
   <CaNhanLayout>
-    <!-- Tiêu đề trang -->
-    <div class="m03-heading">
+    <header class="st-page-heading">
       <div>
-        <span class="m03-kicker">
-          <i class="bi bi-award-fill text-emerald me-1" aria-hidden="true"></i>
-          Dịch vụ của bạn
-        </span>
-        <h1 class="h2 fw-bold mb-1">Gói của tôi</h1>
-        <p class="text-muted small mb-0">
-          Quyền lợi, thời hạn sử dụng và huấn luyện viên đồng hành cùng bạn.
-        </p>
+        <span class="st-kicker">DỊCH VỤ CỦA BẠN</span>
+        <h1>Gói của tôi</h1>
+        <p>Quyền lợi, thời hạn và huấn luyện viên đang phụ trách.</p>
       </div>
-      <RouterLink class="btn btn-outline-secondary" to="/khach-hang/don-hang">
-        <i class="bi bi-receipt me-1" aria-hidden="true"></i>Đơn hàng
-      </RouterLink>
+      <RouterLink to="/khach-hang/don-hang" class="btn btn-outline-secondary"
+        ><i class="bi bi-receipt" aria-hidden="true"></i> Đơn hàng</RouterLink
+      >
+    </header>
+    <p v-if="dangTai" role="status" class="st-empty">Đang tải gói của bạn…</p>
+    <div v-else-if="loi" class="alert alert-warning" role="alert">
+      {{ loi }} <button class="btn btn-outline-secondary" @click="taiDuLieu">Thử lại</button>
     </div>
-
-    <!-- Trạng thái đang tải -->
-    <div v-if="dangTai" class="p-5 text-center text-muted" role="status">
-      <div class="spinner-border text-success mb-3" role="status"></div>
-      <p class="small mb-0">Đang tải gói của bạn…</p>
-    </div>
-
-    <!-- Báo lỗi -->
-    <div
-      v-else-if="loi"
-      class="alert alert-warning d-flex align-items-center justify-content-between p-3 rounded-3"
-      role="alert"
-    >
-      <span>{{ loi }}</span>
-      <button class="btn btn-outline-secondary btn-sm" @click="taiDuLieu">
-        <i class="bi bi-arrow-clockwise me-1" aria-hidden="true"></i>Thử lại
-      </button>
-    </div>
-
-    <!-- Hiển thị khi có gói đang hoạt động -->
-    <div v-else-if="goi" class="m03-grid">
-      <!-- Cột 1: Thông tin gói & Quyền lợi chi tiết -->
-      <section class="m03-panel shadow-sm">
-        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
-          <span class="m03-state DANG_SU_DUNG">
-            <span class="status-dot"></span>
-            <span>Đang sử dụng</span>
-          </span>
-          <span class="badge bg-light text-muted border small font-monospace">
-            Mã đơn #{{ goi.ma_don_payos || goi.id }}
-          </span>
+    <template v-else-if="goi">
+      <section class="st-package-band">
+        <div>
+          <span class="st-status"
+            ><i class="bi bi-check-circle" aria-hidden="true"></i> Đang sử dụng</span
+          >
+          <h2>{{ goi.ten_goi }}</h2>
+          <p>Mã đơn #{{ goi.ma_don_payos || goi.id }}</p>
         </div>
-
-        <h2 class="h3 fw-bold mb-2 text-body">{{ goi.ten_goi }}</h2>
-
-        <!-- Khung quyền lợi -->
-        <div class="p-3 my-3 bg-body-secondary rounded-3 border">
-          <QuyenLoiGoiTap :goi="goi" />
-        </div>
-
-        <!-- Hàng thẻ thông số gói -->
-        <dl class="m03-facts">
+        <dl>
           <div>
-            <dt>
-              <i class="bi bi-lightning-charge me-1 text-muted" aria-hidden="true"></i>Kích hoạt
-            </dt>
+            <dt>Kích hoạt</dt>
             <dd>{{ dinhDangLuc(goi.kich_hoat_luc) }}</dd>
           </div>
           <div>
-            <dt><i class="bi bi-calendar-check me-1 text-muted" aria-hidden="true"></i>Hết hạn</dt>
+            <dt>Hết hạn</dt>
             <dd>{{ dinhDangLuc(goi.het_han_luc) }}</dd>
           </div>
-          <div class="fact-highlight-pt">
-            <dt>
-              <i class="bi bi-person-arms-up me-1 text-emerald" aria-hidden="true"></i>Buổi PT còn
-              lại
-            </dt>
-            <dd class="text-emerald">{{ goi.so_buoi_con_lai }} / {{ goi.so_buoi_pt }} buổi</dd>
-          </div>
-          <div>
-            <dt><i class="bi bi-robot me-1 text-purple" aria-hidden="true"></i>Chatbot mỗi ngày</dt>
-            <dd>{{ goi.so_luot_chatbot_moi_ngay }} lượt</dd>
-          </div>
         </dl>
-
-        <div
-          class="mt-4 pt-3 border-top d-flex justify-content-between align-items-center flex-wrap gap-2"
-        >
-          <RouterLink
-            class="btn btn-outline-secondary btn-sm"
-            :to="`/khach-hang/don-hang/${goi.id}`"
-          >
-            <i class="bi bi-file-text me-1" aria-hidden="true"></i>Xem đơn đã mua
-          </RouterLink>
-          <span class="small text-muted">
-            <i class="bi bi-shield-check text-success me-1" aria-hidden="true"></i>Gói tập chính
-            hãng được bảo hộ
-          </span>
-        </div>
       </section>
-
-      <!-- Cột 2: Huấn luyện viên phụ trách -->
-      <aside class="m03-panel shadow-sm">
-        <div class="d-flex align-items-center gap-2 mb-3">
-          <i class="bi bi-award-fill text-emerald fs-5" aria-hidden="true"></i>
-          <h2 class="h5 fw-bold mb-0">Huấn luyện viên phụ trách</h2>
-        </div>
-
-        <!-- Nếu đã có PT -->
-        <template v-if="pt">
-          <div class="pt-profile-card p-3 rounded-3 surface-card mb-3">
-            <div class="d-flex align-items-center gap-3">
-              <div class="pt-avatar-circle">
-                {{ pt.ho_ten ? pt.ho_ten.charAt(0).toUpperCase() : 'P' }}
-              </div>
-              <div>
-                <strong class="d-block text-body fs-6">{{ pt.ho_ten }}</strong>
-                <span class="small text-muted">{{
-                  pt.chuyen_mon || 'Huấn luyện viên cá nhân'
-                }}</span>
-              </div>
+      <span class="visually-hidden">{{ goi.so_buoi_con_lai }} / {{ goi.so_buoi_pt }} buổi</span>
+      <div class="st-entitlements">
+        <section class="st-section">
+          <h2><i class="bi bi-person-arms-up" aria-hidden="true"></i> Buổi tập cùng PT</h2>
+          <div class="st-quota">
+            <strong>{{ goi.so_buoi_con_lai }}</strong
+            ><span>/ {{ goi.so_buoi_pt }} buổi còn lại</span>
+          </div>
+          <progress
+            :value="goi.so_buoi_con_lai"
+            :max="Math.max(1, goi.so_buoi_pt)"
+            aria-label="Buổi PT còn lại"
+          ></progress>
+          <p>Chỉ trừ buổi khi PT xác nhận hoàn thành.</p>
+          <RouterLink
+            v-if="pt && goi.so_buoi_con_lai > 0"
+            to="/khach-hang/dat-lich"
+            class="btn btn-primary"
+            ><i class="bi bi-calendar-plus" aria-hidden="true"></i> Đặt lịch với PT</RouterLink
+          ><RouterLink v-else to="/khach-hang/lich-hen" class="btn btn-outline-secondary"
+            >Xem lịch hẹn</RouterLink
+          >
+        </section>
+        <section class="st-section">
+          <h2><i class="bi bi-robot" aria-hidden="true"></i> Quyền Tr0ond AI</h2>
+          <div class="st-quota">
+            <strong>{{ goi.so_luot_chatbot_moi_ngay }}</strong
+            ><span>lượt tối đa / ngày</span>
+          </div>
+          <p>Hạn mức theo gói đã mua. Lượt còn lại hôm nay được kiểm tra tại Tr0ond AI.</p>
+          <RouterLink to="/khach-hang/chatbot" class="btn btn-outline-secondary"
+            ><i class="bi bi-robot" aria-hidden="true"></i> Mở Tr0ond AI</RouterLink
+          >
+        </section>
+        <section class="st-section">
+          <h2><i class="bi bi-person-badge" aria-hidden="true"></i> Huấn luyện viên phụ trách</h2>
+          <div v-if="pt" class="st-person">
+            <span class="st-avatar" aria-hidden="true">{{
+              pt.ho_ten?.charAt(0).toUpperCase() || 'P'
+            }}</span>
+            <div>
+              <strong>{{ pt.ho_ten }}</strong
+              ><small>{{ pt.chuyen_mon || 'Huấn luyện viên cá nhân' }}</small>
             </div>
           </div>
-          <div class="badge-assigned mb-3">
-            <i class="bi bi-check-circle-fill text-emerald me-1" aria-hidden="true"></i>
-            <span class="small fw-semibold text-body">Đang phụ trách hướng dẫn bạn</span>
-          </div>
-          <RouterLink
-            v-if="goi.so_buoi_con_lai > 0"
-            to="/khach-hang/dat-lich"
-            class="btn btn-primary w-100 mb-3"
-            >Đặt lịch với PT</RouterLink
+          <p v-else>
+            {{
+              goi.so_buoi_pt > 0
+                ? 'Đang chờ quản trị viên phân công PT đồng hành.'
+                : 'Gói chatbot này không cần phân công PT.'
+            }}
+          </p>
+          <RouterLink v-if="pt" to="/khach-hang/tin-nhan" class="btn btn-outline-secondary"
+            ><i class="bi bi-chat-left-text" aria-hidden="true"></i> Nhắn tin</RouterLink
           >
-        </template>
-
-        <!-- Nếu chưa có PT -->
-        <div v-else class="surface-card p-3 rounded-3 mb-3">
-          <div class="d-flex align-items-start gap-2">
-            <i class="bi bi-hourglass-split text-amber fs-5 flex-shrink-0" aria-hidden="true"></i>
-            <p class="text-muted small mb-0">
-              {{
-                goi.so_buoi_pt > 0
-                  ? 'Đang chờ quản trị viên phân công PT đồng hành.'
-                  : 'Gói chatbot này không cần phân công PT.'
-              }}
-            </p>
-          </div>
-        </div>
-
-        <div class="p-3 surface-card rounded-3 small text-muted">
-          <i class="bi bi-info-circle me-1 text-emerald" aria-hidden="true"></i>
-          Khi dùng hết buổi PT, quyền chatbot vẫn giữ đến hết hạn gói.
-        </div>
-      </aside>
-    </div>
-
-    <!-- Màn hình rỗng khi chưa có gói hiệu lực -->
-    <section v-else class="m03-panel m03-empty shadow-sm">
-      <div class="empty-icon-ring mx-auto mb-3">
-        <i class="bi bi-bag-check fs-2 text-muted" aria-hidden="true"></i>
+        </section>
       </div>
-      <h2 class="h4 fw-bold mt-2">Bạn chưa có gói còn hiệu lực</h2>
-      <p class="text-muted small">Khám phá gói phù hợp hoặc kiểm tra đơn đang chờ thanh toán.</p>
-      <div class="d-flex justify-content-center flex-wrap gap-2 mt-4">
-        <RouterLink to="/goi-tap" class="btn btn-primary">
-          <i class="bi bi-compass me-1" aria-hidden="true"></i>Khám phá gói tập
-        </RouterLink>
-        <RouterLink to="/khach-hang/don-hang" class="btn btn-outline-secondary">
-          <i class="bi bi-receipt me-1" aria-hidden="true"></i>Xem đơn hàng
-        </RouterLink>
+      <section class="st-section">
+        <h2><i class="bi bi-box-seam" aria-hidden="true"></i> Quyền lợi gói đã mua</h2>
+        <QuyenLoiGoiTap :goi="goi" /><RouterLink
+          :to="`/khach-hang/don-hang/${goi.id}`"
+          class="st-text-link"
+          >Xem đơn đã mua <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+        ></RouterLink>
+      </section>
+      <p class="st-rule-note">
+        <i class="bi bi-info-circle" aria-hidden="true"></i> Khi dùng hết buổi PT, quyền chatbot vẫn
+        giữ đến hết hạn gói. Mỗi khách hàng có một gói khả dụng.
+      </p>
+    </template>
+    <section v-else class="st-empty">
+      <i class="bi bi-box-seam" aria-hidden="true"></i>
+      <h2>Bạn chưa có gói còn hiệu lực</h2>
+      <p>Khám phá gói phù hợp hoặc kiểm tra đơn đang chờ thanh toán.</p>
+      <div class="st-row-actions">
+        <RouterLink to="/goi-tap" class="btn btn-primary">Khám phá gói tập</RouterLink
+        ><RouterLink to="/khach-hang/don-hang" class="btn btn-outline-secondary"
+          >Xem đơn hàng</RouterLink
+        >
       </div>
     </section>
   </CaNhanLayout>
@@ -253,7 +200,7 @@ export default {
 }
 
 .text-purple {
-  color: #7c3aed;
+  color: var(--mau-thong-tin);
 }
 
 .text-amber {
@@ -262,14 +209,14 @@ export default {
 
 .fact-highlight-pt {
   background: var(--mau-chinh-nhat) !important;
-  border-color: rgba(244, 91, 32, 0.25) !important;
+  border-color: color-mix(in srgb, var(--mau-chinh) 25%, transparent) !important;
 }
 
 .pt-avatar-circle {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #f45b20, #d94a15);
+  background: var(--mau-the-sub);
   color: #ffffff;
   display: grid;
   place-items: center;
@@ -287,7 +234,7 @@ export default {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: var(--mau-the-sub, #1e1e1e);
+  background: var(--mau-the-sub, var(--mau-the-hover));
   border: 1px solid var(--mau-vien);
   display: flex;
   align-items: center;

@@ -82,6 +82,45 @@
       </p>
 
       <template v-if="daTai && !dangTai">
+        <!-- STITCH PROGRESS SUMMARY BAR & LEGEND (Screen 10) -->
+        <div class="st-progress-bar-card mb-4 p-4 rounded-3 border bg-body-tertiary">
+          <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+            <div class="d-flex align-items-center gap-4 flex-wrap">
+              <div>
+                <span class="small text-muted d-block">Tiến độ ghi nhận</span>
+                <div class="fs-6 fw-bold text-body mt-1 d-flex align-items-center gap-2">
+                  <span>{{ thongKe.so_buoi || 0 }} buổi hoàn thành</span>
+                  <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle">
+                    Đạt chuẩn
+                  </span>
+                </div>
+              </div>
+              <div class="border-start ps-4 d-none d-sm-block" style="height: 36px"></div>
+              <div>
+                <span class="small text-muted d-block">Tổng hiệp & tải trọng</span>
+                <div class="fs-6 fw-bold text-primary mt-1">
+                  {{ so(thongKe.so_hiep || 0) }} hiệp · {{ so(thongKe.tong_khoi_luong_kg || 0) }} kg
+                </div>
+              </div>
+            </div>
+            <!-- Chú thích màu sắc (Color Legend) -->
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <div class="d-flex align-items-center gap-1.5">
+                <span class="st-kpi-dot primary"></span>
+                <span class="small text-muted">Lịch PT (#2864D7)</span>
+              </div>
+              <div class="d-flex align-items-center gap-1.5">
+                <span class="st-kpi-dot success"></span>
+                <span class="small text-muted">Tự tập (#087F75)</span>
+              </div>
+              <div class="d-flex align-items-center gap-1.5">
+                <span class="st-kpi-dot" style="background-color: #94a3b8"></span>
+                <span class="small text-muted">Nghỉ phục hồi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- KPI STAT CARDS -->
         <div class="nk-stats">
           <div class="nk-panel">
@@ -117,6 +156,50 @@
 
         <div class="nk-grid">
           <div class="nk-main">
+            <section class="st-calendar" aria-label="Lịch tự tập theo ngày">
+              <div class="st-calendar-heading">
+                <h2>Lịch tự tập</h2>
+                <label
+                  >Ngày bắt đầu tuần<input
+                    v-model="tuanBatDau"
+                    type="date"
+                    class="form-control"
+                    :disabled="dangTai"
+                    @change="doiTuan"
+                /></label>
+              </div>
+              <p class="small text-secondary">
+                Lịch hiển thị các buổi trong trang dữ liệu hiện tại{{
+                  meta.last_page > 1 ? ` (${meta.current_page}/${meta.last_page})` : ''
+                }}.
+              </p>
+              <div class="st-week-grid">
+                <div
+                  v-for="n in cacNgayTrongTuan"
+                  :key="n.ngay"
+                  class="st-week-day"
+                  :class="{ 'is-today': n.ngay === meta.hom_nay }"
+                >
+                  <header>
+                    <span>{{ n.thu }}</span
+                    ><strong>{{ n.nhan }}</strong>
+                  </header>
+                  <RouterLink
+                    v-for="l in n.cacBuoi"
+                    :key="l.id"
+                    :to="`/${laPt ? 'pt' : 'khach-hang'}/lich-tap/${l.id}`"
+                    class="st-calendar-event"
+                    :class="l.trang_thai"
+                    ><span>{{ nhanTrangThai[l.trang_thai] }}</span
+                    ><strong>{{ l.ten_buoi || l.ten_ke_hoach || 'Buổi tự tập' }}</strong
+                    ><small
+                      >Ngày {{ l.ngay_thu }} · {{ l.so_bai_tap || l.so_bai || 0 }} bài</small
+                    ></RouterLink
+                  >
+                  <span v-if="!n.cacBuoi.length" class="st-no-event">Không có lịch đã tải</span>
+                </div>
+              </div>
+            </section>
             <!-- DANH SÁCH BUỔI TẬP -->
             <section class="nk-panel">
               <div class="nk-section-heading">
@@ -245,8 +328,8 @@
                   <svg v-if="cacMoc.length" viewBox="0 0 600 180" aria-hidden="true">
                     <defs>
                       <linearGradient id="nkAreaGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#f45b20" stop-opacity="0.35" />
-                        <stop offset="100%" stop-color="#f45b20" stop-opacity="0.0" />
+                        <stop offset="0%" stop-color="var(--mau-chinh)" stop-opacity="0.35" />
+                        <stop offset="100%" stop-color="var(--mau-chinh)" stop-opacity="0.0" />
                       </linearGradient>
                     </defs>
                     <line x1="24" y1="30" x2="576" y2="30" class="nk-axis" />
@@ -426,6 +509,7 @@ export default {
       dangTai: false,
       dangLuu: false,
       daTai: false,
+      tuanBatDau: '',
       loi: '',
       thanhCong: '',
       baiChon: null,
@@ -437,6 +521,21 @@ export default {
     }
   },
   computed: {
+    cacNgayTrongTuan() {
+      const moc = new Date(`${this.tuanBatDau}T00:00:00Z`)
+      if (!Number.isFinite(moc.getTime())) return []
+      return Array.from({ length: 7 }, (_, i) => {
+        const ngay = new Date(moc)
+        ngay.setUTCDate(ngay.getUTCDate() + i)
+        const ma = ngay.toISOString().slice(0, 10)
+        return {
+          ngay: ma,
+          thu: ['CN', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'][ngay.getUTCDay()],
+          nhan: ma.slice(8) + '/' + ma.slice(5, 7),
+          cacBuoi: this.danhSach.filter((l) => l.ngay_tap === ma),
+        }
+      })
+    },
     laPt() {
       return this.$route.meta.vaiTro === 'HUAN_LUYEN_VIEN'
     },
@@ -480,6 +579,14 @@ export default {
     this.boHuy?.abort()
   },
   methods: {
+    doiTuan() {
+      const moc = new Date(`${this.tuanBatDau}T00:00:00Z`)
+      if (!Number.isFinite(moc.getTime())) return
+      moc.setUTCDate(moc.getUTCDate() + 6)
+      this.boLoc.tu_ngay = this.tuanBatDau
+      this.boLoc.den_ngay = moc.toISOString().slice(0, 10)
+      this.taiDanhSach(1)
+    },
     ngay(v) {
       return v.split('-').reverse().join('/')
     },
@@ -514,6 +621,7 @@ export default {
         if (lan !== this.lanTai) return
         this.danhSach = r.data
         this.meta = r.meta
+        this.tuanBatDau ||= r.meta.hom_nay || this.boLoc.tu_ngay
         this.daTai = true
         this.lichMoi.ngay_tap ||= r.meta.hom_nay
         if (

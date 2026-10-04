@@ -73,9 +73,17 @@ class LichHenService
     // Mọi ghi lịch hẹn khác đều khóa KH trước PT; tránh đảo thứ tự gây deadlock.
     public function dongYeuCauHetHan(?int $pt = null, ?int $khach = null): void
     {
-        LichHenHuanLuyen::when($pt, fn ($q) => $q->where('huan_luyen_vien_id', $pt))->when($khach, fn ($q) => $q->where('khach_hang_id', $khach))
+        $cacLich = LichHenHuanLuyen::when($pt, fn ($q) => $q->where('huan_luyen_vien_id', $pt))->when($khach, fn ($q) => $q->where('khach_hang_id', $khach))
             ->where('trang_thai', 'CHO_XAC_NHAN')->where('han_xac_nhan_dat_lich', '<=', now()->format('Y-m-d H:i:s.u'))
-            ->update(['trang_thai' => 'HET_HAN', 'huy_luc' => now(), 'ly_do_huy' => 'PT không xác nhận trong thời hạn.', 'updated_at' => now()]);
+            ->orderBy('id')->get();
+        foreach ($cacLich as $lich) {
+            $doi = LichHenHuanLuyen::whereKey($lich->id)->where('trang_thai', 'CHO_XAC_NHAN')
+                ->where('han_xac_nhan_dat_lich', '<=', now()->format('Y-m-d H:i:s.u'))
+                ->update(['trang_thai' => 'HET_HAN', 'huy_luc' => now(), 'ly_do_huy' => 'PT không xác nhận trong thời hạn.', 'updated_at' => now()]);
+            if ($doi) {
+                app(ThongBaoService::class)->lichHen($lich, 'het-han');
+            }
+        }
     }
 
     public function datLich(TaiKhoan $nguoi, array $duLieu): LichHenHuanLuyen
@@ -110,7 +118,10 @@ class LichHenService
             abort_if((clone $giu)->where(fn ($q) => $q->where('khach_hang_id', $khach->id)->orWhere('huan_luyen_vien_id', $pt->id))->where('bat_dau_luc', '<', $slot->ket_thuc_luc)->where('ket_thuc_luc', '>', $slot->bat_dau_luc)->exists(), 409, 'KH hoặc PT đã có lịch hẹn chồng giờ.');
             $han = CarbonImmutable::now()->addHours(2)->min($slot->bat_dau_luc->subHours(2));
 
-            return LichHenHuanLuyen::create(['khach_hang_id' => $khach->id, 'huan_luyen_vien_id' => $pt->id, 'phan_cong_id' => $phanCong->id, 'khung_gio_id' => $slot->id, 'dang_ky_goi_tap_id' => $goi->id, 'client_request_id' => $ma, 'bat_dau_luc' => $slot->bat_dau_luc, 'ket_thuc_luc' => $slot->ket_thuc_luc, 'trang_thai' => 'CHO_XAC_NHAN', 'han_xac_nhan_dat_lich' => $han, 'han_xac_nhan_hoan_thanh' => $slot->ket_thuc_luc->addHours(24)]);
+            $lich = LichHenHuanLuyen::create(['khach_hang_id' => $khach->id, 'huan_luyen_vien_id' => $pt->id, 'phan_cong_id' => $phanCong->id, 'khung_gio_id' => $slot->id, 'dang_ky_goi_tap_id' => $goi->id, 'client_request_id' => $ma, 'bat_dau_luc' => $slot->bat_dau_luc, 'ket_thuc_luc' => $slot->ket_thuc_luc, 'trang_thai' => 'CHO_XAC_NHAN', 'han_xac_nhan_dat_lich' => $han, 'han_xac_nhan_hoan_thanh' => $slot->ket_thuc_luc->addHours(24)]);
+            app(ThongBaoService::class)->lichHen($lich, 'dat');
+
+            return $lich;
         }, 3);
     }
 
@@ -153,6 +164,7 @@ class LichHenService
                     abort_unless($lich->bat_dau_luc->greaterThanOrEqualTo(now()->addHours(2)), 409, 'Chỉ được hủy trước ít nhất 2 giờ.');
                 }
                 $lich->update(['trang_thai' => 'DA_HUY', 'nguoi_huy_id' => $nguoi->id, 'huy_luc' => now(), 'ly_do_huy' => $lyDo]);
+                app(ThongBaoService::class)->lichHen($lich, $hanhDong);
             } elseif ($hanhDong === 'xac-nhan') {
                 abort_unless($nguoi->vai_tro === TaiKhoan::HUAN_LUYEN_VIEN, 403);
                 if ($trangThai === 'DA_XAC_NHAN') {
@@ -160,6 +172,7 @@ class LichHenService
                 }
                 abort_unless($trangThai === 'CHO_XAC_NHAN', 409, 'Yêu cầu đã hết hạn hoặc được xử lý.');
                 $lich->update(['trang_thai' => 'DA_XAC_NHAN', 'xac_nhan_luc' => now()]);
+                app(ThongBaoService::class)->lichHen($lich, 'xac-nhan');
             } elseif (in_array($hanhDong, ['hoan-thanh', 'vang-mat'])) {
                 abort_unless($nguoi->vai_tro === TaiKhoan::HUAN_LUYEN_VIEN, 403);
                 $dich = $hanhDong === 'hoan-thanh' ? 'HOAN_THANH' : 'VANG_MAT';
@@ -181,6 +194,7 @@ class LichHenService
                 $lich->ly_do_ghi_nhan = $dich === 'VANG_MAT' ? $lyDo : null;
                 $lich->save();
                 $this->ghiAudit($nguoi, $lich, $dich, $lyDo);
+                app(ThongBaoService::class)->lichHen($lich, $hanhDong);
             } elseif ($hanhDong === 'dong-xu-ly') {
                 abort_unless($nguoi->vai_tro === TaiKhoan::ADMIN, 403);
                 if ($lich->dong_xu_ly_luc) {
@@ -245,6 +259,7 @@ class LichHenService
                         $lich->ly_do_huy = 'PT không xác nhận trong thời hạn.';
                     }
                     $lich->save();
+                    app(ThongBaoService::class)->lichHen($lich, $s === 'HET_HAN' ? 'het-han' : 'qua-han');
 
                     return 1;
                 }, 3);

@@ -33,63 +33,62 @@
       </div>
     </dl>
 
-    <div class="j-grid">
-      <section class="j-card j-workout">
-        <div class="j-section-heading">
-          <div class="j-heading-inline">
-            <span class="j-badge">HÔM NAY</span>
-            <h2>Buổi tập hôm nay</h2>
+    <div class="st-customer-dashboard">
+      <div class="st-dashboard-main">
+        <section class="j-card j-workout">
+          <div class="j-section-heading">
+            <div class="j-heading-inline">
+              <span class="j-badge">HÔM NAY</span>
+              <h2>Buổi tập hôm nay</h2>
+            </div>
+            <i class="bi bi-activity j-workout-icon" aria-hidden="true"></i>
           </div>
-          <i class="bi bi-activity j-workout-icon" aria-hidden="true"></i>
-        </div>
-        <template v-if="buoi">
-          <h3 class="j-big-title">{{ buoi.ten }}</h3>
-          <p>
-            Ngày {{ buoi.ngay_thu }} · {{ so(buoi.so_bai) }} bài tập ·
-            {{ buoi.trang_thai === 'DANG_TAP' ? 'Đang tập' : 'Đã lên lịch' }}
-          </p>
-          <p class="j-workout-copy">
-            Ghi lại các hiệp thực tế trong nhật ký. Lịch đã tạo vẫn được giữ khi bạn đổi giáo án.
-          </p>
-          <div class="j-actions">
-            <RouterLink :to="duongBuoi" class="j-button j-primary"
-              >{{ buoi.trang_thai === 'DANG_TAP' ? 'Tiếp tục ghi nhật ký' : 'Mở buổi tập' }}
-              <i class="bi bi-play-fill" aria-hidden="true"></i></RouterLink
-            ><RouterLink :to="`/khach-hang/ke-hoach/${buoi.ke_hoach_id}`" class="j-button"
-              >Xem giáo án</RouterLink
-            >
-          </div>
-          <div class="j-progress-copy">
-            <span>Bài đã ghi kết quả</span
-            ><strong>{{ buoi.so_bai_da_ghi }} / {{ buoi.so_bai }}</strong>
-          </div>
-          <progress
-            :value="buoi.so_bai_da_ghi"
-            :max="Math.max(1, buoi.so_bai)"
-            aria-label="Bài có hiệp thực tế đã lưu"
-          ></progress>
-        </template>
-        <template v-else>
-          <h3 class="j-big-title">Hôm nay bạn chưa có buổi tự tập</h3>
-          <p class="j-workout-copy">
-            {{
-              giaoAn
-                ? 'Chọn một ngày trong giáo án đang dùng để lên lịch. Bạn cũng có thể xem lại những buổi đã hoàn thành.'
-                : 'Tạo hoặc áp dụng một giáo án để bắt đầu lên lịch. Tự tập không cần mua gói.'
-            }}
-          </p>
-          <div class="j-actions">
-            <RouterLink
-              :to="giaoAn ? '/khach-hang/lich-tap' : '/khach-hang/ke-hoach'"
-              class="j-button j-primary"
-              >{{ giaoAn ? 'Lên lịch tự tập' : 'Chọn giáo án' }}
-              <i class="bi bi-arrow-right" aria-hidden="true"></i></RouterLink
-            ><RouterLink to="/khach-hang/lich-tap" class="j-button">Xem nhật ký</RouterLink>
-          </div>
-        </template>
-      </section>
-
-      <aside class="j-stack" aria-label="Giáo án và lịch sắp tới">
+          <template v-if="buoi">
+            <h3 class="j-big-title">{{ buoi.ten }}</h3>
+            <p>
+              Ngày {{ buoi.ngay_thu }} · {{ so(buoi.so_bai) }} bài tập ·
+              {{ buoi.trang_thai === 'DANG_TAP' ? 'Đang tập' : 'Đã lên lịch' }}
+            </p>
+            <p class="j-workout-copy">
+              Ghi lại các hiệp thực tế trong nhật ký. Lịch đã tạo vẫn được giữ khi bạn đổi giáo án.
+            </p>
+            <div class="j-actions">
+              <RouterLink :to="duongBuoi" class="j-button j-primary"
+                >{{ buoi.trang_thai === 'DANG_TAP' ? 'Tiếp tục ghi nhật ký' : 'Mở buổi tập' }}
+                <i class="bi bi-play-fill" aria-hidden="true"></i></RouterLink
+              ><RouterLink :to="`/khach-hang/ke-hoach/${buoi.ke_hoach_id}`" class="j-button"
+                >Xem giáo án</RouterLink
+              >
+            </div>
+            <div class="j-progress-copy">
+              <span>Bài đã ghi kết quả</span
+              ><strong>{{ buoi.so_bai_da_ghi }} / {{ buoi.so_bai }}</strong>
+            </div>
+            <progress
+              :value="buoi.so_bai_da_ghi"
+              :max="Math.max(1, buoi.so_bai)"
+              aria-label="Bài có hiệp thực tế đã lưu"
+            ></progress>
+          </template>
+          <template v-else>
+            <h3 class="j-big-title">Hôm nay bạn chưa có buổi tự tập</h3>
+            <p class="j-workout-copy">
+              {{
+                giaoAn
+                  ? 'Chọn một ngày trong giáo án đang dùng để lên lịch. Bạn cũng có thể xem lại những buổi đã hoàn thành.'
+                  : 'Tạo hoặc áp dụng một giáo án để bắt đầu lên lịch. Tự tập không cần mua gói.'
+              }}
+            </p>
+            <div class="j-actions">
+              <RouterLink
+                :to="giaoAn ? '/khach-hang/lich-tap' : '/khach-hang/ke-hoach'"
+                class="j-button j-primary"
+                >{{ giaoAn ? 'Lên lịch tự tập' : 'Chọn giáo án' }}
+                <i class="bi bi-arrow-right" aria-hidden="true"></i></RouterLink
+              ><RouterLink to="/khach-hang/lich-tap" class="j-button">Xem nhật ký</RouterLink>
+            </div>
+          </template>
+        </section>
         <section class="j-card">
           <h2>Giáo án đang áp dụng</h2>
           <template v-if="giaoAn">
@@ -118,6 +117,185 @@
             ></template
           >
         </section>
+        <section class="j-card j-body">
+          <div class="j-section-heading">
+            <h2>Chỉ số cơ thể</h2>
+            <RouterLink to="/khach-hang/chi-so-co-the" class="j-text-link"
+              >Cập nhật chỉ số <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+            ></RouterLink>
+          </div>
+          <div v-if="chiSo.moi_nhat" class="j-body-grid">
+            <dl class="j-body-stats">
+              <div>
+                <dt>BMI gần nhất</dt>
+                <dd>{{ so(chiSo.moi_nhat.bmi) }}</dd>
+                <p>Chỉ số tham khảo</p>
+              </div>
+              <div>
+                <dt>Cân nặng</dt>
+                <dd>{{ so(chiSo.moi_nhat.can_nang_kg) }} <small>kg</small></dd>
+                <p>Ngày {{ ngay(chiSo.moi_nhat.ngay_ghi) }}</p>
+              </div>
+              <div>
+                <dt>Chiều cao</dt>
+                <dd>{{ so(chiSo.moi_nhat.chieu_cao_cm) }} <small>cm</small></dd>
+              </div>
+              <div>
+                <dt>Thay đổi BMI · 30 ngày</dt>
+                <dd>{{ chenhLech(chiSo.thay_doi_bmi) }}</dd>
+                <p>
+                  {{
+                    chiSo.thay_doi_bmi === null
+                      ? 'Cần ít nhất 2 lần đo hợp lệ'
+                      : 'So với lần đo đầu trong khoảng'
+                  }}
+                </p>
+              </div>
+            </dl>
+            <div>
+              <h3 class="j-chart-title">Xu hướng BMI · 30 ngày</h3>
+              <div
+                v-if="diemBmi.diem.length"
+                class="j-chart"
+                role="img"
+                aria-label="Biểu đồ BMI; số đo chi tiết tại trang Chỉ số cơ thể."
+              >
+                <svg viewBox="0 0 660 240" aria-hidden="true">
+                  <template v-for="n in [0, 1, 2]" :key="n">
+                    <line
+                      x1="105"
+                      x2="610"
+                      :y1="200 - n * 82.5"
+                      :y2="200 - n * 82.5"
+                      class="j-grid-line"
+                    />
+                    <text x="85" :y="205 - n * 82.5" text-anchor="end" class="j-chart-label">
+                      {{ so(diemBmi.min + ((diemBmi.max - diemBmi.min) * n) / 2) }}
+                    </text>
+                  </template>
+                  <path :d="diemBmi.duong" class="j-bmi-line" />
+                  <circle
+                    v-for="d in diemBmi.diem"
+                    :key="d.ngay_ghi"
+                    :cx="d.x"
+                    :cy="d.y"
+                    r="4"
+                    class="j-bmi-dot"
+                  >
+                    <title>{{ ngay(d.ngay_ghi) }} · BMI {{ so(d.bmi) }}</title>
+                  </circle>
+                  <text x="105" y="232" class="j-chart-label">
+                    {{ ngayNgan(diemBmi.diem[0].ngay_ghi) }}
+                  </text>
+                  <text x="610" y="232" text-anchor="end" class="j-chart-label">
+                    {{ ngayNgan(diemBmi.diem.at(-1).ngay_ghi) }}
+                  </text>
+                </svg>
+              </div>
+              <p v-else class="j-empty">Chưa có số đo BMI hợp lệ trong 30 ngày.</p>
+              <p class="j-caption">
+                BMI không phân biệt cơ và mỡ. Không nội suy số đo những ngày chưa ghi.
+              </p>
+            </div>
+          </div>
+          <p v-else class="j-empty">
+            Ghi chiều cao và cân nặng lần đầu để theo dõi thay đổi qua các ngày tập luyện.
+          </p>
+        </section>
+        <section class="j-card">
+          <div class="j-section-heading">
+            <div>
+              <h2>Tiến độ tập luyện</h2>
+              <p>Buổi tự tập đã hoàn thành theo ngày lịch.</p>
+            </div>
+            <div class="j-tabs" aria-label="Khoảng thống kê">
+              <button
+                v-for="n in [7, 30, 90]"
+                :key="n"
+                :aria-pressed="hanhTrinh.tien_do.so_ngay === n"
+                :disabled="dangTai"
+                @click="$emit('doi-khoang', n)"
+              >
+                {{ n }} ngày
+              </button>
+            </div>
+          </div>
+          <div class="j-summary">
+            <div>
+              <strong>{{ so(hanhTrinh.tien_do.so_buoi) }}</strong
+              ><span>buổi trong {{ hanhTrinh.tien_do.so_ngay }} ngày</span>
+            </div>
+            <div>
+              <strong>{{
+                hanhTrinh.ti_le_hoan_thanh === null ? '—' : hanhTrinh.ti_le_hoan_thanh + '%'
+              }}</strong
+              ><span>lịch đã đến tháng này</span>
+            </div>
+            <RouterLink to="/khach-hang/lich-tap"
+              ><i class="bi bi-journal-check" aria-hidden="true"></i
+              ><span>Xem nhật ký tập <i class="bi bi-arrow-up-right" aria-hidden="true"></i></span
+            ></RouterLink>
+          </div>
+          <div
+            class="j-chart"
+            role="img"
+            :aria-label="`Biểu đồ ${hanhTrinh.tien_do.so_buoi} buổi tự tập hoàn thành trong ${hanhTrinh.tien_do.so_ngay} ngày; chi tiết trong bảng bên dưới.`"
+          >
+            <svg viewBox="0 0 660 220" aria-hidden="true">
+              <template v-for="n in [0, 1, 2]" :key="n">
+                <line x1="42" x2="638" :y1="180 - n * 70" :y2="180 - n * 70" class="j-grid-line" />
+                <text x="12" :y="185 - n * 70" class="j-chart-label">
+                  {{ so((maxBuoi * n) / 2) }}
+                </text>
+              </template>
+              <rect
+                v-for="(d, i) in hanhTrinh.tien_do.theo_ngay"
+                :key="d.ngay"
+                :x="45 + (i * 590) / hanhTrinh.tien_do.so_ngay"
+                :y="180 - (d.so_buoi / maxBuoi) * 140"
+                :width="Math.max(2, 590 / hanhTrinh.tien_do.so_ngay - 3)"
+                :height="(d.so_buoi / maxBuoi) * 140"
+                rx="2"
+                class="j-chart-bar"
+              >
+                <title>{{ ngay(d.ngay) }}: {{ d.so_buoi }} buổi</title>
+              </rect>
+              <text x="42" y="212" class="j-chart-label">
+                {{ ngayNgan(hanhTrinh.tien_do.tu_ngay) }}
+              </text>
+              <text x="638" y="212" text-anchor="end" class="j-chart-label">
+                {{ ngayNgan(hanhTrinh.tien_do.den_ngay) }}
+              </text>
+            </svg>
+          </div>
+          <p v-if="!hanhTrinh.tien_do.so_buoi" class="j-empty">
+            Chưa có buổi tự tập hoàn thành trong khoảng này.
+          </p>
+          <details class="j-chart-table">
+            <summary>Xem số buổi theo ngày</summary>
+            <div class="j-table-scroll">
+              <table>
+                <caption class="visually-hidden">
+                  Số buổi tự tập hoàn thành theo ngày lịch
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Ngày</th>
+                    <th scope="col">Buổi hoàn thành</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="d in hanhTrinh.tien_do.theo_ngay" :key="d.ngay">
+                    <td>{{ ngay(d.ngay) }}</td>
+                    <td>{{ d.so_buoi }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </section>
+      </div>
+      <aside class="st-dashboard-rail" aria-label="Lịch và quyền lợi">
         <section class="j-card">
           <div class="j-section-heading">
             <h2>Lịch sắp tới</h2>
@@ -148,229 +326,50 @@
             >Xem lịch hẹn PT <i class="bi bi-arrow-up-right" aria-hidden="true"></i
           ></RouterLink>
         </section>
-      </aside>
-
-      <section class="j-card">
-        <div class="j-section-heading">
-          <div>
-            <h2>Tiến độ tập luyện</h2>
-            <p>Buổi tự tập đã hoàn thành theo ngày lịch.</p>
+        <section class="j-card">
+          <h2>Gói hiện tại</h2>
+          <div v-if="hanhTrinh.goi" class="j-package">
+            <i class="bi bi-box-seam" aria-hidden="true"></i>
+            <h3>{{ hanhTrinh.goi.ten }}</h3>
+            <p>Hết hạn {{ thoiDiem(hanhTrinh.goi.het_han_luc) }}</p>
           </div>
-          <div class="j-tabs" aria-label="Khoảng thống kê">
-            <button
-              v-for="n in [7, 30, 90]"
-              :key="n"
-              :aria-pressed="hanhTrinh.tien_do.so_ngay === n"
-              :disabled="dangTai"
-              @click="$emit('doi-khoang', n)"
-            >
-              {{ n }} ngày
-            </button>
-          </div>
-        </div>
-        <div class="j-summary">
-          <div>
-            <strong>{{ so(hanhTrinh.tien_do.so_buoi) }}</strong
-            ><span>buổi trong {{ hanhTrinh.tien_do.so_ngay }} ngày</span>
-          </div>
-          <div>
-            <strong>{{
-              hanhTrinh.ti_le_hoan_thanh === null ? '—' : hanhTrinh.ti_le_hoan_thanh + '%'
-            }}</strong
-            ><span>lịch đã đến tháng này</span>
-          </div>
-          <RouterLink to="/khach-hang/lich-tap"
-            ><i class="bi bi-journal-check" aria-hidden="true"></i
-            ><span>Xem nhật ký tập <i class="bi bi-arrow-up-right" aria-hidden="true"></i></span
-          ></RouterLink>
-        </div>
-        <div
-          class="j-chart"
-          role="img"
-          :aria-label="`Biểu đồ ${hanhTrinh.tien_do.so_buoi} buổi tự tập hoàn thành trong ${hanhTrinh.tien_do.so_ngay} ngày; chi tiết trong bảng bên dưới.`"
-        >
-          <svg viewBox="0 0 660 220" aria-hidden="true">
-            <template v-for="n in [0, 1, 2]" :key="n">
-              <line x1="42" x2="638" :y1="180 - n * 70" :y2="180 - n * 70" class="j-grid-line" />
-              <text x="12" :y="185 - n * 70" class="j-chart-label">
-                {{ so((maxBuoi * n) / 2) }}
-              </text>
-            </template>
-            <rect
-              v-for="(d, i) in hanhTrinh.tien_do.theo_ngay"
-              :key="d.ngay"
-              :x="45 + (i * 590) / hanhTrinh.tien_do.so_ngay"
-              :y="180 - (d.so_buoi / maxBuoi) * 140"
-              :width="Math.max(2, 590 / hanhTrinh.tien_do.so_ngay - 3)"
-              :height="(d.so_buoi / maxBuoi) * 140"
-              rx="2"
-              class="j-chart-bar"
-            >
-              <title>{{ ngay(d.ngay) }}: {{ d.so_buoi }} buổi</title>
-            </rect>
-            <text x="42" y="212" class="j-chart-label">
-              {{ ngayNgan(hanhTrinh.tien_do.tu_ngay) }}
-            </text>
-            <text x="638" y="212" text-anchor="end" class="j-chart-label">
-              {{ ngayNgan(hanhTrinh.tien_do.den_ngay) }}
-            </text>
-          </svg>
-        </div>
-        <p v-if="!hanhTrinh.tien_do.so_buoi" class="j-empty">
-          Chưa có buổi tự tập hoàn thành trong khoảng này.
-        </p>
-        <details class="j-chart-table">
-          <summary>Xem số buổi theo ngày</summary>
-          <div class="j-table-scroll">
-            <table>
-              <caption class="visually-hidden">
-                Số buổi tự tập hoàn thành theo ngày lịch
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Ngày</th>
-                  <th scope="col">Buổi hoàn thành</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="d in hanhTrinh.tien_do.theo_ngay" :key="d.ngay">
-                  <td>{{ ngay(d.ngay) }}</td>
-                  <td>{{ d.so_buoi }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </details>
-      </section>
-
-      <section class="j-card">
-        <h2>Gói hiện tại</h2>
-        <div v-if="hanhTrinh.goi" class="j-package">
-          <i class="bi bi-box-seam" aria-hidden="true"></i>
-          <h3>{{ hanhTrinh.goi.ten }}</h3>
-          <p>Hết hạn {{ thoiDiem(hanhTrinh.goi.het_han_luc) }}</p>
-        </div>
-        <p v-else class="j-empty">
-          Bạn chưa có gói còn hiệu lực. Giáo án tự tạo, nhật ký và chỉ số cơ thể vẫn dùng miễn phí.
-        </p>
-        <template v-if="hanhTrinh.goi"
-          ><div class="j-progress-copy">
-            <span>Buổi PT còn lại</span
-            ><strong>{{ hanhTrinh.goi.so_buoi_con_lai }} / {{ hanhTrinh.goi.so_buoi_pt }}</strong>
+          <p v-else class="j-empty">
+            Bạn chưa có gói còn hiệu lực. Giáo án tự tạo, nhật ký và chỉ số cơ thể vẫn dùng miễn
+            phí.
+          </p>
+          <template v-if="hanhTrinh.goi"
+            ><div class="j-progress-copy">
+              <span>Buổi PT còn lại</span
+              ><strong>{{ hanhTrinh.goi.so_buoi_con_lai }} / {{ hanhTrinh.goi.so_buoi_pt }}</strong>
+            </div>
+            <progress
+              :value="hanhTrinh.goi.so_buoi_con_lai"
+              :max="Math.max(1, hanhTrinh.goi.so_buoi_pt)"
+              aria-label="Buổi PT còn lại"
+            ></progress
+          ></template>
+          <div class="j-progress-copy">
+            <span>Lượt AI hôm nay</span
+            ><strong>{{ hanhTrinh.ai.con_lai }} / {{ hanhTrinh.ai.toi_da }}</strong>
           </div>
           <progress
-            :value="hanhTrinh.goi.so_buoi_con_lai"
-            :max="Math.max(1, hanhTrinh.goi.so_buoi_pt)"
-            aria-label="Buổi PT còn lại"
-          ></progress
-        ></template>
-        <div class="j-progress-copy">
-          <span>Lượt AI hôm nay</span
-          ><strong>{{ hanhTrinh.ai.con_lai }} / {{ hanhTrinh.ai.toi_da }}</strong>
-        </div>
-        <progress
-          :value="hanhTrinh.ai.con_lai"
-          :max="Math.max(1, hanhTrinh.ai.toi_da)"
-          aria-label="Lượt AI còn lại hôm nay"
-        ></progress>
-        <p v-if="hanhTrinh.ai.dang_giu" class="j-caption">
-          {{ hanhTrinh.ai.dang_giu }} lượt đang xử lý.
-        </p>
-        <RouterLink
-          :to="hanhTrinh.goi ? '/khach-hang/goi-cua-toi' : '/goi-tap'"
-          class="j-button j-primary j-wide"
-          >{{ hanhTrinh.goi ? 'Xem gói của tôi' : 'Khám phá gói tập' }}</RouterLink
-        ><RouterLink to="/khach-hang/don-hang" class="j-button j-wide"
-          >Lịch sử thanh toán</RouterLink
-        >
-      </section>
-    </div>
-
-    <section class="j-card j-body">
-      <div class="j-section-heading">
-        <h2>Chỉ số cơ thể</h2>
-        <RouterLink to="/khach-hang/chi-so-co-the" class="j-text-link"
-          >Cập nhật chỉ số <i class="bi bi-arrow-up-right" aria-hidden="true"></i
-        ></RouterLink>
-      </div>
-      <div v-if="chiSo.moi_nhat" class="j-body-grid">
-        <dl class="j-body-stats">
-          <div>
-            <dt>BMI gần nhất</dt>
-            <dd>{{ so(chiSo.moi_nhat.bmi) }}</dd>
-            <p>Chỉ số tham khảo</p>
-          </div>
-          <div>
-            <dt>Cân nặng</dt>
-            <dd>{{ so(chiSo.moi_nhat.can_nang_kg) }} <small>kg</small></dd>
-            <p>Ngày {{ ngay(chiSo.moi_nhat.ngay_ghi) }}</p>
-          </div>
-          <div>
-            <dt>Chiều cao</dt>
-            <dd>{{ so(chiSo.moi_nhat.chieu_cao_cm) }} <small>cm</small></dd>
-          </div>
-          <div>
-            <dt>Thay đổi BMI · 30 ngày</dt>
-            <dd>{{ chenhLech(chiSo.thay_doi_bmi) }}</dd>
-            <p>
-              {{
-                chiSo.thay_doi_bmi === null
-                  ? 'Cần ít nhất 2 lần đo hợp lệ'
-                  : 'So với lần đo đầu trong khoảng'
-              }}
-            </p>
-          </div>
-        </dl>
-        <div>
-          <h3 class="j-chart-title">Xu hướng BMI · 30 ngày</h3>
-          <div
-            v-if="diemBmi.diem.length"
-            class="j-chart"
-            role="img"
-            aria-label="Biểu đồ BMI; số đo chi tiết tại trang Chỉ số cơ thể."
-          >
-            <svg viewBox="0 0 660 240" aria-hidden="true">
-              <template v-for="n in [0, 1, 2]" :key="n">
-                <line
-                  x1="105"
-                  x2="610"
-                  :y1="200 - n * 82.5"
-                  :y2="200 - n * 82.5"
-                  class="j-grid-line"
-                />
-                <text x="85" :y="205 - n * 82.5" text-anchor="end" class="j-chart-label">
-                  {{ so(diemBmi.min + ((diemBmi.max - diemBmi.min) * n) / 2) }}
-                </text>
-              </template>
-              <path :d="diemBmi.duong" class="j-bmi-line" />
-              <circle
-                v-for="d in diemBmi.diem"
-                :key="d.ngay_ghi"
-                :cx="d.x"
-                :cy="d.y"
-                r="4"
-                class="j-bmi-dot"
-              >
-                <title>{{ ngay(d.ngay_ghi) }} · BMI {{ so(d.bmi) }}</title>
-              </circle>
-              <text x="105" y="232" class="j-chart-label">
-                {{ ngayNgan(diemBmi.diem[0].ngay_ghi) }}
-              </text>
-              <text x="610" y="232" text-anchor="end" class="j-chart-label">
-                {{ ngayNgan(diemBmi.diem.at(-1).ngay_ghi) }}
-              </text>
-            </svg>
-          </div>
-          <p v-else class="j-empty">Chưa có số đo BMI hợp lệ trong 30 ngày.</p>
-          <p class="j-caption">
-            BMI không phân biệt cơ và mỡ. Không nội suy số đo những ngày chưa ghi.
+            :value="hanhTrinh.ai.con_lai"
+            :max="Math.max(1, hanhTrinh.ai.toi_da)"
+            aria-label="Lượt AI còn lại hôm nay"
+          ></progress>
+          <p v-if="hanhTrinh.ai.dang_giu" class="j-caption">
+            {{ hanhTrinh.ai.dang_giu }} lượt đang xử lý.
           </p>
-        </div>
-      </div>
-      <p v-else class="j-empty">
-        Ghi chiều cao và cân nặng lần đầu để theo dõi thay đổi qua các ngày tập luyện.
-      </p>
-    </section>
+          <RouterLink
+            :to="hanhTrinh.goi ? '/khach-hang/goi-cua-toi' : '/goi-tap'"
+            class="j-button j-primary j-wide"
+            >{{ hanhTrinh.goi ? 'Xem gói của tôi' : 'Khám phá gói tập' }}</RouterLink
+          ><RouterLink to="/khach-hang/don-hang" class="j-button j-wide"
+            >Lịch sử thanh toán</RouterLink
+          >
+        </section>
+      </aside>
+    </div>
 
     <div class="j-support-grid">
       <section class="j-card">
@@ -545,13 +544,22 @@ export default {
 <style scoped>
 .journey {
   --j-accent: var(--mau-chinh);
-  --j-action: #c2410c;
+  --j-action: var(--mau-chinh);
   --j-success: var(--mau-thanh-cong);
   color: var(--mau-chu);
   display: grid;
   gap: 24px;
 }
-.j-heading,
+.j-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--mau-the);
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid var(--mau-vien);
+}
 .j-section-heading,
 .j-actions,
 .j-heading-inline {
@@ -561,22 +569,30 @@ export default {
   gap: 16px;
 }
 .j-heading h1 {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
-  letter-spacing: -1px;
-  margin: 6px 0 8px;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--mau-chu);
+}
+.j-heading p {
+  color: var(--mau-phu);
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin: 6px 0 0;
 }
 .journey p {
   color: var(--mau-phu);
   font-size: 14px;
-  line-height: 1.7;
-  margin: 8px 0 0;
+  line-height: 1.6;
+  margin: 6px 0 0;
 }
 .j-kicker {
   font-size: 11px;
-  letter-spacing: 1.6px;
+  letter-spacing: 0.04em;
   font-weight: 700;
-  color: var(--j-accent);
+  color: var(--mau-chinh);
+  text-transform: uppercase;
 }
 .j-actions {
   justify-content: flex-start;
@@ -587,24 +603,22 @@ export default {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  min-height: 44px;
-  padding: 11px 18px;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 16px;
   border: 1px solid var(--mau-vien);
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--mau-the);
   color: var(--mau-chu);
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
   text-decoration: none;
-  transition:
-    transform 0.18s,
-    border-color 0.18s,
-    box-shadow 0.18s;
+  transition: all 0.15s ease-in-out;
 }
 .j-button:hover {
-  color: var(--j-accent);
-  border-color: var(--j-accent);
+  color: var(--mau-chu);
+  background: var(--mau-the-hover);
+  border-color: var(--mau-vien);
 }
 .j-button:active {
   transform: translateY(1px);
@@ -618,22 +632,24 @@ export default {
 .j-text-link:focus-visible,
 .j-agenda a:focus-visible,
 .j-quick a:focus-visible {
-  outline: 3px solid var(--j-accent);
-  outline-offset: 3px;
+  outline: 2px solid var(--mau-chinh);
+  outline-offset: 2px;
 }
 .j-primary {
-  color: #fff;
-  background: var(--j-action);
-  border-color: var(--j-action);
-  box-shadow: 0 5px 14px color-mix(in srgb, var(--j-accent) 15%, transparent);
+  color: var(--mau-tren-chinh);
+  background: var(--mau-chinh);
+  border-color: var(--mau-chinh);
+  box-shadow: none;
 }
 .j-primary:hover {
-  color: #fff;
-  filter: brightness(0.95);
+  color: var(--mau-tren-chinh);
+  background: var(--mau-chinh-dam);
+  border-color: var(--mau-chinh-dam);
 }
 .j-icon {
-  padding: 10px;
-  width: 44px;
+  padding: 0;
+  width: 40px;
+  height: 40px;
 }
 .j-ink {
   background: var(--mau-chu);
@@ -652,39 +668,49 @@ export default {
 .j-stats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
+  gap: 16px;
   margin: 0;
+}
+.j-stats .j-card {
+  padding: 16px 20px;
+  background: var(--mau-the);
+  border: 1px solid var(--mau-vien);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .j-card {
   min-width: 0;
-  padding: 26px;
+  padding: 24px;
   background: var(--mau-the);
   border: 1px solid var(--mau-vien);
-  border-radius: 22px;
-  box-shadow: 0 3px 14px color-mix(in srgb, var(--mau-chu) 3%, transparent);
+  border-radius: 8px;
+  box-shadow: none;
 }
 .j-stats dt {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 600;
   color: var(--mau-phu);
   text-transform: uppercase;
-  letter-spacing: 0.7px;
+  letter-spacing: 0.04em;
 }
 .j-stats dt i {
-  font-size: 19px;
-  color: var(--j-accent);
+  font-size: 18px;
+  color: var(--mau-chinh);
 }
 .j-stats dd {
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -1px;
+  letter-spacing: 0;
   line-height: 1.2;
-  margin: 18px 0 0;
+  margin: 8px 0 0;
+  color: var(--mau-chu);
 }
 .j-stats p {
   font-size: 12px;
@@ -708,14 +734,14 @@ export default {
 .journey h2 {
   font-size: 18px;
   font-weight: 700;
-  letter-spacing: -0.35px;
+  letter-spacing: 0;
   margin: 0;
   line-height: 1.45;
 }
 .journey h3 {
   font-size: 24px;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: 0;
   margin: 22px 0 4px;
   line-height: 1.4;
   overflow-wrap: anywhere;
@@ -747,8 +773,8 @@ export default {
   font-size: 28px;
 }
 .journey .j-big-title {
-  font-size: clamp(25px, 2.5vw, 38px);
-  letter-spacing: -1px;
+  font-size: 1.75rem;
+  letter-spacing: 0;
   margin-top: 38px;
   max-width: 760px;
 }
@@ -774,22 +800,22 @@ progress {
   height: 7px;
   appearance: none;
   border: 0;
-  border-radius: 10px;
+  border-radius: 8px;
   display: block;
   overflow: hidden;
   background: var(--mau-nen);
 }
 progress::-webkit-progress-bar {
   background: var(--mau-nen);
-  border-radius: 10px;
+  border-radius: 8px;
 }
 progress::-webkit-progress-value {
   background: var(--j-accent);
-  border-radius: 10px;
+  border-radius: 8px;
 }
 progress::-moz-progress-bar {
   background: var(--j-accent);
-  border-radius: 10px;
+  border-radius: 8px;
 }
 .j-text-link {
   display: inline-flex;
@@ -853,7 +879,7 @@ progress::-moz-progress-bar {
   gap: 3px;
   padding: 4px;
   background: var(--mau-nen);
-  border-radius: 12px;
+  border-radius: 8px;
   flex-shrink: 0;
 }
 .j-tabs button {
@@ -861,7 +887,7 @@ progress::-moz-progress-bar {
   border: 0;
   background: transparent;
   padding: 7px 10px;
-  border-radius: 9px;
+  border-radius: 8px;
   color: var(--mau-phu);
   font-size: 12px;
   font-weight: 600;
@@ -869,7 +895,7 @@ progress::-moz-progress-bar {
 .j-tabs button[aria-pressed='true'] {
   background: var(--mau-the);
   color: var(--j-accent);
-  box-shadow: 0 1px 4px #0001;
+  box-shadow: var(--bong-nhe);
 }
 .j-tabs button:disabled {
   opacity: 0.6;
@@ -889,7 +915,7 @@ progress::-moz-progress-bar {
   min-height: 95px;
   background: var(--mau-nen);
   padding: 14px;
-  border-radius: 14px;
+  border-radius: 8px;
   text-decoration: none;
   color: var(--mau-chu);
 }
@@ -949,7 +975,7 @@ progress::-moz-progress-bar {
 .j-package {
   background: var(--mau-chu);
   color: var(--mau-the);
-  border-radius: 18px;
+  border-radius: 8px;
   padding: 22px;
   margin: 22px 0;
 }
@@ -983,14 +1009,14 @@ progress::-moz-progress-bar {
 .j-body-stats > div {
   background: var(--mau-nen);
   padding: 20px;
-  border-radius: 16px;
+  border-radius: 8px;
 }
 .j-body-stats dt {
   font-size: 11px;
   color: var(--mau-phu);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.4px;
+  letter-spacing: 0;
 }
 .j-body-stats dd {
   font-size: 30px;
@@ -1036,7 +1062,7 @@ progress::-moz-progress-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 20px;
+  border-radius: 8px;
   background: var(--mau-chinh-nhat);
   color: var(--j-accent);
   font-size: 28px;
@@ -1068,7 +1094,7 @@ progress::-moz-progress-bar {
   background: var(--mau-the);
   color: var(--mau-chu);
   border: 1px solid var(--mau-vien);
-  border-radius: 16px;
+  border-radius: 8px;
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
@@ -1145,7 +1171,7 @@ progress::-moz-progress-bar {
   }
   .j-card {
     padding: 20px;
-    border-radius: 18px;
+    border-radius: 8px;
   }
   .j-stats {
     gap: 10px;
@@ -1155,7 +1181,7 @@ progress::-moz-progress-bar {
   }
   .j-stats dt {
     font-size: 12px;
-    letter-spacing: 0.25px;
+    letter-spacing: 0;
   }
   .j-stats dt i {
     display: none;
@@ -1222,7 +1248,7 @@ progress::-moz-progress-bar {
   }
 }
 :global(:root[data-theme='light'] .journey) {
-  --j-accent: #c2410c;
+  --j-accent: var(--mau-chinh);
   --j-success: #047857;
 }
 </style>

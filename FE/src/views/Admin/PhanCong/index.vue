@@ -79,48 +79,62 @@
           </p>
         </div>
 
-        <article
-          v-for="k in danhSach"
-          :key="k.khach_hang_id"
-          class="pc-khach p-3 rounded-3 mb-2"
-          :class="{ 'selected-customer': khachDaChon?.khach_hang_id === k.khach_hang_id }"
-        >
-          <div class="d-flex align-items-center gap-3">
-            <div class="user-avatar-circle">
-              {{ k.ho_ten ? k.ho_ten.charAt(0).toUpperCase() : 'H' }}
-            </div>
-            <div>
-              <strong class="d-block text-body">{{ k.ho_ten }}</strong>
-              <span
-                class="small badge mt-1"
-                :class="
-                  k.pt
-                    ? 'bg-success-subtle text-success'
-                    : 'bg-warning-subtle text-warning-emphasis'
-                "
+        <div v-if="danhSach.length" class="st-table-frame">
+          <table class="st-data-table st-assignment-table">
+            <thead>
+              <tr>
+                <th scope="col">Học viên</th>
+                <th scope="col">PT phụ trách</th>
+                <th scope="col">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="k in danhSach"
+                :key="k.khach_hang_id"
+                :class="{ 'is-selected': khachDaChon?.khach_hang_id === k.khach_hang_id }"
               >
-                <i
-                  :class="k.pt ? 'bi bi-person-check-fill me-1' : 'bi bi-hourglass-split me-1'"
-                  aria-hidden="true"
-                ></i>
-                {{ k.pt ? `PT: ${k.pt.ho_ten}` : 'Chưa có PT phụ trách' }}
-              </span>
-            </div>
-          </div>
-
-          <button
-            class="btn btn-sm"
-            :class="k.pt ? 'btn-outline-secondary' : 'btn-primary'"
-            :disabled="dangLuu"
-            @click="chonKhach(k)"
-          >
-            <i
-              :class="k.pt ? 'bi bi-arrow-repeat me-1' : 'bi bi-person-plus-fill me-1'"
-              aria-hidden="true"
-            ></i>
-            <span>{{ k.pt ? 'Đổi PT' : 'Phân công' }}</span>
-          </button>
-        </article>
+                <td>
+                  <div class="st-person-cell">
+                    <span class="st-avatar" aria-hidden="true">{{
+                      k.ho_ten?.charAt(0).toUpperCase() || 'H'
+                    }}</span>
+                    <div>
+                      <strong>{{ k.ho_ten }}</strong
+                      ><small>#{{ k.khach_hang_id }}</small>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <span
+                    class="badge"
+                    :class="
+                      k.pt
+                        ? 'bg-success-subtle text-success'
+                        : 'bg-warning-subtle text-warning-emphasis'
+                    "
+                    >{{ k.pt?.ho_ten || 'Chưa phân công' }}</span
+                  >
+                </td>
+                <td>
+                  <button
+                    class="btn btn-sm"
+                    :class="k.pt ? 'btn-outline-secondary' : 'btn-primary'"
+                    :disabled="dangLuu"
+                    :aria-label="`${k.pt ? 'Đổi PT cho' : 'Phân công PT cho'} ${k.ho_ten}`"
+                    @click="chonKhach(k)"
+                  >
+                    <i
+                      :class="k.pt ? 'bi bi-arrow-repeat' : 'bi bi-person-plus'"
+                      aria-hidden="true"
+                    ></i>
+                    {{ k.pt ? 'Đổi PT' : 'Phân công' }}
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <!-- Phân trang -->
         <div v-if="meta.last_page > 1" class="m03-pagination">
@@ -406,27 +420,27 @@ export default {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.08));
   transition: all 0.15s ease;
 }
 
 .pc-khach:hover {
-  background: var(--mau-the-hover, #1c1c1c);
-  border-color: rgba(244, 91, 32, 0.3);
+  background: var(--mau-the-hover, var(--mau-the-hover));
+  border-color: color-mix(in srgb, var(--mau-chinh) 30%, transparent);
 }
 
 .pc-khach.selected-customer {
-  background: rgba(244, 91, 32, 0.15);
+  background: color-mix(in srgb, var(--mau-chinh) 15%, transparent);
   border-color: var(--mau-chinh);
-  box-shadow: 0 0 0 1px var(--mau-chinh);
+  box-shadow: var(--bong-nhe);
 }
 
 .user-avatar-circle {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  background: var(--mau-the-sub);
   color: #ffffff;
   display: grid;
   place-items: center;
@@ -440,7 +454,7 @@ export default {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: var(--mau-the-sub, #1e1e1e);
+  background: var(--mau-the-sub, var(--mau-the-hover));
   border: 1px solid var(--mau-vien);
   display: flex;
   align-items: center;

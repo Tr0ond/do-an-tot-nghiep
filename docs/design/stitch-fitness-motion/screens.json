@@ -1,0 +1,88 @@
+{
+  "project": "10304506651660798975",
+  "url": "https://stitch.withgoogle.com/projects/10304506651660798975",
+  "lightSystem": "assets/1387957547209354122",
+  "darkSystem": "assets/3413821358141443554",
+  "screens": [
+    {
+      "key": "kh-light",
+      "title": "01 · Khách hàng · Sáng (Chuẩn hoá)",
+      "screen": "projects/10304506651660798975/screens/387fe9965b7342d2ae9dc3d5b0a07447",
+      "deviceType": "DESKTOP",
+      "width": "2560",
+      "height": "2526",
+      "image": "kh-light.png",
+      "html": "kh-light.html"
+    },
+    {
+      "key": "pt-light",
+      "title": "02 · Huấn luyện viên · Sáng (Chuẩn hoá)",
+      "screen": "projects/10304506651660798975/screens/4fa1c93244eb46ca8bb53d96f89731b6",
+      "deviceType": "DESKTOP",
+      "width": "2560",
+      "height": "2388",
+      "image": "pt-light.png",
+      "html": "pt-light.html"
+    },
+    {
+      "key": "admin-light",
+      "title": "03 · Admin · Sáng (Chuẩn hoá)",
+      "screen": "projects/10304506651660798975/screens/e5209273fd2242ecbf837af84eb6079b",
+      "deviceType": "DESKTOP",
+      "width": "2560",
+      "height": "2766",
+      "image": "admin-light.png",
+      "html": "admin-light.html"
+    },
+    {
+      "key": "kh-dark",
+      "title": "04 · Khách hàng · Tối",
+      "screen": "projects/10304506651660798975/screens/0c8d8694a9844f38b4a49c6caf8bc6c4",
+      "deviceType": "DESKTOP",
+      "width": "2560",
+      "height": "2526",
+      "image": "kh-dark.png",
+      "html": "kh-dark.html"
+    },
+    {
+      "key": "pt-dark",
+      "title": "05 · Huấn luyện viên · Tối",
+      "screen": "projects/10304506651660798975/screens/1f6755169ca4473fba034dc0f950aba8",
+      "deviceType": "DESKTOP",
+      "width": "2560",
+      "height": "2388",
+      "image": "pt-dark.png",
+      "html": "pt-dark.html"
+    },
+    {
+      "key": "admin-dark",
+      "title": "06 · Admin · Tối",
+      "screen": "projects/10304506651660798975/screens/049f82571c834e81b7cd48ef30a86b5a",
+      "deviceType": "DESKTOP",
+      "width": "2560",
+      "height": "3222",
+      "image": "admin-dark.png",
+      "html": "admin-dark.html"
+    },
+    {
+      "key": "mobile-light",
+      "title": "07 · Khách hàng Mobile · Sáng",
+      "screen": "projects/10304506651660798975/screens/4eb8dd6fb3de48dda5cc2ba4213aa910",
+      "deviceType": "MOBILE",
+      "width": "780",
+      "height": "4220",
+      "image": "mobile-light.png",
+      "html": "mobile-light.html"
+    },
+    {
+      "key": "mobile-dark",
+      "title": "08 · Khách hàng Mobile · Tối",
+      "screen": "projects/10304506651660798975/screens/d624b5a001e041e282031ce1cbde171d",
+      "deviceType": "MOBILE",
+      "width": "780",
+      "height": "4216",
+      "image": "mobile-dark.png",
+      "html": "mobile-dark.html"
+    }
+  ]
+}

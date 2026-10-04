@@ -497,7 +497,7 @@ export default {
 }
 
 .catalog-panel {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   overflow: hidden;
@@ -509,7 +509,7 @@ export default {
   gap: 16px;
   padding: 20px 24px;
   align-items: end;
-  background: var(--mau-table-header-bg, #181818);
+  background: var(--mau-table-header-bg, var(--mau-the-sub));
   border-bottom: 1px solid var(--mau-vien);
 }
 
@@ -538,7 +538,7 @@ export default {
 }
 
 .exercise-row:hover {
-  background-color: var(--mau-the-hover, #1c1c1c);
+  background-color: var(--mau-the-hover, var(--mau-the-hover));
 }
 
 .exercise-thumbnail {
@@ -588,7 +588,7 @@ export default {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: #1e1e1e;
+  background: var(--mau-the-hover);
   display: grid;
   place-items: center;
 }
@@ -599,7 +599,7 @@ export default {
   justify-content: space-between;
   padding: 16px 24px;
   gap: 12px;
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border-top: 1px solid var(--mau-vien);
 }
 

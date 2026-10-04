@@ -236,7 +236,7 @@ export default {
   .ga-picker-result:hover {
     transform: scale(1.03);
     border-color: var(--mau-chinh) !important;
-    box-shadow: 0 6px 18px color-mix(in srgb, var(--mau-chinh) 18%, transparent);
+    box-shadow: var(--bong-nhe);
     z-index: 1;
   }
 }
@@ -256,7 +256,7 @@ export default {
   height: 48px;
   aspect-ratio: 1;
   flex: 0 0 48px;
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--mau-the);
   border: 1px solid var(--mau-vien);
 }

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Fitness Motion - 08 · Khách hàng Mobile · Tối</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#a6acae",
+            "on-tertiary-container": "#000822",
+            "inverse-surface": "#f5fafd",
+            "tertiary-fixed-dim": "#7aa0ff",
+            "secondary-dim": "#c8e044",
+            "primary-container": "#0fb4a2",
+            "outline": "#707679",
+            "background": "#090f11",
+            "on-primary-container": "#002823",
+            "primary": "#6cf2de",
+            "tertiary": "#719bff",
+            "surface-container": "#131b1d",
+            "on-primary": "#00594f",
+            "on-surface": "#eff4f7",
+            "on-background": "#eff4f7",
+            "on-secondary-fixed-variant": "#546200",
+            "inverse-primary": "#006b60",
+            "inverse-on-surface": "#505658",
+            "on-secondary-container": "#f2ffad",
+            "on-secondary-fixed": "#3a4400",
+            "surface-container-high": "#192123",
+            "on-primary-fixed": "#00443c",
+            "secondary-container": "#576500",
+            "tertiary-container": "#5589fe",
+            "surface-container-low": "#0e1417",
+            "secondary-fixed": "#d6ef52",
+            "tertiary-fixed": "#90afff",
+            "on-tertiary-fixed-variant": "#003484",
+            "surface-bright": "#242e31",
+            "primary-dim": "#5ce4d0",
+            "on-primary-fixed-variant": "#006359",
+            "on-secondary": "#4b5700",
+            "surface": "#090f11",
+            "on-tertiary-fixed": "#00153f",
+            "error-dim": "#d7383b",
+            "secondary": "#d6ef52",
+            "on-error": "#490006",
+            "primary-fixed": "#6cf2de",
+            "surface-variant": "#1f272a",
+            "primary-fixed-dim": "#5ce4d0",
+            "secondary-fixed-dim": "#c8e044",
+            "on-error-container": "#ffa8a3",
+            "surface-dim": "#090f11",
+            "outline-variant": "#43494b",
+            "error": "#ff716c",
+            "tertiary-dim": "#719bff",
+            "error-container": "#9f0519",
+            "surface-container-lowest": "#000000",
+            "on-tertiary": "#001d50",
+            "surface-tint": "#6cf2de",
+            "surface-container-highest": "#1f272a"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["Be Vietnam Pro"],
+            display: ["Be Vietnam Pro"],
+            body: ["Be Vietnam Pro"],
+            label: ["Be Vietnam Pro"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      letter-spacing: 0;
+      -webkit-font-smoothing: antialiased;
+      background-color: #111719;
+      color: #F3F8F7;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scroll {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="flex justify-center bg-black min-h-screen text-[16px] leading-normal select-none">
+<!-- Mobile Container 390px -->
+<div class="w-[390px] min-w-[390px] max-w-[390px] min-h-screen bg-[#111719] flex flex-col relative pb-[88px] border-x border-[#35464B]/40 shadow-2xl">
+<!-- Top App Bar (Header 64px) -->
+<header class="sticky top-0 z-30 h-16 bg-[#111719]/95 backdrop-blur-md px-4 flex items-center justify-between border-b border-[#35464B]">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-[#1A2326] border border-[#35464B] flex items-center justify-center text-[#4ED8C5]">
+<span class="material-symbols-outlined text-[20px]" data-icon="fitness_center">fitness_center</span>
+</div>
+<div>
+<span class="text-[10px] font-bold tracking-tight text-[#B4C4C3] uppercase block leading-tight">HUẤN LUYỆN CÁ NHÂN</span>
+<h1 class="text-[18px] font-bold text-[#F3F8F7] leading-none">Tổng quan</h1>
+</div>
+</div>
+<div class="flex items-center gap-2.5">
+<!-- Sun Mode Toggle (to switch to light) -->
+<button aria-label="Chuyển chế độ sáng" class="w-9 h-9 rounded-lg bg-[#1A2326] border border-[#35464B] flex items-center justify-center text-[#D6EF52] hover:bg-[#233034] transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="light_mode">light_mode</span>
+</button>
+<!-- Notification with Badge '3' -->
+<button aria-label="Thông báo" class="w-9 h-9 rounded-lg bg-[#1A2326] border border-[#35464B] flex items-center justify-center text-[#F3F8F7] relative hover:bg-[#233034] transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-[#FF716C] text-[#490006] text-[10px] font-bold rounded-full flex items-center justify-center leading-none">3</span>
+</button>
+<!-- Trainee Avatar: Nguyễn Minh Quân -->
+<div class="w-9 h-9 rounded-lg overflow-hidden border border-[#35464B] relative flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close up modern portrait of a healthy energetic Vietnamese male fitness client Nguyen Minh Quan smiling with gym workout background under dark ambient fitness studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkuIDO8MylztW3_75g74-d1Cdjql9IuzMt8DUMptqEvPQINVTCY9yvTTmKPDWxKJHOW3MDkdYXUpgZiBKdpHGWohuzzQ9L1h5eCrZMWYpseT7Q8a9oPtP_i1f4qgKEq12HAHLA5CMBinglcHz2V-XzA3FKZVUGgw-PHSB9-IsMoPU6Q9N3IRKrSHCHVNqLrNie0mewbbnuqZs82egmweziBYMft9-bNHvr1YGaiCwZF1TIf86HcbghObqCrC_q2T1dD4l71Y59Ro9p"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas (One Column Layout, Ergonomic Spacing) -->
+<main class="flex-1 px-4 pt-3 flex flex-col gap-4">
+<!-- Lời chào & Ngày -->
+<section class="flex items-baseline justify-between pt-1"><div>
+<h2 class="text-[24px] font-bold text-[#F3F8F7] leading-tight">Chào bạn!</h2>
+<p class="text-[14px] text-[#B4C4C3] mt-0.5">Chủ Nhật, 04/10/2026</p>
+</div>
+<span class="inline-flex items-center px-2 py-1 rounded bg-[#233034] text-[12px] font-semibold text-[#4ED8C5] border border-[#35464B]">
+  Hội viên tích cực
+</span></section>
+<!-- Khối 4 chỉ số 2x2 gọn gàng (Two-by-two slim metrics) -->
+<section class="grid grid-cols-2 gap-2.5"><div class="bg-[#1A2326] border border-[#35464B] rounded-lg p-3 flex flex-col justify-between">
+<div class="flex items-center justify-between text-[#B4C4C3] mb-1">
+<span class="text-[12px] font-medium">Tự tập tháng này</span>
+<span class="material-symbols-outlined text-[#4ED8C5] text-[16px]">directions_run</span>
+</div>
+<div class="text-[20px] font-bold text-[#F3F8F7]">12 buổi</div>
+<p class="text-[11px] text-[#B4C4C3] mt-1">Đạt mục tiêu tần suất</p>
+</div>
+<div class="bg-[#1A2326] border border-[#35464B] rounded-lg p-3 flex flex-col justify-between">
+<div class="flex items-center justify-between text-[#B4C4C3] mb-1">
+<span class="text-[12px] font-medium">Kế hoạch tập</span>
+<span class="text-[12px] font-bold text-[#4ED8C5]">75%</span>
+</div>
+<div class="text-[20px] font-bold text-[#F3F8F7]">12 / 16 buổi</div>
+<div class="w-full bg-[#233034] h-1.5 rounded-full overflow-hidden mt-2">
+<div class="bg-[#4ED8C5] h-full rounded-full" style="width: 75%;"></div>
+</div>
+</div>
+<div class="bg-[#1A2326] border border-[#35464B] rounded-lg p-3 flex flex-col justify-between">
+<div class="flex items-center justify-between text-[#B4C4C3] mb-1">
+<span class="text-[12px] font-medium">Lịch PT kế tiếp</span>
+<span class="material-symbols-outlined text-[#89B4FF] text-[16px]">event</span>
+</div>
+<div class="text-[20px] font-bold text-[#89B4FF]">05/10 · 17:00</div>
+<p class="text-[11px] text-[#B4C4C3] mt-1">HLV Lê Hoàng Anh</p>
+</div>
+<div class="bg-[#1A2326] border border-[#35464B] rounded-lg p-3 flex flex-col justify-between">
+<div class="flex items-center justify-between text-[#B4C4C3] mb-1">
+<span class="text-[12px] font-medium">Tr0ond AI hôm nay</span>
+<span class="material-symbols-outlined text-[#B4C4C3] text-[16px]">smart_toy</span>
+</div>
+<div class="text-[20px] font-bold text-[#F3F8F7]">18 / 20</div>
+<p class="text-[11px] text-[#B4C4C3] mt-1">Lượt tư vấn khả dụng</p>
+</div></section>
+<!-- Khối nổi bật nhất 'Buổi tự tập hôm nay' - Upper Body A -->
+<section class="bg-[#1A2326] border border-[#35464B] rounded-lg p-4 shadow-sm">
+<div class="flex items-center justify-between mb-3 border-b border-[#35464B] pb-2.5">
+<div class="flex items-center gap-2">
+<span class="w-2 h-4 bg-[#4ED8C5] rounded-full inline-block"></span>
+<div>
+<h3 class="text-[16px] font-bold text-[#F3F8F7]">Buổi tự tập hôm nay</h3>
+<p class="text-[12px] font-medium text-[#B4C4C3]">Upper Body A · 4 bài tập chính</p>
+</div>
+</div>
+<span class="text-[12px] font-semibold px-2 py-0.5 rounded bg-[#D6EF52] text-[#490006]">
+  Chưa hoàn thành
+</span>
+</div>
+<div class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between p-2 rounded-lg bg-[#233034] border border-[#35464B]">
+<div class="flex items-center gap-3">
+<img alt="Dumbbell Bench Press" class="w-12 h-12 rounded object-cover border border-[#35464B]" data-alt="An athletic Vietnamese man performing Dumbbell Bench Press with precise form on a flat bench in a modern fitness gym, crisp natural lighting, deep teal gym floor accents, high-end fitness photo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIoVsjLCi5O2rQ6pedWsHPPbgm_gJnM4pFARixY0OsAXc_pe8HMFfvMQTTDOE8z3zyWkuLWA0KvWtA_CvpTW-VccgcL-vZGpDFC7u-Co6mnga0p4zQYl6AdWuk6hy1SJU9WznSb-CHvyUH1rsdDEDsk_7BjnVsoN56CVsG61fEM2qPnpXYgU-ZLP-r8PxC0HNdzd0vmBME8yOeZPDwjQl6G41EmLHtUGiu5-xAORw_mx0_ReDDLq_6kHBJs6ZodZZtlmRb-3EOTf0r"/>
+<div>
+<h4 class="text-[14px] font-semibold text-[#F3F8F7] leading-tight">Dumbbell Bench Press</h4>
+<p class="text-[12px] text-[#B4C4C3] mt-0.5">3 sets × 10 reps</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-1 text-[12px] font-bold bg-[#111719] rounded border border-[#35464B] text-[#F3F8F7]">
+  24 kg
+</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-[#233034] border border-[#35464B]">
+<div class="flex items-center gap-3">
+<img alt="Barbell Bent-over Row" class="w-12 h-12 rounded object-cover border border-[#35464B]" data-alt="A focused fitness athlete executing a Barbell Bent-over Row with clean posture inside a well-lit gym, cool gray tones, teal accents, sharp exercise photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2j8LNIblQ2PguXiJmAt4uZQBg1AVIxpTHWSbLKGJbRZqEquyfQc3_U_iLUBYh9tW5jlYs1h8gF3qUBIOXOodFXNfFZU6Pb9TeIT0pv5xXetpOktj9uGUquYLbhyM-m4v5m0fNf87zpQSIbglO5pHE2MuieBpPnmFZU6swVtongP12KXSXJ1Osn2ECE71_U4NhjOvukrsMMaXXSpo4U7MllE0CX8i0ZRLBq5W_P5zt7B_hYjidk6GCRBCHkrmFmyXmmc0zKYPuHb0R"/>
+<div>
+<h4 class="text-[14px] font-semibold text-[#F3F8F7] leading-tight">Barbell Bent-over Row</h4>
+<p class="text-[12px] text-[#B4C4C3] mt-0.5">4 sets × 8 reps</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-1 text-[12px] font-bold bg-[#111719] rounded border border-[#35464B] text-[#F3F8F7]">
+  40 kg
+</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-[#233034] border border-[#35464B]">
+<div class="flex items-center gap-3">
+<img alt="Lat Pulldown" class="w-12 h-12 rounded object-cover border border-[#35464B]" data-alt="Close up action shot of a person doing Lat Pulldown on gym cable equipment, showing back lat muscles engaged, high aesthetic clean gym studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7rRcRQ6ZqLmk7ADmwSYIpfKSshj39qEqVxf4iOD3hA4J9EfuB8-ISiWWBp9m0ShWmXXdIFuuAhFDD659dXkg0iHj47TkwUVcnzcwkNOCL3uDjoF5pFY7g588DedzSNU0SV8bKnSqPaHeouVg0QTaZdnImyXQbWcU7kTllmBf9NjKTlbHARXH4o5RnnqEpudNTSHp7ordEcdtb8EFgwjArPnOxDrzkHxw7QXxjQIM4kL9Gq_aXwNhxlGxpH2fXjnOCz8XRuQo478wf"/>
+<div>
+<h4 class="text-[14px] font-semibold text-[#F3F8F7] leading-tight">Lat Pulldown</h4>
+<p class="text-[12px] text-[#B4C4C3] mt-0.5">3 sets × 12 reps</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-1 text-[12px] font-bold bg-[#111719] rounded border border-[#35464B] text-[#F3F8F7]">
+  45 kg
+</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-[#233034] border border-[#35464B]">
+<div class="flex items-center gap-3">
+<img alt="Dumbbell Bicep Curl" class="w-12 h-12 rounded object-cover border border-[#35464B]" data-alt="Gym workout photo of athlete doing standing Dumbbell Bicep Curl with proper arm alignment, bright modern training studio, teal and slate colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQckHioL41F31K8W3UOZxAvkg_52mrBaDVvAqLBKZT9IMn4J2GYY3mBEl2yu-NjXunBJwE0baD1EkHsiv84FtDrSnAAKJ_hGdoNYdV0BQyZ5OTXEtQCoATjq2Hu_2dmD2Fecs8RUjERiht6woOuw_SFgcwblTC41M_LuoZttX8V-Cd4D6zNypgM7XFxarmbKaRYff0c71OhQthI7vhkVY_esBKOt8VkxZwV-QAttrV1WRld7qcUBMEiBdEechaMg7O67N6i_KjW0ig"/>
+<div>
+<h4 class="text-[14px] font-semibold text-[#F3F8F7] leading-tight">Dumbbell Bicep Curl</h4>
+<p class="text-[12px] text-[#B4C4C3] mt-0.5">3 sets × 12 reps</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-1 text-[12px] font-bold bg-[#111719] rounded border border-[#35464B] text-[#F3F8F7]">
+  12 kg
+</span>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full h-11 min-h-[44px] bg-[#4ED8C5] text-[#062F2A] rounded-lg font-semibold text-[14px] flex items-center justify-center gap-2 hover:bg-[#5CE4D0] active:scale-[0.99] transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+<span>Ghi nhật ký</span>
+</button>
+</section>
+<!-- Giáo án đang áp dụng -->
+<section class="bg-[#1A2326] border border-[#35464B] rounded-lg p-3.5 flex flex-col gap-2.5"><div class="flex items-center justify-between mb-2">
+<span class="text-[12px] font-bold uppercase text-[#B4C4C3] tracking-wide">Giáo án đang áp dụng</span>
+<span class="text-[12px] text-[#4ED8C5] font-semibold">Tuần 4 / 8</span>
+</div>
+<h3 class="text-[16px] font-bold text-[#F3F8F7]">Tăng cơ &amp; Sức mạnh 8 tuần</h3>
+<p class="text-[12px] text-[#B4C4C3] mt-0.5">Người tạo: <span class="font-medium text-[#F3F8F7]">HLV Lê Hoàng Anh</span></p>
+<div class="mt-3 p-2.5 bg-[#233034] rounded-lg border border-[#35464B] flex items-center justify-between">
+<div>
+<span class="text-[12px] text-[#B4C4C3] block">Tiến độ tuần hiện tại</span>
+<span class="text-[14px] font-bold text-[#F3F8F7]">Đã tập 3/4 buổi</span>
+</div>
+<span class="text-[12px] px-2 py-1 rounded bg-[#4ED8C5]/20 text-[#4ED8C5] font-semibold">Còn 1 buổi tự tập</span>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-3">
+<button class="h-11 min-h-[44px] px-3 border border-[#35464B] text-[#F3F8F7] font-semibold text-[12px] rounded-lg bg-[#111719] hover:bg-[#233034] transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Xem giáo án</span>
+</button>
+<button class="h-11 min-h-[44px] px-3 border border-[#35464B] text-[#F3F8F7] font-semibold text-[12px] rounded-lg bg-[#111719] hover:bg-[#233034] transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+<span>Lên lịch tự tập</span>
+</button>
+</div></section>
+<!-- Khối lịch hẹn riêng biệt: Lịch hẹn PT sắp tới (KHÔNG có trường phòng tập/chi nhánh) -->
+<section class="bg-[#1A2326] border border-[#35464B] rounded-lg p-4 border-l-4 border-l-[#89B4FF]">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[12px] font-bold uppercase text-[#89B4FF] tracking-wide flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">event_available</span>
+<span>Lịch hẹn PT sắp tới</span>
+</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-[#89B4FF]/20 text-[#89B4FF]">
+  Đã xác nhận
+</span>
+</div>
+<div class="mt-1">
+<div class="text-[14px] font-bold text-[#F3F8F7]">Thứ Hai, 05/10/2026</div>
+<div class="text-[14px] font-semibold text-[#89B4FF] mt-0.5">17:00 - 18:00</div>
+<div class="text-[12px] text-[#B4C4C3] mt-1.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">person</span>
+<span>Huấn luyện viên: <strong class="text-[#F3F8F7] font-semibold">PT: Lê Hoàng Anh</strong></span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-[#35464B] flex justify-end">
+<button class="h-11 min-h-[44px] px-4 rounded-lg bg-[#233034] text-[#F3F8F7] hover:bg-[#2e3e43] border border-[#35464B] text-[12px] font-semibold transition-colors flex items-center gap-1" type="button">
+<span>Chi tiết</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Gói của tôi -->
+<section class="bg-[#1A2326] border border-[#35464B] rounded-lg p-4">
+<div class="flex items-center justify-between mb-3 border-b border-[#35464B] pb-2">
+<div>
+<span class="text-[12px] font-medium text-[#B4C4C3] uppercase">Gói dịch vụ</span>
+<h3 class="text-[14px] font-bold text-[#F3F8F7]">Gói PT Standard + AI</h3>
+</div>
+<span class="px-2 py-0.5 bg-[#4ED8C5]/20 text-[#4ED8C5] font-bold text-[12px] rounded">Đang hiệu lực</span>
+</div>
+<div class="flex flex-col gap-2.5 text-[12px]">
+<div class="flex items-center justify-between p-2 rounded bg-[#233034] border border-[#35464B]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#89B4FF] text-[18px]">sports_score</span>
+<span class="text-[#B4C4C3] font-medium">Số buổi PT còn lại:</span>
+</div>
+<span class="font-bold text-[14px] text-[#F3F8F7]">8 / 12 buổi</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-[#233034] border border-[#35464B]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#B4C4C3] text-[18px]">timer</span>
+<span class="text-[#B4C4C3] font-medium">Hạn sử dụng:</span>
+</div>
+<span class="font-semibold text-[#F3F8F7]">01/11/2026 · 10:00</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-[#D6EF52]/10 border border-[#D6EF52]/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#D6EF52] text-[18px]">smart_toy</span>
+<span class="text-[#B4C4C3] font-medium">Hạn mức Tr0ond AI:</span>
+</div>
+<span class="font-bold text-[#D6EF52]">18/20 lượt hôm nay</span>
+</div>
+</div>
+</section>
+<!-- Lịch sử cân nặng (30 ngày: 72.8kg -> 71.4kg) -->
+<section class="bg-[#1A2326] border border-[#35464B] rounded-lg p-4">
+<div class="flex items-center justify-between mb-3">
+<div>
+<h3 class="text-[14px] font-bold text-[#F3F8F7]">Lịch sử cân nặng</h3>
+<p class="text-[12px] text-[#B4C4C3]">Xu hướng 30 ngày qua (-1.4 kg)</p>
+</div>
+<button class="h-11 min-h-[44px] px-3 bg-[#233034] hover:bg-[#2e3e43] border border-[#35464B] rounded-lg text-[12px] font-semibold text-[#4ED8C5] transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+<span>Cập nhật chỉ số</span>
+</button>
+</div>
+<div class="bg-[#233034] p-3 rounded-lg border border-[#35464B]">
+<div class="flex items-end justify-between h-24 pt-4 px-2">
+<div class="flex flex-col items-center gap-1">
+<span class="text-[11px] font-bold text-[#F3F8F7]">72.8</span>
+<div class="w-8 bg-[#35464B] rounded-t h-16 flex items-end justify-center pb-1">
+<span class="w-2 h-2 rounded-full bg-[#707679]"></span>
+</div>
+<span class="text-[10px] text-[#B4C4C3]">01/09</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="text-[11px] font-bold text-[#F3F8F7]">72.4</span>
+<div class="w-8 bg-[#35464B] rounded-t h-14 flex items-end justify-center pb-1">
+<span class="w-2 h-2 rounded-full bg-[#707679]"></span>
+</div>
+<span class="text-[10px] text-[#B4C4C3]">10/09</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="text-[11px] font-bold text-[#F3F8F7]">71.9</span>
+<div class="w-8 bg-[#35464B] rounded-t h-11 flex items-end justify-center pb-1">
+<span class="w-2 h-2 rounded-full bg-[#707679]"></span>
+</div>
+<span class="text-[10px] text-[#B4C4C3]">20/09</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="text-[11px] font-bold text-[#4ED8C5]">71.4</span>
+<div class="w-8 bg-[#4ED8C5]/20 border-t-2 border-[#4ED8C5] rounded-t h-9 flex items-end justify-center pb-1">
+<span class="w-2 h-2 rounded-full bg-[#4ED8C5]"></span>
+</div>
+<span class="text-[10px] font-bold text-[#4ED8C5]">04/10</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Lối vào hành động nhanh dạng hàng thẳng: Nhắn tin PT & Hỏi Tr0ond AI -->
+<section class="flex flex-col gap-2.5">
+<div class="bg-[#1A2326] border border-[#35464B] rounded-lg p-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="PT Lê Hoàng Anh" class="w-10 h-10 rounded-full object-cover border border-[#35464B]" data-alt="Portrait of an experienced Vietnamese fitness coach PT Le Hoang Anh in high performance athletic polo shirt, warm approachable smile, professional studio lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9CaM1oe3E9C4u3uqqzpikkKY5SaFKvIVpQS-0Xp1-kEs_Bf2zAiQ9bqGf6nd-FIGQNoYsb8ObAT13U82c66_VBhO38NR0jZUp8lT6jj6iXJn9Q5moVLiJIoIzYXOD9SBnA4AjZngtt3CkS1x0-1m6l79WysDVFWirkwTsYQ65z_7OAzH3x0ZM3n7ujb5jtLhkPTLdkPWn1wbeOVVOhGRN2Qo45r2Y-cqDvTES-khyiFN8owDYYGoFGccaPB645pyzzDgxdcofowoS"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-[#D6EF52] border-2 border-[#1A2326] rounded-full"></span>
+</div>
+<div>
+<h4 class="text-[12px] font-bold text-[#F3F8F7]">Nhắn tin PT Lê Hoàng Anh</h4>
+<p class="text-[11px] text-[#B4C4C3]">Phản hồi thường lệ trong 15 phút</p>
+</div>
+</div>
+<button class="h-11 min-h-[44px] px-3 bg-[#233034] hover:bg-[#2e3e43] border border-[#35464B] text-[#4ED8C5] font-semibold text-[12px] rounded-lg transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+<span>Trò chuyện</span>
+</button>
+</div>
+<div class="bg-[#1A2326] border border-[#35464B] rounded-lg p-3">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-6 h-6 rounded bg-[#4ED8C5]/20 flex items-center justify-center text-[#4ED8C5]">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+</div>
+<span class="text-[12px] font-bold text-[#F3F8F7]">Hỏi Tr0ond AI Hỗ trợ</span>
+<span class="text-[10px] px-1.5 py-0.5 bg-[#233034] rounded text-[#B4C4C3]">Cố vấn</span>
+</div>
+<div class="flex items-center gap-2">
+<input class="flex-1 h-11 min-h-[44px] bg-[#233034] border border-[#35464B] rounded-lg px-3 text-[12px] text-[#F3F8F7] placeholder-[#707679] focus:outline-none focus:border-[#4ED8C5]" placeholder="Hỏi về bài tập hoặc giáo án..." type="text"/>
+<button aria-label="Gửi câu hỏi cho Tr0ond AI" class="w-11 h-11 min-h-[44px] bg-[#4ED8C5] text-[#062F2A] rounded-lg flex items-center justify-center hover:bg-[#5CE4D0] active:scale-[0.99] transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar cố định dưới đáy màn hình (5 mục: Tổng quan [active], Lịch tập, Tin nhắn, Tr0ond AI, Thêm) -->
+<!-- Prohibiting top/bottom borders according to semantic rules; using tonal elevation shift -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[390px] h-[72px] bg-[#111719] shadow-[0_-4px_16px_rgba(0,0,0,0.6)] px-2 flex items-center justify-around z-40 border-t border-[#35464B]"><div class="flex justify-between items-center h-16 px-3 w-full">
+<a class="flex flex-col items-center justify-center flex-1 h-[48px] rounded-lg text-[#4ED8C5] font-semibold bg-[#4ED8C5]/10" href="#tongquan">
+<span class="material-symbols-outlined text-[20px] material-symbols-fill">dashboard</span>
+<span class="text-[11px] mt-0.5">Tổng quan</span>
+</a>
+<a class="flex flex-col items-center justify-center flex-1 h-[48px] rounded-lg text-[#B4C4C3] hover:text-[#F3F8F7] transition-colors" href="#lich-tap">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span class="text-[11px] mt-0.5">Lịch tập</span>
+</a>
+<a class="flex flex-col items-center justify-center flex-1 h-[48px] rounded-lg text-[#B4C4C3] hover:text-[#F3F8F7] relative transition-colors" href="#tin-nhan">
+<span class="material-symbols-outlined text-[20px]">chat_bubble_outline</span>
+<span class="text-[11px] mt-0.5">Tin nhắn</span>
+</a>
+<a class="flex flex-col items-center justify-center flex-1 h-[48px] rounded-lg text-[#B4C4C3] hover:text-[#D6EF52] transition-colors" href="#tr0ond-ai">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+<span class="text-[11px] mt-0.5">Tr0ond AI</span>
+</a>
+<a class="flex flex-col items-center justify-center flex-1 h-[48px] rounded-lg text-[#B4C4C3] hover:text-[#F3F8F7] transition-colors" href="#them">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+<span class="text-[11px] mt-0.5">Thêm</span>
+</a>
+</div></nav>
+</div>
+</body></html>

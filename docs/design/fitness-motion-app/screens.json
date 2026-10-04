@@ -1,0 +1,2754 @@
+[
+  {
+    "role": "ADMIN",
+    "path": "/admin/tai-lieu-tu-van",
+    "theme": "light",
+    "width": 1440,
+    "title": "Tài liệu & thống kê AI",
+    "image": "admin-admin-tai-lieu-tu-van-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/faq",
+    "theme": "light",
+    "width": 1440,
+    "title": "Câu hỏi & tài liệu",
+    "image": "admin-faq-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/lich-hen",
+    "theme": "light",
+    "width": 1440,
+    "title": "Lịch hẹn huấn luyện",
+    "image": "admin-admin-lich-hen-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/lich-hen/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Chi tiết buổi tập",
+    "image": "admin-admin-lich-hen-1-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/don-hang",
+    "theme": "light",
+    "width": 1440,
+    "title": "Đơn hàng",
+    "image": "admin-admin-don-hang-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/don-hang/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Chi tiết đơn hàng",
+    "image": "admin-admin-don-hang-1-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/phan-cong",
+    "theme": "light",
+    "width": 1440,
+    "title": "Phân công PT",
+    "image": "admin-admin-phan-cong-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/tong-quan",
+    "theme": "light",
+    "width": 1440,
+    "title": "Tổng quan hệ thống",
+    "image": "admin-admin-tong-quan-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/ho-so",
+    "theme": "light",
+    "width": 1440,
+    "title": "Hồ sơ của tôi",
+    "image": "admin-admin-ho-so-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/ho-so/sua",
+    "theme": "light",
+    "width": 1440,
+    "title": "Cập nhật hồ sơ",
+    "image": "admin-admin-ho-so-sua-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/nhom-co",
+    "theme": "light",
+    "width": 1440,
+    "title": "Quản lý nhóm cơ",
+    "image": "admin-admin-nhom-co-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/nhom-co/them",
+    "theme": "light",
+    "width": 1440,
+    "title": "Thêm nhóm cơ mới",
+    "image": "admin-admin-nhom-co-them-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/nhom-co/5/sua",
+    "theme": "light",
+    "width": 1440,
+    "title": "Chỉnh sửa nhóm cơ",
+    "image": "admin-admin-nhom-co-5-sua-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/giao-an-mau",
+    "theme": "light",
+    "width": 1440,
+    "title": "Giáo án mẫu",
+    "image": "admin-admin-giao-an-mau-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/giao-an-mau/them",
+    "theme": "light",
+    "width": 1440,
+    "title": "Tạo giáo án mẫu mới",
+    "image": "admin-admin-giao-an-mau-them-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/giao-an-mau/1/sua",
+    "theme": "light",
+    "width": 1440,
+    "title": "Chỉnh sửa giáo án mẫu",
+    "image": "admin-admin-giao-an-mau-1-sua-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/goi-tap",
+    "theme": "light",
+    "width": 1440,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "admin-goi-tap-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/goi-tap/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Gói demo PT & AI",
+    "image": "admin-goi-tap-1-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/goi-tap",
+    "theme": "light",
+    "width": 1440,
+    "title": "Quản lý gói tập & Bảng giá",
+    "image": "admin-admin-goi-tap-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/goi-tap/them",
+    "theme": "light",
+    "width": 1440,
+    "title": "Thêm gói tập mới",
+    "image": "admin-admin-goi-tap-them-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/goi-tap/1/sua",
+    "theme": "light",
+    "width": 1440,
+    "title": "Chỉnh sửa cấu hình gói tập",
+    "image": "admin-admin-goi-tap-1-sua-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/bai-tap",
+    "theme": "light",
+    "width": 1440,
+    "title": "Quản lý thư viện bài tập",
+    "image": "admin-admin-bai-tap-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/bai-tap/them",
+    "theme": "light",
+    "width": 1440,
+    "title": "Thêm bài tập mới",
+    "image": "admin-admin-bai-tap-them-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/bai-tap/1324/sua",
+    "theme": "light",
+    "width": 1440,
+    "title": "Biên tập nội dung bài tập",
+    "image": "admin-admin-bai-tap-1324-sua-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/bai-tap",
+    "theme": "light",
+    "width": 1440,
+    "title": "Danh mục bài tập thể hình",
+    "image": "admin-bai-tap-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/bai-tap/1324",
+    "theme": "light",
+    "width": 1440,
+    "title": "dumbbell waiter biceps curl",
+    "image": "admin-bai-tap-1324-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/tai-khoan",
+    "theme": "light",
+    "width": 1440,
+    "title": "Quản lý tài khoản & Phân quyền",
+    "image": "admin-admin-tai-khoan-light-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/tai-lieu-tu-van",
+    "theme": "light",
+    "width": 390,
+    "title": "Tài liệu & thống kê AI",
+    "image": "admin-admin-tai-lieu-tu-van-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/faq",
+    "theme": "light",
+    "width": 390,
+    "title": "Câu hỏi & tài liệu",
+    "image": "admin-faq-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/lich-hen",
+    "theme": "light",
+    "width": 390,
+    "title": "Lịch hẹn huấn luyện",
+    "image": "admin-admin-lich-hen-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/lich-hen/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Chi tiết buổi tập",
+    "image": "admin-admin-lich-hen-1-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/don-hang",
+    "theme": "light",
+    "width": 390,
+    "title": "Đơn hàng",
+    "image": "admin-admin-don-hang-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/don-hang/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Chi tiết đơn hàng",
+    "image": "admin-admin-don-hang-1-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/phan-cong",
+    "theme": "light",
+    "width": 390,
+    "title": "Phân công PT",
+    "image": "admin-admin-phan-cong-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/tong-quan",
+    "theme": "light",
+    "width": 390,
+    "title": "Tổng quan hệ thống",
+    "image": "admin-admin-tong-quan-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/ho-so",
+    "theme": "light",
+    "width": 390,
+    "title": "Hồ sơ của tôi",
+    "image": "admin-admin-ho-so-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/ho-so/sua",
+    "theme": "light",
+    "width": 390,
+    "title": "Cập nhật hồ sơ",
+    "image": "admin-admin-ho-so-sua-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/nhom-co",
+    "theme": "light",
+    "width": 390,
+    "title": "Quản lý nhóm cơ",
+    "image": "admin-admin-nhom-co-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/nhom-co/them",
+    "theme": "light",
+    "width": 390,
+    "title": "Thêm nhóm cơ mới",
+    "image": "admin-admin-nhom-co-them-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/nhom-co/5/sua",
+    "theme": "light",
+    "width": 390,
+    "title": "Chỉnh sửa nhóm cơ",
+    "image": "admin-admin-nhom-co-5-sua-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/giao-an-mau",
+    "theme": "light",
+    "width": 390,
+    "title": "Giáo án mẫu",
+    "image": "admin-admin-giao-an-mau-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/giao-an-mau/them",
+    "theme": "light",
+    "width": 390,
+    "title": "Tạo giáo án mẫu mới",
+    "image": "admin-admin-giao-an-mau-them-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/giao-an-mau/1/sua",
+    "theme": "light",
+    "width": 390,
+    "title": "Chỉnh sửa giáo án mẫu",
+    "image": "admin-admin-giao-an-mau-1-sua-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/goi-tap",
+    "theme": "light",
+    "width": 390,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "admin-goi-tap-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/goi-tap/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Gói demo PT & AI",
+    "image": "admin-goi-tap-1-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/goi-tap",
+    "theme": "light",
+    "width": 390,
+    "title": "Quản lý gói tập & Bảng giá",
+    "image": "admin-admin-goi-tap-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/goi-tap/them",
+    "theme": "light",
+    "width": 390,
+    "title": "Thêm gói tập mới",
+    "image": "admin-admin-goi-tap-them-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/goi-tap/1/sua",
+    "theme": "light",
+    "width": 390,
+    "title": "Chỉnh sửa cấu hình gói tập",
+    "image": "admin-admin-goi-tap-1-sua-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/bai-tap",
+    "theme": "light",
+    "width": 390,
+    "title": "Quản lý thư viện bài tập",
+    "image": "admin-admin-bai-tap-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/bai-tap/them",
+    "theme": "light",
+    "width": 390,
+    "title": "Thêm bài tập mới",
+    "image": "admin-admin-bai-tap-them-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/bai-tap/1324/sua",
+    "theme": "light",
+    "width": 390,
+    "title": "Biên tập nội dung bài tập",
+    "image": "admin-admin-bai-tap-1324-sua-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/bai-tap",
+    "theme": "light",
+    "width": 390,
+    "title": "Danh mục bài tập thể hình",
+    "image": "admin-bai-tap-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/bai-tap/1324",
+    "theme": "light",
+    "width": 390,
+    "title": "dumbbell waiter biceps curl",
+    "image": "admin-bai-tap-1324-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/tai-khoan",
+    "theme": "light",
+    "width": 390,
+    "title": "Quản lý tài khoản & Phân quyền",
+    "image": "admin-admin-tai-khoan-light-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/tai-lieu-tu-van",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Tài liệu & thống kê AI",
+    "image": "admin-admin-tai-lieu-tu-van-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/faq",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Câu hỏi & tài liệu",
+    "image": "admin-faq-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/lich-hen",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Lịch hẹn huấn luyện",
+    "image": "admin-admin-lich-hen-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/lich-hen/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Chi tiết buổi tập",
+    "image": "admin-admin-lich-hen-1-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/don-hang",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Đơn hàng",
+    "image": "admin-admin-don-hang-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/don-hang/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Chi tiết đơn hàng",
+    "image": "admin-admin-don-hang-1-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/phan-cong",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Phân công PT",
+    "image": "admin-admin-phan-cong-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/tong-quan",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Tổng quan hệ thống",
+    "image": "admin-admin-tong-quan-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/ho-so",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Hồ sơ của tôi",
+    "image": "admin-admin-ho-so-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/ho-so/sua",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Cập nhật hồ sơ",
+    "image": "admin-admin-ho-so-sua-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/nhom-co",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Quản lý nhóm cơ",
+    "image": "admin-admin-nhom-co-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/nhom-co/them",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Thêm nhóm cơ mới",
+    "image": "admin-admin-nhom-co-them-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/nhom-co/5/sua",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Chỉnh sửa nhóm cơ",
+    "image": "admin-admin-nhom-co-5-sua-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/giao-an-mau",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Giáo án mẫu",
+    "image": "admin-admin-giao-an-mau-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/giao-an-mau/them",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Tạo giáo án mẫu mới",
+    "image": "admin-admin-giao-an-mau-them-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/giao-an-mau/1/sua",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Chỉnh sửa giáo án mẫu",
+    "image": "admin-admin-giao-an-mau-1-sua-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/goi-tap",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "admin-goi-tap-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/goi-tap/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Gói demo PT & AI",
+    "image": "admin-goi-tap-1-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/goi-tap",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Quản lý gói tập & Bảng giá",
+    "image": "admin-admin-goi-tap-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/goi-tap/them",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Thêm gói tập mới",
+    "image": "admin-admin-goi-tap-them-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/goi-tap/1/sua",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Chỉnh sửa cấu hình gói tập",
+    "image": "admin-admin-goi-tap-1-sua-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/bai-tap",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Quản lý thư viện bài tập",
+    "image": "admin-admin-bai-tap-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/bai-tap/them",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Thêm bài tập mới",
+    "image": "admin-admin-bai-tap-them-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/bai-tap/1324/sua",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Biên tập nội dung bài tập",
+    "image": "admin-admin-bai-tap-1324-sua-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/bai-tap",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Danh mục bài tập thể hình",
+    "image": "admin-bai-tap-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/bai-tap/1324",
+    "theme": "dark",
+    "width": 1440,
+    "title": "dumbbell waiter biceps curl",
+    "image": "admin-bai-tap-1324-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/tai-khoan",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Quản lý tài khoản & Phân quyền",
+    "image": "admin-admin-tai-khoan-dark-1440.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/tai-lieu-tu-van",
+    "theme": "dark",
+    "width": 390,
+    "title": "Tài liệu & thống kê AI",
+    "image": "admin-admin-tai-lieu-tu-van-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/faq",
+    "theme": "dark",
+    "width": 390,
+    "title": "Câu hỏi & tài liệu",
+    "image": "admin-faq-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/lich-hen",
+    "theme": "dark",
+    "width": 390,
+    "title": "Lịch hẹn huấn luyện",
+    "image": "admin-admin-lich-hen-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/lich-hen/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Chi tiết buổi tập",
+    "image": "admin-admin-lich-hen-1-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/don-hang",
+    "theme": "dark",
+    "width": 390,
+    "title": "Đơn hàng",
+    "image": "admin-admin-don-hang-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/don-hang/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Chi tiết đơn hàng",
+    "image": "admin-admin-don-hang-1-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/phan-cong",
+    "theme": "dark",
+    "width": 390,
+    "title": "Phân công PT",
+    "image": "admin-admin-phan-cong-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/tong-quan",
+    "theme": "dark",
+    "width": 390,
+    "title": "Tổng quan hệ thống",
+    "image": "admin-admin-tong-quan-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/ho-so",
+    "theme": "dark",
+    "width": 390,
+    "title": "Hồ sơ của tôi",
+    "image": "admin-admin-ho-so-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/ho-so/sua",
+    "theme": "dark",
+    "width": 390,
+    "title": "Cập nhật hồ sơ",
+    "image": "admin-admin-ho-so-sua-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/nhom-co",
+    "theme": "dark",
+    "width": 390,
+    "title": "Quản lý nhóm cơ",
+    "image": "admin-admin-nhom-co-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/nhom-co/them",
+    "theme": "dark",
+    "width": 390,
+    "title": "Thêm nhóm cơ mới",
+    "image": "admin-admin-nhom-co-them-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/nhom-co/5/sua",
+    "theme": "dark",
+    "width": 390,
+    "title": "Chỉnh sửa nhóm cơ",
+    "image": "admin-admin-nhom-co-5-sua-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/giao-an-mau",
+    "theme": "dark",
+    "width": 390,
+    "title": "Giáo án mẫu",
+    "image": "admin-admin-giao-an-mau-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/giao-an-mau/them",
+    "theme": "dark",
+    "width": 390,
+    "title": "Tạo giáo án mẫu mới",
+    "image": "admin-admin-giao-an-mau-them-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/giao-an-mau/1/sua",
+    "theme": "dark",
+    "width": 390,
+    "title": "Chỉnh sửa giáo án mẫu",
+    "image": "admin-admin-giao-an-mau-1-sua-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/goi-tap",
+    "theme": "dark",
+    "width": 390,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "admin-goi-tap-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/goi-tap/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Gói demo PT & AI",
+    "image": "admin-goi-tap-1-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/goi-tap",
+    "theme": "dark",
+    "width": 390,
+    "title": "Quản lý gói tập & Bảng giá",
+    "image": "admin-admin-goi-tap-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/goi-tap/them",
+    "theme": "dark",
+    "width": 390,
+    "title": "Thêm gói tập mới",
+    "image": "admin-admin-goi-tap-them-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/goi-tap/1/sua",
+    "theme": "dark",
+    "width": 390,
+    "title": "Chỉnh sửa cấu hình gói tập",
+    "image": "admin-admin-goi-tap-1-sua-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/bai-tap",
+    "theme": "dark",
+    "width": 390,
+    "title": "Quản lý thư viện bài tập",
+    "image": "admin-admin-bai-tap-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/bai-tap/them",
+    "theme": "dark",
+    "width": 390,
+    "title": "Thêm bài tập mới",
+    "image": "admin-admin-bai-tap-them-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/bai-tap/1324/sua",
+    "theme": "dark",
+    "width": 390,
+    "title": "Biên tập nội dung bài tập",
+    "image": "admin-admin-bai-tap-1324-sua-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/bai-tap",
+    "theme": "dark",
+    "width": 390,
+    "title": "Danh mục bài tập thể hình",
+    "image": "admin-bai-tap-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/bai-tap/1324",
+    "theme": "dark",
+    "width": 390,
+    "title": "dumbbell waiter biceps curl",
+    "image": "admin-bai-tap-1324-dark-390.jpg"
+  },
+  {
+    "role": "ADMIN",
+    "path": "/admin/tai-khoan",
+    "theme": "dark",
+    "width": 390,
+    "title": "Quản lý tài khoản & Phân quyền",
+    "image": "admin-admin-tai-khoan-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/chi-so-co-the",
+    "theme": "light",
+    "width": 1440,
+    "title": "Chỉ số cơ thể",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-chi-so-co-the-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/faq",
+    "theme": "light",
+    "width": 1440,
+    "title": "Câu hỏi & tài liệu",
+    "image": "huan_luyen_vien-faq-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/lich-tap",
+    "theme": "light",
+    "width": 1440,
+    "title": "Lịch & nhật ký tập",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-lich-tap-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/lich-tap/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Giáo án demo toàn thân",
+    "image": "huan_luyen_vien-pt-lich-tap-1-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien",
+    "theme": "light",
+    "width": 1440,
+    "title": "Học viên & giáo án",
+    "image": "huan_luyen_vien-pt-hoc-vien-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/ke-hoach",
+    "theme": "light",
+    "width": 1440,
+    "title": "Giáo án của Demo kh",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/ke-hoach/them",
+    "theme": "light",
+    "width": 1440,
+    "title": "Giáo án mới",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-them-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ke-hoach/6/sua",
+    "theme": "light",
+    "width": 1440,
+    "title": "Sửa bản nháp",
+    "image": "huan_luyen_vien-pt-ke-hoach-6-sua-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ke-hoach/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Giáo án demo toàn thân",
+    "image": "huan_luyen_vien-pt-ke-hoach-1-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/lich-hen",
+    "theme": "light",
+    "width": 1440,
+    "title": "Lịch hẹn huấn luyện",
+    "image": "huan_luyen_vien-pt-lich-hen-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/lich-hen/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Chi tiết buổi tập",
+    "image": "huan_luyen_vien-pt-lich-hen-1-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/khung-gio",
+    "theme": "light",
+    "width": 1440,
+    "title": "Khung giờ của tôi",
+    "image": "huan_luyen_vien-pt-khung-gio-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/tong-quan",
+    "theme": "light",
+    "width": 1440,
+    "title": "Chào pt 👋",
+    "image": "huan_luyen_vien-pt-tong-quan-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ho-so/sua",
+    "theme": "light",
+    "width": 1440,
+    "title": "Cập nhật hồ sơ",
+    "image": "huan_luyen_vien-pt-ho-so-sua-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/giao-an-mau",
+    "theme": "light",
+    "width": 1440,
+    "title": "Giáo án mẫu",
+    "image": "huan_luyen_vien-pt-giao-an-mau-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/giao-an-mau/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Giáo án mẫu kiểm tra giao diện",
+    "image": "huan_luyen_vien-pt-giao-an-mau-1-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/goi-tap",
+    "theme": "light",
+    "width": 1440,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "huan_luyen_vien-goi-tap-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/goi-tap/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Gói demo PT & AI",
+    "image": "huan_luyen_vien-goi-tap-1-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/bai-tap",
+    "theme": "light",
+    "width": 1440,
+    "title": "Danh mục bài tập thể hình",
+    "image": "huan_luyen_vien-bai-tap-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/bai-tap/1324",
+    "theme": "light",
+    "width": 1440,
+    "title": "dumbbell waiter biceps curl",
+    "image": "huan_luyen_vien-bai-tap-1324-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ho-so",
+    "theme": "light",
+    "width": 1440,
+    "title": "Hồ sơ của tôi",
+    "image": "huan_luyen_vien-pt-ho-so-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/chi-so-co-the",
+    "theme": "light",
+    "width": 390,
+    "title": "Chỉ số cơ thể",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-chi-so-co-the-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/faq",
+    "theme": "light",
+    "width": 390,
+    "title": "Câu hỏi & tài liệu",
+    "image": "huan_luyen_vien-faq-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/lich-tap",
+    "theme": "light",
+    "width": 390,
+    "title": "Lịch & nhật ký tập",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-lich-tap-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/lich-tap/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Giáo án demo toàn thân",
+    "image": "huan_luyen_vien-pt-lich-tap-1-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien",
+    "theme": "light",
+    "width": 390,
+    "title": "Học viên & giáo án",
+    "image": "huan_luyen_vien-pt-hoc-vien-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/ke-hoach",
+    "theme": "light",
+    "width": 390,
+    "title": "Giáo án của Demo kh",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/ke-hoach/them",
+    "theme": "light",
+    "width": 390,
+    "title": "Giáo án mới",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-them-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ke-hoach/6/sua",
+    "theme": "light",
+    "width": 390,
+    "title": "Sửa bản nháp",
+    "image": "huan_luyen_vien-pt-ke-hoach-6-sua-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ke-hoach/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Giáo án demo toàn thân",
+    "image": "huan_luyen_vien-pt-ke-hoach-1-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/lich-hen",
+    "theme": "light",
+    "width": 390,
+    "title": "Lịch hẹn huấn luyện",
+    "image": "huan_luyen_vien-pt-lich-hen-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/lich-hen/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Chi tiết buổi tập",
+    "image": "huan_luyen_vien-pt-lich-hen-1-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/khung-gio",
+    "theme": "light",
+    "width": 390,
+    "title": "Khung giờ của tôi",
+    "image": "huan_luyen_vien-pt-khung-gio-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/tong-quan",
+    "theme": "light",
+    "width": 390,
+    "title": "Chào pt 👋",
+    "image": "huan_luyen_vien-pt-tong-quan-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ho-so/sua",
+    "theme": "light",
+    "width": 390,
+    "title": "Cập nhật hồ sơ",
+    "image": "huan_luyen_vien-pt-ho-so-sua-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/giao-an-mau",
+    "theme": "light",
+    "width": 390,
+    "title": "Giáo án mẫu",
+    "image": "huan_luyen_vien-pt-giao-an-mau-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/giao-an-mau/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Giáo án mẫu kiểm tra giao diện",
+    "image": "huan_luyen_vien-pt-giao-an-mau-1-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/goi-tap",
+    "theme": "light",
+    "width": 390,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "huan_luyen_vien-goi-tap-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/goi-tap/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Gói demo PT & AI",
+    "image": "huan_luyen_vien-goi-tap-1-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/bai-tap",
+    "theme": "light",
+    "width": 390,
+    "title": "Danh mục bài tập thể hình",
+    "image": "huan_luyen_vien-bai-tap-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/bai-tap/1324",
+    "theme": "light",
+    "width": 390,
+    "title": "dumbbell waiter biceps curl",
+    "image": "huan_luyen_vien-bai-tap-1324-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ho-so",
+    "theme": "light",
+    "width": 390,
+    "title": "Hồ sơ của tôi",
+    "image": "huan_luyen_vien-pt-ho-so-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/chi-so-co-the",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Chỉ số cơ thể",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-chi-so-co-the-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/faq",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Câu hỏi & tài liệu",
+    "image": "huan_luyen_vien-faq-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/lich-tap",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Lịch & nhật ký tập",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-lich-tap-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/lich-tap/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Giáo án demo toàn thân",
+    "image": "huan_luyen_vien-pt-lich-tap-1-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Học viên & giáo án",
+    "image": "huan_luyen_vien-pt-hoc-vien-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/ke-hoach",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Giáo án của Demo kh",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/ke-hoach/them",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Giáo án mới",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-them-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ke-hoach/6/sua",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Sửa bản nháp",
+    "image": "huan_luyen_vien-pt-ke-hoach-6-sua-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ke-hoach/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Giáo án demo toàn thân",
+    "image": "huan_luyen_vien-pt-ke-hoach-1-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/lich-hen",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Lịch hẹn huấn luyện",
+    "image": "huan_luyen_vien-pt-lich-hen-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/lich-hen/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Chi tiết buổi tập",
+    "image": "huan_luyen_vien-pt-lich-hen-1-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/khung-gio",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Khung giờ của tôi",
+    "image": "huan_luyen_vien-pt-khung-gio-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/tong-quan",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Chào pt 👋",
+    "image": "huan_luyen_vien-pt-tong-quan-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ho-so/sua",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Cập nhật hồ sơ",
+    "image": "huan_luyen_vien-pt-ho-so-sua-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/giao-an-mau",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Giáo án mẫu",
+    "image": "huan_luyen_vien-pt-giao-an-mau-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/giao-an-mau/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Giáo án mẫu kiểm tra giao diện",
+    "image": "huan_luyen_vien-pt-giao-an-mau-1-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/goi-tap",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "huan_luyen_vien-goi-tap-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/goi-tap/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Gói demo PT & AI",
+    "image": "huan_luyen_vien-goi-tap-1-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/bai-tap",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Danh mục bài tập thể hình",
+    "image": "huan_luyen_vien-bai-tap-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/bai-tap/1324",
+    "theme": "dark",
+    "width": 1440,
+    "title": "dumbbell waiter biceps curl",
+    "image": "huan_luyen_vien-bai-tap-1324-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ho-so",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Hồ sơ của tôi",
+    "image": "huan_luyen_vien-pt-ho-so-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/chi-so-co-the",
+    "theme": "dark",
+    "width": 390,
+    "title": "Chỉ số cơ thể",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-chi-so-co-the-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/faq",
+    "theme": "dark",
+    "width": 390,
+    "title": "Câu hỏi & tài liệu",
+    "image": "huan_luyen_vien-faq-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/lich-tap",
+    "theme": "dark",
+    "width": 390,
+    "title": "Lịch & nhật ký tập",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-lich-tap-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/lich-tap/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Giáo án demo toàn thân",
+    "image": "huan_luyen_vien-pt-lich-tap-1-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien",
+    "theme": "dark",
+    "width": 390,
+    "title": "Học viên & giáo án",
+    "image": "huan_luyen_vien-pt-hoc-vien-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/ke-hoach",
+    "theme": "dark",
+    "width": 390,
+    "title": "Giáo án của Demo kh",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/hoc-vien/1/ke-hoach/them",
+    "theme": "dark",
+    "width": 390,
+    "title": "Giáo án mới",
+    "image": "huan_luyen_vien-pt-hoc-vien-1-ke-hoach-them-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ke-hoach/6/sua",
+    "theme": "dark",
+    "width": 390,
+    "title": "Sửa bản nháp",
+    "image": "huan_luyen_vien-pt-ke-hoach-6-sua-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ke-hoach/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Giáo án demo toàn thân",
+    "image": "huan_luyen_vien-pt-ke-hoach-1-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/lich-hen",
+    "theme": "dark",
+    "width": 390,
+    "title": "Lịch hẹn huấn luyện",
+    "image": "huan_luyen_vien-pt-lich-hen-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/lich-hen/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Chi tiết buổi tập",
+    "image": "huan_luyen_vien-pt-lich-hen-1-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/khung-gio",
+    "theme": "dark",
+    "width": 390,
+    "title": "Khung giờ của tôi",
+    "image": "huan_luyen_vien-pt-khung-gio-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/tong-quan",
+    "theme": "dark",
+    "width": 390,
+    "title": "Chào pt 👋",
+    "image": "huan_luyen_vien-pt-tong-quan-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ho-so/sua",
+    "theme": "dark",
+    "width": 390,
+    "title": "Cập nhật hồ sơ",
+    "image": "huan_luyen_vien-pt-ho-so-sua-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/giao-an-mau",
+    "theme": "dark",
+    "width": 390,
+    "title": "Giáo án mẫu",
+    "image": "huan_luyen_vien-pt-giao-an-mau-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/giao-an-mau/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Giáo án mẫu kiểm tra giao diện",
+    "image": "huan_luyen_vien-pt-giao-an-mau-1-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/goi-tap",
+    "theme": "dark",
+    "width": 390,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "huan_luyen_vien-goi-tap-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/goi-tap/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Gói demo PT & AI",
+    "image": "huan_luyen_vien-goi-tap-1-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/bai-tap",
+    "theme": "dark",
+    "width": 390,
+    "title": "Danh mục bài tập thể hình",
+    "image": "huan_luyen_vien-bai-tap-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/bai-tap/1324",
+    "theme": "dark",
+    "width": 390,
+    "title": "dumbbell waiter biceps curl",
+    "image": "huan_luyen_vien-bai-tap-1324-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/ho-so",
+    "theme": "dark",
+    "width": 390,
+    "title": "Hồ sơ của tôi",
+    "image": "huan_luyen_vien-pt-ho-so-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/chi-so-co-the",
+    "theme": "light",
+    "width": 1440,
+    "title": "Chỉ số cơ thể",
+    "image": "khach_hang-khach-hang-chi-so-co-the-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/chatbot",
+    "theme": "light",
+    "width": 1440,
+    "title": "Tr0ond AI",
+    "image": "khach_hang-khach-hang-chatbot-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/faq",
+    "theme": "light",
+    "width": 1440,
+    "title": "Câu hỏi & tài liệu",
+    "image": "khach_hang-faq-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-tap",
+    "theme": "light",
+    "width": 1440,
+    "title": "Lịch & nhật ký tập",
+    "image": "khach_hang-khach-hang-lich-tap-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-tap/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Giáo án demo toàn thân",
+    "image": "khach_hang-khach-hang-lich-tap-1-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach",
+    "theme": "light",
+    "width": 1440,
+    "title": "Giáo án của tôi",
+    "image": "khach_hang-khach-hang-ke-hoach-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach/them",
+    "theme": "light",
+    "width": 1440,
+    "title": "Giáo án mới",
+    "image": "khach_hang-khach-hang-ke-hoach-them-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach/7/sua",
+    "theme": "light",
+    "width": 1440,
+    "title": "Sửa bản nháp",
+    "image": "khach_hang-khach-hang-ke-hoach-7-sua-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Giáo án demo toàn thân",
+    "image": "khach_hang-khach-hang-ke-hoach-1-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-hen",
+    "theme": "light",
+    "width": 1440,
+    "title": "Lịch hẹn huấn luyện",
+    "image": "khach_hang-khach-hang-lich-hen-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-hen/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Chi tiết buổi tập",
+    "image": "khach_hang-khach-hang-lich-hen-1-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/dat-lich",
+    "theme": "light",
+    "width": 1440,
+    "title": "Đặt lịch với PT",
+    "image": "khach_hang-khach-hang-dat-lich-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/don-hang",
+    "theme": "light",
+    "width": 1440,
+    "title": "Đơn hàng",
+    "image": "khach_hang-khach-hang-don-hang-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/don-hang/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Chi tiết đơn hàng",
+    "image": "khach_hang-khach-hang-don-hang-1-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/goi-cua-toi",
+    "theme": "light",
+    "width": 1440,
+    "title": "Gói của tôi",
+    "image": "khach_hang-khach-hang-goi-cua-toi-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/tong-quan",
+    "theme": "light",
+    "width": 1440,
+    "title": "Chào kh!",
+    "image": "khach_hang-khach-hang-tong-quan-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ho-so/sua",
+    "theme": "light",
+    "width": 1440,
+    "title": "Cập nhật hồ sơ",
+    "image": "khach_hang-khach-hang-ho-so-sua-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/goi-tap",
+    "theme": "light",
+    "width": 1440,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "khach_hang-goi-tap-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/goi-tap/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Gói demo PT & AI",
+    "image": "khach_hang-goi-tap-1-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/bai-tap",
+    "theme": "light",
+    "width": 1440,
+    "title": "Danh mục bài tập thể hình",
+    "image": "khach_hang-bai-tap-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/bai-tap/1324",
+    "theme": "light",
+    "width": 1440,
+    "title": "dumbbell waiter biceps curl",
+    "image": "khach_hang-bai-tap-1324-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ho-so",
+    "theme": "light",
+    "width": 1440,
+    "title": "Hồ sơ của tôi",
+    "image": "khach_hang-khach-hang-ho-so-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/chi-so-co-the",
+    "theme": "light",
+    "width": 390,
+    "title": "Chỉ số cơ thể",
+    "image": "khach_hang-khach-hang-chi-so-co-the-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/chatbot",
+    "theme": "light",
+    "width": 390,
+    "title": "Tr0ond AI",
+    "image": "khach_hang-khach-hang-chatbot-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/faq",
+    "theme": "light",
+    "width": 390,
+    "title": "Câu hỏi & tài liệu",
+    "image": "khach_hang-faq-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-tap",
+    "theme": "light",
+    "width": 390,
+    "title": "Lịch & nhật ký tập",
+    "image": "khach_hang-khach-hang-lich-tap-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-tap/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Giáo án demo toàn thân",
+    "image": "khach_hang-khach-hang-lich-tap-1-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach",
+    "theme": "light",
+    "width": 390,
+    "title": "Giáo án của tôi",
+    "image": "khach_hang-khach-hang-ke-hoach-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach/them",
+    "theme": "light",
+    "width": 390,
+    "title": "Giáo án mới",
+    "image": "khach_hang-khach-hang-ke-hoach-them-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach/7/sua",
+    "theme": "light",
+    "width": 390,
+    "title": "Sửa bản nháp",
+    "image": "khach_hang-khach-hang-ke-hoach-7-sua-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Giáo án demo toàn thân",
+    "image": "khach_hang-khach-hang-ke-hoach-1-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-hen",
+    "theme": "light",
+    "width": 390,
+    "title": "Lịch hẹn huấn luyện",
+    "image": "khach_hang-khach-hang-lich-hen-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-hen/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Chi tiết buổi tập",
+    "image": "khach_hang-khach-hang-lich-hen-1-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/dat-lich",
+    "theme": "light",
+    "width": 390,
+    "title": "Đặt lịch với PT",
+    "image": "khach_hang-khach-hang-dat-lich-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/don-hang",
+    "theme": "light",
+    "width": 390,
+    "title": "Đơn hàng",
+    "image": "khach_hang-khach-hang-don-hang-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/don-hang/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Chi tiết đơn hàng",
+    "image": "khach_hang-khach-hang-don-hang-1-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/goi-cua-toi",
+    "theme": "light",
+    "width": 390,
+    "title": "Gói của tôi",
+    "image": "khach_hang-khach-hang-goi-cua-toi-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/tong-quan",
+    "theme": "light",
+    "width": 390,
+    "title": "Chào kh!",
+    "image": "khach_hang-khach-hang-tong-quan-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ho-so/sua",
+    "theme": "light",
+    "width": 390,
+    "title": "Cập nhật hồ sơ",
+    "image": "khach_hang-khach-hang-ho-so-sua-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/goi-tap",
+    "theme": "light",
+    "width": 390,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "khach_hang-goi-tap-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/goi-tap/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Gói demo PT & AI",
+    "image": "khach_hang-goi-tap-1-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/bai-tap",
+    "theme": "light",
+    "width": 390,
+    "title": "Danh mục bài tập thể hình",
+    "image": "khach_hang-bai-tap-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/bai-tap/1324",
+    "theme": "light",
+    "width": 390,
+    "title": "dumbbell waiter biceps curl",
+    "image": "khach_hang-bai-tap-1324-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ho-so",
+    "theme": "light",
+    "width": 390,
+    "title": "Hồ sơ của tôi",
+    "image": "khach_hang-khach-hang-ho-so-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/chi-so-co-the",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Chỉ số cơ thể",
+    "image": "khach_hang-khach-hang-chi-so-co-the-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/chatbot",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Tr0ond AI",
+    "image": "khach_hang-khach-hang-chatbot-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/faq",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Câu hỏi & tài liệu",
+    "image": "khach_hang-faq-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-tap",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Lịch & nhật ký tập",
+    "image": "khach_hang-khach-hang-lich-tap-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-tap/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Giáo án demo toàn thân",
+    "image": "khach_hang-khach-hang-lich-tap-1-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Giáo án của tôi",
+    "image": "khach_hang-khach-hang-ke-hoach-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach/them",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Giáo án mới",
+    "image": "khach_hang-khach-hang-ke-hoach-them-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach/7/sua",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Sửa bản nháp",
+    "image": "khach_hang-khach-hang-ke-hoach-7-sua-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Giáo án demo toàn thân",
+    "image": "khach_hang-khach-hang-ke-hoach-1-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-hen",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Lịch hẹn huấn luyện",
+    "image": "khach_hang-khach-hang-lich-hen-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-hen/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Chi tiết buổi tập",
+    "image": "khach_hang-khach-hang-lich-hen-1-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/dat-lich",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Đặt lịch với PT",
+    "image": "khach_hang-khach-hang-dat-lich-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/don-hang",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Đơn hàng",
+    "image": "khach_hang-khach-hang-don-hang-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/don-hang/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Chi tiết đơn hàng",
+    "image": "khach_hang-khach-hang-don-hang-1-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/goi-cua-toi",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Gói của tôi",
+    "image": "khach_hang-khach-hang-goi-cua-toi-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/tong-quan",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Chào kh!",
+    "image": "khach_hang-khach-hang-tong-quan-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ho-so/sua",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Cập nhật hồ sơ",
+    "image": "khach_hang-khach-hang-ho-so-sua-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/goi-tap",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "khach_hang-goi-tap-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/goi-tap/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Gói demo PT & AI",
+    "image": "khach_hang-goi-tap-1-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/bai-tap",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Danh mục bài tập thể hình",
+    "image": "khach_hang-bai-tap-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/bai-tap/1324",
+    "theme": "dark",
+    "width": 1440,
+    "title": "dumbbell waiter biceps curl",
+    "image": "khach_hang-bai-tap-1324-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ho-so",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Hồ sơ của tôi",
+    "image": "khach_hang-khach-hang-ho-so-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/chi-so-co-the",
+    "theme": "dark",
+    "width": 390,
+    "title": "Chỉ số cơ thể",
+    "image": "khach_hang-khach-hang-chi-so-co-the-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/chatbot",
+    "theme": "dark",
+    "width": 390,
+    "title": "Tr0ond AI",
+    "image": "khach_hang-khach-hang-chatbot-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/faq",
+    "theme": "dark",
+    "width": 390,
+    "title": "Câu hỏi & tài liệu",
+    "image": "khach_hang-faq-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-tap",
+    "theme": "dark",
+    "width": 390,
+    "title": "Lịch & nhật ký tập",
+    "image": "khach_hang-khach-hang-lich-tap-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-tap/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Giáo án demo toàn thân",
+    "image": "khach_hang-khach-hang-lich-tap-1-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach",
+    "theme": "dark",
+    "width": 390,
+    "title": "Giáo án của tôi",
+    "image": "khach_hang-khach-hang-ke-hoach-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach/them",
+    "theme": "dark",
+    "width": 390,
+    "title": "Giáo án mới",
+    "image": "khach_hang-khach-hang-ke-hoach-them-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach/7/sua",
+    "theme": "dark",
+    "width": 390,
+    "title": "Sửa bản nháp",
+    "image": "khach_hang-khach-hang-ke-hoach-7-sua-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ke-hoach/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Giáo án demo toàn thân",
+    "image": "khach_hang-khach-hang-ke-hoach-1-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-hen",
+    "theme": "dark",
+    "width": 390,
+    "title": "Lịch hẹn huấn luyện",
+    "image": "khach_hang-khach-hang-lich-hen-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/lich-hen/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Chi tiết buổi tập",
+    "image": "khach_hang-khach-hang-lich-hen-1-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/dat-lich",
+    "theme": "dark",
+    "width": 390,
+    "title": "Đặt lịch với PT",
+    "image": "khach_hang-khach-hang-dat-lich-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/don-hang",
+    "theme": "dark",
+    "width": 390,
+    "title": "Đơn hàng",
+    "image": "khach_hang-khach-hang-don-hang-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/don-hang/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Chi tiết đơn hàng",
+    "image": "khach_hang-khach-hang-don-hang-1-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/goi-cua-toi",
+    "theme": "dark",
+    "width": 390,
+    "title": "Gói của tôi",
+    "image": "khach_hang-khach-hang-goi-cua-toi-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/tong-quan",
+    "theme": "dark",
+    "width": 390,
+    "title": "Chào kh!",
+    "image": "khach_hang-khach-hang-tong-quan-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ho-so/sua",
+    "theme": "dark",
+    "width": 390,
+    "title": "Cập nhật hồ sơ",
+    "image": "khach_hang-khach-hang-ho-so-sua-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/goi-tap",
+    "theme": "dark",
+    "width": 390,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "khach_hang-goi-tap-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/goi-tap/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Gói demo PT & AI",
+    "image": "khach_hang-goi-tap-1-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/bai-tap",
+    "theme": "dark",
+    "width": 390,
+    "title": "Danh mục bài tập thể hình",
+    "image": "khach_hang-bai-tap-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/bai-tap/1324",
+    "theme": "dark",
+    "width": 390,
+    "title": "dumbbell waiter biceps curl",
+    "image": "khach_hang-bai-tap-1324-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/ho-so",
+    "theme": "dark",
+    "width": 390,
+    "title": "Hồ sơ của tôi",
+    "image": "khach_hang-khach-hang-ho-so-dark-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/faq",
+    "theme": "light",
+    "width": 1440,
+    "title": "Câu hỏi & tài liệu",
+    "image": "public-faq-light-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/quen-mat-khau",
+    "theme": "light",
+    "width": 1440,
+    "title": "Quên mật khẩu?",
+    "image": "public-quen-mat-khau-light-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/dat-lai-mat-khau",
+    "theme": "light",
+    "width": 1440,
+    "title": "Đặt lại mật khẩu",
+    "image": "public-dat-lai-mat-khau-light-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/goi-tap",
+    "theme": "light",
+    "width": 1440,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "public-goi-tap-light-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/goi-tap/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Gói demo PT & AI",
+    "image": "public-goi-tap-1-light-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/bai-tap",
+    "theme": "light",
+    "width": 1440,
+    "title": "Danh mục bài tập thể hình",
+    "image": "public-bai-tap-light-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/bai-tap/1324",
+    "theme": "light",
+    "width": 1440,
+    "title": "dumbbell waiter biceps curl",
+    "image": "public-bai-tap-1324-light-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/khong-ket-noi",
+    "theme": "light",
+    "width": 1440,
+    "title": "Không thể kết nối máy chủ",
+    "image": "public-khong-ket-noi-light-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/dang-nhap",
+    "theme": "light",
+    "width": 1440,
+    "title": "Đăng nhập hệ thống",
+    "image": "public-dang-nhap-light-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/dang-ky",
+    "theme": "light",
+    "width": 1440,
+    "title": "Bắt đầu hành trình",
+    "image": "public-dang-ky-light-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/khong-co-quyen",
+    "theme": "light",
+    "width": 1440,
+    "title": "Truy cập bị từ chối",
+    "image": "public-khong-co-quyen-light-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/",
+    "theme": "light",
+    "width": 1440,
+    "title": "Tr0ond FitnessHuấn luyện cá nhân.",
+    "image": "public--light-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/faq",
+    "theme": "light",
+    "width": 390,
+    "title": "Câu hỏi & tài liệu",
+    "image": "public-faq-light-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/quen-mat-khau",
+    "theme": "light",
+    "width": 390,
+    "title": "Quên mật khẩu?",
+    "image": "public-quen-mat-khau-light-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/dat-lai-mat-khau",
+    "theme": "light",
+    "width": 390,
+    "title": "Đặt lại mật khẩu",
+    "image": "public-dat-lai-mat-khau-light-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/goi-tap",
+    "theme": "light",
+    "width": 390,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "public-goi-tap-light-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/goi-tap/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Gói demo PT & AI",
+    "image": "public-goi-tap-1-light-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/bai-tap",
+    "theme": "light",
+    "width": 390,
+    "title": "Danh mục bài tập thể hình",
+    "image": "public-bai-tap-light-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/bai-tap/1324",
+    "theme": "light",
+    "width": 390,
+    "title": "dumbbell waiter biceps curl",
+    "image": "public-bai-tap-1324-light-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/khong-ket-noi",
+    "theme": "light",
+    "width": 390,
+    "title": "Không thể kết nối máy chủ",
+    "image": "public-khong-ket-noi-light-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/dang-nhap",
+    "theme": "light",
+    "width": 390,
+    "title": "Đăng nhập hệ thống",
+    "image": "public-dang-nhap-light-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/dang-ky",
+    "theme": "light",
+    "width": 390,
+    "title": "Bắt đầu hành trình",
+    "image": "public-dang-ky-light-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/khong-co-quyen",
+    "theme": "light",
+    "width": 390,
+    "title": "Truy cập bị từ chối",
+    "image": "public-khong-co-quyen-light-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/",
+    "theme": "light",
+    "width": 390,
+    "title": "Tr0ond FitnessHuấn luyện cá nhân.",
+    "image": "public--light-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/faq",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Câu hỏi & tài liệu",
+    "image": "public-faq-dark-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/quen-mat-khau",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Quên mật khẩu?",
+    "image": "public-quen-mat-khau-dark-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/dat-lai-mat-khau",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Đặt lại mật khẩu",
+    "image": "public-dat-lai-mat-khau-dark-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/goi-tap",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "public-goi-tap-dark-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/goi-tap/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Gói demo PT & AI",
+    "image": "public-goi-tap-1-dark-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/bai-tap",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Danh mục bài tập thể hình",
+    "image": "public-bai-tap-dark-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/bai-tap/1324",
+    "theme": "dark",
+    "width": 1440,
+    "title": "dumbbell waiter biceps curl",
+    "image": "public-bai-tap-1324-dark-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/khong-ket-noi",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Không thể kết nối máy chủ",
+    "image": "public-khong-ket-noi-dark-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/dang-nhap",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Đăng nhập hệ thống",
+    "image": "public-dang-nhap-dark-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/dang-ky",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Bắt đầu hành trình",
+    "image": "public-dang-ky-dark-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/khong-co-quyen",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Truy cập bị từ chối",
+    "image": "public-khong-co-quyen-dark-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Tr0ond FitnessHuấn luyện cá nhân.",
+    "image": "public--dark-1440.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/faq",
+    "theme": "dark",
+    "width": 390,
+    "title": "Câu hỏi & tài liệu",
+    "image": "public-faq-dark-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/quen-mat-khau",
+    "theme": "dark",
+    "width": 390,
+    "title": "Quên mật khẩu?",
+    "image": "public-quen-mat-khau-dark-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/dat-lai-mat-khau",
+    "theme": "dark",
+    "width": 390,
+    "title": "Đặt lại mật khẩu",
+    "image": "public-dat-lai-mat-khau-dark-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/goi-tap",
+    "theme": "dark",
+    "width": 390,
+    "title": "Bảng giá gói tập & Dịch vụ",
+    "image": "public-goi-tap-dark-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/goi-tap/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Gói demo PT & AI",
+    "image": "public-goi-tap-1-dark-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/bai-tap",
+    "theme": "dark",
+    "width": 390,
+    "title": "Danh mục bài tập thể hình",
+    "image": "public-bai-tap-dark-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/bai-tap/1324",
+    "theme": "dark",
+    "width": 390,
+    "title": "dumbbell waiter biceps curl",
+    "image": "public-bai-tap-1324-dark-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/khong-ket-noi",
+    "theme": "dark",
+    "width": 390,
+    "title": "Không thể kết nối máy chủ",
+    "image": "public-khong-ket-noi-dark-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/dang-nhap",
+    "theme": "dark",
+    "width": 390,
+    "title": "Đăng nhập hệ thống",
+    "image": "public-dang-nhap-dark-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/dang-ky",
+    "theme": "dark",
+    "width": 390,
+    "title": "Bắt đầu hành trình",
+    "image": "public-dang-ky-dark-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/khong-co-quyen",
+    "theme": "dark",
+    "width": 390,
+    "title": "Truy cập bị từ chối",
+    "image": "public-khong-co-quyen-dark-390.jpg"
+  },
+  {
+    "role": "PUBLIC",
+    "path": "/",
+    "theme": "dark",
+    "width": 390,
+    "title": "Tr0ond FitnessHuấn luyện cá nhân.",
+    "image": "public--dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/tin-nhan",
+    "theme": "light",
+    "width": 1440,
+    "title": "Tin nhắn",
+    "image": "huan_luyen_vien-pt-tin-nhan-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/tin-nhan/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Tin nhắn",
+    "image": "huan_luyen_vien-pt-tin-nhan-1-light-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/tin-nhan",
+    "theme": "light",
+    "width": 390,
+    "title": "Tin nhắn",
+    "image": "huan_luyen_vien-pt-tin-nhan-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/tin-nhan/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Tin nhắn",
+    "image": "huan_luyen_vien-pt-tin-nhan-1-light-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/tin-nhan",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Tin nhắn",
+    "image": "huan_luyen_vien-pt-tin-nhan-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/tin-nhan/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Tin nhắn",
+    "image": "huan_luyen_vien-pt-tin-nhan-1-dark-1440.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/tin-nhan",
+    "theme": "dark",
+    "width": 390,
+    "title": "Tin nhắn",
+    "image": "huan_luyen_vien-pt-tin-nhan-dark-390.jpg"
+  },
+  {
+    "role": "HUAN_LUYEN_VIEN",
+    "path": "/pt/tin-nhan/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Tin nhắn",
+    "image": "huan_luyen_vien-pt-tin-nhan-1-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/tin-nhan",
+    "theme": "light",
+    "width": 1440,
+    "title": "Tin nhắn",
+    "image": "khach_hang-khach-hang-tin-nhan-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/tin-nhan/1",
+    "theme": "light",
+    "width": 1440,
+    "title": "Tin nhắn",
+    "image": "khach_hang-khach-hang-tin-nhan-1-light-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/tin-nhan",
+    "theme": "light",
+    "width": 390,
+    "title": "Tin nhắn",
+    "image": "khach_hang-khach-hang-tin-nhan-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/tin-nhan/1",
+    "theme": "light",
+    "width": 390,
+    "title": "Tin nhắn",
+    "image": "khach_hang-khach-hang-tin-nhan-1-light-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/tin-nhan",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Tin nhắn",
+    "image": "khach_hang-khach-hang-tin-nhan-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/tin-nhan/1",
+    "theme": "dark",
+    "width": 1440,
+    "title": "Tin nhắn",
+    "image": "khach_hang-khach-hang-tin-nhan-1-dark-1440.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/tin-nhan",
+    "theme": "dark",
+    "width": 390,
+    "title": "Tin nhắn",
+    "image": "khach_hang-khach-hang-tin-nhan-dark-390.jpg"
+  },
+  {
+    "role": "KHACH_HANG",
+    "path": "/khach-hang/tin-nhan/1",
+    "theme": "dark",
+    "width": 390,
+    "title": "Tin nhắn",
+    "image": "khach_hang-khach-hang-tin-nhan-1-dark-390.jpg"
+  }
+]

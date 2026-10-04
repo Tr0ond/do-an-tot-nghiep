@@ -9,8 +9,14 @@ import { useChatStore } from '../src/stores/chat'
 import thongBaoService from '../src/services/thongBaoService'
 import chatService from '../src/services/chatService'
 import ThongBaoHeader from '../src/components/ThongBaoHeader.vue'
+import routerUngDung from '../src/router'
 
 vi.mock('../src/services/xacThucService', () => ({ default: {} }))
+// Kiểm tra bảng route thật trong môi trường Node, dùng history bộ nhớ để không cần cửa sổ.
+vi.mock('vue-router', async (importOriginal) => {
+  const goc = await importOriginal()
+  return { ...goc, createWebHistory: goc.createMemoryHistory }
+})
 vi.mock('../src/services/chatService', () => ({
   default: { taiHoiThoai: vi.fn(), daDoc: vi.fn() },
 }))
@@ -150,6 +156,60 @@ describe('Thông báo trên header', () => {
     const html = await renderToString(app)
     expect(html).toContain('&lt;script&gt;bad()&lt;/script&gt;')
     expect(html).not.toContain('<script>bad()')
+  })
+
+  it.each([
+    ['KHACH_HANG', '/khach-hang/don-hang/7'],
+    ['KHACH_HANG', '/khach-hang/ho-so'],
+    ['KHACH_HANG', '/khach-hang/lich-hen/8'],
+    ['KHACH_HANG', '/khach-hang/ke-hoach/9'],
+    ['KHACH_HANG', '/khach-hang/lich-tap/10'],
+    ['HUAN_LUYEN_VIEN', '/pt/hoc-vien/2/ke-hoach'],
+    ['HUAN_LUYEN_VIEN', '/pt/hoc-vien'],
+    ['HUAN_LUYEN_VIEN', '/pt/lich-hen/8'],
+    ['HUAN_LUYEN_VIEN', '/pt/ke-hoach/9'],
+    ['HUAN_LUYEN_VIEN', '/pt/lich-tap/10'],
+    ['ADMIN', '/admin/phan-cong'],
+    ['ADMIN', '/admin/don-hang/7'],
+    ['ADMIN', '/admin/lich-hen/8'],
+    ['ADMIN', '/admin/giao-an-mau/6/sua'],
+  ])('thông báo %s mở tài nguyên %s sau khi server đánh dấu đọc', async (vaiTro, duongDan) => {
+    const route = routerUngDung.resolve(duongDan)
+    expect(route.meta.vaiTro).toBe(vaiTro)
+    const trinhTu = []
+    const trang = {
+      thongBao: {
+        maPhien: 1,
+        danhDauDoc: vi.fn(async () => {
+          trinhTu.push('doc')
+          return true
+        }),
+      },
+      dong: vi.fn(),
+      $router: { push: vi.fn(async () => trinhTu.push('mo')) },
+    }
+    await ThongBaoHeader.methods.moThongBao.call(trang, { id: 'uuid', duong_dan: duongDan })
+    expect(trinhTu).toEqual(['doc', 'mo'])
+    expect(trang.$router.push).toHaveBeenCalledWith(duongDan)
+    expect(trang.dong).toHaveBeenCalledOnce()
+  })
+
+  it('không chuyển trang khi đọc lỗi hoặc session đổi trong lúc đánh dấu đọc', async () => {
+    const trang = {
+      thongBao: { maPhien: 1, danhDauDoc: vi.fn(async () => false) },
+      dong: vi.fn(),
+      $router: { push: vi.fn() },
+    }
+    const tin = { id: 'uuid', duong_dan: '/pt/lich-hen/8' }
+    await ThongBaoHeader.methods.moThongBao.call(trang, tin)
+    expect(trang.$router.push).not.toHaveBeenCalled()
+    trang.thongBao.danhDauDoc.mockImplementation(async () => {
+      trang.thongBao.maPhien++
+      return true
+    })
+    await ThongBaoHeader.methods.moThongBao.call(trang, tin)
+    expect(trang.$router.push).not.toHaveBeenCalled()
+    expect(trang.dong).not.toHaveBeenCalled()
   })
 
   it('bỏ response cũ sau khi đổi tài khoản', async () => {

@@ -1,187 +1,144 @@
 <template>
   <CaNhanLayout>
-    <section class="ga kh-plan">
-      <header class="kh-heading">
+    <section class="st-students">
+      <header class="st-page-heading">
         <div>
-          <span class="ga-eyebrow">
-            <i class="bi bi-people-fill me-1 text-emerald" aria-hidden="true"></i>ĐỒNG HÀNH CÙNG HỌC
-            VIÊN
-          </span>
-          <h1 class="h2 fw-bold">Học viên & giáo án</h1>
-          <p>
-            Quản lý danh sách học viên đang được phân công, thiết kế và tối ưu giáo án cá nhân theo
-            tiến độ tập luyện.
-          </p>
+          <span class="st-kicker">HUẤN LUYỆN</span>
+          <h1>Học viên & giáo án</h1>
+          <p>Danh sách học viên đang được phân công cho bạn.</p>
         </div>
-        <div v-if="meta.total" class="d-flex align-items-center">
-          <span class="badge bg-secondary-subtle text-body border px-3 py-2 fs-6">
-            {{ meta.total }} học viên đang phụ trách
-          </span>
-        </div>
-      </header>
-
-      <!-- Thanh tìm kiếm học viên -->
-      <form class="kh-filter-toolbar" @submit.prevent="timKiem">
-        <div class="d-flex align-items-center gap-2 flex-grow-1">
-          <div class="input-group-modern flex-grow-1" style="max-width: 480px">
-            <span class="input-icon-prefix" aria-hidden="true">
-              <i class="bi bi-search"></i>
-            </span>
-            <input
-              id="tim-hoc-vien"
-              v-model="tuKhoa"
-              maxlength="100"
-              class="form-control form-control-sm has-prefix"
-              placeholder="Tìm theo họ tên học viên…"
-              aria-label="Tìm học viên"
-            />
-          </div>
-          <button type="submit" class="btn btn-primary btn-sm" :disabled="dangTai">
-            <i class="bi bi-search me-1" aria-hidden="true"></i>Tìm kiếm
-          </button>
-          <button
-            v-if="tuKhoa"
-            type="button"
-            class="btn btn-outline-secondary btn-sm"
-            @click="xoaTimKiem"
-          >
-            <i class="bi bi-x-lg me-1" aria-hidden="true"></i>Xóa lọc
-          </button>
-        </div>
-      </form>
-
-      <!-- Trạng thái tải -->
-      <div v-if="dangTai" class="p-5 text-center" role="status">
-        <div class="spinner-border text-primary mb-3" role="status"></div>
-        <p class="text-muted small mb-0">Đang tải danh sách học viên từ máy chủ…</p>
-      </div>
-
-      <!-- Báo lỗi -->
-      <div v-else-if="loi" class="kh-notice" role="alert">
-        <div class="d-flex align-items-start gap-3">
-          <i
-            class="bi bi-exclamation-triangle-fill text-danger fs-4 flex-shrink-0"
-            aria-hidden="true"
-          ></i>
-          <div>
-            <h2 class="h6 fw-bold mb-1 text-danger">Chưa tải được danh sách học viên</h2>
-            <p class="mb-2 small">{{ loi }}</p>
-            <button class="btn btn-outline-secondary btn-sm" @click="taiDanhSach">Thử lại</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Trạng thái rỗng -->
-      <div v-else-if="!danhSach.length" class="ga-panel text-center py-5">
-        <div
-          class="empty-icon-ring mx-auto mb-3"
-          style="
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background: var(--mau-the-sub, #1e1e1e);
-            display: grid;
-            place-items: center;
-          "
+        <button
+          class="btn btn-outline-secondary"
+          :disabled="dangTai"
+          aria-label="Cập nhật học viên"
+          title="Cập nhật học viên"
+          @click="taiDanhSach"
         >
-          <i class="bi bi-person-x fs-2 text-muted" aria-hidden="true"></i>
+          <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
+        </button>
+      </header>
+      <div class="st-summary-strip">
+        <div>
+          <span>Học viên đang phụ trách</span><strong>{{ meta.total || 0 }}</strong>
         </div>
-        <h2 class="h5 fw-bold mb-2">
+        <div>
+          <span>Phạm vi hiển thị</span
+          ><strong>{{ danhSach.length }} <small>học viên / trang</small></strong>
+        </div>
+        <RouterLink to="/pt/giao-an-mau"
+          ><i class="bi bi-journal-text" aria-hidden="true"></i> Thư viện giáo án mẫu
+          <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+        ></RouterLink>
+      </div>
+      <form class="st-toolbar" @submit.prevent="timKiem">
+        <div class="st-search">
+          <i class="bi bi-search" aria-hidden="true"></i
+          ><label class="visually-hidden" for="tim-hoc-vien">Tìm học viên</label
+          ><input
+            id="tim-hoc-vien"
+            v-model="tuKhoa"
+            maxlength="100"
+            class="form-control"
+            placeholder="Tìm theo họ tên học viên…"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" :disabled="dangTai">
+          <i class="bi bi-search" aria-hidden="true"></i> Tìm kiếm
+        </button>
+        <button v-if="tuKhoa" type="button" class="btn btn-outline-secondary" @click="xoaTimKiem">
+          Xóa lọc
+        </button>
+      </form>
+      <p v-if="dangTai" class="st-empty" role="status">Đang tải danh sách học viên…</p>
+      <div v-else-if="loi" class="alert alert-danger" role="alert">
+        {{ loi }} <button class="btn btn-outline-secondary" @click="taiDanhSach">Thử lại</button>
+      </div>
+      <div v-else-if="!danhSach.length" class="st-empty">
+        <i class="bi bi-people" aria-hidden="true"></i>
+        <h2>
           {{ tuKhoa ? 'Không tìm thấy học viên phù hợp' : 'Chưa có học viên được phân công' }}
         </h2>
-        <p class="text-muted small mb-3" style="max-width: 440px; margin: 0 auto">
-          {{
-            tuKhoa
-              ? 'Vui lòng kiểm tra lại từ khóa tìm kiếm hoặc bấm Xóa lọc để xem tất cả.'
-              : 'Học viên sẽ tự động xuất hiện tại đây ngay khi Admin hoàn tất phân công huấn luyện viên cho gói tập.'
-          }}
-        </p>
-        <button
-          v-if="tuKhoa"
-          type="button"
-          class="btn btn-outline-secondary btn-sm"
-          @click="xoaTimKiem"
-        >
-          <i class="bi bi-arrow-counterclockwise me-1" aria-hidden="true"></i>Xóa bộ lọc
+        <button v-if="tuKhoa" class="btn btn-outline-secondary" @click="xoaTimKiem">
+          Xóa bộ lọc
         </button>
       </div>
-
-      <!-- Danh sách thẻ học viên -->
-      <div v-else class="kh-cards">
-        <article v-for="kh in danhSach" :key="kh.id" class="kh-card">
-          <div class="kh-card-top">
-            <span class="badge bg-success-subtle text-success border border-success-subtle">
-              <i class="bi bi-check-circle-fill me-1" aria-hidden="true"></i>Đang phụ trách
-            </span>
-            <span class="badge bg-secondary-subtle text-body border small">#{{ kh.id }}</span>
-          </div>
-
-          <div class="kh-student-card">
-            <div class="kh-student-avatar" aria-hidden="true">
-              {{ kh.ho_ten ? kh.ho_ten.charAt(0).toUpperCase() : 'H' }}
-            </div>
-            <div class="min-width-0">
-              <h2 class="h5 fw-bold mb-1 text-truncate">{{ kh.ho_ten }}</h2>
-              <span class="small text-muted d-flex align-items-center gap-1">
-                <i class="bi bi-journal-text text-primary" aria-hidden="true"></i>Giáo án cá nhân
-              </span>
-            </div>
-          </div>
-
-          <p class="kh-card-desc mb-3">
-            Sẵn sàng lập kế hoạch huấn luyện, nhập mức tạ, số hiệp và gửi giáo án cho học viên xác
-            nhận trong 24 giờ.
-          </p>
-
-          <div class="kh-card-footer pt-3 mt-auto border-top d-flex flex-column gap-2">
-            <RouterLink
-              :to="`/pt/hoc-vien/${kh.id}/chi-so-co-the`"
-              class="btn btn-outline-secondary w-100"
-            >
-              <i class="bi bi-activity" aria-hidden="true"></i> Chỉ số cơ thể
-            </RouterLink>
-            <RouterLink
-              :to="`/pt/hoc-vien/${kh.id}/lich-tap`"
-              class="btn btn-outline-secondary w-100"
-              ><i class="bi bi-calendar2-week" aria-hidden="true"></i> Lịch & nhật ký học
-              viên</RouterLink
-            >
-            <RouterLink
-              :to="`/pt/hoc-vien/${kh.id}/ke-hoach`"
-              class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2"
-            >
-              <span>Xem và soạn giáo án</span>
-              <i class="bi bi-arrow-right" aria-hidden="true"></i>
-            </RouterLink>
-            <RouterLink
-              :to="`/pt/hoc-vien/${kh.id}/ke-hoach/them`"
-              class="btn btn-primary btn-sm w-100 d-flex align-items-center justify-content-center gap-1"
-            >
-              <i class="bi bi-plus-lg" aria-hidden="true"></i>
-              <span>Soạn giáo án mới</span>
-            </RouterLink>
-          </div>
-        </article>
+      <div v-else class="st-table-wrap">
+        <table class="table st-student-table align-middle">
+          <caption class="visually-hidden">
+            Danh sách học viên đang phụ trách
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Học viên</th>
+              <th scope="col">Phân công</th>
+              <th scope="col">Theo dõi</th>
+              <th scope="col">Giáo án cá nhân</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="kh in danhSach" :key="kh.id">
+              <td>
+                <div class="st-person">
+                  <span class="st-avatar" aria-hidden="true">{{
+                    kh.ho_ten?.charAt(0).toUpperCase() || 'H'
+                  }}</span>
+                  <div>
+                    <strong>{{ kh.ho_ten }}</strong
+                    ><small>Học viên #{{ kh.id }}</small>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="st-status"
+                  ><i class="bi bi-check-circle" aria-hidden="true"></i> Đang phụ trách</span
+                >
+              </td>
+              <td>
+                <div class="st-row-actions">
+                  <RouterLink
+                    :to="`/pt/hoc-vien/${kh.id}/chi-so-co-the`"
+                    class="btn btn-outline-secondary"
+                    :aria-label="`Chỉ số cơ thể của ${kh.ho_ten}`"
+                    title="Chỉ số cơ thể"
+                    ><i class="bi bi-activity" aria-hidden="true"></i></RouterLink
+                  ><RouterLink
+                    :to="`/pt/hoc-vien/${kh.id}/lich-tap`"
+                    class="btn btn-outline-secondary"
+                    :aria-label="`Lịch & nhật ký của ${kh.ho_ten}`"
+                    title="Lịch & nhật ký"
+                    ><i class="bi bi-calendar2-week" aria-hidden="true"></i
+                  ></RouterLink>
+                </div>
+              </td>
+              <td>
+                <div class="st-row-actions">
+                  <RouterLink
+                    :to="`/pt/hoc-vien/${kh.id}/ke-hoach`"
+                    class="btn btn-outline-secondary"
+                    >Xem giáo án</RouterLink
+                  ><RouterLink :to="`/pt/hoc-vien/${kh.id}/ke-hoach/them`" class="btn btn-primary"
+                    ><i class="bi bi-plus-lg" aria-hidden="true"></i> Soạn mới</RouterLink
+                  >
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
-      <!-- Phân trang -->
-      <nav v-if="meta.last_page > 1" class="kh-pages" aria-label="Phân trang học viên">
+      <nav v-if="meta.last_page > 1" class="st-pagination" aria-label="Phân trang học viên">
         <button
-          class="btn btn-outline-secondary btn-sm"
+          class="btn btn-outline-secondary"
           :disabled="dangTai || page <= 1"
           @click="chuyenTrang(-1)"
         >
-          <i class="bi bi-chevron-left me-1" aria-hidden="true"></i>Trước
-        </button>
-        <span class="badge bg-secondary-subtle text-body border px-3 py-2 small">
-          Trang {{ page }} / {{ meta.last_page }} ({{ meta.total }} mục)
-        </span>
-        <button
-          class="btn btn-outline-secondary btn-sm"
+          <i class="bi bi-chevron-left" aria-hidden="true"></i> Trước</button
+        ><span>{{ page }} / {{ meta.last_page }}</span
+        ><button
+          class="btn btn-outline-secondary"
           :disabled="dangTai || page >= meta.last_page"
           @click="chuyenTrang(1)"
         >
-          Sau<i class="bi bi-chevron-right ms-1" aria-hidden="true"></i>
+          Sau <i class="bi bi-chevron-right" aria-hidden="true"></i>
         </button>
       </nav>
     </section>

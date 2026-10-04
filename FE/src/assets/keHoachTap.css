@@ -18,9 +18,9 @@
 }
 
 .kh-plan .kh-heading h1 {
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-size: 1.75rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   margin: 6px 0 8px;
   color: var(--mau-chu);
 }
@@ -56,9 +56,9 @@
    TOOLBAR BỘ LỌC (DANH SÁCH GIÁO ÁN)
    ========================================================================== */
 .kh-filter-toolbar {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
-  border-radius: 14px;
+  border-radius: 8px;
   padding: 16px 20px;
   margin-bottom: 24px;
   box-shadow: var(--bong-nhe);
@@ -93,7 +93,7 @@
 .kh-filter-item select,
 .kh-filter-select {
   min-height: 38px;
-  background-color: var(--mau-nen, #0a0a0a);
+  background-color: var(--mau-nen, var(--mau-nen));
   border: 1px solid var(--mau-vien);
   border-radius: 8px;
   color: var(--mau-chu);
@@ -108,7 +108,7 @@
 .kh-filter-select:focus {
   border-color: var(--mau-chinh);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(244, 91, 32, 0.18);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mau-chinh) 18%, transparent);
 }
 
 .kh-filter-hint {
@@ -132,9 +132,9 @@
   flex-direction: column;
   position: relative;
   padding: 22px 24px;
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: var(--bong-nhe);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   min-width: 0;
@@ -143,7 +143,7 @@
 .kh-card:hover {
   transform: translateY(-3px);
   border-color: var(--mau-vien-hover);
-  box-shadow: var(--bong-trung);
+  box-shadow: var(--bong-nhe);
 }
 
 .kh-card-top {
@@ -198,13 +198,9 @@
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--mau-chinh);
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--mau-chinh) 25%, var(--mau-the, #141414)) 0%,
-    color-mix(in srgb, var(--mau-chinh) 10%, var(--mau-nen, #0a0a0a)) 100%
-  );
+  background: var(--mau-the-sub);
   border: 1.5px solid color-mix(in srgb, var(--mau-chinh) 35%, transparent);
-  box-shadow: 0 4px 12px rgba(244, 91, 32, 0.15);
+  box-shadow: var(--bong-nhe);
   flex-shrink: 0;
 }
 
@@ -218,25 +214,25 @@
   padding: 4px 10px;
   border-radius: 8px;
   color: var(--mau-chu);
-  background: var(--mau-the-sub, #1e1e1e);
+  background: var(--mau-the-sub, var(--mau-the-hover));
   border: 1px solid var(--mau-vien);
 }
 
 .kh-status.DANG_AP_DUNG {
-  color: #22c55e;
+  color: var(--mau-thanh-cong);
   background: rgba(34, 197, 94, 0.12);
   border-color: rgba(34, 197, 94, 0.3);
 }
 
 .kh-status.CHO_DUYET {
-  color: #eab308;
+  color: var(--mau-canh-bao);
   background: rgba(234, 179, 8, 0.12);
   border-color: rgba(234, 179, 8, 0.3);
 }
 
 .kh-status.NHAP {
   color: var(--mau-phu);
-  background: var(--mau-the-sub, #1e1e1e);
+  background: var(--mau-the-sub, var(--mau-the-hover));
 }
 
 .kh-status.LUU_TRU {
@@ -247,7 +243,7 @@
 
 .kh-status.DA_HUY,
 .kh-status.QUA_HAN {
-  color: #ef4444;
+  color: var(--mau-loi);
   background: rgba(239, 68, 68, 0.12);
   border-color: rgba(239, 68, 68, 0.3);
 }
@@ -278,7 +274,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--mau-chu);
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   border: 1px solid var(--mau-vien);
   padding: 4px 10px;
   border-radius: 8px;
@@ -299,7 +295,7 @@
   border: 1px solid rgba(234, 179, 8, 0.25);
   border-radius: 8px;
   font-size: 0.78rem;
-  color: #eab308;
+  color: var(--mau-canh-bao);
   font-weight: 500;
 }
 
@@ -316,18 +312,18 @@
    CHI TIẾT GIÁO ÁN (DETAIL VIEW)
    ========================================================================== */
 .kh-detail-header-card {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 24px;
   margin-bottom: 24px;
   box-shadow: var(--bong-nhe);
 }
 
 .kh-day-panel {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 24px;
   margin-bottom: 20px;
   box-shadow: var(--bong-nhe);
@@ -358,7 +354,7 @@
   font-weight: 800;
   padding: 4px 12px;
   border-radius: 9999px;
-  box-shadow: 0 2px 8px rgba(244, 91, 32, 0.4);
+  box-shadow: var(--bong-nhe);
 }
 
 /* Từng bài tập trong ngày */
@@ -378,9 +374,9 @@
 .kh-thumbnail {
   width: 84px;
   height: 84px;
-  border-radius: 12px;
+  border-radius: 8px;
   aspect-ratio: 1;
-  background: var(--mau-the-sub, #1e1e1e);
+  background: var(--mau-the-sub, var(--mau-the-hover));
   border: 1px solid var(--mau-vien);
   overflow: hidden;
   box-shadow: var(--bong-nhe);
@@ -419,7 +415,7 @@
   font-size: 0.8rem;
   padding: 5px 12px;
   border-radius: 8px;
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   border: 1px solid var(--mau-vien);
   color: var(--mau-chu);
 }
@@ -434,8 +430,8 @@
 }
 
 .kh-chip-weight {
-  background: rgba(244, 91, 32, 0.12);
-  border-color: rgba(244, 91, 32, 0.3);
+  background: color-mix(in srgb, var(--mau-chinh) 12%, transparent);
+  border-color: color-mix(in srgb, var(--mau-chinh) 30%, transparent);
   color: var(--mau-chinh);
 }
 
@@ -444,7 +440,7 @@
 }
 
 .kh-note-bubble {
-  background: color-mix(in srgb, var(--mau-chinh) 8%, var(--mau-the, #141414));
+  background: color-mix(in srgb, var(--mau-chinh) 8%, var(--mau-the, var(--mau-the)));
   border-left: 3px solid var(--mau-chinh);
   border-radius: 4px 8px 8px 4px;
   padding: 8px 14px;
@@ -458,9 +454,9 @@
 .kh-guide-details {
   margin-top: 14px;
   border: 1px solid var(--mau-vien);
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 4px 16px;
-  background: var(--mau-nen, #0a0a0a);
+  background: var(--mau-nen, var(--mau-nen));
 }
 
 .kh-guide-details summary {
@@ -484,8 +480,8 @@
   max-width: 320px;
   height: auto;
   margin-bottom: 16px;
-  border-radius: 12px;
-  background: var(--mau-the-sub, #1e1e1e);
+  border-radius: 8px;
+  background: var(--mau-the-sub, var(--mau-the-hover));
   border: 1px solid var(--mau-vien);
 }
 
@@ -495,9 +491,9 @@
   margin: 20px 0;
   border: 1px solid var(--mau-vien);
   border-left: 4px solid var(--mau-chinh);
-  border-radius: 12px;
-  background: var(--mau-the, #141414);
-  box-shadow: var(--bong-trung);
+  border-radius: 8px;
+  background: var(--mau-the, var(--mau-the));
+  box-shadow: var(--bong-nhe);
 }
 
 .kh-notice h2 {
@@ -540,8 +536,8 @@
   align-items: center;
   gap: 8px;
   padding: 8px 18px;
-  border-radius: 10px;
-  background: var(--mau-the, #141414);
+  border-radius: 8px;
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   color: var(--mau-chu);
   font-size: 0.875rem;
@@ -556,10 +552,10 @@
 }
 
 .kh-day-tab-btn.is-active {
-  background: linear-gradient(135deg, #f45b20 0%, #d94a15 100%);
+  background: var(--mau-chinh);
   border-color: transparent;
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(244, 91, 32, 0.35);
+  box-shadow: var(--bong-nhe);
 }
 
 .kh-day-count-badge {
@@ -572,15 +568,15 @@
 }
 
 .kh-day-tab-btn:not(.is-active) .kh-day-count-badge {
-  background: var(--mau-the-sub, #1e1e1e);
+  background: var(--mau-the-sub, var(--mau-the-hover));
   color: var(--mau-phu);
 }
 
 /* Từng dòng bài tập đang soạn */
 .kh-editor-row {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
-  border-radius: 14px;
+  border-radius: 8px;
   padding: 18px 20px;
   margin-bottom: 16px;
   box-shadow: var(--bong-nhe);
@@ -632,7 +628,7 @@
 .kh-input-wrapper input {
   width: 100%;
   min-height: 44px;
-  background: var(--mau-nen, #0a0a0a);
+  background: var(--mau-nen, var(--mau-nen));
   border: 1px solid var(--mau-vien);
   border-radius: 8px;
   color: var(--mau-chu);
@@ -645,7 +641,7 @@
 .kh-input-wrapper input:focus {
   border-color: var(--mau-chinh);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(244, 91, 32, 0.18);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mau-chinh) 18%, transparent);
 }
 
 .kh-input-unit {
@@ -663,7 +659,7 @@
 }
 
 .kh-error {
-  color: #ef4444;
+  color: var(--mau-loi);
   margin: 6px 0 0;
   font-size: 0.85rem;
   font-weight: 500;
@@ -684,14 +680,14 @@
 :root[data-theme='light'] .kh-card,
 .light-theme .kh-card {
   background: #ffffff;
-  border-color: #e2e8f0;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  border-color: var(--mau-vien);
+  box-shadow: var(--bong-nhe);
 }
 
 :root[data-theme='light'] .kh-filter-toolbar,
 .light-theme .kh-filter-toolbar {
   background: #ffffff;
-  border-color: #e2e8f0;
+  border-color: var(--mau-vien);
 }
 
 :root[data-theme='light'] .kh-detail-header-card,
@@ -699,42 +695,42 @@
 :root[data-theme='light'] .kh-day-panel,
 .light-theme .kh-day-panel {
   background: #ffffff;
-  border-color: #e2e8f0;
+  border-color: var(--mau-vien);
 }
 
 :root[data-theme='light'] .kh-editor-row,
 .light-theme .kh-editor-row {
   background: #ffffff;
-  border-color: #e2e8f0;
+  border-color: var(--mau-vien);
 }
 
 :root[data-theme='light'] .kh-input-wrapper input,
 .light-theme .kh-input-wrapper input,
 :root[data-theme='light'] .kh-filter-item select,
 .light-theme .kh-filter-item select {
-  background: #f8fafc;
-  border-color: #cbd5e1;
-  color: #0f172a;
+  background: var(--mau-the-sub);
+  border-color: var(--mau-phu);
+  color: var(--mau-chu);
 }
 
 :root[data-theme='light'] .kh-meta-item,
 .light-theme .kh-meta-item,
 :root[data-theme='light'] .kh-chip,
 .light-theme .kh-chip {
-  background: #f1f5f9;
-  border-color: #e2e8f0;
+  background: var(--mau-the-sub);
+  border-color: var(--mau-vien);
 }
 
 :root[data-theme='light'] .kh-guide-details,
 .light-theme .kh-guide-details {
-  background: #f8fafc;
-  border-color: #e2e8f0;
+  background: var(--mau-the-sub);
+  border-color: var(--mau-vien);
 }
 
 :root[data-theme='light'] .kh-notice,
 .light-theme .kh-notice {
   background: #ffffff;
-  border-color: #e2e8f0;
+  border-color: var(--mau-vien);
   border-left-color: var(--mau-chinh);
 }
 

@@ -27,6 +27,7 @@ class GiaoAnMauService
                 $this->kiemTraBaiTap($duLieu['bai_tap']);
                 $giaoAn = GiaoAnMau::create([...Arr::only($duLieu, ['ten_giao_an', 'muc_tieu', 'so_ngay_tap']), 'nguoi_tao_id' => $nguoiTao, 'trang_thai' => 'NHAP', 'ma_yeu_cau_tao' => $ma]);
                 $giaoAn->cacBaiTap()->createMany($this->chuanHoaBaiTap($duLieu['bai_tap']));
+                $this->baoChoDuyet($giaoAn);
 
                 return $giaoAn;
             }, 3);
@@ -49,6 +50,7 @@ class GiaoAnMauService
             $this->kiemTraBaiTap($cacBaiMoi, $cacBaiCu);
             $giaoAn->fill(Arr::only($duLieu, ['ten_giao_an', 'muc_tieu', 'so_ngay_tap']));
             if ($giaoAn->isDirty() || $cacBaiCu !== $cacBaiMoi) {
+                $vong = $giaoAn->duyet_luc?->format('Y-m-d H:i:s.u') ?? 'dau';
                 // T13 không được kế hoạch tham chiếu; thay dòng cùng transaction tránh xung đột UNIQUE khi đổi thứ tự.
                 $giaoAn->cacBaiTap()->delete();
                 $giaoAn->cacBaiTap()->createMany($cacBaiMoi);
@@ -58,6 +60,7 @@ class GiaoAnMauService
                 $giaoAn->nguoi_duyet_id = null;
                 $giaoAn->duyet_luc = null;
                 $this->luuPhienBan($giaoAn);
+                $this->baoChoDuyet($giaoAn, $vong);
             }
 
             return $giaoAn->refresh();
@@ -85,9 +88,11 @@ class GiaoAnMauService
                     $giaoAn->duyet_luc = now();
                 }
             }
+            $vong = $giaoAn->duyet_luc?->format('Y-m-d H:i:s.u') ?? 'dau';
             $giaoAn->trang_thai = $duLieu['trang_thai'];
             if ($giaoAn->isDirty()) {
                 $this->luuPhienBan($giaoAn);
+                $this->baoChoDuyet($giaoAn, $vong);
             }
 
             return $giaoAn->refresh();
@@ -112,6 +117,14 @@ class GiaoAnMauService
                 }
                 $soDongCu[$bai->id]--;
             }
+        }
+    }
+
+    private function baoChoDuyet(GiaoAnMau $giaoAn, string $vong = 'dau'): void
+    {
+        if ($giaoAn->trang_thai === 'NHAP') {
+            // Mỗi vòng sửa sau duyệt có một thông báo; chỉnh liên tiếp cùng bản nháp không làm đầy chuông.
+            app(ThongBaoService::class)->choAdmin('giao-an-mau/'.$giaoAn->id.'/nhap/'.$vong, 'Giáo án mẫu cần xem và duyệt', 'Có giáo án mẫu ở trạng thái nháp. Hãy kiểm tra nội dung trước khi duyệt.', '/admin/giao-an-mau/'.$giaoAn->id.'/sua');
         }
     }
 

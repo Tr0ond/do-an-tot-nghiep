@@ -205,9 +205,9 @@ export default {
   margin-bottom: 28px;
 }
 .dashboard-heading h1 {
-  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: var(--font-chinh);
   font-size: 2rem;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   margin: 4px 0 6px;
   color: var(--mau-chu);
   overflow-wrap: anywhere;

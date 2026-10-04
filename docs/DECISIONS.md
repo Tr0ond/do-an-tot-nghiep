@@ -175,3 +175,9 @@ Chủ dự án yêu cầu triển khai bước tiếp theo: KH chọn ngày từ
 - Chủ dự án yêu cầu ghi chiều cao/cân nặng, tính BMI, theo dõi thay đổi và dùng cho PT/AI; yêu cầu bỏ vòng eo, sau đó xác nhận triển khai phương án.
 - KH ghi/sửa chỉ số của mình miễn phí, một bản/ngày, chiều cao snapshot; PT hiện phụ trách chỉ đọc; AI chỉ nhận dữ liệu khi KH bật tùy chọn cá nhân. Không xóa lịch sử, không suy ra cơ/mỡ hoặc tự áp dụng giáo án.
 - Dùng bảng hiện có, không gỡ cột vòng eo cũ để tránh mất dữ liệu; không đưa cột này vào API/UI/AI. Hợp đồng và lựa chọn triển khai tại [CHI_SO_CO_THE.md](features/CHI_SO_CO_THE.md).
+
+## C39 — Thông báo nghiệp vụ (04/10/2026, ĐÃ CHỐT)
+
+- Chủ dự án yêu cầu “hãy làm đi” sau đề xuất bổ sung thông báo KH/PT/Admin theo lộ trình. Bật sự kiện thanh toán/kích hoạt, phân công/đổi PT, trạng thái lịch hẹn, giáo án mẫu cần xem/duyệt và nhật ký/nhận xét. Giữ thông báo gửi/xác nhận giáo án M05; C34 áp dụng lại vẫn không gửi xác nhận lần hai.
+- Dùng chuông và API hiện có, thông báo lưu cùng transaction, đọc được sau commit, chống lặp theo sự kiện/người nhận, không gửi chat/hồ sơ riêng cho Admin. Thông báo không cấp quyền tài nguyên, không tự chuyển trạng thái hoặc trừ lượt.
+- Lựa chọn triển khai: scheduler mỗi phút nhắc PT buổi đã kết thúc trong hạn 24 giờ và báo Admin khi quá hạn. Chưa bật nhắc trước buổi/gói gần hết vì chưa chốt ngưỡng. Không thêm gửi email/push hay bảng/migration mới. [Hợp đồng](features/NOTIFICATIONS.md).

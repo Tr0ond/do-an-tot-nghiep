@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>17 · Chỉ số cơ thể | Fitness Motion</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#3a4400",
+            "surface-dim": "#d0d5d7",
+            "surface-tint": "#00675f",
+            "on-surface": "#2c2f30",
+            "on-surface-variant": "#595c5d",
+            "inverse-primary": "#a0fff2",
+            "primary-fixed-dim": "#81dfd3",
+            "on-primary": "#bffff5",
+            "primary-fixed": "#8fede1",
+            "secondary-container": "#d6ef52",
+            "on-secondary-fixed-variant": "#546200",
+            "error": "#b31b25",
+            "tertiary-container": "#90afff",
+            "background": "#f5f7f8",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary": "#f1f2ff",
+            "secondary": "#546200",
+            "inverse-on-surface": "#9a9d9e",
+            "on-primary-fixed": "#00443e",
+            "inverse-surface": "#0b0f10",
+            "surface-container-high": "#dfe3e4",
+            "surface-container-low": "#eef1f2",
+            "primary": "#00675f",
+            "on-secondary-container": "#4b5700",
+            "tertiary-dim": "#0049b1",
+            "tertiary-fixed-dim": "#7aa0ff",
+            "on-error": "#ffefee",
+            "error-container": "#fb5151",
+            "on-error-container": "#570008",
+            "primary-dim": "#005a52",
+            "on-secondary": "#e6ff63",
+            "on-primary-fixed-variant": "#00635b",
+            "primary-container": "#8fede1",
+            "error-dim": "#9f0519",
+            "surface": "#f5f7f8",
+            "tertiary": "#0854c7",
+            "surface-container-highest": "#d9dddf",
+            "surface-variant": "#d9dddf",
+            "surface-container": "#e5e9ea",
+            "secondary-dim": "#495500",
+            "on-tertiary-fixed": "#00153f",
+            "surface-bright": "#f5f7f8",
+            "outline": "#747778",
+            "tertiary-fixed": "#90afff",
+            "on-background": "#2c2f30",
+            "secondary-fixed": "#d6ef52",
+            "on-tertiary-container": "#002c72",
+            "on-primary-container": "#005851",
+            "on-tertiary-fixed-variant": "#003484",
+            "outline-variant": "#abadae",
+            "secondary-fixed-dim": "#c8e044"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Be Vietnam Pro", "sans-serif"],
+            "display": ["Be Vietnam Pro", "sans-serif"],
+            "body": ["Be Vietnam Pro", "sans-serif"],
+            "label": ["Be Vietnam Pro", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      letter-spacing: 0;
+      color: #182325;
+      background-color: #f5f7f8;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-x-hidden min-h-screen">
+<!-- SIDEBAR NAVIGATION (232px) -->
+<aside class="fixed top-0 left-0 h-screen w-[232px] bg-surface-container-lowest border-r border-outline-variant/30 flex flex-col justify-between p-3 shrink-0 z-40">
+<div>
+<!-- Brand & Header -->
+<div class="px-2 py-3 mb-4 flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-surface-container-lowest font-bold text-base shadow-sm">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">fitness_center</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-base font-bold text-primary tracking-normal leading-tight">Fitness Motion</span>
+<span class="text-[11px] font-normal text-on-surface-variant">Hệ thống quản lý PT</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="space-y-1 font-body text-sm font-medium">
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+<span>Lịch &amp; Nhật ký</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-lg">fitness_center</span>
+<span>Soạn giáo án</span>
+</a>
+<a class="bg-primary text-surface-container-lowest font-semibold rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200 shadow-sm" href="#">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">monitor_weight</span>
+<span>Chỉ số cơ thể</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-lg">chat</span>
+<span>Chat trực tuyến</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-lg">inventory_2</span>
+<span>Quản lý gói tập</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-lg">group</span>
+<span>Học viên &amp; Yêu cầu</span>
+</a>
+</nav>
+<!-- AI Advisor Banner Section -->
+<div class="mt-6 p-2.5 bg-surface-container-low border border-outline-variant/30 rounded-lg">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="inline-flex items-center justify-center w-5 h-5 rounded bg-secondary-container text-on-secondary-fixed text-[11px] font-bold">AI</span>
+<span class="text-xs font-semibold text-primary">Tr0ond AI Hỗ trợ</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">Đánh giá cơ bắp &amp; tiến độ tập luyện độc lập. Hạn ngạch: 12/20 truy vấn.</p>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 60%"></div>
+</div>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="pt-3 border-t border-outline-variant/30 space-y-1 font-body text-sm font-medium">
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span>Cài đặt</span>
+</a>
+<a class="text-on-surface-variant hover:text-error hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-lg">logout</span>
+<span>Đăng xuất</span>
+</a>
+</div>
+</aside>
+<!-- TOP NAVBAR (Header 64px) -->
+<header class="fixed top-0 right-0 left-[232px] h-16 bg-surface-container-lowest border-b border-outline-variant/30 flex items-center justify-between px-6 z-30">
+<div class="flex items-center gap-3">
+<!-- Breadcrumb -->
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant font-medium">
+<span>Theo dõi thể chất</span>
+<span class="material-symbols-outlined text-xs text-outline-variant">chevron_right</span>
+<span class="text-primary font-semibold">Chỉ số cơ thể &amp; InBody</span>
+</div>
+</div>
+<!-- Operational State / Role Context Badge -->
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center gap-2 bg-surface-container-low border border-outline-variant/40 rounded-lg px-3 py-1.5 text-xs">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-medium text-on-surface">Chế độ: <strong>Học viên</strong> <span class="text-on-surface-variant">(Quyền: Nhập số đo)</span></span>
+</div>
+<span class="text-outline-variant font-light">|</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-tertiary">sports</span>
+<span class="text-on-surface-variant">HLV PT: <strong class="text-on-surface">Lê Hoàng Anh</strong> <span class="text-xs text-tertiary bg-tertiary/10 px-1.5 py-0.5 rounded">Đọc &amp; Nhận xét</span></span>
+</div>
+</div>
+<!-- Quick Actions & Profile -->
+<div class="flex items-center gap-2">
+<button class="w-9 h-9 rounded-lg hover:bg-surface-container-low flex items-center justify-center text-on-surface-variant relative transition-colors" title="Thông báo">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<button class="w-9 h-9 rounded-lg hover:bg-surface-container-low flex items-center justify-center text-on-surface-variant transition-colors" title="Trợ giúp">
+<span class="material-symbols-outlined text-xl">help_outline</span>
+</button>
+<div class="h-6 w-px bg-outline-variant/40 mx-1"></div>
+<div class="flex items-center gap-2.5 pl-1">
+<div class="w-8 h-8 rounded-lg overflow-hidden border border-outline-variant/50 bg-surface-container shrink-0">
+<img class="w-full h-full object-cover" data-alt="A portrait shot of an athletic Vietnamese personal trainer and trainee in a clean, modern gym setting with soft diffuse lighting, sporting neutral sportswear with deep teal accents and clean composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnyCgsWaSD4GHNi7DU0dhfLAdVxIooTacvW899hGHDG_tzCaG4r9nXT9TTSJc0gxHsmDR_klWfwmp81Npl_BBtkH7yOURYN-wbZnyMeubmXb0P3J6XJt9O3O8IrtR12WCZ8_Wok4g-m1QFhXAue2B9RHzopcT0H8N58frigA6vWIxMqOr2QV6sWkirUoYHcqRzWh4tYnwKF6LUsQ_TKeuL3e6TncnDIXuoFWF7Hct8dcO9v76nZ6Ms3HzyCBWm4I5ghtvZf0I_nFhF"/>
+</div>
+<div class="text-left hidden sm:block">
+<div class="text-xs font-semibold text-on-surface leading-none">Nguyễn Văn Bình</div>
+<div class="text-[11px] text-on-surface-variant leading-tight">Mã HV: #FM-8821</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN VIEWPORT CONTAINER -->
+<main class="ml-[232px] pt-16 min-h-screen bg-background p-6">
+<div class="max-w-[1440px] mx-auto space-y-6">
+<!-- TOP BANNER: Contextual Switcher & Operational Clarification -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-3.5 flex flex-wrap items-center justify-between gap-3 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">info</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+            Dữ liệu thể chất dùng để giám sát lộ trình tập luyện cơ bản và hiệu chỉnh bài tập định kỳ. Không mang tính chẩn đoán bệnh lý y khoa.
+          </p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-on-surface-variant">Chu kỳ đo định kỳ:</span>
+<span class="text-xs font-semibold bg-surface-container px-2.5 py-1 rounded text-primary">10-14 ngày/lần</span>
+<button class="text-xs font-medium text-primary hover:underline ml-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">tune</span>
+            Bộ lọc thời gian
+          </button>
+</div>
+</div>
+<!-- 1. KPI CARDS (4 thẻ thống kê trực quan) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: Cân nặng hiện tại -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-4 shadow-[0_1px_2px_rgba(0,0,0,0.02)] relative overflow-hidden">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Cân nặng hiện tại</span>
+<span class="material-symbols-outlined text-primary text-lg">scale</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-headline text-on-surface tracking-tight">71.4</span>
+<span class="text-xs font-medium text-on-surface-variant">kg</span>
+</div>
+<div class="mt-2.5 flex items-center gap-1.5 text-xs">
+<span class="inline-flex items-center text-primary font-semibold">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+              -1.4 kg
+            </span>
+<span class="text-on-surface-variant text-[11px]">(30 ngày qua)</span>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full mt-3 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 78%"></div>
+</div>
+</div>
+<!-- Card 2: BMI -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-4 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Chỉ số BMI</span>
+<span class="material-symbols-outlined text-tertiary text-lg">accessibility_new</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-headline text-on-surface tracking-tight">23.3</span>
+<span class="text-xs font-semibold px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Bình thường</span>
+</div>
+<div class="mt-2.5 flex items-center justify-between text-[11px] text-on-surface-variant">
+<span>Chiều cao quy chiếu: 175 cm</span>
+<span class="text-tertiary font-medium">Ngưỡng chuẩn (18.5 - 24.9)</span>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full mt-3 overflow-hidden flex">
+<div class="bg-surface-container-high h-full" style="width: 25%"></div>
+<div class="bg-primary h-full" style="width: 50%"></div>
+<div class="bg-error-container h-full" style="width: 25%"></div>
+</div>
+</div>
+<!-- Card 3: Body Fat % -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-4 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Tỷ lệ mỡ (Body Fat)</span>
+<span class="material-symbols-outlined text-secondary text-lg">donut_small</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-headline text-on-surface tracking-tight">16.8%</span>
+<span class="text-xs text-on-surface-variant font-normal">Ước tính InBody</span>
+</div>
+<div class="mt-2.5 flex items-center gap-1.5 text-xs text-primary font-medium">
+<span class="material-symbols-outlined text-sm">arrow_downward</span>
+<span>Giảm 0.8% so với đo trước</span>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full mt-3 overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 42%"></div>
+</div>
+</div>
+<!-- Card 4: Skeletal Muscle Mass -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-4 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-medium text-on-surface-variant uppercase tracking-wider">Khối lượng cơ (SMM)</span>
+<span class="material-symbols-outlined text-tertiary text-lg">sports_gymnastics</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-bold font-headline text-on-surface tracking-tight">33.5</span>
+<span class="text-xs font-medium text-on-surface-variant">kg</span>
+</div>
+<div class="mt-2.5 flex items-center gap-1.5 text-xs text-tertiary font-medium">
+<span class="material-symbols-outlined text-sm">arrow_upward</span>
+<span>Tăng +0.4 kg Hypertrophy</span>
+</div>
+<div class="w-full bg-surface-container h-1 rounded-full mt-3 overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 70%"></div>
+</div>
+</div>
+</section>
+<!-- 2. BIỂU ĐỒ BIẾN THIÊN & NHẬN XÉT CỦA PT (Bento Upper Row) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Line Chart Area (2 Cols) -->
+<div class="lg:col-span-2 bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-5 shadow-[0_1px_2px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3 pb-3 border-b border-outline-variant/20">
+<div>
+<h3 class="font-headline text-base font-bold text-on-surface">Biến thiên cân nặng &amp; Tiến độ thể chất</h3>
+<p class="text-xs text-on-surface-variant">Dữ liệu đối chiếu 4 mốc gần nhất (Tháng 09 - Tháng 10)</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="flex items-center gap-1 text-[11px] text-on-surface-variant font-medium">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span> Cân nặng (kg)
+                </span>
+<span class="flex items-center gap-1 text-[11px] text-on-surface-variant font-medium ml-2">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary inline-block"></span> Vòng eo (cm)
+                </span>
+</div>
+</div>
+<!-- Visualization Canvas -->
+<div class="relative w-full h-56 pt-4 pb-2">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 700 180">
+<!-- Grid Lines -->
+<line stroke="#E5E9EA" stroke-dasharray="4" stroke-width="1" x1="40" x2="680" y1="20" y2="20"></line>
+<line stroke="#E5E9EA" stroke-dasharray="4" stroke-width="1" x1="40" x2="680" y1="65" y2="65"></line>
+<line stroke="#E5E9EA" stroke-dasharray="4" stroke-width="1" x1="40" x2="680" y1="110" y2="110"></line>
+<line stroke="#E5E9EA" stroke-width="1" x1="40" x2="680" y1="155" y2="155"></line>
+<!-- Left Axis Value Labels -->
+<text fill="#595C5D" font-family="Be Vietnam Pro" font-size="10" x="10" y="24">74kg</text>
+<text fill="#595C5D" font-family="Be Vietnam Pro" font-size="10" x="10" y="69">73kg</text>
+<text fill="#595C5D" font-family="Be Vietnam Pro" font-size="10" x="10" y="114">72kg</text>
+<text fill="#595C5D" font-family="Be Vietnam Pro" font-size="10" x="10" y="158">71kg</text>
+<!-- Data Path: Cân nặng (01/09: 72.8 -> 10/09: 72.4 -> 20/09: 71.9 -> 04/10: 71.4) -->
+<!-- Coordinates:
+                     01/09: X=90, Y=74
+                     10/09: X=270, Y=92
+                     20/09: X=450, Y=115
+                     04/10: X=630, Y=137
+                -->
+<!-- Area gradient for Teal -->
+<defs>
+<lineargradient id="primaryGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#00675f" stop-opacity="0.18"></stop>
+<stop offset="100%" stop-color="#00675f" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<polygon fill="url(#primaryGradient)" points="90,74 270,92 450,115 630,137 630,155 90,155"></polygon>
+<polyline fill="none" points="90,74 270,92 450,115 630,137" stroke="#00675f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<!-- Secondary Trendline: Vòng eo (cm: 82cm -> 81.5cm -> 80.5cm -> 80cm) scaled lightly -->
+<polyline fill="none" points="90,50 270,68 450,95 630,110" stroke="#0854c7" stroke-dasharray="3,3" stroke-linecap="round" stroke-width="2"></polyline>
+<!-- Data Points and Values for Weight -->
+<g class="cursor-pointer">
+<circle cx="90" cy="74" fill="#ffffff" r="4.5" stroke="#00675f" stroke-width="2.5"></circle>
+<text fill="#00675f" font-family="Be Vietnam Pro" font-size="11" font-weight="600" text-anchor="middle" x="90" y="60">72.8</text>
+</g>
+<g class="cursor-pointer">
+<circle cx="270" cy="92" fill="#ffffff" r="4.5" stroke="#00675f" stroke-width="2.5"></circle>
+<text fill="#00675f" font-family="Be Vietnam Pro" font-size="11" font-weight="600" text-anchor="middle" x="270" y="78">72.4</text>
+</g>
+<g class="cursor-pointer">
+<circle cx="450" cy="115" fill="#ffffff" r="4.5" stroke="#00675f" stroke-width="2.5"></circle>
+<text fill="#00675f" font-family="Be Vietnam Pro" font-size="11" font-weight="600" text-anchor="middle" x="450" y="101">71.9</text>
+</g>
+<g class="cursor-pointer">
+<circle cx="630" cy="137" fill="#d6ef52" r="5" stroke="#00675f" stroke-width="2.5"></circle>
+<text fill="#00675f" font-family="Be Vietnam Pro" font-size="11" font-weight="700" text-anchor="middle" x="630" y="123">71.4 kg</text>
+</g>
+</svg>
+</div>
+<!-- X-Axis Labels -->
+<div class="grid grid-cols-4 text-center border-t border-outline-variant/30 pt-2 text-xs text-on-surface-variant font-medium">
+<div>
+<span class="block text-on-surface font-semibold">01/09/2024</span>
+<span class="text-[11px] text-outline">Bắt đầu chu kỳ</span>
+</div>
+<div>
+<span class="block text-on-surface font-semibold">10/09/2024</span>
+<span class="text-[11px] text-outline">Đo giữa kỳ 1</span>
+</div>
+<div>
+<span class="block text-on-surface font-semibold">20/09/2024</span>
+<span class="text-[11px] text-outline">Kiểm tra tải tập</span>
+</div>
+<div>
+<span class="block text-primary font-bold">04/10/2024</span>
+<span class="text-[11px] text-primary">Gần nhất (Hiện tại)</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between text-xs text-on-surface-variant">
+<span>Tốc độ giảm trung bình: <strong>0.35 kg/tuần</strong> (Đúng mục tiêu an toàn giảm mỡ tăng cơ)</span>
+<span class="text-tertiary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+              Không suy giảm cơ bắp
+            </span>
+</div>
+</div>
+<!-- Trainer Notes & Feedback Panel (1 Col) -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-5 shadow-[0_1px_2px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20 mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-xl">rate_review</span>
+<h3 class="font-headline text-sm font-bold text-on-surface">Nhận xét của Huấn luyện viên</h3>
+</div>
+<span class="text-[11px] bg-tertiary/10 text-tertiary px-2 py-0.5 rounded font-medium">Buổi số 14/24</span>
+</div>
+<!-- Trainer Card Header -->
+<div class="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-low mb-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-tertiary shrink-0">
+<img class="w-full h-full object-cover" data-alt="A focused Vietnamese fitness coach in sportswear with gym weights visible in background, captured in high-contrast professional sport photography style with natural indoor gym lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8AgT1TtHPYViq7fM7P8fO42SXIX6MevX8LAugZqQQ2X6eZdhaP9om2v1s04I6hdHJOMcXvtJBLF-aRA5pr6RqGYEg_G5Hx9KyZkOTYOgzN20wjjM-94G0UIIQYWYB0-FuhSl0nWOBS9oQTSy3poMEkNF0id_kXmxrCMHQ4qkGQjLj9HztyyP9cwVi0mDrkPJzyBaUrze76kPBuxNRWt4eAz_92rgsJ4872dTpSlrRC-3hNIusQXchZN_cGWRkeMd28PfaG0iNz7O4"/>
+</div>
+<div class="leading-tight">
+<div class="text-xs font-bold text-on-surface">HLV Lê Hoàng Anh</div>
+<div class="text-[11px] text-on-surface-variant">Huấn luyện viên Trưởng kèm 1:1</div>
+<div class="text-[10px] text-outline mt-0.5">Cập nhật: 04/10/2024 · 09:30</div>
+</div>
+</div>
+<!-- Trainer Formal Feedback Content -->
+<div class="bg-background rounded-lg p-3 border border-outline-variant/30 text-xs text-on-surface leading-relaxed space-y-2">
+<p class="font-medium text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">verified</span>
+                Đánh giá chu kỳ Hypertrophy:
+              </p>
+<p class="italic text-on-surface">
+                "Chỉ số cơ bắp tăng đều (+0.4kg), vòng eo giảm 2cm so với tháng trước. Form động tác Squat và RDL đã ổn định tải trọng. Giữ vững cường độ tập Hypertrophy hiện tại."
+              </p>
+<div class="text-[11px] text-on-surface-variant pt-2 border-t border-outline-variant/20 flex flex-col gap-1">
+<span>• Đề xuất: Tăng 2.5kg tạ bài Barbell Hip Thrust buổi tới.</span>
+<span>• Hẹn lịch InBody chính thức tại phòng máy: 15/10/2024.</span>
+</div>
+</div>
+</div>
+<!-- Non-medical Disclaimer inside trainer box -->
+<div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center gap-2 text-[11px] text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-outline-variant">policy</span>
+<span>Chỉ dẫn thuần túy về mặt vận động &amp; kỹ thuật tập gym.</span>
+</div>
+</div>
+</div>
+<!-- 3. LOWER SECTION: LỊCH SỬ ĐO ĐẠC & FORM GHI NHẬN SỐ ĐO MỚI (Bento Lower Row) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- History Table (2 Cols) -->
+<div class="lg:col-span-2 bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-5 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="font-headline text-base font-bold text-on-surface">Lịch sử các lần ghi nhận</h3>
+<p class="text-xs text-on-surface-variant">Bao gồm số đo học viên tự ghi và PT đo kiểm trực tiếp</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1.5 border border-outline-variant/40 rounded-lg text-xs font-medium text-on-surface-variant hover:bg-surface-container-low flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm">file_download</span>
+                Xuất file
+              </button>
+</div>
+</div>
+<!-- Table Component -->
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs text-on-surface border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/30 bg-surface-container-low text-on-surface-variant font-medium">
+<th class="py-2.5 px-3">Ngày đo</th>
+<th class="py-2.5 px-2">Cân nặng</th>
+<th class="py-2.5 px-2">Chiều cao</th>
+<th class="py-2.5 px-2">BMI</th>
+<th class="py-2.5 px-2">Ngực</th>
+<th class="py-2.5 px-2">Eo</th>
+<th class="py-2.5 px-2">Mông</th>
+<th class="py-2.5 px-3">Người ghi nhận</th>
+<th class="py-2.5 px-2 text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 font-normal">
+<!-- Row 1: Gần nhất -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-3 font-semibold text-primary">04/10/2024</td>
+<td class="py-3 px-2 font-bold">71.4 kg</td>
+<td class="py-3 px-2 text-on-surface-variant">175 cm</td>
+<td class="py-3 px-2"><span class="px-1.5 py-0.5 rounded bg-surface-container font-semibold">23.3</span></td>
+<td class="py-3 px-2">96 cm</td>
+<td class="py-3 px-2 text-primary font-medium">80 cm</td>
+<td class="py-3 px-2">97 cm</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-[11px] text-tertiary bg-tertiary/10 px-2 py-0.5 rounded font-medium">
+<span class="material-symbols-outlined text-xs">verified_user</span> HLV Hoàng Anh
+                    </span>
+</td>
+<td class="py-3 px-2 text-right space-x-1">
+<button class="p-1 text-on-surface-variant hover:text-primary rounded transition-colors" title="Xem chi tiết">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+<button class="p-1 text-outline-variant hover:text-error rounded transition-colors" title="Xóa">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-3 font-medium text-on-surface">20/09/2024</td>
+<td class="py-3 px-2 font-bold">71.9 kg</td>
+<td class="py-3 px-2 text-on-surface-variant">175 cm</td>
+<td class="py-3 px-2"><span class="px-1.5 py-0.5 rounded bg-surface-container">23.5</span></td>
+<td class="py-3 px-2">95.5 cm</td>
+<td class="py-3 px-2">80.5 cm</td>
+<td class="py-3 px-2">97 cm</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-[11px] text-on-surface-variant bg-surface-container px-2 py-0.5 rounded font-medium">
+<span class="material-symbols-outlined text-xs">edit_note</span> Tự ghi nhận
+                    </span>
+</td>
+<td class="py-3 px-2 text-right space-x-1">
+<button class="p-1 text-on-surface-variant hover:text-primary rounded transition-colors" title="Xem chi tiết">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+<button class="p-1 text-outline-variant hover:text-error rounded transition-colors" title="Xóa">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-3 font-medium text-on-surface">10/09/2024</td>
+<td class="py-3 px-2 font-bold">72.4 kg</td>
+<td class="py-3 px-2 text-on-surface-variant">175 cm</td>
+<td class="py-3 px-2"><span class="px-1.5 py-0.5 rounded bg-surface-container">23.6</span></td>
+<td class="py-3 px-2">95 cm</td>
+<td class="py-3 px-2">81.5 cm</td>
+<td class="py-3 px-2">96.5 cm</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-[11px] text-tertiary bg-tertiary/10 px-2 py-0.5 rounded font-medium">
+<span class="material-symbols-outlined text-xs">verified_user</span> HLV Hoàng Anh
+                    </span>
+</td>
+<td class="py-3 px-2 text-right space-x-1">
+<button class="p-1 text-on-surface-variant hover:text-primary rounded transition-colors" title="Xem chi tiết">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+<button class="p-1 text-outline-variant hover:text-error rounded transition-colors" title="Xóa">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-3 font-medium text-on-surface">01/09/2024</td>
+<td class="py-3 px-2 font-bold">72.8 kg</td>
+<td class="py-3 px-2 text-on-surface-variant">175 cm</td>
+<td class="py-3 px-2"><span class="px-1.5 py-0.5 rounded bg-surface-container">23.8</span></td>
+<td class="py-3 px-2">94.5 cm</td>
+<td class="py-3 px-2">82.0 cm</td>
+<td class="py-3 px-2">96 cm</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-[11px] text-tertiary bg-tertiary/10 px-2 py-0.5 rounded font-medium">
+<span class="material-symbols-outlined text-xs">verified_user</span> HLV Hoàng Anh
+                    </span>
+</td>
+<td class="py-3 px-2 text-right space-x-1">
+<button class="p-1 text-on-surface-variant hover:text-primary rounded transition-colors" title="Xem chi tiết">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+<button class="p-1 text-outline-variant hover:text-error rounded transition-colors" title="Xóa">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="mt-4 pt-3 border-t border-outline-variant/30 flex items-center justify-between text-xs text-on-surface-variant">
+<span>Hiển thị 4 trong tổng số 16 bản ghi lịch sử</span>
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 rounded border border-outline-variant/40 flex items-center justify-center hover:bg-surface-container-low disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-7 h-7 rounded bg-primary text-surface-container-lowest font-medium flex items-center justify-center">1</button>
+<button class="w-7 h-7 rounded border border-outline-variant/40 hover:bg-surface-container-low flex items-center justify-center">2</button>
+<button class="w-7 h-7 rounded border border-outline-variant/40 flex items-center justify-center hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Form: Ghi nhận số đo mới (1 Col) -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-5 shadow-[0_1px_2px_rgba(0,0,0,0.02)] flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 pb-3 border-b border-outline-variant/20 mb-4">
+<span class="material-symbols-outlined text-primary text-xl">straighten</span>
+<div>
+<h3 class="font-headline text-base font-bold text-on-surface leading-tight">Ghi nhận số đo mới</h3>
+<span class="text-xs text-on-surface-variant">Quyền nhập: Học viên &amp; Huấn luyện viên</span>
+</div>
+</div>
+<!-- Input Fields Grid -->
+<form class="space-y-3" onsubmit="event.preventDefault();">
+<!-- Field: Ngày đo -->
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Ngày thực hiện đo</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-lg text-xs py-2 px-3 focus:outline-none focus:border-primary text-on-surface" type="date" value="2024-10-05"/>
+</div>
+</div>
+<!-- Field 2 Cols: Cân nặng & Vòng ngực -->
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Cân nặng (kg) *</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-lg text-xs py-2 px-3 focus:outline-none focus:border-primary text-on-surface" placeholder="71.2" step="0.1" type="number"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Vòng ngực (cm)</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-lg text-xs py-2 px-3 focus:outline-none focus:border-primary text-on-surface" placeholder="96.5" step="0.5" type="number"/>
+</div>
+</div>
+<!-- Field 2 Cols: Vòng eo & Vòng đùi -->
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Vòng eo (cm) *</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-lg text-xs py-2 px-3 focus:outline-none focus:border-primary text-on-surface" placeholder="79.8" step="0.5" type="number"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Vòng đùi (cm)</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-lg text-xs py-2 px-3 focus:outline-none focus:border-primary text-on-surface" placeholder="56.0" step="0.5" type="number"/>
+</div>
+</div>
+<!-- Field: Ghi chú thể trạng -->
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Ghi chú thể trạng lúc đo</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-lg text-xs p-2.5 focus:outline-none focus:border-primary text-on-surface" placeholder="Đo vào buổi sáng sau thức dậy, trước khi ăn sáng. Cảm giác cơ lưng xô hơi căng nhẹ..." rows="3"></textarea>
+</div>
+<!-- Submit button -->
+<button class="w-full bg-primary hover:bg-primary-dim text-surface-container-lowest font-semibold text-xs py-2.5 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm" type="submit">
+<span class="material-symbols-outlined text-sm">save</span>
+                Lưu số đo mới
+              </button>
+</form>
+</div>
+<p class="text-[11px] text-on-surface-variant text-center mt-3 pt-2 border-t border-outline-variant/20">
+            Số đo sau khi lưu sẽ tự động đồng bộ vào lịch sử để PT theo dõi giáo án.
+          </p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

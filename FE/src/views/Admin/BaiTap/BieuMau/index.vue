@@ -549,7 +549,7 @@ export default {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-tron);
   font-size: 0.85rem;
@@ -561,7 +561,7 @@ export default {
 }
 
 .btn-back-link:hover {
-  background: var(--mau-the-hover, #242424);
+  background: var(--mau-the-hover, var(--mau-the-hover));
   color: var(--mau-chinh);
   border-color: var(--mau-chinh);
   transform: translateX(-3px);
@@ -575,7 +575,7 @@ export default {
 }
 
 .editor-panel {
-  background: var(--mau-the, #141414);
+  background: var(--mau-the, var(--mau-the));
   border: 1px solid var(--mau-vien);
   border-radius: var(--bo-goc-lg);
   padding: 28px;

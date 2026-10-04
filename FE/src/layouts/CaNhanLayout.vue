@@ -47,9 +47,15 @@
             aria-hidden="true"
           ></i>
         </button>
+        <nav class="shell-breadcrumb" aria-label="Vị trí hiện tại">
+          <RouterLink :to="trangTongQuan" class="breadcrumb-root">{{ nhanVaiTro }}</RouterLink>
+          <span class="breadcrumb-divider" aria-hidden="true">/</span>
+          <span class="breadcrumb-current" aria-current="page">{{ tenManHinh }}</span>
+        </nav>
         <nav aria-label="Tài khoản" class="account-nav">
-          <NutChuyenChuDe kich-thuoc="lg" />
+          <NutChuyenChuDe kich-thuoc="md" />
           <ThongBaoHeader v-if="xacThuc.taiKhoan" ref="inbox" @mo-bang="dangMoTaiKhoan = false" />
+          <div class="header-divider" aria-hidden="true"></div>
           <div
             v-if="xacThuc.taiKhoan"
             ref="khuVucTaiKhoan"
@@ -67,6 +73,10 @@
               @click="doiTaiKhoan"
             >
               <span class="user-avatar-circle">{{ chuCaiDau }}</span>
+              <span class="shell-user-copy">
+                <strong>{{ xacThuc.taiKhoan.ho_ten }}</strong>
+              </span>
+              <i class="bi bi-chevron-down ms-1 text-muted small" aria-hidden="true"></i>
             </button>
             <section
               v-if="dangMoTaiKhoan"
@@ -90,14 +100,32 @@
         </nav>
       </header>
 
-      <main class="member-content">
+      <main id="noi-dung-chinh" class="member-content stitch-workspace" :data-screen="loaiManHinh">
         <div v-if="thongBao" class="alert alert-danger" role="alert">{{ thongBao }}</div>
         <slot />
       </main>
       <footer class="member-footer">
         <span>Hệ thống huấn luyện thể hình cá nhân trực tuyến</span>
-        <span class="small">Hành trình tập luyện của bạn · Phiên bản 2.0</span>
+        <span class="small">Tr0ond Fitness</span>
       </footer>
+      <nav class="mobile-navigation" aria-label="Điều hướng nhanh">
+        <RouterLink
+          v-for="muc in menuNhanh"
+          :key="muc.to"
+          :to="muc.to"
+          :aria-current="$route.path.startsWith(muc.to) ? 'page' : undefined"
+        >
+          <i :class="`bi bi-${muc.icon}`" aria-hidden="true"></i><span>{{ muc.ten }}</span>
+        </RouterLink>
+        <button
+          type="button"
+          aria-label="Xem tất cả mục điều hướng"
+          :aria-expanded="dangMoMenu"
+          @click="doiMenu"
+        >
+          <i class="bi bi-grid" aria-hidden="true"></i><span>Thêm</span>
+        </button>
+      </nav>
     </div>
   </div>
 </template>
@@ -119,6 +147,7 @@ export default {
       thongBao: '',
       dangMoTaiKhoan: false,
       dangMoMenu: false,
+      nutMoMenu: null,
       laDiDong: false,
     }
   },
@@ -149,6 +178,75 @@ export default {
     chuCaiDau() {
       return (this.xacThuc.taiKhoan?.ho_ten || 'U').trim().charAt(0).toUpperCase()
     },
+    trangTongQuan() {
+      return `${this.duongDanHoSo.replace('/ho-so', '')}/tong-quan`
+    },
+    loaiManHinh() {
+      const p = this.$route.path
+      if (/\/(them|sua)$/.test(p)) return 'editor'
+      if (/\/\d+$/.test(p) && !p.includes('tin-nhan')) return 'detail'
+      if (p.includes('tong-quan')) return 'dashboard'
+      if (p.includes('tin-nhan') || p.includes('chatbot')) return 'conversation'
+      if (p.includes('ho-so')) return 'profile'
+      return 'collection'
+    },
+    tenManHinh() {
+      const nhan = {
+        'tong-quan': 'Tổng quan',
+        'ho-so': 'Hồ sơ cá nhân',
+        'chi-so-co-the': 'Chỉ số cơ thể',
+        'tin-nhan': 'Tin nhắn',
+        chatbot: 'Tr0ond AI',
+        'tai-lieu-tu-van': 'Tài liệu & AI',
+        'lich-tap': 'Lịch & nhật ký',
+        'lich-hen': 'Lịch hẹn',
+        'dat-lich': 'Đặt lịch',
+        'khung-gio': 'Khung giờ',
+        'ke-hoach': 'Giáo án',
+        'giao-an-mau': 'Giáo án mẫu',
+        'hoc-vien': 'Học viên',
+        'goi-cua-toi': 'Gói của tôi',
+        'don-hang': 'Đơn hàng',
+        'tai-khoan': 'Tài khoản',
+        'phan-cong': 'Phân công PT',
+        'nhom-co': 'Nhóm cơ',
+        'bai-tap': 'Bài tập',
+        'goi-tap': 'Gói tập',
+        faq: 'Câu hỏi & tài liệu',
+      }
+      return (
+        this.$route.path
+          .split('/')
+          .reverse()
+          .map((p) => nhan[p])
+          .find(Boolean) || 'Tr0ond Fitness'
+      )
+    },
+    menuNhanh() {
+      const goc = this.duongDanHoSo.replace('/ho-so', '')
+      const cacMuc =
+        this.vaiTro === 'ADMIN'
+          ? [
+              ['tong-quan', 'Tổng quan', 'grid-1x2'],
+              ['don-hang', 'Đơn hàng', 'receipt'],
+              ['phan-cong', 'Phân công', 'person-check'],
+              ['tai-khoan', 'Tài khoản', 'people'],
+            ]
+          : this.vaiTro === 'HUAN_LUYEN_VIEN'
+            ? [
+                ['tong-quan', 'Tổng quan', 'grid-1x2'],
+                ['lich-hen', 'Lịch hẹn', 'calendar3'],
+                ['hoc-vien', 'Học viên', 'people'],
+                ['tin-nhan', 'Tin nhắn', 'chat-left-text'],
+              ]
+            : [
+                ['tong-quan', 'Tổng quan', 'grid-1x2'],
+                ['lich-tap', 'Lịch tập', 'calendar3'],
+                ['ke-hoach', 'Giáo án', 'journal-check'],
+                ['tin-nhan', 'Tin nhắn', 'chat-left-text'],
+              ]
+      return cacMuc.map(([duong, ten, icon]) => ({ to: `${goc}/${duong}`, ten, icon }))
+    },
   },
   watch: {
     '$route.fullPath'() {
@@ -178,10 +276,11 @@ export default {
       this.laDiDong = window.matchMedia('(max-width: 1023px)').matches
       if (!this.laDiDong) this.dongMenuDiDong()
     },
-    doiMenu() {
+    doiMenu(suKien) {
       this.dongTaiKhoan()
       this.$refs.inbox?.dong()
       if (!this.laDiDong) return this.dieuHuong.doiTrangThai()
+      this.nutMoMenu = suKien?.currentTarget || this.$refs.nutMenu
       this.$refs.menuDiDong?.showModal()
       this.dangMoMenu = true
     },
@@ -189,7 +288,7 @@ export default {
       const daMo = this.dangMoMenu
       this.dangMoMenu = false
       if (this.$refs.menuDiDong?.open) this.$refs.menuDiDong.close()
-      if (daMo) this.$refs.nutMenu?.focus()
+      if (daMo) (this.nutMoMenu || this.$refs.nutMenu)?.focus()
     },
     bamNenMenu(suKien) {
       if (suKien.target !== this.$refs.menuDiDong) return
@@ -245,7 +344,7 @@ export default {
 
 <style scoped>
 .member-with-sidebar {
-  --sidebar-width: 264px;
+  --sidebar-width: 232px;
 }
 .member-with-sidebar.sidebar-collapsed {
   --sidebar-width: 84px;
@@ -267,63 +366,142 @@ export default {
   flex-direction: column;
 }
 .member-with-sidebar .member-header {
-  height: 80px;
-  flex: 0 0 80px;
-  padding: 16px 32px;
+  height: 64px;
+  flex: 0 0 64px;
+  padding: 0 24px;
   gap: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--mau-the);
+  border-bottom: 1px solid var(--mau-vien);
+  position: sticky;
+  top: 0;
+  z-index: 100;
   flex-wrap: nowrap;
 }
+.shell-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+}
+.shell-breadcrumb .breadcrumb-root {
+  color: var(--mau-phu);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+.shell-breadcrumb .breadcrumb-root:hover {
+  color: var(--mau-chu);
+}
+.shell-breadcrumb .breadcrumb-divider {
+  color: var(--mau-vien);
+  font-size: 13px;
+  user-select: none;
+}
+.shell-breadcrumb .breadcrumb-current {
+  color: var(--mau-chu);
+  font-weight: 600;
+}
 .member-with-sidebar .account-nav {
-  gap: 12px;
+  margin-left: auto;
+  gap: 10px;
   width: auto;
+  display: flex;
+  align-items: center;
   justify-content: flex-end;
 }
+.header-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--mau-vien);
+  margin: 0 4px;
+}
 .member-with-sidebar .member-content {
-  max-width: none;
-  padding: 32px;
+  flex: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 28px 24px;
   min-width: 0;
+  box-sizing: border-box;
 }
 .member-with-sidebar.chat-layout .member-content {
-  width: calc(100% - 64px);
-  padding-inline: 0;
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
 }
 .member-with-sidebar .member-footer {
-  padding: 24px 32px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--mau-vien);
+  background: var(--mau-nen);
+  color: var(--mau-phu);
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
 }
-.shell-icon,
-.avatar-toggle {
+.shell-icon {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   flex-shrink: 0;
   padding: 0;
   border: 1px solid var(--mau-vien);
-  border-radius: 12px;
+  border-radius: 8px;
   background: transparent;
   color: var(--mau-chu);
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  transition: all 0.15s ease;
 }
-.shell-icon:hover,
+.shell-icon:hover {
+  background: var(--mau-the-hover);
+}
+.avatar-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  padding: 4px 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--mau-chu);
+  transition: all 0.15s ease;
+}
 .avatar-toggle:hover {
   background: var(--mau-the-hover);
+}
+.avatar-toggle .user-avatar-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--mau-chinh-nhat);
+  color: var(--mau-chinh);
+  font-weight: 700;
+  font-size: 12px;
+  display: grid;
+  place-items: center;
+}
+.shell-user-copy {
+  display: flex;
+  align-items: center;
+}
+.shell-user-copy strong {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--mau-chu);
 }
 .shell-icon:focus-visible,
 .avatar-toggle:focus-visible,
 .account-panel a:focus-visible,
 .account-panel button:focus-visible {
   outline: 2px solid var(--mau-chinh);
-  outline-offset: 3px;
-}
-.avatar-toggle {
-  border-radius: 50%;
-}
-.avatar-toggle .user-avatar-circle {
-  width: 38px;
-  height: 38px;
-  font-size: 1rem;
+  outline-offset: 2px;
 }
 .account-dropdown {
   position: relative;
@@ -335,7 +513,7 @@ export default {
   width: 260px;
   max-width: calc(100vw - 32px);
   border: 1px solid var(--mau-vien);
-  border-radius: 16px;
+  border-radius: 8px;
   background: var(--mau-the, var(--mau-nen));
   box-shadow: var(--bong-nhe);
   padding: 8px;
@@ -417,8 +595,8 @@ export default {
   }
   .member-with-sidebar .member-header {
     padding-inline: 24px;
-    height: 72px;
-    flex-basis: 72px;
+    height: 64px;
+    flex-basis: 64px;
   }
   .member-with-sidebar .member-content {
     padding: 24px;

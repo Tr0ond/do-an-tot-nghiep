@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>13 · Quản lý gói tập | Fitness Motion Admin</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#3a4400",
+            "surface": "#f5f7f8",
+            "surface-variant": "#d9dddf",
+            "tertiary": "#0854c7",
+            "outline": "#747778",
+            "error-dim": "#9f0519",
+            "secondary-dim": "#495500",
+            "on-primary": "#bffff5",
+            "primary-fixed-dim": "#81dfd3",
+            "on-surface-variant": "#595c5d",
+            "on-tertiary-container": "#002c72",
+            "tertiary-fixed-dim": "#7aa0ff",
+            "surface-container-high": "#dfe3e4",
+            "primary-container": "#8fede1",
+            "on-tertiary": "#f1f2ff",
+            "surface-dim": "#d0d5d7",
+            "surface-bright": "#f5f7f8",
+            "primary": "#00675f",
+            "on-secondary-container": "#4b5700",
+            "surface-container-highest": "#d9dddf",
+            "on-secondary": "#e6ff63",
+            "on-error-container": "#570008",
+            "on-secondary-fixed-variant": "#546200",
+            "on-primary-fixed-variant": "#00635b",
+            "background": "#f5f7f8",
+            "surface-container-low": "#eef1f2",
+            "error-container": "#fb5151",
+            "surface-container-lowest": "#ffffff",
+            "inverse-on-surface": "#9a9d9e",
+            "on-tertiary-fixed": "#00153f",
+            "on-tertiary-fixed-variant": "#003484",
+            "on-primary-container": "#005851",
+            "secondary-fixed": "#d6ef52",
+            "primary-dim": "#005a52",
+            "secondary": "#546200",
+            "inverse-primary": "#a0fff2",
+            "surface-tint": "#00675f",
+            "error": "#b31b25",
+            "on-error": "#ffefee",
+            "on-background": "#2c2f30",
+            "tertiary-dim": "#0049b1",
+            "on-primary-fixed": "#00443e",
+            "secondary-container": "#d6ef52",
+            "tertiary-container": "#90afff",
+            "surface-container": "#e5e9ea",
+            "tertiary-fixed": "#90afff",
+            "secondary-fixed-dim": "#c8e044",
+            "primary-fixed": "#8fede1",
+            "inverse-surface": "#0b0f10",
+            "outline-variant": "#abadae",
+            "on-surface": "#2c2f30"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Be Vietnam Pro", "sans-serif"],
+            "display": ["Be Vietnam Pro", "sans-serif"],
+            "body": ["Be Vietnam Pro", "sans-serif"],
+            "label": ["Be Vietnam Pro", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      letter-spacing: 0;
+      color: #182325;
+      background-color: #F5F7F8;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f3f4;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cfd4d6;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface flex min-h-screen overflow-x-hidden antialiased">
+<!-- ========================================== -->
+<!-- SIDEBAR NAVIGATION (SHARED COMPONENT ANCHOR) -->
+<!-- ========================================== -->
+<aside class="fixed top-0 left-0 h-screen w-[232px] rounded-none border-r border-outline-variant dark:border-outline bg-surface-container-lowest dark:bg-inverse-surface w-[232px] flex flex-col justify-between p-3 shrink-0 z-40">
+<div class="flex flex-col gap-5">
+<!-- Header / Logo -->
+<div class="flex items-center gap-3 px-2 py-2">
+<div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-[22px]">fitness_center</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-lg font-bold text-primary dark:text-inverse-primary tracking-normal leading-tight">Fitness Motion</span>
+<span class="text-xs text-on-surface-variant font-medium">Hệ thống quản lý PT</span>
+</div>
+</div>
+<!-- Navigation Menu items -->
+<nav class="flex flex-col gap-1.5 font-body text-sm font-medium">
+<!-- Item 1: Lịch & Nhật ký -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low dark:text-inverse-on-surface rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+<span>Lịch &amp; Nhật ký</span>
+</a>
+<!-- Item 2: Soạn giáo án -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low dark:text-inverse-on-surface rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-lg">fitness_center</span>
+<span>Soạn giáo án</span>
+</a>
+<!-- Item 3: Chat trực tuyến -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low dark:text-inverse-on-surface rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-lg">chat</span>
+<span>Chat trực tuyến</span>
+</a>
+<!-- Item 4: Quản lý gói tập (ACTIVE LOCK) -->
+<a class="bg-primary text-on-primary font-semibold rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200 shadow-sm" href="#">
+<span class="material-symbols-outlined text-lg text-primary-container">inventory_2</span>
+<span>Quản lý gói tập</span>
+</a>
+<!-- Item 5: Học viên & Yêu cầu -->
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low dark:text-inverse-on-surface rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-lg">group</span>
+<span>Học viên &amp; Yêu cầu</span>
+</a>
+</nav>
+</div>
+<!-- AI Advisor Badge & Footer items -->
+<div class="flex flex-col gap-2 pt-3 border-t border-surface-container-high">
+<!-- Tr0ond AI Support Widget -->
+<div class="bg-surface-container-low p-2.5 rounded-lg border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="inline-flex w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="text-xs font-semibold text-primary">Tr0ond AI Hỗ trợ</span>
+</div>
+<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant border border-surface-container-high">Admin AI</span>
+</div>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span>Cài đặt</span>
+</a>
+<a class="text-on-surface-variant hover:text-error hover:bg-surface-container-low rounded-lg px-3 py-2 flex items-center gap-3 transition-colors text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-lg">logout</span>
+<span>Đăng xuất</span>
+</a>
+</div>
+</aside>
+<!-- ========================================== -->
+<!-- TOP APP BAR (SHARED COMPONENT ANCHOR) -->
+<!-- ========================================== -->
+<header class="fixed top-0 right-0 left-[232px] h-16 w-[calc(100%-232px)] border-b border-outline-variant dark:border-outline bg-surface-container-lowest dark:bg-inverse-surface px-6 flex items-center justify-between z-30">
+<!-- Left Navigation cluster & Search -->
+<div class="flex items-center gap-6">
+<div class="relative w-72">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="w-full bg-surface-container-low text-xs text-on-surface pl-9 pr-3 py-2 rounded-lg border border-transparent focus:border-primary focus:bg-surface-container-lowest focus:ring-0 transition-all placeholder:text-on-surface-variant" placeholder="Tìm kiếm cấu hình hoặc mã gói..." type="text"/>
+</div>
+<nav class="hidden lg:flex items-center gap-6 font-headline text-sm font-medium">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1" href="#">Quản lý gói dịch vụ</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors pb-1" href="#">Lịch tập</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors pb-1" href="#">Kế hoạch</a>
+</nav>
+</div>
+<!-- Right Trail Section -->
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors" title="Thông báo hệ thống">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors" title="Trợ giúp nghiệp vụ">
+<span class="material-symbols-outlined text-xl">help_outline</span>
+</button>
+<div class="h-6 w-px bg-surface-container-high"></div>
+<!-- Super Admin Profile Badge -->
+<div class="flex items-center gap-3 pl-1">
+<img class="w-9 h-9 rounded-full object-cover ring-1 ring-primary/30" data-alt="Close up professional portrait of Tran Dinh Tri, male Vietnamese executive super admin in modern charcoal shirt in high key neutral studio light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAk6XpAt48orb307vY0yC0GR-JtqcusbPGRFmlkWMqWxzbzYiVzRdFS_K-nJgTMZN2oBzA81PMGpEmr8Lv6RixZOOSdCgpNlDniWfMZxM9YeGqMHj6r3pxmOrHWOO2i5CuWiP3puRSGS9F9HLwa8wmS_rumVaXRYqI15rgSM2qxSeZCXvNr37OWP7f0VRVErW5OVhDHBJJSKL5BPQtfh5tbLvln1mEVFrBrjjyKgUKla289yXcaoS-i6v6k4WJc7RMKex75ASvRWZL"/>
+<div class="flex flex-col text-left">
+<span class="text-xs font-bold text-on-surface leading-tight">Trần Đình Trí</span>
+<span class="text-[11px] text-tertiary font-semibold">Super Admin (Toàn quyền)</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ========================================== -->
+<!-- MAIN WORKSPACE CONTENT CANVAS -->
+<!-- ========================================== -->
+<main class="ml-[232px] pt-16 flex-1 min-h-screen bg-background p-6">
+<div class="max-w-[1440px] mx-auto space-y-6">
+<!-- Action Policy & Guard Alert (Admin business rules) -->
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-lg p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-xl">verified_user</span>
+</div>
+<div>
+<h2 class="text-xs font-bold text-on-surface uppercase tracking-wide">Quy tắc cấu hình gói tập chuẩn nghiệp vụ</h2>
+<p class="text-xs text-on-surface-variant mt-0.5">
+              Hệ thống <strong class="text-on-surface">không áp dụng tự động gia hạn</strong> và <strong class="text-on-surface">học viên chỉ kích hoạt 1 gói tại một thời điểm</strong>. Quota AI do Tr0ond AI điều phối độc lập với số buổi PT.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end md:self-auto shrink-0">
+<span class="px-2.5 py-1 text-xs font-semibold rounded bg-surface-container-low text-on-surface-variant border border-surface-container-high">
+            Đang hoạt động: 3 gói
+          </span>
+<span class="px-2.5 py-1 text-xs font-semibold rounded bg-secondary-container/30 text-on-secondary-container border border-secondary-container/50">
+            Hạn mức Tr0ond AI sẵn sàng
+          </span>
+</div>
+</div>
+<!-- Page Headline & Primary Action -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<h1 class="text-2xl font-bold text-on-surface tracking-tight">Quản lý gói dịch vụ &amp; Cấu hình tập luyện</h1>
+<p class="text-xs text-on-surface-variant mt-1">Định nghĩa định mức buổi tập cá nhân (PT), giá niêm yết VND và hạn ngạch trợ lý Tr0ond AI.</p>
+</div>
+<!-- 44px Primary Action Button -->
+<button class="h-11 px-5 rounded-lg bg-primary hover:bg-primary-dim text-surface-container-lowest font-medium text-sm flex items-center justify-center gap-2 transition-all shadow-sm active:scale-[0.98] shrink-0" onclick="openPackageDrawer()">
+<span class="material-symbols-outlined text-lg">add</span>
+<span>+ Thêm gói dịch vụ mới</span>
+</button>
+</div>
+<!-- Table Section Wrapper (Glass/Flat minimal card) -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 shadow-[0_1px_3px_rgba(0,0,0,0.03)] overflow-hidden">
+<!-- Filter Bar & Search controls -->
+<div class="p-4 border-b border-surface-container-high flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 bg-surface-container-lowest">
+<!-- Search input for packages -->
+<div class="relative w-full md:w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-base">search</span>
+<input class="w-full text-xs bg-surface-container-low text-on-surface pl-9 pr-3 py-2 rounded-lg border border-outline-variant/40 focus:border-primary focus:bg-surface-container-lowest focus:ring-0 transition-colors" placeholder="Tìm theo tên gói hoặc quyền lợi..." type="text"/>
+</div>
+<!-- Segmented Filter Status -->
+<div class="flex items-center gap-1.5 p-1 bg-surface-container-low rounded-lg border border-outline-variant/30 self-start md:self-auto">
+<button class="px-3 py-1.5 text-xs font-semibold rounded bg-surface-container-lowest text-primary shadow-sm">
+              Tất cả (4)
+            </button>
+<button class="px-3 py-1.5 text-xs font-medium rounded text-on-surface-variant hover:text-on-surface transition-colors">
+              Đang kích hoạt (3)
+            </button>
+<button class="px-3 py-1.5 text-xs font-medium rounded text-on-surface-variant hover:text-on-surface transition-colors">
+              Tạm ngưng (1)
+            </button>
+</div>
+</div>
+<!-- Full-width Responsive Data Table -->
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/70 border-b border-surface-container-high text-[11px] font-bold text-on-surface-variant tracking-wider uppercase">
+<th class="py-3 px-4">Tên gói dịch vụ</th>
+<th class="py-3 px-4">Quyền lợi snapshot</th>
+<th class="py-3 px-4">Đơn giá niêm yết</th>
+<th class="py-3 px-4">Thời hạn</th>
+<th class="py-3 px-4 text-center">Buổi cùng PT</th>
+<th class="py-3 px-4 text-center">Hạn mức Tr0ond AI</th>
+<th class="py-3 px-4 text-center">Trạng thái</th>
+<th class="py-3 px-4 text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high text-xs text-on-surface">
+<!-- ROW 1: Gói PT Standard + AI -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3.5 px-4 font-semibold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-sm font-bold text-on-surface">Gói PT Standard + AI</span>
+</div>
+<span class="text-[11px] text-on-surface-variant block mt-0.5 pl-4">Mã: PKG-STD-12</span>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant">
+<div class="flex flex-col gap-0.5">
+<span class="text-xs text-on-surface font-medium">12 buổi PT 1 kèm 1 theo giáo án riêng</span>
+<span class="text-[11px] text-on-surface-variant">Theo dõi chỉ số InBody &amp; Chat trực tiếp PT</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-bold text-sm text-tertiary">
+                  3.000.000đ
+                </td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-on-surface font-medium text-xs">
+                    30 ngày
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center font-bold text-on-surface">
+<span class="px-2 py-1 rounded bg-tertiary-container/30 text-on-tertiary-container font-semibold">12 buổi</span>
+</td>
+<td class="py-3.5 px-4 text-center font-medium">
+<span class="inline-flex items-center gap-1 text-primary font-bold">
+<span class="material-symbols-outlined text-sm">bolt</span>
+                    20 lượt/ngày
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-primary-container/40 text-on-primary-container border border-primary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    Đang bán
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center gap-2">
+<button class="px-2.5 py-1.5 rounded text-xs font-semibold text-primary hover:bg-surface-container transition-colors inline-flex items-center gap-1" onclick="openPackageDrawer('PT Standard + AI', '3.000.000', '30', '12', '20')">
+<span class="material-symbols-outlined text-sm">edit</span>
+                      Chỉnh sửa
+                    </button>
+<button class="px-2.5 py-1.5 rounded text-xs font-medium text-on-surface-variant hover:text-error hover:bg-surface-container transition-colors inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">pause_circle</span>
+                      Tạm dừng
+                    </button>
+</div>
+</td>
+</tr>
+<!-- ROW 2: Gói PT Chuyên sâu (Advanced) -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3.5 px-4 font-semibold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-sm font-bold text-on-surface">Gói PT Chuyên sâu (Advanced)</span>
+</div>
+<span class="text-[11px] text-on-surface-variant block mt-0.5 pl-4">Mã: PKG-ADV-24</span>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant">
+<div class="flex flex-col gap-0.5">
+<span class="text-xs text-on-surface font-medium">24 buổi PT nâng cao kỹ thuật cử tạ/hypertrophy</span>
+<span class="text-[11px] text-on-surface-variant">Ưu tiên đặt lịch khung giờ cao điểm</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-bold text-sm text-tertiary">
+                  5.800.000đ
+                </td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-on-surface font-medium text-xs">
+                    60 ngày
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center font-bold text-on-surface">
+<span class="px-2 py-1 rounded bg-tertiary-container/30 text-on-tertiary-container font-semibold">24 buổi</span>
+</td>
+<td class="py-3.5 px-4 text-center font-medium">
+<span class="inline-flex items-center gap-1 text-primary font-bold">
+<span class="material-symbols-outlined text-sm">bolt</span>
+                    30 lượt/ngày
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-primary-container/40 text-on-primary-container border border-primary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    Đang bán
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center gap-2">
+<button class="px-2.5 py-1.5 rounded text-xs font-semibold text-primary hover:bg-surface-container transition-colors inline-flex items-center gap-1" onclick="openPackageDrawer('PT Chuyên sâu (Advanced)', '5.800.000', '60', '24', '30')">
+<span class="material-symbols-outlined text-sm">edit</span>
+                      Chỉnh sửa
+                    </button>
+<button class="px-2.5 py-1.5 rounded text-xs font-medium text-on-surface-variant hover:text-error hover:bg-surface-container transition-colors inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">pause_circle</span>
+                      Tạm dừng
+                    </button>
+</div>
+</td>
+</tr>
+<!-- ROW 3: Gói AI Coach Tự luyện -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3.5 px-4 font-semibold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="text-sm font-bold text-on-surface">Gói AI Coach Tự luyện</span>
+</div>
+<span class="text-[11px] text-on-surface-variant block mt-0.5 pl-4">Mã: PKG-AIC-30</span>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant">
+<div class="flex flex-col gap-0.5">
+<span class="text-xs text-on-surface font-medium">Tự luyện theo thư viện bài tập &amp; Tr0ond AI hướng dẫn</span>
+<span class="text-[11px] text-on-surface-variant">Không bao gồm huấn luyện viên cá nhân trực tiếp</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-bold text-sm text-tertiary">
+                  1.200.000đ
+                </td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-on-surface font-medium text-xs">
+                    30 ngày
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center font-medium text-on-surface-variant">
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-medium">0 buổi</span>
+</td>
+<td class="py-3.5 px-4 text-center font-medium">
+<span class="inline-flex items-center gap-1 text-primary font-bold">
+<span class="material-symbols-outlined text-sm">bolt</span>
+                    50 lượt/ngày
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-primary-container/40 text-on-primary-container border border-primary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                    Đang bán
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center gap-2">
+<button class="px-2.5 py-1.5 rounded text-xs font-semibold text-primary hover:bg-surface-container transition-colors inline-flex items-center gap-1" onclick="openPackageDrawer('AI Coach Tự luyện', '1.200.000', '30', '0', '50')">
+<span class="material-symbols-outlined text-sm">edit</span>
+                      Chỉnh sửa
+                    </button>
+<button class="px-2.5 py-1.5 rounded text-xs font-medium text-on-surface-variant hover:text-error hover:bg-surface-container transition-colors inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">pause_circle</span>
+                      Tạm dừng
+                    </button>
+</div>
+</td>
+</tr>
+<!-- ROW 4: Gói Trải nghiệm (Trial) -->
+<tr class="hover:bg-surface-container-low/40 transition-colors bg-surface-container-low/20">
+<td class="py-3.5 px-4 font-semibold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="text-sm font-bold text-on-surface-variant">Gói Trải nghiệm (Trial)</span>
+</div>
+<span class="text-[11px] text-on-surface-variant block mt-0.5 pl-4">Mã: PKG-TRL-03</span>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant">
+<div class="flex flex-col gap-0.5">
+<span class="text-xs text-on-surface-variant">3 buổi làm quen máy tập &amp; đánh giá tư thế ban đầu</span>
+<span class="text-[11px] text-on-surface-variant">Chỉ dành cho học viên đăng ký mới</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-bold text-sm text-on-surface-variant">
+                  800.000đ
+                </td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-medium text-xs">
+                    10 ngày
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center font-bold text-on-surface-variant">
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface-variant">3 buổi</span>
+</td>
+<td class="py-3.5 px-4 text-center font-medium">
+<span class="inline-flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">bolt</span>
+                    10 lượt/ngày
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-surface-container-high text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                    Tạm ngưng
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center gap-2">
+<button class="px-2.5 py-1.5 rounded text-xs font-semibold text-primary hover:bg-surface-container transition-colors inline-flex items-center gap-1" onclick="openPackageDrawer('Trải nghiệm (Trial)', '800.000', '10', '3', '10')">
+<span class="material-symbols-outlined text-sm">edit</span>
+                      Chỉnh sửa
+                    </button>
+<button class="px-2.5 py-1.5 rounded text-xs font-medium text-primary hover:bg-surface-container transition-colors inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">play_circle</span>
+                      Mở lại
+                    </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Ledger Summary Footer -->
+<div class="p-3.5 border-t border-surface-container-high flex flex-col sm:flex-row items-center justify-between text-xs text-on-surface-variant gap-3 bg-surface-container-lowest">
+<div class="flex items-center gap-2">
+<span>Hiển thị <strong>4</strong> trên tổng số <strong>4</strong> gói dịch vụ cấu hình</span>
+<span class="text-surface-container-highest">|</span>
+<span class="italic text-[11px]">Trạng thái đồng bộ máy chủ: Sẵn sàng</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 rounded text-outline-variant cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<span class="px-2.5 py-1 rounded bg-surface-container font-semibold text-on-surface">1</span>
+<button class="p-1 rounded text-outline-variant cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- ========================================== -->
+<!-- DRAWER: CẤU HÌNH GÓI TẬP (SLIDE-OVER PANEL) -->
+<!-- ========================================== -->
+<!-- Backdrop -->
+<div class="fixed inset-0 bg-inverse-surface/40 z-50 backdrop-blur-[1px] transition-opacity duration-200 opacity-0 pointer-events-none" id="drawer-backdrop" onclick="closePackageDrawer()"></div>
+<!-- Slide-over Drawer Panel -->
+<div class="fixed top-0 right-0 h-full w-full max-w-[480px] bg-surface-container-lowest border-l border-outline-variant/40 shadow-2xl z-50 flex flex-col justify-between translate-x-full transition-transform duration-200 ease-in-out" id="package-drawer">
+<!-- Drawer Header -->
+<div class="p-5 border-b border-surface-container-high flex items-center justify-between bg-surface-container-lowest">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">tune</span>
+</div>
+<div>
+<h2 class="font-headline text-base font-bold text-on-surface" id="drawer-title">Cấu hình gói dịch vụ: PT Standard + AI</h2>
+<span class="text-xs text-on-surface-variant block mt-0.5">Thiết lập tham số bài tập &amp; định mức AI</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" onclick="closePackageDrawer()">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- Drawer Form Content Area -->
+<div class="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-5">
+<!-- Input: Tên gói tập -->
+<div class="space-y-1.5">
+<label class="block text-xs font-bold text-on-surface">Tên gói dịch vụ <span class="text-error">*</span></label>
+<input class="w-full text-xs text-on-surface bg-surface-container-lowest border border-outline-variant/60 focus:border-primary focus:ring-0 rounded-lg p-2.5 transition-colors font-medium" id="input-pkg-name" placeholder="Nhập tên gói tập..." type="text" value="Gói PT Standard + AI"/>
+<p class="text-[11px] text-on-surface-variant">Tên sẽ hiển thị trực tiếp trên ứng dụng của học viên.</p>
+</div>
+<!-- Input: Đơn giá & Thời hạn (Grid 2 cột) -->
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="block text-xs font-bold text-on-surface">Đơn giá niêm yết <span class="text-error">*</span></label>
+<div class="relative">
+<input class="w-full text-xs font-bold text-tertiary bg-surface-container-lowest border border-outline-variant/60 focus:border-primary focus:ring-0 rounded-lg p-2.5 pr-8 transition-colors" id="input-pkg-price" type="text" value="3.000.000"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-on-surface-variant">đ</span>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="block text-xs font-bold text-on-surface">Thời hạn hiệu lực <span class="text-error">*</span></label>
+<div class="relative">
+<input class="w-full text-xs font-medium text-on-surface bg-surface-container-lowest border border-outline-variant/60 focus:border-primary focus:ring-0 rounded-lg p-2.5 pr-12 transition-colors" id="input-pkg-days" type="number" value="30"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-on-surface-variant">ngày</span>
+</div>
+</div>
+</div>
+<!-- Input: Số buổi tập cùng Huấn luyện viên (PT Count) -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="text-xs font-bold text-on-surface">Số buổi tập cùng Huấn luyện viên (PT)</label>
+<span class="text-[11px] font-semibold text-tertiary">1 kèm 1 theo giáo án</span>
+</div>
+<div class="relative">
+<input class="w-full text-xs font-semibold text-on-surface bg-surface-container-lowest border border-outline-variant/60 focus:border-primary focus:ring-0 rounded-lg p-2.5 pr-14 transition-colors" id="input-pkg-pt" type="number" value="12"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-on-surface-variant font-medium">buổi</span>
+</div>
+<p class="text-[11px] text-on-surface-variant">Nhập 0 nếu gói tự tập không kèm Huấn luyện viên chuyên môn.</p>
+</div>
+<div class="h-px bg-surface-container-high my-2"></div>
+<!-- Tr0ond AI Module Configuration Section -->
+<div class="bg-surface-container-low/70 border border-outline-variant/30 rounded-lg p-4 space-y-4">
+<!-- AI Toggle Switch -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-base font-bold">bolt</span>
+</div>
+<div>
+<span class="text-xs font-bold text-on-surface block leading-tight">Quyền truy cập Tr0ond AI</span>
+<span class="text-[11px] text-on-surface-variant">Hỗ trợ phân tích kỹ thuật động tác &amp; nhật ký</span>
+</div>
+</div>
+<!-- Native CSS Toggle Button -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="ai-toggle-checkbox" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Input: Daily AI Quota -->
+<div class="space-y-1.5 pt-1">
+<label class="block text-xs font-bold text-on-surface">Hạn mức câu hỏi Tr0ond AI mỗi ngày</label>
+<div class="relative">
+<input class="w-full text-xs font-bold text-primary bg-surface-container-lowest border border-outline-variant/60 focus:border-primary focus:ring-0 rounded-lg p-2.5 pr-20 transition-colors" id="input-pkg-ai" type="number" value="20"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-on-surface-variant">lượt / ngày</span>
+</div>
+<p class="text-[11px] text-on-surface-variant">Reset tự động vào lúc 00:00 hàng ngày, tách biệt với số buổi PT.</p>
+</div>
+</div>
+<!-- Business Rule Disclaimer Card -->
+<div class="p-3.5 bg-surface-container-low rounded-lg border border-outline-variant/40 flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg shrink-0 mt-0.5">info</span>
+<div class="text-[11px] text-on-surface-variant leading-relaxed">
+<strong class="text-on-surface">Điều khoản vận hành bắt buộc:</strong>
+          Mỗi học viên chỉ được kích hoạt duy nhất 1 gói tại một thời điểm. Hệ thống hoàn toàn không hỗ trợ và không áp dụng tự động gia hạn tài khoản nhằm đảm bảo an toàn giao dịch.
+        </div>
+</div>
+</div>
+<!-- Drawer Footer Actions (44px target) -->
+<div class="p-4 border-t border-surface-container-high bg-surface-container-lowest flex items-center justify-end gap-3">
+<button class="h-11 px-5 rounded-lg border border-outline-variant text-on-surface font-medium text-xs hover:bg-surface-container-low transition-colors" onclick="closePackageDrawer()" type="button">
+        Hủy bỏ
+      </button>
+<button class="h-11 px-6 rounded-lg bg-primary hover:bg-primary-dim text-surface-container-lowest font-semibold text-xs flex items-center gap-2 shadow-sm transition-all active:scale-[0.98]" onclick="savePackageConfig()" type="button">
+<span class="material-symbols-outlined text-base">check</span>
+<span>Lưu cấu hình gói</span>
+</button>
+</div>
+</div>
+<!-- Client-side Interactive Drawer Script -->
+<script>
+    function openPackageDrawer(name = 'PT Standard + AI', price = '3.000.000', days = '30', pt = '12', ai = '20') {
+      const drawer = document.getElementById('package-drawer');
+      const backdrop = document.getElementById('drawer-backdrop');
+      const title = document.getElementById('drawer-title');
+
+      // Populate values
+      title.innerText = `Cấu hình gói dịch vụ: ${name}`;
+      document.getElementById('input-pkg-name').value = `Gói ${name}`;
+      document.getElementById('input-pkg-price').value = price;
+      document.getElementById('input-pkg-days').value = days;
+      document.getElementById('input-pkg-pt').value = pt;
+      document.getElementById('input-pkg-ai').value = ai;
+
+      backdrop.classList.remove('pointer-events-none', 'opacity-0');
+      backdrop.classList.add('opacity-100');
+      drawer.classList.remove('translate-x-full');
+    }
+
+    function closePackageDrawer() {
+      const drawer = document.getElementById('package-drawer');
+      const backdrop = document.getElementById('drawer-backdrop');
+
+      drawer.classList.add('translate-x-full');
+      backdrop.classList.remove('opacity-100');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    function savePackageConfig() {
+      // Micro-interaction simulation
+      const btn = event.currentTarget;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = `<span class="material-symbols-outlined text-base animate-spin">refresh</span> Đang lưu...`;
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        closePackageDrawer();
+      }, 350);
+    }
+  </script>
+</body></html>

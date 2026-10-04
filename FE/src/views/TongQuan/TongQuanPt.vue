@@ -3,7 +3,7 @@
     <header class="pt-welcome">
       <div>
         <span class="pt-kicker">KHÔNG GIAN HUẤN LUYỆN VIÊN</span>
-        <h1>Chào {{ tenGoi }} <span aria-hidden="true">👋</span></h1>
+        <h1>Chào {{ tenGoi }}!</h1>
         <p>
           Bạn có <strong>{{ huanLuyen.so_buoi_hom_nay }}</strong> buổi huấn luyện hôm nay.
         </p>
@@ -469,32 +469,39 @@ export default {
   color: var(--mau-chu);
 }
 :global(:root[data-theme='light'] .pt-journey) {
-  --pt-accent: #c2410c;
+  --pt-accent: var(--mau-chinh);
   --pt-green: #047857;
 }
 .pt-welcome {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 28px;
+  gap: 16px;
+  background: var(--mau-the);
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid var(--mau-vien);
+  margin-bottom: 24px;
 }
 .pt-kicker {
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  font-weight: 750;
-  color: var(--pt-accent);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  color: var(--mau-chinh);
+  text-transform: uppercase;
 }
 .pt-welcome h1 {
-  font-size: 2rem;
-  font-weight: 750;
-  letter-spacing: -0.035em;
-  margin: 8px 0;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--mau-chu);
 }
 .pt-welcome p {
-  margin: 0;
   color: var(--mau-phu);
-  font-size: 0.9rem;
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin: 6px 0 0;
 }
 .pt-actions {
   display: flex;
@@ -506,80 +513,94 @@ export default {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
-  min-height: 44px;
-  padding: 9px 15px;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 16px;
   border: 1px solid var(--mau-vien);
   background: var(--mau-the);
   color: var(--mau-chu);
-  border-radius: 11px;
-  font-size: 0.8rem;
-  font-weight: 650;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
   text-decoration: none;
-  transition:
-    border-color 0.18s,
-    background 0.18s;
+  transition: all 0.15s ease-in-out;
   white-space: nowrap;
 }
 .pt-button:hover {
-  border-color: var(--pt-accent);
-  color: var(--pt-accent);
+  border-color: var(--mau-vien);
+  background: var(--mau-the-hover);
+  color: var(--mau-chu);
 }
 .pt-button:disabled {
   opacity: 0.6;
   cursor: wait;
 }
 .pt-icon {
-  width: 44px;
+  width: 40px;
+  height: 40px;
   padding: 0;
 }
 .pt-primary {
-  background: #c2410c;
-  border-color: #c2410c;
-  color: #fff;
+  background: var(--mau-chinh);
+  border-color: var(--mau-chinh);
+  color: var(--mau-tren-chinh);
 }
 .pt-primary:hover {
-  background: #9a3412;
-  color: #fff;
+  background: var(--mau-chinh-dam);
+  border-color: var(--mau-chinh-dam);
+  color: var(--mau-tren-chinh);
 }
 .pt-card {
   background: var(--mau-the);
   border: 1px solid var(--mau-vien);
-  border-radius: 22px;
+  border-radius: 8px;
   padding: 24px;
   min-width: 0;
-  box-shadow: 0 4px 16px rgb(0 0 0 / 0.025);
+  box-shadow: none;
 }
 .pt-metrics {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
+  gap: 16px;
   margin: 0 0 24px;
+}
+.pt-metric {
+  padding: 16px 20px;
+  background: var(--mau-the);
+  border: 1px solid var(--mau-vien);
+  border-radius: 8px;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .pt-metric dt {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  font-size: 0.8rem;
+  font-size: 11.5px;
   color: var(--mau-phu);
-  font-weight: 550;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 .pt-metric dt i {
-  color: var(--pt-accent);
+  color: var(--mau-chinh);
   font-size: 1.15rem;
 }
 .pt-metric dd {
-  margin: 14px 0 3px;
-  font-size: 2.2rem;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 750;
+  margin: 8px 0 0;
+  font-size: 26px;
+  font-family: var(--font-chinh);
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
+  color: var(--mau-chu);
 }
 .pt-metric p {
-  font-size: 0.73rem;
+  font-size: 11.5px;
   color: var(--mau-phu);
-  margin: 0;
+  margin: 4px 0 0;
 }
 .pt-grid {
   display: grid;
@@ -598,7 +619,7 @@ export default {
 .pt-quick-section h2 {
   font-size: 1.05rem;
   font-weight: 750;
-  letter-spacing: -0.025em;
+  letter-spacing: 0;
   margin: 0;
 }
 .pt-section-heading > i {
@@ -712,7 +733,7 @@ export default {
   place-items: center;
   width: 36px;
   height: 36px;
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--mau-chinh-nhat);
   color: var(--pt-accent);
   flex-shrink: 0;
@@ -756,7 +777,7 @@ export default {
 }
 .pt-track {
   height: 6px;
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--mau-vien);
   overflow: hidden;
   margin: 7px 0;
@@ -806,7 +827,7 @@ export default {
   background: var(--mau-nen);
   border: 1px solid var(--mau-vien);
   padding: 14px 8px;
-  border-radius: 12px;
+  border-radius: 8px;
 }
 .pt-plan-stats dd {
   font-size: 1.3rem;
@@ -850,7 +871,7 @@ export default {
   height: 23px;
   border-radius: 50%;
   padding: 2px;
-  background: #c2410c;
+  background: var(--mau-chinh);
   color: #fff;
   font-size: 0.65rem;
 }
@@ -864,7 +885,7 @@ export default {
   font-size: 1.55rem;
   font-weight: 750;
   margin: 0 0 5px;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-chinh);
   font-variant-numeric: tabular-nums;
 }
 .pt-week-stats dt {
@@ -931,7 +952,7 @@ export default {
   gap: 11px;
   border: 1px dashed var(--mau-vien);
   padding: 20px 14px;
-  border-radius: 13px;
+  border-radius: 8px;
   margin: 22px 0;
   color: var(--mau-phu);
   font-size: 0.73rem;
@@ -988,7 +1009,7 @@ export default {
   padding: 19px 14px;
   text-decoration: none;
   color: var(--mau-chu);
-  border-radius: 13px;
+  border-radius: 8px;
   transition: border-color 0.18s;
 }
 .pt-quick > i:first-child {
@@ -1074,7 +1095,7 @@ button:focus-visible {
   }
   .pt-card {
     padding: 19px;
-    border-radius: 17px;
+    border-radius: 8px;
   }
   .pt-welcome h1 {
     font-size: 1.65rem;

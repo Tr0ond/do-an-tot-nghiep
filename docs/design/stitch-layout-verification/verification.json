@@ -1,0 +1,717 @@
+{
+  "environment": "Chrome / Vue / isolated MySQL demo",
+  "createdAt": "2026-10-04T13:30:28.209Z",
+  "cases": [
+    {
+      "name": "admin-tong-quan-light-768",
+      "path": "/admin/tong-quan",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "admin-phan-cong-light-768",
+      "path": "/admin/phan-cong",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "admin-tai-khoan-light-768",
+      "path": "/admin/tai-khoan",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "admin-tai-lieu-tu-van-light-768",
+      "path": "/admin/tai-lieu-tu-van",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "admin-tong-quan-dark-768",
+      "path": "/admin/tong-quan",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "admin-phan-cong-dark-768",
+      "path": "/admin/phan-cong",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "admin-tai-khoan-dark-768",
+      "path": "/admin/tai-khoan",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "admin-tai-lieu-tu-van-dark-768",
+      "path": "/admin/tai-lieu-tu-van",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "admin-create-drawer-dark-390",
+      "path": "/admin/tai-khoan",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "admin-document-editor-dark-390",
+      "path": "/admin/tai-lieu-tu-van",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "admin-order-preview-dark-390",
+      "path": "/admin/don-hang",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "pt-hoc-vien-light-768",
+      "path": "/pt/hoc-vien",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "pt-sua-light-768",
+      "path": "/pt/ke-hoach/6/sua",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "pt-1-light-768",
+      "path": "/pt/tin-nhan/1",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "pt-hoc-vien-dark-768",
+      "path": "/pt/hoc-vien",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "pt-sua-dark-768",
+      "path": "/pt/ke-hoach/6/sua",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "pt-1-dark-768",
+      "path": "/pt/tin-nhan/1",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "pt-editor-parameters-dark-390",
+      "path": "/pt/ke-hoach/6/sua",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "kh-tong-quan-light-768",
+      "path": "/khach-hang/tong-quan",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "kh-ho-so-light-768",
+      "path": "/khach-hang/ho-so",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "kh-lich-tap-light-768",
+      "path": "/khach-hang/lich-tap",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "kh-1-light-768",
+      "path": "/khach-hang/tin-nhan/1",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "kh-tong-quan-dark-768",
+      "path": "/khach-hang/tong-quan",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "kh-ho-so-dark-768",
+      "path": "/khach-hang/ho-so",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "kh-lich-tap-dark-768",
+      "path": "/khach-hang/lich-tap",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "kh-1-dark-768",
+      "path": "/khach-hang/tin-nhan/1",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "kh-appointment-preview-dark-390",
+      "path": "/khach-hang/lich-hen",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "kh-calendar-week-dark-390",
+      "path": "/khach-hang/lich-tap",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "brokenImages": []
+    },
+    {
+      "name": "kh-chat-dark-390",
+      "path": "/khach-hang/tin-nhan/1",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "brokenImages": []
+    }
+  ],
+  "interactions": [
+    {
+      "name": "387fe9965b7342d2ae9dc3d5b0a07447: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "387fe9965b7342d2ae9dc3d5b0a07447: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "4fa1c93244eb46ca8bb53d96f89731b6: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "4fa1c93244eb46ca8bb53d96f89731b6: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "e5209273fd2242ecbf837af84eb6079b: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "e5209273fd2242ecbf837af84eb6079b: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "0c8d8694a9844f38b4a49c6caf8bc6c4: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "0c8d8694a9844f38b4a49c6caf8bc6c4: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "1f6755169ca4473fba034dc0f950aba8: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "1f6755169ca4473fba034dc0f950aba8: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "049f82571c834e81b7cd48ef30a86b5a: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "049f82571c834e81b7cd48ef30a86b5a: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "4eb8dd6fb3de48dda5cc2ba4213aa910: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "4eb8dd6fb3de48dda5cc2ba4213aa910: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "d624b5a001e041e282031ce1cbde171d: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "d624b5a001e041e282031ce1cbde171d: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "7430bf866ee743d6822cb4fb22e4048f: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "7430bf866ee743d6822cb4fb22e4048f: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "27243b1139e24850bb2e99501f2fcd05: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "27243b1139e24850bb2e99501f2fcd05: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "44d9ff8b82bf4694927e2971e86547cc: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "44d9ff8b82bf4694927e2971e86547cc: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "42e6d33dbe7f44b58d423f97c284c29e: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "42e6d33dbe7f44b58d423f97c284c29e: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "9c0637f0878a420793f03f70f0e49abf: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "9c0637f0878a420793f03f70f0e49abf: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "3fc892d5373b448890cb816b08484f5f: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "3fc892d5373b448890cb816b08484f5f: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "995ed5ed36c6436090a92566c2494632: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "995ed5ed36c6436090a92566c2494632: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "9efe8edfa9784e89adfadc9f0c29b9a0: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "9efe8edfa9784e89adfadc9f0c29b9a0: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "635a63659dab43028d8f2fea39fd80f4: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "635a63659dab43028d8f2fea39fd80f4: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "1972afa0d2964980a83a47bfe4bf33a1: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "1972afa0d2964980a83a47bfe4bf33a1: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "95355f5ea0454df98b627dfac117f7c3: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "95355f5ea0454df98b627dfac117f7c3: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "e9e2108bbd94451a882fa77241e9ba61: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "e9e2108bbd94451a882fa77241e9ba61: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "b742c277281245748a5e8ad982774da8: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "b742c277281245748a5e8ad982774da8: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "d6d0318408cb41f798cacb1264382eb0: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "d6d0318408cb41f798cacb1264382eb0: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "3f402d898c914219bc0b4c58d6392554: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "3f402d898c914219bc0b4c58d6392554: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "d21b55bcb1d44c5f836ea7e570b27bdc: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "d21b55bcb1d44c5f836ea7e570b27bdc: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "818cac6763494bd29fcf9f43a6e30d7c: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "818cac6763494bd29fcf9f43a6e30d7c: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "aaba45fae3a7492f907dc15765a98a50: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "aaba45fae3a7492f907dc15765a98a50: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "dc65a97386274e41bb0de16546b05255: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "dc65a97386274e41bb0de16546b05255: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "40040946bd15494abdb2e4086b1078fb: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "40040946bd15494abdb2e4086b1078fb: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "80e93bfd469542b18e46bc53670fc321: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "80e93bfd469542b18e46bc53670fc321: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "1090075feb284313a892a0dc83b32751: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "1090075feb284313a892a0dc83b32751: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "1ed379e8e4194cf89184663f9ff4f419: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "1ed379e8e4194cf89184663f9ff4f419: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "7c435bbf5e394a74b545c8daadeb65e3: html archive hash",
+      "passed": true
+    },
+    {
+      "name": "7c435bbf5e394a74b545c8daadeb65e3: png archive hash",
+      "passed": true
+    },
+    {
+      "name": "admin-tong-quan-light-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "admin-phan-cong-light-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "admin-tai-khoan-light-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "admin-tai-lieu-tu-van-light-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "admin-tong-quan-dark-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "admin-phan-cong-dark-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "admin-tai-khoan-dark-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "admin-tai-lieu-tu-van-dark-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "Account drawer is full-height right panel",
+      "passed": true
+    },
+    {
+      "name": "Account drawer restores trigger focus",
+      "passed": true
+    },
+    {
+      "name": "admin-create-drawer-dark-390: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "Escape closes account drawer",
+      "passed": true
+    },
+    {
+      "name": "admin-document-editor-dark-390: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "Document editor closes without publishing",
+      "passed": true
+    },
+    {
+      "name": "Order preview links to existing detail route",
+      "passed": true
+    },
+    {
+      "name": "admin-order-preview-dark-390: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "pt-hoc-vien-light-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "pt-sua-light-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "pt-1-light-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "pt-hoc-vien-dark-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "pt-sua-dark-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "pt-1-dark-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "pt-editor-parameters-dark-390: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "Mobile exercise parameters fit two columns",
+      "passed": true
+    },
+    {
+      "name": "kh-tong-quan-light-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "kh-ho-so-light-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "kh-lich-tap-light-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "kh-1-light-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "kh-tong-quan-dark-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "kh-ho-so-dark-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "kh-lich-tap-dark-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "kh-1-dark-768: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "kh-appointment-preview-dark-390: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "kh-calendar-week-dark-390: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "Week change synchronizes API filter dates",
+      "passed": true
+    },
+    {
+      "name": "More menu restores bottom trigger focus",
+      "passed": true
+    },
+    {
+      "name": "kh-chat-dark-390: fits viewport / images",
+      "passed": true
+    },
+    {
+      "name": "Mobile composer stays above bottom navigation",
+      "passed": true
+    },
+    {
+      "name": "No JavaScript runtime errors",
+      "passed": true
+    },
+    {
+      "name": "Preview interactions do not submit business operations",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "writes": [],
+  "archivedFiles": 64
+}

@@ -64,6 +64,29 @@
         </button>
       </div>
 
+      <!-- Thống kê ca tập tuần này (Stitch Screen 19 KPI Ribbon) -->
+      <div v-if="!chiTiet && ds.length" class="st-kpi-ribbon">
+        <div class="st-kpi-chip">
+          <span>Tổng số ca:</span>
+          <strong>{{ ds.length }} ca</strong>
+        </div>
+        <div class="st-kpi-chip">
+          <span class="st-kpi-dot primary"></span>
+          <span>Đã xác nhận:</span>
+          <strong>{{ demTrangThai('DA_XAC_NHAN') }}</strong>
+        </div>
+        <div class="st-kpi-chip">
+          <span class="st-kpi-dot warning"></span>
+          <span>Chờ duyệt:</span>
+          <strong>{{ demTrangThai('CHO_XAC_NHAN') }}</strong>
+        </div>
+        <div class="st-kpi-chip">
+          <span class="st-kpi-dot danger"></span>
+          <span>Vắng mặt:</span>
+          <strong>{{ demTrangThai('VANG_MAT') }}</strong>
+        </div>
+      </div>
+
       <!-- Thanh công cụ bộ lọc danh sách -->
       <form v-if="!chiTiet" class="m04-toolbar" @submit.prevent="locLich">
         <div>
@@ -99,6 +122,30 @@
           <i class="bi bi-search me-1" aria-hidden="true"></i>
           {{ dangTai ? 'Đang tải…' : 'Lọc lịch hẹn' }}
         </button>
+
+        <!-- Bộ lọc nhanh trạng thái dạng Pills (Stitch Screen 19) -->
+        <div class="st-filter-pills">
+          <span class="small text-muted me-1">Trạng thái:</span>
+          <button
+            type="button"
+            class="st-pill-btn"
+            :class="{ 'is-active': trangThai === '' }"
+            @click="chonPillTrangThai('')"
+          >
+            Tất cả ({{ ds.length }})
+          </button>
+          <button
+            v-for="(ten, maTrangThai) in trangThaiLich"
+            :key="maTrangThai"
+            type="button"
+            class="st-pill-btn"
+            :class="{ 'is-active': trangThai === maTrangThai }"
+            @click="chonPillTrangThai(maTrangThai)"
+          >
+            <span class="status-dot" :class="maTrangThai"></span>
+            {{ ten }}
+          </button>
+        </div>
       </form>
 
       <!-- Trạng thái đang tải -->
@@ -333,49 +380,115 @@
 
       <!-- Danh sách lịch hẹn -->
       <template v-else-if="!chiTiet && !loi">
-        <ul v-if="ds.length" class="m04-agenda">
-          <li v-for="buoi in ds" :key="buoi.id" class="m04-row">
-            <div class="m04-date">
-              <strong>{{ gioVietNam(buoi.bat_dau_luc) }}</strong>
-              <span class="small text-muted">{{ ngayVietNam(new Date(buoi.bat_dau_luc)) }}</span>
+        <div v-if="ds.length" class="st-master-detail">
+          <div class="st-table-wrap">
+            <table class="table align-middle st-appointment-table">
+              <caption class="visually-hidden">
+                Danh sách lịch hẹn huấn luyện
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Buổi</th>
+                  <th scope="col">Ngày & giờ</th>
+                  <th scope="col">Học viên / PT</th>
+                  <th scope="col">Trạng thái</th>
+                  <th scope="col">Chi tiết</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  v-for="buoi in ds"
+                  :key="buoi.id"
+                  :class="{ 'st-selected-row': buoiChon?.id === buoi.id }"
+                >
+                  <td>#{{ buoi.id }}</td>
+                  <td>
+                    <strong>{{ gioVietNam(buoi.bat_dau_luc) }}</strong
+                    ><small class="d-block text-muted">{{
+                      ngayVietNam(new Date(buoi.bat_dau_luc))
+                    }}</small>
+                  </td>
+                  <td>
+                    <div class="st-person">
+                      <span class="st-avatar" aria-hidden="true">{{
+                        (khuVuc === 'khach-hang' ? buoi.pt : buoi.khach_hang)
+                          ?.charAt(0)
+                          .toUpperCase()
+                      }}</span>
+                      <div>
+                        <strong>{{ khuVuc === 'khach-hang' ? buoi.pt : buoi.khach_hang }}</strong
+                        ><small v-if="khuVuc === 'admin'">PT: {{ buoi.pt }}</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="m04-state" :class="buoi.trang_thai">{{
+                      trangThaiLich[buoi.trang_thai]
+                    }}</span
+                    ><small v-if="buoi.dong_xu_ly_luc" class="d-block text-muted"
+                      >Đã đóng xử lý</small
+                    >
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary"
+                      :aria-label="`Xem nhanh buổi ${buoi.id}`"
+                      title="Xem nhanh buổi tập"
+                      @click="buoiChon = buoi"
+                    >
+                      <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <aside v-if="buoiChon" class="st-detail-rail" aria-label="Xem nhanh lịch hẹn">
+            <div class="st-rail-heading">
+              <h2>Buổi #{{ buoiChon.id }}</h2>
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                aria-label="Đóng xem nhanh lịch hẹn"
+                @click="buoiChon = null"
+              >
+                <i class="bi bi-x-lg" aria-hidden="true"></i>
+              </button>
             </div>
-            <div class="m04-body">
-              <div class="d-flex align-items-center gap-2 flex-wrap mb-2">
-                <span class="m04-state" :class="buoi.trang_thai">
-                  <span class="status-dot"></span>
-                  <span>{{ trangThaiLich[buoi.trang_thai] }}</span>
-                </span>
-                <span class="badge bg-light text-muted border font-monospace small"
-                  >Buổi #{{ buoi.id }}</span
-                >
-                <span
-                  v-if="buoi.dong_xu_ly_luc"
-                  class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle small"
-                >
-                  Đã đóng xử lý
-                </span>
+            <span class="m04-state" :class="buoiChon.trang_thai">{{
+              trangThaiLich[buoiChon.trang_thai]
+            }}</span>
+            <dl class="st-fact-list">
+              <div>
+                <dt>Bắt đầu</dt>
+                <dd>{{ dinhDangLuc(buoiChon.bat_dau_luc) }}</dd>
               </div>
-              <h2 class="h6 fw-bold mb-1 d-flex align-items-center gap-2">
-                <span class="user-avatar-tiny">{{
-                  (khuVuc === 'khach-hang' ? buoi.pt : buoi.khach_hang)?.charAt(0).toUpperCase()
-                }}</span>
-                <span>{{ khuVuc === 'khach-hang' ? buoi.pt : buoi.khach_hang }}</span>
-              </h2>
-              <p class="small text-muted mb-0">
-                {{ khuVuc === 'admin' ? 'PT: ' + buoi.pt + ' · ' : '' }}60 phút · Buổi #{{ buoi.id
-                }}{{ buoi.dong_xu_ly_luc ? ' · Đã đóng xử lý' : '' }}
-              </p>
-            </div>
+              <div>
+                <dt>Thời lượng</dt>
+                <dd>60 phút</dd>
+              </div>
+              <div>
+                <dt>Học viên</dt>
+                <dd>{{ buoiChon.khach_hang }}</dd>
+              </div>
+              <div>
+                <dt>Huấn luyện viên</dt>
+                <dd>{{ buoiChon.pt }}</dd>
+              </div>
+            </dl>
             <RouterLink
-              class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-1"
-              :to="`/${khuVuc}/lich-hen/${buoi.id}`"
-            >
-              <span>Xem buổi tập</span>
-              <i class="bi bi-chevron-right" aria-hidden="true"></i>
-              <span class="visually-hidden"> #{{ buoi.id }}</span>
-            </RouterLink>
-          </li>
-        </ul>
+              :to="`/${khuVuc}/lich-hen/${buoiChon.id}`"
+              class="btn btn-primary w-100 mt-3"
+              >Xem buổi tập <i class="bi bi-arrow-right" aria-hidden="true"></i
+            ></RouterLink>
+          </aside>
+          <aside v-else class="st-detail-rail st-empty-rail">
+            <i class="bi bi-calendar2-check" aria-hidden="true"></i>
+            <h2>Chi tiết lịch hẹn</h2>
+            <p>Chưa chọn buổi tập.</p>
+          </aside>
+        </div>
 
         <!-- Trạng thái trống -->
         <section v-else class="m04-panel m04-empty">
@@ -434,6 +547,7 @@ export default {
   data() {
     return {
       ds: [],
+      buoiChon: null,
       lich: null,
       meta: {},
       ngay: '',
@@ -482,6 +596,14 @@ export default {
     clearTimeout(this.timer)
   },
   methods: {
+    demTrangThai(ma) {
+      if (!Array.isArray(this.ds)) return 0
+      return this.ds.filter((b) => b.trang_thai === ma).length
+    },
+    chonPillTrangThai(ma) {
+      this.trangThai = ma
+      this.locLich()
+    },
     boQua() {
       this.hanhDong = ''
       this.lyDo = ''
@@ -527,6 +649,7 @@ export default {
       const signal = this.boHuy.signal
       const lan = ++this.lanTai
       this.ds = []
+      this.buoiChon = null
       this.lich = null
       this.meta = {}
       this.loi = ''

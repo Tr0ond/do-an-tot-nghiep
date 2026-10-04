@@ -466,7 +466,7 @@ export default {
   gap: 6px;
   font-size: 0.75rem;
   font-weight: 750;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
   color: var(--mau-chinh-dam);
   margin-bottom: 8px;
 }
@@ -531,7 +531,7 @@ export default {
 }
 
 .nhom-code-input[readonly] {
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   color: var(--mau-phu);
   cursor: not-allowed;
 }
@@ -582,7 +582,7 @@ export default {
 
 .sidebar-card-header {
   padding: 16px 20px;
-  background: var(--mau-table-header-bg, #181818);
+  background: var(--mau-table-header-bg, var(--mau-the-sub));
   border-bottom: 1px solid var(--mau-vien);
   display: flex;
   align-items: center;
@@ -596,7 +596,7 @@ export default {
   display: inline-flex;
   align-items: center;
   padding: 4px 10px;
-  border-radius: 20px;
+  border-radius: 8px;
   font-size: 0.8rem;
   font-weight: 650;
 }
@@ -604,11 +604,11 @@ export default {
 .badge-state-active {
   background: var(--mau-chinh-nhat);
   color: var(--mau-chinh-dam);
-  border: 1px solid rgba(244, 91, 32, 0.25);
+  border: 1px solid color-mix(in srgb, var(--mau-chinh) 25%, transparent);
 }
 
 .badge-state-inactive {
-  background: var(--mau-the-sub, #1e1e1e);
+  background: var(--mau-the-sub, var(--mau-the-hover));
   color: var(--mau-phu);
   border: 1px solid var(--mau-vien, rgba(255, 255, 255, 0.1));
 }
@@ -623,11 +623,11 @@ export default {
 
 .callout-guarantee {
   background: var(--mau-chinh-nhat);
-  border: 1px solid rgba(244, 91, 32, 0.25);
+  border: 1px solid color-mix(in srgb, var(--mau-chinh) 25%, transparent);
 }
 
 .callout-guide {
-  background: var(--mau-the-sub, #181818);
+  background: var(--mau-the-sub, var(--mau-the-sub));
   border: 1px solid var(--mau-vien);
 }
 

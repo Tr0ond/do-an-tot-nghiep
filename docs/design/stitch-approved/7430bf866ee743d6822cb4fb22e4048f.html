@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>09 · Thư viện bài tập - Fitness Motion</title>
+<!-- Google Fonts: Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#3a4400",
+            "surface": "#f5f7f8",
+            "surface-variant": "#d9dddf",
+            "tertiary": "#0854c7",
+            "outline": "#747778",
+            "error-dim": "#9f0519",
+            "secondary-dim": "#495500",
+            "on-primary": "#bffff5",
+            "primary-fixed-dim": "#81dfd3",
+            "on-surface-variant": "#595c5d",
+            "on-tertiary-container": "#002c72",
+            "tertiary-fixed-dim": "#7aa0ff",
+            "surface-container-high": "#dfe3e4",
+            "primary-container": "#8fede1",
+            "on-tertiary": "#f1f2ff",
+            "surface-dim": "#d0d5d7",
+            "surface-bright": "#f5f7f8",
+            "primary": "#00675f",
+            "on-secondary-container": "#4b5700",
+            "surface-container-highest": "#d9dddf",
+            "on-secondary": "#e6ff63",
+            "on-error-container": "#570008",
+            "on-secondary-fixed-variant": "#546200",
+            "on-primary-fixed-variant": "#00635b",
+            "background": "#f5f7f8",
+            "surface-container-low": "#eef1f2",
+            "error-container": "#fb5151",
+            "surface-container-lowest": "#ffffff",
+            "inverse-on-surface": "#9a9d9e",
+            "on-tertiary-fixed": "#00153f",
+            "on-tertiary-fixed-variant": "#003484",
+            "on-primary-container": "#005851",
+            "secondary-fixed": "#d6ef52",
+            "primary-dim": "#005a52",
+            "secondary": "#546200",
+            "inverse-primary": "#a0fff2",
+            "surface-tint": "#00675f",
+            "error": "#b31b25",
+            "on-error": "#ffefee",
+            "on-background": "#2c2f30",
+            "tertiary-dim": "#0049b1",
+            "on-primary-fixed": "#00443e",
+            "secondary-container": "#d6ef52",
+            "tertiary-container": "#90afff",
+            "surface-container": "#e5e9ea",
+            "tertiary-fixed": "#90afff",
+            "secondary-fixed-dim": "#c8e044",
+            "primary-fixed": "#8fede1",
+            "inverse-surface": "#0b0f10",
+            "outline-variant": "#abadae",
+            "on-surface": "#182325"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Be Vietnam Pro", "sans-serif"],
+            "display": ["Be Vietnam Pro", "sans-serif"],
+            "body": ["Be Vietnam Pro", "sans-serif"],
+            "label": ["Be Vietnam Pro", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      letter-spacing: 0;
+      background-color: #f5f7f8;
+      color: #182325;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+<!-- Top App Bar (Header 64px, Public Top Nav) -->
+<header class="fixed top-0 left-0 right-0 h-16 bg-surface-container-lowest border-b border-outline-variant/30 px-6 flex items-center justify-between z-30 shadow-xs">
+<!-- Brand Anchor & Nav Links -->
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-2.5 text-primary" href="#">
+<div class="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl font-bold">fitness_center</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-lg font-bold text-primary tracking-tight leading-none">Fitness Motion</span>
+<span class="text-[10px] text-on-surface-variant font-medium mt-0.5 leading-none">Hệ thống quản lý PT &amp; Thư viện</span>
+</div>
+</a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 pt-1 text-sm flex items-center gap-1.5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+          Thư viện bài tập
+        </a>
+<a class="text-on-surface-variant hover:text-on-surface text-sm font-medium transition-colors flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-[18px]">inventory_2</span>
+          Gói tập
+        </a>
+<a class="text-on-surface-variant hover:text-on-surface text-sm font-medium transition-colors flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+          Hỗ trợ
+        </a>
+</nav>
+</div>
+<!-- Trailing Actions & Login Button (44px touch target) -->
+<div class="flex items-center gap-3">
+<button aria-label="Thông báo" class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button aria-label="Trợ giúp" class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">help_outline</span>
+</button>
+<div class="h-5 w-px bg-outline-variant/40 mx-1"></div>
+<button class="h-11 px-5 rounded-lg bg-primary hover:bg-primary-dim text-white font-semibold text-sm flex items-center gap-2 transition-all shadow-sm active:scale-98" type="button">
+<span class="material-symbols-outlined text-base">login</span>
+<span>Đăng nhập</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="flex-1 mt-16 px-6 py-6 max-w-[1440px] w-full mx-auto">
+<!-- Header Title & AI Filter Assistant Bar -->
+<div class="mb-5 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant mb-1">
+<span>Hệ thống</span>
+<span>/</span>
+<span class="text-primary font-medium">Thư viện bài tập</span>
+</div>
+<h1 class="text-2xl font-bold tracking-tight text-on-surface">Thư viện bài tập chuẩn vận hành</h1>
+<p class="text-xs text-on-surface-variant mt-0.5">Kho lưu trữ 240+ kỹ thuật động tác chuẩn hóa, phục vụ huấn luyện viên soạn giáo án và học viên tự tập luyện.</p>
+</div>
+<!-- Tr0ond AI Advisory Chip -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-outline-variant/40 shadow-xs text-xs">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-medium text-on-surface">Tr0ond AI:</span>
+<span class="text-on-surface-variant">Hạn ngạch AI: 45/50 gợi ý còn lại trong ngày</span>
+</div>
+</div>
+<!-- Search & Filter Bar (Dense, Functional) -->
+<section class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 p-4 mb-6 shadow-xs">
+<div class="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between pb-3 border-b border-surface-container">
+<!-- Search Input (44px) -->
+<div class="relative flex-1 max-w-xl">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl">search</span>
+<input class="w-full h-11 pl-11 pr-4 rounded-lg bg-surface border border-outline-variant/40 text-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Tìm tên bài tập, nhóm cơ (ví dụ: Bench Press, Lưng xô, Đùi trước)..." type="text" value=""/>
+</div>
+<!-- Tool Bar Quick Filters & Reset -->
+<div class="flex items-center gap-3 self-end lg:self-center">
+<div class="flex items-center gap-2">
+<label class="text-xs font-medium text-on-surface-variant whitespace-nowrap">Dụng cụ:</label>
+<select class="h-11 px-3 text-xs font-medium rounded-lg bg-surface border border-outline-variant/40 text-on-surface focus:outline-none focus:border-primary">
+<option value="all">Tất cả dụng cụ</option>
+<option value="dumbbell">Tạ đơn / Dumbbell</option>
+<option value="barbell">Tạ đòn / Barbell</option>
+<option value="cable">Máy kéo cáp / Cable</option>
+<option value="bodyweight">Bodyweight / Tự do</option>
+</select>
+</div>
+<div class="flex items-center gap-2">
+<label class="text-xs font-medium text-on-surface-variant whitespace-nowrap">Cấp độ:</label>
+<select class="h-11 px-3 text-xs font-medium rounded-lg bg-surface border border-outline-variant/40 text-on-surface focus:outline-none focus:border-primary">
+<option value="all">Tất cả cấp độ</option>
+<option value="beginner">Cơ bản</option>
+<option value="intermediate">Trung cấp</option>
+<option value="advanced">Nâng cao</option>
+</select>
+</div>
+<button class="h-11 px-3.5 rounded-lg border border-outline-variant/40 bg-surface hover:bg-surface-container text-on-surface-variant text-xs font-medium flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">refresh</span>
+<span>Đặt lại</span>
+</button>
+</div>
+</div>
+<!-- Muscle Group Filter Chips -->
+<div class="pt-3 flex items-center gap-2 overflow-x-auto no-scrollbar">
+<span class="text-xs font-medium text-on-surface-variant whitespace-nowrap mr-1">Nhóm cơ:</span>
+<button class="h-8 px-3.5 rounded-lg text-xs font-semibold bg-primary text-white transition-colors shrink-0" type="button">
+          Tất cả
+        </button>
+<button class="h-8 px-3 rounded-lg text-xs font-medium bg-surface text-on-surface hover:bg-surface-container border border-outline-variant/30 transition-colors shrink-0" type="button">
+          Ngực (Pectoralis)
+        </button>
+<button class="h-8 px-3 rounded-lg text-xs font-medium bg-surface text-on-surface hover:bg-surface-container border border-outline-variant/30 transition-colors shrink-0" type="button">
+          Lưng &amp; Xô (Back &amp; Lat)
+        </button>
+<button class="h-8 px-3 rounded-lg text-xs font-medium bg-surface text-on-surface hover:bg-surface-container border border-outline-variant/30 transition-colors shrink-0" type="button">
+          Chân - Mông (Legs &amp; Glutes)
+        </button>
+<button class="h-8 px-3 rounded-lg text-xs font-medium bg-surface text-on-surface hover:bg-surface-container border border-outline-variant/30 transition-colors shrink-0" type="button">
+          Vai (Shoulders)
+        </button>
+<button class="h-8 px-3 rounded-lg text-xs font-medium bg-surface text-on-surface hover:bg-surface-container border border-outline-variant/30 transition-colors shrink-0" type="button">
+          Tay trước (Biceps)
+        </button>
+<button class="h-8 px-3 rounded-lg text-xs font-medium bg-surface text-on-surface hover:bg-surface-container border border-outline-variant/30 transition-colors shrink-0" type="button">
+          Tay sau (Triceps)
+        </button>
+<button class="h-8 px-3 rounded-lg text-xs font-medium bg-surface text-on-surface hover:bg-surface-container border border-outline-variant/30 transition-colors shrink-0" type="button">
+          Bụng &amp; Core
+        </button>
+</div>
+</section>
+<!-- Results Status Count & View Controls -->
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-on-surface">Hiển thị 24 bài tập phù hợp</span>
+<span class="text-xs text-on-surface-variant font-normal">(Trang 1 / 3 - Tổng số 68 bài tập đã lưu trữ)</span>
+</div>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span>Sắp xếp theo:</span>
+<select class="bg-transparent font-semibold text-primary focus:outline-none cursor-pointer">
+<option>Phổ biến nhất</option>
+<option>Tên A - Z</option>
+<option>Độ khó tăng dần</option>
+<option>Mới cập nhật</option>
+</select>
+</div>
+</div>
+<!-- 4-Column Compact Grid of Exercise Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<!-- Card 1: Dumbbell Bench Press -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 flex flex-col overflow-hidden hover:border-primary/50 transition-all group shadow-xs">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" data-alt="A male athlete performing dumbbell bench press on a flat bench inside a well lit modern fitness training studio, crisp focus on the chest muscles and dumbbells, daylight and cool gray minimalist gym aesthetic, authentic sports photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWV-Q9YE6AmLJhKH_FO-udFz5D3VkILyh-aoiG5WsL-kk7UGAwVxBYDFtabTmjhR_kniYmrbtlteGh0sQu6bL5xG_pNl97SPKuYMltRH4W3nFXqYI5ZCTeqcXVSbDaJlfmHed0C8vsub7_hnQrv8mxGqKwj7j-uqg-9Q-jec0jvSYVmin_rBRVAblfziw_-CeI4-pDztzJWga1XOMcVdTceaNEhgZtC97R835-pbu_sgLiYQ81GSz30Cphucjhi-XqytpsDodOZrw5"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-primary text-white shadow-xs">Ngực</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container-lowest/90 backdrop-blur-xs text-on-surface border border-outline-variant/20">Dumbbell</span>
+</div>
+<span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded text-[10px] font-semibold bg-secondary-container text-on-secondary-container">Cơ bản</span>
+</div>
+<div class="p-3.5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">Dumbbell Bench Press</h3>
+<p class="text-xs text-on-surface-variant line-clamp-1 mt-0.5">Đẩy ngực với tạ đơn</p>
+<div class="mt-2.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-xs text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">repeat</span>
+                3-4 hiệp × 8-12 reps
+              </span>
+<span class="text-[11px] font-medium text-tertiary">Nghỉ 90s</span>
+</div>
+</div>
+<div class="mt-3">
+<button class="w-full h-11 rounded-lg bg-surface hover:bg-surface-container text-primary font-semibold text-xs flex items-center justify-center gap-1.5 border border-outline-variant/30 hover:border-primary/40 transition-colors" onclick="openModal('Dumbbell Bench Press', 'Đẩy ngực với tạ đơn', 'Ngực (Pectoralis Major)', 'Vai trước, Tay sau', 'Tạ đơn (Dumbbell), Ghế phẳng', 'Giữ khuỷu tay chếch 45-60 độ so với thân, không xòe ngang vai 90 độ tránh chấn thương khớp vai.')" type="button">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span>Xem chi tiết</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Barbell Bent-over Row -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 flex flex-col overflow-hidden hover:border-primary/50 transition-all group shadow-xs">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" data-alt="An athletic person executing a barbell bent-over row in an industrial athletic center, chalk dust on bar, back lat engagement visible, clean daylight and teal sports gear, professional operational gym setup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKiEOLUsp85gPeiXRdu0MCCHJ89D8VQrxR74cMDv90mcLNAXluCzS14iiufZmqI5bCWtw4YSz_QDt69nnSNwIrgIxbD80Qblcd8RSjJJipmkfylvAL4J72UnV630dKchBhuAOAwI56J8RbXwLYo9aBgTCBz8tINZSMsSUZ5XhyPAry_k5w1iL9xGogjqHi_UqEF0GDX9fkXrj6mjG9K81NLOddzc4gUlsIbsA_CHY0gSufPRpC833JHBUgb6RH02j7WHgtpiGnnBl4"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-tertiary text-white shadow-xs">Lưng xô</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container-lowest/90 backdrop-blur-xs text-on-surface border border-outline-variant/20">Barbell</span>
+</div>
+<span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded text-[10px] font-semibold bg-secondary-container text-on-secondary-container">Trung cấp</span>
+</div>
+<div class="p-3.5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">Barbell Bent-over Row</h3>
+<p class="text-xs text-on-surface-variant line-clamp-1 mt-0.5">Kéo lưng đòn tạ gập người</p>
+<div class="mt-2.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-xs text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">repeat</span>
+                4 hiệp × 8-10 reps
+              </span>
+<span class="text-[11px] font-medium text-tertiary">Nghỉ 90s</span>
+</div>
+</div>
+<div class="mt-3">
+<button class="w-full h-11 rounded-lg bg-surface hover:bg-surface-container text-primary font-semibold text-xs flex items-center justify-center gap-1.5 border border-outline-variant/30 hover:border-primary/40 transition-colors" onclick="openModal('Barbell Bent-over Row', 'Kéo lưng đòn tạ gập người', 'Lưng xô (Latissimus Dorsi), Lưng giữa', 'Tay trước, Vai sau, Lưng dưới', 'Đòn tạ Olympic, Bánh tạ', 'Giữ cột sống trung tính, siết bụng chắc để bảo vệ vùng thắt lưng, không giật người khi kéo.')" type="button">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span>Xem chi tiết</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Romanian Deadlift -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 flex flex-col overflow-hidden hover:border-primary/50 transition-all group shadow-xs">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" data-alt="Fitness athlete training romanian deadlift with barbell in modern bright gym, correct hip hinge position, focusing on hamstring and glute contraction, crisp clear ambient lighting and cool neutral tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9WUGwhjjMHdB90okdrA10R5zL0Cwv__nQtPlm0PrbcpTi2SoM3nYP7SVmJ6vk4a-3eHuRU2AX3pxmA2-35OI95iyMwvYhAsLvIMktPpJjPyY-594DuHC2oYHkqai7bRpDOhVPtFrlgdpeIhg14GEKLYOwCCezhBEWyb3n-EWsaQSiFnBJJylQ4h5xyYrhoF2QlYf6yTOLqFri0ORIgCdxUCx0v7QlrzdCJzdg9qy018-QyWHrFV0jmnxnv8w6YQl8KjUmRN1sntzN"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-primary text-white shadow-xs">Chân - Mông</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container-lowest/90 backdrop-blur-xs text-on-surface border border-outline-variant/20">Barbell</span>
+</div>
+<span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded text-[10px] font-semibold bg-secondary-container text-on-secondary-container">Trung cấp</span>
+</div>
+<div class="p-3.5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">Romanian Deadlift (RDL)</h3>
+<p class="text-xs text-on-surface-variant line-clamp-1 mt-0.5">Kéo đùi sau và mông bản lề hông</p>
+<div class="mt-2.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-xs text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">repeat</span>
+                3-4 hiệp × 10-12 reps
+              </span>
+<span class="text-[11px] font-medium text-tertiary">Nghỉ 90s</span>
+</div>
+</div>
+<div class="mt-3">
+<button class="w-full h-11 rounded-lg bg-surface hover:bg-surface-container text-primary font-semibold text-xs flex items-center justify-center gap-1.5 border border-outline-variant/30 hover:border-primary/40 transition-colors" onclick="openModal('Romanian Deadlift (RDL)', 'Kéo đùi sau và mông bản lề hông', 'Đùi sau (Hamstrings), Cơ mông (Glutes)', 'Lưng dưới, Cẳng tay', 'Đòn tạ Barbell hoặc Dumbbells', 'Đẩy hông về phía sau thay vì gập gối, giữ thanh đòn luôn bám sát dọc ống chân và đùi.')" type="button">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span>Xem chi tiết</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4: Lat Pulldown -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 flex flex-col overflow-hidden hover:border-primary/50 transition-all group shadow-xs">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" data-alt="Fitness trainee pulling lat pulldown cable attachment in high tech training gym, natural posture with broad back expansion, studio lighting highlighting muscle definition, clean commercial fitness atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO6K_gn_eY6YAj79F9rWJf1YXyIAcF6E8fLv7ftogHxY8Xi9guEP1vgA_Iqkb61tZP7ZOCUGXW-vk3pB1gRwXJD409kqnRPp2SDog9KLJ7YAbxLosVMhvvQyLjp7RJsb8Qpil6eZayksE74KJebUbBTHUeA__wo7mJqQWobfcTfOxiI7Oq0GTt5FBEuzrHbCRCnsVyBF1ZyO5gv5DXOw9go3lDVt3v6fCUeygT4IXYm0eNhNT9ucqTo0pVPVG_j5z3o8Ql05MB1k9T"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-tertiary text-white shadow-xs">Lưng xô</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container-lowest/90 backdrop-blur-xs text-on-surface border border-outline-variant/20">Cable</span>
+</div>
+<span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded text-[10px] font-semibold bg-secondary-container text-on-secondary-container">Cơ bản</span>
+</div>
+<div class="p-3.5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">Lat Pulldown</h3>
+<p class="text-xs text-on-surface-variant line-clamp-1 mt-0.5">Kéo xô máy cáp trước ngực</p>
+<div class="mt-2.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-xs text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">repeat</span>
+                3-4 hiệp × 10-12 reps
+              </span>
+<span class="text-[11px] font-medium text-tertiary">Nghỉ 60s</span>
+</div>
+</div>
+<div class="mt-3">
+<button class="w-full h-11 rounded-lg bg-surface hover:bg-surface-container text-primary font-semibold text-xs flex items-center justify-center gap-1.5 border border-outline-variant/30 hover:border-primary/40 transition-colors" onclick="openModal('Lat Pulldown', 'Kéo xô máy cáp trước ngực', 'Xô (Latissimus Dorsi)', 'Bắp tay trước, Vai sau', 'Máy kéo cáp Lat Pulldown, Tay cầm rộng', 'Kéo thanh đòn về sát xương quai xanh trên, ngực hơi ưỡn, không ngả người ra sau quá 20 độ.')" type="button">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span>Xem chi tiết</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5: Overhead Shoulder Press -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 flex flex-col overflow-hidden hover:border-primary/50 transition-all group shadow-xs">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" data-alt="Young Vietnamese fitness enthusiast doing seated dumbbell overhead shoulder press, strong form, clean modern fitness club setting with natural ambient light and minimal gym props." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnsPOS_E6WoTWfB_rpnRaYDbsZILEZT-9fRJUQuwOHKz0rhFknwdYtmLOKaEauE2y_nMHsP_fpwB_q6gTkhj37bT6HeU8D8W5js6BNbFcYhHfEKWRSXs-yx9iznc8smUHerDkjuwC420Az0f9naO4uatWnJ6iOCtVt9y6wzjhOz_AjsugqOR10CwmhDlfaUTFWzqEdxUSGw33eII1pyIZTskD8f_-5-T7i2nPOYvqyj0cefTaY1YhbcKpJc3uhvJkr935t96FG5mXo"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-primary text-white shadow-xs">Vai</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container-lowest/90 backdrop-blur-xs text-on-surface border border-outline-variant/20">Dumbbell</span>
+</div>
+<span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded text-[10px] font-semibold bg-secondary-container text-on-secondary-container">Trung cấp</span>
+</div>
+<div class="p-3.5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">Overhead Shoulder Press</h3>
+<p class="text-xs text-on-surface-variant line-clamp-1 mt-0.5">Đẩy vai qua đầu với tạ đơn</p>
+<div class="mt-2.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-xs text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">repeat</span>
+                3-4 hiệp × 8-10 reps
+              </span>
+<span class="text-[11px] font-medium text-tertiary">Nghỉ 90s</span>
+</div>
+</div>
+<div class="mt-3">
+<button class="w-full h-11 rounded-lg bg-surface hover:bg-surface-container text-primary font-semibold text-xs flex items-center justify-center gap-1.5 border border-outline-variant/30 hover:border-primary/40 transition-colors" onclick="openModal('Overhead Shoulder Press', 'Đẩy vai qua đầu với tạ đơn', 'Cơ vai (Deltoids - Anterior &amp; Lateral)', 'Tay sau (Triceps), Cơ thang trên', 'Ghế tập có tựa lưng, Cặp tạ đơn', 'Tránh cong lưng dưới khi đẩy tạ lên đỉnh; siết core chặt, kiểm soát giai đoạn hạ tạ.')" type="button">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span>Xem chi tiết</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6: Barbell Squat -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 flex flex-col overflow-hidden hover:border-primary/50 transition-all group shadow-xs">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" data-alt="Athletic trainer guiding barbell back squat execution in squat rack, high depth alignment, bright daylight reflecting on gray gym floor and teal accents, high quality photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeYROpWDrsV9-kbCgNCDJ9mD9MCz7_3WJkiA8hxgtExombewBdrQahTw88QiB25ZiEbm8CVgtZZFFh0g-lVaFIjheV2fSYMQW5XGgGyD1vYE6x1hF4esGYZ9T88uEDCWO60g5VAotooURRADBJnAohu4RkcRNbxXJkn70GuPQRAyFfqSGY3P_NI9EMDsUM8chaxE3h0oF2v88-mTcDIA0WNMXncwHLlu0fggML0KAW330ANCQxJkGJZUdDfliZY1esMUkKEKjuTkg5"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-primary text-white shadow-xs">Chân - Mông</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container-lowest/90 backdrop-blur-xs text-on-surface border border-outline-variant/20">Barbell</span>
+</div>
+<span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded text-[10px] font-semibold bg-surface-container-highest text-on-surface">Nâng cao</span>
+</div>
+<div class="p-3.5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">Barbell Back Squat</h3>
+<p class="text-xs text-on-surface-variant line-clamp-1 mt-0.5">Gánh tạ đòn đùi mông cơ bản</p>
+<div class="mt-2.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-xs text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">repeat</span>
+                4-5 hiệp × 6-8 reps
+              </span>
+<span class="text-[11px] font-medium text-tertiary">Nghỉ 120s</span>
+</div>
+</div>
+<div class="mt-3">
+<button class="w-full h-11 rounded-lg bg-surface hover:bg-surface-container text-primary font-semibold text-xs flex items-center justify-center gap-1.5 border border-outline-variant/30 hover:border-primary/40 transition-colors" onclick="openModal('Barbell Back Squat', 'Gánh tạ đòn đùi mông cơ bản', 'Đùi trước (Quadriceps), Cơ mông (Glutes)', 'Đùi sau, Bắp chân, Lưng dưới', 'Giá squat rack, Đòn tạ chuẩn 20kg', 'Khởi động kỹ khớp cổ chân và háng. Đầu gối mở theo hướng mũi chân, tránh sụp gối vào trong (knee valgus).')" type="button">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span>Xem chi tiết</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 7: Cable Tricep Pushdown -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 flex flex-col overflow-hidden hover:border-primary/50 transition-all group shadow-xs">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" data-alt="Detailed gym shot of fitness coach performing cable tricep pushdown with rope attachment, muscle fibers contracted on upper arms, soft commercial gym background with charcoal and light gray tints." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaM-CpP09oMWwyT0oE6cKyLjnDoeIVSXB_S9GpyYHCvm4J1wWKx0rHUICtldns0lvk-_pHU_7vMUggODtYi39GbG-g_bL0_ks3UpsibXtTyaydulCIIGG9AOZdmobdPPivruVNgA_d4eA-CKXGTNhtpEv7faKAEDX2gtgm2nBDiv3-DpL10E7wmN7xyWZ9H13S2jHd4x_8upycVM8G-g_-yfqbC11yQgkesNsn5Rb7BDG0iGn6DzHEOnUzDld06cSB-0ghuCMPKz_Y"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-tertiary text-white shadow-xs">Tay sau</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container-lowest/90 backdrop-blur-xs text-on-surface border border-outline-variant/20">Cable</span>
+</div>
+<span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded text-[10px] font-semibold bg-secondary-container text-on-secondary-container">Cơ bản</span>
+</div>
+<div class="p-3.5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">Cable Tricep Pushdown</h3>
+<p class="text-xs text-on-surface-variant line-clamp-1 mt-0.5">Kéo cáp tay sau dây thừng</p>
+<div class="mt-2.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-xs text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">repeat</span>
+                3-4 hiệp × 12-15 reps
+              </span>
+<span class="text-[11px] font-medium text-tertiary">Nghỉ 60s</span>
+</div>
+</div>
+<div class="mt-3">
+<button class="w-full h-11 rounded-lg bg-surface hover:bg-surface-container text-primary font-semibold text-xs flex items-center justify-center gap-1.5 border border-outline-variant/30 hover:border-primary/40 transition-colors" onclick="openModal('Cable Tricep Pushdown', 'Kéo cáp tay sau dây thừng', 'Cơ tay sau (Triceps Brachii)', 'Cẳng tay, Cơ core ổn định', 'Máy cáp đôi, Dây thừng thắt nút (Rope attachment)', 'Giữ cùi chỏ cố định sát mạn sườn, không đung đưa vai để mượn lực đà quán tính.')" type="button">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span>Xem chi tiết</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 8: Incline Dumbbell Curl -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 flex flex-col overflow-hidden hover:border-primary/50 transition-all group shadow-xs">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300" data-alt="Person sitting on an incline weight bench doing dumbbell bicep curls with strict isolated form, bright natural fitness studio aesthetic, pristine gym equipment in background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfk217nATruMvVcYXTLoiNNdQZiNCXacXwow5x0vgrjjFHoke8V_cqWdk87V2bLGNVm3-mz5ex8pFqLAiF9aZBYRInr1yOHR3G_9hglKHov_ECuj0eV2H4pG0s1UTJai5Wr6TCuX1CuzuGrwAaT5gJtX5jGxFgmLQz4RdpV7cLpcP9Y1o0iOK5r05FdItqGbyWQucFrcKP-_LXS-0KRpbyrrah_uEfSVxzTvm6xgVqK4pJyJRjw-k-2thh8nL8FXtWAhUFI7qTqAqq"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-tertiary text-white shadow-xs">Tay trước</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container-lowest/90 backdrop-blur-xs text-on-surface border border-outline-variant/20">Dumbbell</span>
+</div>
+<span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded text-[10px] font-semibold bg-secondary-container text-on-secondary-container">Cơ bản</span>
+</div>
+<div class="p-3.5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">Incline Dumbbell Curl</h3>
+<p class="text-xs text-on-surface-variant line-clamp-1 mt-0.5">Cuốn tạ đơn ghế dốc tay trước</p>
+<div class="mt-2.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-xs text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">repeat</span>
+                3 hiệp × 10-12 reps
+              </span>
+<span class="text-[11px] font-medium text-tertiary">Nghỉ 60s</span>
+</div>
+</div>
+<div class="mt-3">
+<button class="w-full h-11 rounded-lg bg-surface hover:bg-surface-container text-primary font-semibold text-xs flex items-center justify-center gap-1.5 border border-outline-variant/30 hover:border-primary/40 transition-colors" onclick="openModal('Incline Dumbbell Curl', 'Cuốn tạ đơn ghế dốc tay trước', 'Cơ bắp tay trước (Biceps - Long head)', 'Cẳng tay (Brachioradialis)', 'Ghế dốc 45-60 độ, Cặp tạ đơn', 'Hạ hết biên độ để kéo giãn tối đa đầu dài bắp tay trước; tránh dùng đà giật vai lên.')" type="button">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span>Xem chi tiết</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination Controls (Clean Operational Bands) -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-3 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xs">
+<div class="text-xs text-on-surface-variant">
+        Hiển thị <span class="font-semibold text-on-surface">1 - 8</span> trong số <span class="font-semibold text-on-surface">24</span> bài tập phù hợp
+      </div>
+<div class="flex items-center gap-1.5">
+<button class="h-9 px-3 rounded-lg border border-outline-variant/30 text-on-surface-variant/50 text-xs font-medium flex items-center gap-1 cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+<span>Trước</span>
+</button>
+<button class="h-9 w-9 rounded-lg bg-primary text-white font-semibold text-xs flex items-center justify-center shadow-xs" type="button">
+          1
+        </button>
+<button class="h-9 w-9 rounded-lg hover:bg-surface-container text-on-surface font-medium text-xs flex items-center justify-center transition-colors" type="button">
+          2
+        </button>
+<button class="h-9 w-9 rounded-lg hover:bg-surface-container text-on-surface font-medium text-xs flex items-center justify-center transition-colors" type="button">
+          3
+        </button>
+<button class="h-9 px-3 rounded-lg border border-outline-variant/30 bg-surface-container-lowest hover:bg-surface-container text-on-surface text-xs font-medium flex items-center gap-1 transition-colors" type="button">
+<span>Sau</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<div class="hidden md:flex items-center gap-2 text-xs text-on-surface-variant">
+<span>Hiển thị mỗi trang:</span>
+<select class="h-8 px-2 rounded-lg bg-surface border border-outline-variant/30 text-xs text-on-surface focus:outline-none">
+<option>8 bài tập</option>
+<option>16 bài tập</option>
+<option>24 bài tập</option>
+</select>
+</div>
+</div>
+</main>
+<!-- Quick View Modal / Card Drawer -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-xs hidden items-center justify-center p-4" id="quickview-modal">
+<div class="bg-surface-container-lowest rounded-lg max-w-2xl w-full max-h-[921px] overflow-y-auto border border-outline-variant/40 shadow-xl flex flex-col animate-in fade-in zoom-in duration-200">
+<!-- Modal Header -->
+<div class="p-4 px-6 border-b border-surface-container flex items-center justify-between sticky top-0 bg-surface-container-lowest z-10">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+<span class="text-xs font-semibold uppercase tracking-wider text-primary">Chi tiết kỹ thuật động tác</span>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors" onclick="closeModal()" type="button">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="p-6 space-y-5">
+<!-- Title & Subtitle -->
+<div>
+<h2 class="text-xl font-bold text-on-surface" id="modal-title">Dumbbell Bench Press</h2>
+<p class="text-sm text-on-surface-variant mt-0.5" id="modal-sub">Đẩy ngực với tạ đơn trên ghế phẳng</p>
+</div>
+<!-- Demonstration Preview Banner -->
+<div class="relative w-full aspect-video rounded-lg bg-surface-container overflow-hidden border border-outline-variant/30 flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Close up athletic demonstration of dumbbell bench press form with clear body alignment and proper grip, illuminated by bright daylight in high performance athletic training room." id="modal-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzHWSCl8Ru_eQnceMp6uOA3pUWq8UVXDoj2jt0_T-H-9cnu379u9SQEo87eD9pXBagzMrD44ilbpuxU08dzLlIPuMKMYFW7LAbuDvpCloEN0HR3_Tk5G1Txd-sd2kIYADAVBaFaXzgYz7sHtX9eyH9pYexNqxNDTMe5devz3fJmcLE6G8mmXOCjVzgAkEODhD3t9NmXtAJqucLucEpnQvkK6NMEnOzNOqk1S0M1zbwX65rdQFVE7ODL7gaO-6Pig3cilzbgl5i5pun"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/70 via-transparent to-transparent flex items-end p-4">
+<div class="flex items-center gap-2 text-white text-xs font-medium">
+<span class="material-symbols-outlined text-base text-secondary-fixed">play_circle</span>
+<span>Hình ảnh minh họa chuyển động chuẩn phân tích theo biên độ ROM</span>
+</div>
+</div>
+</div>
+<!-- Specification Keypoints Bento Band -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/20">
+<div class="text-on-surface-variant font-medium flex items-center gap-1.5 mb-1">
+<span class="material-symbols-outlined text-primary text-base">adjust</span>
+              Nhóm cơ tác động chính:
+            </div>
+<div class="font-bold text-on-surface text-sm" id="modal-primary-muscle">Ngực (Pectoralis Major)</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/20">
+<div class="text-on-surface-variant font-medium flex items-center gap-1.5 mb-1">
+<span class="material-symbols-outlined text-tertiary text-base">radio_button_unchecked</span>
+              Nhóm cơ phụ trợ:
+            </div>
+<div class="font-bold text-on-surface text-sm" id="modal-secondary-muscle">Vai trước, Tay sau (Triceps)</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/20 sm:col-span-2">
+<div class="text-on-surface-variant font-medium flex items-center gap-1.5 mb-1">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant text-base">fitness_center</span>
+              Thiết bị &amp; Dụng cụ khuyến nghị:
+            </div>
+<div class="font-bold text-on-surface text-sm" id="modal-equipment">Tạ đơn (Dumbbell), Ghế phẳng (Flat bench)</div>
+</div>
+</div>
+<!-- Injury Warning Note (Amber Alert) -->
+<div class="p-3.5 rounded-lg bg-[#FFF9E6] border border-[#F3DE9C] flex items-start gap-3">
+<span class="material-symbols-outlined text-[#B45309] text-xl shrink-0 mt-0.5">warning</span>
+<div class="text-xs text-[#78350F]">
+<span class="font-bold block mb-0.5">Lưu ý phòng ngừa chấn thương:</span>
+<p id="modal-safety">Giữ khuỷu tay chếch 45-60 độ so với thân, không xòe ngang vai 90 độ tránh chấn thương khớp vai. Giữ vững 3 điểm tiếp xúc: lưng trên, mông và lòng bàn chân bám sàn.</p>
+</div>
+</div>
+<!-- Exercise Variations Section -->
+<div>
+<h4 class="text-xs font-bold text-on-surface uppercase tracking-wider mb-2">Các biến thể động tác tương đương:</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded bg-surface border border-outline-variant/30 text-xs text-on-surface font-medium">Incline Dumbbell Press (Dốc lên)</span>
+<span class="px-2.5 py-1 rounded bg-surface border border-outline-variant/30 text-xs text-on-surface font-medium">Barbell Bench Press (Đòn tạ)</span>
+<span class="px-2.5 py-1 rounded bg-surface border border-outline-variant/30 text-xs text-on-surface font-medium">Machine Chest Press (Máy khối)</span>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="p-4 px-6 border-t border-surface-container flex items-center justify-end gap-3 sticky bottom-0 bg-surface-container-lowest">
+<button class="h-11 px-4 rounded-lg bg-surface hover:bg-surface-container text-on-surface text-xs font-semibold transition-colors" onclick="closeModal()" type="button">
+          Đóng
+        </button>
+<button class="h-11 px-5 rounded-lg bg-primary hover:bg-primary-dim text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-xs" type="button">
+<span class="material-symbols-outlined text-sm">post_add</span>
+          Thêm vào giáo án học viên
+        </button>
+</div>
+</div>
+</div>
+<!-- Operational Footer (Subtle minimal band) -->
+<footer class="mt-auto border-t border-outline-variant/20 bg-surface-container-lowest py-4 px-6 text-xs text-on-surface-variant flex flex-col md:flex-row items-center justify-between gap-2">
+<div>
+      © 2025 <span class="font-semibold text-primary">Fitness Motion</span>. Hệ thống số hóa quản lý huấn luyện thể hình &amp; PT cá nhân.
+    </div>
+<div class="flex items-center gap-4">
+<span>Phiên bản v2.4-stable</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<a class="hover:text-primary transition-colors" href="#">Điều khoản chuẩn hóa vận hành</a>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<a class="hover:text-primary transition-colors" href="#">Quy trình cấp phép PT</a>
+</div>
+</footer>
+<!-- Vanilla Interaction Logic -->
+<script>
+    const modal = document.getElementById('quickview-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalSub = document.getElementById('modal-sub');
+    const modalPrimary = document.getElementById('modal-primary-muscle');
+    const modalSecondary = document.getElementById('modal-secondary-muscle');
+    const modalEquip = document.getElementById('modal-equipment');
+    const modalSafety = document.getElementById('modal-safety');
+
+    function openModal(title, sub, primary, secondary, equip, safety) {
+      if (modalTitle) modalTitle.innerText = title;
+      if (modalSub) modalSub.innerText = sub;
+      if (modalPrimary) modalPrimary.innerText = primary;
+      if (modalSecondary) modalSecondary.innerText = secondary;
+      if (modalEquip) modalEquip.innerText = equip;
+      if (modalSafety) modalSafety.innerText = safety;
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close on background click
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+  </script>
+</body></html>

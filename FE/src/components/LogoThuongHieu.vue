@@ -12,14 +12,11 @@
 </template>
 
 <script>
-import { useChuDeStore } from '../stores/chuDe'
-
 export default {
   name: 'LogoThuongHieu',
   computed: {
     duongDanLogo() {
-      const tenLogo = useChuDeStore().laChuDeToi ? 'logo-tr0ond-dark.png' : 'logo-tr0ond.png'
-      return `${import.meta.env.BASE_URL}images/${tenLogo}`
+      return `${import.meta.env.BASE_URL}images/logo-fitness-neon.png`
     },
   },
 }

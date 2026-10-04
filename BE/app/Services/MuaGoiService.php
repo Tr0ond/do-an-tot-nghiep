@@ -150,6 +150,10 @@ class MuaGoiService
                         $banMoi->het_han_luc = $banMoi->kich_hoat_luc->addHours((int) $banMoi->thoi_han_ngay_snapshot * 24);
                         $banMoi->so_buoi_con_lai = $banMoi->so_buoi_pt_snapshot;
                         $this->ghiAudit('KICH_HOAT_GOI', $banMoi->id);
+                        app(ThongBaoService::class)->choKhach($banMoi->khach_hang_id, 'don/'.$banMoi->id.'/kich-hoat', 'Thanh toán thành công', 'Gói đã được kích hoạt. Bạn có thể xem quyền lợi và thời hạn trong đơn hàng.', '/khach-hang/don-hang/'.$banMoi->id);
+                        if ($banMoi->so_buoi_pt_snapshot > 0 && ! DB::table('phan_cong_huan_luyen_vien')->where('khach_hang_id', $banMoi->khach_hang_id)->whereNull('ket_thuc_luc')->exists()) {
+                            app(ThongBaoService::class)->choAdmin('don/'.$banMoi->id.'/can-phan-cong', 'Khách hàng cần phân công PT', 'Đơn #'.$banMoi->id.' đã kích hoạt gói PT; khách chưa có PT phụ trách.', '/admin/phan-cong');
+                        }
                     }
                 }
             } elseif (! $banMoi->kich_hoat_luc && in_array($banMoi->trang_thai, ['CHO_THANH_TOAN', 'HET_HAN_THANH_TOAN'], true)) {
@@ -158,6 +162,10 @@ class MuaGoiService
                 };
             }
             $banMoi->save();
+
+            foreach (ThanhToan::where('dang_ky_goi_tap_id', $banMoi->id)->where('trang_thai', 'CAN_DOI_SOAT')->pluck('id') as $idThu) {
+                app(ThongBaoService::class)->choAdmin('thanh-toan/'.$idThu.'/doi-soat', 'Khoản thanh toán cần đối soát', 'Đơn #'.$banMoi->id.' có khoản thu cần kiểm tra trước khi xử lý.', '/admin/don-hang/'.$banMoi->id);
+            }
 
             return $banMoi;
         }, 3);

@@ -1,3 +1,47 @@
+# Dữ liệu mô phỏng 15 ngày
+
+`HeThong15NgaySeeder` tạo thêm một bộ dữ liệu lịch sử liên kết cho **15 ngày tính đến ngày chạy**, theo giờ Việt Nam, lưu timestamps UTC. Ví dụ chạy 04/10/2026 mô phỏng 20/09–04/10/2026. Có lịch dự kiến thêm 3 ngày để tiếp tục thao tác như hệ thống đang hoạt động.
+
+Từ `BE/`, khi migrations và catalog đã có:
+
+```powershell
+rtk proxy php artisan db:seed --class=HeThong15NgaySeeder
+```
+
+Máy mới: chạy `rtk proxy php artisan migrate`, rồi `rtk proxy php artisan db:seed` để chuẩn bị tài khoản/catalog/giáo án mẫu; sau đó chạy class trên. Seeder 15 ngày là lựa chọn riêng, không tự gọi trong `DatabaseSeeder` và không chạy `migrate:fresh`.
+
+## Nội dung mô phỏng
+
+- 1 Admin, 4 PT, 30 KH có tên tiếng Việt, hồ sơ/mục tiêu/kinh nghiệm và đăng ký rải theo ngày.
+- 5 gói: AI 30 ngày, PT 8 buổi, PT 12 buổi, PT 4 buổi và AI 7 ngày. Đơn giữ snapshot giá/quyền lợi và hạn thanh toán 15 phút.
+- 29 đơn, 27 khoản thu: 25 gói từng kích hoạt (1 đã hết hạn), 1 đơn hết hạn thanh toán, 1 khoản tiền muộn đã hoàn, 1 khoản tiền muộn chờ đối soát, 1 đơn đang chờ thanh toán. Có KH chưa mua gói.
+- 19 phân công, 1 KH có gói PT đang chờ phân công; lịch PT 60 phút, đã hoàn thành/hủy/từ chối/vắng mặt/hết hạn và lịch tương lai đã xác nhận/chờ xác nhận. Có khung giờ tương lai còn trống để đặt lịch.
+- 26 giáo án đang áp dụng, mỗi giáo án 3 ngày × 4 bài từ catalog thật, có snapshot media/hướng dẫn. KH không có PT dùng giáo án tự tạo. Lịch tự tập, phiên hoàn thành, từng hiệp và nhận xét PT độc lập lịch PT.
+- Số đo chiều cao/cân nặng có biến động nhẹ; hội thoại KH–PT có trạng thái đã đọc/chưa đọc; chatbot có lịch sử thành công/lỗi; 3 FAQ đã xuất bản, thông báo và audit.
+- `kh19` đã dùng hết 4 buổi PT nhưng chatbot còn hiệu lực; `kh25` hết gói AI 7 ngày và vẫn giữ giáo án/lịch sử. Hủy/vắng mặt/tự tập/chat không trừ lượt PT.
+
+## Đăng nhập và xem
+
+Mật khẩu ban đầu của cả nhóm: `Demo123456!`.
+
+| Vai trò | Email | Màn hình gợi ý |
+| --- | --- | --- |
+| Admin | `admin@demo15.example.test` | Tổng quan (lọc 15 ngày), đơn hàng, phân công, lịch hẹn |
+| PT | `pt1@demo15.example.test` đến `pt4@demo15.example.test` | Tổng quan, học viên, lịch hẹn, nhật ký, tin nhắn |
+| KH | `kh01@demo15.example.test` đến `kh30@demo15.example.test` | Tổng quan, gói của tôi, giáo án, nhật ký, chỉ số, tin nhắn, AI |
+
+Các trường hợp: `kh20` chờ PT, `kh21`–`kh24` dùng AI riêng, `kh26` chưa mua gói, `kh27` hết hạn thanh toán, `kh28` đã hoàn tiền, `kh29` chờ đối soát, `kh30` chờ thanh toán. Trạng thái hiện tại tính động theo thời gian; đơn chờ sẽ hết hạn sau 15 phút, yêu cầu chờ lịch hẹn sau 2 giờ.
+
+## Chạy lại và giới hạn
+
+Chỉ cho `local/testing` và MySQL/MariaDB. Một transaction cho toàn bộ bộ mô phỏng, không tắt FK. Khóa theo database chặn hai tiến trình seed đồng thời. Dấu hoàn tất trong `nhat_ky_he_thong` giúp chạy lại bỏ qua **toàn bộ** bộ dữ liệu: không tạo trùng, đặt lại mật khẩu, mở khóa, cập nhật timestamps hay ghi đè nội dung đã sửa. Ngày chạy lại không kéo lịch sử tiến lên ngày mới. Không xóa riêng dấu hoàn tất để ép seed lại.
+
+Email `@demo15.example.test` đã tồn tại nhưng thiếu dấu hoàn tất sẽ báo lỗi và giữ nguyên dữ liệu. Thiếu bài nguồn hoặc nhóm/bài đã ngừng hoạt động cũng báo lỗi trước khi ghi. Không nâng quyền hoặc sửa các tài khoản có sẵn. Thông báo chỉ ghi cho nhóm demo.
+
+**Mọi khoản thu/hoàn tiền và phản hồi chatbot là dữ liệu giả lập.** Seeder ghi lịch sử trực tiếp, không gọi payOS/Gemini, không gửi email, không broadcast, không có link thanh toán thật. Provider AI là `demo`, token và chi phí không giả làm số liệu provider thật. Báo cáo Admin sẽ cộng cả dữ liệu demo đã nạp; không dùng các con số này làm doanh thu thực tế. Đây là dữ liệu trình diễn, không phải bằng chứng thanh toán/AI/realtime đã chạy thật.
+
+Kiểm tra riêng: `rtk proxy php artisan test --filter=HeThong15NgaySeederTest`. Các ca dùng database MariaDB/MySQL ngẫu nhiên riêng: liên kết/counter/deadline/timestamps, báo cáo tiền, dashboard KH/PT, chạy lại giữ dữ liệu đã sửa, lỗi giữa lúc ghi rollback rồi retry, trùng email, catalog ngừng và chặn production. [Kết quả kiểm chứng](../../../docs/verification/SEEDER_15_NGAY.md).
+
 # Seeder tài khoản demo
 
 `TaiKhoanSeeder` tạo 3 tài khoản hoạt động để thử giao diện và quyền của từng vai trò. `DatabaseSeeder` gọi lần lượt `TaiKhoanSeeder` → `BaiTapSeeder` → `GiaoAnMauSeeder` khi chạy `db:seed`. Seeder tài khoản/giáo án demo chỉ chạy trong môi trường `local` hoặc `testing`.

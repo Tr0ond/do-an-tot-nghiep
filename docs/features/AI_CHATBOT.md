@@ -16,6 +16,10 @@ Chỉ câu trả lời hợp lệ sau kiểm tra schema/IDs/nội dung mới tí
 
 Widget ở góc dưới màn hình dùng mascot, mở/thu gọn bằng nút; KH chuyển trang vẫn giữ câu đang gửi và hội thoại. Cửa sổ là dialog không modal, Escape thu gọn/trả focus nút mở; trên mobile nằm trong safe area. Khách chưa đăng nhập chỉ được lời mời đăng nhập và FAQ/gói; PT/Admin không có quyền gọi AI mới.
 
+Mascot hiện dùng GIF `tr0ond_gundam_mascot_slow_512.gif` do chủ dự án cung cấp ngày 04/10/2026, thay các phiên bản trước ở mọi vị trí qua `MascotTroLy.vue`. Assets có tên mới `tr0ond-ai-gundam-slow.gif` và `tr0ond-ai-gundam-slow-still.png` để tránh cache ảnh cũ; GIF giữ nguyên tốc độ file nguồn, bản tĩnh lấy khung đầu GIF. Giữ chức năng kéo, dừng/chạy và giảm chuyển động.
+
+Kiểm tra bản mascot chậm: 19 tests chatbot/cửa sổ và build đạt trên Windows; trình duyệt localhost5173 tải đúng GIF và bản tĩnh 512×512. File nguồn có 8 khung, 240ms/khung, được sao chép nguyên bản. [Ảnh kiểm tra](../verification/mascot-gundam-slow-chatbot.png). Không đổi Backend hoặc database.
+
 Yêu cầu tạo bằng văn bản có thông số buổi/tuần, tuần, bài/buổi (hoặc form tạo giáo án), tối đa30 buổi và120 dòng bài,1–8 bài/buổi. Server xác định kích thước, không nhận chủ sở hữu/trạng thái/ID giáo án từ AI. Provider trả đề xuất từ ứng viên catalog còn hoạt động. Backend kiểm tra đủ buổi/bài, ID hợp lệ/không lặp trong buổi, hiệp/lần/nghỉ trong giới hạn; tạ để trống. Thiếu thông tin/không đủ bài thì hỏi thêm hoặc trả lỗi rõ, không lưu bản thiếu.
 
 Lưu NHAP nguồn KHACH_HANG qua KeHoachTapService trong transaction hoàn tất request, cùng assistant và lượt thành công. UUID tạo nháp xác định theo KH/request, không tin UUID do model sinh. Retry không gọi AI hoặc tạo giáo án lần hai; rollback không để nháp mồ côi hoặc tính lượt. KH khác/PT/Admin không gọi được. Bản đang áp dụng không bị thay; không đặt lịch. UI hiện nhóm tuần/buổi, ảnh/bài/hiệp/lần/nghỉ và link xem/sửa nháp, KH tự chọn áp dụng.

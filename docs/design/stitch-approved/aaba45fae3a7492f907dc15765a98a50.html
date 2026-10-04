@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trung tâm Trợ giúp &amp; Câu hỏi thường gặp | Fitness Motion</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Font Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-tint": "#00675f",
+            "primary-fixed": "#8fede1",
+            "secondary-fixed-dim": "#c8e044",
+            "on-primary-fixed-variant": "#00635b",
+            "outline-variant": "#abadae",
+            "on-secondary-fixed-variant": "#546200",
+            "on-tertiary": "#f1f2ff",
+            "primary-container": "#8fede1",
+            "tertiary": "#0854c7",
+            "error": "#b31b25",
+            "secondary-dim": "#495500",
+            "inverse-surface": "#0b0f10",
+            "on-primary": "#bffff5",
+            "secondary-fixed": "#d6ef52",
+            "on-primary-fixed": "#00443e",
+            "inverse-primary": "#a0fff2",
+            "on-tertiary-fixed": "#00153f",
+            "on-tertiary-container": "#002c72",
+            "tertiary-container": "#90afff",
+            "surface-container-low": "#eef1f2",
+            "on-secondary": "#e6ff63",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#2c2f30",
+            "primary-fixed-dim": "#81dfd3",
+            "surface-bright": "#f5f7f8",
+            "on-tertiary-fixed-variant": "#003484",
+            "on-secondary-container": "#4b5700",
+            "on-surface-variant": "#595c5d",
+            "on-secondary-fixed": "#3a4400",
+            "surface-container": "#e5e9ea",
+            "outline": "#747778",
+            "surface-variant": "#d9dddf",
+            "error-container": "#fb5151",
+            "on-primary-container": "#005851",
+            "tertiary-fixed-dim": "#7aa0ff",
+            "surface-dim": "#d0d5d7",
+            "tertiary-fixed": "#90afff",
+            "secondary": "#546200",
+            "surface-container-high": "#dfe3e4",
+            "background": "#f5f7f8",
+            "primary": "#00675f",
+            "surface-container-highest": "#d9dddf",
+            "error-dim": "#9f0519",
+            "surface": "#f5f7f8",
+            "tertiary-dim": "#0049b1",
+            "inverse-on-surface": "#9a9d9e",
+            "on-error-container": "#570008",
+            "primary-dim": "#005a52",
+            "secondary-container": "#d6ef52",
+            "on-error": "#ffefee",
+            "on-background": "#2c2f30"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Be Vietnam Pro", "sans-serif"],
+            "display": ["Be Vietnam Pro", "sans-serif"],
+            "body": ["Be Vietnam Pro", "sans-serif"],
+            "label": ["Be Vietnam Pro", "sans-serif"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    * {
+      letter-spacing: 0 !important;
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body antialiased transition-colors duration-200">
+<!-- 1. PUBLIC HEADER (64px, No SideNavBar for Public Destination) -->
+<header class="sticky top-0 z-50 bg-surface-container-lowest dark:bg-inverse-surface border-b border-surface-variant dark:border-outline h-16 w-full shadow-sm">
+<div class="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-2.5 focus:outline-none focus:ring-2 focus:ring-primary rounded-lg py-1" href="#">
+<div class="w-9 h-9 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">fitness_center</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xl font-bold tracking-tight text-primary dark:text-inverse-primary font-display leading-tight">Fitness Motion</span>
+<span class="text-[11px] font-medium text-on-surface-variant dark:text-outline-variant leading-none">Trung tâm điều phối &amp; Huấn luyện</span>
+</div>
+</a>
+<!-- Middle Navigation -->
+<nav aria-label="Menu chính" class="hidden md:flex items-center gap-1 text-sm font-medium font-body">
+<a class="px-3 py-2 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container hover:text-on-surface dark:hover:bg-surface-variant transition-colors duration-150" href="#">Trang chủ</a>
+<a class="px-3 py-2 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container hover:text-on-surface dark:hover:bg-surface-variant transition-colors duration-150" href="#">Gói tập &amp; Dịch vụ</a>
+<a class="px-3 py-2 rounded-lg text-on-surface-variant dark:text-outline-variant hover:bg-surface-container hover:text-on-surface dark:hover:bg-surface-variant transition-colors duration-150" href="#">Đội ngũ HLV</a>
+<a aria-current="page" class="px-3 py-2 rounded-lg text-primary dark:text-inverse-primary font-semibold bg-surface-container-low dark:bg-surface-variant transition-colors duration-150" href="#">Câu hỏi thường gặp</a>
+</nav>
+<!-- Right Utility Actions -->
+<div class="flex items-center gap-3">
+<!-- Hotline button -->
+<a class="hidden sm:flex items-center gap-2 text-xs font-semibold text-tertiary dark:text-tertiary-fixed bg-surface-container px-3 h-10 rounded-lg hover:bg-surface-container-high transition-colors" href="tel:0912345889">
+<span class="material-symbols-outlined text-[18px]">phone_in_talk</span>
+<span>0912 345 889</span>
+</a>
+<!-- Dark/Light Mode Switcher -->
+<button aria-label="Chuyển chế độ giao diện" class="w-10 h-10 flex items-center justify-center rounded-lg border border-surface-variant dark:border-outline text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-variant transition-colors" id="themeToggleBtn" type="button">
+<span class="material-symbols-outlined" id="themeIcon">dark_mode</span>
+</button>
+<!-- Primary Portal CTA (Jade, 44px) -->
+<a class="h-11 px-4 inline-flex items-center justify-center gap-2 rounded-lg bg-primary hover:bg-primary-dim text-on-primary font-semibold text-sm transition-colors duration-150 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" href="#">
+<span class="material-symbols-outlined text-[18px]">login</span>
+<span>Đăng nhập hệ thống</span>
+</a>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 space-y-8">
+<!-- 2. HERO SEARCH SECTION (Operational, Dense, No distracting giant hero banners) -->
+<section class="bg-surface-container-lowest dark:bg-inverse-surface border border-surface-variant dark:border-outline rounded-lg p-6 sm:p-8 text-center space-y-5">
+<div class="max-w-2xl mx-auto space-y-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-primary-container text-on-primary-container">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+          Quy chế &amp; Hướng dẫn vận hành 2026
+        </span>
+<h1 class="text-2xl sm:text-[32px] font-bold text-on-surface dark:text-surface-container-lowest font-headline leading-tight">
+          Trung tâm Trợ giúp &amp; Câu hỏi thường gặp
+        </h1>
+<p class="text-sm sm:text-base text-on-surface-variant dark:text-outline-variant font-body">
+          Tìm hiểu về quy chế tập luyện cùng Huấn luyện viên, chính sách bảo lưu gói tập và cơ chế hoạt động của trợ lý Tr0ond AI.
+        </p>
+</div>
+<!-- Search Bar (Height 48px, rounded 8px) -->
+<div class="max-w-2xl mx-auto">
+<form class="flex items-center gap-2 p-1.5 bg-surface-container-low dark:bg-surface-container border border-surface-variant dark:border-outline rounded-lg focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all" onsubmit="event.preventDefault();">
+<div class="pl-2.5 flex items-center text-on-surface-variant pointer-events-none">
+<span class="material-symbols-outlined text-[22px]">search</span>
+</div>
+<input class="w-full bg-transparent border-none text-sm text-on-surface dark:text-on-surface placeholder:text-on-surface-variant focus:ring-0 focus:outline-none py-1.5 px-2 font-body" id="faqSearchInput" placeholder="Tìm câu hỏi: chính sách đổi lịch, hủy ca, hạn ngạch AI, thanh toán..." type="search"/>
+<button class="h-10 px-5 rounded-lg bg-primary hover:bg-primary-dim text-on-primary text-sm font-semibold transition-colors flex items-center shrink-0" type="submit">
+            Tìm kiếm
+          </button>
+</form>
+<!-- Quick Search Tags -->
+<div class="flex items-center justify-center flex-wrap gap-2 pt-3 text-xs text-on-surface-variant dark:text-outline-variant">
+<span class="font-medium">Tìm kiếm nhiều:</span>
+<button class="hover:text-primary dark:hover:text-inverse-primary underline decoration-dotted" onclick="setQuickSearch('hủy ca')" type="button">Hủy ca tập</button>
+<span>•</span>
+<button class="hover:text-primary dark:hover:text-inverse-primary underline decoration-dotted" onclick="setQuickSearch('Tr0ond AI')" type="button">Hạn ngạch AI</button>
+<span>•</span>
+<button class="hover:text-primary dark:hover:text-inverse-primary underline decoration-dotted" onclick="setQuickSearch('bảo lưu')" type="button">Bảo lưu 30 ngày</button>
+<span>•</span>
+<button class="hover:text-primary dark:hover:text-inverse-primary underline decoration-dotted" onclick="setQuickSearch('thẻ tín dụng')" type="button">Minh bạch thanh toán</button>
+</div>
+</div>
+</section>
+<!-- 3. TOPIC PILL TABS -->
+<section aria-label="Bộ lọc chủ đề">
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none" id="topicTabsContainer">
+<button class="topic-btn active-tab h-10 px-4 rounded-lg bg-primary text-on-primary font-medium text-xs sm:text-sm whitespace-nowrap transition-colors flex items-center gap-1.5 shadow-sm" data-topic="all" type="button">
+<span class="material-symbols-outlined text-[18px]">apps</span>
+          Tất cả chủ đề
+        </button>
+<button class="topic-btn h-10 px-4 rounded-lg bg-surface-container-lowest dark:bg-inverse-surface border border-surface-variant dark:border-outline text-on-surface-variant dark:text-outline-variant hover:text-on-surface hover:bg-surface-container font-medium text-xs sm:text-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-topic="pricing" type="button">
+<span class="material-symbols-outlined text-[18px]">credit_card</span>
+          Gói tập &amp; Thanh toán
+        </button>
+<button class="topic-btn h-10 px-4 rounded-lg bg-surface-container-lowest dark:bg-inverse-surface border border-surface-variant dark:border-outline text-on-surface-variant dark:text-outline-variant hover:text-on-surface hover:bg-surface-container font-medium text-xs sm:text-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-topic="schedule" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+          Lịch hẹn &amp; Ca tập cùng PT
+        </button>
+<button class="topic-btn h-10 px-4 rounded-lg bg-surface-container-lowest dark:bg-inverse-surface border border-surface-variant dark:border-outline text-on-surface-variant dark:text-outline-variant hover:text-on-surface hover:bg-surface-container font-medium text-xs sm:text-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-topic="ai" type="button">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+          Trợ lý Tr0ond AI
+        </button>
+<button class="topic-btn h-10 px-4 rounded-lg bg-surface-container-lowest dark:bg-inverse-surface border border-surface-variant dark:border-outline text-on-surface-variant dark:text-outline-variant hover:text-on-surface hover:bg-surface-container font-medium text-xs sm:text-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-topic="policy" type="button">
+<span class="material-symbols-outlined text-[18px]">assignment_return</span>
+          Hồ sơ &amp; Đổi trả bảo lưu
+        </button>
+</div>
+</section>
+<!-- 4. MAIN ACCORDION & SIDEBAR SUPPORT GRID -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Primary Accordion Column (8 Cols) -->
+<div class="lg:col-span-8 space-y-3" id="faqAccordionList">
+<!-- Accordion 1 (Default Open) -->
+<article class="faq-item bg-surface-container-lowest dark:bg-inverse-surface border border-surface-variant dark:border-outline rounded-lg transition-all" data-keywords="đặt lịch hủy ca huấn luyện viên 4 tiếng bảo lưu pt">
+<button aria-expanded="true" class="faq-toggle w-full p-4 sm:p-5 flex items-start justify-between gap-4 text-left font-semibold text-on-surface dark:text-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary rounded-lg" type="button">
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-primary-container text-on-primary-container text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">01</span>
+<span class="text-sm sm:text-base leading-snug">Chính sách đặt lịch và hủy ca tập cùng Huấn luyện viên như thế nào?</span>
+</div>
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary shrink-0 transition-transform duration-200 rotate-180 faq-chevron">expand_more</span>
+</button>
+<div class="faq-content px-4 pb-5 sm:px-5 sm:pb-5 pt-0 text-sm text-on-surface-variant dark:text-outline-variant border-t border-surface-container dark:border-surface-variant mt-1 space-y-3">
+<p class="leading-relaxed">
+              Học viên có thể chủ động đặt lịch tập qua ứng dụng trước tối đa 07 ngày. Để đảm bảo quyền lợi và sắp xếp thời gian cho Huấn luyện viên, học viên được quyền hủy hoặc đổi ca tập miễn phí trước tối thiểu 04 tiếng so với giờ tập đã chốt.
+            </p>
+<div class="p-3 bg-surface-container-low dark:bg-surface-variant rounded-md text-xs font-medium text-error flex items-start gap-2 border-l-2 border-error">
+<span class="material-symbols-outlined text-[18px] shrink-0">error</span>
+<span>Lưu ý vận hành: Nếu hủy muộn hơn 04 tiếng hoặc vắng mặt không báo trước, hệ thống sẽ tự động ghi nhận trừ 01 buổi tập trong gói của học viên.</span>
+</div>
+<div class="flex items-center gap-2 pt-1 text-xs text-on-surface-variant">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary-container"></span>
+<span>Áp dụng toàn bộ lịch tập PT 1:1 cá nhân</span>
+</div>
+</div>
+</article>
+<!-- Accordion 2 -->
+<article class="faq-item bg-surface-container-lowest dark:bg-inverse-surface border border-surface-variant dark:border-outline rounded-lg transition-all" data-keywords="gói tập pt standard 1 kèm 1 inbody giáo án 20 lượt ai">
+<button aria-expanded="false" class="faq-toggle w-full p-4 sm:p-5 flex items-start justify-between gap-4 text-left font-semibold text-on-surface dark:text-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary rounded-lg" type="button">
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-surface-container text-on-surface-variant text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">02</span>
+<span class="text-sm sm:text-base leading-snug">Gói tập PT Standard 1 kèm 1 bao gồm những quyền lợi gì?</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant dark:text-outline-variant shrink-0 transition-transform duration-200 faq-chevron">expand_more</span>
+</button>
+<div class="faq-content hidden px-4 pb-5 sm:px-5 sm:pb-5 pt-0 text-sm text-on-surface-variant dark:text-outline-variant border-t border-surface-container dark:border-surface-variant mt-1 space-y-2">
+<p class="leading-relaxed">
+              Gói bao gồm số buổi tập trực tiếp cùng Huấn luyện viên chuyên môn, thiết kế giáo án tập luyện cá nhân hóa theo từng tuần, theo dõi chỉ số thể chất InBody định kỳ và 20 lượt hỏi đáp kỹ thuật động tác mỗi ngày cùng trợ lý Tr0ond AI.
+            </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+<div class="flex items-center gap-2 p-2 bg-surface-container-low dark:bg-surface-variant rounded text-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>HLV giám sát form &amp; tải trọng tạ trực tiếp</span>
+</div>
+<div class="flex items-center gap-2 p-2 bg-surface-container-low dark:bg-surface-variant rounded text-xs">
+<span class="material-symbols-outlined text-tertiary text-[18px]">insights</span>
+<span>Đo InBody phân tích cơ mỡ 2 tuần/lần</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Accordion 3 -->
+<article class="faq-item bg-surface-container-lowest dark:bg-inverse-surface border border-surface-variant dark:border-outline rounded-lg transition-all" data-keywords="tr0ond ai hạn ngạch làm mới 00:00 hỏi đáp kỹ thuật không cộng dồn">
+<button aria-expanded="false" class="faq-toggle w-full p-4 sm:p-5 flex items-start justify-between gap-4 text-left font-semibold text-on-surface dark:text-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary rounded-lg" type="button">
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-surface-container text-on-surface-variant text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">03</span>
+<span class="text-sm sm:text-base leading-snug">Lượt hỏi đáp của Trợ lý Tr0ond AI được tính và làm mới ra sao?</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant dark:text-outline-variant shrink-0 transition-transform duration-200 faq-chevron">expand_more</span>
+</button>
+<div class="faq-content hidden px-4 pb-5 sm:px-5 sm:pb-5 pt-0 text-sm text-on-surface-variant dark:text-outline-variant border-t border-surface-container dark:border-surface-variant mt-1 space-y-2">
+<p class="leading-relaxed">
+              Hạn ngạch AI được cấp cố định mỗi ngày và tự động làm mới vào lúc 00:00 hàng ngày. Lượt AI hoạt động độc lập và không bị trừ vào số buổi tập của Huấn luyện viên. Lượt không dùng hết trong ngày sẽ không cộng dồn sang ngày hôm sau.
+            </p>
+<div class="p-3 bg-surface-container-low dark:bg-surface-variant rounded-md text-xs space-y-1">
+<div class="font-medium text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">smart_toy</span>
+<span>Phạm vi hỗ trợ của Tr0ond AI:</span>
+</div>
+<p class="text-on-surface-variant">Giải đáp kỹ thuật bài tập, cách hít thở, điều chỉnh form Squat/Deadlift/Bench Press và nhắc nhở thời gian giãn cơ phục hồi cơ bắp.</p>
+</div>
+</div>
+</article>
+<!-- Accordion 4 -->
+<article class="faq-item bg-surface-container-lowest dark:bg-inverse-surface border border-surface-variant dark:border-outline rounded-lg transition-all" data-keywords="bảo lưu gói tập 30 ngày 01 lần công tác sức khỏe ban quản trị">
+<button aria-expanded="false" class="faq-toggle w-full p-4 sm:p-5 flex items-start justify-between gap-4 text-left font-semibold text-on-surface dark:text-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary rounded-lg" type="button">
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-surface-container text-on-surface-variant text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">04</span>
+<span class="text-sm sm:text-base leading-snug">Tôi có thể bảo lưu gói tập khi bận công tác hoặc có lý do sức khỏe không?</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant dark:text-outline-variant shrink-0 transition-transform duration-200 faq-chevron">expand_more</span>
+</button>
+<div class="faq-content hidden px-4 pb-5 sm:px-5 sm:pb-5 pt-0 text-sm text-on-surface-variant dark:text-outline-variant border-t border-surface-container dark:border-surface-variant mt-1 space-y-2">
+<p class="leading-relaxed">
+              Học viên được quyền bảo lưu gói tập tối đa 01 lần trong thời gian hiệu lực của gói (tối đa 30 ngày) thông qua việc gửi yêu cầu trực tiếp trên hệ thống để Ban Quản trị phê duyệt.
+            </p>
+<p class="text-xs text-on-surface-variant">
+              Thời gian xử lý phê duyệt bảo lưu diễn ra trong vòng 24 giờ làm việc. Sau khi hết thời hạn bảo lưu, hệ thống tự động kích hoạt lại thời hạn sử dụng gói tập.
+            </p>
+</div>
+</article>
+<!-- Accordion 5 -->
+<article class="faq-item bg-surface-container-lowest dark:bg-inverse-surface border border-surface-variant dark:border-outline rounded-lg transition-all" data-keywords="tự động trừ tiền thẻ tín dụng minh bạch không lưu thẻ không gia hạn tự động">
+<button aria-expanded="false" class="faq-toggle w-full p-4 sm:p-5 flex items-start justify-between gap-4 text-left font-semibold text-on-surface dark:text-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-primary rounded-lg" type="button">
+<div class="flex items-start gap-3">
+<span class="w-6 h-6 rounded bg-surface-container text-on-surface-variant text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">05</span>
+<span class="text-sm sm:text-base leading-snug">Hệ thống có tự động trừ tiền thẻ tín dụng khi hết gói không?</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant dark:text-outline-variant shrink-0 transition-transform duration-200 faq-chevron">expand_more</span>
+</button>
+<div class="faq-content hidden px-4 pb-5 sm:px-5 sm:pb-5 pt-0 text-sm text-on-surface-variant dark:text-outline-variant border-t border-surface-container dark:border-surface-variant mt-1 space-y-2">
+<p class="leading-relaxed">
+              Hoàn toàn không. Fitness Motion tuân thủ quy chuẩn vận hành minh bạch: Không lưu trữ thông tin thẻ tín dụng và không tự động gia hạn gói. Học viên hoàn toàn chủ động đăng ký nạp gói mới khi có nhu cầu tiếp tục lộ trình.
+            </p>
+<div class="inline-flex items-center gap-2 px-3 py-1.5 bg-surface-container-low dark:bg-surface-variant text-primary dark:text-inverse-primary rounded text-xs font-medium">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span>Cổng thanh toán mã hóa độc lập chuẩn PCI-DSS</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Secondary Support Column (4 Cols) -->
+<aside class="lg:col-span-4 space-y-6">
+<!-- Support Card -->
+<div class="bg-surface-container-lowest dark:bg-inverse-surface border border-surface-variant dark:border-outline rounded-lg p-5 sm:p-6 space-y-5 shadow-sm">
+<div class="space-y-1.5">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">support_agent</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface dark:text-surface-container-lowest font-headline pt-2">
+              Chưa tìm thấy câu trả lời?
+            </h3>
+<p class="text-xs sm:text-sm text-on-surface-variant dark:text-outline-variant leading-relaxed">
+              Đội ngũ điều phối viên và bộ phận kỹ thuật luôn sẵn sàng hỗ trợ trực tiếp mọi yêu cầu về gói tập và sự cố.
+            </p>
+</div>
+<!-- Working hours band -->
+<div class="p-3 bg-surface-container-low dark:bg-surface-variant rounded-lg space-y-2 text-xs">
+<div class="flex items-center justify-between text-on-surface font-semibold">
+<span>Thời gian tiếp nhận:</span>
+<span class="text-primary font-bold">08:00 - 21:00</span>
+</div>
+<div class="text-on-surface-variant">Tất cả các ngày trong tuần (bao gồm Thứ Bảy &amp; Chủ Nhật)</div>
+</div>
+<!-- Channels -->
+<div class="space-y-2.5 text-xs font-medium">
+<a class="flex items-center gap-3 p-2.5 rounded-lg border border-surface-variant dark:border-outline hover:bg-surface-container transition-colors text-on-surface" href="tel:0912345889">
+<div class="w-8 h-8 rounded bg-secondary-container text-on-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</div>
+<div>
+<div class="text-[11px] text-on-surface-variant">Hotline trực tiếp</div>
+<div class="font-bold text-sm">0912 345 889</div>
+</div>
+</a>
+<div class="flex items-center gap-3 p-2.5 rounded-lg border border-surface-variant dark:border-outline hover:bg-surface-container transition-colors text-on-surface">
+<div class="w-8 h-8 rounded bg-tertiary-container text-on-tertiary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</div>
+<div class="overflow-hidden">
+<div class="text-[11px] text-on-surface-variant">Hộp thư quản trị</div>
+<div class="font-bold truncate text-sm">hotro@fitnessmotion.vn</div>
+</div>
+</div>
+</div>
+<!-- Primary Submit Action Button (Height 44px) -->
+<button class="w-full h-11 px-4 rounded-lg bg-primary hover:bg-primary-dim text-on-primary font-semibold text-sm transition-colors duration-150 flex items-center justify-center gap-2 focus:ring-2 focus:ring-primary focus:outline-none" onclick="alert('Biểu mẫu tiếp nhận yêu cầu hỗ trợ sẽ mở trên cửa sổ điều phối.');" type="button">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Gửi câu hỏi hỗ trợ</span>
+</button>
+</div>
+<!-- Tr0ond AI Helper Pill Box -->
+<div class="bg-surface-container-low dark:bg-surface-container border border-surface-variant dark:border-outline rounded-lg p-4 space-y-2">
+<div class="flex items-center gap-2 text-xs font-bold text-primary dark:text-inverse-primary uppercase tracking-wide">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+<span>Trợ lý Tr0ond AI</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+            Học viên đã kích hoạt tài khoản có thể hỏi trực tiếp Tr0ond AI ngay trên ứng dụng di động để tra cứu kỹ thuật bài tập tức thì 24/7.
+          </p>
+</div>
+</aside>
+</div>
+</main>
+<!-- 5. PUBLIC FOOTER -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-surface-variant dark:border-outline mt-12 py-8 transition-colors">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-on-surface-variant dark:text-outline-variant font-body">
+<!-- Copyright -->
+<div class="flex items-center gap-2">
+<span class="font-semibold text-on-surface dark:text-surface-container-lowest">Fitness Motion</span>
+<span>•</span>
+<span>Bản quyền © 2026. Nền tảng điều phối huấn luyện chuyên nghiệp.</span>
+</div>
+<!-- Policy Links -->
+<nav aria-label="Liên kết chân trang" class="flex items-center gap-6">
+<a class="hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Quy chế hoạt động</a>
+<a class="hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Điều khoản dịch vụ</a>
+<a class="hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Chính sách bảo mật thông tin</a>
+</nav>
+</div>
+</div>
+</footer>
+<!-- Accordion and Theme Micro-interactions Script -->
+<script>
+    // Accordion Toggle
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        const content = button.nextElementSibling;
+        const chevron = button.querySelector('.faq-chevron');
+
+        // Toggle state
+        button.setAttribute('aria-expanded', !isExpanded);
+        content.classList.toggle('hidden');
+
+        if (!isExpanded) {
+          chevron.classList.add('rotate-180', 'text-primary');
+          chevron.classList.remove('text-on-surface-variant');
+        } else {
+          chevron.classList.remove('rotate-180', 'text-primary');
+          chevron.classList.add('text-on-surface-variant');
+        }
+      });
+    });
+
+    // Theme toggle
+    const themeBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    const htmlElem = document.documentElement;
+
+    themeBtn.addEventListener('click', () => {
+      if (htmlElem.classList.contains('dark')) {
+        htmlElem.classList.remove('dark');
+        themeIcon.textContent = 'dark_mode';
+      } else {
+        htmlElem.classList.add('dark');
+        themeIcon.textContent = 'light_mode';
+      }
+    });
+
+    // Search filter logic
+    const searchInput = document.getElementById('faqSearchInput');
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    function filterFaq(query) {
+      const q = query.trim().toLowerCase();
+      faqItems.forEach(item => {
+        const keywords = item.getAttribute('data-keywords').toLowerCase();
+        const text = item.innerText.toLowerCase();
+        if (q === '' || keywords.includes(q) || text.includes(q)) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
+    searchInput.addEventListener('input', (e) => {
+      filterFaq(e.target.value);
+    });
+
+    function setQuickSearch(term) {
+      searchInput.value = term;
+      filterFaq(term);
+      searchInput.focus();
+    }
+
+    // Category Tabs Logic
+    const topicButtons = document.querySelectorAll('.topic-btn');
+    topicButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        topicButtons.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary', 'active-tab');
+          b.classList.add('bg-surface-container-lowest', 'dark:bg-inverse-surface', 'border', 'border-surface-variant', 'dark:border-outline', 'text-on-surface-variant');
+        });
+
+        btn.classList.add('bg-primary', 'text-on-primary', 'active-tab');
+        btn.classList.remove('bg-surface-container-lowest', 'dark:bg-inverse-surface', 'border-surface-variant', 'text-on-surface-variant');
+
+        const topic = btn.getAttribute('data-topic');
+        if (topic === 'all') {
+          filterFaq('');
+        } else if (topic === 'pricing') {
+          filterFaq('gói tập');
+        } else if (topic === 'schedule') {
+          filterFaq('lịch');
+        } else if (topic === 'ai') {
+          filterFaq('Tr0ond AI');
+        } else if (topic === 'policy') {
+          filterFaq('bảo lưu');
+        }
+      });
+    });
+  </script>
+</body></html>

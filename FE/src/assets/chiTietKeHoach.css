@@ -1,6 +1,6 @@
 /* Giáo án cá nhân dùng cấu trúc trang mẫu, giữ màu theo theme của thành viên. */
 .kh-plan {
-  --kh-detail-accent: #b93b0a;
+  --kh-detail-accent: var(--mau-chinh);
 }
 [data-theme='dark'] .kh-plan {
   --kh-detail-accent: #ff946c;
@@ -34,8 +34,8 @@
   min-height: 44px;
 }
 .kh-plan .ga-day-tab.is-active {
-  background: #c2410c;
-  border-color: #c2410c;
+  background: var(--mau-chinh);
+  border-color: var(--mau-chinh);
   color: #fff;
 }
 .kh-plan .ga-exercise-card {
@@ -61,7 +61,7 @@
   min-height: 44px;
 }
 .kh-plan .ga-btn-guide:hover {
-  background: #c2410c;
+  background: var(--mau-chinh);
   color: #fff;
 }
 .kh-plan .ga-exercise-thumb {
@@ -132,7 +132,7 @@
 .kh-guide-media {
   height: 270px;
   flex-shrink: 0;
-  border-radius: 16px;
+  border-radius: 8px;
   background: var(--mau-the-sub) !important;
 }
 .kh-guide-play {

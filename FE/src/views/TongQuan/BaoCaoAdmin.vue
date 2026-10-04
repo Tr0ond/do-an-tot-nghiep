@@ -520,23 +520,6 @@
           </div>
         </dl>
       </section>
-      <section class="bc-panel">
-        <div class="bc-panel-heading">
-          <div>
-            <h2>Nội dung hệ thống</h2>
-            <p>Danh mục đang phục vụ khách hàng</p>
-          </div>
-        </div>
-        <div class="bc-content-grid">
-          <RouterLink v-for="m in cacNoiDung" :key="m.to" :to="m.to" class="bc-content"
-            ><span class="bc-icon" :class="'bc-' + m.mau"
-              ><i :class="'bi bi-' + m.icon" aria-hidden="true"></i></span
-            ><strong>{{ so(m.so) }}</strong
-            ><span>{{ m.nhan }}</span
-            ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
-          ></RouterLink>
-        </div>
-      </section>
       <div class="bc-notices">
         <div>
           <span class="bc-icon bc-xanh"
@@ -898,11 +881,17 @@ export default {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  background: var(--mau-the);
+  padding: 18px 24px;
+  border-radius: 8px;
+  border: 1px solid var(--mau-vien);
+  margin-bottom: 20px;
 }
 .bc-dau p {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 13.5px;
   font-weight: 600;
+  color: var(--mau-chu);
 }
 .bc-dau p span {
   color: var(--mau-phu);
@@ -914,31 +903,36 @@ export default {
 }
 .bc-presets {
   display: flex;
-  padding: 4px;
-  background: var(--mau-the);
+  padding: 3px;
+  background: var(--mau-the-sub);
   border: 1px solid var(--mau-vien);
-  border-radius: 12px;
+  border-radius: 8px;
   gap: 4px;
 }
 .bc-presets button {
-  padding: 9px 16px;
-  min-height: 40px;
+  padding: 6px 14px;
+  min-height: 36px;
   border: 0;
-  border-radius: 8px;
+  border-radius: 6px;
   color: var(--mau-phu);
   background: transparent;
-  font-size: 0.78rem;
-  font-weight: 650;
+  font-size: 13px;
+  font-weight: 600;
   white-space: nowrap;
+  transition: all 0.15s ease-in-out;
+}
+.bc-presets button:hover {
+  color: var(--mau-chu);
 }
 .bc-presets button[aria-pressed='true'] {
   background: var(--mau-chinh);
-  color: white;
-  box-shadow: 0 3px 8px rgb(244 91 32 / 0.2);
+  color: var(--mau-tren-chinh);
+  box-shadow: none;
 }
 .bc-bo-loc {
   border-bottom: 1px solid var(--mau-vien);
   padding-bottom: 16px;
+  margin-bottom: 24px;
 }
 .bc-bo-loc summary {
   cursor: pointer;
@@ -966,29 +960,23 @@ export default {
   min-width: 140px;
 }
 .bc-bo-loc :is(input, select, button) {
-  min-height: 44px;
+  min-height: 40px;
   font-size: 0.8rem;
+  border-radius: 8px;
 }
 .bc-so-lieu {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  margin: 0;
+  gap: 16px;
+  margin: 0 0 24px;
 }
 .bc-card {
-  padding: 24px;
-  border-radius: 22px;
+  padding: 20px 24px;
+  border-radius: 8px;
   border: 1px solid var(--mau-vien);
   background: var(--mau-the);
-  box-shadow: 0 4px 16px rgb(15 23 42 / 0.025);
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
+  box-shadow: none;
   min-width: 0;
-}
-.bc-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgb(15 23 42 / 0.07);
 }
 .bc-card-canh-bao {
   background: color-mix(in srgb, var(--mau-chinh) 6%, var(--mau-the));
@@ -1006,7 +994,7 @@ export default {
   height: 42px;
   display: inline-grid;
   place-items: center;
-  border-radius: 12px;
+  border-radius: 8px;
   flex-shrink: 0;
   font-size: 1.2rem;
 }
@@ -1023,7 +1011,7 @@ export default {
   background: rgb(59 130 246 / 0.1);
 }
 .bc-tim {
-  color: light-dark(#7c3aed, #b99bff);
+  color: light-dark(var(--mau-thong-tin), var(--mau-thong-tin));
   background: rgb(139 92 246 / 0.1);
 }
 .bc-cham {
@@ -1047,7 +1035,7 @@ export default {
   color: light-dark(#1d4ed8, #79a9ff);
 }
 .bc-tim-text {
-  color: light-dark(#7c3aed, #b99bff);
+  color: light-dark(var(--mau-thong-tin), var(--mau-thong-tin));
 }
 .bc-cham-text {
   color: light-dark(#4338ca, #a5a2ff);
@@ -1076,10 +1064,10 @@ export default {
 }
 .bc-card dd {
   margin: 8px 0 8px;
-  font-size: clamp(1.6rem, 2.15vw, 2.3rem);
+  font-size: 1.75rem;
   line-height: 1.2;
   font-weight: 700;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
   font-variant-numeric: tabular-nums;
   overflow-wrap: anywhere;
 }
@@ -1092,8 +1080,8 @@ export default {
   padding: 24px;
   background: var(--mau-the);
   border: 1px solid var(--mau-vien);
-  border-radius: 24px;
-  box-shadow: 0 4px 20px rgb(15 23 42 / 0.025);
+  border-radius: 8px;
+  box-shadow: var(--bong-nhe);
 }
 .bc-panel-heading {
   display: flex;
@@ -1105,7 +1093,7 @@ export default {
 .bc-panel h2 {
   font-size: 1.03rem;
   font-weight: 700;
-  letter-spacing: -0.025em;
+  letter-spacing: 0;
   margin: 0;
 }
 .bc-panel h3 {
@@ -1214,7 +1202,7 @@ export default {
   gap: 14px;
   padding: 8px;
   background: var(--mau-the-sub);
-  border-radius: 12px;
+  border-radius: 8px;
   margin-bottom: 14px;
 }
 .bc-moc-chon button {
@@ -1259,7 +1247,7 @@ export default {
   color: var(--mau-phu);
   font-size: 0.82rem;
   background: var(--mau-the-sub);
-  border-radius: 14px;
+  border-radius: 8px;
 }
 .bc-tien-phu {
   display: grid;
@@ -1429,10 +1417,10 @@ export default {
 .bc-bar-track > div {
   height: 100%;
   border-radius: 99px;
-  background: linear-gradient(90deg, #f97316, #fb923c);
+  background: var(--mau-chinh);
 }
 .bc-goi:nth-child(2n) .bc-bar-track > div {
-  background: linear-gradient(90deg, #10b981, #34d399);
+  background: var(--mau-chinh);
 }
 .bc-mini-grid {
   display: grid;
@@ -1442,7 +1430,7 @@ export default {
 }
 .bc-mini-grid > div {
   background: var(--mau-the-sub);
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 14px 12px;
 }
 .bc-mini-grid dt {
@@ -1454,7 +1442,7 @@ export default {
   font-size: 1.4rem;
   font-weight: 700;
   margin: 8px 0 0;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
   font-variant-numeric: tabular-nums;
 }
 .bc-ten-pt {
@@ -1496,11 +1484,7 @@ export default {
   margin-top: 16px;
 }
 .bc-ai-panel {
-  background: linear-gradient(
-    145deg,
-    color-mix(in srgb, #8b5cf6 3%, var(--mau-the)),
-    var(--mau-the)
-  );
+  background: var(--mau-the-sub);
 }
 .bc-ai-chart {
   margin: 24px 0;
@@ -1538,7 +1522,7 @@ export default {
   width: 100%;
   max-width: 32px;
   border-radius: 7px 7px 0 0;
-  background: linear-gradient(0deg, #8b5cf6, #c4b5fd);
+  background: var(--mau-chinh);
 }
 .bc-token-grid {
   display: grid;
@@ -1563,8 +1547,8 @@ export default {
   justify-content: space-between;
   gap: 12px;
   background: rgb(139 92 246 / 0.07);
-  color: light-dark(#7c3aed, #b99bff);
-  border-radius: 12px;
+  color: light-dark(var(--mau-thong-tin), var(--mau-thong-tin));
+  border-radius: 8px;
   min-height: 44px;
   padding: 12px 16px;
   font-size: 0.75rem;
@@ -1593,7 +1577,7 @@ export default {
   margin: 10px 0 0;
   font-size: 1.8rem;
   font-weight: 700;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
   font-variant-numeric: tabular-nums;
 }
 .bc-content-grid {
@@ -1608,7 +1592,7 @@ export default {
   align-items: start;
   gap: 10px;
   padding: 16px;
-  border-radius: 16px;
+  border-radius: 8px;
   background: var(--mau-the-sub);
   border: 1px solid transparent;
   color: var(--mau-phu);
@@ -1621,7 +1605,7 @@ export default {
 .bc-content strong {
   font-size: 1.6rem;
   color: var(--mau-chu);
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
   font-variant-numeric: tabular-nums;
 }
 .bc-content > .bi {
@@ -1639,7 +1623,7 @@ export default {
   align-items: start;
   gap: 12px;
   background: var(--mau-the);
-  border-radius: 16px;
+  border-radius: 8px;
   border: 1px solid var(--mau-vien);
   padding: 18px;
   color: var(--mau-chu);
@@ -1729,7 +1713,7 @@ export default {
   }
   .bc-card {
     padding: 20px;
-    border-radius: 18px;
+    border-radius: 8px;
   }
   .bc-card-top {
     margin-bottom: 12px;
@@ -1739,7 +1723,7 @@ export default {
   }
   .bc-panel {
     padding: 20px 16px;
-    border-radius: 18px;
+    border-radius: 8px;
   }
   .bc-panel-heading {
     flex-wrap: wrap;

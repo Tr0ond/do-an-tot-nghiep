@@ -1,0 +1,453 @@
+{
+  "savedAt": "2026-10-04T12:35:46.994Z",
+  "files": [
+    {
+      "id": "387fe9965b7342d2ae9dc3d5b0a07447",
+      "title": "01 · Khách hàng · Sáng (Chuẩn hoá)",
+      "html": {
+        "file": "387fe9965b7342d2ae9dc3d5b0a07447.html",
+        "bytes": 31024,
+        "sha256": "5882683c3392a3ba4a6fb924c94cd6eed6801ca12dc06c161daa8e3215c1a3d5"
+      },
+      "png": {
+        "file": "387fe9965b7342d2ae9dc3d5b0a07447.png",
+        "bytes": 93744,
+        "sha256": "fa1c3f83a3d7b98b6edd14bf4d94ea87531ad16b17c34ac02cdfe7af282bf93a"
+      }
+    },
+    {
+      "id": "4fa1c93244eb46ca8bb53d96f89731b6",
+      "title": "02 · Huấn luyện viên · Sáng (Chuẩn hoá)",
+      "html": {
+        "file": "4fa1c93244eb46ca8bb53d96f89731b6.html",
+        "bytes": 33123,
+        "sha256": "3a18864c549681a69b0871a487921fa00508b62d73c24760adde86c1c34c126d"
+      },
+      "png": {
+        "file": "4fa1c93244eb46ca8bb53d96f89731b6.png",
+        "bytes": 91124,
+        "sha256": "e76b5070ffb3e3c75c6d5424abca83233afcfb491bc165ba4e460afeac73c760"
+      }
+    },
+    {
+      "id": "e5209273fd2242ecbf837af84eb6079b",
+      "title": "03 · Admin · Sáng (Chuẩn hoá)",
+      "html": {
+        "file": "e5209273fd2242ecbf837af84eb6079b.html",
+        "bytes": 33023,
+        "sha256": "3b6461b2a979b80d2e3f8bc284d26a80036ff692a7100e1db696cbeb1b65f2a6"
+      },
+      "png": {
+        "file": "e5209273fd2242ecbf837af84eb6079b.png",
+        "bytes": 88092,
+        "sha256": "1313f62f01861822272454f89fe563da265219296f618a5e4ea4aae28b224747"
+      }
+    },
+    {
+      "id": "0c8d8694a9844f38b4a49c6caf8bc6c4",
+      "title": "04 · Khách hàng · Tối",
+      "html": {
+        "file": "0c8d8694a9844f38b4a49c6caf8bc6c4.html",
+        "bytes": 28762,
+        "sha256": "714411a4fa707e4c8c980c5e87f2880e134fd7f1b264959fc2aa8cbbab9320ca"
+      },
+      "png": {
+        "file": "0c8d8694a9844f38b4a49c6caf8bc6c4.png",
+        "bytes": 122845,
+        "sha256": "70f95a27138e7b5cf73e4f7ee14b4b41f26ea1307e537b9b16ed3e95a75ab9cb"
+      }
+    },
+    {
+      "id": "1f6755169ca4473fba034dc0f950aba8",
+      "title": "05 · Huấn luyện viên · Tối",
+      "html": {
+        "file": "1f6755169ca4473fba034dc0f950aba8.html",
+        "bytes": 32181,
+        "sha256": "8d78a15b557bcfa28885049cc9e0ae495d65ff2127cdef9dbafb01d383ab38c3"
+      },
+      "png": {
+        "file": "1f6755169ca4473fba034dc0f950aba8.png",
+        "bytes": 123464,
+        "sha256": "2f06341e79f80e82ba76de222f47b33fa0abf136793502ff882e31609b3941d7"
+      }
+    },
+    {
+      "id": "049f82571c834e81b7cd48ef30a86b5a",
+      "title": "06 · Admin · Tối",
+      "html": {
+        "file": "049f82571c834e81b7cd48ef30a86b5a.html",
+        "bytes": 33418,
+        "sha256": "0632df1b3568f243bacbcb11899b33af320b0d8ad6916d52773026584bd54150"
+      },
+      "png": {
+        "file": "049f82571c834e81b7cd48ef30a86b5a.png",
+        "bytes": 99278,
+        "sha256": "a3b012ba390a20383097e30a5dd9ad5fbac0f07e541189bc1c18041655c1d396"
+      }
+    },
+    {
+      "id": "4eb8dd6fb3de48dda5cc2ba4213aa910",
+      "title": "07 · Khách hàng Mobile · Sáng",
+      "html": {
+        "file": "4eb8dd6fb3de48dda5cc2ba4213aa910.html",
+        "bytes": 27621,
+        "sha256": "a4bdb8bd5fb10950902d93acbbcbb2b555eba126fb8d2526a5fdd18871d6e2e6"
+      },
+      "png": {
+        "file": "4eb8dd6fb3de48dda5cc2ba4213aa910.png",
+        "bytes": 28781,
+        "sha256": "9e713c583794f463bf50a8761d698e20673755fdd55d316a84c6e45a4da8eeb8"
+      }
+    },
+    {
+      "id": "d624b5a001e041e282031ce1cbde171d",
+      "title": "08 · Khách hàng Mobile · Tối",
+      "html": {
+        "file": "d624b5a001e041e282031ce1cbde171d.html",
+        "bytes": 26351,
+        "sha256": "9234c3f71808e79a19645905b50b87ac8feefd3bfd4b2accb31da84efaec5ea6"
+      },
+      "png": {
+        "file": "d624b5a001e041e282031ce1cbde171d.png",
+        "bytes": 41387,
+        "sha256": "1c99bed2a29d346da30e0e9b9134927b238bd06fd5914676293a492e0f1d7fd6"
+      }
+    },
+    {
+      "id": "7430bf866ee743d6822cb4fb22e4048f",
+      "title": "09 · Thư viện bài tập",
+      "html": {
+        "file": "7430bf866ee743d6822cb4fb22e4048f.html",
+        "bytes": 46205,
+        "sha256": "b1c78a29e8ea96e85a069555e8369f17096a5dd40fb8b105190ecaac53e895c7"
+      },
+      "png": {
+        "file": "7430bf866ee743d6822cb4fb22e4048f.png",
+        "bytes": 204825,
+        "sha256": "1a9107be1d5b0183917ba207bd0693b36ea4fd96e41c9a4032ceef3433b98e7e"
+      }
+    },
+    {
+      "id": "27243b1139e24850bb2e99501f2fcd05",
+      "title": "10 · Lịch & nhật ký",
+      "html": {
+        "file": "27243b1139e24850bb2e99501f2fcd05.html",
+        "bytes": 41469,
+        "sha256": "4d6b3131cd3934d223d04e89379fc6f042515484c35a1b5e981772edd91fa1af"
+      },
+      "png": {
+        "file": "27243b1139e24850bb2e99501f2fcd05.png",
+        "bytes": 72607,
+        "sha256": "30482f43fd8752c8077515f4a5d488247bd043c122169308b745e75f6c25b55f"
+      }
+    },
+    {
+      "id": "44d9ff8b82bf4694927e2971e86547cc",
+      "title": "11 · Soạn giáo án",
+      "html": {
+        "file": "44d9ff8b82bf4694927e2971e86547cc.html",
+        "bytes": 43173,
+        "sha256": "0adc7275ede69c7b2cb0da7611e569e4e3e16617d96e5d694ca10afe77d42016"
+      },
+      "png": {
+        "file": "44d9ff8b82bf4694927e2971e86547cc.png",
+        "bytes": 73144,
+        "sha256": "f63b69580d61c6253f2af06e698c900204debdca1fe203ee6a2077d8175e38e1"
+      }
+    },
+    {
+      "id": "42e6d33dbe7f44b58d423f97c284c29e",
+      "title": "12 · Chat trực tuyến",
+      "html": {
+        "file": "42e6d33dbe7f44b58d423f97c284c29e.html",
+        "bytes": 32948,
+        "sha256": "dd829ec638f3a4eb1e97a2f58831439b86aa7f4e405496b09532863d1272d337"
+      },
+      "png": {
+        "file": "42e6d33dbe7f44b58d423f97c284c29e.png",
+        "bytes": 93373,
+        "sha256": "667ca608208de4dfcdcb5041c2d7369c46097a03168d14b7ca8e28438d6fd776"
+      }
+    },
+    {
+      "id": "9c0637f0878a420793f03f70f0e49abf",
+      "title": "13 · Quản lý gói tập",
+      "html": {
+        "file": "9c0637f0878a420793f03f70f0e49abf.html",
+        "bytes": 37258,
+        "sha256": "e13d9db42f1798d5da42c17870bbcc18569108e25776d410204c49dbf56eedd7"
+      },
+      "png": {
+        "file": "9c0637f0878a420793f03f70f0e49abf.png",
+        "bytes": 63117,
+        "sha256": "a047a4e0db79931b39c8f3c2817273860e2778056cd09dcaf42eaf84ba9d9127"
+      }
+    },
+    {
+      "id": "3fc892d5373b448890cb816b08484f5f",
+      "title": "14 · Đăng nhập",
+      "html": {
+        "file": "3fc892d5373b448890cb816b08484f5f.html",
+        "bytes": 15190,
+        "sha256": "2924f0e94a38d32287bb3b11932c199d4fdb96a50f4a16843108dc76f3b2c4a2"
+      },
+      "png": {
+        "file": "3fc892d5373b448890cb816b08484f5f.png",
+        "bytes": 75529,
+        "sha256": "82285bf8885fd90e56ee2170b1c24ecae1a023e0778f238c45c8c899f6a346a9"
+      }
+    },
+    {
+      "id": "995ed5ed36c6436090a92566c2494632",
+      "title": "15 · Hồ sơ cá nhân",
+      "html": {
+        "file": "995ed5ed36c6436090a92566c2494632.html",
+        "bytes": 29646,
+        "sha256": "b9136868512e8d59ce520e6ffc69996efda0702661a40c150619bb4ab0371059"
+      },
+      "png": {
+        "file": "995ed5ed36c6436090a92566c2494632.png",
+        "bytes": 74462,
+        "sha256": "3322caffa7348c7b8f76ebe1c5e17fc489c2c3b22db084581a9d9103bc326dc8"
+      }
+    },
+    {
+      "id": "9efe8edfa9784e89adfadc9f0c29b9a0",
+      "title": "16 · Sửa hồ sơ",
+      "html": {
+        "file": "9efe8edfa9784e89adfadc9f0c29b9a0.html",
+        "bytes": 26397,
+        "sha256": "358f86cda58792876399e793f2c0d417fe76d6fa3dfc4d902ede01c85cb4479c"
+      },
+      "png": {
+        "file": "9efe8edfa9784e89adfadc9f0c29b9a0.png",
+        "bytes": 73957,
+        "sha256": "f174964de0be620fc89dd544856260730a71ba5528486a3ca3ea90014622e5ea"
+      }
+    },
+    {
+      "id": "635a63659dab43028d8f2fea39fd80f4",
+      "title": "17 · Chỉ số cơ thể",
+      "html": {
+        "file": "635a63659dab43028d8f2fea39fd80f4.html",
+        "bytes": 36307,
+        "sha256": "b137b8b8396a244d7eed1fccd4d2a4d655fbd2b903a0f69bc99d7539bd25f030"
+      },
+      "png": {
+        "file": "635a63659dab43028d8f2fea39fd80f4.png",
+        "bytes": 85592,
+        "sha256": "8d1221000130946f3bd3e39bd14aacf0d8fcbd18b1c7ee4573070a4b3ef0785e"
+      }
+    },
+    {
+      "id": "1972afa0d2964980a83a47bfe4bf33a1",
+      "title": "18 · Học viên PT",
+      "html": {
+        "file": "1972afa0d2964980a83a47bfe4bf33a1.html",
+        "bytes": 40462,
+        "sha256": "dc2b6387bc1eb2a59ac419119a2d1fe2094ac130aa6c86807e78ce7be04619ae"
+      },
+      "png": {
+        "file": "1972afa0d2964980a83a47bfe4bf33a1.png",
+        "bytes": 88166,
+        "sha256": "dd0c181d040f610c216cf0badbf67fca2d1afa65d0ad25987f53a77db1d95d95"
+      }
+    },
+    {
+      "id": "95355f5ea0454df98b627dfac117f7c3",
+      "title": "19 · Lịch hẹn PT",
+      "html": {
+        "file": "95355f5ea0454df98b627dfac117f7c3.html",
+        "bytes": 45402,
+        "sha256": "6260c46c2afec8b1c5a7b9dc013842b2269a59a2c487184b9cfb46e7f55b6a3a"
+      },
+      "png": {
+        "file": "95355f5ea0454df98b627dfac117f7c3.png",
+        "bytes": 89619,
+        "sha256": "4cadeda3a85e49bf8e953aeaacaece46b09dadaa7902bb9d65f768a2bd7a3530"
+      }
+    },
+    {
+      "id": "e9e2108bbd94451a882fa77241e9ba61",
+      "title": "20 · Khung giờ PT/KH",
+      "html": {
+        "file": "e9e2108bbd94451a882fa77241e9ba61.html",
+        "bytes": 45942,
+        "sha256": "ca140878d8d49b5936a6139be2637f0beaf46f1e40343d439ca45eec04dbaaf2"
+      },
+      "png": {
+        "file": "e9e2108bbd94451a882fa77241e9ba61.png",
+        "bytes": 103300,
+        "sha256": "098d4f65b192a26a4c470d86c08a1d65be97d6c272dbed06e0133d8449bb9a8c"
+      }
+    },
+    {
+      "id": "b742c277281245748a5e8ad982774da8",
+      "title": "21 · Đơn hàng KH/Admin",
+      "html": {
+        "file": "b742c277281245748a5e8ad982774da8.html",
+        "bytes": 35154,
+        "sha256": "8458c6c23d0c87e96cd5a2565d8796bd10b114edb1a0971c37ce1bf816385f9a"
+      },
+      "png": {
+        "file": "b742c277281245748a5e8ad982774da8.png",
+        "bytes": 90419,
+        "sha256": "db06cb75f7b41650eb4ec66e5074218996bed78ccb3b1408e4f52022b545016a"
+      }
+    },
+    {
+      "id": "d6d0318408cb41f798cacb1264382eb0",
+      "title": "22 · Gói của tôi KH",
+      "html": {
+        "file": "d6d0318408cb41f798cacb1264382eb0.html",
+        "bytes": 28972,
+        "sha256": "eb0b464af71e12b86072f5d6a1ecd5ef7bb9ebc3a30ddcf8ff35ff3939d8a783"
+      },
+      "png": {
+        "file": "d6d0318408cb41f798cacb1264382eb0.png",
+        "bytes": 108293,
+        "sha256": "374cf970e87a142294c9741ff5e27d20abdb37c1e6714fac40ba49fcaa77e325"
+      }
+    },
+    {
+      "id": "3f402d898c914219bc0b4c58d6392554",
+      "title": "23 · Phân công PT Admin",
+      "html": {
+        "file": "3f402d898c914219bc0b4c58d6392554.html",
+        "bytes": 36664,
+        "sha256": "420253b8372a17b3f55c1bf6e5459aca4adfa0e97459d62fbcf4f4685accf07b"
+      },
+      "png": {
+        "file": "3f402d898c914219bc0b4c58d6392554.png",
+        "bytes": 78652,
+        "sha256": "c0f133a098fedd81c29ada37d620f451666f07f1d7f41c15f8edf28a45936112"
+      }
+    },
+    {
+      "id": "d21b55bcb1d44c5f836ea7e570b27bdc",
+      "title": "24 · Tài khoản Admin",
+      "html": {
+        "file": "d21b55bcb1d44c5f836ea7e570b27bdc.html",
+        "bytes": 32566,
+        "sha256": "5409022829ec7de7e5b601437aee62b34e2d22cd11beb91f8529f3e5b1b23506"
+      },
+      "png": {
+        "file": "d21b55bcb1d44c5f836ea7e570b27bdc.png",
+        "bytes": 89837,
+        "sha256": "3367576105aee63900034dbf674e29d2b38d7a548674edae27d653ca170ac50d"
+      }
+    },
+    {
+      "id": "818cac6763494bd29fcf9f43a6e30d7c",
+      "title": "25 · Tài liệu & AI Admin",
+      "html": {
+        "file": "818cac6763494bd29fcf9f43a6e30d7c.html",
+        "bytes": 36639,
+        "sha256": "fd48322d71c21ba000c9d2b5f2c63c08ff1d089b0560e6230fa46c3de83dfd78"
+      },
+      "png": {
+        "file": "818cac6763494bd29fcf9f43a6e30d7c.png",
+        "bytes": 74915,
+        "sha256": "174bcb69945fdf0c71b4d7cfc9d4c46d79602fcc1bf7acd18871f4d06a0d2ceb"
+      }
+    },
+    {
+      "id": "aaba45fae3a7492f907dc15765a98a50",
+      "title": "26 · FAQ public",
+      "html": {
+        "file": "aaba45fae3a7492f907dc15765a98a50.html",
+        "bytes": 32215,
+        "sha256": "e5ecb117810f6d483c037fc962d1465ed868fc002e3bd86087c952d6da1c0590"
+      },
+      "png": {
+        "file": "aaba45fae3a7492f907dc15765a98a50.png",
+        "bytes": 83093,
+        "sha256": "31b0ba66385741f4b3396f91b2ca2c92021d7bd3584c9714cf34d3e77cafc205"
+      }
+    },
+    {
+      "id": "dc65a97386274e41bb0de16546b05255",
+      "title": "27 · Chi tiết bài tập",
+      "html": {
+        "file": "dc65a97386274e41bb0de16546b05255.html",
+        "bytes": 34457,
+        "sha256": "3d1ddfe26b0ed7cfc1c0aa79dbde13c864f0b7921f305ef3d0a22fdabce5bb1b"
+      },
+      "png": {
+        "file": "dc65a97386274e41bb0de16546b05255.png",
+        "bytes": 99170,
+        "sha256": "d94942790d081879d2b8bf77ee25ae4747a441cf83ba0f5191f6a7455b4ec796"
+      }
+    },
+    {
+      "id": "40040946bd15494abdb2e4086b1078fb",
+      "title": "28 · Chi tiết gói public",
+      "html": {
+        "file": "40040946bd15494abdb2e4086b1078fb.html",
+        "bytes": 28659,
+        "sha256": "916a5d632486a144256545264a6746e36cdc3c18f12d99fab2b49561ba837b90"
+      },
+      "png": {
+        "file": "40040946bd15494abdb2e4086b1078fb.png",
+        "bytes": 83119,
+        "sha256": "af7cf3a7a30452b975e40e02937d8bf9985746e92b404fee8acfa2c21e19a164"
+      }
+    },
+    {
+      "id": "80e93bfd469542b18e46bc53670fc321",
+      "title": "29 · Form danh mục Admin",
+      "html": {
+        "file": "80e93bfd469542b18e46bc53670fc321.html",
+        "bytes": 36311,
+        "sha256": "8b9f139f46500f901212cc9657001b659d7d8b809a7f40868f529d4b97dc4a97"
+      },
+      "png": {
+        "file": "80e93bfd469542b18e46bc53670fc321.png",
+        "bytes": 85248,
+        "sha256": "ab38662b43d4867d8ddc2b0f24dd183af77fac0c27717b1d8e112f4c279cbe5d"
+      }
+    },
+    {
+      "id": "1090075feb284313a892a0dc83b32751",
+      "title": "30 · Chi tiết giáo án KH/PT",
+      "html": {
+        "file": "1090075feb284313a892a0dc83b32751.html",
+        "bytes": 33292,
+        "sha256": "4a1baf913f0217d50c6294976f65ed17ac4ec8e10ba4f7e64fc67eaecddd4eb4"
+      },
+      "png": {
+        "file": "1090075feb284313a892a0dc83b32751.png",
+        "bytes": 98715,
+        "sha256": "3e67ced47947f38964bf0e8296254fcfd8256ca6ea33ca8ba5bbdbe5f839ebb8"
+      }
+    },
+    {
+      "id": "1ed379e8e4194cf89184663f9ff4f419",
+      "title": "31 · Khôi phục mật khẩu",
+      "html": {
+        "file": "1ed379e8e4194cf89184663f9ff4f419.html",
+        "bytes": 15070,
+        "sha256": "f018a9cb7b0b61b3be0e3c9f594659d1654680e4dfb2623e99212eacf90bdb94"
+      },
+      "png": {
+        "file": "1ed379e8e4194cf89184663f9ff4f419.png",
+        "bytes": 38453,
+        "sha256": "c60c7a217490691bd4e259fd8e866a5ae33e8d057a66b99c9e59a509ce5daecd"
+      }
+    },
+    {
+      "id": "7c435bbf5e394a74b545c8daadeb65e3",
+      "title": "32 · Không có quyền/Mất kết nối",
+      "html": {
+        "file": "7c435bbf5e394a74b545c8daadeb65e3.html",
+        "bytes": 21466,
+        "sha256": "272f61ff806fcfd98fc0a6db298c5c60d1212179022bcf7279368151a88d178c"
+      },
+      "png": {
+        "file": "7c435bbf5e394a74b545c8daadeb65e3.png",
+        "bytes": 42354,
+        "sha256": "7d9bdcbbe0dce4ec6121340043583ab2b8e06f355a465a3cc71efd3357de8b2b"
+      }
+    }
+  ]
+}
