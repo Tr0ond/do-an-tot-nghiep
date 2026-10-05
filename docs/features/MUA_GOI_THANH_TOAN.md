@@ -22,4 +22,6 @@ PT và KH phải hoạt động, KH phải có gói PT còn hạn/còn buổi kh
 
 ## Tích hợp
 
+MB5 native dùng cùng API KH, snapshot/transaction/quyền và UUID hiện có; danh sách gói công khai, lịch sử/chi tiết đơn riêng theo tài khoản. App chỉ mở HTTPS `pay.payos.vn`, foreground tải chi tiết và nút kiểm tra gọi BE đồng bộ. Return/cancel URL giữ luồng web; không suy ra thanh toán từ URL. QA Android dùng payOS giả lập có chữ ký; lỗi 503 sau commit rồi retry không sinh thêm đơn/khoản thu/gói. Chưa chuyển tiền hoặc nghiệm thu webhook payOS thật ở MB5. [Biên bản](../verification/MOBILE_MB5.md).
+
 Khóa chỉ trong BE/.env, config payos; không ghi response/log. Dùng Laravel HTTP Client theo [API payOS](https://payos.vn/docs/api/) và [quy tắc chữ ký](https://payos.vn/docs/tich-hop-webhook/kiem-tra-du-lieu-voi-signature/), không thêm SDK. Kết nối dùng CA công khai tại BE/resources/certs/cacert.pem, giữ kiểm tra HTTPS và không theo redirect. Webhook cần URL HTTPS Backend truy cập được từ payOS; localhost tự đồng bộ qua nút kiểm tra thanh toán. Ngày không có múi giờ từ payOS được đọc theo Asia/Ho_Chi_Minh, DB lưu UTC. Cần xác minh luồng tiền thật và webhook công khai khi triển khai.

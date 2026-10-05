@@ -19,14 +19,15 @@ flowchart LR
     A --> P[Nhà cung cấp AI]
 ```
 
-Một frontend, một backend, một database, một Reverb process và một queue worker là đủ baseline. Không thêm service Python, vector DB hoặc microservices cho bản đầu.
+Website Vue, một backend, một database, một Reverb process và một queue worker là baseline web. Theo C40/C41 (05/10/2026), thêm app React Native + Expo/JavaScript trong `Mobile/` cho KH và PT. MB1 dùng bearer Sanctum cho native, HTTP client và hồ sơ thật; website giữ cookie/session/CSRF. MB2–MB5 nối lịch/tập luyện, Reverb/thông báo, đăng ký/reset, gói/thanh toán và chatbot vào cùng backend; UI1 mẫu tách riêng. MB5 kiểm tra nhà cung cấp giả lập; bản cài/điện thoại thật chưa nghiệm thu. Sơ đồ trên mô tả phần web hiện có. Không thêm service Python, vector DB hoặc microservices cho bản đầu.
 
 ## Tổ chức code
 
-Các vị trí dưới đây tính từ thư mục gốc `E:/Dự án tốt nghiệp`. `FE/`, `BE/` và `templates/` là các thư mục ngang cấp; `Base/` chỉ giữ chỉ mục tài liệu.
+Các vị trí dưới đây tính từ thư mục gốc `E:/Dự án tốt nghiệp`. `FE/`, `BE/`, `Mobile/` và `templates/` là các thư mục ngang cấp; `Base/` chỉ giữ chỉ mục tài liệu.
 
 | Vị trí | Trách nhiệm |
 | --- | --- |
+| `Mobile/` | App React Native + Expo cho KH/PT; UI1 mẫu và MB1 xác thực/hồ sơ thật |
 | `FE/src/views/` | Pages theo Admin/PT/KhachHang |
 | `FE/src/components/` | Form, bảng, thông báo và thành phần dùng chung |
 | `FE/src/layouts/` | Layout khách hàng/PT/Admin/auth |

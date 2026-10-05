@@ -158,6 +158,28 @@ Một người khoảng 8 giờ/ngày, một phòng gym, Vue Options API/JavaScr
 - Giữ quyền AI theo gói và hạn mức ngày. Bài/thông số AI phải qua validation trước lưu; lỗi/rollback không tạo giáo án mồ côi hoặc tính lượt, UUID retry trả cùng bản. Ví dụ3 buổi/tuần×4 tuần thành12 buổi kế hoạch, mỗi buổi4 bài; chưa phải12 lịch hẹn có ngày giờ.
 - Lựa chọn triển khai: tối đa30 buổi và120 dòng bài/lần tạo AI, mỗi buổi1–8 bài; hỏi bổ sung nếu thiếu thông số hoặc vượt giới hạn. Cửa sổ KH giữ hội thoại khi thu gọn/chuyển trang và xóa khỏi giao diện khi đăng xuất. Khách chưa đăng nhập xem lời mời đăng nhập/FAQ; Admin/PT không nhận quyền AI mới.
 
+## C40 — Khởi tạo mobile React Native + Expo (05/10/2026, ĐÃ CHỐT)
+
+- Người xác nhận: chủ dự án, yêu cầu tạo folder `Mobile` và nạp React Native + Expo sau khi trao đổi về app cho KH và PT.
+- Phạm vi lần này: khởi tạo một app JavaScript trong `Mobile/`, cài dependencies, kiểm tra bộ khung và hướng dẫn chạy. Thay giới hạn không có ứng dụng mobile riêng trong SCOPE; giữ website Vue trong `FE/` và Backend Laravel trong `BE/`.
+- Hướng tích hợp: KH và PT dùng chung app, dùng lại Backend và dữ liệu hiện có; Admin tiếp tục trên web. Chưa triển khai đăng nhập mobile, API, màn hình nghiệp vụ, push hoặc thanh toán trong bước bootstrap này.
+- Lựa chọn triển khai: mẫu Expo `blank` JavaScript, npm và lockfile riêng; không tạo backend/database mới, không đổi quyền nghiệp vụ hoặc migration.
+- Tác động: `Mobile/`, README, SCOPE, PROJECT_RULES và tài liệu kiến trúc.
+- Tiếp nối ngày 05/10/2026, chủ dự án yêu cầu soạn Markdown phục vụ triển khai mobile. Đã bổ sung [bộ tài liệu Mobile](../Mobile/docs/README.md) và hướng dẫn trong `Mobile/AGENTS.md`; việc soạn tài liệu không tự phê duyệt TTL, push hoặc phát hành store. Xác nhận tiếp theo được ghi ở C41.
+
+## C41 — Android, chính sách phiên và giao diện mobile đầu tiên (05/10/2026, ĐÃ CHỐT)
+
+- Người xác nhận: chủ dự án trong phiên triển khai mobile đầu tiên, chọn điện thoại Android và đồng ý phiên đăng nhập 30 ngày, nhiều thiết bị, logout chỉ thu hồi phiên trên thiết bị đó; hết hạn đăng nhập lại.
+- Sau đó chủ dự án yêu cầu thiết kế trước, tạm chốt Stitch project `12280986189063614412` và yêu cầu thực hiện bước tiếp theo. UI1 dựng theme/navigation, đăng nhập UI, tổng quan KH/PT, hồ sơ và chỉnh sửa hồ sơ bằng dữ liệu minh họa.
+- UI1 chưa tích hợp Laravel, chưa cấp/lưu/thu hồi token và chưa triển khai chính sách phiên. Không thay quyền, dữ liệu, migration hoặc xác thực web. Push và phát hành store vẫn chờ chốt.
+- Tác động: `Mobile/src/`, App/dependencies, tài liệu mobile và [kiểm chứng UI1](verification/MOBILE_UI1.md).
+- Tiếp nối cùng ngày: sau khi mở được app trên LDPlayer, chủ dự án yêu cầu thực hiện MB1. Đã triển khai phiên bearer/SecureStore/khôi phục/đăng xuất riêng thiết bị và hồ sơ thật; migration `000043` chỉ bổ sung bảng token. Khóa/reset từ web thu hồi phiên mobile; website giữ cookie/CSRF. [Kiểm chứng MB1](verification/MOBILE_MB1.md). Nghiệp vụ lịch/tập luyện/chat, push và bản cài chưa nằm trong lần này.
+- Tiếp nối MB2 cùng ngày theo yêu cầu “ok làm tiếp đi”: tích hợp tổng quan KH/PT, khung giờ, lịch hẹn và học viên/hồ sơ chỉ đọc qua API hiện có; không thêm migration hoặc đổi quyền/trừ lượt. Đã kiểm tra LDPlayer và MariaDB. [Kiểm chứng MB2](verification/MOBILE_MB2.md). Tập luyện native, chat, push và bản cài là các bước sau.
+
+- Tiếp nối MB3 ngày 05/10/2026 theo yêu cầu “tiếp tục bước tiếp theo”: tích hợp catalog bài tập, giáo án KH/PT/mẫu đã duyệt, lịch tự tập/nhật ký/nhận xét và số đo/tiến độ qua API hiện có. Không đổi nghiệp vụ, migration hoặc quyền web. Đã kiểm tra hành trình KH/PT trên LDPlayer, bearer/quyền/version/retry trên MariaDB. [Kiểm chứng MB3](verification/MOBILE_MB3.md). Chat/thông báo native là MB4; push/bản cài vẫn chưa thực hiện.
+- Tiếp nối MB4 ngày 05/10/2026 theo yêu cầu “vậy làm tiếp đi”: tích hợp chat chữ/ảnh, kênh cá nhân Reverb/Pusher 7, tải bù/chưa đọc và thông báo trong app. Channel bổ sung guard Sanctum bên cạnh web cho bearer mobile, giữ cùng quyền callback; không thêm migration/nghiệp vụ. Đã kiểm tra KH/PT Android, Reverb thật hai client, retry/tải bù 123 tin và đổi PT khi socket còn mở. [Kiểm chứng MB4](verification/MOBILE_MB4.md). Push/bản cài vẫn chưa thực hiện.
+- Tiếp nối MB5 ngày 05/10/2026 theo yêu cầu “vậy làm tiếp đi”: đăng ký/khôi phục native, catalog/đơn/thanh toán, FAQ và chatbot/nháp AI. Tái sử dụng nghiệp vụ BE, không thêm migration; đăng ký/reset không tự cấp token, reset thu hồi phiên cũ. Đã kiểm tra LDPlayer/MariaDB, lỗi phản hồi sau commit và retry không trùng đơn/lượt; AI chỉ NHAP. PayOS/Gemini/email QA giả lập, chưa nghiệm thu dịch vụ thật. [Kiểm chứng MB5](verification/MOBILE_MB5.md). Tiếp theo MB6; push/store vẫn chờ theo quyết định riêng.
+
 ## Cách ghi quyết định sau này
 
 Với mỗi decision: trạng thái, phương án chọn, lý do, người xác nhận, ngày xác nhận, file/module bị tác động. Nếu thay đổi phương án đã chốt, ghi thay thế và tác động migration/dữ liệu lịch sử.

@@ -12,6 +12,8 @@ C32/M05: KH mở chi tiết giáo án tự tạo đã hủy/lưu trữ để **�
 
 ## Trạng thái hiện tại
 
+Ngày 05/10/2026, theo C40/C41, `Mobile/` có UI1 theo Stitch, MB1 xác thực/hồ sơ, MB2 tổng quan/lịch hẹn/học viên, MB3 catalog/giáo án/tự tập/nhật ký/số đo, MB4 chat chữ/ảnh/Reverb/thông báo trong app và MB5 đăng ký/khôi phục, gói/thanh toán/chatbot/nháp AI. Đã kiểm tra các luồng chính trên LDPlayer và quyền/version/retry/tranh chấp trên MariaDB; MB5 dùng nhà cung cấp giả lập khi QA. Bản cài, push, điện thoại thật và luồng dịch vụ thật của MB5 chưa nghiệm thu. Bản xem mẫu vẫn tách riêng. Xem [hướng dẫn chạy Mobile](Mobile/README.md), [kiểm chứng MB5](docs/verification/MOBILE_MB5.md), [MB4](docs/verification/MOBILE_MB4.md), [MB3](docs/verification/MOBILE_MB3.md), [MB2](docs/verification/MOBILE_MB2.md), [MB1](docs/verification/MOBILE_MB1.md) và [tài liệu mobile](Mobile/docs/README.md); website Vue vẫn ở `FE/`.
+
 M09 đã bổ sung **thông báo nghiệp vụ KH/PT/Admin**: thanh toán/kích hoạt, phân công/đổi PT, trạng thái lịch hẹn, nhật ký/nhận xét, giáo án mẫu cần duyệt và ngoại lệ Admin cần xử lý. Dùng chuông hiện có, cùng transaction và chống gửi lặp, không cần migration mới. Khởi động lại `start.bat`, giữ scheduler; mở chuông để cập nhật. [Phạm vi](docs/features/NOTIFICATIONS.md), [kiểm chứng](docs/verification/M09_THONG_BAO.md). Bước tiếp theo là kiểm thử hành trình đầu-cuối và hoàn tất đánh giá chatbot trước triển khai.
 
 M09 bước báo cáo Admin đã triển khai tại **Tổng quan hệ thống**: lọc ngày/tháng, tiền thực nhận/đã hoàn/chờ đối soát, biểu đồ sau hoàn, đơn mới/kích hoạt, buổi PT hoàn thành, học viên theo PT và bảng theo gói snapshot. Không cộng đơn chưa thanh toán, không cần migration mới. Toàn Backend 227 tests/5.905 assertions trên MariaDB và Frontend 216 tests đạt; lint/format/build đạt. [Hợp đồng](docs/features/BAO_CAO.md), [kiểm chứng và giới hạn](docs/verification/M09_BAO_CAO_ADMIN.md). Dashboard KH và PT đã áp dụng mẫu cung cấp với dữ liệu thật, giữ sidebar/header hiện tại. PT có lịch hôm nay, việc chờ xử lý, học viên, giáo án, tin nhắn và hoạt động tuần ([kiểm chứng PT](docs/verification/DASHBOARD_PT.md)). Thông báo nghiệp vụ đã bổ sung theo C39; tiếp theo là kiểm thử hành trình đầu-cuối và đánh giá chatbot.
@@ -29,6 +31,8 @@ Các lựa chọn chủ dự án đã yêu cầu: Vue.js, Laravel, ba tác nhân
 Chat KH–PT đã hỗ trợ gửi ảnh: chọn/kéo thả/dán, xem trước, chú thích, xem lớn và gửi lại; 4 JPG/PNG/WebP/tin, 5 MB/ảnh. [Kiểm chứng gửi ảnh](docs/verification/CHAT_IMAGES.md). Máy này đã chạy migration000035 giữ dữ liệu; máy clone chạy `php artisan migrate` trong BE. Khởi động lại Backend bằng `start.bat` để dùng giới hạn upload mới của `serve:local`.
 
 Bật MySQL, sau đó nhấp đúp [start.bat](start.bat) ở thư mục gốc. File mở 5 cửa sổ: Backend Laravel tại `localhost:8000`, Frontend Vue tại `localhost:5173`, Reverb chat tại `127.0.0.1:8080`, `schedule:work` để xử lý lịch hẹn quá hạn và ngrok chuyển tiếp tới `http://localhost:8000`. Khi Vue báo sẵn sàng, mở [ứng dụng](http://localhost:5173). Dừng bằng `Ctrl+C` trong cả 5 cửa sổ rồi đóng cửa sổ; dừng các tiến trình cũ trước khi chạy lại.
+
+Để chạy app trên iPhone/Android cùng Wi-Fi, nhấp đúp [start-mobile.bat](start-mobile.bat). File tự lấy IP LAN, cấu hình mobile, mở Backend/Reverb cần thiết và Expo ở cổng cố định `8082`. Xem [hướng dẫn mobile](Mobile/README.md#chạy-trên-điện-thoại); hỗ trợ `--check`, `-Ip` và `-ExpoPort`. Bật MySQL trước, dừng Expo cũ và Reverb chỉ nghe localhost nếu được báo; giữ scheduler/ngrok riêng khi thử luồng cần chúng.
 
 Máy mới cần cài PHP/Node.js/ngrok vào PATH, cấu hình authtoken ngrok, cài thư viện, tạo `.env`, cấu hình database, tạo APP_KEY và chạy migrations theo [Backend](BE/README.md) / [Frontend](FE/README.md) trước. Script báo thiếu thư viện/cấu hình; không tự chạy migrations hay seed dữ liệu. Có thể chạy `start.bat --check` để kiểm tra các chương trình/file cần thiết mà không mở server; chế độ này chưa kiểm tra kết nối database hay xác thực ngrok. Trong cửa sổ ngrok, lấy URL HTTPS tại `Forwarding` rồi thêm `/api/v1/payos/webhook` để cấu hình Webhook URL của kênh payOS; cập nhật lại nếu URL thay đổi.
 
@@ -71,6 +75,10 @@ Dự án tốt nghiệp/
 │   ├── README.md
 │   ├── .env.example
 │   └── src/                     # Trang khởi động, router và API client
+├── Mobile/                      # React Native + Expo, JavaScript cho KH/PT
+│   ├── README.md
+│   ├── App.js
+│   └── app.json
 ├── BE/                          # Laravel 13 API
 │   ├── README.md
 │   ├── .env.example
@@ -96,7 +104,7 @@ Dự án tốt nghiệp/
         └── REALTIME_CHAT.md
 ```
 
-`FE/`, `BE/` và `templates/` nằm trực tiếp ở thư mục gốc. `Base/` chỉ giữ chỉ mục tài liệu. Thiết kế nằm ở [DATABASE_DRAFT.md](docs/DATABASE_DRAFT.md), [từ điển dữ liệu](docs/DATABASE_DICTIONARY.md) và [sơ đồ draw.io](docs/diagrams/database.drawio). SQL tại `BE/database/design/`, dữ liệu tại `BE/database/data/`, media tại `BE/public/media/bai-tap/`; generator/kiểm tra tại `scripts/`.
+`FE/`, `BE/`, `Mobile/` và `templates/` nằm trực tiếp ở thư mục gốc. `Base/` chỉ giữ chỉ mục tài liệu. Thiết kế nằm ở [DATABASE_DRAFT.md](docs/DATABASE_DRAFT.md), [từ điển dữ liệu](docs/DATABASE_DICTIONARY.md) và [sơ đồ draw.io](docs/diagrams/database.drawio). SQL tại `BE/database/design/`, dữ liệu tại `BE/database/data/`, media tại `BE/public/media/bai-tap/`; generator/kiểm tra tại `scripts/`.
 
 Repository nguồn [`hasaneyldrm/exercises-dataset`](https://github.com/hasaneyldrm/exercises-dataset) được giữ riêng và không đưa vào repository dự án này. Catalog đã chuẩn hóa, giấy phép/ghi công và media được chuẩn bị cho Backend vẫn có trong `BE/`. Muốn chạy lại generator, clone dataset nguồn vào `exercises-dataset/` ở thư mục gốc; xem [hướng dẫn dữ liệu](BE/database/data/README.md).
 
@@ -105,7 +113,7 @@ Repository nguồn [`hasaneyldrm/exercises-dataset`](https://github.com/hasaneyl
 - Một phòng gym, huấn luyện 1–1, website responsive.
 - 9 module, **28 màn hình đề xuất**, **28 bảng nghiệp vụ dự kiến**; bảng nội bộ framework được tính riêng.
 - Dữ liệu demo mục tiêu: 50–100 khách hàng, 5–10 PT, 30–50 bài tập, 3–5 gói, 5–10 giáo án mẫu. Catalog đã chuẩn bị đủ 1.324 bài/19 nhóm cơ/28 nhãn dụng cụ từ dataset của chủ dự án; có thể chọn 30–50 bài cho kịch bản demo. Đã có [seeder 3 tài khoản demo Admin/PT/KH và 5 giáo án đã duyệt](BE/database/seeders/README.md) cho local/testing; chưa seed gói. Giáo án có 60 dòng bài, chưa gán cho khách hàng. Đây là dữ liệu để trình diễn, không phải kết quả đo tải.
-- Một Backend Laravel, một Frontend Vue, MySQL, Reverb và một nhà cung cấp AI tại một thời điểm.
+- Một Backend Laravel, website Vue, app React Native + Expo cho KH/PT, MySQL, Reverb và một nhà cung cấp AI tại một thời điểm. Mobile có UI1 và MB1–MB5 theo C40/C41; bản cài, điện thoại thật và nghiệm thu nhà cung cấp thật của MB5 còn chờ.
 
 ## Nguồn tham khảo cách code
 

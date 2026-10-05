@@ -16,6 +16,7 @@ use App\Http\Controllers\Api\LichHenController;
 use App\Http\Controllers\Api\NhatKyTapController;
 use App\Http\Controllers\Api\NhomCoController;
 use App\Http\Controllers\Api\PhanCongController;
+use App\Http\Controllers\Api\PhienMobileController;
 use App\Http\Controllers\Api\TaiKhoanController;
 use App\Http\Controllers\Api\TaiLieuTuVanController;
 use App\Http\Controllers\Api\ThongBaoController;
@@ -38,6 +39,13 @@ Route::get('/v1/health', function () {
 // Tách bộ đếm theo thao tác: gửi tin/ghi nhật ký không tiêu hao hạn mức tạo đơn hay AI.
 // Không đưa ID tài nguyên vào tiền tố để tránh đổi hội thoại nhằm vượt hạn mức.
 Route::prefix('v1')->group(function () {
+    Route::prefix('mobile')->withoutMiddleware(EnsureFrontendRequestsAreStateful::class)->group(function () {
+        Route::post('/dang-nhap', [PhienMobileController::class, 'dangNhap'])->middleware('throttle:dang-nhap');
+        Route::post('/dang-ky', [PhienMobileController::class, 'dangKy'])->middleware('throttle:dang-ky');
+        Route::post('/quen-mat-khau', [PhienMobileController::class, 'guiLienKet'])->middleware('throttle:khoi-phuc');
+        Route::post('/dat-lai-mat-khau', [PhienMobileController::class, 'datLai'])->middleware('throttle:dat-lai');
+        Route::post('/dang-xuat', [PhienMobileController::class, 'dangXuat'])->middleware(['auth:sanctum', 'tai_khoan_hoat_dong']);
+    });
     Route::post('/payos/webhook', [DonHangController::class, 'webhook'])->withoutMiddleware(EnsureFrontendRequestsAreStateful::class)->middleware('throttle:120,1,donhang-webhook:');
     Route::get('/goi-tap', [GoiTapController::class, 'index']);
     Route::get('/faq', [TaiLieuTuVanController::class, 'faq'])->middleware('throttle:60,1,tailieutuvan-faq:');

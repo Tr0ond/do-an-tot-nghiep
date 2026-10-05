@@ -97,7 +97,7 @@ Thông báo dùng component chung trong layout. Không cần thêm một trang t
 - Gói hết hạn vẫn xem kế hoạch/lịch sử và ghi nhật ký từ lịch tự tập hợp lệ đã có. Gemini theo cách CNPM, chỉ hạn mức API miễn phí; hết quota báo bận không mất lượt gói. Bootstrap 5.3 làm nền tảng, được thêm CSS/Tailwind khi cần; Vue Options API/JavaScript đã xác nhận.
 - Chat văn bản; gửi ảnh, typing/online là bổ sung sau. Không video/voice/chat nhóm.
 - AI tư vấn dựa trên catalog/FAQ/lịch mẫu, không tự ghi kế hoạch hoặc đặt lịch.
-- Không ứng dụng mobile riêng, IoT, quản lý kho, nhiều chi nhánh hoặc dinh dưỡng điều trị.
+- Theo C40 (05/10/2026), bổ sung app React Native + Expo trong `Mobile/` cho KH và PT; bước đầu chỉ khởi tạo bộ khung, dùng chung Backend Laravel khi tích hợp. Không thêm IoT, quản lý kho, nhiều chi nhánh hoặc dinh dưỡng điều trị.
 
 ## 6. Quy mô dữ liệu và kết quả
 

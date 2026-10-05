@@ -1,0 +1,47 @@
+{
+  "viewport": "390x844",
+  "reference": [
+    {
+      "x": 24,
+      "y": 256.5,
+      "width": 342,
+      "height": 48
+    },
+    {
+      "x": 24,
+      "y": 346,
+      "width": 342,
+      "height": 48
+    }
+  ],
+  "mobile": [
+    {
+      "x": 24,
+      "y": 256.5,
+      "width": 342,
+      "height": 48
+    },
+    {
+      "x": 24,
+      "y": 346,
+      "width": 342,
+      "height": 48
+    }
+  ],
+  "delta": [
+    {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    }
+  ],
+  "errors": [],
+  "pass": true
+}

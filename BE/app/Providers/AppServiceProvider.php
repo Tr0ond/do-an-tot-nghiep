@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\TaiKhoan;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
@@ -24,8 +25,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // SPA chỉ dùng session cookie, không phát hành hoặc nhận personal access token.
-        Sanctum::getAccessTokenFromRequestUsing(fn () => null);
+        // Website giữ cookie/CSRF; bearer chỉ hợp lệ cho phiên mobile KH/PT được cấp đúng dấu.
+        Sanctum::getAccessTokenFromRequestUsing(fn (Request $request) => $request->bearerToken());
+        Sanctum::authenticateAccessTokensUsing(function ($token, bool $hopLe): bool {
+            $taiKhoan = $token->tokenable;
+
+            return $hopLe && $taiKhoan instanceof TaiKhoan
+                && $taiKhoan->trang_thai === TaiKhoan::HOAT_DONG
+                && in_array($taiKhoan->vai_tro, [TaiKhoan::KHACH_HANG, TaiKhoan::HUAN_LUYEN_VIEN], true)
+                && $token->abilities === ['mobile']
+                && $token->expires_at?->isFuture()
+                && is_string($token->dau_phien_dang_nhap)
+                && hash_equals($taiKhoan->dauPhienDangNhap(), $token->dau_phien_dang_nhap);
+        });
         RateLimiter::for('chat-gui', fn (Request $request) => Limit::perMinute(30)->by('chat:'.$request->user()?->id));
         RateLimiter::for('dang-nhap', function (Request $request) {
             $email = $request->input('email');

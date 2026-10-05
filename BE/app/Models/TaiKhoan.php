@@ -6,10 +6,11 @@ use App\Notifications\KhoiPhucMatKhau;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class TaiKhoan extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
 
     public const KHACH_HANG = 'KHACH_HANG';
 

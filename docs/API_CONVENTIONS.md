@@ -18,6 +18,8 @@ C31/M05 bổ sung KH tự tạo miễn phí: POST `/khach-hang/ke-hoach`, PUT `/
 
 - Nghiệp vụ dưới `/api/v1`; routes theo resource, kebab-case tiếng Việt không dấu.
 - Sanctum SPA: lấy cookie CSRF từ `/sanctum/csrf-cookie`, đăng nhập qua route session `/dang-nhap`, logout `/dang-xuat`. Cấu hình middleware stateful/CORS/cookie theo tài liệu tại bootstrap.
+- MB1 native: `/api/v1/mobile/dang-nhap|dang-xuat`, bearer KH/PT hạn cố định 30 ngày; web giữ cookie/CSRF. Quyền/ownership vẫn kiểm tra tại Backend. [Hợp đồng mobile](../Mobile/docs/XAC_THUC.md).
+- MB5 bổ sung `POST /api/v1/mobile/dang-ky`, `/mobile/quen-mat-khau`, `/mobile/dat-lai-mat-khau`; tái sử dụng service/broker, throttle riêng, response `data: null`, không tự cấp token. Đơn/AI native dùng API KH hiện có và UUID trong payload, không thêm header chống trùng chung. [Kiểm chứng MB5](verification/MOBILE_MB5.md).
 - Axios gửi credentials, XSRF theo cấu hình cùng domain/subdomain hợp lệ; không đưa API key AI vào browser.
 - Role lấy từ server, ownership từ authenticated user; không cho client tự chọn vai trò khi đăng ký.
 

@@ -23,7 +23,7 @@ class KhoiPhucMatKhauRequest extends FormRequest
     public function rules(): array
     {
         $quyTac = ['email' => ['required', 'string', 'email', 'max:191']];
-        if ($this->is('dat-lai-mat-khau')) {
+        if ($this->route()->getActionMethod() === 'datLai') {
             $quyTac = [...$quyTac, 'token' => ['required', 'string', 'size:64', 'regex:/^[a-f0-9]{64}$/'],
                 'password' => ['required', 'string', 'min:8', 'max:72', 'confirmed', function ($truong, $giaTri, $baoLoi) {
                     if (is_string($giaTri) && strlen($giaTri) > 72) {

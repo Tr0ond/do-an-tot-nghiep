@@ -14,6 +14,8 @@ Tài liệu này là nguồn quy tắc chính trong `E:/Dự án tốt nghiệp`
 
 **Gói dịch vụ — yêu cầu đã xác nhận C08–C16:** Admin tự tạo gói với quyền lợi khác nhau, gồm chatbot riêng và PT theo buổi kèm chatbot; đặt số lượt chatbot mỗi ngày cho từng gói. Quyền chatbot và số buổi PT là hai quyền lợi riêng; gói chatbot riêng không cấp buổi PT. Gói kích hoạt ngay khi thanh toán được xác nhận; gói kết hợp dùng chung thời hạn. Mỗi khách một gói khả dụng; hết buổi PT vẫn dùng chatbot theo hạn mức ngày đến hết thời hạn, không kết thúc toàn gói chỉ vì số buổi về 0 khi quyền chatbot còn hiệu lực.
 
+**C40/C41 — Mobile (05/10/2026):** chủ dự án yêu cầu React Native + Expo/JavaScript trong `Mobile/` cho KH và PT, dùng chung Backend Laravel. Website Vue tiếp tục trong `FE/`; Admin dùng web. Có UI1 mẫu và MB1 xác thực/hồ sơ thật. Chủ dự án chọn Android và phiên cố định 30 ngày, cho nhiều thiết bị, logout chỉ thu hồi phiên trên thiết bị đó; hết hạn đăng nhập lại. Lịch/tập luyện/chat native chưa tích hợp. Chi tiết tại [DECISIONS.md](docs/DECISIONS.md).
+
 ## 2. Quy tắc nền tảng kỹ thuật
 
 **R01 — Backend quyết định:** giá, số lượt, quyền, thời gian, chuyển trạng thái do Laravel tính/xác thực. Không tin giá hoặc số buổi FE gửi, không coi văn bản AI là dữ liệu đã đúng.

@@ -1,5 +1,7 @@
 # BE — Laravel API
 
+MB1 mobile: `POST /api/v1/mobile/dang-nhap|dang-xuat` cấp/thu hồi bearer KH/PT hạn cố định 30 ngày; `/me` và `/me/ho-so` dùng chung. MB5 thêm đăng ký/quên/đặt lại mật khẩu native bằng service/broker hiện có; không tự cấp token khi đăng ký/reset. Khóa/reset thu hồi token; web giữ cookie/CSRF. Migration `000043` tạo bảng token ở MB1, đã chạy local; máy clone chạy `rtk proxy php artisan migrate`, không reset/seed. MB5 không thêm migration. Scheduler dọn token hết hạn mỗi ngày. [Hợp đồng mobile](../Mobile/docs/XAC_THUC.md), [MB1](../docs/verification/MOBILE_MB1.md), [MB5](../docs/verification/MOBILE_MB5.md).
+
 C34: POST KH `/ke-hoach/{id}/ap-dung` cho phép chọn lại bản PT đã gửi, đã xác nhận và đang lưu trữ, kiểm tra chủ sở hữu/version và giữ unique chung C33. Giữ snapshot/thời điểm duyệt, không tạo thông báo hoặc cấp lại quyền PT cũ; nháp/chờ duyệt/quá hạn/hủy không dùng đường này. Không cần migration mới. [Kiểm chứng](../docs/verification/M05_AP_DUNG_LAI_PT.md).
 
 C33/migration000039: unique bản đang dùng theo KH, chung hai nguồn; dữ liệu cũ có hai bản giữ bản được áp dụng gần nhất và lưu trữ bản còn lại. POST KH `/{id}/luu-tru` cho cả giáo án PT đã nhận của chính KH, kể cả phân công đã kết thúc. Máy clone/pull chạy migration trong maintenance (`php artisan down`, `php artisan migrate`, `php artisan up`), không reset/seed. [Hợp đồng](../docs/features/KE_HOACH_TAP.md), [kiểm chứng](../docs/verification/M05_MOT_GIAO_AN.md).

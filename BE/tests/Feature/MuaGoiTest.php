@@ -11,6 +11,7 @@ use App\Models\ThanhToan;
 use App\Services\MuaGoiService;
 use App\Services\PayosService;
 use App\Services\PhanCongService;
+use App\Services\PhienMobileService;
 use App\Services\TaiKhoanService;
 use Illuminate\Http\Client\Factory;
 use Illuminate\Support\Facades\Artisan;
@@ -96,6 +97,35 @@ class MuaGoiTest extends TestCase
         Http::fake(['https://api-merchant.payos.vn/v2/payment-requests/*' => Http::response(['code' => '00', 'data' => $data, 'signature' => $payos->chuKy($data)])]);
 
         return $data;
+    }
+
+    public function test_mobile_bearer_don_snapshot_retry_thanh_toan_quyen_va_het_han(): void
+    {
+        $kh = $this->khach();
+        $g = $this->goi(0);
+        $token = app(PhienMobileService::class)->dangNhap(['email' => $kh->email, 'password' => 'Demo123456!', 'ten_thiet_bi' => 'MB5 QA'])->plainTextToken;
+        $call = function ($method, $url, $d = []) use ($token) {
+            Auth::forgetGuards();
+            $this->flushHeaders();
+
+            return $this->withHeader('Authorization', 'Bearer '.$token)->{$method.'Json'}($url, $d);
+        };
+        $d = ['goi_tap_id' => $g->id, 'client_request_id' => (string) Str::uuid(), 'gia' => 1];
+        $r = $call('post', '/api/v1/khach-hang/don-hang', $d)->assertOk()->assertJsonPath('data.gia', 99000);
+        $id = $r->json('data.id');
+        $call('post', '/api/v1/khach-hang/don-hang', $d)->assertOk()->assertJsonPath('data.id', $id);
+        $call('post', '/api/v1/khach-hang/don-hang', [...$d, 'client_request_id' => (string) Str::uuid()])->assertConflict();
+        $g->update(['gia' => 199000]);
+        $call('get', '/api/v1/khach-hang/don-hang/'.$id)->assertOk()->assertJsonPath('data.gia', 99000);
+        $call('get', '/api/v1/khach-hang/don-hang/'.$this->don()->id)->assertNotFound();
+        $don = DangKyGoiTap::findOrFail($id);
+        $this->giaLap($don);
+        $call('post', '/api/v1/khach-hang/don-hang/'.$id.'/dong-bo')->assertOk()->assertJsonPath('data.trang_thai', 'DANG_SU_DUNG');
+        $kichHoat = $don->fresh()->kich_hoat_luc->toIso8601String();
+        $call('post', '/api/v1/khach-hang/don-hang/'.$id.'/dong-bo')->assertOk()->assertJsonPath('data.kich_hoat_luc', $kichHoat);
+        $call('get', '/api/v1/khach-hang/goi-cua-toi')->assertOk()->assertJsonPath('data.goi.id', $id)->assertJsonPath('data.pt', null);
+        $this->assertSame(1, ThanhToan::where('dang_ky_goi_tap_id', $id)->count());
+        $call('post', '/api/v1/khach-hang/don-hang', [...$d, 'client_request_id' => (string) Str::uuid()])->assertConflict();
     }
 
     public function test_thanh_toan_thong_bao_kich_hoat_va_can_phan_cong_retry_khong_lap(): void

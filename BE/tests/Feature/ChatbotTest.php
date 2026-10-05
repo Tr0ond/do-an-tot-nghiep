@@ -12,6 +12,7 @@ use App\Models\TinNhanTroLy;
 use App\Models\YeuCauTroLy;
 use App\Services\ChatbotService;
 use App\Services\GiaoAnAiService;
+use App\Services\PhienMobileService;
 use App\Services\TaiKhoanService;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Client\Factory;
@@ -121,6 +122,33 @@ class ChatbotTest extends TestCase
     private function gui(array $d)
     {
         return $this->postJson('/api/v1/khach-hang/chatbot/hoi-thoai/'.$this->hoi->id.'/tin-nhan', $d);
+    }
+
+    public function test_mobile_bearer_ai_retry_han_muc_quyen_va_nguon(): void
+    {
+        $token = app(PhienMobileService::class)->dangNhap(['email' => $this->kh->email, 'password' => 'Demo123456!', 'ten_thiet_bi' => 'MB5 QA'])->plainTextToken;
+        $call = function ($method, $url, $d = []) use ($token) {
+            Auth::forgetGuards();
+            $this->flushHeaders();
+
+            return $this->withHeader('Authorization', 'Bearer '.$token)->{$method.'Json'}($url, $d);
+        };
+        $prefix = '/api/v1/khach-hang/chatbot/hoi-thoai';
+        $call('get', $prefix)->assertOk()->assertJsonPath('meta.han_muc.con_lai', 2);
+        $id = $call('post', $prefix, ['client_request_id' => (string) Str::uuid()])->assertCreated()->json('data.id');
+        $d = $this->body();
+        $call('post', $prefix.'/'.$id.'/tin-nhan', $d)->assertOk()->assertJsonPath('meta.han_muc.con_lai', 1);
+        $call('post', $prefix.'/'.$id.'/tin-nhan', $d)->assertOk()->assertJsonPath('meta.han_muc.con_lai', 1);
+        Http::assertSentCount(1);
+        $call('post', $prefix.'/'.$id.'/tin-nhan', [...$d, 'dung_du_lieu_ca_nhan' => true])->assertConflict();
+        $call('get', $prefix.'/'.$id)->assertOk()->assertJsonCount(2, 'data')->assertJsonPath('data.0.client_request_id', $d['client_request_id']);
+        $khac = $this->taiKhoan();
+        $hoi = app(ChatbotService::class)->tao($khac->hoSoKhachHang->id, (string) Str::uuid());
+        $call('get', $prefix.'/'.$hoi->id)->assertNotFound();
+        $this->goi->update(['het_han_luc' => now()]);
+        $call('post', $prefix.'/'.$id.'/tin-nhan', $this->body())->assertForbidden();
+        $call('get', $prefix.'/'.$id)->assertOk()->assertJsonPath('meta.han_muc.co_quyen', false);
+        $this->assertSame(1, YeuCauTroLy::where('trang_thai', 'THANH_CONG')->count());
     }
 
     public function test_valid_answer_retry_history_and_package_snapshot(): void

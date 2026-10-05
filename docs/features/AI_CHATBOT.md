@@ -106,6 +106,8 @@ Unit/API tests dùng fake provider. Live eval là kiểm tra riêng, chỉ chạ
 
 ## Quyết định chặn
 
+MB5 native KH có danh sách/hội thoại phân trang, hạn mức từ BE, chia sẻ dữ liệu cá nhân mặc định tắt; gửi qua Laravel, timeout 90 giây. Retry giữ UUID/nội dung/consent và đọc lịch sử trước khi gửi lại. Nháp AI mở trong giáo án MB3 để xem/sửa/xác nhận; không tự áp dụng. PT không thêm quyền AI. QA Gemini giả lập, một NHAP 12 buổi/48 bài, retry sau lỗi phản hồi không tính lại lượt; không đánh giá chất lượng Gemini thật ở MB5. [Biên bản](../verification/MOBILE_MB5.md).
+
 D08 đã chốt Gemini theo `E:/CNPM`: Laravel HTTP Client, context database, structured response/ID validation/fallback; đổi ngữ cảnh tour thành gói/FAQ/lịch mẫu. Chỉ dùng hạn mức API miễn phí, không bật billing; hết quota báo bận/fallback rõ không mất lượt gói. Mã CNPM đặt fallback model `gemini-3.1-flash-lite`; không đọc `.env` nên không khẳng định model thực tế đang chạy. Baseline mới dùng cùng model cấu hình được, kiểm tra lại khả dụng/quota tài khoản lúc bootstrap. Có thể implement phần độc lập/mock trước khi có tài khoản; live API cần key/môi trường được cấp, không dùng key từ dự án cũ.
 
 Đã đối chiếu ngày 01/10/2026: [model Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite), [lịch vòng đời](https://ai.google.dev/gemini-api/docs/deprecations), [giá/hạn mức miễn phí](https://ai.google.dev/gemini-api/docs/pricing). Ngày04/10 đã kết nối HTTP200 bằng key chủ dự án cung cấp và chạy đánh giá một phần; tài khoản billing/quota không được kiểm tra qua giao diện Google. Không bật billing hoặc provider dự phòng. Lịch sử hội thoại lấy từ server, log không ghi raw prompt/full response. [Kết quả và giới hạn M08](../verification/M08_CHATBOT.md).

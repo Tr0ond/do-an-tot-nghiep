@@ -7,6 +7,7 @@ use App\Models\PhanCongHuanLuyenVien;
 use App\Models\TaiKhoan;
 use App\Services\ChatService;
 use App\Services\PhanCongService;
+use App\Services\PhienMobileService;
 use App\Services\TaiKhoanService;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Artisan;
@@ -91,6 +92,64 @@ class ChatTest extends TestCase
     private function payload(string $noiDung = 'Xin chào PT'): array
     {
         return ['client_message_id' => (string) Str::uuid(), 'noi_dung' => $noiDung];
+    }
+
+    public function test_bearer_mobile_chat_anh_auth_thong_bao_va_thu_hoi_phan_cong(): void
+    {
+        $b = $this->bo();
+        $token = fn (TaiKhoan $nguoi) => app(PhienMobileService::class)->dangNhap(['email' => $nguoi->email, 'password' => 'Demo123456!', 'ten_thiet_bi' => 'Android MB4'])->plainTextToken;
+        $kh = $token($b['khach']);
+        $pt = $token($b['pt']);
+        $ngoai = $token($this->nguoi(TaiKhoan::KHACH_HANG));
+        $phien = function (string $t) {
+            Auth::forgetGuards();
+            $this->flushHeaders();
+            $this->withHeader('Authorization', 'Bearer '.$t);
+        };
+        $url = '/api/v1/hoi-thoai/'.$b['id'].'/tin-nhan';
+        $p = [...$this->payload('Ảnh qua bearer'), 'anh' => [UploadedFile::fake()->image('mobile.png')]];
+        $phien($kh);
+        $tin = $this->post($url, $p, ['Accept' => 'application/json'])->assertOk()->json('data');
+        $phien($kh);
+        $this->post($url, $p, ['Accept' => 'application/json'])->assertOk()->assertJsonPath('data.id', $tin['id']);
+        $phien($pt);
+        $this->getJson('/api/v1/hoi-thoai')->assertJsonPath('meta.so_chua_doc', 1);
+        $phien($pt);
+        $this->getJson($url)->assertJsonPath('data.tin_nhan.0.id', $tin['id']);
+        $anhUrl = $url.'/'.$tin['id'].'/anh/0';
+        $phien($pt);
+        $this->get($anhUrl, ['Accept' => 'application/json'])->assertOk()->assertHeader('Cache-Control', 'no-store, private');
+        $phien($pt);
+        $this->postJson('/api/v1/hoi-thoai/'.$b['id'].'/da-doc', ['tin_nhan_id' => $tin['id']])->assertOk();
+        $phien($pt);
+        $this->getJson('/api/v1/hoi-thoai')->assertJsonPath('meta.so_chua_doc', 0);
+        $phien($pt);
+        $this->postJson('/api/v1/broadcasting/auth', ['socket_id' => '123.456', 'channel_name' => 'private-chat.tai-khoan.'.$b['pt']->id])->assertOk()->assertJsonStructure(['auth'])->assertJsonMissingPath('status');
+        $phien($pt);
+        $this->postJson('/api/v1/broadcasting/auth', ['socket_id' => '123.456', 'channel_name' => 'private-chat.tai-khoan.'.$b['khach']->id])->assertForbidden();
+        $thongBaoId = (string) Str::uuid();
+        $b['khach']->notifications()->create(['id' => $thongBaoId, 'type' => 'mb4', 'data' => ['tieu_de' => 'Thông báo thử', 'noi_dung' => 'Nội dung thử', 'duong_dan' => '/khach-hang/ho-so']]);
+        $phien($kh);
+        $this->getJson('/api/v1/thong-bao')->assertJsonPath('meta.so_chua_doc', 1);
+        $phien($ngoai);
+        $this->postJson('/api/v1/thong-bao/'.$thongBaoId.'/da-doc')->assertNotFound();
+        $phien($kh);
+        $this->postJson('/api/v1/thong-bao/'.$thongBaoId.'/da-doc')->assertOk();
+        $b['phanCong']->forceFill(['ket_thuc_luc' => now()])->save();
+        $phien($pt);
+        $this->getJson($url.'?after_id='.$tin['id'])->assertNotFound();
+        $phien($pt);
+        $this->get($anhUrl, ['Accept' => 'application/json'])->assertNotFound();
+        $phien($kh);
+        $this->getJson($url)->assertJsonPath('data.hoi_thoai.co_the_gui', false);
+        $phien($kh);
+        $this->postJson($url, $this->payload())->assertConflict();
+        $phien($kh);
+        $this->postJson('/api/v1/mobile/dang-xuat')->assertOk();
+        $phien($kh);
+        $this->postJson('/api/v1/broadcasting/auth', ['socket_id' => '123.456', 'channel_name' => 'private-chat.tai-khoan.'.$b['khach']->id])->assertUnauthorized();
+        $phien($kh);
+        $this->get($anhUrl, ['Accept' => 'application/json'])->assertUnauthorized();
     }
 
     public function test_scope_khach_pt_admin_va_nguoi_ngoai(): void

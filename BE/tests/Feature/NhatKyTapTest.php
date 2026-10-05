@@ -106,6 +106,62 @@ class NhatKyTapTest extends TestCase
         return app(TaiKhoanService::class)->taoTaiKhoan(['ho_ten' => 'Người kiểm thử', 'email' => Str::uuid().'@example.test', 'password' => 'Demo123456!'], $vaiTro);
     }
 
+    public function test_mobile_bearer_giao_an_nhat_ky_nhan_xet_chi_so_va_thu_hoi_phan_cong(): void
+    {
+        $this->travelTo(now()->addSecond()->startOfSecond());
+        Auth::forgetGuards();
+        $khToken = $this->postJson('/api/v1/mobile/dang-nhap', ['email' => $this->kh->email, 'password' => 'Demo123456!', 'ten_thiet_bi' => 'Android MB3'])->assertOk()->json('data.access_token');
+        Auth::forgetGuards();
+        $ptToken = $this->postJson('/api/v1/mobile/dang-nhap', ['email' => $this->pt->email, 'password' => 'Demo123456!', 'ten_thiet_bi' => 'Android MB3'])->assertOk()->json('data.access_token');
+        $voiToken = function ($token): void {
+            Auth::forgetGuards();
+            $this->withHeaders(['Authorization' => 'Bearer '.$token]);
+        };
+        $voiToken($khToken);
+        $this->getJson('/api/v1/bai-tap?per_page=12')->assertOk()->assertJsonPath('data.0.id', $this->baiId);
+        $voiToken($khToken);
+        $body = $this->noiDung();
+        $l = $this->postJson('/api/v1/khach-hang/lich-tap', $body)->assertCreated()->json('data');
+        $voiToken($khToken);
+        $this->postJson('/api/v1/khach-hang/lich-tap', $body)->assertOk()->assertJsonPath('data.id', $l['id']);
+        $voiToken($khToken);
+        $l = $this->postJson('/api/v1/khach-hang/lich-tap/'.$l['id'].'/bat-dau', ['updated_at' => $l['updated_at']])->assertOk()->json('data');
+        $this->assertSame([], $l['bai_tap'][0]['hiep_tap']);
+        $voiToken($khToken);
+        $l = $this->putJson('/api/v1/khach-hang/lich-tap/'.$l['id'], $this->ketQua($l))->assertOk()->json('data');
+        $voiToken($khToken);
+        $l = $this->postJson('/api/v1/khach-hang/lich-tap/'.$l['id'].'/hoan-thanh', ['updated_at' => $l['updated_at']])->assertOk()->json('data');
+        $voiToken($ptToken);
+        $nhanXet = ['noi_dung' => 'Kết quả kiểm thử mobile', 'client_request_id' => (string) Str::uuid()];
+        $this->postJson('/api/v1/pt/lich-tap/'.$l['id'].'/nhan-xet', $nhanXet)->assertOk()->assertJsonCount(1, 'data.nhan_xet');
+        $voiToken($ptToken);
+        $this->postJson('/api/v1/pt/lich-tap/'.$l['id'].'/nhan-xet', $nhanXet)->assertOk()->assertJsonCount(1, 'data.nhan_xet');
+        $voiToken($khToken);
+        $c = ['ngay_ghi' => $body['ngay_tap'], 'can_nang_kg' => 70, 'chieu_cao_cm' => 175, 'ghi_chu' => null];
+        $ban = $this->postJson('/api/v1/khach-hang/chi-so-co-the', $c)->assertCreated()->assertJsonPath('data.bmi', 22.86)->json('data');
+        $voiToken($ptToken);
+        $this->getJson('/api/v1/pt/hoc-vien/'.$this->khId.'/chi-so-co-the')->assertOk()->assertJsonPath('data.moi_nhat.id', $ban['id']);
+        $voiToken($ptToken);
+        $this->putJson('/api/v1/khach-hang/chi-so-co-the/'.$ban['id'], [...$c, 'updated_at' => $ban['updated_at']])->assertForbidden();
+        $voiToken($ptToken);
+        $d = ['ten_ke_hoach' => 'Đề xuất mobile', 'muc_tieu' => null, 'so_ngay_tap' => 1, 'giao_an_mau_id' => null, 'client_request_id' => (string) Str::uuid(), 'bai_tap' => [['bai_tap_id' => $this->baiId, 'ngay_thu' => 1, 'thu_tu' => 1, 'so_hiep' => 3, 'so_lan_lap' => 10, 'nghi_giay' => 60, 'ghi_chu' => null, 'muc_ta_kg' => null]]];
+        $k = $this->postJson('/api/v1/pt/hoc-vien/'.$this->khId.'/ke-hoach', $d)->assertCreated()->json('data');
+        $voiToken($ptToken);
+        $k = $this->postJson('/api/v1/pt/ke-hoach/'.$k['id'].'/gui', ['updated_at' => $k['updated_at']])->assertOk()->json('data');
+        $voiToken($khToken);
+        $this->postJson('/api/v1/khach-hang/ke-hoach/'.$k['id'].'/xac-nhan', ['updated_at' => $k['updated_at']])->assertOk()->assertJsonPath('data.trang_thai', 'DANG_AP_DUNG');
+        $this->assertSame('LUU_TRU', $this->k->fresh()->trang_thai);
+        $this->assertDatabaseCount('dang_ky_goi_tap', 0);
+        $this->assertDatabaseCount('lich_hen_huan_luyen', 0);
+        $this->pc->update(['ket_thuc_luc' => now()]);
+        $voiToken($ptToken);
+        $this->getJson('/api/v1/pt/lich-tap/'.$l['id'])->assertNotFound();
+        $voiToken($ptToken);
+        $this->getJson('/api/v1/pt/hoc-vien/'.$this->khId.'/chi-so-co-the')->assertNotFound();
+        $voiToken($khToken);
+        $this->getJson('/api/v1/khach-hang/lich-tap/'.$l['id'])->assertOk()->assertJsonCount(1, 'data.nhan_xet');
+    }
+
     private function doiNguoi(TaiKhoan $nguoi): void
     {
         Auth::forgetGuards();

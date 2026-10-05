@@ -11,6 +11,7 @@ Artisan::command('lich-hen:don-qua-han', function () {
     app(ThongBaoService::class)->nhacBuoiCanGhiNhan();
 })->purpose('Giải phóng yêu cầu hết hạn và đánh dấu buổi quá hạn xác nhận.');
 Schedule::command('lich-hen:don-qua-han')->everyMinute()->withoutOverlapping();
+Schedule::command('sanctum:prune-expired --hours=24')->daily()->withoutOverlapping();
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());

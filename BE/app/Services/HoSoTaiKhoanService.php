@@ -65,6 +65,7 @@ class HoSoTaiKhoanService
 
     public function thuHoiPhien(TaiKhoan $taiKhoan): void
     {
+        $taiKhoan->tokens()->delete();
         $taiKhoan->remember_token = Str::random(60);
         if (config('session.driver') === 'database') {
             DB::connection(config('session.connection'))->table(config('session.table'))->where('user_id', $taiKhoan->id)->delete();

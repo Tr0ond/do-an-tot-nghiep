@@ -105,6 +105,50 @@ class LichHenTest extends TestCase
         $this->actingAs($nguoi, 'web');
     }
 
+    public function test_mobile_bearer_dat_lich_hoc_vien_tong_quan_va_hoan_thanh_retry(): void
+    {
+        // Giữ mốc fixture ở độ chính xác giây như binding datetime của query builder.
+        $this->travelTo(now()->startOfSecond());
+        $bo = $this->boDuLieu();
+        $tokenKhach = $this->postJson('/api/v1/mobile/dang-nhap', ['email' => $bo['khach']->email, 'password' => 'Demo123456!', 'ten_thiet_bi' => 'Android QA'])->assertOk()->json('data.access_token');
+        Auth::forgetGuards();
+        $tokenPt = $this->postJson('/api/v1/mobile/dang-nhap', ['email' => $bo['pt']->email, 'password' => 'Demo123456!', 'ten_thiet_bi' => 'Android QA'])->assertOk()->json('data.access_token');
+        $voiToken = function (string $token): void {
+            Auth::forgetGuards();
+            $this->withHeaders(['Authorization' => 'Bearer '.$token]);
+        };
+        $voiToken($tokenPt);
+        $slotId = $this->postJson('/api/v1/pt/khung-gio', ['bat_dau_luc' => now()->addHours(8)->toIso8601String()])->assertOk()->json('data.id');
+        $slot = KhungGioHuanLuyenVien::findOrFail($slotId);
+        $voiToken($tokenKhach);
+        $ngay = $slot->bat_dau_luc->setTimezone('Asia/Ho_Chi_Minh')->format('Y-m-d');
+        $this->getJson('/api/v1/khach-hang/khung-gio?ngay='.$ngay)->assertOk()->assertJsonPath('data.0.id', $slotId);
+        $payload = ['khung_gio_id' => $slotId, 'client_request_id' => (string) Str::uuid()];
+        $voiToken($tokenKhach);
+        $id = $this->postJson('/api/v1/khach-hang/lich-hen', $payload)->assertOk()->json('data.id');
+        $voiToken($tokenKhach);
+        $this->postJson('/api/v1/khach-hang/lich-hen', $payload)->assertOk()->assertJsonPath('data.id', $id);
+        $voiToken($tokenPt);
+        $this->getJson('/api/v1/pt/hoc-vien')->assertOk()->assertJsonPath('data.0.id', $bo['khach']->hoSoKhachHang->id);
+        $voiToken($tokenPt);
+        $this->getJson('/api/v1/khach-hang/ho-so/'.$bo['khach']->hoSoKhachHang->id)->assertOk();
+        $voiToken($tokenPt);
+        $this->getJson('/api/v1/pt/tong-quan')->assertOk()->assertJsonPath('data.huan_luyen.can_xu_ly.cho_dat_lich', 1);
+        $voiToken($tokenPt);
+        $this->postJson('/api/v1/pt/lich-hen/'.$id.'/xac-nhan')->assertOk();
+        $voiToken($tokenPt);
+        $this->postJson('/api/v1/pt/lich-hen/'.$id.'/hoan-thanh')->assertConflict();
+        $this->travelTo($slot->ket_thuc_luc->addMinute());
+        $voiToken($tokenPt);
+        $this->postJson('/api/v1/pt/lich-hen/'.$id.'/hoan-thanh')->assertOk();
+        $voiToken($tokenPt);
+        $this->postJson('/api/v1/pt/lich-hen/'.$id.'/hoan-thanh')->assertOk();
+        $voiToken($tokenKhach);
+        $this->getJson('/api/v1/khach-hang/lich-hen/'.$id)->assertOk()->assertJsonPath('data.hanh_dong', []);
+        $this->assertSame(7, $bo['don']->fresh()->so_buoi_con_lai);
+        $this->travelBack();
+    }
+
     public function test_dat_xac_nhan_huy_va_tu_choi_thong_bao_dung_nguoi_retry_khong_lap(): void
     {
         $b = $this->boDuLieu();

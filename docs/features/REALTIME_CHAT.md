@@ -35,6 +35,8 @@ Socket ID/`toOthers()` chỉ tránh echo trong một số tình huống, không 
 
 Laravel Reverb + Echo là baseline. Kênh private được BE authorize; tên channel không chứa secrets. Chỉ biết ID hội thoại không tạo quyền.
 
+Web dùng Echo; mobile MB4 dùng WebSocket/Pusher 7 đã kiểm chứng với Reverb thật. Channel nhận guard Sanctum/web, nên cookie web và bearer mobile đều phải qua callback kiểm tra cùng ID, trạng thái và vai trò; Origin không cấp quyền. [Kiểm chứng MB4](../verification/MOBILE_MB4.md).
+
 Kiểm tra quyền lúc subscribe **không tự thu hồi socket đã mở**. Bản đầu dùng kênh cá nhân `private-chat.tai-khoan.{id}`; event `chat.cap-nhat` chỉ chứa `{"can_dong_bo":true}`, không chứa nội dung, ID hội thoại, tên người hay preview. FE tải dữ liệu qua HTTP có kiểm tra phân công hiện tại. Socket PT cũ còn mở không nhận nội dung tin mới; API của PT cũ trả 404. Client events bị tắt ở Reverb để không gửi nội dung trực tiếp qua socket.
 
 Đổi PT ghi transaction + audit. Xử lý event/response đồng thời phải kiểm tra phân công nguồn, tránh phát theo assignment cũ sau khi đã mất hiệu lực. Event thông báo mất quyền không mang nội dung tin mới.
