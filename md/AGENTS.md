@@ -13,7 +13,7 @@
 
 - Đúng ba tác nhân: `KHACH_HANG`, `HUAN_LUYEN_VIEN`, `ADMIN`.
 - Frontend Vue 3, JavaScript, Options API. Không tự chuyển toàn bộ sang TypeScript, Composition API, React hoặc Inertia.
-- Backend Laravel; Frontend/Backend độc lập trong `FE/` và `BE/` ở thư mục gốc, mobile trong `Mobile/`. Mẫu code `.example` nằm trong `templates/`; tài liệu nằm trong `md/`. Thư mục `Base/` đã được bỏ.
+- Backend Laravel; Frontend/Backend độc lập trong `FE/` và `BE/` ở thư mục gốc, mobile trong `Mobile/`. Tài liệu nằm trong `md/`; không còn thư mục mẫu code `.example` riêng, hãy đối chiếu source hiện có. Thư mục `Base/` đã được bỏ.
 - Chatbot tư vấn và chat realtime là phạm vi chủ dự án yêu cầu. AI không phải tác nhân nghiệp vụ thứ tư.
 - Đã có runtime FE/BE/Mobile. Chỉ báo build/test PASS cho kiểm tra đã thực sự chạy; biên bản cũ không chứng minh phiên bản hiện tại đã qua kiểm thử.
 - Không mở rộng sang nhiều chi nhánh, gọi video, dinh dưỡng điều trị, AI tự áp dụng kế hoạch hoặc tự thanh toán.

@@ -76,7 +76,7 @@ Giữ các thư mục app/Http/Controllers/Api, app/Http/Requests, app/Models, a
 
 Đã có Sanctum cookie SPA. Tạo Admin đầu tiên bằng lệnh tai-khoan:tao-admin theo [hướng dẫn](../features/TAI_KHOAN.md); lệnh hỏi mật khẩu ẩn. Môi trường local có thể chạy seeder demo thay thế. SANCTUM_STATEFUL_DOMAINS=localhost:5173 và FRONTEND_URL=http://localhost:5173 cho local. Không cài migration personal_access_tokens vì SPA chỉ dùng session. Đã có quản trị bài tập/gói/giáo án và PT đọc thư viện; đã bổ sung sửa hồ sơ/quên/đặt lại mật khẩu/khóa tài khoản qua UI. Đã có đặt mua/payOS/phân công PT M03. Đã có lịch M04; đã có Reverb/chat realtime M07 và giáo án cá nhân M05; phần tiếp theo là nhật ký M06 theo phạm vi. SMTP đã cấu hình local và xác minh xác thực STARTTLS; chưa kiểm tra thư đến hộp thư thật, payOS đã tích hợp và tạo/đọc link thật chưa thanh toán; Gemini chưa tích hợp. Catalog bài tập đã seed; giá gói do Admin nhập.
 
-Tham khảo [CODE_STYLE.md](../CODE_STYLE.md), [hợp đồng API](../API_CONVENTIONS.md), [thiết kế database](../DATABASE_DRAFT.md), [quyết định](../DECISIONS.md) và [mẫu Backend](../../templates/backend/GoiTapController.php.example).
+Tham khảo [CODE_STYLE.md](../CODE_STYLE.md), [hợp đồng API](../API_CONVENTIONS.md), [thiết kế database](../DATABASE_DRAFT.md) và [quyết định](../DECISIONS.md). Repository không còn file mẫu Controller `.example`; đối chiếu controller, FormRequest, policy/service và test của module hiện có trước khi thêm API.
 
 ## Giáo án mẫu
 

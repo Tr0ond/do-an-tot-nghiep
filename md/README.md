@@ -55,7 +55,7 @@ md/
 
 `AGENTS.md` tại gốc và `Mobile/AGENTS.md` chỉ là hai điểm vào ngắn để Codex tự tìm hướng dẫn. Nội dung đầy đủ đã ở `md/`; không di chuyển hai điểm vào này.
 
-`docs/` chỉ còn tài nguyên thiết kế, sơ đồ, ảnh và JSON phục vụ kiểm tra. Không xóa cả thư mục này: công cụ kiểm tra dữ liệu/đánh giá chatbot/gallery vẫn dùng tài nguyên tại đó. `templates/` giữ các file `.example`, không có README trùng. Thư viện `node_modules`, `vendor`, dataset nguồn và cache Expo không thuộc đợt dọn tài liệu dự án.
+`docs/` chỉ còn tài nguyên thiết kế, sơ đồ, ảnh và JSON phục vụ kiểm tra. Không xóa cả thư mục này: công cụ kiểm tra dữ liệu/đánh giá chatbot/gallery vẫn dùng tài nguyên tại đó. Các file mẫu `.example` riêng đã được gỡ; tham khảo implementation và test hiện có trong `FE/`, `BE/` và `Mobile/`. Thư viện `node_modules`, `vendor`, dataset nguồn và cache Expo không thuộc đợt dọn tài liệu dự án.
 
 ## Nguồn và giấy phép
 

@@ -23,7 +23,7 @@ Website Vue, một backend, một database, một Reverb process và một queue
 
 ## Tổ chức code
 
-Các vị trí dưới đây tính từ thư mục gốc `E:/Dự án tốt nghiệp`. `FE/`, `BE/`, `Mobile/` và `templates/` là các thư mục ngang cấp; `Base/` chỉ giữ chỉ mục tài liệu.
+Các vị trí dưới đây tính từ thư mục gốc `E:/Dự án tốt nghiệp`. `FE/`, `BE/` và `Mobile/` là các thư mục mã nguồn ngang cấp; tài liệu nằm trong `md/`. `Base/` và thư mục mẫu `.example` riêng đã được bỏ.
 
 | Vị trí | Trách nhiệm |
 | --- | --- |
@@ -45,7 +45,7 @@ Các vị trí dưới đây tính từ thư mục gốc `E:/Dự án tốt nghi
 | `BE/database/` | Migration, factory, seeder |
 | `BE/tests/` | Feature/unit và integration phù hợp |
 
-Đã có Laravel 13 runtime trong `BE/`, Vue 3 Options API/JavaScript trong `FE/`, endpoint health và trang kiểm tra kết nối. Mẫu `.example` ở templates/README.md (biên bản/chỉ mục cũ đã bỏ) không phải source đang chạy. Thiết kế dữ liệu nằm ở [DATABASE_DRAFT.md](DATABASE_DRAFT.md); migrations nằm trong `BE/database/migrations/`, chưa chạy trên MySQL. Các module nghiệp vụ bên dưới vẫn là kiến trúc mục tiêu; xem bằng chứng bootstrap (biên bản/chỉ mục cũ đã bỏ).
+Đã có Laravel runtime trong `BE/`, Vue 3 Options API/JavaScript trong `FE/` và ứng dụng React Native + Expo trong `Mobile/`. Ví dụ triển khai cần lấy từ module đang chạy, đối chiếu route, validation, quyền và test của module đó. Thiết kế dữ liệu nằm ở [DATABASE_DRAFT.md](DATABASE_DRAFT.md); migrations nằm trong `BE/database/migrations/`. Trạng thái và bằng chứng từng module được ghi tại [md/README.md](README.md) và các tài liệu kiểm chứng.
 
 ## Luồng HTTP thông thường
 

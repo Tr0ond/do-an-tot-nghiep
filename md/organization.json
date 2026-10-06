@@ -103,7 +103,10 @@
   },
   "deleted": {
     "RULE.md": "Chỉ mục trùng với PROJECT_RULES và README mới.",
-    "templates/README.md": "Chỉ mục mẫu code; CODE_STYLE dẫn thẳng tới các file .example.",
+    "templates/README.md": "Chỉ mục mẫu code; các file .example riêng cũng được gỡ theo yêu cầu chủ dự án ngày 06/10/2026; CODE_STYLE hướng dẫn đối chiếu source hiện có.",
+    "templates/backend/GoiTapController.php.example": "File mẫu Backend .example được gỡ theo yêu cầu chủ dự án ngày 06/10/2026.",
+    "templates/frontend/TrangDanhSach.vue.example": "File mẫu Frontend .example được gỡ theo yêu cầu chủ dự án ngày 06/10/2026.",
+    "templates/frontend/goiTapService.js.example": "File mẫu service Frontend .example được gỡ theo yêu cầu chủ dự án ngày 06/10/2026.",
     "docs/README.md": "Thay bằng chỉ mục md/README.md cập nhật hiện trạng.",
     "Mobile/docs/README.md": "Gộp chỉ mục vào md/mobile/README.md.",
     "docs/design/stitch-approved/README.md": "Chỉ mục bản mẫu cũ; HTML và dữ liệu thiết kế vẫn giữ.",

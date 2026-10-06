@@ -47,7 +47,7 @@ Trang đăng nhập/đăng ký tại views/XacThuc, hồ sơ KH/PT dùng chung v
 
 Toàn bộ frontend đạt **102 Vitest tests**, build/lint/format. Có bảng giá `/goi-tap`, chi tiết `/goi-tap/:id`; Admin quản lý tại `/admin/goi-tap`, thêm `/admin/goi-tap/them`, sửa `/admin/goi-tap/:id/sua`. Options API/service dùng chung, bộ lọc URL, loading/empty/error/409, khóa gửi trùng, giữ UUID khi retry mạng và xử lý 409. Admin tự nhập giá/quyền lợi; không có giá giả hoặc cấp gói từ UI. [Hợp đồng gói](../features/GOI_TAP.md), [kiểm chứng](../verification/M02_GOI_TAP.md).
 
-Đã có mua/thanh toán gói M03. Chưa có upload media, chatbot. Đã có chat realtime KH/PT tại /khach-hang/tin-nhan và /pt/tin-nhan; [kiểm chứng M07](../verification/M07_CHAT.md). Tham khảo [CODE_STYLE.md](../CODE_STYLE.md), [quyết định](../DECISIONS.md) và [mẫu Frontend](../../templates/frontend/TrangDanhSach.vue.example).
+Đã có mua/thanh toán gói M03. Chưa có upload media, chatbot. Đã có chat realtime KH/PT tại /khach-hang/tin-nhan và /pt/tin-nhan; [kiểm chứng M07](../verification/M07_CHAT.md). Tham khảo [CODE_STYLE.md](../CODE_STYLE.md) và [quyết định](../DECISIONS.md); repository không còn page mẫu `.example`, nên đối chiếu page/service cùng loại trong `FE/src/` và test tương ứng.
 
 ## Giáo án mẫu Admin/PT
 

@@ -58,4 +58,4 @@ Indent JS/Vue/CSS 2 spaces, PHP 4 spaces. UTF-8, LF. JavaScript dùng single quo
 
 ## 5. Mẫu tham khảo
 
-Các mẫu nằm trong [templates/](../templates/): [Vue page](../templates/frontend/TrangDanhSach.vue.example), [service JavaScript](../templates/frontend/goiTapService.js.example) và [Laravel Controller](../templates/backend/GoiTapController.php.example). Các file `.example` không phải implementation và không được xem là endpoint/component đã hoàn thành. Khi sử dụng phải thay placeholders, thêm validation/authorization và test phù hợp.
+Repository không còn thư mục mẫu code `.example` riêng. Khi cần ví dụ, đối chiếu page/service hiện có trong `FE/src/` và controller/FormRequest/service trong `BE/app/`; kiểm tra route, phân quyền và test tương ứng thay vì sao chép giả định từ một mẫu rời.
