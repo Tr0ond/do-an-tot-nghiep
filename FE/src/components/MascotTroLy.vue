@@ -2,10 +2,10 @@
   <img
     :src="
       chuyenDong && !giamChuyenDong
-        ? '/images/tr0ond-ai-gundam-slow.gif'
-        : '/images/tr0ond-ai-gundam-slow-still.png'
+        ? '/images/fitforge-ai-gundam-slow.gif'
+        : '/images/fitforge-ai-gundam-slow-still.png'
     "
-    alt="Tr0ond AI — robot tập luyện"
+    alt="FitForge AI — robot tập luyện"
     class="ai-mascot"
     width="512"
     height="512"

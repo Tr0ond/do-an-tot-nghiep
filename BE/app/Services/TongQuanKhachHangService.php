@@ -60,10 +60,21 @@ class TongQuanKhachHangService
                 ->whereHas('pt.taiKhoan', fn ($r) => $r->where('trang_thai', 'HOAT_DONG'))->with('pt.taiKhoan')->first();
             $mocTap = (clone $hoanThanh)->whereBetween('ngay_tap', [$tu, $ngay])->selectRaw('ngay_tap, COUNT(*) AS so_buoi')
                 ->groupBy('ngay_tap')->pluck('so_buoi', 'ngay_tap');
+            // DB lưu UTC, Việt Nam UTC+7; không phụ thuộc bảng timezone của MySQL.
+            // Đếm lịch hoàn thành trực tiếp, tránh nhân số buổi khi có nhiều bài/hiệp kết quả.
+            $mocPt = LichHenHuanLuyen::where('khach_hang_id', $khachId)->where('trang_thai', 'HOAN_THANH')
+                ->where('bat_dau_luc', '>=', $hom->subDays($soNgay - 1)->startOfDay()->utc()->format('Y-m-d H:i:s.u'))
+                ->where('bat_dau_luc', '<', $hom->addDay()->startOfDay()->utc()->format('Y-m-d H:i:s.u'))
+                ->where('ket_thuc_luc', '<=', $moc)
+                ->selectRaw('DATE(DATE_ADD(bat_dau_luc, INTERVAL 7 HOUR)) AS ngay, COUNT(*) AS so_buoi')
+                ->groupBy('ngay')->pluck('so_buoi', 'ngay');
             $theoNgay = [];
             for ($i = $soNgay - 1; $i >= 0; $i--) {
                 $n = $hom->subDays($i)->toDateString();
-                $theoNgay[] = ['ngay' => $n, 'so_buoi' => (int) ($mocTap[$n] ?? 0)];
+                $soTuTapNgay = (int) ($mocTap[$n] ?? 0);
+                $soPtNgay = (int) ($mocPt[$n] ?? 0);
+                $theoNgay[] = ['ngay' => $n, 'so_buoi' => $soTuTapNgay, 'so_buoi_tu_tap' => $soTuTapNgay,
+                    'so_buoi_pt' => $soPtNgay, 'tong_so_buoi' => $soTuTapNgay + $soPtNgay];
             }
             $chiSo = app(ChiSoCoTheService::class)->danhSach($nguoi, $khachId, 30, 1)['data'];
 
@@ -80,7 +91,11 @@ class TongQuanKhachHangService
                     'co_chatbot' => $goi->co_chatbot_snapshot] : null,
                 'ai' => app(ChatbotService::class)->hanMuc($khachId),
                 'pt' => $phanCong ? ['ho_ten' => $phanCong->pt->taiKhoan->ho_ten, 'chuyen_mon' => $phanCong->pt->chuyen_mon] : null,
-                'tien_do' => ['so_ngay' => $soNgay, 'tu_ngay' => $tu, 'den_ngay' => $ngay, 'so_buoi' => array_sum(array_column($theoNgay, 'so_buoi')), 'theo_ngay' => $theoNgay],
+                'tien_do' => ['so_ngay' => $soNgay, 'tu_ngay' => $tu, 'den_ngay' => $ngay,
+                    'so_buoi' => array_sum(array_column($theoNgay, 'so_buoi')),
+                    'so_buoi_tu_tap' => array_sum(array_column($theoNgay, 'so_buoi_tu_tap')),
+                    'so_buoi_pt' => array_sum(array_column($theoNgay, 'so_buoi_pt')),
+                    'tong_so_buoi' => array_sum(array_column($theoNgay, 'tong_so_buoi')), 'theo_ngay' => $theoNgay],
                 'chi_so' => ['moi_nhat' => $chiSo['moi_nhat'], 'thay_doi_bmi' => $chiSo['thay_doi_bmi'],
                     'thay_doi_can_nang_kg' => $chiSo['thay_doi_can_nang_kg'],
                     'cac_moc' => $chiSo['cac_moc']->map(fn ($x) => collect($x)->only(['ngay_ghi', 'bmi'])->all())->values()],

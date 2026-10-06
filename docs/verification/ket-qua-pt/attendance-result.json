@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "light": {
+    "theme": "light",
+    "color": "rgb(63, 73, 74)"
+  },
+  "replay": {
+    "status": 200,
+    "data": "HOAN_THANH"
+  },
+  "errors": [],
+  "checks": [
+    "original theme toggle",
+    "original attendance completion UI",
+    "attendance retry 200",
+    "final result remains readonly after attendance"
+  ]
+}

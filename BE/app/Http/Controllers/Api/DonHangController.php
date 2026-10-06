@@ -11,6 +11,7 @@ use App\Models\PhanCongHuanLuyenVien;
 use App\Services\MuaGoiService;
 use App\Services\PayosService;
 use Illuminate\Http\Request;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class DonHangController extends Controller
 {
@@ -51,7 +52,7 @@ class DonHangController extends Controller
 
     public function taoLink(Request $request, int $id, MuaGoiService $dichVu)
     {
-        return $this->phanHoi($request, $dichVu->taoLink($this->truyVan($request)->findOrFail($id)));
+        return $this->phanHoi($request, $dichVu->taoLink($this->truyVan($request)->findOrFail($id), $request->user()->currentAccessToken() instanceof PersonalAccessToken));
     }
 
     public function dongBo(Request $request, int $id, MuaGoiService $dichVu)

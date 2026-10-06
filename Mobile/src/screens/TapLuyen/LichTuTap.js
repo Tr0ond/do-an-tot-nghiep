@@ -1,8 +1,8 @@
-import { useRef, useState } from 'react'
-import { View, Pressable } from 'react-native'
-import { useGiaoDien } from '../../theme'
-import { ChonPhan, DaiNgay, Trong } from '../../components/FigmaElements'
-import * as Crypto from 'expo-crypto'
+import { useRef, useState } from "react";
+import { View, Pressable } from "react-native";
+import { useGiaoDien } from "../../theme";
+import { ChonPhan, DaiNgay, Trong } from "../../components/FigmaElements";
+import * as Crypto from "expo-crypto";
 import {
   ManHinh,
   Chu,
@@ -11,64 +11,66 @@ import {
   Nhan,
   BieuTuong,
   NutIcon,
-} from '../../components/GiaoDien'
+} from "../../components/GiaoDien";
 import {
   TrangThaiTai,
   PhanTrang,
   ChonNgay,
   HopXacNhan,
-} from '../../components/HuanLuyen'
-import { LuaChon, LoiGhi } from '../../components/TapLuyen'
-import { useDuLieu } from '../../hooks/useDuLieu'
-import { useThaoTac } from '../../hooks/useThaoTac'
-import { useXemTruoc } from '../../contexts/XemTruocContext'
-import { tapLuyenService as api } from '../../services/tapLuyenService'
-import { homNay, doiNgay, nhanNgay } from '../../utils/lich'
-import { nhanTrangThai, taoYeuCauGhi } from '../../utils/tapLuyen'
+} from "../../components/HuanLuyen";
+import { LuaChon, LoiGhi } from "../../components/TapLuyen";
+import { useDuLieu } from "../../hooks/useDuLieu";
+import { useThaoTac } from "../../hooks/useThaoTac";
+import { useXemTruoc } from "../../contexts/XemTruocContext";
+import { useTraoDoi } from "../../contexts/TraoDoiContext";
+import { tapLuyenService as api } from "../../services/tapLuyenService";
+import { homNay, doiNgay, nhanNgay } from "../../utils/lich";
+import { nhanTrangThai, taoYeuCauGhi } from "../../utils/tapLuyen";
 
 export default function LichTuTap({ navigation, route }) {
-  const { vaiTro, goiDichVu } = useXemTruoc()
-  const khachId = route.params?.khachId
-  const { mau } = useGiaoDien()
-  const [boLoc, datBoLoc] = useState(false)
-  const [muc, datMuc] = useState('up')
-  const [thongKeMo, datThongKeMo] = useState(false)
-  const [tu, datTu] = useState(doiNgay(homNay(), -29))
-  const [den, datDen] = useState(doiNgay(homNay(), 7))
-  const [trangThai, datTrangThai] = useState('')
-  const [page, datPage] = useState(1)
-  const [mo, datMo] = useState(false)
-  const [ngay, datNgay] = useState(homNay())
-  const [ngayThu, datNgayThu] = useState(null)
-  const [keHoach, datKeHoach] = useState(null)
-  const [cho, datCho] = useState(false)
-  const yeuCau = useRef(taoYeuCauGhi(() => Crypto.randomUUID()))
-  const ghi = useThaoTac()
+  const { vaiTro, goiDichVu } = useXemTruoc();
+  const { dongBoLich } = useTraoDoi();
+  const khachId = route.params?.khachId;
+  const { mau } = useGiaoDien();
+  const [boLoc, datBoLoc] = useState(false);
+  const [muc, datMuc] = useState("up");
+  const [thongKeMo, datThongKeMo] = useState(false);
+  const [tu, datTu] = useState(doiNgay(homNay(), -29));
+  const [den, datDen] = useState(doiNgay(homNay(), 7));
+  const [trangThai, datTrangThai] = useState("");
+  const [page, datPage] = useState(1);
+  const [mo, datMo] = useState(false);
+  const [ngay, datNgay] = useState(homNay());
+  const [ngayThu, datNgayThu] = useState(null);
+  const [keHoach, datKeHoach] = useState(null);
+  const [cho, datCho] = useState(false);
+  const yeuCau = useRef(taoYeuCauGhi(() => Crypto.randomUUID()));
+  const ghi = useThaoTac();
   const tai = useDuLieu(
     (s) =>
       goiDichVu(async (t) => {
-        const q = { tu_ngay: tu, den_ngay: den }
-        if (trangThai || muc === 'done') {
+        const q = { tu_ngay: tu, den_ngay: den };
+        if (trangThai || muc === "done") {
           return api.taiLichTap(
             t,
             vaiTro,
             khachId,
-            { ...q, trang_thai: trangThai || 'HOAN_THANH', page },
+            { ...q, trang_thai: trangThai || "HOAN_THANH", page },
             s,
-          )
+          );
         }
         // Backend chưa có bộ lọc nhiều trạng thái; ghép đúng hai trạng thái
         // sắp tới trong khoảng đã chọn để không bỏ sót buổi đang tập ở trang khác.
         const ketQua = await Promise.all(
-          ['DA_LEN_LICH', 'DANG_TAP'].map(async (tt) => {
+          ["DA_LEN_LICH", "DANG_TAP"].map(async (tt) => {
             const dau = await api.taiLichTap(
               t,
               vaiTro,
               khachId,
               { ...q, trang_thai: tt, page: 1 },
               s,
-            )
-            const data = [...dau.data]
+            );
+            const data = [...dau.data];
             for (let trang = 2; trang <= dau.meta.last_page; trang++) {
               const r = await api.taiLichTap(
                 t,
@@ -76,15 +78,15 @@ export default function LichTuTap({ navigation, route }) {
                 khachId,
                 { ...q, trang_thai: tt, page: trang },
                 s,
-              )
-              data.push(...r.data)
+              );
+              data.push(...r.data);
             }
-            return { ...dau, data }
+            return { ...dau, data };
           }),
-        )
+        );
         const data = ketQua
           .flatMap((r) => r.data)
-          .sort((a, b) => a.ngay_tap.localeCompare(b.ngay_tap))
+          .sort((a, b) => a.ngay_tap.localeCompare(b.ngay_tap));
         return {
           ...ketQua[0],
           data,
@@ -94,22 +96,22 @@ export default function LichTuTap({ navigation, route }) {
             last_page: 1,
             total: data.length,
           },
-        }
+        };
       }),
-    `${tu}|${den}|${trangThai}|${page}|${khachId}|${muc}`,
-  )
-  const tk = tai.duLieu?.meta.thong_ke
+    `${tu}|${den}|${trangThai}|${page}|${khachId}|${muc}|${dongBoLich}`,
+  );
+  const tk = tai.duLieu?.meta.thong_ke;
   function moTao() {
     if (cho) {
-      datMo(true)
-      return
+      datMo(true);
+      return;
     }
-    const k = tai.duLieu.meta.giao_an_dang_dung
-    datKeHoach(k)
-    datNgayThu(k.cac_ngay[0]?.ngay_thu)
-    datNgay(homNay())
-    ghi.datLoiGui(null)
-    datMo(true)
+    const k = tai.duLieu.meta.giao_an_dang_dung;
+    datKeHoach(k);
+    datNgayThu(k.cac_ngay[0]?.ngay_thu);
+    datNgay(homNay());
+    ghi.datLoiGui(null);
+    datMo(true);
   }
   function gui() {
     ghi.gui(
@@ -118,29 +120,29 @@ export default function LichTuTap({ navigation, route }) {
           ke_hoach_tap_id: keHoach.id,
           ngay_thu: ngayThu,
           ngay_tap: ngay,
-        }
+        };
         try {
           return await goiDichVu((t) =>
             api.taoLichTap(t, vaiTro, khachId, yeuCau.current.lay(d)),
-          )
+          );
         } catch (e) {
-          if (!e.status || e.status >= 500) datCho(true)
+          if (!e.status || e.status >= 500) datCho(true);
           else {
-            yeuCau.current.xong()
-            datCho(false)
+            yeuCau.current.xong();
+            datCho(false);
           }
-          throw e
+          throw e;
         }
       },
       async () => {
-        datMo(false)
-        datCho(false)
-        yeuCau.current.xong()
-        await tai.taiLai()
+        datMo(false);
+        datCho(false);
+        yeuCau.current.xong();
+        await tai.taiLai();
       },
-    )
+    );
   }
-  const ds = tai.duLieu?.data || []
+  const ds = tai.duLieu?.data || [];
   return (
     <ManHinh
       bas
@@ -165,13 +167,13 @@ export default function LichTuTap({ navigation, route }) {
       <ChonPhan
         value={muc}
         onChange={(v) => {
-          datMuc(v)
-          datTrangThai('')
-          datPage(1)
+          datMuc(v);
+          datTrangThai("");
+          datPage(1);
         }}
         options={[
-          ['up', 'Sắp tới'],
-          ['done', 'Đã tập'],
+          ["up", "Sắp tới"],
+          ["done", "Đã tập"],
         ]}
       />
       {!tai.duLieu?.meta.giao_an_dang_dung && !tai.dangTai && !tai.loi && (
@@ -184,8 +186,8 @@ export default function LichTuTap({ navigation, route }) {
             sm
             onPress={() =>
               navigation.navigate(
-                vaiTro === 'KHACH_HANG' ? 'BanXemTruoc' : 'GiaoAnHocVien',
-                vaiTro === 'KHACH_HANG' ? { screen: 'GiaoAn' } : { khachId },
+                vaiTro === "KHACH_HANG" ? "BanXemTruoc" : "GiaoAnHocVien",
+                vaiTro === "KHACH_HANG" ? { screen: "GiaoAn" } : { khachId },
               )
             }
           >
@@ -198,12 +200,12 @@ export default function LichTuTap({ navigation, route }) {
         <Trong
           icon="Dumbbell"
           tieuDe={
-            muc === 'up' ? 'Chưa có buổi tự tập' : 'Chưa hoàn thành buổi nào'
+            muc === "up" ? "Chưa có buổi tự tập" : "Chưa hoàn thành buổi nào"
           }
           moTa={
-            muc === 'up'
-              ? 'Tạo buổi tập riêng hoặc lấy từ giáo án đang dùng.'
-              : 'Kết quả và nhận xét của HLV sẽ hiển thị ở đây.'
+            muc === "up"
+              ? "Tạo buổi tập riêng hoặc lấy từ giáo án đang dùng."
+              : "Kết quả và nhận xét của HLV sẽ hiển thị ở đây."
           }
         />
       )}
@@ -216,7 +218,7 @@ export default function LichTuTap({ navigation, route }) {
             {tk.so_buoi} buổi · {tk.so_hiep} hiệp · {tk.so_lan} lần lặp
           </Chu>
           <Chu>
-            Khối lượng đã ghi: {tk.tong_khoi_luong_kg} kg · {tk.so_hiep_co_ta}{' '}
+            Khối lượng đã ghi: {tk.tong_khoi_luong_kg} kg · {tk.so_hiep_co_ta}{" "}
             hiệp có mức tạ
           </Chu>
           <Chu size={12}>
@@ -247,22 +249,22 @@ export default function LichTuTap({ navigation, route }) {
         <Pressable
           key={l.id}
           accessibilityRole="button"
-          onPress={() => navigation.navigate('BuoiTuTap', { id: l.id })}
+          onPress={() => navigation.navigate("BuoiTuTap", { id: l.id })}
         >
-          <The style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+          <The style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
             <View
               style={{
                 width: 56,
                 height: 56,
                 borderRadius: 12,
                 backgroundColor: mau.chinhNhat,
-                alignItems: 'center',
-                justifyContent: 'center',
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
               <Chu size={11} dam="damVua" color={mau.chinh}>
                 {
-                  ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'][
+                  ["CN", "T2", "T3", "T4", "T5", "T6", "T7"][
                     new Date(`${l.ngay_tap}T00:00:00Z`).getUTCDay()
                   ]
                 }
@@ -291,7 +293,7 @@ export default function LichTuTap({ navigation, route }) {
           icon="ChartNoAxesColumn"
           onPress={() => datThongKeMo(!thongKeMo)}
         >
-          {thongKeMo ? 'Thu gọn tiến độ' : 'Xem tiến độ tập luyện'}
+          {thongKeMo ? "Thu gọn tiến độ" : "Xem tiến độ tập luyện"}
         </Nut>
       )}
       <HopXacNhan
@@ -305,32 +307,32 @@ export default function LichTuTap({ navigation, route }) {
           <ChonNgay
             value={tu}
             onChange={(v) => {
-              datTu(v)
-              datPage(1)
+              datTu(v);
+              datPage(1);
             }}
           />
           <Chu>Đến ngày</Chu>
           <ChonNgay
             value={den}
             onChange={(v) => {
-              datDen(v)
-              datPage(1)
+              datDen(v);
+              datPage(1);
             }}
           />
         </The>
         <LuaChon
           nhan="Trạng thái"
           cacMuc={[
-            ['', 'Tất cả'],
-            ...['DA_LEN_LICH', 'DANG_TAP', 'HOAN_THANH', 'DA_HUY'].map((v) => [
+            ["", "Tất cả"],
+            ...["DA_LEN_LICH", "DANG_TAP", "HOAN_THANH", "DA_HUY"].map((v) => [
               v,
               nhanTrangThai(v),
             ]),
           ]}
           giaTri={trangThai}
           onChon={(v) => {
-            datTrangThai(v)
-            datPage(1)
+            datTrangThai(v);
+            datPage(1);
           }}
         />
       </HopXacNhan>
@@ -347,9 +349,9 @@ export default function LichTuTap({ navigation, route }) {
         loi={ghi.loiGui?.message}
         onDong={() => {
           if (!cho) {
-            yeuCau.current.xong()
-            datMo(false)
-          } else datMo(false)
+            yeuCau.current.xong();
+            datMo(false);
+          } else datMo(false);
         }}
         onGui={gui}
       >
@@ -391,5 +393,5 @@ export default function LichTuTap({ navigation, route }) {
         </The>
       )}
     </ManHinh>
-  )
+  );
 }

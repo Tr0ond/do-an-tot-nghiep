@@ -29,6 +29,7 @@ import { font, useGiaoDien } from '../../theme'
 import { hoanThienService as api } from '../../services/hoanThienService'
 import { soanYeuCauAi, maDaHoanTat, tien } from '../../utils/hoanThien'
 import { HanMucAi } from './TroLy'
+import MascotTroLy from '../../components/MascotTroLy'
 
 function NguonAi({ nguon: n, navigation }) {
   if (!n) return null
@@ -116,6 +117,7 @@ export default function HoiThoaiAi({ navigation, route }) {
   const [loiForm, datLoiForm] = useState('')
   const [bo, datBo] = useState(false)
   const [congCu, datCongCu] = useState(false)
+  const [chuyenDongMascot, datChuyenDongMascot] = useState(true)
   const [riengTu, datRiengTu] = useState(false)
   const { ban, datBan, nhan, hopRoi } = useBanNhap(navigation)
   useEffect(() => nhan({ noiDung: '', caNhan: !!route.params?.caNhan }), [id])
@@ -226,18 +228,8 @@ export default function HoiThoaiAi({ navigation, route }) {
         <TrangThaiTai {...{ dangTai, loi, taiLai }} />
         {duLieu && !tin.length && (
           <View style={{ paddingTop: 24, alignItems: 'center' }}>
-            <View
-              style={{
-                width: 64,
-                height: 64,
-                borderRadius: 32,
-                backgroundColor: mau.chinhNhat,
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: 16,
-              }}
-            >
-              <BieuTuong ten="Sparkles" size={28} />
+            <View style={{ marginBottom: 16 }}>
+              <MascotTroLy size={104} chuyenDong={chuyenDongMascot} />
             </View>
             <Chu size={20} dam="ratDam" style={{ letterSpacing: -0.5 }}>
               Bạn muốn tập gì hôm nay?
@@ -335,7 +327,7 @@ export default function HoiThoaiAi({ navigation, route }) {
         ))}
         {dangGui && (
           <Chu accessibilityLiveRegion="polite">
-            Tr0ond AI đang tìm câu trả lời…
+            FitForge AI đang tìm câu trả lời…
           </Chu>
         )}
       </ScrollView>
@@ -388,6 +380,14 @@ export default function HoiThoaiAi({ navigation, route }) {
           <Nut loai="soft" icon="RefreshCw" disabled={dangGui} onPress={taiLai}>
             Cập nhật trò chuyện
           </Nut>
+          <Nut
+            loai="soft"
+            onPress={() => datChuyenDongMascot(!chuyenDongMascot)}
+          >
+            {chuyenDongMascot
+              ? 'Dừng chuyển động mascot'
+              : 'Bật chuyển động mascot'}
+          </Nut>
         </HopXacNhan>
         {cho ? (
           <The>
@@ -405,7 +405,7 @@ export default function HoiThoaiAi({ navigation, route }) {
         ) : (
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
             <TextInput
-              accessibilityLabel="Câu hỏi cho Tr0ond AI"
+              accessibilityLabel="Câu hỏi cho FitForge AI"
               value={ban?.noiDung || ''}
               onChangeText={(v) => datBan({ ...ban, noiDung: v })}
               multiline

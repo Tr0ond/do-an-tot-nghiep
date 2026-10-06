@@ -10,9 +10,9 @@
     <!-- Header danh mục chuẩn Glassmorphism đồng bộ toàn hệ thống -->
     <header class="catalog-header">
       <div class="d-flex align-items-center gap-3">
-        <RouterLink to="/" class="brand" aria-label="Huấn luyện cá nhân — trang chủ">
+        <RouterLink to="/" class="brand" aria-label="FitForge — trang chủ">
           <LogoThuongHieu />
-          <span class="brand-title">HUẤN LUYỆN CÁ NHÂN</span>
+          <span class="brand-title">FitForge</span>
         </RouterLink>
       </div>
 
@@ -62,7 +62,7 @@
         <span class="status-dot"></span>
         <span>{{
           laFaq
-            ? 'Hỗ trợ tập luyện Tr0ond'
+            ? 'Hỗ trợ tập luyện FitForge'
             : laGoiTap
               ? 'Dịch vụ huấn luyện cá nhân & tư vấn tập luyện'
               : 'Thư viện vận động & bài tập thể hình trực quan'

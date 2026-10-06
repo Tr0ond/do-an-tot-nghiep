@@ -156,6 +156,20 @@
 
       <!-- Chi tiết buổi tập -->
       <template v-else-if="chiTiet && lich">
+        <section v-if="khuVuc !== 'admin'" class="m04-panel mb-4">
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div>
+              <h2 class="h5">Kết quả buổi tập với PT</h2>
+              <p class="mb-0 text-muted">
+                Bài tập, hiệp thực tế và nhận xét; lưu kết quả không tự trừ lượt.
+              </p>
+            </div>
+            <RouterLink :to="`/${khuVuc}/lich-hen/${lich.id}/ket-qua`" class="btn btn-primary">
+              <i class="bi bi-journal-check me-1" aria-hidden="true"></i>
+              {{ khuVuc === 'pt' ? 'Ghi / xem kết quả' : 'Xem kết quả buổi tập' }}
+            </RouterLink>
+          </div>
+        </section>
         <div class="m04-details">
           <!-- Bảng thông tin buổi tập -->
           <section class="m04-panel">

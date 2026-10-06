@@ -18,6 +18,7 @@ import { useXemTruoc } from '../../contexts/XemTruocContext'
 import { useTraoDoi } from '../../contexts/TraoDoiContext'
 import { traoDoiService as api } from '../../services/traoDoiService'
 import { useGiaoDien } from '../../theme'
+import MascotTroLy from '../../components/MascotTroLy'
 import { thoiDiem, gioVietNam } from '../../utils/lich'
 
 export default function DanhSachHoiThoai({ navigation }) {
@@ -147,7 +148,7 @@ export default function DanhSachHoiThoai({ navigation }) {
             alignItems: 'center',
           }}
         >
-          <BieuTuong ten="Sparkles" size={24} />
+          <MascotTroLy />
           <Chu size={13.5} style={{ flex: 1 }}>
             <Chu size={13.5} dam="dam">
               Trợ lý AI

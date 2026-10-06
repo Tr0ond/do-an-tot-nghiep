@@ -71,6 +71,10 @@ class PhanCongService
                 $nguoiNhan[] = $cu->pt->tai_khoan_id;
             }
             app(ChatService::class)->baoCapNhat($nguoiNhan);
+            app(LichRealtimeService::class)->choPt($pt->id, $khach->id);
+            if ($cu) {
+                app(LichRealtimeService::class)->choPt($cu->huan_luyen_vien_id, $khach->id);
+            }
             $thongBao = app(ThongBaoService::class);
             $thongBao->gui($khach->tai_khoan_id, 'phan-cong/'.$moi->id.'/kh', $cu ? 'PT phụ trách đã thay đổi' : 'Bạn đã được phân công PT', 'PT mới đã được phân công. Bạn có thể xem hồ sơ và trao đổi trong tin nhắn.', '/khach-hang/ho-so');
             $thongBao->gui($pt->tai_khoan_id, 'phan-cong/'.$moi->id.'/pt', 'Bạn có học viên mới', 'Một học viên đã được phân công cho bạn. Mở hồ sơ để bắt đầu theo dõi.', '/pt/hoc-vien/'.$khach->id.'/ke-hoach');

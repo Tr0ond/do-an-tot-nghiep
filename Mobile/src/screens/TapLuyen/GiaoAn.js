@@ -15,6 +15,7 @@ import { useDuLieu } from '../../hooks/useDuLieu'
 import { useXemTruoc } from '../../contexts/XemTruocContext'
 import { tapLuyenService as api } from '../../services/tapLuyenService'
 import { useGiaoDien } from '../../theme'
+import MascotTroLy from '../../components/MascotTroLy'
 import {
   TieuDeTab,
   NhomChip,
@@ -237,7 +238,7 @@ export default function GiaoAn({ navigation, route }) {
             backgroundColor: mau.chinhNhat,
           }}
         >
-          <BieuTuong ten="Sparkles" size={24} />
+          <MascotTroLy />
           <Chu size={13.5} style={{ flex: 1 }}>
             <Chu size={13.5} dam="dam">
               Nhờ AI soạn nháp

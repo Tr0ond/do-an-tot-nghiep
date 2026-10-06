@@ -1,8 +1,8 @@
 <template>
   <div class="cinematic-site motion-home">
     <header class="cinematic-header">
-      <RouterLink to="/" class="home-brand" aria-label="Tr0ond Fitness, trang chủ"
-        ><LogoThuongHieu /><strong>Tr0ond<span>Fitness</span></strong></RouterLink
+      <RouterLink to="/" class="home-brand" aria-label="FitForge, trang chủ"
+        ><LogoThuongHieu /><strong>FitForge</strong></RouterLink
       >
       <nav class="cinematic-nav-links d-none d-lg-flex" aria-label="Điều hướng chính">
         <RouterLink to="/bai-tap" class="cinematic-link">Thư viện bài tập</RouterLink>
@@ -22,7 +22,7 @@
         <span class="home-eyebrow"
           ><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i> MOVE. TRACK. GROW.</span
         >
-        <h1>Tr0ond Fitness<span>Huấn luyện cá nhân.</span></h1>
+        <h1>FitForge<span>Huấn luyện cá nhân.</span></h1>
         <p>
           Mỗi buổi tập là một bước tiến. Xây dựng giáo án, ghi lại hành trình và kết nối cùng huấn
           luyện viên của bạn.
@@ -145,14 +145,12 @@
       </ol>
     </section>
     <footer class="cinematic-footer">
-      <RouterLink to="/" class="home-brand"
-        ><LogoThuongHieu /><strong>Tr0ond<span>Fitness</span></strong></RouterLink
-      >
+      <RouterLink to="/" class="home-brand"><LogoThuongHieu /><strong>FitForge</strong></RouterLink>
       <nav aria-label="Liên kết cuối trang">
         <RouterLink to="/bai-tap">Bài tập</RouterLink><RouterLink to="/goi-tap">Gói tập</RouterLink
         ><RouterLink to="/faq">Hỗ trợ</RouterLink>
       </nav>
-      <span>© 2026 Tr0ond Fitness</span>
+      <span>© 2026 FitForge</span>
     </footer>
   </div>
 </template>
@@ -206,7 +204,7 @@ export default {
           duongDan: '/dang-ky',
         },
         {
-          ten: 'Tr0ond AI',
+          ten: 'FitForge AI',
           moTa: 'Hỏi đáp kiến thức tập luyện theo quyền lợi của gói đang dùng.',
           icon: 'robot',
           duongDan: '/goi-tap',

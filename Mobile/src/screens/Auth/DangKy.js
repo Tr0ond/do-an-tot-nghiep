@@ -46,7 +46,7 @@ export default function DangKy({ navigation }) {
           <Chu size={23} dam="dam">
             Tài khoản đã được tạo
           </Chu>
-          <Chu>Đăng nhập để bắt đầu tập luyện cùng Tr0ond Fitness.</Chu>
+          <Chu>Đăng nhập để bắt đầu tập luyện cùng FitForge.</Chu>
           <Nut onPress={() => navigation.popTo('DangNhap')}>Đến đăng nhập</Nut>
         </The>
       ) : (

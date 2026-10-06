@@ -1,0 +1,6 @@
+{
+  "environment": "MariaDB 10.4.32, isolated native QA database",
+  "after_retry_save": { "results": 1, "finalized": 0, "appointment": "DA_XAC_NHAN", "remaining_credits": 8 },
+  "after_native_finalize": { "results": 1, "finalized": 1, "appointment": "DA_XAC_NHAN", "remaining_credits": 8 },
+  "after_native_complete_appointment": { "results": 1, "finalized": 1, "appointment": "HOAN_THANH", "remaining_credits": 7 }
+}

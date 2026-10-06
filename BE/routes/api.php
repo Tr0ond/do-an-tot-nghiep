@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\GoiTapController;
 use App\Http\Controllers\Api\HoSoKhachHangController;
 use App\Http\Controllers\Api\HoSoTaiKhoanController;
 use App\Http\Controllers\Api\KeHoachTapController;
+use App\Http\Controllers\Api\KetQuaBuoiPtController;
 use App\Http\Controllers\Api\LichHenController;
 use App\Http\Controllers\Api\NhatKyTapController;
 use App\Http\Controllers\Api\NhomCoController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\Api\PhienMobileController;
 use App\Http\Controllers\Api\TaiKhoanController;
 use App\Http\Controllers\Api\TaiLieuTuVanController;
 use App\Http\Controllers\Api\ThongBaoController;
+use App\Http\Controllers\Api\ThongBaoDayController;
 use App\Http\Controllers\Api\TongQuanController;
 use App\Http\Controllers\Api\XacThucController;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +47,11 @@ Route::prefix('v1')->group(function () {
         Route::post('/quen-mat-khau', [PhienMobileController::class, 'guiLienKet'])->middleware('throttle:khoi-phuc');
         Route::post('/dat-lai-mat-khau', [PhienMobileController::class, 'datLai'])->middleware('throttle:dat-lai');
         Route::post('/dang-xuat', [PhienMobileController::class, 'dangXuat'])->middleware(['auth:sanctum', 'tai_khoan_hoat_dong']);
+        Route::middleware(['auth:sanctum', 'tai_khoan_hoat_dong', 'throttle:30,1,push:'])->group(function () {
+            Route::get('/thong-bao-day', [ThongBaoDayController::class, 'show']);
+            Route::put('/thong-bao-day', [ThongBaoDayController::class, 'update']);
+            Route::delete('/thong-bao-day', [ThongBaoDayController::class, 'destroy']);
+        });
     });
     Route::post('/payos/webhook', [DonHangController::class, 'webhook'])->withoutMiddleware(EnsureFrontendRequestsAreStateful::class)->middleware('throttle:120,1,donhang-webhook:');
     Route::get('/goi-tap', [GoiTapController::class, 'index']);
@@ -90,6 +97,7 @@ Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(
         Route::get('/khung-gio', [LichHenController::class, 'khungGio']);
         Route::get('/lich-hen', [LichHenController::class, 'index']);
         Route::get('/lich-hen/{id}', [LichHenController::class, 'show'])->whereNumber('id');
+        Route::get('/lich-hen/{id}/ket-qua', [KetQuaBuoiPtController::class, 'show'])->whereNumber('id');
         Route::post('/lich-hen', [LichHenController::class, 'store'])->middleware('throttle:20,1,lichhen-store:');
         Route::post('/lich-hen/{id}/{hanhDong}', [LichHenController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'huy');
         Route::get('/goi-cua-toi', [DonHangController::class, 'goiCuaToi']);
@@ -163,6 +171,9 @@ Route::prefix('v1')->middleware(['auth:sanctum', 'tai_khoan_hoat_dong'])->group(
         Route::get('/lich-hen', [LichHenController::class, 'index']);
         Route::get('/lich-hen/{id}', [LichHenController::class, 'show'])->whereNumber('id');
         Route::post('/lich-hen/{id}/{hanhDong}', [LichHenController::class, 'thaoTac'])->whereNumber('id')->where('hanhDong', 'xac-nhan|tu-choi|hoan-thanh|vang-mat');
+        Route::get('/lich-hen/{id}/ket-qua', [KetQuaBuoiPtController::class, 'show'])->whereNumber('id');
+        Route::put('/lich-hen/{id}/ket-qua', [KetQuaBuoiPtController::class, 'update'])->whereNumber('id')->middleware('throttle:60,1,ketquapt-update:');
+        Route::post('/lich-hen/{id}/ket-qua/chot', [KetQuaBuoiPtController::class, 'chot'])->whereNumber('id')->middleware('throttle:30,1,ketquapt-chot:');
         Route::get('/tong-quan', [TongQuanController::class, 'index']);
         Route::get('/giao-an-mau', [GiaoAnMauController::class, 'index']);
         Route::get('/giao-an-mau/{id}', [GiaoAnMauController::class, 'show'])->whereNumber('id');

@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { View, Pressable, TextInput, Platform } from "react-native";
 import { font, useGiaoDien } from "../../theme";
-import MinhHoaBaiTap from "../../components/MinhHoaBaiTap";
 import * as Crypto from "expo-crypto";
 import {
   ManHinh,
@@ -15,7 +14,7 @@ import {
 } from "../../components/GiaoDien";
 import { TienDo } from "../../components/FigmaElements";
 import { TrangThaiTai, HopXacNhan } from "../../components/HuanLuyen";
-import { LoiGhi } from "../../components/TapLuyen";
+import { AnhBaiTap, LoiGhi } from "../../components/TapLuyen";
 import { HuongDanBai } from "./ChiTietBaiTap";
 import { useBanNhap } from "../../hooks/useBanNhap";
 import { useDuLieu } from "../../hooks/useDuLieu";
@@ -459,7 +458,7 @@ export default function BuoiTuTap({ navigation, route }) {
                   padding: 12,
                 }}
               >
-                <MinhHoaBaiTap />
+                <AnhBaiTap bai={b} size={64} />
                 <View style={{ flex: 1 }}>
                   <Chu size={hoanThanh ? 14.5 : 15} dam="dam">
                     {b.ten_bai_tap}

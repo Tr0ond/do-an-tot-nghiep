@@ -1,56 +1,58 @@
-import { useEffect, useRef, useState } from 'react'
-import { RefreshControl, View, Pressable } from 'react-native'
-import { randomUUID } from 'expo-crypto'
-import { DaiNgay, Trong } from '../../components/FigmaElements'
-import { useGiaoDien } from '../../theme'
-import { ManHinh, Chu, The, Nut, Nhan } from '../../components/GiaoDien'
+import { useEffect, useRef, useState } from "react";
+import { RefreshControl, View, Pressable } from "react-native";
+import { randomUUID } from "expo-crypto";
+import { DaiNgay, Trong } from "../../components/FigmaElements";
+import { useGiaoDien } from "../../theme";
+import { ManHinh, Chu, The, Nut, Nhan } from "../../components/GiaoDien";
 import {
   ChonNgay,
   HopXacNhan,
   PhanTrang,
   TrangThaiTai,
-} from '../../components/HuanLuyen'
-import { useDuLieu } from '../../hooks/useDuLieu'
-import { useThaoTac } from '../../hooks/useThaoTac'
-import { useXemTruoc } from '../../contexts/XemTruocContext'
-import { huanLuyenService as api } from '../../services/huanLuyenService'
+} from "../../components/HuanLuyen";
+import { useDuLieu } from "../../hooks/useDuLieu";
+import { useThaoTac } from "../../hooks/useThaoTac";
+import { useXemTruoc } from "../../contexts/XemTruocContext";
+import { useTraoDoi } from "../../contexts/TraoDoiContext";
+import { huanLuyenService as api } from "../../services/huanLuyenService";
 import {
   homNay,
   thoiDiem,
   gioVietNam,
   taoYeuCauDatLich,
-} from '../../utils/lich'
+} from "../../utils/lich";
 
 export default function DatLich({ navigation }) {
-  const { mau } = useGiaoDien()
-  const [rong, datRong] = useState(0)
-  const { vaiTro, goiDichVu } = useXemTruoc()
-  const [ngay, datNgay] = useState(homNay)
-  const [page, datTrang] = useState(1)
-  const [chon, datChon] = useState(null)
-  const [daDat, datDaDat] = useState(null)
-  const { dangGui, loiGui, datLoiGui, gui } = useThaoTac()
+  const { mau } = useGiaoDien();
+  const [rong, datRong] = useState(0);
+  const { vaiTro, goiDichVu } = useXemTruoc();
+  const { dongBoLich } = useTraoDoi();
+  const [ngay, datNgay] = useState(homNay);
+  const [page, datTrang] = useState(1);
+  const [chon, datChon] = useState(null);
+  const [daDat, datDaDat] = useState(null);
+  const { dangGui, loiGui, datLoiGui, gui } = useThaoTac();
   const { duLieu, dangTai, loi, taiLai } = useDuLieu(
     (signal) =>
       goiDichVu((token) => api.taiKhung(token, vaiTro, { ngay, page }, signal)),
-    `${ngay}-${page}`,
-  )
-  const goiRef = useRef(goiDichVu)
-  goiRef.current = goiDichVu
-  const yeuCau = useRef(null)
+    `${ngay}-${page}-${dongBoLich}`,
+  );
+  const goiRef = useRef(goiDichVu);
+  goiRef.current = goiDichVu;
+  const yeuCau = useRef(null);
   if (!yeuCau.current)
     yeuCau.current = taoYeuCauDatLich({
       taoMa: randomUUID,
       goi: (payload) => goiRef.current((token) => api.datLich(token, payload)),
-    })
+    });
   useEffect(() => {
-    if (daDat && !dangGui) navigation.replace('ChiTietLich', { id: daDat })
-  }, [daDat, dangGui, navigation])
-  const xungDot = loiGui && [403, 404, 409].includes(loiGui.status)
+    if (daDat && !dangGui) navigation.replace("ChiTietLich", { id: daDat });
+  }, [daDat, dangGui, navigation]);
+  const xungDot = loiGui && [403, 404, 409].includes(loiGui.status);
   function chonKhung(khung) {
-    yeuCau.current.chon(khung.id)
-    datLoiGui(null)
-    datChon(khung)
+    yeuCau.current.chon(khung.id);
+    datLoiGui(null);
+    datChon(khung);
   }
   return (
     <ManHinh
@@ -74,11 +76,11 @@ export default function DatLich({ navigation }) {
           }}
         >
           <Chu size={13}>
-            Còn{' '}
+            Còn{" "}
             <Chu size={13} dam="dam">
               {duLieu.meta.so_buoi_con_lai ?? 0}
-            </Chu>{' '}
-            lượt đặt · đặt trước ít nhất{' '}
+            </Chu>{" "}
+            lượt đặt · đặt trước ít nhất{" "}
             <Chu size={13} dam="dam">
               4 giờ
             </Chu>
@@ -94,8 +96,8 @@ export default function DatLich({ navigation }) {
         value={ngay}
         disabled={dangGui}
         onChange={(n) => {
-          datNgay(n)
-          datTrang(1)
+          datNgay(n);
+          datTrang(1);
         }}
       />
       <Chu size={14} dam="dam">
@@ -107,18 +109,18 @@ export default function DatLich({ navigation }) {
         tieuDeRong="Chưa có khung giờ phù hợp"
         moTaRong={
           duLieu?.meta?.ly_do ||
-          'Thử chọn ngày khác hoặc liên hệ PT để mở thêm giờ.'
+          "Thử chọn ngày khác hoặc liên hệ PT để mở thêm giờ."
         }
       />
       <View
         onLayout={(e) => datRong(e.nativeEvent.layout.width)}
-        style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}
+        style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }}
       >
         {duLieu?.data?.map((k) => (
           <Pressable
             key={k.id}
             accessibilityRole="button"
-            disabled={dangGui || k.dang_giu || k.trang_thai !== 'MO'}
+            disabled={dangGui || k.dang_giu || k.trang_thai !== "MO"}
             onPress={() => chonKhung(k)}
             style={{
               width: Math.max(0, (rong - 20) / 3),
@@ -127,16 +129,16 @@ export default function DatLich({ navigation }) {
               borderWidth: 1,
               borderColor: mau.vien,
               backgroundColor: mau.the,
-              justifyContent: 'center',
-              alignItems: 'center',
-              opacity: k.dang_giu || k.trang_thai !== 'MO' ? 0.4 : 1,
+              justifyContent: "center",
+              alignItems: "center",
+              opacity: k.dang_giu || k.trang_thai !== "MO" ? 0.4 : 1,
             }}
           >
             <Chu size={15} dam="dam">
               {gioVietNam(k.bat_dau_luc)}
             </Chu>
             <Chu size={11} color={mau.chuPhu}>
-              {k.dang_giu ? 'Đã có người đặt' : '60 phút'}
+              {k.dang_giu ? "Đã có người đặt" : "60 phút"}
             </Chu>
           </Pressable>
         ))}
@@ -145,8 +147,8 @@ export default function DatLich({ navigation }) {
         value={ngay}
         disabled={dangGui}
         onChange={(n) => {
-          datNgay(n)
-          datTrang(1)
+          datNgay(n);
+          datTrang(1);
         }}
       />
       <PhanTrang
@@ -160,7 +162,7 @@ export default function DatLich({ navigation }) {
         moTa={
           chon
             ? `${thoiDiem(chon.bat_dau_luc)} – ${gioVietNam(chon.ket_thuc_luc)}. PT cần xác nhận trước hạn ghi trong lịch hẹn.`
-            : ''
+            : ""
         }
         dangGui={dangGui}
         onDong={() => datChon(null)}
@@ -185,8 +187,8 @@ export default function DatLich({ navigation }) {
         {xungDot && (
           <Nut
             onPress={() => {
-              datChon(null)
-              taiLai()
+              datChon(null);
+              taiLai();
             }}
           >
             Cập nhật khung giờ
@@ -194,5 +196,5 @@ export default function DatLich({ navigation }) {
         )}
       </HopXacNhan>
     </ManHinh>
-  )
+  );
 }

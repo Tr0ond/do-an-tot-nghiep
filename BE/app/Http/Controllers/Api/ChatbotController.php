@@ -55,6 +55,6 @@ class ChatbotController extends Controller
 
     private function phanHoi(mixed $d, ?array $meta = null, int $http = 200)
     {
-        return response()->json(['status' => true, 'message' => 'Đã tải dữ liệu Tr0ond AI.', 'data' => $d, 'meta' => $meta], $http)->header('Cache-Control', 'private, no-store');
+        return response()->json(['status' => true, 'message' => 'Đã tải dữ liệu FitForge AI.', 'data' => $d, 'meta' => $meta], $http)->header('Cache-Control', 'private, no-store');
     }
 }

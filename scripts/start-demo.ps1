@@ -56,7 +56,7 @@ try {
     Write-Host 'Tài khoản: kh / tu-tap / cho-pt / pt / pt2 / admin @hanh-trinh.example.test'
     Write-Host 'Mật khẩu demo: Demo123456!'
     Write-Host 'Không gọi payOS/Gemini/email thật. Chat dùng tải lại/polling, không chạy Reverb trong demo này.'
-    Write-Host 'Kịch bản: docs/DEMO_SCRIPT.md. Giữ cửa sổ này trong khi xem.'
+    Write-Host 'Kịch bản: md/DEMO_SCRIPT.md. Giữ cửa sổ này trong khi xem.'
     $null = Read-Host 'Bấm Enter khi kết thúc để dừng server demo và xóa database demo'
 } finally {
     foreach ($p in $tienTrinh) {

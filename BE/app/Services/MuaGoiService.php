@@ -44,7 +44,7 @@ class MuaGoiService
         }, 3);
     }
 
-    public function taoLink(DangKyGoiTap $don): DangKyGoiTap
+    public function taoLink(DangKyGoiTap $don, bool $mobile = false): DangKyGoiTap
     {
         if ($don->trang_thai !== 'CHO_THANH_TOAN' || $don->han_thanh_toan->lessThanOrEqualTo(now())) {
             throw new ConflictHttpException('Đơn không còn trong thời gian thanh toán.');
@@ -66,7 +66,7 @@ class MuaGoiService
             }
             // Cùng orderCode khi retry; khôi phục link nếu response tạo link trước đó bị mất.
             try {
-                $duLieu = $this->payos->taoLink($don);
+                $duLieu = $this->payos->taoLink($don, $mobile);
             } catch (ServiceUnavailableHttpException) {
                 $duLieu = $this->payos->layLink($don->ma_don_payos);
                 $duLieu['paymentLinkId'] = $duLieu['id'] ?? null;

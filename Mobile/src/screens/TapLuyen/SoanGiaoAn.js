@@ -10,7 +10,7 @@ import {
   BieuTuong,
 } from '../../components/GiaoDien'
 import { TrangThaiTai, HopXacNhan } from '../../components/HuanLuyen'
-import { LoiGhi } from '../../components/TapLuyen'
+import { AnhBaiTap, LoiGhi } from '../../components/TapLuyen'
 import { useBanNhap } from '../../hooks/useBanNhap'
 import { useDuLieu } from '../../hooks/useDuLieu'
 import { useThaoTac } from '../../hooks/useThaoTac'
@@ -21,7 +21,7 @@ import { noiDungKeHoach, taoYeuCauGhi } from '../../utils/tapLuyen'
 import { useGiaoDien } from '../../theme'
 import { Chip } from '../../components/FigmaElements'
 import SoBuocFigma from '../../components/SoBuocFigma'
-import MinhHoaBaiTap from '../../components/MinhHoaBaiTap'
+import { mediaBaiTap } from '../../utils/media'
 
 const moi = () => ({
   ten_ke_hoach: '',
@@ -91,6 +91,7 @@ export default function SoanGiaoAn({ navigation, route }) {
           {
             bai_tap_id: b.id,
             ten_bai_tap: b.ten_tieng_viet || b.ten_bai_tap,
+            ...mediaBaiTap(b),
             ngay_thu: String(route.params.ngayChon || 1),
             so_hiep: '',
             so_lan_lap: '',
@@ -339,7 +340,7 @@ export default function SoanGiaoAn({ navigation, route }) {
                           gap: 12,
                         }}
                       >
-                        <MinhHoaBaiTap />
+                        <AnhBaiTap bai={b} size={64} />
                         <View style={{ flex: 1 }}>
                           <Chu size={14} dam="dam">
                             {b.ten_bai_tap}

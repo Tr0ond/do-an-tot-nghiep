@@ -155,7 +155,7 @@ class ChatbotService
             // Không log raw exception HTTP: có thể chứa key, prompt hoặc response riêng tư.
             YeuCauTroLy::whereKey($y->id)->where('ma_lan_xu_ly', $y->ma_lan_xu_ly)->where('trang_thai', 'DANG_XU_LY')
                 ->update(['trang_thai' => 'LOI', 'ma_loi' => 'KHONG_CO_KET_QUA_HOP_LE', 'giu_luot_den' => null, 'updated_at' => now()]);
-            abort(503, 'Tr0ond AI chưa thể trả lời. Lượt của bạn được giữ nguyên; hãy thử lại hoặc xem tài liệu bên dưới.');
+            abort(503, 'FitForge AI chưa thể trả lời. Lượt của bạn được giữ nguyên; hãy thử lại hoặc xem tài liệu bên dưới.');
         }
 
         return $this->ketQua($y->fresh());
@@ -185,6 +185,10 @@ class ChatbotService
             }
         }
         $kq['chinh_sach'] = $nguon['chinh_sach'] ?? null;
+        if ($kq['chinh_sach']) {
+            // Đổi nhãn hiển thị, giữ phiên bản và snapshot gốc để truy vết hội thoại.
+            $kq['chinh_sach']['tieu_de'] = 'Quy tắc hệ thống FitForge';
+        }
         if ($khachId && isset($nguon['giao_an_da_tao'])) {
             $kq['giao_an_da_tao'] = app(GiaoAnAiService::class)->hienTai($nguon['giao_an_da_tao'], $khachId);
         }
@@ -272,7 +276,7 @@ class ChatbotService
             $ketQua[$loai] = array_values(array_filter($hienTai, fn ($x) => in_array($x['id'], $r[$ids], true)));
         }
         // Nguồn tài liệu hiển thị chỉ giữ nội dung đã xuất bản; không nhận URL do AI tạo.
-        $ketQua['chinh_sach'] = ['tieu_de' => 'Quy tắc hệ thống Tr0ond', 'phien_ban' => 2];
+        $ketQua['chinh_sach'] = ['tieu_de' => 'Quy tắc hệ thống FitForge', 'phien_ban' => 2];
 
         return $ketQua;
     }

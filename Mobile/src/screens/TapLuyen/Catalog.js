@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Pressable, View } from 'react-native'
 import { TimKiem, NhomChip, Chip } from '../../components/FigmaElements'
-import MinhHoaBaiTap from '../../components/MinhHoaBaiTap'
 import { useGiaoDien } from '../../theme'
 import {
   ManHinh,
@@ -89,7 +88,7 @@ export default function Catalog({ navigation, route }) {
               accessibilityRole="button"
               onPress={() =>
                 chon
-                  ? navigation.popTo('SoanGiaoAn', {
+                  ? navigation.popTo(chon.manHinh || 'SoanGiaoAn', {
                       ...chon,
                       baiChon: b,
                       lanChon: Date.now(),
@@ -105,7 +104,7 @@ export default function Catalog({ navigation, route }) {
                 borderColor: mau.vien,
               }}
             >
-              <MinhHoaBaiTap />
+              <AnhBaiTap bai={b} size={64} />
               <View style={{ flex: 1, minWidth: 0 }}>
                 <Chu size={14.5} dam="dam" numberOfLines={1}>
                   {b.ten_tieng_viet || b.ten_bai_tap}

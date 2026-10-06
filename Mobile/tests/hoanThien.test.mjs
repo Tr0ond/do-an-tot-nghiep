@@ -68,7 +68,7 @@ test('Reset chỉ đọc mã hợp lệ hoặc fragment web, không dùng query/
   for (const u of [
     'a'.repeat(63),
     `https://example.test/dat-lai-mat-khau?token=${ma}`,
-    `tr0ond://dat-lai-mat-khau#token=${ma}`,
+    `fitforge://dat-lai-mat-khau#token=${ma}`,
     `https://example.test/khac#token=${ma}`,
   ])
     assert.equal(layMaKhoiPhuc(u), '')

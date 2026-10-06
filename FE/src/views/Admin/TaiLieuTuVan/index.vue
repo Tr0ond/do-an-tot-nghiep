@@ -3,7 +3,7 @@
     <section class="ai-page">
       <header class="ai-heading">
         <div>
-          <span class="ai-eyebrow">NGUỒN TƯ VẤN TR0OND AI</span>
+          <span class="ai-eyebrow">NGUỒN TƯ VẤN FitForge AI</span>
           <h1>Tài liệu & thống kê AI</h1>
           <p>Soạn nội dung, kiểm tra và xuất bản trước khi AI sử dụng.</p>
         </div>

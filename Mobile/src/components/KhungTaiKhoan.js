@@ -4,67 +4,48 @@ import {
   Pressable,
   KeyboardAvoidingView,
   Platform,
-} from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { Chu, BieuTuong } from './GiaoDien'
-import { useGiaoDien } from '../theme'
+  Image,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Chu, BieuTuong } from "./GiaoDien";
+import { useGiaoDien } from "../theme";
 
-export function LogoTr0ond({ size = 26, sang = false }) {
-  const { mau } = useGiaoDien()
+export function LogoFitForge({ size = 26, sang = false }) {
+  const { mau } = useGiaoDien();
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-      <View
+    <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
+      <Image
+        source={require("../../assets/brand/logo-fitforge.png")}
+        resizeMode="contain"
+        accessible={false}
+        accessibilityIgnoresInvertColors
         style={{
           width: size * 1.35,
           height: size * 1.35,
-          borderRadius: 12,
-          backgroundColor: mau.chinh,
-          alignItems: 'center',
-          justifyContent: 'center',
         }}
-      >
-        <BieuTuong
-          ten="Dumbbell"
-          size={size * 0.8}
-          strokeWidth={2.4}
-          color={mau.trenChinh}
-        />
-        <View
-          style={{
-            position: 'absolute',
-            right: -6,
-            top: -6,
-            width: 16,
-            height: 16,
-            borderRadius: 8,
-            backgroundColor: mau.nangLuong,
-            borderWidth: 2,
-            borderColor: mau.nen,
-          }}
-        />
-      </View>
+      />
       <Chu
         size={size}
         dam="ratDam"
-        color={sang ? '#FFFFFF' : mau.chu}
+        color={sang ? "#FFFFFF" : mau.chu}
         style={{ letterSpacing: -size * 0.025 }}
       >
-        Tr0ond
+        FitForge
       </Chu>
     </View>
-  )
+  );
 }
 
 export default function KhungTaiKhoan({ children, tieuDe, moTa, onBack }) {
-  const { mau } = useGiaoDien()
+  const { mau } = useGiaoDien();
   return (
     <SafeAreaView
-      edges={['top', 'left', 'right', 'bottom']}
+      edges={["top", "left", "right", "bottom"]}
       style={{ flex: 1, backgroundColor: mau.chinh }}
     >
       <KeyboardAvoidingView
         style={{ flex: 1, backgroundColor: mau.nen }}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
         <ScrollView
           keyboardShouldPersistTaps="handled"
@@ -84,14 +65,14 @@ export default function KhungTaiKhoan({ children, tieuDe, moTa, onBack }) {
                 accessibilityLabel="Quay lại"
                 onPress={onBack}
                 style={{
-                  flexDirection: 'row',
+                  flexDirection: "row",
                   gap: 4,
-                  alignItems: 'center',
+                  alignItems: "center",
                   height: 24,
                   opacity: 0.9,
                   marginBottom: 20,
                   marginLeft: -4,
-                  alignSelf: 'flex-start',
+                  alignSelf: "flex-start",
                 }}
               >
                 <BieuTuong ten="ArrowLeft" size={14} color={mau.trenChinh} />
@@ -106,7 +87,7 @@ export default function KhungTaiKhoan({ children, tieuDe, moTa, onBack }) {
               </Pressable>
             )}
             <View style={{ marginBottom: 32 }}>
-              <LogoTr0ond sang />
+              <LogoFitForge sang />
             </View>
             <Chu
               size={28}
@@ -141,5 +122,5 @@ export default function KhungTaiKhoan({ children, tieuDe, moTa, onBack }) {
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
-  )
+  );
 }

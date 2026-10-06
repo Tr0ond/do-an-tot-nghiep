@@ -1,8 +1,8 @@
 <template>
   <main class="auth-shell">
     <header class="st-auth-header">
-      <RouterLink to="/" class="brand" aria-label="Tr0ond Fitness, trang chủ"
-        ><LogoThuongHieu /><span>Tr0ond Fitness</span></RouterLink
+      <RouterLink to="/" class="brand" aria-label="FitForge, trang chủ"
+        ><LogoThuongHieu /><span>FitForge</span></RouterLink
       >
       <div><RouterLink to="/faq">Trợ giúp</RouterLink><NutChuyenChuDe /></div>
     </header>
@@ -10,7 +10,7 @@
       <aside class="auth-intro">
         <div class="auth-story">
           <span class="auth-eyebrow">HUẤN LUYỆN CÁ NHÂN</span>
-          <h2>Tr0ond Fitness</h2>
+          <h2>FitForge</h2>
           <p>Mỗi ngày. Một bước tiến.</p>
         </div>
         <img
@@ -27,7 +27,7 @@
       </section>
     </div>
     <footer class="st-auth-footer">
-      <span>Tr0ond Fitness</span><RouterLink to="/">Trang chủ</RouterLink>
+      <span>FitForge</span><RouterLink to="/">Trang chủ</RouterLink>
     </footer>
   </main>
 </template>

@@ -9,12 +9,12 @@
       <section
         ref="cuaSo"
         v-show="mo"
-        id="tr0ond-ai-window"
+        id="fitforge-ai-window"
         class="ai-floating-window"
         :class="{ 'is-expanded': phongTo, 'is-dragging': keo !== null }"
         :style="kieuViTri"
         role="dialog"
-        aria-label="Tr0ond AI — trợ lý tập luyện"
+        aria-label="FitForge AI — trợ lý tập luyện"
         :aria-modal="false"
       >
         <header
@@ -40,7 +40,7 @@
             @keydown.down.prevent="dichChuyen(0, 20)"
             @keydown.home.prevent="veGoc"
           >
-            <strong>Tr0ond AI <i class="bi bi-grip-vertical" aria-hidden="true"></i></strong
+            <strong>FitForge AI <i class="bi bi-grip-vertical" aria-hidden="true"></i></strong
             ><small>{{
               laKhachHang ? 'Tập luyện theo cách của bạn' : 'Cùng bạn bắt đầu tập luyện'
             }}</small>
@@ -92,7 +92,7 @@
         />
         <div v-else class="ai-guest-welcome">
           <MascotTroLy :chuyen-dong="chuyenDong" />
-          <h2>Chào bạn, tôi là Tr0ond AI</h2>
+          <h2>Chào bạn, tôi là FitForge AI</h2>
           <p>Hỏi về tập luyện, khám phá bài tập và nhờ AI soạn giáo án riêng.</p>
           <RouterLink to="/dang-nhap" class="btn btn-primary" @click="dong"
             >Đăng nhập để trò chuyện</RouterLink
@@ -112,8 +112,8 @@
       :style="kieuViTriMascot"
       title="Bấm để trò chuyện, kéo để di chuyển. Chuột phải để chọn vị trí."
       :aria-expanded="mo"
-      aria-controls="tr0ond-ai-window"
-      :aria-label="mo ? 'Thu gọn Tr0ond AI' : 'Mở Tr0ond AI'"
+      aria-controls="fitforge-ai-window"
+      :aria-label="mo ? 'Thu gọn FitForge AI' : 'Mở FitForge AI'"
       @click="doiCuaSo"
       @pointerdown="batDauKeoMascot"
       @pointermove="keoConMascot"
@@ -130,7 +130,7 @@
     >
       <i v-if="mo" class="bi bi-x-lg" aria-hidden="true"></i>
       <MascotTroLy v-else :chuyen-dong="chuyenDong" />
-      <span v-if="!mo">Hỏi Tr0ond AI</span>
+      <span v-if="!mo">Hỏi FitForge AI</span>
     </button>
     <div
       v-if="bangDiChuyenMascot"

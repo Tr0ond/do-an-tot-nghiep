@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { RefreshControl, View, Pressable } from 'react-native'
+import { useState } from "react";
+import { RefreshControl, View, Pressable } from "react-native";
 import {
   ManHinh,
   Chu,
@@ -7,48 +7,50 @@ import {
   Nut,
   Nhan,
   TruongNhap,
-} from '../../components/GiaoDien'
+} from "../../components/GiaoDien";
 import {
   ChonNgay,
   HopXacNhan,
   PhanTrang,
   TrangThaiTai,
-} from '../../components/HuanLuyen'
-import { useDuLieu } from '../../hooks/useDuLieu'
-import { useThaoTac } from '../../hooks/useThaoTac'
-import { useXemTruoc } from '../../contexts/XemTruocContext'
-import { huanLuyenService as api } from '../../services/huanLuyenService'
-import { useGiaoDien } from '../../theme'
-import { DaiNgay } from '../../components/FigmaElements'
-import { homNay, thoiDiem, gioVietNam, gioMoKhung } from '../../utils/lich'
+} from "../../components/HuanLuyen";
+import { useDuLieu } from "../../hooks/useDuLieu";
+import { useThaoTac } from "../../hooks/useThaoTac";
+import { useXemTruoc } from "../../contexts/XemTruocContext";
+import { useTraoDoi } from "../../contexts/TraoDoiContext";
+import { huanLuyenService as api } from "../../services/huanLuyenService";
+import { useGiaoDien } from "../../theme";
+import { DaiNgay } from "../../components/FigmaElements";
+import { homNay, thoiDiem, gioVietNam, gioMoKhung } from "../../utils/lich";
 
 export default function KhungGio({ navigation }) {
-  const { vaiTro, goiDichVu } = useXemTruoc()
-  const { mau } = useGiaoDien()
-  const [rongLuoi, datRongLuoi] = useState(350)
-  const [moTao, datMoTao] = useState(false)
-  const [ngay, datNgay] = useState(homNay)
-  const [page, datTrang] = useState(1)
-  const [gio, datGio] = useState('08:00')
-  const [loiGio, datLoiGio] = useState('')
-  const [chon, datChon] = useState(null)
-  const { dangGui, loiGui, datLoiGui, gui } = useThaoTac()
+  const { vaiTro, goiDichVu } = useXemTruoc();
+  const { dongBoLich } = useTraoDoi();
+  const { mau } = useGiaoDien();
+  const [rongLuoi, datRongLuoi] = useState(350);
+  const [moTao, datMoTao] = useState(false);
+  const [ngay, datNgay] = useState(homNay);
+  const [page, datTrang] = useState(1);
+  const [gio, datGio] = useState("08:00");
+  const [loiGio, datLoiGio] = useState("");
+  const [chon, datChon] = useState(null);
+  const { dangGui, loiGui, datLoiGui, gui } = useThaoTac();
   const { duLieu, dangTai, loi, taiLai } = useDuLieu(
     (signal) =>
       goiDichVu((token) => api.taiKhung(token, vaiTro, { ngay, page }, signal)),
-    `${ngay}-${page}`,
-  )
+    `${ngay}-${page}-${dongBoLich}`,
+  );
   function tao() {
     try {
-      const batDau = gioMoKhung(ngay, gio.trim())
-      datLoiGio('')
-      datLoiGui(null)
-      datChon({ batDau })
+      const batDau = gioMoKhung(ngay, gio.trim());
+      datLoiGio("");
+      datLoiGui(null);
+      datChon({ batDau });
     } catch (e) {
-      datLoiGio(e.message)
+      datLoiGio(e.message);
     }
   }
-  const xungDot = loiGui && [403, 404, 409].includes(loiGui.status)
+  const xungDot = loiGui && [403, 404, 409].includes(loiGui.status);
   function xacNhan() {
     gui(
       () =>
@@ -58,10 +60,10 @@ export default function KhungGio({ navigation }) {
             : api.doiKhung(token, chon.id, chon.trangThai),
         ),
       async () => {
-        datChon(null)
-        await taiLai()
+        datChon(null);
+        await taiLai();
       },
-    )
+    );
   }
   return (
     <ManHinh
@@ -79,21 +81,21 @@ export default function KhungGio({ navigation }) {
         value={ngay}
         disabled={dangGui}
         onChange={(n) => {
-          datNgay(n)
-          datTrang(1)
+          datNgay(n);
+          datTrang(1);
         }}
       />
       <View
         style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
         }}
       >
         <Chu size={14} dam="dam">
-          {ngay} ·{' '}
-          {duLieu?.data.filter((k) => k.trang_thai === 'MO' && !k.dang_giu)
-            .length || 0}{' '}
+          {ngay} ·{" "}
+          {duLieu?.data.filter((k) => k.trang_thai === "MO" && !k.dang_giu)
+            .length || 0}{" "}
           khung đang mở
         </Chu>
         <Nut
@@ -106,15 +108,15 @@ export default function KhungGio({ navigation }) {
           Thêm
         </Nut>
       </View>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 16 }}>
+      <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 16 }}>
         {[
-          ['Đang mở', mau.chinhNhat],
-          ['Đã đóng', mau.the],
-          ['Đã có lịch', mau.chinh],
+          ["Đang mở", mau.chinhNhat],
+          ["Đã đóng", mau.the],
+          ["Đã có lịch", mau.chinh],
         ].map(([ten, nen]) => (
           <View
             key={ten}
-            style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}
+            style={{ flexDirection: "row", alignItems: "center", gap: 6 }}
           >
             <View
               style={{
@@ -166,7 +168,7 @@ export default function KhungGio({ navigation }) {
       />
       <View
         onLayout={(e) => datRongLuoi(e.nativeEvent.layout.width)}
-        style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}
+        style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }}
       >
         {duLieu?.data?.map((k) => (
           <Pressable
@@ -174,26 +176,26 @@ export default function KhungGio({ navigation }) {
             accessibilityRole="button"
             disabled={dangGui || !k.co_the_doi}
             onPress={() => {
-              datLoiGui(null)
+              datLoiGui(null);
               datChon({
                 id: k.id,
                 bat_dau_luc: k.bat_dau_luc,
-                trangThai: k.trang_thai === 'MO' ? 'DONG' : 'MO',
-              })
+                trangThai: k.trang_thai === "MO" ? "DONG" : "MO",
+              });
             }}
             style={{
               width: (rongLuoi - 20) / 3,
               height: 72,
               borderRadius: 16,
               borderWidth: 1,
-              borderColor: k.trang_thai === 'MO' ? mau.chinh : mau.vien,
+              borderColor: k.trang_thai === "MO" ? mau.chinh : mau.vien,
               backgroundColor: k.dang_giu
                 ? mau.chinh
-                : k.trang_thai === 'MO'
+                : k.trang_thai === "MO"
                   ? mau.chinhNhat
                   : mau.the,
-              alignItems: 'center',
-              justifyContent: 'center',
+              alignItems: "center",
+              justifyContent: "center",
               opacity: k.co_the_doi ? 1 : 0.4,
             }}
           >
@@ -203,7 +205,7 @@ export default function KhungGio({ navigation }) {
               color={
                 k.dang_giu
                   ? mau.trenChinh
-                  : k.trang_thai === 'MO'
+                  : k.trang_thai === "MO"
                     ? mau.chinh
                     : mau.chuPhu
               }
@@ -216,16 +218,16 @@ export default function KhungGio({ navigation }) {
               color={
                 k.dang_giu
                   ? mau.trenChinh
-                  : k.trang_thai === 'MO'
+                  : k.trang_thai === "MO"
                     ? mau.chinh
                     : mau.chuPhu
               }
             >
               {k.dang_giu
-                ? 'Đã có lịch'
-                : k.trang_thai === 'MO'
-                  ? 'Mở'
-                  : 'Đóng'}
+                ? "Đã có lịch"
+                : k.trang_thai === "MO"
+                  ? "Mở"
+                  : "Đóng"}
             </Chu>
           </Pressable>
         ))}
@@ -238,8 +240,8 @@ export default function KhungGio({ navigation }) {
         value={ngay}
         disabled={dangGui}
         onChange={(n) => {
-          datNgay(n)
-          datTrang(1)
+          datNgay(n);
+          datTrang(1);
         }}
       />
       <PhanTrang
@@ -251,12 +253,12 @@ export default function KhungGio({ navigation }) {
         visible={!!chon}
         tieuDe={
           chon?.batDau
-            ? 'Mở khung giờ mới?'
-            : chon?.trangThai === 'DONG'
-              ? 'Đóng khung giờ?'
-              : 'Mở lại khung giờ?'
+            ? "Mở khung giờ mới?"
+            : chon?.trangThai === "DONG"
+              ? "Đóng khung giờ?"
+              : "Mở lại khung giờ?"
         }
-        moTa={chon ? thoiDiem(chon.batDau || chon.bat_dau_luc) : ''}
+        moTa={chon ? thoiDiem(chon.batDau || chon.bat_dau_luc) : ""}
         dangGui={dangGui}
         onDong={() => datChon(null)}
         onGui={xungDot ? null : xacNhan}
@@ -265,8 +267,8 @@ export default function KhungGio({ navigation }) {
         {xungDot && (
           <Nut
             onPress={() => {
-              datChon(null)
-              taiLai()
+              datChon(null);
+              taiLai();
             }}
           >
             Cập nhật khung giờ
@@ -274,5 +276,5 @@ export default function KhungGio({ navigation }) {
         )}
       </HopXacNhan>
     </ManHinh>
-  )
+  );
 }

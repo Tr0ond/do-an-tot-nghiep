@@ -3,7 +3,7 @@
     <header v-if="!thuGon" class="ai-heading">
       <div>
         <span class="ai-eyebrow">TRỢ LÝ TẬP LUYỆN</span>
-        <h1>Tr0ond AI</h1>
+        <h1>FitForge AI</h1>
         <p>Cùng bạn tìm cách tập phù hợp, từng câu hỏi một.</p>
       </div>
       <button
@@ -101,7 +101,7 @@
       <div class="ai-chat">
         <div class="ai-chat-bar">
           <MascotTroLy :chuyen-dong="chuyenDong" />
-          <div><strong>Tr0ond AI</strong><small>Tư vấn dựa trên dữ liệu hệ thống</small></div>
+          <div><strong>FitForge AI</strong><small>Tư vấn dựa trên dữ liệu hệ thống</small></div>
           <span v-if="dangGui" role="status">Đang trả lời…</span>
         </div>
         <div ref="vungTin" class="ai-messages" :aria-busy="dangTai">
@@ -117,7 +117,7 @@
           </button>
           <div v-if="!tinNhan.length && !dangTai" class="ai-welcome">
             <MascotTroLy :chuyen-dong="chuyenDong" class="ai-mascot-welcome" />
-            <span class="ai-eyebrow">CHÀO BẠN, TÔI LÀ TR0OND AI</span>
+            <span class="ai-eyebrow">CHÀO BẠN, TÔI LÀ FitForge AI</span>
             <h2>Hôm nay bạn muốn tập thế nào?</h2>
             <p>
               Hỏi về bài tập, giáo án mẫu hoặc quyền lợi gói. Tôi sẽ hỏi thêm khi chưa đủ thông tin.
@@ -142,7 +142,7 @@
           >
             <MascotTroLy v-if="t.vai_tro === 'ASSISTANT'" />
             <div class="ai-message-body">
-              <strong>{{ t.vai_tro === 'USER' ? 'Bạn' : 'Tr0ond AI' }}</strong>
+              <strong>{{ t.vai_tro === 'USER' ? 'Bạn' : 'FitForge AI' }}</strong>
               <p>{{ t.noi_dung }}</p>
               <small v-if="t.vai_tro === 'USER' && t.trang_thai === 'DANG_XU_LY'"
                 >Đang xử lý. Bấm Cập nhật để kiểm tra kết quả.</small
@@ -208,7 +208,7 @@
             </div>
           </article>
           <p v-if="dangGui" class="ai-thinking" role="status">
-            Tr0ond AI đang tìm câu trả lời phù hợp…
+            FitForge AI đang tìm câu trả lời phù hợp…
           </p>
         </div>
         <form class="ai-composer" @submit.prevent="gui">
@@ -229,7 +229,7 @@
             </details>
           </div>
           <p v-if="hanMuc && !hanMuc.san_sang" class="ai-inline-note">
-            Tr0ond AI đang chờ cấu hình. Lịch sử của bạn vẫn được giữ.
+            FitForge AI đang chờ cấu hình. Lịch sử của bạn vẫn được giữ.
           </p>
           <p v-if="hanMuc && !hanMuc.co_quyen" class="ai-inline-note">
             Cần gói có chatbot để hỏi AI. <RouterLink to="/goi-tap">Xem gói tập</RouterLink>
@@ -278,7 +278,7 @@
               Soạn yêu cầu
             </button>
           </details>
-          <label :for="maOHoTro" class="visually-hidden">Câu hỏi cho Tr0ond AI</label>
+          <label :for="maOHoTro" class="visually-hidden">Câu hỏi cho FitForge AI</label>
           <div class="ai-input-row">
             <textarea
               :id="maOHoTro"

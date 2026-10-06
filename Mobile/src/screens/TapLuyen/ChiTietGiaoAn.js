@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { View, Pressable } from 'react-native'
 import { useGiaoDien } from '../../theme'
-import MinhHoaBaiTap from '../../components/MinhHoaBaiTap'
 import {
   ManHinh,
   Chu,
@@ -12,7 +11,7 @@ import {
   NutIcon,
 } from '../../components/GiaoDien'
 import { TrangThaiTai, HopXacNhan } from '../../components/HuanLuyen'
-import { LoiGhi } from '../../components/TapLuyen'
+import { AnhBaiTap, LoiGhi } from '../../components/TapLuyen'
 import { HuongDanBai } from './ChiTietBaiTap'
 import { useDuLieu } from '../../hooks/useDuLieu'
 import { useThaoTac } from '../../hooks/useThaoTac'
@@ -255,7 +254,7 @@ export default function ChiTietGiaoAn({ navigation, route }) {
                           gap: 12,
                         }}
                       >
-                        <MinhHoaBaiTap />
+                        <AnhBaiTap bai={b} size={64} />
                         <View style={{ flex: 1 }}>
                           <Chu size={14} dam="dam" numberOfLines={1}>
                             {b.ten_bai_tap}

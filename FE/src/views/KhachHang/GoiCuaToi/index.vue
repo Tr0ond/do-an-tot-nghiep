@@ -58,14 +58,14 @@
           >
         </section>
         <section class="st-section">
-          <h2><i class="bi bi-robot" aria-hidden="true"></i> Quyền Tr0ond AI</h2>
+          <h2><i class="bi bi-robot" aria-hidden="true"></i> Quyền FitForge AI</h2>
           <div class="st-quota">
             <strong>{{ goi.so_luot_chatbot_moi_ngay }}</strong
             ><span>lượt tối đa / ngày</span>
           </div>
-          <p>Hạn mức theo gói đã mua. Lượt còn lại hôm nay được kiểm tra tại Tr0ond AI.</p>
+          <p>Hạn mức theo gói đã mua. Lượt còn lại hôm nay được kiểm tra tại FitForge AI.</p>
           <RouterLink to="/khach-hang/chatbot" class="btn btn-outline-secondary"
-            ><i class="bi bi-robot" aria-hidden="true"></i> Mở Tr0ond AI</RouterLink
+            ><i class="bi bi-robot" aria-hidden="true"></i> Mở FitForge AI</RouterLink
           >
         </section>
         <section class="st-section">

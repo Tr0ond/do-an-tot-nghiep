@@ -1,0 +1,266 @@
+{
+  "date": "2026-10-06",
+  "backup": "Bản sao lưu ngoài repository, đã kiểm tra trước khi dọn tài liệu",
+  "original_count": 117,
+  "moved": {
+    "AGENTS.md": "md/AGENTS.md",
+    "CODE_STYLE.md": "md/CODE_STYLE.md",
+    "PROJECT_RULES.md": "md/PROJECT_RULES.md",
+    "README.md": "md/README.md",
+    "ROADMAP.md": "md/ROADMAP.md",
+    "SCOPE.md": "md/SCOPE.md",
+    "TECHNOLOGY.md": "md/TECHNOLOGY.md",
+    "BE/README.md": "md/backend/README.md",
+    "BE/database/data/NOTICE.md": "md/backend/NOTICE.md",
+    "BE/database/data/README.md": "md/backend/DATA.md",
+    "BE/database/design/README.md": "md/backend/DATABASE.md",
+    "BE/database/migrations/README.md": "md/backend/MIGRATIONS.md",
+    "BE/database/seeders/README.md": "md/backend/SEEDERS.md",
+    "BE/resources/certs/README.md": "md/backend/CERTIFICATES.md",
+    "docs/API_CONVENTIONS.md": "md/API_CONVENTIONS.md",
+    "docs/ARCHITECTURE.md": "md/ARCHITECTURE.md",
+    "docs/DATABASE_DICTIONARY.md": "md/DATABASE_DICTIONARY.md",
+    "docs/DATABASE_DRAFT.md": "md/DATABASE_DRAFT.md",
+    "docs/DECISIONS.md": "md/DECISIONS.md",
+    "docs/DEMO_SCRIPT.md": "md/DEMO_SCRIPT.md",
+    "docs/REFERENCE_CODE_REVIEW.md": "md/REFERENCE_CODE_REVIEW.md",
+    "docs/TEST_PLAN.md": "md/TEST_PLAN.md",
+    "docs/design/FIGMA_MAKE_MOBILE_MAPPING.md": "md/design/FIGMA_MAKE_MOBILE_MAPPING.md",
+    "docs/features/AI_CHATBOT.md": "md/features/AI_CHATBOT.md",
+    "docs/features/BAI_TAP.md": "md/features/BAI_TAP.md",
+    "docs/features/BAO_CAO.md": "md/features/BAO_CAO.md",
+    "docs/features/CHI_SO_CO_THE.md": "md/features/CHI_SO_CO_THE.md",
+    "docs/features/GIAO_AN_MAU.md": "md/features/GIAO_AN_MAU.md",
+    "docs/features/GOI_TAP.md": "md/features/GOI_TAP.md",
+    "docs/features/KET_QUA_BUOI_PT.md": "md/features/KET_QUA_BUOI_PT.md",
+    "docs/features/KE_HOACH_TAP.md": "md/features/KE_HOACH_TAP.md",
+    "docs/features/LICH_HUAN_LUYEN.md": "md/features/LICH_HUAN_LUYEN.md",
+    "docs/features/MUA_GOI_THANH_TOAN.md": "md/features/MUA_GOI_THANH_TOAN.md",
+    "docs/features/NHAT_KY_TAP.md": "md/features/NHAT_KY_TAP.md",
+    "docs/features/NHOM_CO.md": "md/features/NHOM_CO.md",
+    "docs/features/NOTIFICATIONS.md": "md/features/NOTIFICATIONS.md",
+    "docs/features/README.md": "md/features/README.md",
+    "docs/features/REALTIME_CHAT.md": "md/features/REALTIME_CHAT.md",
+    "docs/features/TAI_KHOAN.md": "md/features/TAI_KHOAN.md",
+    "docs/features/TONG_QUAN.md": "md/features/TONG_QUAN.md",
+    "docs/verification/CHAT_COMPOSER.md": "md/verification/CHAT_COMPOSER.md",
+    "docs/verification/CHAT_IMAGES.md": "md/verification/CHAT_IMAGES.md",
+    "docs/verification/DASHBOARD_KH.md": "md/verification/DASHBOARD_KH.md",
+    "docs/verification/DASHBOARD_PT.md": "md/verification/DASHBOARD_PT.md",
+    "docs/verification/EXERCISE_PICKER_THUMBNAILS.md": "md/verification/EXERCISE_PICKER_THUMBNAILS.md",
+    "docs/verification/FIGMA_MOBILE_IMPLEMENTATION.md": "md/verification/FIGMA_MOBILE_IMPLEMENTATION.md",
+    "docs/verification/FITFORGE_BRAND.md": "md/verification/FITFORGE_BRAND.md",
+    "docs/verification/HANH_TRINH_NGHIEP_VU.md": "md/verification/HANH_TRINH_NGHIEP_VU.md",
+    "docs/verification/HEADER_MESSAGE_PREVIEW.md": "md/verification/HEADER_MESSAGE_PREVIEW.md",
+    "docs/verification/KET_QUA_BUOI_PT_MOBILE.md": "md/verification/KET_QUA_BUOI_PT_MOBILE.md",
+    "docs/verification/KET_QUA_BUOI_PT_WEB.md": "md/verification/KET_QUA_BUOI_PT_WEB.md",
+    "docs/verification/KET_QUA_PT_DEMO.md": "md/verification/KET_QUA_PT_DEMO.md",
+    "docs/verification/M01_AUTH.md": "md/verification/M01_AUTH.md",
+    "docs/verification/M01_HO_SO_KHOI_PHUC.md": "md/verification/M01_HO_SO_KHOI_PHUC.md",
+    "docs/verification/M02_ADMIN_BAI_TAP.md": "md/verification/M02_ADMIN_BAI_TAP.md",
+    "docs/verification/M02_BAI_TAP.md": "md/verification/M02_BAI_TAP.md",
+    "docs/verification/M02_GIAO_AN_MAU.md": "md/verification/M02_GIAO_AN_MAU.md",
+    "docs/verification/M02_GIAO_AN_MAU_SEEDER.md": "md/verification/M02_GIAO_AN_MAU_SEEDER.md",
+    "docs/verification/M02_GOI_TAP.md": "md/verification/M02_GOI_TAP.md",
+    "docs/verification/M02_NHOM_CO.md": "md/verification/M02_NHOM_CO.md",
+    "docs/verification/M03_MUA_GOI.md": "md/verification/M03_MUA_GOI.md",
+    "docs/verification/M04_LICH_HUAN_LUYEN.md": "md/verification/M04_LICH_HUAN_LUYEN.md",
+    "docs/verification/M05_AN_GIAO_AN.md": "md/verification/M05_AN_GIAO_AN.md",
+    "docs/verification/M05_AP_DUNG_LAI_PT.md": "md/verification/M05_AP_DUNG_LAI_PT.md",
+    "docs/verification/M05_KE_HOACH_TAP.md": "md/verification/M05_KE_HOACH_TAP.md",
+    "docs/verification/M05_MOT_GIAO_AN.md": "md/verification/M05_MOT_GIAO_AN.md",
+    "docs/verification/M05_TU_TAO_GIAO_AN.md": "md/verification/M05_TU_TAO_GIAO_AN.md",
+    "docs/verification/M06_CHI_SO_CO_THE.md": "md/verification/M06_CHI_SO_CO_THE.md",
+    "docs/verification/M06_NHAT_KY_TAP.md": "md/verification/M06_NHAT_KY_TAP.md",
+    "docs/verification/M07_CHAT.md": "md/verification/M07_CHAT.md",
+    "docs/verification/M08_CHATBOT.md": "md/verification/M08_CHATBOT.md",
+    "docs/verification/M08_CUA_SO_GIAO_AN_AI.md": "md/verification/M08_CUA_SO_GIAO_AN_AI.md",
+    "docs/verification/M09_BAO_CAO_ADMIN.md": "md/verification/M09_BAO_CAO_ADMIN.md",
+    "docs/verification/M09_THONG_BAO.md": "md/verification/M09_THONG_BAO.md",
+    "docs/verification/MARIADB_MIGRATIONS.md": "md/verification/MARIADB_MIGRATIONS.md",
+    "docs/verification/MOBILE_MB1.md": "md/verification/MOBILE_MB1.md",
+    "docs/verification/MOBILE_MB2.md": "md/verification/MOBILE_MB2.md",
+    "docs/verification/MOBILE_MB3.md": "md/verification/MOBILE_MB3.md",
+    "docs/verification/MOBILE_MB4.md": "md/verification/MOBILE_MB4.md",
+    "docs/verification/MOBILE_MB5.md": "md/verification/MOBILE_MB5.md",
+    "docs/verification/MOBILE_MEDIA_MASCOT.md": "md/verification/MOBILE_MEDIA_MASCOT.md",
+    "docs/verification/MOBILE_TIEN_ICH.md": "md/verification/MOBILE_TIEN_ICH.md",
+    "docs/verification/PLAN_DETAIL_LAYOUT.md": "md/verification/PLAN_DETAIL_LAYOUT.md",
+    "docs/verification/SEEDER_15_NGAY.md": "md/verification/SEEDER_15_NGAY.md",
+    "docs/verification/SIDEBAR_NAVIGATION.md": "md/verification/SIDEBAR_NAVIGATION.md",
+    "docs/verification/TIEN_DO_TU_TAP_PT.md": "md/verification/TIEN_DO_TU_TAP_PT.md",
+    "FE/README.md": "md/frontend/README.md",
+    "Mobile/AGENTS.md": "md/mobile/AGENTS.md",
+    "Mobile/README.md": "md/mobile/README.md",
+    "Mobile/docs/KIEM_THU.md": "md/mobile/KIEM_THU.md",
+    "Mobile/docs/KIEN_TRUC.md": "md/mobile/KIEN_TRUC.md",
+    "Mobile/docs/LO_TRINH.md": "md/mobile/LO_TRINH.md",
+    "Mobile/docs/MOI_TRUONG_PHAT_HANH.md": "md/mobile/MOI_TRUONG_PHAT_HANH.md",
+    "Mobile/docs/PHAM_VI.md": "md/mobile/PHAM_VI.md",
+    "Mobile/docs/TICH_HOP_API.md": "md/mobile/TICH_HOP_API.md",
+    "Mobile/docs/TIEN_ICH_THIET_BI.md": "md/mobile/TIEN_ICH_THIET_BI.md",
+    "Mobile/docs/XAC_THUC.md": "md/mobile/XAC_THUC.md"
+  },
+  "deleted": {
+    "RULE.md": "Chỉ mục trùng với PROJECT_RULES và README mới.",
+    "templates/README.md": "Chỉ mục mẫu code; CODE_STYLE dẫn thẳng tới các file .example.",
+    "docs/README.md": "Thay bằng chỉ mục md/README.md cập nhật hiện trạng.",
+    "Mobile/docs/README.md": "Gộp chỉ mục vào md/mobile/README.md.",
+    "docs/design/stitch-approved/README.md": "Chỉ mục bản mẫu cũ; HTML và dữ liệu thiết kế vẫn giữ.",
+    "docs/design/stitch-approved/APPLIED.md": "Đối chiếu Stitch cũ trước bản Figma Make hiện tại.",
+    "docs/design/stitch-fitness-motion/README.md": "Hướng dẫn prototype cũ; không còn là nguồn UI mobile.",
+    "docs/design/fitness-motion-app/README.md": "Hướng dẫn gallery prototype cũ; các tài nguyên vẫn giữ.",
+    "docs/verification/BOOTSTRAP.md": "Biên bản dựng khung trước nghiệp vụ; hướng dẫn chạy và kiểm chứng module được giữ.",
+    "docs/verification/MOBILE_BOOTSTRAP.md": "Biên bản khởi tạo trước MB1–MB5; các kiểm chứng native mới được giữ.",
+    "docs/verification/MOBILE_UI1.md": "UI mẫu trước Figma; giữ FIGMA_MOBILE_IMPLEMENTATION và các biên bản nghiệp vụ.",
+    "docs/verification/CHAT_COMPACT_TEXT.md": "Bố cục thu gọn toàn chat đã bị bỏ; CHAT_COMPOSER giữ thiết kế hiện tại.",
+    "docs/verification/HEADER_PT_START.md": "Menu ngang PT cũ được thay bởi sidebar; hướng dẫn ngrok nằm ở README.",
+    "docs/verification/HEADER_NOTIFICATIONS.md": "Biên bản chuông trước tích hợp nghiệp vụ; giữ NOTIFICATIONS và M09_THONG_BAO.",
+    "docs/verification/DASHBOARD.md": "Dashboard nền trước dữ liệu thật; giữ DASHBOARD_KH/PT và báo cáo Admin.",
+    "docs/verification/SUPERDESIGN_DASHBOARD.md": "Thiết kế Admin đã được ghi trong BAO_CAO và M09_BAO_CAO_ADMIN.",
+    "docs/verification/PLAN_DETAIL_MEDIA.md": "Sửa media riêng đã được phản ánh trong PLAN_DETAIL_LAYOUT và hợp đồng giáo án.",
+    "docs/verification/SAMPLE_PLAN_THEME.md": "Ghi chú chỉnh màu nhỏ; không là tài liệu vận hành hoặc quy tắc nghiệp vụ.",
+    "docs/verification/LOGO_FITNESS_NEON.md": "Nguồn logo hiện tại được gộp vào FITFORGE_BRAND.",
+    "docs/verification/figma-mobile/README.md": "Chỉ mục ảnh trùng biên bản FIGMA_MOBILE_IMPLEMENTATION; ảnh/JSON vẫn giữ."
+  },
+  "removed_links_to_deleted_documents": [
+    {
+      "source": "CODE_STYLE.md",
+      "target": "templates/README.md"
+    },
+    {
+      "source": "README.md",
+      "target": "Mobile/docs/README.md"
+    },
+    {
+      "source": "README.md",
+      "target": "docs/verification/HEADER_NOTIFICATIONS.md"
+    },
+    {
+      "source": "ROADMAP.md",
+      "target": "docs/verification/DASHBOARD.md"
+    },
+    {
+      "source": "BE/README.md",
+      "target": "templates/README.md"
+    },
+    {
+      "source": "BE/README.md",
+      "target": "docs/verification/DASHBOARD.md"
+    },
+    {
+      "source": "docs/ARCHITECTURE.md",
+      "target": "templates/README.md"
+    },
+    {
+      "source": "docs/ARCHITECTURE.md",
+      "target": "docs/verification/BOOTSTRAP.md"
+    },
+    {
+      "source": "docs/DECISIONS.md",
+      "target": "Mobile/docs/README.md"
+    },
+    {
+      "source": "docs/DECISIONS.md",
+      "target": "docs/verification/MOBILE_UI1.md"
+    },
+    {
+      "source": "docs/features/NOTIFICATIONS.md",
+      "target": "docs/verification/HEADER_NOTIFICATIONS.md"
+    },
+    {
+      "source": "docs/features/REALTIME_CHAT.md",
+      "target": "docs/verification/CHAT_COMPACT_TEXT.md"
+    },
+    {
+      "source": "docs/verification/FIGMA_MOBILE_IMPLEMENTATION.md",
+      "target": "docs/verification/figma-mobile/README.md"
+    },
+    {
+      "source": "FE/README.md",
+      "target": "docs/verification/HEADER_PT_START.md"
+    },
+    {
+      "source": "FE/README.md",
+      "target": "templates/README.md"
+    },
+    {
+      "source": "FE/README.md",
+      "target": "docs/verification/DASHBOARD.md"
+    },
+    {
+      "source": "FE/README.md",
+      "target": "docs/verification/CHAT_COMPACT_TEXT.md"
+    },
+    {
+      "source": "FE/README.md",
+      "target": "docs/verification/HEADER_NOTIFICATIONS.md"
+    },
+    {
+      "source": "Mobile/AGENTS.md",
+      "target": "Mobile/docs/README.md"
+    },
+    {
+      "source": "Mobile/README.md",
+      "target": "docs/verification/MOBILE_UI1.md"
+    },
+    {
+      "source": "Mobile/README.md",
+      "target": "Mobile/docs/README.md"
+    },
+    {
+      "source": "Mobile/README.md",
+      "target": "docs/verification/MOBILE_BOOTSTRAP.md"
+    },
+    {
+      "source": "Mobile/docs/KIEM_THU.md",
+      "target": "docs/verification/MOBILE_BOOTSTRAP.md"
+    },
+    {
+      "source": "Mobile/docs/KIEM_THU.md",
+      "target": "docs/verification/MOBILE_UI1.md"
+    },
+    {
+      "source": "Mobile/docs/LO_TRINH.md",
+      "target": "docs/verification/MOBILE_UI1.md"
+    },
+    {
+      "source": "Mobile/docs/MOI_TRUONG_PHAT_HANH.md",
+      "target": "docs/verification/MOBILE_BOOTSTRAP.md"
+    }
+  ],
+  "exceptions": [
+    "AGENTS.md",
+    "Mobile/AGENTS.md",
+    "README.md"
+  ],
+  "excluded_dependencies_and_generated_folders": [
+    ".expo",
+    ".git",
+    "exercises-dataset",
+    "node_modules",
+    "vendor"
+  ],
+  "central_markdown_count": 98,
+  "new_index": "md/verification/README.md",
+  "scripts_updated": [
+    "scripts/chuanBiDuLieu.mjs",
+    "scripts/start-demo.ps1"
+  ],
+  "verification": {
+    "local_links_checked": 858,
+    "missing_local_links": 0,
+    "utf8_documents_checked": 100,
+    "backup_archive_checked": true,
+    "javascript_syntax": "PASS",
+    "powershell_utf8_syntax": "PASS",
+    "generator_in_memory_fixture": "PASS",
+    "application_tests": "NOT RUN - documentation organization only"
+  },
+  "exception_reasons": {
+    "AGENTS.md": "Điểm vào nhận diện hướng dẫn Codex tại gốc.",
+    "Mobile/AGENTS.md": "Điểm vào nhận diện hướng dẫn Codex cho Mobile.",
+    "README.md": "Giới thiệu dự án tại gốc theo yêu cầu chủ dự án ngày 06/10/2026; tài liệu chi tiết vẫn nằm trong md/."
+  },
+  "root_readme_added": "2026-10-06"
+}

@@ -114,7 +114,11 @@ class PhienMobileTest extends TestCase
         Auth::forgetGuards();
         $r = $this->postJson('/api/v1/mobile/quen-mat-khau', ['email' => strtoupper($u->email)])->assertOk()->assertJsonPath('data', null);
         $this->postJson('/api/v1/mobile/quen-mat-khau', ['email' => 'khongco@example.test'])->assertOk()->assertExactJson($r->json());
-        $token = Notification::sent($u, KhoiPhucMatKhau::class)->first()->token;
+        $thongBao = Notification::sent($u, KhoiPhucMatKhau::class)->first();
+        $token = $thongBao->token;
+        $fragment = http_build_query(['token' => $token, 'email' => $u->email]);
+        $this->assertSame('fitforge://dat-lai-mat-khau#'.$fragment, $thongBao->toMail($u)->actionUrl);
+        $this->assertSame(rtrim(config('app.frontend_url'), '/').'/dat-lai-mat-khau#'.$fragment, (new KhoiPhucMatKhau($token))->toMail($u)->actionUrl);
         $this->assertStringNotContainsString($token, $r->getContent());
         $d = ['email' => $u->email, 'token' => $token, 'password' => 'Moi123456!', 'password_confirmation' => 'Moi123456!'];
         $this->postJson('/api/v1/mobile/dat-lai-mat-khau', [...$d, 'password_confirmation' => 'sai'])->assertUnprocessable();

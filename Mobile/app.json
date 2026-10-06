@@ -1,15 +1,17 @@
 {
   "expo": {
-    "name": "Mobile",
+    "name": "FitForge",
     "slug": "huan-luyen-ca-nhan-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
+    "scheme": "fitforge",
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "package": "vn.fitforge.app",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
@@ -24,6 +26,7 @@
       "expo-font",
       "expo-secure-store",
       "expo-image",
+      ["expo-notifications", { "defaultChannel": "fitforge" }],
       [
         "expo-image-picker",
         {

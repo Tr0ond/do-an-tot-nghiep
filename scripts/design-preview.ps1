@@ -2,7 +2,7 @@
 
 $ErrorActionPreference = 'Stop'
 $workspace = Split-Path $PSScriptRoot -Parent
-$statePath = Join-Path $env:TEMP 'tr0ond-motion-preview.json'
+$statePath = Join-Path $env:TEMP 'fitforge-motion-preview.json'
 $backend = Join-Path $workspace 'BE'
 $frontend = Join-Path $workspace 'FE'
 $php = (Get-Command php).Source

@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "desktop": [
+    1440,
+    1000
+  ],
+  "narrow": [
+    390,
+    844
+  ],
+  "dimensions": {
+    "width": 390,
+    "scroll": 390
+  },
+  "errors": [],
+  "checks": [
+    "PT login + appointment link",
+    "catalog selects 2 exercises",
+    "actual sets and comments",
+    "save and reload persistence",
+    "final confirmation + readonly",
+    "KH login + readonly + results",
+    "no horizontal overflow"
+  ]
+}

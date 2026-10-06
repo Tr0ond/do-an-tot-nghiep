@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { View } from 'react-native'
+import { useState } from "react";
+import { View } from "react-native";
 import {
   ManHinh,
   Chu,
@@ -7,12 +7,13 @@ import {
   Nut,
   AnhDaiDien,
   HangMenu,
-} from '../../components/GiaoDien'
-import { HopXacNhan } from '../../components/HuanLuyen'
-import { useXemTruoc } from '../../contexts/XemTruocContext'
-import { useGiaoDien } from '../../theme'
-import { useDuLieu } from '../../hooks/useDuLieu'
-import { huanLuyenService as api } from '../../services/huanLuyenService'
+} from "../../components/GiaoDien";
+import { HopXacNhan } from "../../components/HuanLuyen";
+import { useXemTruoc } from "../../contexts/XemTruocContext";
+import { useGiaoDien } from "../../theme";
+import MascotTroLy from "../../components/MascotTroLy";
+import { useDuLieu } from "../../hooks/useDuLieu";
+import { huanLuyenService as api } from "../../services/huanLuyenService";
 
 export default function HoSo({ navigation }) {
   const {
@@ -25,29 +26,29 @@ export default function HoSo({ navigation }) {
     dangThaoTac,
     taiHoSo,
     datThongBao,
-  } = useXemTruoc()
-  const { mau } = useGiaoDien()
-  const [xacNhan, datXacNhan] = useState(false)
-  const laKhach = vaiTro === 'KHACH_HANG'
+  } = useXemTruoc();
+  const { mau } = useGiaoDien();
+  const [xacNhan, datXacNhan] = useState(false);
+  const laKhach = vaiTro === "KHACH_HANG";
   const { duLieu } = useDuLieu(
     (signal) =>
       dangXemTruoc
         ? Promise.resolve(null)
         : goiDichVu((token) => api.taiTongQuan(token, vaiTro, signal)),
     `${vaiTro}|${dangXemTruoc}`,
-  )
-  const goi = duLieu?.data?.hanh_trinh?.goi
+  );
+  const goi = duLieu?.data?.hanh_trinh?.goi;
   const mo = (man) =>
     dangXemTruoc &&
-    !['SuaHoSo', 'GiaoDien', 'Faq', 'PhienDangNhap'].includes(man)
-      ? navigation.navigate('ChuaTrienKhai', {
-          tieuDe: 'Bản xem trước',
-          icon: 'info',
+    !["SuaHoSo", "GiaoDien", "Faq", "PhienDangNhap"].includes(man)
+      ? navigation.navigate("ChuaTrienKhai", {
+          tieuDe: "Bản xem trước",
+          icon: "info",
         })
-      : navigation.navigate(man)
+      : navigation.navigate(man);
   return (
     <ManHinh contentStyle={{ paddingTop: 0, gap: 0 }}>
-      <View style={{ alignItems: 'center', paddingTop: 32, paddingBottom: 24 }}>
+      <View style={{ alignItems: "center", paddingTop: 32, paddingBottom: 24 }}>
         <AnhDaiDien ten={hoSo.ho_ten} size={80} />
         <Chu
           size={22}
@@ -70,17 +71,17 @@ export default function HoSo({ navigation }) {
         >
           <Chu size={12} dam="damVua" color={mau.chinh}>
             {laKhach
-              ? `Học viên · Mục tiêu ${hoSo.muc_tieu || 'Chưa cập nhật'}`
-              : `Huấn luyện viên · ${hoSo.chuyen_mon || 'Chưa cập nhật'}`}
+              ? `Học viên · Mục tiêu ${hoSo.muc_tieu || "Chưa cập nhật"}`
+              : `Huấn luyện viên · ${hoSo.chuyen_mon || "Chưa cập nhật"}`}
           </Chu>
         </View>
       </View>
       {laKhach && (
         <View
           style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
             borderRadius: 16,
             backgroundColor: mau.chinh,
             padding: 16,
@@ -95,33 +96,39 @@ export default function HoSo({ navigation }) {
             <Chu size={16} dam="dam" color={mau.trenChinh}>
               {goi
                 ? `${goi.ten} · còn ${goi.so_buoi_con_lai} buổi`
-                : 'Chưa có gói tập'}
+                : "Chưa có gói tập"}
             </Chu>
           </View>
-          <Nut sm loai="lime" onPress={() => mo('GoiTap')}>
-            {goi ? 'Chi tiết' : 'Chọn gói'}
+          <Nut sm loai="lime" onPress={() => mo("GoiTap")}>
+            {goi ? "Chi tiết" : "Chọn gói"}
           </Nut>
         </View>
       )}
-      <The style={{ padding: 0, gap: 0, overflow: 'hidden' }}>
+      <The style={{ padding: 0, gap: 0, overflow: "hidden" }}>
+        <HangMenu
+          icon="Bell"
+          tieuDe="Thông báo trên điện thoại"
+          moTa="Tin nhắn và lịch hẹn khi đóng app"
+          onPress={() => mo("ThongBaoDay")}
+        />
         <HangMenu
           icon="UserCog"
           tieuDe="Chỉnh sửa hồ sơ"
           moTa="Họ tên, mục tiêu tập luyện"
-          onPress={() => mo('SuaHoSo')}
+          onPress={() => mo("SuaHoSo")}
         />
         <HangMenu
           icon="Palette"
           tieuDe="Giao diện"
           moTa="Sáng, tối hoặc theo hệ thống"
-          onPress={() => mo('GiaoDien')}
+          onPress={() => mo("GiaoDien")}
         />
         {laKhach && (
           <HangMenu
             icon="Package"
             tieuDe="Gói tập"
             moTa="Quyền lợi và gói đang dùng"
-            onPress={() => mo('GoiTap')}
+            onPress={() => mo("GoiTap")}
           />
         )}
         {laKhach && (
@@ -129,48 +136,49 @@ export default function HoSo({ navigation }) {
             icon="Receipt"
             tieuDe="Lịch sử đơn hàng"
             moTa="Trạng thái thanh toán"
-            onPress={() => mo('DonHang')}
+            onPress={() => mo("DonHang")}
           />
         )}
         <HangMenu
           icon="ShieldCheck"
           tieuDe="Phiên đăng nhập"
           moTa="Thiết bị đang đăng nhập"
-          onPress={() => mo('PhienDangNhap')}
+          onPress={() => mo("PhienDangNhap")}
           cuoi
         />
       </The>
-      <The style={{ padding: 0, gap: 0, overflow: 'hidden', marginTop: 20 }}>
+      <The style={{ padding: 0, gap: 0, overflow: "hidden", marginTop: 20 }}>
         <HangMenu
           icon="LogOut"
-          tieuDe={dangXemTruoc ? 'Thoát bản xem trước' : 'Đăng xuất'}
+          tieuDe={dangXemTruoc ? "Thoát bản xem trước" : "Đăng xuất"}
           moTa="Chỉ thiết bị này"
           onPress={() => datXacNhan(true)}
           nguyHiem
           cuoi
         />
       </The>
-      <The style={{ padding: 0, gap: 0, overflow: 'hidden', marginTop: 20 }}>
+      <The style={{ padding: 0, gap: 0, overflow: "hidden", marginTop: 20 }}>
         {laKhach && !dangXemTruoc && (
           <HangMenu
             icon="LineChart"
             tieuDe="Chỉ số cơ thể"
             moTa="Số đo, BMI tham khảo và lịch sử"
-            onPress={() => mo('ChiSo')}
+            onPress={() => mo("ChiSo")}
           />
         )}
         {laKhach && !dangXemTruoc && (
           <HangMenu
             icon="Sparkles"
+            minhHoa={<MascotTroLy size={36} />}
             tieuDe="Trợ lý AI"
             moTa="Tư vấn và tạo giáo án nháp"
-            onPress={() => mo('TroLy')}
+            onPress={() => mo("TroLy")}
           />
         )}
         <HangMenu
           icon="CircleHelp"
           tieuDe="Câu hỏi thường gặp"
-          onPress={() => mo('Faq')}
+          onPress={() => mo("Faq")}
         />
         {!dangXemTruoc && (
           <HangMenu
@@ -180,9 +188,9 @@ export default function HoSo({ navigation }) {
               taiHoSo().catch((loi) => {
                 if (loi.status !== 401)
                   datThongBao({
-                    tieuDe: 'Chưa tải được hồ sơ',
+                    tieuDe: "Chưa tải được hồ sơ",
                     noiDung: loi.message,
-                  })
+                  });
               })
             }
           />
@@ -191,23 +199,23 @@ export default function HoSo({ navigation }) {
       <Chu
         size={12}
         color={mau.chuPhu}
-        style={{ textAlign: 'center', marginTop: 24 }}
+        style={{ textAlign: "center", marginTop: 24 }}
       >
-        Tr0ond Fitness · Phiên đăng nhập 30 ngày
+        FitForge · Phiên đăng nhập 30 ngày
       </Chu>
       <HopXacNhan
         visible={xacNhan}
         tieuDe="Đăng xuất khỏi thiết bị này?"
         moTa="Bạn sẽ chỉ đăng xuất trên thiết bị này. Các thiết bị khác vẫn giữ phiên đăng nhập (hiệu lực 30 ngày)."
-        nhanGui={dangXemTruoc ? 'Thoát bản xem trước' : 'Đăng xuất'}
+        nhanGui={dangXemTruoc ? "Thoát bản xem trước" : "Đăng xuất"}
         loai="loi"
         dangGui={dangThaoTac}
         onDong={() => datXacNhan(false)}
         onGui={() => {
-          datXacNhan(false)
-          return dangXemTruoc ? thoatBanXem() : dangXuat()
+          datXacNhan(false);
+          return dangXemTruoc ? thoatBanXem() : dangXuat();
         }}
       />
     </ManHinh>
-  )
+  );
 }

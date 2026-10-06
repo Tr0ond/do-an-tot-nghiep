@@ -443,7 +443,7 @@
         <section class="bc-panel bc-ai-panel">
           <div class="bc-panel-heading">
             <div>
-              <h2><i class="bi bi-stars bc-tim-text" aria-hidden="true"></i> Tr0ond AI</h2>
+              <h2><i class="bi bi-stars bc-tim-text" aria-hidden="true"></i> FitForge AI</h2>
               <p>Thống kê hôm nay · {{ nhanNgay(ai.ngay ?? homNay) }}</p>
             </div>
             <span class="bc-chip bc-tim">Trợ lý AI</span>
@@ -638,7 +638,7 @@ export default {
         },
         {
           ma: 'ai',
-          nhan: 'Yêu cầu Tr0ond AI',
+          nhan: 'Yêu cầu FitForge AI',
           so: this.so(this.ai.yeu_cau),
           icon: 'stars',
           mau: 'tim',

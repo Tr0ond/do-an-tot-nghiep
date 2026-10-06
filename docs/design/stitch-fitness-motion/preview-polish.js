@@ -4,7 +4,7 @@ document.body.dataset.previewRole = laPt ? 'pt' : laAdmin ? 'admin' : 'kh'
 for (const phanTu of document.querySelectorAll('span,div,p')) {
   if (phanTu.children.length) continue
   const noiDung = phanTu.textContent.trim()
-  if (noiDung === 'Hội viên tích cực' || noiDung === 'Gợi ý bởi Tr0ond AI') phanTu.remove()
+  if (noiDung === 'Hội viên tích cực' || noiDung === 'Gợi ý bởi FitForge AI') phanTu.remove()
   if (noiDung.includes('Phản hồi thường trong')) phanTu.textContent = 'Huấn luyện viên phụ trách'
 }
 if (laAdmin) {

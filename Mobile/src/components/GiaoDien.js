@@ -500,6 +500,7 @@ export function TruongNhap({
 }
 export function HangMenu({
   icon,
+  minhHoa,
   tieuDe,
   moTa,
   onPress,
@@ -526,11 +527,13 @@ export function HangMenu({
           { backgroundColor: nguyHiem ? mau.loiNhat : mau.chinhNhat },
         ]}
       >
-        <BieuTuong
-          ten={icon}
-          size={20}
-          color={nguyHiem ? mau.loi : mau.chinh}
-        />
+        {minhHoa || (
+          <BieuTuong
+            ten={icon}
+            size={20}
+            color={nguyHiem ? mau.loi : mau.chinh}
+          />
+        )}
       </View>
       <View style={{ flex: 1 }}>
         <Chu size={15} dam="damVua" color={nguyHiem ? mau.loi : mau.chu}>

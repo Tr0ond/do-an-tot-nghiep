@@ -124,6 +124,14 @@ const router = createRouter({
         meta: { vaiTro },
       },
     ]),
+    ...[
+      ['pt', 'HUAN_LUYEN_VIEN'],
+      ['khach-hang', 'KHACH_HANG'],
+    ].map(([khuVuc, vaiTro]) => ({
+      path: `/${khuVuc}/lich-hen/:id/ket-qua`,
+      component: () => import('../views/LichHen/KetQua/index.vue'),
+      meta: { vaiTro },
+    })),
     {
       path: '/khach-hang/dat-lich',
       component: () => import('../views/LichHen/KhungGio/index.vue'),
@@ -169,6 +177,11 @@ const router = createRouter({
       path: '/quen-mat-khau',
       component: () => import('../views/KhoiPhucMatKhau/index.vue'),
       meta: { khach: true },
+    },
+    {
+      path: '/mo-ung-dung/don-hang/:id',
+      component: () => import('../views/MoUngDung/index.vue'),
+      meta: { congKhai: true },
     },
     {
       path: '/dat-lai-mat-khau',

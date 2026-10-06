@@ -1,0 +1,15 @@
+{
+  "environment": "isolated QA database, MariaDB 10.4.32",
+  "after_result_finalization": {
+    "results": 1,
+    "finalized": 1,
+    "appointment": "DA_XAC_NHAN",
+    "remaining_credits": 8
+  },
+  "after_attendance_completion_and_retry": {
+    "results": 1,
+    "finalized": 1,
+    "appointment": "HOAN_THANH",
+    "remaining_credits": 7
+  }
+}

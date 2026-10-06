@@ -57,12 +57,12 @@ try {
     $don1 = $taoDon(1, 'Đồng hành cùng PT', 500000, 'DANG_SU_DUNG');
     $nhan($don1, 200000, 12);
     $nhan($don1, 300000, 10);
-    $don2 = $taoDon(2, 'Tr0ond AI & PT', 300000, 'DANG_SU_DUNG');
+    $don2 = $taoDon(2, 'FitForge AI & PT', 300000, 'DANG_SU_DUNG');
     $nhan($don2, 300000, 8);
     $nhan($taoDon(3, 'Đồng hành cùng PT', 500000, 'CAN_DOI_SOAT'), 50000, 3, ['trang_thai' => 'CAN_DOI_SOAT']);
     $nhan($taoDon(4, 'Gói cũ cần hoàn', 120000, 'DA_HUY'), 120000, 40, ['trang_thai' => 'DA_HOAN_TIEN', 'so_tien_hoan' => 120000, 'hoan_tien_luc' => $homNay->subDays(1)->addHours(9)->utc()]);
     $taoDon(5, 'Đơn chưa thanh toán', 900000);
-    $choPt = $taoDon(6, 'Tr0ond AI & PT', 300000, 'DANG_SU_DUNG');
+    $choPt = $taoDon(6, 'FitForge AI & PT', 300000, 'DANG_SU_DUNG');
     $nhan($choPt, 300000, 0);
     foreach ([$don1, $don2] as $i => $don) {
         $pt = $pts[$i]->hoSoHuanLuyenVien->id;

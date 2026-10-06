@@ -27,7 +27,7 @@ class PhienMobileController extends Controller
 
     public function guiLienKet(KhoiPhucMatKhauRequest $request, KhoiPhucMatKhauService $dichVu): JsonResponse
     {
-        $dichVu->guiLienKet($request->validated('email'));
+        $dichVu->guiLienKet($request->validated('email'), true);
 
         return response()->json(['status' => true, 'message' => 'Nếu email thuộc tài khoản đang hoạt động, liên kết khôi phục sẽ được gửi. Hãy kiểm tra cả thư rác; nếu vừa yêu cầu, hãy chờ trước khi gửi lại.', 'data' => null])->header('Cache-Control', 'no-store');
     }

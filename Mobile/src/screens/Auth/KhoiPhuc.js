@@ -1,33 +1,52 @@
-import { useState } from 'react'
-import { View } from 'react-native'
-import KhungTaiKhoan from '../../components/KhungTaiKhoan'
-import { Chu, The, TruongNhap, Nut, BieuTuong } from '../../components/GiaoDien'
-import { useThaoTac } from '../../hooks/useThaoTac'
-import { hoanThienService as api } from '../../services/hoanThienService'
-import { kiemTraTaiKhoan, layMaKhoiPhuc } from '../../utils/hoanThien'
-import { useXemTruoc } from '../../contexts/XemTruocContext'
-import { useGiaoDien } from '../../theme'
+import { useEffect, useState } from "react";
+import { View } from "react-native";
+import KhungTaiKhoan from "../../components/KhungTaiKhoan";
+import {
+  Chu,
+  The,
+  TruongNhap,
+  Nut,
+  BieuTuong,
+} from "../../components/GiaoDien";
+import { useThaoTac } from "../../hooks/useThaoTac";
+import { hoanThienService as api } from "../../services/hoanThienService";
+import { kiemTraTaiKhoan, layMaKhoiPhuc } from "../../utils/hoanThien";
+import { useXemTruoc } from "../../contexts/XemTruocContext";
+import { useGiaoDien } from "../../theme";
 
-export default function KhoiPhuc({ navigation }) {
+export default function KhoiPhuc({ navigation, route }) {
   const [d, dat] = useState({
-    email: '',
-    token: '',
-    password: '',
-    password_confirmation: '',
-  })
-  const [datLai, datDatLai] = useState(false)
-  const [loi, datLoi] = useState({})
-  const [thongBao, datThongBao] = useState('')
-  const { mau } = useGiaoDien()
-  const { datThongBao: hienThongBao } = useXemTruoc()
-  const { gui, dangGui, loiGui, datLoiGui } = useThaoTac()
+    email: "",
+    token: "",
+    password: "",
+    password_confirmation: "",
+  });
+  const [datLai, datDatLai] = useState(false);
+  const [loi, datLoi] = useState({});
+  const [thongBao, datThongBao] = useState("");
+  const { mau } = useGiaoDien();
+  const { datThongBao: hienThongBao, taiKhoan, dangXuat } = useXemTruoc();
+  useEffect(() => {
+    if (!route.params?.token || !route.params?.email) return;
+    dat({
+      email: route.params.email,
+      token: route.params.token,
+      password: "",
+      password_confirmation: "",
+    });
+    datDatLai(true);
+    datThongBao("");
+    datLoi({});
+    navigation.setParams({ token: undefined, email: undefined });
+  }, [route.params?.token, route.params?.email]);
+  const { gui, dangGui, loiGui, datLoiGui } = useThaoTac();
   function guiForm() {
-    const e = kiemTraTaiKhoan(datLai ? d : { email: d.email })
-    const token = layMaKhoiPhuc(d.token)
+    const e = kiemTraTaiKhoan(datLai ? d : { email: d.email });
+    const token = layMaKhoiPhuc(d.token);
     if (datLai && !token)
-      e.token = 'Dán mã 64 ký tự hoặc liên kết đặt lại từ email.'
-    datLoi(e)
-    if (Object.keys(e).length) return
+      e.token = "Dán mã 64 ký tự hoặc liên kết đặt lại từ email.";
+    datLoi(e);
+    if (Object.keys(e).length) return;
     gui(
       () =>
         datLai
@@ -37,37 +56,38 @@ export default function KhoiPhuc({ navigation }) {
               token,
             })
           : api.quenMatKhau(d.email.trim().toLowerCase()),
-      (r) => {
-        datThongBao(r.message)
+      async (r) => {
+        datThongBao(r.message);
         dat((cu) => ({
           ...cu,
-          token: '',
-          password: '',
-          password_confirmation: '',
-        }))
+          token: "",
+          password: "",
+          password_confirmation: "",
+        }));
         if (datLai) {
-          datDatLai(false)
-          navigation.popTo('DangNhap')
-          hienThongBao({ tieuDe: 'Đã đặt lại mật khẩu', noiDung: r.message })
+          datDatLai(false);
+          if (taiKhoan) await dangXuat();
+          else navigation.popTo("DangNhap");
+          hienThongBao({ tieuDe: "Đã đặt lại mật khẩu", noiDung: r.message });
         }
       },
-    )
+    );
   }
   return (
     <KhungTaiKhoan
       tieuDe={
         datLai
-          ? 'Đặt mật khẩu mới'
+          ? "Đặt mật khẩu mới"
           : thongBao
-            ? 'Kiểm tra email'
-            : 'Quên mật khẩu?'
+            ? "Kiểm tra email"
+            : "Quên mật khẩu?"
       }
       moTa={
         datLai
-          ? 'Mật khẩu mới sẽ đăng xuất tài khoản khỏi mọi thiết bị.'
+          ? "Mật khẩu mới sẽ đăng xuất tài khoản khỏi mọi thiết bị."
           : thongBao
-            ? 'Hướng dẫn đặt lại mật khẩu đã được gửi.'
-            : 'Nhập email, chúng tôi sẽ gửi hướng dẫn đặt lại mật khẩu.'
+            ? "Hướng dẫn đặt lại mật khẩu đã được gửi."
+            : "Nhập email, chúng tôi sẽ gửi hướng dẫn đặt lại mật khẩu."
       }
       onBack={() => navigation.goBack()}
     >
@@ -75,9 +95,9 @@ export default function KhoiPhuc({ navigation }) {
         <>
           <View
             style={{
-              flexDirection: 'row',
+              flexDirection: "row",
               gap: 16,
-              alignItems: 'center',
+              alignItems: "center",
               borderRadius: 16,
               padding: 16,
               backgroundColor: mau.chinhNhat,
@@ -93,10 +113,10 @@ export default function KhoiPhuc({ navigation }) {
             <Nut
               disabled={dangGui}
               onPress={() => {
-                datDatLai(true)
-                datThongBao('')
-                datLoi({})
-                datLoiGui(null)
+                datDatLai(true);
+                datThongBao("");
+                datLoi({});
+                datLoiGui(null);
               }}
             >
               Tôi đã mở liên kết
@@ -107,7 +127,7 @@ export default function KhoiPhuc({ navigation }) {
             <Nut
               loai="ghost"
               disabled={dangGui}
-              onPress={() => navigation.popTo('DangNhap')}
+              onPress={() => navigation.popTo("DangNhap")}
             >
               Về đăng nhập
             </Nut>
@@ -175,33 +195,33 @@ export default function KhoiPhuc({ navigation }) {
           )}
           <Nut disabled={dangGui} onPress={guiForm}>
             {dangGui
-              ? 'Đang xử lý…'
+              ? "Đang xử lý…"
               : datLai
-                ? 'Đặt lại mật khẩu'
-                : 'Gửi hướng dẫn'}
+                ? "Đặt lại mật khẩu"
+                : "Gửi hướng dẫn"}
           </Nut>
           <Nut
             loai="ghost"
             disabled={dangGui}
             onPress={() => {
-              datDatLai(!datLai)
-              datLoi({})
-              datLoiGui(null)
-              datThongBao('')
+              datDatLai(!datLai);
+              datLoi({});
+              datLoiGui(null);
+              datThongBao("");
               dat((cu) => ({
                 ...cu,
-                token: '',
-                password: '',
-                password_confirmation: '',
-              }))
+                token: "",
+                password: "",
+                password_confirmation: "",
+              }));
             }}
           >
             {datLai
-              ? 'Yêu cầu liên kết mới'
-              : 'Đã có liên kết · Đặt lại trong app'}
+              ? "Yêu cầu liên kết mới"
+              : "Đã có liên kết · Đặt lại trong app"}
           </Nut>
         </View>
       )}
     </KhungTaiKhoan>
-  )
+  );
 }

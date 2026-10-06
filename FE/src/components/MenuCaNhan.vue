@@ -5,12 +5,12 @@
       <RouterLink
         to="/"
         class="sidebar-brand"
-        aria-label="Huấn luyện cá nhân — trang chủ"
+        aria-label="FitForge — trang chủ"
         @click="$emit('dieu-huong')"
       >
         <LogoThuongHieu />
         <div v-if="!thuGon" class="brand-info">
-          <span class="brand-title">HUẤN LUYỆN CÁ NHÂN</span>
+          <span class="brand-title">FitForge</span>
           <span class="brand-badge">{{ nhanVaiTro }}</span>
         </div>
       </RouterLink>
@@ -67,7 +67,7 @@ const menuVaiTro = {
     muc('Gói của tôi', '/khach-hang/goi-cua-toi', 'wallet2'),
     muc('Đơn hàng', '/khach-hang/don-hang', 'receipt'),
     muc('Tin nhắn', '/khach-hang/tin-nhan', 'chat-left-text', { chat: true }),
-    muc('Tr0ond AI', '/khach-hang/chatbot', 'robot'),
+    muc('FitForge AI', '/khach-hang/chatbot', 'robot'),
     muc('Thư viện bài tập', '/bai-tap', 'collection-play'),
     muc('Gói tập', '/goi-tap', 'box-seam'),
     muc('Câu hỏi & tài liệu', '/faq', 'question-circle'),

@@ -3,7 +3,7 @@
     <section class="ai-page">
       <header class="ai-heading">
         <div>
-          <span class="ai-eyebrow">TR0OND · HỖ TRỢ</span>
+          <span class="ai-eyebrow">FitForge · HỖ TRỢ</span>
           <h1>Câu hỏi & tài liệu</h1>
           <p>Thông tin đã xuất bản, đọc miễn phí.</p>
         </div>

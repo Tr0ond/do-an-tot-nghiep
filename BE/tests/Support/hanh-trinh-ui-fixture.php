@@ -1,9 +1,11 @@
 <?php
 
 use App\Services\TaiKhoanService;
+use Carbon\CarbonImmutable;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 require __DIR__.'/../../vendor/autoload.php';
 $app = require __DIR__.'/../../bootstrap/app.php';
@@ -34,6 +36,22 @@ try {
     }
     $tao = require __DIR__.'/hanh-trinh-fixture.php';
     $f = $tao();
+    if (($argv[1] ?? '') === 'with-pt') {
+        $hom = CarbonImmutable::now('Asia/Ho_Chi_Minh')->startOfDay();
+        foreach ([-4, -1] as $cach) {
+            $batDau = $hom->addDays($cach)->addHours(18)->utc();
+            $slot = DB::table('khung_gio_huan_luyen_vien')->insertGetId([
+                'huan_luyen_vien_id' => $f['pt']->hoSoHuanLuyenVien->id,
+                'bat_dau_luc' => $batDau, 'ket_thuc_luc' => $batDau->addHour(), 'trang_thai' => 'MO',
+            ]);
+            DB::table('lich_hen_huan_luyen')->insert([
+                'khach_hang_id' => $f['kh']->hoSoKhachHang->id, 'huan_luyen_vien_id' => $f['pt']->hoSoHuanLuyenVien->id,
+                'phan_cong_id' => $f['pc']->id, 'khung_gio_id' => $slot, 'dang_ky_goi_tap_id' => $f['don']->id,
+                'client_request_id' => (string) Str::uuid(), 'bat_dau_luc' => $batDau,
+                'ket_thuc_luc' => $batDau->addHour(), 'trang_thai' => 'HOAN_THANH', 'tieu_hao_luc' => $batDau->addHour(),
+            ]);
+        }
+    }
     $rong = app(TaiKhoanService::class)->taoTaiKhoan(['ho_ten' => 'KH mới kiểm thử', 'email' => 'rong@hanh-trinh.example.test', 'password' => 'Demo123456!'], 'KHACH_HANG');
     echo json_encode(['database' => $db, 'khach_id' => $f['kh']->hoSoKhachHang->id, 'rong_id' => $rong->id]);
 } catch (Throwable $loi) {

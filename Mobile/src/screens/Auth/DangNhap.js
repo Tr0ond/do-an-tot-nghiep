@@ -1,57 +1,50 @@
-import { useRef, useState } from 'react'
-import Constants from 'expo-constants'
-import { View, Pressable, Platform } from 'react-native'
-import { Chu, Nut, TruongNhap } from '../../components/GiaoDien'
-import KhungTaiKhoan from '../../components/KhungTaiKhoan'
-import { useXemTruoc } from '../../contexts/XemTruocContext'
-import { useGiaoDien } from '../../theme'
-import { KHACH_HANG, HUAN_LUYEN_VIEN } from '../../data/minhHoa'
+import { useRef, useState } from "react";
+import Constants from "expo-constants";
+import { View, Pressable, Platform } from "react-native";
+import { Chu, Nut, TruongNhap } from "../../components/GiaoDien";
+import KhungTaiKhoan from "../../components/KhungTaiKhoan";
+import { useXemTruoc } from "../../contexts/XemTruocContext";
+import { useGiaoDien } from "../../theme";
 
 export default function DangNhap({ navigation }) {
-  const { mau } = useGiaoDien()
-  const { moBanXem, dangNhap, dangThaoTac, loiPhien } = useXemTruoc()
-  const [email, datEmail] = useState('')
-  const [matKhau, datMatKhau] = useState('')
-  const [loiTruong, datLoiTruong] = useState({})
-  const [loiDangNhap, datLoiDangNhap] = useState('')
-  const dangGui = useRef(false)
+  const { mau } = useGiaoDien();
+  const { dangNhap, dangThaoTac, loiPhien } = useXemTruoc();
+  const [email, datEmail] = useState("");
+  const [matKhau, datMatKhau] = useState("");
+  const [loiTruong, datLoiTruong] = useState({});
+  const [loiDangNhap, datLoiDangNhap] = useState("");
+  const dangGui = useRef(false);
 
   async function kiemTraForm() {
-    if (dangGui.current || dangThaoTac) return
-    const loi = {}
+    if (dangGui.current || dangThaoTac) return;
+    const loi = {};
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()))
-      loi.email = 'Vui lòng nhập địa chỉ email hợp lệ.'
-    if (!matKhau) loi.matKhau = 'Vui lòng nhập mật khẩu.'
-    datLoiTruong(loi)
-    if (Object.keys(loi).length) return
-    dangGui.current = true
-    datLoiDangNhap('')
+      loi.email = "Vui lòng nhập địa chỉ email hợp lệ.";
+    if (!matKhau) loi.matKhau = "Vui lòng nhập mật khẩu.";
+    datLoiTruong(loi);
+    if (Object.keys(loi).length) return;
+    dangGui.current = true;
+    datLoiDangNhap("");
     try {
       await dangNhap({
         email: email.trim().toLowerCase(),
         password: matKhau,
         ten_thiet_bi:
-          `Tr0ond · ${Platform.OS} · ${Constants.deviceName || 'Thiết bị'}`.slice(
+          `FitForge · ${Platform.OS} · ${Constants.deviceName || "Thiết bị"}`.slice(
             0,
             100,
           ),
-      })
+      });
     } catch (loi) {
-      datLoiDangNhap(loi.message)
+      datLoiDangNhap(loi.message);
       datLoiTruong({
         email: loi.errors?.email?.[0],
         matKhau: loi.errors?.password?.[0],
-      })
+      });
     } finally {
-      datMatKhau('')
-      dangGui.current = false
+      datMatKhau("");
+      dangGui.current = false;
     }
-  }
-
-  function xemGiaoDien(vaiTro) {
-    datMatKhau('')
-    datEmail('')
-    moBanXem(vaiTro)
   }
 
   return (
@@ -105,11 +98,11 @@ export default function DangNhap({ navigation }) {
         )}
         <Pressable
           accessibilityRole="button"
-          onPress={() => navigation.navigate('KhoiPhuc')}
+          onPress={() => navigation.navigate("KhoiPhuc")}
           style={{
-            alignSelf: 'flex-start',
+            alignSelf: "flex-start",
             height: 24,
-            justifyContent: 'center',
+            justifyContent: "center",
           }}
         >
           <Chu size={13} dam="damVua" color={mau.chinh}>
@@ -117,13 +110,13 @@ export default function DangNhap({ navigation }) {
           </Chu>
         </Pressable>
         <Nut onPress={kiemTraForm} disabled={dangThaoTac}>
-          {dangThaoTac ? 'Đang đăng nhập…' : 'Đăng nhập'}
+          {dangThaoTac ? "Đang đăng nhập…" : "Đăng nhập"}
         </Nut>
       </View>
       <View
         style={{
-          flexDirection: 'row',
-          justifyContent: 'center',
+          flexDirection: "row",
+          justifyContent: "center",
           gap: 4,
           marginTop: 20,
         }}
@@ -131,67 +124,24 @@ export default function DangNhap({ navigation }) {
         <Chu color={mau.chuPhu}>Chưa có tài khoản?</Chu>
         <Pressable
           accessibilityRole="button"
-          onPress={() => navigation.navigate('DangKy')}
+          onPress={() => navigation.navigate("DangKy")}
         >
           <Chu dam="dam" color={mau.chinh}>
             Đăng ký
           </Chu>
         </Pressable>
       </View>
-      {!dangThaoTac && (
-        <View
-          style={{
-            marginTop: 32,
-            borderRadius: 16,
-            borderWidth: 1,
-            borderStyle: 'dashed',
-            borderColor: mau.vien,
-            padding: 16,
-          }}
-        >
-          <Chu
-            size={12}
-            dam="dam"
-            color={mau.chuPhu}
-            style={{ letterSpacing: 0.6, marginBottom: 12 }}
-          >
-            TÀI KHOẢN DEMO
-          </Chu>
-          <View style={{ flexDirection: 'row', gap: 8 }}>
-            <Nut
-              loai="soft"
-              sm
-              style={{ flex: 1 }}
-              onPress={() => xemGiaoDien(KHACH_HANG)}
-            >
-              Học viên
-            </Nut>
-            <Nut
-              loai="soft"
-              sm
-              style={{ flex: 1 }}
-              onPress={() => xemGiaoDien(HUAN_LUYEN_VIEN)}
-            >
-              Huấn luyện viên
-            </Nut>
-          </View>
-          <Chu size={12} color={mau.chuPhu} style={{ marginTop: 12 }}>
-            Bản xem trước dùng dữ liệu minh họa. Đăng ký tài khoản để sử dụng hệ
-            thống thật.
-          </Chu>
-        </View>
-      )}
       <View
         style={{
-          flexDirection: 'row',
-          justifyContent: 'center',
+          flexDirection: "row",
+          justifyContent: "center",
           gap: 24,
           marginTop: 20,
         }}
       >
         <Pressable
           accessibilityRole="button"
-          onPress={() => navigation.navigate('GoiTap')}
+          onPress={() => navigation.navigate("GoiTap")}
         >
           <Chu size={12} color={mau.chinh}>
             Xem gói tập
@@ -199,7 +149,7 @@ export default function DangNhap({ navigation }) {
         </Pressable>
         <Pressable
           accessibilityRole="button"
-          onPress={() => navigation.navigate('Faq')}
+          onPress={() => navigation.navigate("Faq")}
         >
           <Chu size={12} color={mau.chinh}>
             Trợ giúp
@@ -207,5 +157,5 @@ export default function DangNhap({ navigation }) {
         </Pressable>
       </View>
     </KhungTaiKhoan>
-  )
+  );
 }

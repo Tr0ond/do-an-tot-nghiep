@@ -6,5 +6,5 @@ return [
     'ca_bundle' => env('GEMINI_CA_BUNDLE', base_path('resources/certs/cacert.pem')),
     'timeout' => 30,
     'max_output_tokens' => 2048,
-    'phien_ban_prompt' => 'tr0ond-v3-giao-an',
+    'phien_ban_prompt' => 'fitforge-v3-giao-an',
 ];

@@ -410,6 +410,7 @@ class HeThong15NgaySeeder extends Seeder
 
     private function uuid(string $ma): string
     {
+        // ID seed ổn định qua các lần đổi thương hiệu, không tạo dữ liệu demo trùng.
         return (string) Uuid::uuid5(Uuid::NAMESPACE_URL, 'tr0ond/demo15/v1/'.$ma);
     }
 

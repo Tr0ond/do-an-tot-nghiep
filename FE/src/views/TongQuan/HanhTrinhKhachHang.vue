@@ -16,7 +16,7 @@
           <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
         </button>
         <RouterLink to="/khach-hang/chatbot" class="j-button"
-          ><i class="bi bi-robot" aria-hidden="true"></i> Hỏi Tr0ond AI</RouterLink
+          ><i class="bi bi-robot" aria-hidden="true"></i> Hỏi FitForge AI</RouterLink
         >
         <RouterLink :to="duongBuoi" class="j-button j-primary"
           >{{ buoi ? 'Tiếp tục buổi tập' : 'Lên lịch tập' }}
@@ -202,11 +202,11 @@
             Ghi chiều cao và cân nặng lần đầu để theo dõi thay đổi qua các ngày tập luyện.
           </p>
         </section>
-        <section class="j-card">
+        <section class="j-card j-training-progress">
           <div class="j-section-heading">
             <div>
               <h2>Tiến độ tập luyện</h2>
-              <p>Buổi tự tập đã hoàn thành theo ngày lịch.</p>
+              <p>Buổi tự tập và buổi với PT đã hoàn thành, theo ngày diễn ra.</p>
             </div>
             <div class="j-tabs" aria-label="Khoảng thống kê">
               <button
@@ -220,26 +220,49 @@
               </button>
             </div>
           </div>
+          <div class="j-progress-filters">
+            <div class="j-tabs" role="group" aria-label="Loại buổi tập">
+              <button
+                v-for="l in cacLoaiBuoi"
+                :key="l.ma"
+                :aria-pressed="loaiBuoi === l.ma"
+                :disabled="dangTai"
+                @click="loaiBuoi = l.ma"
+              >
+                {{ l.nhan }}
+              </button>
+            </div>
+            <div class="j-chart-legend" aria-label="Chú giải biểu đồ">
+              <span
+                ><i class="j-dot-tu-tap" aria-hidden="true"></i>Tự tập: {{ so(tongTuTap) }}</span
+              >
+              <span><i class="j-dot-pt" aria-hidden="true"></i>Với PT: {{ so(tongPt) }}</span>
+            </div>
+          </div>
           <div class="j-summary">
             <div>
-              <strong>{{ so(hanhTrinh.tien_do.so_buoi) }}</strong
-              ><span>buổi trong {{ hanhTrinh.tien_do.so_ngay }} ngày</span>
+              <strong>{{ so(tongBuoiChon) }}</strong
+              ><span>buổi · {{ nhanLoaiBuoi }} · {{ hanhTrinh.tien_do.so_ngay }} ngày</span>
             </div>
             <div>
               <strong>{{
                 hanhTrinh.ti_le_hoan_thanh === null ? '—' : hanhTrinh.ti_le_hoan_thanh + '%'
               }}</strong
-              ><span>lịch đã đến tháng này</span>
+              ><span>lịch tự tập đã đến tháng này</span>
             </div>
-            <RouterLink to="/khach-hang/lich-tap"
-              ><i class="bi bi-journal-check" aria-hidden="true"></i
-              ><span>Xem nhật ký tập <i class="bi bi-arrow-up-right" aria-hidden="true"></i></span
-            ></RouterLink>
+            <div class="j-progress-links">
+              <RouterLink to="/khach-hang/lich-tap" class="j-text-link"
+                >Xem nhật ký tự tập <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+              ></RouterLink>
+              <RouterLink to="/khach-hang/lich-hen" class="j-text-link"
+                >Xem lịch hẹn PT <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+              ></RouterLink>
+            </div>
           </div>
           <div
             class="j-chart"
             role="img"
-            :aria-label="`Biểu đồ ${hanhTrinh.tien_do.so_buoi} buổi tự tập hoàn thành trong ${hanhTrinh.tien_do.so_ngay} ngày; chi tiết trong bảng bên dưới.`"
+            :aria-label="`Biểu đồ ${tongBuoiChon} buổi hoàn thành: ${nhanLoaiBuoi}, trong ${hanhTrinh.tien_do.so_ngay} ngày; chi tiết trong bảng bên dưới.`"
           >
             <svg viewBox="0 0 660 220" aria-hidden="true">
               <template v-for="n in [0, 1, 2]" :key="n">
@@ -248,18 +271,28 @@
                   {{ so((maxBuoi * n) / 2) }}
                 </text>
               </template>
-              <rect
-                v-for="(d, i) in hanhTrinh.tien_do.theo_ngay"
-                :key="d.ngay"
-                :x="45 + (i * 590) / hanhTrinh.tien_do.so_ngay"
-                :y="180 - (d.so_buoi / maxBuoi) * 140"
-                :width="Math.max(2, 590 / hanhTrinh.tien_do.so_ngay - 3)"
-                :height="(d.so_buoi / maxBuoi) * 140"
-                rx="2"
-                class="j-chart-bar"
-              >
-                <title>{{ ngay(d.ngay) }}: {{ d.so_buoi }} buổi</title>
-              </rect>
+              <g v-for="(d, i) in cacNgayChon" :key="d.ngay">
+                <title>
+                  {{ ngay(d.ngay) }}: {{ d.tu_tap }} tự tập, {{ d.pt }} với PT; tổng
+                  {{ d.tong }} buổi
+                </title>
+                <rect
+                  :x="45 + (i * 590) / hanhTrinh.tien_do.so_ngay"
+                  :y="180 - (d.tu_tap / maxBuoi) * 140"
+                  :width="Math.max(2, 590 / hanhTrinh.tien_do.so_ngay - 3)"
+                  :height="(d.tu_tap / maxBuoi) * 140"
+                  rx="2"
+                  class="j-chart-bar"
+                />
+                <rect
+                  :x="45 + (i * 590) / hanhTrinh.tien_do.so_ngay"
+                  :y="180 - (d.tong / maxBuoi) * 140"
+                  :width="Math.max(2, 590 / hanhTrinh.tien_do.so_ngay - 3)"
+                  :height="(d.pt / maxBuoi) * 140"
+                  rx="2"
+                  class="j-chart-bar-pt"
+                />
+              </g>
               <text x="42" y="212" class="j-chart-label">
                 {{ ngayNgan(hanhTrinh.tien_do.tu_ngay) }}
               </text>
@@ -268,26 +301,33 @@
               </text>
             </svg>
           </div>
-          <p v-if="!hanhTrinh.tien_do.so_buoi" class="j-empty">
-            Chưa có buổi tự tập hoàn thành trong khoảng này.
+          <p v-if="!tongBuoiChon" class="j-empty">
+            {{ thongBaoRong }}
           </p>
           <details class="j-chart-table">
             <summary>Xem số buổi theo ngày</summary>
             <div class="j-table-scroll">
               <table>
                 <caption class="visually-hidden">
-                  Số buổi tự tập hoàn thành theo ngày lịch
+                  Số buổi hoàn thành theo ngày ·
+                  {{
+                    nhanLoaiBuoi
+                  }}
                 </caption>
                 <thead>
                   <tr>
                     <th scope="col">Ngày</th>
-                    <th scope="col">Buổi hoàn thành</th>
+                    <th v-if="loaiBuoi !== 'PT'" scope="col">Tự tập</th>
+                    <th v-if="loaiBuoi !== 'TU_TAP'" scope="col">Với PT</th>
+                    <th scope="col">Tổng</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="d in hanhTrinh.tien_do.theo_ngay" :key="d.ngay">
+                  <tr v-for="d in cacNgayChon" :key="d.ngay">
                     <td>{{ ngay(d.ngay) }}</td>
-                    <td>{{ d.so_buoi }}</td>
+                    <td v-if="loaiBuoi !== 'PT'">{{ d.tu_tap }}</td>
+                    <td v-if="loaiBuoi !== 'TU_TAP'">{{ d.pt }}</td>
+                    <td>{{ d.tong }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -401,10 +441,10 @@
       </section>
       <section class="j-card">
         <div class="j-section-heading">
-          <h2>Tr0ond AI</h2>
+          <h2>FitForge AI</h2>
           <span class="j-badge">{{ hanhTrinh.ai.con_lai }} lượt còn lại</span>
         </div>
-        <p>Tham khảo bài tập, giáo án và mục tiêu luyện tập cùng Tr0ond AI.</p>
+        <p>Tham khảo bài tập, giáo án và mục tiêu luyện tập cùng FitForge AI.</p>
         <p v-if="!hanhTrinh.ai.co_quyen" class="j-caption">
           Cần gói có quyền chatbot còn hiệu lực để hỏi AI.
         </p>
@@ -413,7 +453,7 @@
           Lượt đang được sử dụng hoặc xử lý. Hạn mức được cấp lại lúc 00:00 giờ Việt Nam.
         </p>
         <RouterLink to="/khach-hang/chatbot" class="j-button j-primary"
-          ><i class="bi bi-robot" aria-hidden="true"></i> Mở Tr0ond AI</RouterLink
+          ><i class="bi bi-robot" aria-hidden="true"></i> Mở FitForge AI</RouterLink
         >
       </section>
     </div>
@@ -441,6 +481,16 @@ export default {
     dangTai: Boolean,
   },
   emits: ['cap-nhat', 'doi-khoang'],
+  data() {
+    return {
+      loaiBuoi: 'TAT_CA',
+      cacLoaiBuoi: [
+        { ma: 'TAT_CA', nhan: 'Tất cả' },
+        { ma: 'TU_TAP', nhan: 'Tự tập' },
+        { ma: 'PT', nhan: 'Với PT' },
+      ],
+    }
+  },
   computed: {
     buoi() {
       return this.hanhTrinh.buoi_hom_nay
@@ -461,7 +511,33 @@ export default {
       return { ...goc, diem, duong: diem.map((d, i) => `${i ? 'L' : 'M'} ${d.x} ${d.y}`).join(' ') }
     },
     maxBuoi() {
-      return Math.max(2, ...this.hanhTrinh.tien_do.theo_ngay.map((x) => x.so_buoi))
+      return Math.ceil(Math.max(2, ...this.cacNgayChon.map((x) => x.tong)) / 2) * 2
+    },
+    cacNgayChon() {
+      return this.hanhTrinh.tien_do.theo_ngay.map((d) => {
+        const tuTap = this.loaiBuoi === 'PT' ? 0 : (d.so_buoi_tu_tap ?? d.so_buoi ?? 0)
+        const pt = this.loaiBuoi === 'TU_TAP' ? 0 : (d.so_buoi_pt ?? 0)
+        return { ngay: d.ngay, tu_tap: tuTap, pt, tong: tuTap + pt }
+      })
+    },
+    tongTuTap() {
+      return this.hanhTrinh.tien_do.theo_ngay.reduce(
+        (tong, d) => tong + (d.so_buoi_tu_tap ?? d.so_buoi ?? 0),
+        0,
+      )
+    },
+    tongPt() {
+      return this.hanhTrinh.tien_do.theo_ngay.reduce((tong, d) => tong + (d.so_buoi_pt ?? 0), 0)
+    },
+    tongBuoiChon() {
+      return this.cacNgayChon.reduce((tong, d) => tong + d.tong, 0)
+    },
+    nhanLoaiBuoi() {
+      return this.cacLoaiBuoi.find((l) => l.ma === this.loaiBuoi).nhan
+    },
+    thongBaoRong() {
+      const nhan = { TAT_CA: 'buổi tập', TU_TAP: 'buổi tự tập', PT: 'buổi tập với PT' }
+      return `Chưa có ${nhan[this.loaiBuoi]} hoàn thành trong khoảng này.`
     },
     thongKe() {
       const h = this.hanhTrinh
@@ -951,6 +1027,36 @@ progress::-moz-progress-bar {
 }
 .j-chart-bar {
   fill: var(--j-accent);
+}
+.j-chart-bar-pt {
+  fill: var(--mau-thong-tin);
+}
+.j-progress-filters,
+.j-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.j-progress-filters {
+  justify-content: space-between;
+  margin-top: 16px;
+}
+.j-chart-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--mau-phu);
+  font-size: 12px;
+}
+.j-chart-legend i {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--j-accent);
+}
+.j-chart-legend .j-dot-pt {
+  background: var(--mau-thong-tin);
 }
 .j-chart-table summary {
   cursor: pointer;

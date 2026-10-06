@@ -53,7 +53,7 @@ try {
     $pt = $service->taoTaiKhoan(['ho_ten' => 'Huấn luyện viên demo', 'email' => 'pt@chat-ui.example.test', 'password' => 'Demo123456!'], TaiKhoan::HUAN_LUYEN_VIEN);
     $admin = $service->taoTaiKhoan(['ho_ten' => 'Admin demo', 'email' => 'admin@chat-ui.example.test', 'password' => 'Demo123456!'], TaiKhoan::ADMIN);
     if (($argv[1] ?? '') === 'chatbot') {
-        $g = GoiTap::create(['ten_goi' => 'Tr0ond AI demo', 'gia' => 99000, 'co_chatbot' => true, 'so_luot_chatbot_moi_ngay' => 20, 'so_buoi_pt' => 0, 'thoi_han_ngay' => 30, 'trang_thai' => 'HOAT_DONG']);
+        $g = GoiTap::create(['ten_goi' => 'FitForge AI demo', 'gia' => 99000, 'co_chatbot' => true, 'so_luot_chatbot_moi_ngay' => 20, 'so_buoi_pt' => 0, 'thoi_han_ngay' => 30, 'trang_thai' => 'HOAT_DONG']);
         DangKyGoiTap::create(['khach_hang_id' => $kh->hoSoKhachHang->id, 'goi_tap_id' => $g->id, 'client_request_id' => (string) Str::uuid(), 'ma_don_payos' => 1000001, 'ten_goi_snapshot' => $g->ten_goi, 'gia_snapshot' => $g->gia, 'co_chatbot_snapshot' => true, 'so_luot_chatbot_moi_ngay_snapshot' => 20, 'so_buoi_pt_snapshot' => 0, 'so_buoi_con_lai' => 0, 'thoi_han_ngay_snapshot' => 30, 'trang_thai' => 'DANG_SU_DUNG', 'kich_hoat_luc' => now()->subDay(), 'het_han_luc' => now()->addDays(29)]);
     }
     if (($argv[1] ?? '') === 'thong-bao') {

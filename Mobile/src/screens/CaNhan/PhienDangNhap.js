@@ -58,7 +58,7 @@ export default function PhienDangNhap({ navigation }) {
         </View>
         <View style={{ flex: 1 }}>
           <Chu size={15} dam="damVua">
-            {Platform.OS === 'web' ? 'Trình duyệt' : 'Android'} · Tr0ond Fitness
+            {Platform.OS === 'web' ? 'Trình duyệt' : 'Android'} · FitForge
           </Chu>
           <Chu size={12.5} color={mau.chuPhu}>
             {dangXemTruoc

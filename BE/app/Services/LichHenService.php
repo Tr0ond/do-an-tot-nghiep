@@ -205,6 +205,7 @@ class LichHenService
                 abort_unless($trangThai === 'QUA_HAN_XAC_NHAN', 409, 'Chỉ đóng xử lý buổi quá hạn xác nhận.');
                 $lich->update(['trang_thai' => 'QUA_HAN_XAC_NHAN', 'nguoi_dong_xu_ly_id' => $nguoi->id, 'dong_xu_ly_luc' => now(), 'ly_do_dong_xu_ly' => $lyDo]);
                 $this->ghiAudit($nguoi, $lich, 'DONG_BUOI_QUA_HAN', $lyDo);
+                app(LichRealtimeService::class)->choPt($lich->huan_luyen_vien_id, $lich->khach_hang_id);
             } else {
                 abort(404);
             }

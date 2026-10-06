@@ -22,6 +22,7 @@ class ThongBaoService
             return;
         }
         // PK theo sự kiện và người nhận: retry giữ nguyên nội dung và thời điểm đã đọc.
+        // Namespace cũ là định danh cố định; đổi thương hiệu không tạo lại thông báo.
         // Upsert chỉ cập nhật ID, không dùng insertOrIgnore để tránh nuốt lỗi dữ liệu khác.
         $id = (string) Uuid::uuid5(Uuid::NAMESPACE_URL, 'tr0ond/thong-bao/'.$suKien.'/'.$taiKhoanId);
         DB::table('notifications')->upsert([[
@@ -29,6 +30,9 @@ class ThongBaoService
             'data' => json_encode(['tieu_de' => $tieuDe, 'noi_dung' => $noiDung, 'duong_dan' => $duongDan], JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR),
             'read_at' => null, 'created_at' => now(), 'updated_at' => now(),
         ]], ['id'], ['id']);
+        if (preg_match('~^/(khach-hang|pt)/lich-hen/[1-9][0-9]*$~D', $duongDan)) {
+            app(ThongBaoDayService::class)->xepHang($taiKhoanId, $suKien, $duongDan, 'lich');
+        }
     }
 
     public function choAdmin(string $suKien, string $tieuDe, string $noiDung, string $duongDan): void
@@ -58,6 +62,7 @@ class ThongBaoService
 
     public function lichHen(LichHenHuanLuyen $lich, string $hanhDong): void
     {
+        app(LichRealtimeService::class)->choPt($lich->huan_luyen_vien_id, $lich->khach_hang_id);
         $suKien = 'lich-hen/'.$lich->id.'/'.$hanhDong;
         $luc = $lich->bat_dau_luc->setTimezone('Asia/Ho_Chi_Minh')->format('H:i d/m/Y');
         $duongDanKh = '/khach-hang/lich-hen/'.$lich->id;

@@ -1,148 +1,171 @@
-# Dự án tốt nghiệp — Quản lý huấn luyện cá nhân
+<p align="center">
+  <img src="Mobile/assets/brand/logo-fitforge.png" alt="Logo FitForge" width="112" />
+</p>
 
-C34/M05: KH có **Áp dụng lại giáo án** với bản PT đã xác nhận trước đây và đang lưu trữ. Giữ nội dung, không cần PT duyệt lại; bản đang dùng tự chuyển lưu trữ, chỉ một bản được áp dụng. Không cần migration mới. [Kiểm chứng](docs/verification/M05_AP_DUNG_LAI_PT.md).
+# FitForge
 
-C33/M05: mỗi KH một giáo án đang áp dụng, chung cho PT và KH tự tạo; KH được **Ngừng áp dụng** cả giáo án PT. Migration000039 đã chạy local, giữ bản áp dụng gần nhất và lưu trữ bản trùng trước đó. [Kiểm chứng](docs/verification/M05_MOT_GIAO_AN.md).
+**Nền tảng quản lý huấn luyện cá nhân và theo dõi tập luyện trên web và mobile.**
 
-C32/M05: KH mở chi tiết giáo án tự tạo đã hủy/lưu trữ để **Ẩn giáo án**; chọn **Hiển thị → Đã ẩn** để xem và hiện lại. Giữ nội dung/lịch sử và quyền đọc của PT phụ trách. Migration000038 đã chạy trên máy này; máy clone chạy `php artisan migrate`, không seed lại. [Hợp đồng](docs/features/KE_HOACH_TAP.md#ẩn--hiện-lại-giáo-án-tự-tạo--c32), [kiểm chứng](docs/verification/M05_AN_GIAO_AN.md).
+FitForge kết nối khách hàng, huấn luyện viên cá nhân (PT) và quản trị viên trong một hệ thống thống nhất: quản lý gói dịch vụ, đặt lịch, xây dựng giáo án, ghi kết quả tập luyện, theo dõi tiến độ và trao đổi trực tiếp. Trợ lý **FitForge AI** hỗ trợ tư vấn và soạn nháp giáo án dựa trên ngữ cảnh được phép sử dụng.
 
-**Tên đề tài đề xuất:** Xây dựng hệ thống quản lý huấn luyện cá nhân tích hợp chatbot AI tư vấn và trao đổi trực tuyến.
+Dự án được phát triển trong khuôn khổ **đồ án tốt nghiệp**, với phạm vi quản lý huấn luyện cá nhân cho một phòng gym. Website và ứng dụng Android dùng chung Backend Laravel, bảo đảm dữ liệu, quyền truy cập và quy tắc nghiệp vụ được quản lý tập trung.
 
-**Ngày khởi tạo:** 01/10/2026 · **Thời gian dự kiến:** 6 tháng · **Tác nhân:** Khách hàng, PT, Admin. Một người thực hiện khoảng 8 giờ/ngày; tên đề tài có thể đổi, ngày bảo vệ chưa được cung cấp.
+[Chức năng](#chức-năng-chính) · [Công nghệ](#công-nghệ) · [Khởi chạy](#khởi-chạy-dự-án) · [Tài liệu](#tài-liệu-dự-án) · [Trạng thái](#trạng-thái-triển-khai)
 
-## Trạng thái hiện tại
+## Mục tiêu
 
-Ngày 05/10/2026, theo C40/C41, `Mobile/` có UI1 theo Stitch, MB1 xác thực/hồ sơ, MB2 tổng quan/lịch hẹn/học viên, MB3 catalog/giáo án/tự tập/nhật ký/số đo, MB4 chat chữ/ảnh/Reverb/thông báo trong app và MB5 đăng ký/khôi phục, gói/thanh toán/chatbot/nháp AI. Đã kiểm tra các luồng chính trên LDPlayer và quyền/version/retry/tranh chấp trên MariaDB; MB5 dùng nhà cung cấp giả lập khi QA. Bản cài, push, điện thoại thật và luồng dịch vụ thật của MB5 chưa nghiệm thu. Bản xem mẫu vẫn tách riêng. Xem [hướng dẫn chạy Mobile](Mobile/README.md), [kiểm chứng MB5](docs/verification/MOBILE_MB5.md), [MB4](docs/verification/MOBILE_MB4.md), [MB3](docs/verification/MOBILE_MB3.md), [MB2](docs/verification/MOBILE_MB2.md), [MB1](docs/verification/MOBILE_MB1.md) và [tài liệu mobile](Mobile/docs/README.md); website Vue vẫn ở `FE/`.
+- Tập trung thông tin khách hàng, gói dịch vụ, PT phụ trách và lịch huấn luyện.
+- Liên kết giáo án với kết quả thực tế, giúp khách hàng và PT theo dõi quá trình tập luyện.
+- Hỗ trợ cả tự tập và tập cùng PT, với lịch sử và quyền thao tác riêng cho từng hình thức.
+- Giảm thao tác quản lý thủ công thông qua lịch hẹn, thông báo, thanh toán và báo cáo.
+- Bổ sung AI như công cụ hỗ trợ tư vấn; người dùng vẫn kiểm tra và quyết định áp dụng giáo án.
 
-M09 đã bổ sung **thông báo nghiệp vụ KH/PT/Admin**: thanh toán/kích hoạt, phân công/đổi PT, trạng thái lịch hẹn, nhật ký/nhận xét, giáo án mẫu cần duyệt và ngoại lệ Admin cần xử lý. Dùng chuông hiện có, cùng transaction và chống gửi lặp, không cần migration mới. Khởi động lại `start.bat`, giữ scheduler; mở chuông để cập nhật. [Phạm vi](docs/features/NOTIFICATIONS.md), [kiểm chứng](docs/verification/M09_THONG_BAO.md). Bước tiếp theo là kiểm thử hành trình đầu-cuối và hoàn tất đánh giá chatbot trước triển khai.
+## Người dùng và nền tảng
 
-M09 bước báo cáo Admin đã triển khai tại **Tổng quan hệ thống**: lọc ngày/tháng, tiền thực nhận/đã hoàn/chờ đối soát, biểu đồ sau hoàn, đơn mới/kích hoạt, buổi PT hoàn thành, học viên theo PT và bảng theo gói snapshot. Không cộng đơn chưa thanh toán, không cần migration mới. Toàn Backend 227 tests/5.905 assertions trên MariaDB và Frontend 216 tests đạt; lint/format/build đạt. [Hợp đồng](docs/features/BAO_CAO.md), [kiểm chứng và giới hạn](docs/verification/M09_BAO_CAO_ADMIN.md). Dashboard KH và PT đã áp dụng mẫu cung cấp với dữ liệu thật, giữ sidebar/header hiện tại. PT có lịch hôm nay, việc chờ xử lý, học viên, giáo án, tin nhắn và hoạt động tuần ([kiểm chứng PT](docs/verification/DASHBOARD_PT.md)). Thông báo nghiệp vụ đã bổ sung theo C39; tiếp theo là kiểm thử hành trình đầu-cuối và đánh giá chatbot.
+| Vai trò | Nền tảng | Trách nhiệm chính |
+| --- | --- | --- |
+| **Khách hàng** | Web và Android | Quản lý tài khoản, mua gói, đặt lịch, sử dụng giáo án, ghi nhật ký tự tập, xem kết quả với PT và theo dõi tiến độ. |
+| **Huấn luyện viên** | Web và Android | Quản lý học viên được phân công, mở khung giờ, xử lý lịch hẹn, xây dựng giáo án, ghi kết quả buổi PT và nhận xét quá trình tập luyện. |
+| **Quản trị viên** | Web | Quản lý tài khoản, danh mục, gói dịch vụ, phân công PT, đối soát thanh toán, nội dung tư vấn và báo cáo. |
 
-M08 đã có **Tr0ond AI** cho KH, **Tài liệu & AI** cho Admin và **FAQ** công khai. Gemini gọi từ Backend; mascot dùng GIF robot của chủ dự án, có tạm dừng chuyển động. Đã chạy 216 Backend tests/5.772 assertions trên MariaDB và 193 Frontend tests; lint/format/build đạt. Đánh giá Gemini thật mới chạy một phần, chưa nghiệm thu toàn bộ chất lượng câu trả lời. [Kiểm chứng và hướng dẫn M08](docs/verification/M08_CHATBOT.md).
+Hệ thống có đúng ba vai trò nghiệp vụ. FitForge AI là công cụ hỗ trợ bên trong ứng dụng.
 
-C37 bổ sung **cửa sổ Tr0ond AI nổi** mở bằng mascot và **tạo giáo án nháp theo yêu cầu KH**. Ví dụ3 buổi/tuần trong4 tuần, mỗi buổi4 bài: Gemini thật đã tạo nháp12 buổi/48 bài trong database QA. KH mở xem/sửa/tự áp dụng, PT hiện tại đọc được; không thay giáo án đang dùng hoặc tự đặt lịch. Giữ quyền AI theo gói, tự tạo thủ công vẫn miễn phí. Toàn BE221tests/5.829assertions và FE197tests đã đạt; kiểm chứng schema mới bằng26test riêng. [Kết quả C37 và cách xem](docs/verification/M08_CUA_SO_GIAO_AN_AI.md).
+## Chức năng chính
 
-Đã khởi tạo Laravel 13 trong `BE/` và Vue 3 Options API/JavaScript trong `FE/`, cài dependencies và lưu lockfiles. Đã có Sanctum cho đăng ký KH, đăng nhập/đăng xuất, đọc hồ sơ, phân quyền KH/PT/Admin và Admin tạo PT/Admin; [hợp đồng](docs/features/TAI_KHOAN.md), [bằng chứng xác thực](docs/verification/M01_AUTH.md). Đã bổ sung sửa hồ sơ ba vai trò, quên/đặt lại mật khẩu và khóa/mở tài khoản; [kiểm chứng M01 bổ sung](docs/verification/M01_HO_SO_KHOI_PHUC.md). Đạt 133 Backend tests/4.654 assertions, 116 frontend tests và build/lint/format. Đã nhập catalog 1.324 bài tập, có API/giao diện danh sách và chi tiết, Admin thêm/sửa/ngừng/khôi phục hiển thị bài tập; [hợp đồng](docs/features/BAI_TAP.md), [kiểm chứng](docs/verification/M02_BAI_TAP.md). Đã có quản lý gói, bảng giá và chi tiết quyền lợi; [hợp đồng gói](docs/features/GOI_TAP.md), [kiểm chứng](docs/verification/M02_GOI_TAP.md). Đã có Admin quản lý nhóm cơ; [hợp đồng](docs/features/NHOM_CO.md), [kiểm chứng](docs/verification/M02_NHOM_CO.md). Đã có Admin soạn/duyệt/ngừng giáo án mẫu và PT đọc thư viện; [hợp đồng giáo án](docs/features/GIAO_AN_MAU.md), [kiểm chứng](docs/verification/M02_GIAO_AN_MAU.md). Giữ nguyên 2.648 ảnh-GIF, SQL, Draw.io và 28 migrations tạo bảng nghiệp vụ; có thêm migrations chống tạo gói/giáo án trùng, [hướng dẫn](BE/database/migrations/README.md). Đã chạy migrations trên MariaDB 10.4.32, kiểm tra migrate/rollback/migrate gốc ở database riêng; [bằng chứng](docs/verification/MARIADB_MIGRATIONS.md). Đã triển khai đặt mua/payOS/kích hoạt/đối soát và phân công PT M03; [hợp đồng](docs/features/MUA_GOI_THANH_TOAN.md), [kiểm chứng](docs/verification/M03_MUA_GOI.md). Đã có lịch huấn luyện M04; [hợp đồng](docs/features/LICH_HUAN_LUYEN.md), [kiểm chứng](docs/verification/M04_LICH_HUAN_LUYEN.md). Đã nhận POST xác minh webhook công khai HTTP200 qua ngrok; chưa nghiệm thu chuyển tiền thật, MySQL8 và toàn bộ chất lượng chatbot; chat realtime local đã có [kiểm chứng M07](docs/verification/M07_CHAT.md). Các file `.example` trong `templates/` vẫn chỉ dùng để tham khảo.
+### Tài khoản và phân quyền
 
-Các lựa chọn chủ dự án đã yêu cầu: Vue.js, Laravel, ba tác nhân, quy mô đồ án 6 tháng, chatbot tư vấn, chat PT–khách hàng realtime và Admin tự tạo gói có quyền lợi khác nhau (chatbot riêng hoặc PT theo buổi kèm chatbot). Mỗi khách một gói khả dụng, kích hoạt khi thanh toán payOS được Backend xác nhận; gói kết hợp dùng chung thời hạn theo ngày đủ 24 giờ. Đơn giữ giá/chờ thanh toán 15 phút. Admin đặt lượt chatbot mỗi ngày; chỉ tính câu trả lời hợp lệ, lỗi không mất lượt/retry không tính lặp, cấp lại 00:00 giờ Việt Nam. Hết buổi PT còn thời hạn vẫn dùng chatbot. Catalog/FAQ miễn phí, chatbot cần gói phù hợp. Trạng thái từng quyết định nằm tại [DECISIONS.md](docs/DECISIONS.md).
+- Đăng ký khách hàng, đăng nhập, đăng xuất, cập nhật hồ sơ và khôi phục mật khẩu qua email.
+- Admin tạo tài khoản PT/Admin, quản lý và khóa hoặc mở khóa tài khoản.
+- Kiểm tra quyền theo vai trò, chủ sở hữu tài nguyên và phân công PT còn hiệu lực.
+- Phiên mobile có thời hạn **30 ngày**, hỗ trợ nhiều thiết bị; đăng xuất chỉ thu hồi phiên trên thiết bị hiện tại.
 
-## Chạy nhanh trên Windows
+### Gói dịch vụ và thanh toán
 
-Chat KH–PT đã hỗ trợ gửi ảnh: chọn/kéo thả/dán, xem trước, chú thích, xem lớn và gửi lại; 4 JPG/PNG/WebP/tin, 5 MB/ảnh. [Kiểm chứng gửi ảnh](docs/verification/CHAT_IMAGES.md). Máy này đã chạy migration000035 giữ dữ liệu; máy clone chạy `php artisan migrate` trong BE. Khởi động lại Backend bằng `start.bat` để dùng giới hạn upload mới của `serve:local`.
+- Quản lý gói, giá, thời hạn, số buổi PT và hạn mức chatbot theo ngày.
+- Tạo đơn, mở thanh toán payOS, kiểm tra trạng thái và kích hoạt quyền lợi theo kết quả Backend đã xác minh.
+- Lưu giá và quyền lợi tại thời điểm mua; hỗ trợ Admin xử lý đối soát và ghi nhận hoàn tiền thủ công.
 
-Bật MySQL, sau đó nhấp đúp [start.bat](start.bat) ở thư mục gốc. File mở 5 cửa sổ: Backend Laravel tại `localhost:8000`, Frontend Vue tại `localhost:5173`, Reverb chat tại `127.0.0.1:8080`, `schedule:work` để xử lý lịch hẹn quá hạn và ngrok chuyển tiếp tới `http://localhost:8000`. Khi Vue báo sẵn sàng, mở [ứng dụng](http://localhost:5173). Dừng bằng `Ctrl+C` trong cả 5 cửa sổ rồi đóng cửa sổ; dừng các tiến trình cũ trước khi chạy lại.
+### Lịch hẹn và huấn luyện
 
-Để chạy app trên iPhone/Android cùng Wi-Fi, nhấp đúp [start-mobile.bat](start-mobile.bat). File tự lấy IP LAN, cấu hình mobile, mở Backend/Reverb cần thiết và Expo ở cổng cố định `8082`. Xem [hướng dẫn mobile](Mobile/README.md#chạy-trên-điện-thoại); hỗ trợ `--check`, `-Ip` và `-ExpoPort`. Bật MySQL trước, dừng Expo cũ và Reverb chỉ nghe localhost nếu được báo; giữ scheduler/ngrok riêng khi thử luồng cần chúng.
+- Admin phân công PT; PT quản lý khung giờ và học viên đang phụ trách.
+- Khách hàng đặt hoặc hủy lịch theo điều kiện thời gian; PT xác nhận, từ chối và ghi nhận hoàn thành hoặc vắng mặt.
+- Kiểm soát trùng lịch, hạn xử lý và số buổi còn lại; cập nhật lịch qua realtime kết hợp tải lại dữ liệu.
 
-Máy mới cần cài PHP/Node.js/ngrok vào PATH, cấu hình authtoken ngrok, cài thư viện, tạo `.env`, cấu hình database, tạo APP_KEY và chạy migrations theo [Backend](BE/README.md) / [Frontend](FE/README.md) trước. Script báo thiếu thư viện/cấu hình; không tự chạy migrations hay seed dữ liệu. Có thể chạy `start.bat --check` để kiểm tra các chương trình/file cần thiết mà không mở server; chế độ này chưa kiểm tra kết nối database hay xác thực ngrok. Trong cửa sổ ngrok, lấy URL HTTPS tại `Forwarding` rồi thêm `/api/v1/payos/webhook` để cấu hình Webhook URL của kênh payOS; cập nhật lại nếu URL thay đổi.
+### Giáo án và kết quả tập luyện
 
-## Bắt đầu đọc ở đâu?
+- Thư viện bài tập có ảnh, hướng dẫn và bộ lọc; Admin quản lý bài tập, nhóm cơ và giáo án mẫu.
+- PT soạn và gửi giáo án để khách hàng xác nhận; khách hàng cũng có thể tự tạo và áp dụng giáo án.
+- Khách hàng tự lên lịch, nhập số lần, mức tạ và thời gian nghỉ theo từng hiệp, lưu nháp rồi hoàn thành nhật ký.
+- PT ghi kết quả buổi tập cùng khách hàng, lưu nháp và chốt; khách hàng xem lịch sử kết quả của mình.
+- Ghi chiều cao, cân nặng, BMI và xem tiến độ. Biểu đồ tổng quan khách hàng trên web tổng hợp cả buổi tự tập và buổi PT đã hoàn thành.
 
-1. [SCOPE.md](SCOPE.md): chức năng từng tác nhân, giới hạn và danh sách màn hình.
-2. [TECHNOLOGY.md](TECHNOLOGY.md): công nghệ và lý do lựa chọn.
-3. [PROJECT_RULES.md](PROJECT_RULES.md): tài liệu quy tắc nghiệp vụ/kỹ thuật chính.
-4. [CODE_STYLE.md](CODE_STYLE.md): cách viết code gần với các dự án cũ.
-5. [ROADMAP.md](ROADMAP.md): kế hoạch 24 tuần và điều kiện nghiệm thu.
-6. [DECISIONS.md](docs/DECISIONS.md): những quyết định cần chốt trước khi triển khai module liên quan.
+**Giáo án, lịch hẹn và kết quả thực tế được quản lý riêng.** Lưu hoặc chốt kết quả buổi PT không tự hoàn thành lịch hẹn hay trừ lượt; tự tập không tiêu hao buổi PT.
 
-## Quy trình chính
+### Trao đổi và tư vấn
 
-Khách hàng xem catalog/FAQ → đăng ký → thanh toán payOS → Backend xác minh thành công → kích hoạt ngay và sử dụng quyền lợi đã mua. Gói có chatbot cho phép tư vấn theo hạn mức ngày; gói có buổi PT đi tiếp qua phân công PT → chat → nhận kế hoạch → đặt lịch → ghi kết quả → PT xác nhận buổi → theo dõi tiến độ. Gói chatbot riêng không cần phân công PT.
+- Chat 1–1 giữa khách hàng và PT, hỗ trợ chữ, ảnh, lịch sử và trạng thái chưa đọc.
+- Thông báo trong ứng dụng theo các sự kiện nghiệp vụ và điều hướng tới tài nguyên liên quan.
+- FitForge AI tư vấn theo hạn mức, hỗ trợ tạo nháp giáo án để người dùng xem, sửa và xác nhận.
+- FAQ công khai và quản trị nội dung tư vấn; dữ liệu cá nhân chỉ được đưa vào ngữ cảnh AI khi người dùng bật tùy chọn tương ứng.
 
-Khách duyệt kế hoạch trong 24 giờ, PT lập lịch tự tập sau duyệt. Buổi PT dài 60 phút, đặt trước ít nhất 4 giờ, KH hủy trước ít nhất 2 giờ; yêu cầu chờ xác nhận hết hiệu lực sau tối đa 2 giờ và không muộn hơn mốc trước buổi 2 giờ. Vắng mặt không trừ buổi/không phạt. Buổi kết thúc trong hạn gói được xác nhận trong 24 giờ sau kết thúc, kể cả gói vừa hết hạn. Chat PT theo phân công, không phụ thuộc gói; đổi PT thu hồi quyền chat của PT cũ. Giao diện dùng giờ Việt Nam, DB lưu UTC và giữ lịch sử suốt đồ án.
+### Quản trị và báo cáo
 
-**Kế hoạch tập, lịch hẹn PT và nhật ký thực tế là ba khái niệm riêng.** Việc ghi nhật ký tự tập hoặc nhắn tin không tự trừ lượt PT.
+- Tổng quan theo vai trò với dữ liệu nghiệp vụ thực tế.
+- Báo cáo doanh thu, thanh toán, đăng ký gói, buổi PT hoàn thành và phân bố học viên.
+- Bảo toàn lịch sử khi thay đổi phân công, ngừng danh mục hoặc khóa tài khoản.
 
-Frontend Vue 3 Options API/JavaScript, Bootstrap 5.3 được bổ sung CSS/Tailwind khi cần. Chatbot dùng Gemini theo hướng CNPM, chỉ hạn mức API miễn phí; hết quota báo bận không mất lượt gói. Gói hết hạn vẫn xem kế hoạch/lịch sử và ghi nhật ký từ lịch tự tập hợp lệ đã có. Đổi PT chờ buổi đã diễn ra được xử lý xong; buổi quá 24 giờ chưa xác nhận được ghi quá hạn, Admin đóng xử lý có lý do, không trừ buổi/không xác nhận thay PT.
+## Công nghệ
 
-## Cấu trúc thư mục
+| Thành phần | Công nghệ đang sử dụng |
+| --- | --- |
+| **Website** | Vue 3, JavaScript, Options API, Vite, Vue Router, Pinia, Axios, Bootstrap 5.3 và CSS theo theme. |
+| **Mobile** | React Native 0.86, React 19, Expo SDK 57, React Navigation, SecureStore và Expo Image. |
+| **Backend** | Laravel 13, PHP, Eloquent, FormRequest, Policy và Service cho nghiệp vụ. |
+| **Database** | MySQL/MariaDB, migrations, transaction, khóa và ràng buộc dữ liệu. |
+| **Xác thực** | Laravel Sanctum: session/cookie cho web; bearer token cho mobile. |
+| **Realtime** | Laravel Reverb và client tương thích giao thức Pusher. |
+| **Tích hợp** | payOS, Gemini, email; Expo Notifications cho nền tảng push mobile. |
+| **Kiểm thử** | PHPUnit/Laravel, Vitest và Node Test Runner; các công cụ kiểm tra database và giao diện trong `scripts/`. |
+
+Phiên bản dependency được quản lý trong `FE/package-lock.json`, `Mobile/package-lock.json` và `BE/composer.lock`.
+
+## Kiến trúc và tổ chức source
+
+Website Vue và ứng dụng React Native gọi cùng API Laravel. Backend xác thực, phân quyền và xử lý quy tắc về tiền, số lượt, lịch hẹn, giáo án và dữ liệu tập luyện. Reverb chuyển tín hiệu realtime; các thay đổi nghiệp vụ vẫn được kiểm tra tại Backend.
 
 ```text
-Dự án tốt nghiệp/
-├── README.md
-├── AGENTS.md
-├── RULE.md                      # Chỉ mục dẫn tới nguồn quy tắc chính
-├── PROJECT_RULES.md
-├── SCOPE.md
-├── TECHNOLOGY.md
-├── CODE_STYLE.md
-├── ROADMAP.md
-├── .editorconfig
-├── .gitignore
-├── Base/
-│   └── README.md                # Chỉ mục các thành phần dự án
-├── FE/                          # Vue 3 Options API + Vite
-│   ├── README.md
-│   ├── .env.example
-│   └── src/                     # Trang khởi động, router và API client
-├── Mobile/                      # React Native + Expo, JavaScript cho KH/PT
-│   ├── README.md
-│   ├── App.js
-│   └── app.json
-├── BE/                          # Laravel 13 API
-│   ├── README.md
-│   ├── .env.example
-│   ├── app/                     # Các thư mục giữ chỗ cho Backend
-│   ├── routes/
-│   ├── database/                # Migration, factory, seeder khi triển khai
-│   └── tests/
-├── templates/                   # Mẫu tham khảo, chưa chạy
-│   ├── README.md
-│   ├── frontend/
-│   └── backend/
-└── docs/
-    ├── README.md
-    ├── DECISIONS.md
-    ├── REFERENCE_CODE_REVIEW.md
-    ├── ARCHITECTURE.md
-    ├── DATABASE_DRAFT.md
-    ├── API_CONVENTIONS.md
-    ├── TEST_PLAN.md
-    └── features/
-        ├── README.md
-        ├── AI_CHATBOT.md
-        └── REALTIME_CHAT.md
+FitForge/
+├── README.md          # Giới thiệu tổng quan dự án
+├── FE/                # Website Vue: Khách hàng, PT và Admin
+├── BE/                # API Laravel, database và media bài tập
+├── Mobile/            # Ứng dụng React Native + Expo cho Khách hàng/PT
+├── md/                # Quy tắc, chức năng, hướng dẫn và biên bản kiểm chứng
+├── docs/              # Sơ đồ, tài nguyên thiết kế và bằng chứng kiểm tra
+├── scripts/           # Công cụ khởi chạy, dữ liệu và kiểm tra
+├── exercises-dataset/ # Dataset nguồn và thông tin giấy phép
+├── start.bat          # Khởi chạy web và các dịch vụ local trên Windows
+└── start-mobile.bat   # Khởi chạy môi trường mobile qua mạng local
 ```
 
-`FE/`, `BE/`, `Mobile/` và `templates/` nằm trực tiếp ở thư mục gốc. `Base/` chỉ giữ chỉ mục tài liệu. Thiết kế nằm ở [DATABASE_DRAFT.md](docs/DATABASE_DRAFT.md), [từ điển dữ liệu](docs/DATABASE_DICTIONARY.md) và [sơ đồ draw.io](docs/diagrams/database.drawio). SQL tại `BE/database/design/`, dữ liệu tại `BE/database/data/`, media tại `BE/public/media/bai-tap/`; generator/kiểm tra tại `scripts/`.
+Không đưa API key hoặc secret vào frontend/mobile. Giá, quyền lợi và trạng thái thanh toán lấy từ Backend; nháp AI cần người dùng xác nhận trước khi áp dụng.
 
-Repository nguồn [`hasaneyldrm/exercises-dataset`](https://github.com/hasaneyldrm/exercises-dataset) được giữ riêng và không đưa vào repository dự án này. Catalog đã chuẩn hóa, giấy phép/ghi công và media được chuẩn bị cho Backend vẫn có trong `BE/`. Muốn chạy lại generator, clone dataset nguồn vào `exercises-dataset/` ở thư mục gốc; xem [hướng dẫn dữ liệu](BE/database/data/README.md).
+## Khởi chạy dự án
 
-## Quy mô mục tiêu
+### Chuẩn bị môi trường
 
-- Một phòng gym, huấn luyện 1–1, website responsive.
-- 9 module, **28 màn hình đề xuất**, **28 bảng nghiệp vụ dự kiến**; bảng nội bộ framework được tính riêng.
-- Dữ liệu demo mục tiêu: 50–100 khách hàng, 5–10 PT, 30–50 bài tập, 3–5 gói, 5–10 giáo án mẫu. Catalog đã chuẩn bị đủ 1.324 bài/19 nhóm cơ/28 nhãn dụng cụ từ dataset của chủ dự án; có thể chọn 30–50 bài cho kịch bản demo. Đã có [seeder 3 tài khoản demo Admin/PT/KH và 5 giáo án đã duyệt](BE/database/seeders/README.md) cho local/testing; chưa seed gói. Giáo án có 60 dòng bài, chưa gán cho khách hàng. Đây là dữ liệu để trình diễn, không phải kết quả đo tải.
-- Một Backend Laravel, website Vue, app React Native + Expo cho KH/PT, MySQL, Reverb và một nhà cung cấp AI tại một thời điểm. Mobile có UI1 và MB1–MB5 theo C40/C41; bản cài, điện thoại thật và nghiệm thu nhà cung cấp thật của MB5 còn chờ.
+- **PHP 8.3 trở lên** tương thích `BE/composer.json`, Composer và các extension Laravel cần thiết.
+- **Node.js** thỏa điều kiện `^22.18.0 || >=24.12.0` của frontend, cùng npm.
+- **MySQL/MariaDB** và một database được cấu hình cho dự án.
+- **Expo Go tương thích SDK 57** hoặc bản development build để kiểm tra Android; có thể dùng điện thoại hoặc LDPlayer.
+- **ngrok** đã cấu hình nếu dùng `start.bat` để mở webhook payOS ra bên ngoài.
 
-## Nguồn tham khảo cách code
+Trên máy mới, cài dependency bằng `composer install` trong `BE/`, `npm ci` trong `FE/` và `Mobile/`. Sao chép từng `.env.example` sang file cấu hình local theo hướng dẫn của module, điền cấu hình database/API và tạo `APP_KEY` một lần khi chưa có key. Chạy migrations trên database đã chuẩn bị; dữ liệu ban đầu và tài khoản được hướng dẫn tại [Seeder](md/backend/SEEDERS.md).
 
-- `E:/CNPM`: Laravel/Vue, giao diện theo vai trò, chatbot Gemini dựa trên dữ liệu tour.
-- `E:/Cinema_project`: Laravel/Vue, Options API, CRUD quản trị và naming tiếng Việt không dấu.
-- `E:/CS 445/Travel_Master`: nội dung thực tế là EduManage, có API client tập trung, Pinia, Reverb, services và feature tests.
+### Chạy trên Windows
 
-Chi tiết mẫu đã đọc và nhận xét có giới hạn nằm ở [REFERENCE_CODE_REVIEW.md](docs/REFERENCE_CODE_REVIEW.md). Không sao chép secrets, dependencies hay mã nguồn của ba dự án vào bộ khung này.
+Sau khi hoàn tất cấu hình và bật database, từ thư mục gốc:
 
-## Việc tiếp theo
+```powershell
+# Website, API, Reverb, scheduler và ngrok
+.\start.bat
 
-Mốc 04/10/2026: đã bổ sung kiểm thử tích hợp hành trình KH–PT–Admin và sửa lỗi chung bộ đếm hạn mức giữa các thao tác. Toàn Backend267tests/6.641assertions, Frontend253tests đạt. Chạy demo riêng và xem tài khoản tại [DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md); [kết quả và giới hạn](docs/verification/HANH_TRINH_NGHIEP_VU.md). Bước kế tiếp là hoàn tất đánh giá AI thật, triển khai và nghiệm thu. Các đoạn dưới ghi nhận lịch sử từng module.
+# Môi trường mobile qua Wi-Fi — chạy khi cần kiểm tra Android
+.\start-mobile.bat
+```
 
-Ngày04/10/2026 đã bổ sung **Chỉ số cơ thể** theo C38: KH ghi chiều cao/cân nặng, tính BMI, xem biểu đồ/lịch sử và sửa lần đo; miễn phí, không cần gói/PT. PT hiện phụ trách chỉ đọc; chatbot dùng số đo khi KH bật dữ liệu cá nhân. Không dùng vòng eo. Bảng đã có, không cần migration mới. [Hợp đồng](docs/features/CHI_SO_CO_THE.md), [kiểm chứng](docs/verification/M06_CHI_SO_CO_THE.md).
+Nếu đã có server đang chạy, đọc hướng dẫn module trước khi mở thêm launcher để tránh trùng tiến trình hoặc cổng.
 
-Các chính sách chính D01–D10 đã chốt trong [DECISIONS.md](docs/DECISIONS.md). Đã có phần xác thực/phân quyền của M01; tạo Admin đầu tiên và xem hướng dẫn chạy tại [TAI_KHOAN.md](docs/features/TAI_KHOAN.md). Đã có catalog bài tập, gói và giáo án mẫu. Đã có nhóm cơ M02 và sửa hồ sơ, quên/đặt lại mật khẩu, khóa/mở khóa tài khoản qua giao diện M01. Đã có đặt mua/payOS/phân công PT M03 và khóa payOS local; đã tạo/đọc được link thật chưa thanh toán. Đã có lịch PT M04, đặt/hủy/xác nhận và ghi nhận buổi tập. Đã triển khai chat realtime M07, giáo án cá nhân M05 và nhật ký M06. M08 đã triển khai, cần hoàn tất đánh giá Gemini thật; bước tiếp theo là báo cáo/thống kê M09 theo [ROADMAP.md](ROADMAP.md). Webhook ngrok đã nhận HTTP200 cho xác minh kết nối; cần nghiệm thu thanh toán thật khi triển khai. Gemini đã tích hợp theo [kiểm chứng M08](docs/verification/M08_CHATBOT.md).
+| Dịch vụ local | Địa chỉ mặc định |
+| --- | --- |
+| Website | [http://localhost:5173](http://localhost:5173) |
+| Kiểm tra API | [http://localhost:8000/api/v1/health](http://localhost:8000/api/v1/health) |
+| Reverb | Cổng `8080` |
+| Expo Metro | Launcher mobile mặc định cổng `8082`; hướng dẫn LDPlayer dùng `8081`. Địa chỉ truy cập theo LAN hoặc ADB reverse. |
 
-Đã tách trang giới thiệu cho người chưa đăng nhập và dashboard KH/PT/Admin sau đăng nhập. Bấm Trang chủ/logo hoặc tải lại / sẽ vào đúng tổng quan theo session server. Dashboard KH đã áp dụng mẫu Superdesign (không lấy sidebar): buổi hôm nay, giáo án đang dùng, lịch sắp tới, tiến độ 7/30/90 ngày, gói, PT, AI và BMI từ dữ liệu thật; giữ menu/header hiện tại. [Hợp đồng tổng quan](docs/features/TONG_QUAN.md), [kiểm chứng dashboard KH](docs/verification/DASHBOARD_KH.md). Đăng nhập KH → Tổng quan để xem; không cần migrate/seed lại cho thay đổi này.
+Hướng dẫn cấu hình và chạy riêng từng phần: [Backend](md/backend/README.md) · [Frontend](md/frontend/README.md) · [Mobile và LDPlayer](md/mobile/README.md).
 
-Header đã có chuông thông báo cho ba vai trò và lối tắt tin nhắn KH/PT với số chưa đọc thật. Đã có API/danh sách/đánh dấu đọc; M05 đã bật thông báo giáo án mới cho KH và xác nhận áp dụng cho PT; [phạm vi và đề xuất](docs/features/NOTIFICATIONS.md), [kiểm chứng](docs/verification/HEADER_NOTIFICATIONS.md). Sau bổ sung chuông và bảng xem nhanh tin nhắn: 137 Backend tests/4.723 assertions ở phiên Backend gần nhất và 132 Frontend tests PASS.
+## Trạng thái triển khai
 
-Menu KH/PT/Admin đã chuyển sang thanh bên dọc có thể thu gọn; header giữ các tiện ích và avatar. Frontend sau thay đổi đạt 141 tests, lint/format/build PASS. [Kiểm chứng menu dọc](docs/verification/SIDEBAR_NAVIGATION.md).
+**Cập nhật ngày 06/10/2026.** Dự án đã có runtime web/API/mobile và các luồng chính: tài khoản, danh mục, gói và đơn, phân công PT, lịch hẹn, giáo án, nhật ký, kết quả buổi PT, chỉ số cơ thể, chat, chatbot, thông báo và báo cáo.
 
-## Giáo án cá nhân M05 — 03/10/2026
+Mobile đã tích hợp API cho Khách hàng/PT, ghi nhớ theme, link đặt lại mật khẩu/đơn hàng, lịch realtime và nền tảng push theo phiên thiết bị. Android là nền tảng được ưu tiên kiểm tra.
 
-Đã mở rộng theo C31: KH có **Tự tạo giáo án** miễn phí, chọn bài/thông số và tự áp dụng không cần PT duyệt, kể cả chưa mua gói/chưa có PT. PT hiện tại đọc các bản tự tạo của KH đang phụ trách, gồm nháp và bản đang dùng; chỉ KH sửa nháp/áp dụng. C33 thay quy tắc hai bản theo nguồn: KH chỉ một giáo án đang dùng và được ngừng cả bản PT giao, giữ lịch sử. Máy clone chạy `php artisan migrate` trong maintenance, không seed lại. [Kiểm chứng tự tạo](docs/verification/M05_TU_TAO_GIAO_AN.md), [C33](docs/verification/M05_MOT_GIAO_AN.md).
+**Các phần còn cần nghiệm thu:** push trên bản cài Android với EAS/FCM, verified HTTPS App Links, phát hành APK/store, kiểm tra điện thoại thật và hoàn tất kiểm chứng các luồng nhà cung cấp thực tế. Code tích hợp hoặc kết quả trên môi trường QA không đồng nghĩa các dịch vụ này đã được nghiệm thu production.
 
-PT có **Học viên & giáo án** để tạo nháp từ catalog/mẫu đã duyệt, nhập thông số và gửi. KH có **Giáo án của tôi** để xem/xác nhận trong 24 giờ; một bản đang áp dụng, giữ lịch sử khi thay thế. Máy clone chạy `php artisan migrate` trong BE, không cần seed lại. Bằng chứng theo từng phiên tại [hợp đồng](docs/features/KE_HOACH_TAP.md), [kiểm chứng M05](docs/verification/M05_KE_HOACH_TAP.md).
+Đọc [Quyết định dự án](md/DECISIONS.md), [Tiện ích mobile và giới hạn](md/mobile/TIEN_ICH_THIET_BI.md) và [Biên bản kiểm chứng](md/verification/README.md) để xem trạng thái chi tiết. Kết quả trong từng biên bản thuộc thời điểm được ghi tại đó.
 
-## Lịch và nhật ký M06 — 03/10/2026
+## Tài liệu dự án
 
-KH vào **Lịch & nhật ký tập**, tự lên lịch từ bản đang dùng dù chưa mua gói; ghi hiệp/lần/tạ/nghỉ thực tế, lưu nháp và hoàn thành. PT vào **Học viên & giáo án → Lịch & nhật ký học viên** để xem tiến độ, lên lịch và nhận xét. Tự tập không trừ buổi PT; lịch/kết quả cũ giữ nguyên khi đổi giáo án. Thống kê chỉ lấy phiên hoàn thành, có biểu đồ mức tạ theo bài. Migration000040 đã chạy local; máy khác chạy `php artisan migrate`, không seed lại. Toàn BE195tests/5.583assertions trên MariaDB10.4.32, FE182tests và lint/build/format PASS; đã kiểm tra KH/PT trên trình duyệt responsive/light/dark. [Hợp đồng](docs/features/NHAT_KY_TAP.md), [kiểm chứng và giới hạn](docs/verification/M06_NHAT_KY_TAP.md). M08 chatbot đã có; phần báo cáo tổng hợp M09 còn tiếp theo.
+| Nội dung | Tài liệu |
+| --- | --- |
+| Chỉ mục tài liệu và hướng dẫn vận hành | [md/README.md](md/README.md) |
+| Phạm vi và quy tắc nghiệp vụ | [SCOPE](md/SCOPE.md), [PROJECT_RULES](md/PROJECT_RULES.md), [DECISIONS](md/DECISIONS.md) |
+| Hợp đồng chức năng | [features/](md/features/README.md) |
+| Kiến trúc, quy ước code và API | [ARCHITECTURE](md/ARCHITECTURE.md), [CODE_STYLE](md/CODE_STYLE.md), [API_CONVENTIONS](md/API_CONVENTIONS.md) |
+| Database và dữ liệu | [DATABASE_DRAFT](md/DATABASE_DRAFT.md), [DATABASE_DICTIONARY](md/DATABASE_DICTIONARY.md), [Dữ liệu bài tập](md/backend/DATA.md) |
+| Kiểm thử và minh chứng | [TEST_PLAN](md/TEST_PLAN.md), [verification/](md/verification/README.md) |
+| Demo đồ án | [DEMO_SCRIPT](md/DEMO_SCRIPT.md) |
+
+## Dữ liệu và ghi nhận nguồn
+
+Ảnh và dữ liệu bài tập được lưu kèm thông tin nguồn, bản quyền và giấy phép. Khi sử dụng hoặc phân phối, xem [NOTICE](md/backend/NOTICE.md), [LICENSE dataset](BE/database/data/LICENSE) và [Hướng dẫn dữ liệu](md/backend/DATA.md). Giữ các thông tin ghi nhận nguồn cùng dữ liệu tương ứng.

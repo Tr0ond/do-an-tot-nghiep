@@ -11,6 +11,7 @@ import {
 import { Muc, TienDo, Trong } from "./FigmaElements";
 import { TheLich } from "./HuanLuyen";
 import { useGiaoDien } from "../theme";
+import MascotTroLy from "./MascotTroLy";
 import {
   gioVietNam,
   nhanNgay,
@@ -298,7 +299,11 @@ export function TongQuanKhach({ d, navigation }) {
                 justifyContent: "center",
               }}
             >
-              <BieuTuong ten={icon} size={20} />
+              {man === "TroLy" ? (
+                <MascotTroLy />
+              ) : (
+                <BieuTuong ten={icon} size={20} />
+              )}
             </View>
             <Chu size={12} dam="damVua">
               {ten}
@@ -424,7 +429,7 @@ export function TongQuanKhach({ d, navigation }) {
           alignItems: "center",
         }}
       >
-        <BieuTuong ten="Sparkles" size={24} />
+        <MascotTroLy />
         <View style={{ flex: 1 }}>
           <Chu size={13.5}>
             <Chu size={13.5} dam="dam">

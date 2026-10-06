@@ -110,6 +110,7 @@ class GiaoAnAiService
     public function luu(TaiKhoan $nguoi, string $uuid, array $duLieu, array $yeuCau): array
     {
         $khachId = $nguoi->hoSoKhachHang->id;
+        // Giữ namespace đã dùng để retry sau đổi thương hiệu trả cùng giáo án.
         $duLieu['client_request_id'] = (string) Uuid::uuid5(Uuid::NAMESPACE_URL, 'tr0ond/giao-an-ai/'.$khachId.'/'.$uuid);
         $k = app(KeHoachTapService::class)->tao($nguoi, $khachId, $duLieu);
 

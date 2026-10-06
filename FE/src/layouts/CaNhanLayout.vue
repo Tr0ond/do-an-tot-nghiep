@@ -106,7 +106,7 @@
       </main>
       <footer class="member-footer">
         <span>Hệ thống huấn luyện thể hình cá nhân trực tuyến</span>
-        <span class="small">Tr0ond Fitness</span>
+        <span class="small">FitForge</span>
       </footer>
       <nav class="mobile-navigation" aria-label="Điều hướng nhanh">
         <RouterLink
@@ -196,7 +196,7 @@ export default {
         'ho-so': 'Hồ sơ cá nhân',
         'chi-so-co-the': 'Chỉ số cơ thể',
         'tin-nhan': 'Tin nhắn',
-        chatbot: 'Tr0ond AI',
+        chatbot: 'FitForge AI',
         'tai-lieu-tu-van': 'Tài liệu & AI',
         'lich-tap': 'Lịch & nhật ký',
         'lich-hen': 'Lịch hẹn',
@@ -219,7 +219,7 @@ export default {
           .split('/')
           .reverse()
           .map((p) => nhan[p])
-          .find(Boolean) || 'Tr0ond Fitness'
+          .find(Boolean) || 'FitForge'
       )
     },
     menuNhanh() {

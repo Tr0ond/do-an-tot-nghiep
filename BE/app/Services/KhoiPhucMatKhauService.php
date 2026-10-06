@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\TaiKhoan;
+use App\Notifications\KhoiPhucMatKhau;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Password;
@@ -11,13 +12,15 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
 class KhoiPhucMatKhauService
 {
-    public function guiLienKet(string $email): void
+    public function guiLienKet(string $email, bool $mobile = false): void
     {
         $mailer = config('mail.default');
         // Không ghi liên kết bí mật ra log hoặc giả vờ đã gửi qua mailer không chuyển thư.
         abort_if(in_array($mailer, ['log', 'array'], true) && ! app()->environment('testing'), 503);
         try {
-            Password::broker('tai_khoan')->sendResetLink(['email' => $email, 'trang_thai' => TaiKhoan::HOAT_DONG]);
+            Password::broker('tai_khoan')->sendResetLink(['email' => $email, 'trang_thai' => TaiKhoan::HOAT_DONG], $mobile ? function ($nguoi, $token) {
+                $nguoi->notify(new KhoiPhucMatKhau($token, true));
+            } : null);
         } catch (TransportExceptionInterface) {
             // Lỗi SMTP không được phản chiếu credentials hoặc nội dung email ra response/log.
             abort(503);

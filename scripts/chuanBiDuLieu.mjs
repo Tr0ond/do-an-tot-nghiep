@@ -119,7 +119,11 @@ ghi('BE/database/data/bai_tap.seed.sql', `-- Chỉ nhập một lần vào hai b
 ghiJson('BE/database/data/nhom_co.json', cacNhom)
 ghiJson('BE/database/data/bai_tap.json', cacBai)
 ghiJson('BE/database/data/media-manifest.json', cacMedia)
-for (const ten of ['LICENSE', 'NOTICE.md']) ghi(`BE/database/data/${ten}`, fs.readFileSync(duongDan(`exercises-dataset/${ten}`), 'utf8').replaceAll('\r\n', '\n'))
+for (const ten of ['LICENSE', 'NOTICE.md']) {
+  const noiDung = fs.readFileSync(duongDan(`exercises-dataset/${ten}`), 'utf8').replaceAll('\r\n', '\n')
+  const dich = ten === 'NOTICE.md' ? 'md/backend/NOTICE.md' : `BE/database/data/${ten}`
+  ghi(dich, ten === 'NOTICE.md' ? noiDung.replace('(data/exercises.json)', '(DATA.md)').replace('(LICENSE)', '(../../BE/database/data/LICENSE)') : noiDung)
+}
 const thongKe = {
   so_bai_tap: cacBai.length, so_nhom_co: cacNhom.length, so_dung_cu: Object.keys(tenDungCu).length,
   so_anh: cacMedia.filter(media => media.dich.includes('/images/')).length,
@@ -178,5 +182,5 @@ tongQuan += ghiChu('28 bảng nghiệp vụ · 52 FK · InnoDB / utf8mb4 · UTC.
 const xml = `<mxfile host="app.diagrams.net"><diagram id="overview" name="Tổng quan 28 bảng">${khung(tongQuan)}</diagram>${chiTiet.join('')}</mxfile>`
 ghi('docs/diagrams/database.generated.drawio', xml)
 ghiJson('BE/database/design/schema.json', cacBang)
-ghi('docs/DATABASE_DICTIONARY.md', `# Từ điển dữ liệu\n\nSinh từ \`scripts/databaseSchema.mjs\`. Đầy đủ 28 bảng/52 FK; sơ đồ tại [database.drawio](diagrams/database.drawio). SQL chưa chạy trên MySQL.\n\n${cacBang.map(bang => `## ${bang.ten}\n\n| Cột | Kiểu SQL | Khóa/tham chiếu |\n| --- | --- | --- |\n${bang.cot.map(([ten, kieu, thamChieu]) => `| \`${ten}\` | \`${kieu}\` | ${thamChieu || ''} |`).join('\n')}\n\nRàng buộc: ${bang.rangBuoc.map(cau => `\`${cau}\``).join('; ') || 'PK và FK'}\n`).join('\n')}`)
+ghi('md/DATABASE_DICTIONARY.md', `# Từ điển dữ liệu\n\nSinh từ \`scripts/databaseSchema.mjs\`. Đầy đủ 28 bảng/52 FK của baseline; sơ đồ tại [database.drawio](../docs/diagrams/database.drawio). SQL baseline không thay thế migrations runtime.\n\n${cacBang.map(bang => `## ${bang.ten}\n\n| Cột | Kiểu SQL | Khóa/tham chiếu |\n| --- | --- | --- |\n${bang.cot.map(([ten, kieu, thamChieu]) => `| \`${ten}\` | \`${kieu}\` | ${thamChieu || ''} |`).join('\n')}\n\nRàng buộc: ${bang.rangBuoc.map(cau => `\`${cau}\``).join('; ') || 'PK và FK'}\n`).join('\n')}`)
 console.log(JSON.stringify(thongKe, null, 2))

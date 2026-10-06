@@ -1,6 +1,7 @@
 import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
 
+// Giữ key đã phát hành để đổi thương hiệu không làm mất phiên người dùng.
 const khoa = 'troond_phien_mobile_v1'
 const tuyChon = {
   keychainAccessible: SecureStore.WHEN_UNLOCKED_THIS_DEVICE_ONLY,

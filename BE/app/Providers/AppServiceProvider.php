@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\KhungGioHuanLuyenVien;
+use App\Models\LichTap;
 use App\Models\TaiKhoan;
+use App\Services\LichRealtimeService;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
@@ -25,6 +28,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        KhungGioHuanLuyenVien::saved(function ($slot) {
+            app(LichRealtimeService::class)->choPt($slot->huan_luyen_vien_id);
+        });
+        LichTap::saved(function ($lich) {
+            app(LichRealtimeService::class)->choKhach($lich->khach_hang_id);
+        });
         // Website giữ cookie/CSRF; bearer chỉ hợp lệ cho phiên mobile KH/PT được cấp đúng dấu.
         Sanctum::getAccessTokenFromRequestUsing(fn (Request $request) => $request->bearerToken());
         Sanctum::authenticateAccessTokensUsing(function ($token, bool $hopLe): bool {

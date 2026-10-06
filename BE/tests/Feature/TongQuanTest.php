@@ -255,6 +255,72 @@ class TongQuanTest extends TestCase
             ->assertJsonPath('data.hanh_trinh.chi_so.moi_nhat', null);
     }
 
+    public function test_tien_do_gop_pt_theo_ngay_viet_nam_scope_trang_thai_va_giu_truong_cu(): void
+    {
+        CarbonImmutable::setTestNow('2026-10-07 03:00:00 UTC');
+        Carbon::setTestNow('2026-10-07 03:00:00 UTC');
+        $tao = require __DIR__.'/../Support/hanh-trinh-fixture.php';
+        $f = $tao();
+        $taoHen = function (string $luc, string $tt = 'HOAN_THANH', ?int $khachId = null) use ($f): int {
+            $batDau = CarbonImmutable::parse($luc, 'Asia/Ho_Chi_Minh')->utc();
+            $slot = DB::table('khung_gio_huan_luyen_vien')->insertGetId(['huan_luyen_vien_id' => $f['pt']->hoSoHuanLuyenVien->id,
+                'bat_dau_luc' => $batDau, 'ket_thuc_luc' => $batDau->addHour(), 'trang_thai' => 'MO']);
+
+            return DB::table('lich_hen_huan_luyen')->insertGetId(['khach_hang_id' => $khachId ?? $f['kh']->hoSoKhachHang->id,
+                'huan_luyen_vien_id' => $f['pt']->hoSoHuanLuyenVien->id, 'phan_cong_id' => $f['pc']->id,
+                'khung_gio_id' => $slot, 'dang_ky_goi_tap_id' => $f['don']->id, 'client_request_id' => (string) Str::uuid(),
+                'bat_dau_luc' => $batDau, 'ket_thuc_luc' => $batDau->addHour(), 'trang_thai' => $tt,
+                'tieu_hao_luc' => $tt === 'HOAN_THANH' ? $batDau->addHours(2) : null]);
+        };
+        $taoHen('2026-10-01 00:00:00');
+        $taoHen('2026-10-03 23:30:00'); // Buổi qua nửa đêm vẫn tính ngày bắt đầu.
+        $taoHen('2026-10-07 00:15:00');
+        $taoHen('2026-09-30 23:59:59'); // Ngoài 7 ngày dù kết thúc trong ngày01/10.
+        $taoHen('2026-08-01 08:00:00');
+        $taoHen('2026-07-01 08:00:00'); // Ngoài 90 ngày.
+        $taoHen('2026-10-07 11:00:00'); // Không cộng bản ghi tương lai, kể cả status sai.
+        $taoHen('2026-10-07 07:30:00', 'HOAN_THANH', $f['khac']->hoSoKhachHang->id);
+        foreach (['DA_XAC_NHAN', 'VANG_MAT', 'DA_HUY', 'QUA_HAN_XAC_NHAN', 'CHO_XAC_NHAN', 'HET_HAN'] as $i => $tt) {
+            $id = $taoHen('2026-10-06 '.sprintf('%02d:00:00', $i + 1), $tt);
+            if ($tt === 'DA_XAC_NHAN') {
+                DB::table('ket_qua_buoi_pt')->insert(['lich_hen_id' => $id, 'nguoi_ghi_id' => $f['pt']->id,
+                    'bai_tap' => '[]', 'chot_luc' => now()]); // Chốt kết quả chưa hoàn thành không cộng.
+            }
+        }
+        $truoc = ['lich' => DB::table('lich_hen_huan_luyen')->count(), 'ket_qua' => DB::table('ket_qua_buoi_pt')->count(),
+            'thong_bao' => DB::table('notifications')->count(), 'luot' => $f['don']->fresh()->so_buoi_con_lai];
+        $this->dangNhap($f['kh']);
+        foreach ([[7, 2, 3], [30, 3, 4], [90, 3, 5]] as [$ngay, $tuTap, $pt]) {
+            $r = $this->getJson('/api/v1/khach-hang/tong-quan?so_ngay='.$ngay.'&khach_hang_id='.$f['khac']->hoSoKhachHang->id)->assertOk()
+                ->assertHeader('Cache-Control', 'no-store, private')
+                ->assertJsonPath('data.hanh_trinh.tien_do.so_buoi', $tuTap)
+                ->assertJsonPath('data.hanh_trinh.tien_do.so_buoi_tu_tap', $tuTap)
+                ->assertJsonPath('data.hanh_trinh.tien_do.so_buoi_pt', $pt)
+                ->assertJsonPath('data.hanh_trinh.tien_do.tong_so_buoi', $tuTap + $pt)
+                ->assertJsonPath('data.hanh_trinh.buoi_thang_nay', 2)
+                ->assertJsonPath('data.hanh_trinh.ti_le_hoan_thanh', 50)
+                ->assertJsonCount($ngay, 'data.hanh_trinh.tien_do.theo_ngay');
+            $moc = collect($r->json('data.hanh_trinh.tien_do.theo_ngay'))->keyBy('ngay');
+            $this->assertSame(1, $moc['2026-10-01']['so_buoi_pt']);
+            $this->assertSame(1, $moc['2026-10-03']['so_buoi_pt']);
+            $this->assertSame(1, $moc['2026-10-07']['so_buoi_pt']);
+            $this->assertSame(0, $moc['2026-10-06']['so_buoi_pt']);
+            $this->assertSame(2, $moc['2026-10-03']['tong_so_buoi']);
+            $this->assertSame($tuTap, $moc->sum('so_buoi'));
+            $this->assertSame($tuTap + $pt, $moc->sum('tong_so_buoi'));
+        }
+        $f['pc']->update(['ket_thuc_luc' => now()]);
+        $f['don']->update(['het_han_luc' => now()]);
+        $this->getJson('/api/v1/khach-hang/tong-quan?so_ngay=7')->assertOk()
+            ->assertJsonPath('data.hanh_trinh.tien_do.so_buoi_pt', 3)->assertJsonPath('data.hanh_trinh.goi', null);
+        $this->assertSame($truoc, ['lich' => DB::table('lich_hen_huan_luyen')->count(), 'ket_qua' => DB::table('ket_qua_buoi_pt')->count(),
+            'thong_bao' => DB::table('notifications')->count(), 'luot' => $f['don']->fresh()->so_buoi_con_lai]);
+        $this->dangNhap($f['khac']);
+        $this->getJson('/api/v1/khach-hang/tong-quan?so_ngay=7')->assertOk()
+            ->assertJsonPath('data.hanh_trinh.tien_do.so_buoi', 0)->assertJsonPath('data.hanh_trinh.tien_do.so_buoi_pt', 1)
+            ->assertJsonPath('data.hanh_trinh.tien_do.tong_so_buoi', 1);
+    }
+
     public function test_hanh_trinh_khong_giu_quyen_goi_het_han_hoac_pt_bi_khoa(): void
     {
         $tao = require __DIR__.'/../Support/hanh-trinh-fixture.php';

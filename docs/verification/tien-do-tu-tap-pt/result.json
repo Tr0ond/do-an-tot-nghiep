@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "desktop": [
+    1440,
+    1000
+  ],
+  "narrow": [
+    390,
+    844
+  ],
+  "colors": {
+    "self": "rgb(78, 216, 197)",
+    "pt": "rgb(137, 180, 255)"
+  },
+  "dimensions": {
+    "width": 390,
+    "scroll": 390
+  },
+  "errors": [],
+  "counts": {
+    "self": 3,
+    "pt": 2,
+    "all": 5,
+    "sevenDaysAll": 4
+  },
+  "checks": [
+    "actual API and browser",
+    "all/self/PT filters",
+    "7/30/90 with filter retained",
+    "readonly chart does not alter sessions",
+    "light/dark",
+    "no horizontal overflow",
+    "empty state"
+  ]
+}

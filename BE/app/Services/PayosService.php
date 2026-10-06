@@ -38,9 +38,9 @@ class PayosService
         return filled(config('payos.checksum_key')) && is_string($chuKy) && preg_match('/^[a-f0-9]{64}$/', $chuKy) && hash_equals($this->chuKy($duLieu), $chuKy);
     }
 
-    public function taoLink(DangKyGoiTap $don): array
+    public function taoLink(DangKyGoiTap $don, bool $mobile = false): array
     {
-        $url = rtrim(config('app.frontend_url'), '/').'/khach-hang/don-hang/'.$don->id;
+        $url = rtrim(config('app.frontend_url'), '/').($mobile ? '/mo-ung-dung/don-hang/' : '/khach-hang/don-hang/').$don->id;
         $duLieu = ['amount' => $don->gia_snapshot, 'cancelUrl' => $url, 'description' => 'G'.substr((string) $don->ma_don_payos, -8), 'orderCode' => $don->ma_don_payos, 'returnUrl' => $url];
         $duLieu['signature'] = $this->chuKy($duLieu);
         $duLieu['expiredAt'] = $don->han_thanh_toan->timestamp;

@@ -166,6 +166,8 @@ class ChatService
                     $tinId = DB::table('tin_nhan')->insertGetId(['hoi_thoai_id' => $id, 'nguoi_gui_id' => $nguoi->id, 'client_message_id' => $ma, 'noi_dung' => $noiDung, 'anh' => $anh ? json_encode($anh, JSON_THROW_ON_ERROR) : null, 'created_at' => now(), 'updated_at' => now()]);
                     DB::table('hoi_thoai')->where('id', $id)->update(['updated_at' => now()]);
                     $this->baoCapNhat([$hoi->khach_tai_khoan_id, $hoi->pt_tai_khoan_id]);
+                    $nguoiNhan = $nguoi->id === $hoi->khach_tai_khoan_id ? $hoi->pt_tai_khoan_id : $hoi->khach_tai_khoan_id;
+                    app(ThongBaoDayService::class)->xepHang($nguoiNhan, 'tin/'.$tinId, '/hoi-thoai/'.$id, 'chat');
 
                     return $this->duLieuTin(DB::table('tin_nhan')->find($tinId));
                 } catch (\Throwable $loi) {
